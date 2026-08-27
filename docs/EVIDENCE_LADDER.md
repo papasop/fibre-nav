@@ -1,13 +1,47 @@
-# Evidence Ladder
+# Evidence ladder
 
-| Stage | Frozen question | Result | Evidential status |
-|---|---|---|---|
-| f16_v16 | Does restricted CNER-F hold in the frozen eight-dimensional TinyCNN/MNIST chart? | All six named paths admissible in 16/16 seeds; true-Fisher natural flow was the restricted action minimum in 15/16 and beat wrong-Fisher flow in 15/16. | Confirmed restricted ordering |
-| moving_f16_v3_0b | Does the six-path ordering survive pointwise recomputation of the output-Fisher pullback and capacity dual norm in a fixed certified source chart? | 14/16 fully comparable; natural minimized moving action in 13/14; true natural beat wrong-natural in 13/14; natural won under the wrong moving metric in 0/14. | Confirmed restricted ordering |
-| moving_fibre_v3_1a | Can six online paths be generated from the current response kernel, with causal response retraction and a moving local metric? | 4/4 fully comparable; natural won 4/4; nontrivial chart and response-row-space motion detected. | Developmental quick candidate supported |
-| moving_fibre_v3_1b | Does the v3.1a ordering persist at a 20% target over deeper paths, and does it materially differ in action from fixed-chart replay? | 7/8 fully comparable; natural won 6/7; depth and row-space gates passed; fixed-chart action-separation gate failed in 3/7. | Developmental depth candidate not supported as a full gate |
-| realisability_cost_v3_1c | Does fixed-chart replay require nonvanishing constraint-maintenance work while current-kernel motion has vanishing retraction cost under step refinement? | 8/8 fully comparable; fixed/moving retraction-Fisher ratio median 10.04; tangent-residual ratio median 11.83; scaling separation 7/8. | Developmental scaling candidate supported |
+## Level 1: restricted action ordering
 
-Confirmed entries are finite restricted numerical claims under frozen protocols.
-Developmental entries are evidence for candidate mechanisms and do not establish
-a continuum theorem, ordinary training result, or universal learning law.
+F16 v16 prospectively confirms, only over its frozen six-path cohort,
+
+\[
+\gamma_{\rm nat}\in\arg\min_{\gamma\in\mathcal A_6}
+\int_\gamma \frac{ds_F}{H_F}.
+\]
+
+Moving-F16 v3.0b shows that the restricted ordering survives pointwise
+recomputation of the output-Fisher pullback and capacity dual norm in the
+certified source chart.
+
+## Level 2: moving response fibres
+
+The state-dependent functional freedom is represented by
+
+\[
+B(\theta)=\ker DR(\theta).
+\]
+
+v3.1a--c develop causal online current-kernel paths, deeper paths, and a
+step-scaling diagnostic for the response-retraction work required by current
+versus stale charts.
+
+## Level 3: confirmed realizability-cost scaling
+
+v3.1e prospectively confirms, over four finite radii in the frozen model, the
+predicted separation
+
+\[
+C_{\rm moving}(h)\sim h^{\alpha_{\rm moving}},\qquad
+C_{\rm fixed}(h)\sim h^{\alpha_{\rm fixed}},
+\]
+
+with positive moving exponent and approximately zero fixed exponent in all 15
+comparable seeds. This is evidence that the functional freedom relevant for
+online realization is a moving distribution rather than a fixed source
+subspace.
+
+## Uncrossed bridges
+
+The archive does not yet cross from finite-radius scaling to a mathematical
+\(h\to0\) theorem; from TinyCNN/MNIST to LLMs; from finite algorithm cohorts to
+arbitrary causal paths; or from neural realizability cost to physical time.

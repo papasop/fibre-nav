@@ -1,35 +1,28 @@
-# Claim boundary
+# Claim boundaries
 
-## Confirmed claim
+## Confirmed
 
-v3.0b confirms a finite restricted ordering among six executable paths in a
-certified fixed source-response chart, with the output-Fisher pullback and
-capacity dual norm recomputed pointwise along each path.
+1. F16 v16: restricted CNER-F ordering in the frozen eight-dimensional
+   TinyCNN/MNIST chart.
+2. Moving-F16 v3.0b: the restricted ordering survives pointwise moving Fisher
+   and capacity evaluation in the frozen source-response chart.
+3. Moving-Fibre v3.1e: over the frozen four-radius range, current-kernel paths
+   exhibit positive retraction-cost scaling while fixed-source-chart replay
+   exhibits approximately zero exponent and nonvanishing cost.
 
-## Developmental claims
+## Developmental or formally unsuccessful
 
-v3.1a and v3.1b provide developmental evidence that online paths can be
-generated from the current response kernel and that the natural-gradient
-ordering persists over deeper paths. v3.1b did not establish a material action
-separation from fixed-source-chart replay.
-
-v3.1c supports a developmental step-scaling candidate: constraint-maintenance
-cost measured by retraction Fisher length decreases under step refinement for
-current-kernel motion but remains approximately nonvanishing for fixed-chart
-replay. This result uses two step sizes and eight seeds.
+- v3.1a and v3.1c are development-stage positive candidates.
+- v3.1b did not pass its full frozen gate.
+- v3.1d did not pass its frozen confirmation gate. Its fixed-arm high-\(R^2\)
+  requirement was retained in the record; v3.1e changed that statistic before
+  observing a new seed cohort.
 
 ## Not established
 
-The archive does not establish:
-
-- a continuum horizontal-lift theorem;
-- global or local variational minimality over arbitrary paths;
-- ordinary SGD/Adam minimization of the declared action;
-- an independently positive causal role for the capacity factor;
-- a universal law of intelligence or learning;
-- GPT-2 or large-language-model transfer;
-- hardware or physical-time claims;
-- equivalence between Newton retraction cost and a fundamental physical cost.
-
-The next confirmatory test requires new seeds, at least three prospectively
-frozen step sizes, and a regression-based scaling estimate.
+- exact continuum convergence or a horizontal-lift theorem;
+- local or global variational minimality over arbitrary paths;
+- an independently positive capacity-factor contribution beyond Fisher length;
+- GPT-2 or large-language-model confirmation;
+- universal intelligence, learning, physical realizability, or time laws;
+- a direct empirical validation of K=1 chronogeometrodynamics.

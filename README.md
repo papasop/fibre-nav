@@ -1,92 +1,92 @@
-# Neural Fibre Geometry
+# Neural Fibre Geometry: frozen evidence archive v1.1
 
-Repository evidence archive for *The Geometry of Functional Freedom in Neural Networks*.
+This repository-ready archive separates prospectively confirmed results from
+developmental mechanism studies for *The Geometry of Functional Freedom in
+Neural Networks*.
 
-This tree separates confirmed finite evidence, developmental follow-up evidence,
-claim boundaries, and provenance. The current archive preserves the CNER-F v16
-confirmation, the Moving-F16 v3.0b confirmation, and developmental moving-fibre
-experiments v3.1a through v3.1c.
+## Confirmed evidence
 
-## Result status
-
-| Result | Status | What can be claimed |
+| Stage | Frozen result | Status |
 |---|---|---|
-| F16 v16 | Confirmed | Frozen six-algorithm-family restricted CNER-F ordering. |
-| Moving-F16 v3.0b | Confirmed | The restricted ordering persists under the moving Fisher metric. |
-| Moving-fibre v3.1a | Developmental | Quick positive result for the current response kernel. |
-| Moving-fibre v3.1b | Mixed/failed gate | Deep paths still show signal, but the complete preregistered gate did not pass. |
-| Realisability-cost v3.1c | Candidate supported | Realizable online moving-fibre paths and fixed-chart replay show different cost scaling. |
+| F16 v16 | In a frozen six-path TinyCNN/MNIST cohort, true output-Fisher natural flow minimized the restricted CNER-F action in 15/16 seeds; wrong-Fisher natural and Adam won 0/16 | Confirmed restricted ordering |
+| Moving-F16 v3.0b | With the output-Fisher pullback and capacity dual norm recomputed pointwise, 14/16 seeds were comparable and true natural minimized moving action in 13/14; it won under the wrong moving metric in 0/14 | Confirmed restricted ordering |
+| Moving-Fibre v3.1e | Across four frozen Fisher step radii and 16 new seeds, 15/16 were comparable and all 15 passed the moving-versus-fixed realizability scaling gate | Confirmed restricted scaling |
 
-## Evidence layout
+## Version status
+
+| Version | Positioning |
+|---|---|
+| v3.1a | Fast developmental candidate. |
+| v3.1b | Deep-path mixed result. |
+| v3.1c | 8-seed scaling candidate. |
+| v3.1d | Entity predictions all passed, but the frozen fixed-arm \(R^2\) gate design was not applicable. |
+| v3.1e | Independent new-seed prospective confirmation after correcting the statistical gate before the new run. |
+
+The v3.1e medians over the 15 comparable seeds were
+
+\[
+\alpha_{\rm moving}=0.684,\qquad
+\alpha_{\rm fixed}=0.00715,
+\]
+
+with smallest-radius fixed/moving retraction-Fisher cost ratio 21.30 and
+tangent-residual ratio 21.47. The moving four-point log--log fit had median
+\(R^2=0.995\). The fixed four-point relative cost span had median 3.05%.
+
+## Evidence ladder
+
+| Stage | Role | Formal outcome |
+|---|---|---|
+| v3.1a | Four-seed moving-response-fibre preflight | Developmental quick candidate supported |
+| v3.1b | Eight-seed deeper path audit | Full candidate gate not supported; action-separation gate failed |
+| v3.1c | Eight-seed two-radius realizability scaling | Developmental scaling candidate supported |
+| v3.1d | Sixteen-seed four-radius first confirmation | Formal gate failed solely because fixed-arm high-\(R^2\) was inappropriate for a predicted constant control; substantive predictions passed 16/16 |
+| v3.1e | Independent new-seed zero-slope-aware confirmation | Confirmed: 15/15 comparable seeds passed every substantive gate |
+
+v3.1d is preserved rather than erased. It records why v3.1e replaced the
+ill-conditioned fixed-arm \(R^2\) veto with prospectively frozen tests of
+absolute exponent and relative span on entirely new seeds.
+
+## Layout
 
 ```text
 evidence/
   confirmed/
     f16_v16/
     moving_f16_v3_0b/
+    moving_fibre_v3_1e/
   developmental/
     moving_fibre_v3_1a/
     moving_fibre_v3_1b/
     realisability_cost_v3_1c/
-  boundaries/
-    gpt2/
+    realisability_cost_v3_1d/
+docs/
+  CLAIM_BOUNDARIES.md
+  EVIDENCE_LADDER.md
+provenance/
+  PROVENANCE.md
+  SHA256SUMS
 ```
 
-Each evidence stage keeps its executable code, extracted results, raw result
-archives, and stage README together:
+Each stage preserves executable source, its frozen protocol, extracted
+machine-readable results, and/or the original result ZIP. Python cache files
+are intentionally excluded.
 
-```text
-evidence/<status>/<stage>/
-  code/
-  results/
-  raw/
-  README.md
-```
+## Scope
 
-## Confirmed evidence
+The confirmed results concern frozen finite TinyCNN/MNIST constructions. They
+do not establish an exact continuum limit, global variational theorem,
+universal learning law, GPT-2 transfer, physical-time law, or K=1
+chronogeometrodynamics.
 
-- `evidence/confirmed/f16_v16/`: restricted CNER-F v16 confirmation in the
-  frozen TinyCNN/MNIST chart.
-- `evidence/confirmed/moving_f16_v3_0b/`: Moving-F16 restricted ordering with
-  pointwise recomputation of the output-Fisher pullback and capacity dual norm.
+GPT-2 is intentionally kept outside the main evidence trunk. Its current status
+is boundary evidence for a Fisher-distance phenomenon, not confirmed
+capacity-weighted CNER or local variational minimality.
 
-## Developmental evidence
-
-- `evidence/developmental/moving_fibre_v3_1a/`: quick online moving response
-  fibre candidate.
-- `evidence/developmental/moving_fibre_v3_1b/`: deeper moving response fibre
-  candidate; not supported as a full gate because the fixed-chart action
-  separation gate failed.
-- `evidence/developmental/realisability_cost_v3_1c/`: step-scaling candidate
-  for retraction Fisher length and tangent residual separation.
-
-## Boundaries
-
-`evidence/boundaries/gpt2/` is reserved for GPT-2 and language-model transfer
-boundary records. GPT-2 supports a Fisher-distance phenomenon, but does not yet
-support capacity-weighted CNER or local variational minimality. GPT-2 development
-code is intentionally not included in this main evidence trunk.
-
-See:
-
-- `docs/EVIDENCE_LADDER.md`
-- `docs/CLAIM_BOUNDARIES.md`
-- `evidence/boundaries/gpt2/STATUS.md`
-
-## Provenance
-
-Integrity and provenance records live under `provenance/`.
-
-- `provenance/PROVENANCE.md`
-- `provenance/SHA256SUMS`
-
-Run this from the repository root to verify the current tracked evidence tree:
-
-```bash
-shasum -a 256 -c provenance/SHA256SUMS
-```
+Author: Y.Y.N. Li. Cite the associated paper version and the repository commit
+or release containing this archive.
 
 ## License
 
-No open-source license is granted unless an explicit license is added by the
-repository owner. See `LICENSE`.
+No license is selected by this evidence package. The repository owner must add
+an explicit `LICENSE` before inviting reuse or redistribution.
