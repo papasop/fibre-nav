@@ -1,0 +1,22 @@
+{
+  "protocol_name": "CNER_CNN_MNIST_MOVING_FIBRE_QUICK_V3_1A",
+  "seeds": 4,
+  "base_seed": 66726,
+  "adapt_steps": 96,
+  "capability_loss_reduction_fraction": 0.1,
+  "executable_step_radius": 0.12,
+  "response_retraction_iterations": 2,
+  "response_retraction_ridge": 1e-6,
+  "response_retraction_relative_gate": 0.002,
+  "response_retraction_step_ratio_gate": 0.2,
+  "moving_kernel_residual_gate": 1e-5,
+  "moving_kernel_rank_gate": 8,
+  "max_step_principal_angle_gate_rad": 0.8,
+  "fibre_rotation_signal_gate_rad": 0.02,
+  "action_left_trapezoid_gate": 0.08,
+  "minimum_comparable_seeds": 3,
+  "success_required": 3,
+  "wrong_metric_natural_win_ceiling": 1,
+  "chart_projection_iterations": 3,
+  "chart_internal_kernel_target": 1e-7
+}

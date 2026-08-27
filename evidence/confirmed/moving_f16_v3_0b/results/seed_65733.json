@@ -1,0 +1,409 @@
+{
+  "seed": 65733,
+  "source_accuracy": 0.94,
+  "source_gate": true,
+  "kernel_residual": 1.6022427828943364e-08,
+  "kernel_gate": true,
+  "chart_certification": {
+    "response_rank": 120,
+    "numerical_null_dimension": 4146,
+    "singular_value_threshold": 0.00014827660925220698,
+    "kernel_residual": 1.6022427828943364e-08,
+    "orthogonality_residual": 6.857015364403196e-07,
+    "projection_iterations": 3
+  },
+  "source_metric_gate": true,
+  "source_metric_certification": {
+    "kl_spearman": 0.9999999999999999,
+    "kl_median_relative_error": 0.003881554926103636,
+    "kl_max_relative_error": 0.017654806577262656,
+    "gauge_logit_relative_residual": 9.073932716319177e-08,
+    "gauge_fisher_relative_residual": 1.0515740456185085e-07,
+    "representation_gauge_relative_change": 1.3909820318222046,
+    "raw_fisher_effective_rank": 8,
+    "raw_fisher_eigenvalues": [
+      0.0008496901718899608,
+      0.0011779379565268755,
+      0.0016439829487353563,
+      0.00236701313406229,
+      0.002832019003108144,
+      0.0032384630758315325,
+      0.00579407811164856,
+      0.11693521589040756
+    ]
+  },
+  "algorithms": {
+    "adam": {
+      "hit_capability": true,
+      "hit_step": 3,
+      "leakage_max": 0.002840557834133506,
+      "frozen_action": 0.5338893314821606,
+      "frozen_converged": true,
+      "moving": {
+        "action": 0.5812463508793391,
+        "length": 0.5828515216708183,
+        "effective_capacity": 1.0027616014948755,
+        "capacity_relative_span": 0.08174306109303087,
+        "max_condition": 129.17562866210938,
+        "min_effective_rank": 8,
+        "local_kl_spearman": 1.0,
+        "local_kl_median_relative_error": 0.003647857222801293
+      },
+      "moving_integration_relative_change": 0.016162743613482525,
+      "moving_integration_pair": "T1/T2",
+      "moving_converged": true,
+      "moving_action_by_subdivisions": {
+        "1": 0.5906408866248741,
+        "2": 0.5812463508793391
+      },
+      "wrong_moving": {
+        "action": 0.47753040452417617,
+        "length": 0.4396436959505081,
+        "effective_capacity": 0.9206611595518837,
+        "capacity_relative_span": 0.48843057770094245,
+        "max_condition": 129.17562866210938,
+        "min_effective_rank": 8,
+        "local_kl_spearman": null,
+        "local_kl_median_relative_error": null
+      },
+      "wrong_moving_converged": true,
+      "independent_node_certification": {
+        "samples": 24,
+        "kl_spearman": 0.9999999999999999,
+        "kl_median_relative_error": 0.0007669311304837724,
+        "kl_max_relative_error": 0.002184004759266434,
+        "max_condition": 137.6210479736328,
+        "min_effective_rank": 8,
+        "nodes": [
+          {
+            "fraction": 0.0,
+            "condition": 137.6210479736328,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 0.5,
+            "condition": 116.25819396972656,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 1.0,
+            "condition": 118.85427856445312,
+            "effective_rank": 8
+          }
+        ]
+      },
+      "node_metric_gate": true,
+      "admissible": true
+    },
+    "normalized_sgd": {
+      "hit_capability": true,
+      "hit_step": 2,
+      "leakage_max": 0.0019445492653176188,
+      "frozen_action": 0.5161311473718272,
+      "frozen_converged": true,
+      "moving": {
+        "action": 0.545495775690378,
+        "length": 0.5755957048386335,
+        "effective_capacity": 1.055179032523508,
+        "capacity_relative_span": 0.019152587704710455,
+        "max_condition": 134.79110717773438,
+        "min_effective_rank": 8,
+        "local_kl_spearman": 1.0,
+        "local_kl_median_relative_error": 0.009317013905807974
+      },
+      "moving_integration_relative_change": 0.028906865325038306,
+      "moving_integration_pair": "T1/T2",
+      "moving_converged": true,
+      "moving_action_by_subdivisions": {
+        "1": 0.5297272027671189,
+        "2": 0.545495775690378
+      },
+      "wrong_moving": {
+        "action": 0.09110569501418346,
+        "length": 0.08335691690444946,
+        "effective_capacity": 0.9149473794308066,
+        "capacity_relative_span": 0.3891783802255655,
+        "max_condition": 137.51841735839844,
+        "min_effective_rank": 8,
+        "local_kl_spearman": null,
+        "local_kl_median_relative_error": null
+      },
+      "wrong_moving_converged": true,
+      "independent_node_certification": {
+        "samples": 24,
+        "kl_spearman": 0.9999999999999999,
+        "kl_median_relative_error": 0.0012651879287957062,
+        "kl_max_relative_error": 0.009649470317794746,
+        "max_condition": 137.6210479736328,
+        "min_effective_rank": 8,
+        "nodes": [
+          {
+            "fraction": 0.0,
+            "condition": 137.6210479736328,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 0.5,
+            "condition": 129.8093719482422,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 1.0,
+            "condition": 128.32484436035156,
+            "effective_rank": 8
+          }
+        ]
+      },
+      "node_metric_gate": true,
+      "admissible": true
+    },
+    "normalized_momentum": {
+      "hit_capability": true,
+      "hit_step": 2,
+      "leakage_max": 0.0019440926844254136,
+      "frozen_action": 0.5160919696796703,
+      "frozen_converged": true,
+      "moving": {
+        "action": 0.5454319215291911,
+        "length": 0.5754967369139194,
+        "effective_capacity": 1.0551211144746309,
+        "capacity_relative_span": 0.019640708482379893,
+        "max_condition": 134.79132080078125,
+        "min_effective_rank": 8,
+        "local_kl_spearman": 1.0,
+        "local_kl_median_relative_error": 0.009365285197749653
+      },
+      "moving_integration_relative_change": 0.028949861087174775,
+      "moving_integration_pair": "T1/T2",
+      "moving_converged": true,
+      "moving_action_by_subdivisions": {
+        "1": 0.5296417431684102,
+        "2": 0.5454319215291911
+      },
+      "wrong_moving": {
+        "action": 0.09094454225061363,
+        "length": 0.08317368337884545,
+        "effective_capacity": 0.9145538733885293,
+        "capacity_relative_span": 0.38964385825136183,
+        "max_condition": 137.5180206298828,
+        "min_effective_rank": 8,
+        "local_kl_spearman": null,
+        "local_kl_median_relative_error": null
+      },
+      "wrong_moving_converged": true,
+      "independent_node_certification": {
+        "samples": 24,
+        "kl_spearman": 0.9991304347826085,
+        "kl_median_relative_error": 0.0008047453891608593,
+        "kl_max_relative_error": 0.004778181328892742,
+        "max_condition": 137.6210479736328,
+        "min_effective_rank": 8,
+        "nodes": [
+          {
+            "fraction": 0.0,
+            "condition": 137.6210479736328,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 0.5,
+            "condition": 129.8091278076172,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 1.0,
+            "condition": 128.3157196044922,
+            "effective_rank": 8
+          }
+        ]
+      },
+      "node_metric_gate": true,
+      "admissible": true
+    },
+    "sign_gradient": {
+      "hit_capability": true,
+      "hit_step": 4,
+      "leakage_max": 0.0026852989103645086,
+      "frozen_action": 0.5891284761722085,
+      "frozen_converged": true,
+      "moving": {
+        "action": 0.6481555133396668,
+        "length": 0.6666642185300589,
+        "effective_capacity": 1.0285559635141028,
+        "capacity_relative_span": 0.07725473915041121,
+        "max_condition": 130.41204833984375,
+        "min_effective_rank": 8,
+        "local_kl_spearman": 1.0,
+        "local_kl_median_relative_error": 0.0022210064279481723
+      },
+      "moving_integration_relative_change": 0.012436853289906498,
+      "moving_integration_pair": "T1/T2",
+      "moving_converged": true,
+      "moving_action_by_subdivisions": {
+        "1": 0.6562165283681163,
+        "2": 0.6481555133396668
+      },
+      "wrong_moving": {
+        "action": 0.7305460354948384,
+        "length": 0.6846427209675312,
+        "effective_capacity": 0.9371657468564395,
+        "capacity_relative_span": 0.4031603355968978,
+        "max_condition": 130.41204833984375,
+        "min_effective_rank": 8,
+        "local_kl_spearman": null,
+        "local_kl_median_relative_error": null
+      },
+      "wrong_moving_converged": true,
+      "independent_node_certification": {
+        "samples": 24,
+        "kl_spearman": 0.9999999999999999,
+        "kl_median_relative_error": 0.0005567758793996094,
+        "kl_max_relative_error": 0.0023915320952573507,
+        "max_condition": 137.6210479736328,
+        "min_effective_rank": 8,
+        "nodes": [
+          {
+            "fraction": 0.0,
+            "condition": 137.6210479736328,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 0.5,
+            "condition": 130.1366424560547,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 1.0,
+            "condition": 112.8002700805664,
+            "effective_rank": 8
+          }
+        ]
+      },
+      "node_metric_gate": true,
+      "admissible": true
+    },
+    "natural_gradient": {
+      "hit_capability": true,
+      "hit_step": 3,
+      "leakage_max": 0.006267169024795294,
+      "frozen_action": 0.41557804701552276,
+      "frozen_converged": true,
+      "moving": {
+        "action": 0.4509635156078082,
+        "length": 0.4290667288005352,
+        "effective_capacity": 0.9514444382983832,
+        "capacity_relative_span": 0.10933044818269863,
+        "max_condition": 126.57979583740234,
+        "min_effective_rank": 8,
+        "local_kl_spearman": 1.0,
+        "local_kl_median_relative_error": 0.002413035207208827
+      },
+      "moving_integration_relative_change": 0.0014149900715092454,
+      "moving_integration_pair": "T1/T2",
+      "moving_converged": true,
+      "moving_action_by_subdivisions": {
+        "1": 0.4503254067106102,
+        "2": 0.4509635156078082
+      },
+      "wrong_moving": {
+        "action": 0.7340922463017933,
+        "length": 0.5919147469103336,
+        "effective_capacity": 0.8063220254569902,
+        "capacity_relative_span": 0.35406240802717637,
+        "max_condition": 126.57979583740234,
+        "min_effective_rank": 8,
+        "local_kl_spearman": null,
+        "local_kl_median_relative_error": null
+      },
+      "wrong_moving_converged": true,
+      "independent_node_certification": {
+        "samples": 24,
+        "kl_spearman": 0.9999999999999999,
+        "kl_median_relative_error": 0.000953997318624163,
+        "kl_max_relative_error": 0.03246611684049979,
+        "max_condition": 137.6210479736328,
+        "min_effective_rank": 8,
+        "nodes": [
+          {
+            "fraction": 0.0,
+            "condition": 137.6210479736328,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 0.5,
+            "condition": 103.4250259399414,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 1.0,
+            "condition": 92.0119857788086,
+            "effective_rank": 8
+          }
+        ]
+      },
+      "node_metric_gate": true,
+      "admissible": true
+    },
+    "wrong_fisher_natural_gradient": {
+      "hit_capability": true,
+      "hit_step": 1,
+      "leakage_max": 0.001989053562283516,
+      "frozen_action": 0.523563454704613,
+      "frozen_converged": true,
+      "moving": {
+        "action": 0.5429122509670843,
+        "length": 0.5810355544090271,
+        "effective_capacity": 1.0702200095393577,
+        "capacity_relative_span": 0.05948980873776913,
+        "max_condition": 144.38323974609375,
+        "min_effective_rank": 8,
+        "local_kl_spearman": null,
+        "local_kl_median_relative_error": 0.019695489392068725
+      },
+      "moving_integration_relative_change": 0.0028275433876378295,
+      "moving_integration_pair": "T1/T2",
+      "moving_converged": true,
+      "moving_action_by_subdivisions": {
+        "1": 0.5413771430217947,
+        "2": 0.5429122509670843
+      },
+      "wrong_moving": {
+        "action": 0.0805128487866453,
+        "length": 0.07520255260169506,
+        "effective_capacity": 0.9340441151322041,
+        "capacity_relative_span": 0.2531338558276634,
+        "max_condition": 141.6993865966797,
+        "min_effective_rank": 8,
+        "local_kl_spearman": null,
+        "local_kl_median_relative_error": null
+      },
+      "wrong_moving_converged": true,
+      "independent_node_certification": {
+        "samples": 24,
+        "kl_spearman": 0.9999999999999999,
+        "kl_median_relative_error": 0.001319364395997491,
+        "kl_max_relative_error": 0.002692445499921712,
+        "max_condition": 138.48593139648438,
+        "min_effective_rank": 8,
+        "nodes": [
+          {
+            "fraction": 0.0,
+            "condition": 137.6210479736328,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 0.5,
+            "condition": 138.48593139648438,
+            "effective_rank": 8
+          },
+          {
+            "fraction": 1.0,
+            "condition": 121.28409576416016,
+            "effective_rank": 8
+          }
+        ]
+      },
+      "node_metric_gate": true,
+      "admissible": true
+    }
+  }
+}

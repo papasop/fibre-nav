@@ -1,0 +1,163 @@
+# Moving-response-fibre depth audit v3.1b
+
+```json
+{
+  "scientific_status": "MOVING_FIBRE_V31B_DEPTH_CANDIDATE_NOT_SUPPORTED",
+  "seeds": 8,
+  "fully_comparable": 7,
+  "required_comparable": 7,
+  "counts": {
+    "moving_fibre_natural_wins": 6,
+    "true_natural_beats_wrong_natural": 6,
+    "wrong_metric_natural_wins": 0,
+    "all_paths_show_fibre_rotation": 7,
+    "all_paths_show_rowspace_rotation": 7,
+    "natural_meets_depth_gate": 7,
+    "seed_median_depth_gate": 7,
+    "fixed_replay_action_difference": 3,
+    "fixed_replay_admissible": 7,
+    "fixed_replay_structurally_separated": 3,
+    "moving_natural_beats_fixed_replay": 4,
+    "moving_fisher_length_natural_wins": 7,
+    "action_length_winner_agreement": 6
+  },
+  "moving_fibre_depth_gate": false,
+  "excluded": [
+    {
+      "seed": 67733,
+      "reasons": [
+        "path:adam"
+      ]
+    }
+  ],
+  "per_seed": [
+    {
+      "seed": 67726,
+      "moving_fibre_winner": "natural_gradient",
+      "moving_fisher_length_winner": "natural_gradient",
+      "wrong_metric_winner": "wrong_fisher_natural_gradient",
+      "natural_action": 0.48114153635809387,
+      "wrong_natural_action": 0.5417177724623503,
+      "natural_max_source_angle_rad": 0.057835903018713,
+      "natural_max_response_error": 3.8749917052882665e-07,
+      "natural_steps": 15,
+      "median_six_path_steps": 16.0,
+      "natural_moving_fisher_length": 0.5634643523953855,
+      "fixed_replay_action": 0.4903187952219991,
+      "fixed_replay_admissible": true,
+      "fixed_replay_relative_action_difference": 0.019073927670786233,
+      "natural_max_rowspace_angle_rad": 0.6329870820045471,
+      "natural_max_rowspace_projector_distance": 0.12058022618293762
+    },
+    {
+      "seed": 67727,
+      "moving_fibre_winner": "natural_gradient",
+      "moving_fisher_length_winner": "natural_gradient",
+      "wrong_metric_winner": "wrong_fisher_natural_gradient",
+      "natural_action": 0.5453588007139417,
+      "wrong_natural_action": 0.6816045356836375,
+      "natural_max_source_angle_rad": 0.03546533361077309,
+      "natural_max_response_error": 2.93499425652044e-07,
+      "natural_steps": 14,
+      "median_six_path_steps": 15.0,
+      "natural_moving_fisher_length": 0.5316243916749954,
+      "fixed_replay_action": 0.5540143133823068,
+      "fixed_replay_admissible": true,
+      "fixed_replay_relative_action_difference": 0.015871225800397706,
+      "natural_max_rowspace_angle_rad": 0.493009090423584,
+      "natural_max_rowspace_projector_distance": 0.07037170231342316
+    },
+    {
+      "seed": 67728,
+      "moving_fibre_winner": "natural_gradient",
+      "moving_fisher_length_winner": "natural_gradient",
+      "wrong_metric_winner": "wrong_fisher_natural_gradient",
+      "natural_action": 0.3253028128928975,
+      "wrong_natural_action": 0.5003656218937771,
+      "natural_max_source_angle_rad": 0.04402340203523636,
+      "natural_max_response_error": 3.2645615988258214e-07,
+      "natural_steps": 10,
+      "median_six_path_steps": 13.0,
+      "natural_moving_fisher_length": 0.3700497946701944,
+      "fixed_replay_action": 0.32553112074061447,
+      "fixed_replay_admissible": true,
+      "fixed_replay_relative_action_difference": 0.0007018317661832171,
+      "natural_max_rowspace_angle_rad": 0.404651403427124,
+      "natural_max_rowspace_projector_distance": 0.0742739886045456
+    },
+    {
+      "seed": 67729,
+      "moving_fibre_winner": "natural_gradient",
+      "moving_fisher_length_winner": "natural_gradient",
+      "wrong_metric_winner": "wrong_fisher_natural_gradient",
+      "natural_action": 0.5583194257470868,
+      "wrong_natural_action": 0.6029140604816438,
+      "natural_max_source_angle_rad": 0.06580221652984619,
+      "natural_max_response_error": 2.7718326123249426e-07,
+      "natural_steps": 12,
+      "median_six_path_steps": 15.5,
+      "natural_moving_fisher_length": 0.47430554404854774,
+      "fixed_replay_action": 0.5441829580252563,
+      "fixed_replay_admissible": true,
+      "fixed_replay_relative_action_difference": 0.025319677356585843,
+      "natural_max_rowspace_angle_rad": 0.32609227299690247,
+      "natural_max_rowspace_projector_distance": 0.10348306596279144
+    },
+    {
+      "seed": 67730,
+      "moving_fibre_winner": "wrong_fisher_natural_gradient",
+      "moving_fisher_length_winner": "natural_gradient",
+      "wrong_metric_winner": "wrong_fisher_natural_gradient",
+      "natural_action": 0.6984968016981964,
+      "wrong_natural_action": 0.6929900787017247,
+      "natural_max_source_angle_rad": 0.06541401147842407,
+      "natural_max_response_error": 3.058235336084181e-07,
+      "natural_steps": 18,
+      "median_six_path_steps": 19.0,
+      "natural_moving_fisher_length": 0.6972610033117235,
+      "fixed_replay_action": 0.722025795384047,
+      "fixed_replay_admissible": true,
+      "fixed_replay_relative_action_difference": 0.033685184568700295,
+      "natural_max_rowspace_angle_rad": 0.4012469947338104,
+      "natural_max_rowspace_projector_distance": 0.08780521899461746
+    },
+    {
+      "seed": 67731,
+      "moving_fibre_winner": "natural_gradient",
+      "moving_fisher_length_winner": "natural_gradient",
+      "wrong_metric_winner": "wrong_fisher_natural_gradient",
+      "natural_action": 0.4043667524382734,
+      "wrong_natural_action": 0.5233830957506906,
+      "natural_max_source_angle_rad": 0.048045139759778976,
+      "natural_max_response_error": 3.171653872868774e-07,
+      "natural_steps": 13,
+      "median_six_path_steps": 16.0,
+      "natural_moving_fisher_length": 0.5108650326728821,
+      "fixed_replay_action": 0.39227721063236903,
+      "fixed_replay_admissible": true,
+      "fixed_replay_relative_action_difference": 0.02989746741789769,
+      "natural_max_rowspace_angle_rad": 0.24544596672058105,
+      "natural_max_rowspace_projector_distance": 0.07844579219818115
+    },
+    {
+      "seed": 67732,
+      "moving_fibre_winner": "natural_gradient",
+      "moving_fisher_length_winner": "natural_gradient",
+      "wrong_metric_winner": "wrong_fisher_natural_gradient",
+      "natural_action": 0.36227996530805867,
+      "wrong_natural_action": 0.45771401645427107,
+      "natural_max_source_angle_rad": 0.04628407582640648,
+      "natural_max_response_error": 2.634886300256767e-07,
+      "natural_steps": 11,
+      "median_six_path_steps": 13.0,
+      "natural_moving_fisher_length": 0.40330137190176174,
+      "fixed_replay_action": 0.35698895206432535,
+      "fixed_replay_admissible": true,
+      "fixed_replay_relative_action_difference": 0.014604763581762515,
+      "natural_max_rowspace_angle_rad": 0.42261436581611633,
+      "natural_max_rowspace_projector_distance": 0.11163722723722458
+    }
+  ],
+  "claim_boundary": "Eight-seed deep-path audit of six online paths whose local directions, Fisher pullbacks, and capacity dual norms are recomputed from the current state. A fixed-source-chart natural replay, pure moving-Fisher lengths, and full response-row-space rotation are reported. Newton response retraction approximates finite constrained motion. This is not a 16-seed confirmation, exact continuum horizontal lift, arbitrary-path result, GPT-2 transfer, stationarity theorem, or global variational law."
+}
+```

@@ -1,0 +1,45 @@
+{
+  "protocol": "CNER_MOVING_FIBRE_REALISABILITY_CONFIRM_V3_1D_PROSPECTIVE",
+  "status": "PROSPECTIVE_PROTOCOL_DRAFT_NOT_RUN",
+  "core_claim": {
+    "bundle": "B(theta) = ker DR(theta)",
+    "cost_separation": "C_fixed(h) / C_moving(h) > 1",
+    "scaling_law": {
+      "moving": "C_moving(h) ~ h^alpha_mov",
+      "fixed": "C_fixed(h) ~ h^alpha_fix"
+    }
+  },
+  "design": {
+    "prospective_seed_count": 16,
+    "seeds": "new_prospective_seeds_only",
+    "step_sizes": [0.08, 0.04, 0.02, 0.01],
+    "path_depth": "at_least_v3_1b_deep_path_interval",
+    "endpoint_task_improvement": 0.2,
+    "causality": "each_step_uses_only_current_and_past_information",
+    "shared_drive": "moving_kernel_retraction_and_fixed_source_replay_use_same_normal_drive"
+  },
+  "measurements": [
+    "endpoint_residual",
+    "tangent_space_residual",
+    "fisher_cost",
+    "realised_retraction_cost",
+    "per_seed_scaling_exponent",
+    "wrong_kernel_negative_control",
+    "shuffled_kernel_negative_control"
+  ],
+  "pointwise_certification": {
+    "condition": "dtheta_parallel in ker DR(theta)",
+    "frequency": "every_step"
+  },
+  "passing_gates": {
+    "cost_separation_min_seeds": 12,
+    "cost_separation_total_seeds": 16,
+    "scaling_exponent_separation_min_seeds": 12,
+    "scaling_exponent_separation_total_seeds": 16,
+    "negative_controls": [
+      "wrong_kernel",
+      "shuffled_kernel"
+    ],
+    "post_hoc_threshold_fitting": false
+  }
+}
