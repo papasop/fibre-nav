@@ -1,0 +1,22 @@
+{
+  "protocol_name": "CNER_CNN_MNIST_MOVING_F16_CONFIRM_V3_0B",
+  "seeds": 16,
+  "base_seed": 65726,
+  "primary_metric": "output_fisher_quotient",
+  "moving_subdivisions_initial": 1,
+  "moving_subdivisions_max": 4,
+  "moving_integration_tolerance": 0.05,
+  "moving_kl_spearman_gate": 0.8,
+  "moving_kl_median_relative_error_gate": 0.4,
+  "moving_condition_gate": 1000000.0,
+  "moving_rank_min": 6,
+  "success_required": 12,
+  "minimum_comparable_seeds": 14,
+  "wrong_moving_natural_win_ceiling": 4,
+  "node_cert_locations": 3,
+  "node_cert_perturbations_per_location": 8,
+  "node_cert_radius_min": 0.0025,
+  "node_cert_radius_max": 0.01,
+  "chart_projection_iterations": 3,
+  "chart_internal_kernel_target": 1e-7
+}

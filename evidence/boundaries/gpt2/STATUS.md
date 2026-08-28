@@ -8,5 +8,5 @@ Current status:
 - GPT-2 does not yet support capacity-weighted CNER;
 - GPT-2 does not yet support local variational minimality;
 - no GPT-2 or large-language-model transfer claim is established by the
-  confirmed CNN--MNIST evidence;
+  confirmed CNN--MNIST or frozen-ResNet evidence;
 - no GPT-2 development code is uploaded in this repository state.

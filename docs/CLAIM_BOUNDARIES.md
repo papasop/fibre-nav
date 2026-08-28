@@ -2,6 +2,11 @@
 
 ## Prospectively confirmed
 
+0. **ResNet-18/CIFAR-10 v4.0c-r1:** selected response-fibre tangent value in
+   the complete final classifier of a frozen ImageNet-pretrained ResNet-18
+   representation. All gates passed in 16/16 new classifier-training seeds at
+   4, 16 and 32 anchors.
+
 1. **F16 v16:** restricted CNER-F ordering in a frozen eight-dimensional
    CNN--MNIST chart.
 2. **Moving-F16 v3.0b:** the restricted ordering survives pointwise moving
@@ -13,6 +18,19 @@
    true natural gradient minimizes the restricted moving-fibre action at all
    four radii in 14/14, beats wrong-Fisher natural in 14/14, and wins under the
    wrong metric in 0/14.
+
+The last statement is precisely an \(\arg\min\) over the frozen set
+\(\mathcal A_6\) of six causal online algorithms. No claim is made about an
+\(\arg\min\) over arbitrary causal paths.
+
+## Post-confirmation robustness audit
+
+The v3.1e four-radius scaling fit was subjected to leave-one-radius-out (LOO)
+refits using the archived per-seed JSON. The largest median shift was 0.0477
+for the moving arm and 0.0027 for the fixed arm. The smallest LOO separation
+between median exponents was 0.6273, above the frozen 0.25 separation gate.
+This is a post-confirmation robustness analysis, not a prospectively frozen
+primary outcome.
 
 ## Confirmed counterpoint
 
@@ -29,6 +47,14 @@ realizability-cost minimality.
   an entirely new seed cohort.
 - v3.2c seeds 73730 and 73732 are preserved but excluded because the
   coarse-radius natural arm failed the frozen wrong-metric quadrature gate.
+- ResNet v4.0a remains formally unsupported because its candidate class
+  incorrectly required a feasible fibre tangent to beat an unconstrained
+  ambient gradient; v4.0a-r1 is a four-seed development candidate.
+- ResNet v4.0b remains formally unconfirmed because its float32 finite-response
+  leakage exceeded the frozen absolute gate, although all functional gates
+  passed. v4.0c-r0 produced no scientific result because a dtype mismatch
+  stopped execution before any seed output. v4.0c-r1 repairs only that
+  pre-result implementation error.
 
 ## Not established
 
@@ -36,6 +62,8 @@ realizability-cost minimality.
 - arbitrary-path local or global variational minimality;
 - a unique scalar action combining F16 and realizability cost;
 - a complete response-kernel bundle rather than an eight-dimensional chart;
-- GPT-2, LLM or broad architecture transfer;
+- adaptation of the ResNet backbone or external replication of moving-fibre
+  transport, realizability-cost scaling, F16 ordering or action-cost separation;
+- GPT-2 or LLM transfer;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

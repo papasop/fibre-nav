@@ -44,3 +44,45 @@ wrong-metric left-versus-trapezoid change exceeded 0.08. No post-result
 relaxation was applied. The result also retained the predeclared descriptive
 cost branch: natural gradient's smallest-radius cost remained at least 1.5
 times the minimum in 14/14 comparable seeds.
+
+## v1.2.2 formula and robustness audit
+
+This release does not alter the frozen v3.1e or v3.2c executables, protocols,
+raw archives, eligibility decisions, or primary outcomes. It adds the explicit
+discrete definition of \(S_{\rm MF16}\), an audit note separating Euclidean
+implementation identities from their general-metric forms, and a
+post-confirmation leave-one-radius-out analysis reconstructed directly from
+the archived v3.1e seed JSON files.
+
+The LOO analysis was not part of the original prospective gate and is labelled
+accordingly. It strengthens finite-radius robustness without changing the
+claim boundary. The original v3.2c engine SHA-256 remains
+`8b3ba6f37bc57bad5b3752238831366c668f94bf7959c2f45cf5749d016cbb52`.
+
+## v1.3.0 external functional confirmation
+
+ResNet v4.0a used seeds 61726--61729 and remains formally unsupported: its
+candidate gate improperly treated the unconstrained ambient gradient as a
+feasible competition arm. v4.0a-r1 repaired the comparison class on new seeds
+62726--62729 and is retained as a development candidate.
+
+v4.0b used seeds 63726--63741 in the complete final-classifier parameter space.
+All functional and effect-size gates passed at every anchor count, but the
+float32 finite-response leakage gate failed, so the run remains formally
+unconfirmed. v4.0c prospectively froze new seeds 64726--64741, float64 response
+geometry, a dimensionless kernel-residual gate and a finite-response gate while
+leaving all functional gates unchanged. Its first implementation, v4.0c-r0,
+terminated before any seed result because matched random vectors defaulted to
+float32 while the response row basis was float64. Revision r1 changed only the
+random-vector dtype and added diagnostic logging; it did not change scientific
+seeds, data, thresholds, controls or gates.
+
+v4.0c-r1 passed every gate in 16/16 seeds at all three anchor counts. This
+confirms selected tangent value in the complete final classifier of a frozen
+ResNet-18 representation. It does not confirm ResNet-backbone navigation,
+moving-fibre transport, realizability-cost scaling or Moving-Fibre F16.
+
+Authoritative hashes:
+
+- v4.0c-r1 engine: `dca49cb187c59a2ac8e3e55fe4970349f258fed36b7ffbfca510770c19af9f63`
+- v4.0c-r1 raw results ZIP: `a3edf61ed8fcd029f302f922650071dec9a1b60c501ace34a4ec6965ebf71823`

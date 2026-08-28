@@ -2,9 +2,9 @@
 
 Contents:
 
-- `executable/`: frozen v16 Python audit, protocol, Colab launcher, and run documentation.
-- `evidence/raw/`: the verbatim first Colab result ZIP.
-- `evidence/corrected/`: publication-ready evidence derived from the unchanged authoritative result.
+- `code/`: frozen v16 Python audit, protocol, Colab launcher, and run documentation.
+- `raw/`: the verbatim first Colab result ZIP.
+- `results/`: publication-ready evidence derived from the unchanged authoritative result.
 - `PROVENANCE.md`: contamination disclosure and correction boundary.
 - `SHA256SUMS`: checksums for every archived file.
 

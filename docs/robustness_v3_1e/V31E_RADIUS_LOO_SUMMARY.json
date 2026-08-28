@@ -1,0 +1,60 @@
+{
+  "analysis_status": "post_confirmation_robustness",
+  "source": "evidence/confirmed/moving_fibre_v3_1e/results/cner_cnn_mnist_realisability_flat_confirm_v3_1e_results",
+  "records": [
+    {
+      "fit": "all_four",
+      "omitted_radius": "",
+      "comparable_seeds": 15,
+      "moving_alpha_median": 0.6837955253545591,
+      "fixed_alpha_median": 0.007149019728119192,
+      "median_separation": 0.6766465056264399,
+      "moving_shift_from_full": 0.0,
+      "fixed_shift_from_full": 0.0
+    },
+    {
+      "fit": "omit_0.08",
+      "omitted_radius": 0.08,
+      "comparable_seeds": 15,
+      "moving_alpha_median": 0.6878017201886469,
+      "fixed_alpha_median": 0.004444057964894215,
+      "median_separation": 0.6833576622237527,
+      "moving_shift_from_full": 0.004006194834087817,
+      "fixed_shift_from_full": -0.002704961763224977
+    },
+    {
+      "fit": "omit_0.04",
+      "omitted_radius": 0.04,
+      "comparable_seeds": 15,
+      "moving_alpha_median": 0.6769079375297827,
+      "fixed_alpha_median": 0.007011408253777178,
+      "median_separation": 0.6698965292760055,
+      "moving_shift_from_full": -0.006887587824776387,
+      "fixed_shift_from_full": -0.00013761147434201374
+    },
+    {
+      "fit": "omit_0.02",
+      "omitted_radius": 0.02,
+      "comparable_seeds": 15,
+      "moving_alpha_median": 0.6873878103281212,
+      "fixed_alpha_median": 0.0067266257268038315,
+      "median_separation": 0.6806611846013174,
+      "moving_shift_from_full": 0.003592284973562121,
+      "fixed_shift_from_full": -0.00042239400131536056
+    },
+    {
+      "fit": "omit_0.01",
+      "omitted_radius": 0.01,
+      "comparable_seeds": 15,
+      "moving_alpha_median": 0.6360918220933305,
+      "fixed_alpha_median": 0.00879909829412578,
+      "median_separation": 0.6272927237992048,
+      "moving_shift_from_full": -0.047703703261228636,
+      "fixed_shift_from_full": 0.0016500785660065872
+    }
+  ],
+  "max_abs_moving_shift": 0.047703703261228636,
+  "max_abs_fixed_shift": 0.002704961763224977,
+  "minimum_loo_median_separation": 0.6272927237992048,
+  "frozen_separation_gate": 0.25
+}
