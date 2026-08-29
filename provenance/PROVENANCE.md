@@ -125,3 +125,17 @@ not counted as positive evidence.
 
 Neither result establishes a complete high-dimensional kernel bundle,
 universal scaling, ResNet F16 ordering, or local/global variational optimality.
+
+## v1.5.1 GPTW-V3 external reproduction interface
+
+This release adds only an execution and provenance wrapper. The wrapper pins
+the already confirmed GPTW source at tag
+`v1.4.0-gptw-natural-text-confirmed`, commit
+`236f646c472018a7e38be11fd658519763bc2346`; verifies its byte-level
+`SHA256SUMS` and semantic cohort checks; and runs the unmodified V3 program.
+
+The resulting archive records the environment, GPU, pinned source identity,
+decision, cohort counts and result checksum. No seed, prompt, gate, model,
+parameter domain or scientific decision rule changes in v1.5.1. Consequently
+this interface supports same-cohort external reproduction, not an independent
+new-seed or new-prompt confirmation.

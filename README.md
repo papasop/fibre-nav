@@ -23,6 +23,15 @@ GPT-2 result, a semantic invariance theorem, an arbitrary-LoRA claim, or a
 global variational theorem. The formal initial audit and its
 near-zero-denominator finite-difference failure are retained in the snapshot.
 
+### Zero-upload external reproduction
+
+GPTW-V3 now has a public one-cell Colab entry point under
+`external_tests/gptw_v3/`. It clones the immutable GPTW source tag, verifies
+the pinned commit and snapshot checksums, runs the frozen natural-text V3
+protocol, validates the 8-seed/32-node output, and downloads the result and
+environment manifest. No author ZIP upload is required. This is explicitly a
+same-cohort external reproduction, not a new-seed independent confirmation.
+
 ## External confirmation: selected response-fibre tangent value
 
 ResNet-18/CIFAR-10 v4.0c-r1 prospectively tested the functional premise in the
@@ -205,6 +214,8 @@ audits/
 provenance/
   PROVENANCE.md
   SHA256SUMS
+external_tests/
+  gptw_v3/
 ```
 
 Every confirmed stage preserves executable source, its frozen protocol,
