@@ -2,10 +2,26 @@
 
 ## Confirmed Scaling of Realizability Cost
 
-Repository-ready frozen evidence archive v1.3.0 for the associated paper by
+Repository-ready frozen evidence archive v1.4.0 for the associated paper by
 Y.Y.N. Li. This archive separates prospectively confirmed results from
 developmental mechanism studies and preserves failed or excluded cases rather
 than relabelling them after inspection.
+
+## Cross-modal confirmation: GPT-2 + native LoRA
+
+GPTW v1.1.0 tests the moving-response-fibre mechanism in a deliberately
+restricted language-model domain: the rank-2 LoRA-B subspace of the final two
+GPT-2 transformer blocks. The same-seed precision repair passed in 7/8 seeds,
+the prospective adaptive-value confirmation passed in 8/8 new seeds, and the
+current-versus-source-fixed moving-fibre audit passed in 6/6 instances and
+18/18 interior nodes. A final prospective test with disjoint frozen
+natural-English development and response prompts passed in 8/8 new seeds and
+32/32 interior nodes.
+
+This is cross-modal confirmation of the restricted mechanism, not a full-model
+GPT-2 result, a semantic invariance theorem, an arbitrary-LoRA claim, or a
+global variational theorem. The formal initial audit and its
+near-zero-denominator finite-difference failure are retained in the snapshot.
 
 ## External confirmation: selected response-fibre tangent value
 
@@ -112,6 +128,7 @@ continuum or arbitrary-path theorem.
 
 | Stage | Frozen result | Formal status |
 |---|---|---|
+| GPTW v1.1.0 | Rank-2 LoRA-B adaptive value passed 8/8 new seeds; current-vs-fixed passed 6/6; disjoint natural-text confirmation passed 8/8 seeds and 32/32 nodes | Confirmed restricted cross-modal mechanism |
 | ResNet-18/CIFAR-10 v4.0c-r1 | Selected final-classifier response-fibre tangent passed all gates in 16/16 seeds at 4, 16 and 32 anchors | Confirmed external functional premise |
 | F16 v16 | True output-Fisher natural flow minimized the restricted six-path CNER-F action in 15/16 seeds; Adam and wrong-Fisher natural won 0/16 | Confirmed restricted ordering |
 | Moving-F16 v3.0b | With pointwise moving Fisher and capacity evaluation, 14/16 seeds were comparable and natural minimized moving action in 13/14 | Confirmed restricted ordering |
@@ -134,6 +151,10 @@ is documented, and v3.1e changed that statistic before observing a new cohort.
 
 ```text
 evidence/
+  gptw_response_fibre_v1_1_0/
+    experiments/
+    development/
+    paper/
   confirmed/
     f16_v16/
     moving_f16_v3_0b/
@@ -172,7 +193,8 @@ The archive supports state-dependent response fibres, confirmed finite-radius
 realizability-cost scaling, and restricted six-algorithm Moving-Fibre F16
 ordering in frozen finite CNN--MNIST constructions. It also confirms selected
 response-fibre tangent value in the complete final classifier of a frozen
-ResNet-18 representation. It does not establish:
+ResNet-18 representation and provides prospective cross-modal confirmation in
+the rank-2 LoRA-B subspace of the final two GPT-2 blocks. It does not establish:
 
 - a complete high-dimensional response-kernel bundle;
 - exact \(h\to0\) convergence or a horizontal-lift theorem;
@@ -180,7 +202,8 @@ ResNet-18 representation. It does not establish:
 - a unique scalar combination of F16 action and realizability cost;
 - ResNet backbone adaptation or cross-architecture confirmation of moving-fibre
   transport, realizability scaling or v3.2c;
-- GPT-2 or LLM confirmation;
+- full-model GPT-2/LLM confirmation, semantic invariance, or transfer beyond
+  the declared LoRA-B subspace and frozen prompts;
 - a universal intelligence, physical-time or K=1 law.
 
 ## Reproduction

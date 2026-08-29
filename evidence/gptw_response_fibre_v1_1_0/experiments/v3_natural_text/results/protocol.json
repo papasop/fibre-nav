@@ -1,0 +1,108 @@
+{
+  "protocol": "CNER_GPT2_LORA_NATURAL_PROMPT_MOVING_FIBRE_V3",
+  "prospective": true,
+  "seeds": [
+    38171,
+    38172,
+    38173,
+    38174,
+    38175,
+    38176,
+    38177,
+    38178
+  ],
+  "development": [
+    [
+      "The gardener watered the dry soil before planting the",
+      " seeds"
+    ],
+    [
+      "When the lights went out, Mira reached for a",
+      " candle"
+    ],
+    [
+      "The hikers checked the map before crossing the",
+      " river"
+    ],
+    [
+      "A mechanic tightened the loose bolt with a",
+      " wrench"
+    ],
+    [
+      "The teacher wrote the final equation on the",
+      " board"
+    ],
+    [
+      "Because the soup was hot, Daniel waited for it to",
+      " cool"
+    ],
+    [
+      "The pianist opened the score and began to",
+      " play"
+    ],
+    [
+      "At dawn, the fishing boats left the",
+      " harbor"
+    ]
+  ],
+  "confirmation": [
+    [
+      "After walking all day, the tired traveler wanted to",
+      " rest",
+      " argue"
+    ],
+    [
+      "The baker placed the warm bread on the wooden",
+      " table",
+      " cloud"
+    ],
+    [
+      "Rain gathered on the window during the",
+      " storm",
+      " concert"
+    ],
+    [
+      "The physician listened carefully to the patient's",
+      " heart",
+      " suitcase"
+    ],
+    [
+      "To see the stars clearly, they drove beyond the city",
+      " lights",
+      " kitchen"
+    ],
+    [
+      "The child zipped his coat before stepping into the",
+      " snow",
+      " oven"
+    ],
+    [
+      "After reading the letter twice, she placed it in the",
+      " drawer",
+      " ocean"
+    ],
+    [
+      "The train slowed as it approached the crowded",
+      " station",
+      " forest"
+    ]
+  ],
+  "frozen_gates": {
+    "audit_radii": [
+      0.2,
+      0.1,
+      0.05
+    ],
+    "path_step": 0.2,
+    "interior_nodes_per_seed": 4,
+    "minimum_current_cost_slope": 1.7,
+    "maximum_fixed_cost_slope": 1.4,
+    "minimum_slope_gap": 0.5,
+    "minimum_fixed_to_current_active_ratio": 100.0,
+    "minimum_fine_cost_ratio": 3.0,
+    "maximum_current_kernel_residual": 1e-05,
+    "maximum_path_response_error": 1e-10,
+    "required_passing_nodes_per_seed": 3,
+    "required_supporting_instances": 6
+  }
+}

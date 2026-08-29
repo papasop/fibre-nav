@@ -1,0 +1,21 @@
+[GPTW-v1-r2 precision 1/8] seed=24742
+`torch_dtype` is deprecated! Use `dtype` instead!
+2026-08-29 07:24:33.922502: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-08-29 07:24:33.987885: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/content/gptw_v1_r2_run/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision.py:122: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  base_loss=float(task_loss(model,tok,HELDOUT,device)); selected=project_kernel(-grad_flat(task_loss(model,tok,CONSTRUCTION,device),params),J)
+Traceback (most recent call last):
+  File "/content/gptw_v1_r2_run/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision.py", line 192, in <module>
+    if __name__=="__main__": main()
+                             ~~~~^^
+  File "/content/gptw_v1_r2_run/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision.py", line 176, in main
+    print(f"[GPTW-v1-r2 precision {i+1}/8] seed={s}",flush=True); row=run_seed(s,device); rows.append(row)
+                                                                      ~~~~~~~~^^^^^^^^^^
+  File "/content/gptw_v1_r2_run/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision.py", line 130, in run_seed
+    q=project_kernel(torch.randn(len(base_vec),generator=gen,device=device),J)
+  File "/content/gptw_v1_r2_run/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision/cner_gpt2_lora_response_fibre_adaptive_value_v1_r2_precision.py", line 110, in project_kernel
+    coeff=torch.linalg.solve(gram+(1e-8*max(scale,1e-12))*torch.eye(len(gram),device=J.device),J@v)
+                                                                                               ~^~
+RuntimeError: expected scalar type Double but found Float

@@ -1,0 +1,227 @@
+{
+  "seed": 26745,
+  "model": "openai-community/gpt2",
+  "nodes": [
+    {
+      "node": 1,
+      "principal_angle_radians": 0.01608536959617026,
+      "current_kernel_relative_residual": 2.283720009042808e-08,
+      "fixed_active_relative_residual": 0.0004823548655160776,
+      "fixed_to_current_active_ratio": 21121.453751164987,
+      "current_costs": [
+        {
+          "radius": 0.2,
+          "active_response_residual": 2.5740144745503648e-06,
+          "linear_newton_correction_norm": 0.00023213027073423797,
+          "correction_to_step_ratio": 0.00116065135367119
+        },
+        {
+          "radius": 0.1,
+          "active_response_residual": 6.403976339970939e-07,
+          "linear_newton_correction_norm": 5.790205947984981e-05,
+          "correction_to_step_ratio": 0.0005790205947984982
+        },
+        {
+          "radius": 0.05,
+          "active_response_residual": 1.5970748737094011e-07,
+          "linear_newton_correction_norm": 1.4535928161490583e-05,
+          "correction_to_step_ratio": 0.00029071856322981167
+        }
+      ],
+      "fixed_costs": [
+        {
+          "radius": 0.2,
+          "active_response_residual": 7.385927519956703e-06,
+          "linear_newton_correction_norm": 0.0006714054351996174,
+          "correction_to_step_ratio": 0.0033570271759980866
+        },
+        {
+          "radius": 0.1,
+          "active_response_residual": 3.063819396358928e-06,
+          "linear_newton_correction_norm": 0.0002783964214818378,
+          "correction_to_step_ratio": 0.002783964214818378
+        },
+        {
+          "radius": 0.05,
+          "active_response_residual": 1.375725903027147e-06,
+          "linear_newton_correction_norm": 0.00012499071784192667,
+          "correction_to_step_ratio": 0.002499814356838533
+        }
+      ],
+      "current_cost_slope": 1.9986197842232163,
+      "current_cost_r2": 0.9999982124280752,
+      "fixed_cost_slope": 1.2126816278739114,
+      "fixed_cost_r2": 0.9992547383995182,
+      "fine_fixed_to_current_cost_ratio": 8.598743503222536,
+      "node_gate": true
+    },
+    {
+      "node": 2,
+      "principal_angle_radians": 0.03218462682750247,
+      "current_kernel_relative_residual": 2.2745374215081517e-08,
+      "fixed_active_relative_residual": 0.0009866306601235295,
+      "fixed_to_current_active_ratio": 43377.20060324774,
+      "current_costs": [
+        {
+          "radius": 0.2,
+          "active_response_residual": 2.7195282269940394e-06,
+          "linear_newton_correction_norm": 0.00024299314421743335,
+          "correction_to_step_ratio": 0.001214965721087167
+        },
+        {
+          "radius": 0.1,
+          "active_response_residual": 6.767638867988605e-07,
+          "linear_newton_correction_norm": 6.061508710333051e-05,
+          "correction_to_step_ratio": 0.0006061508710333051
+        },
+        {
+          "radius": 0.05,
+          "active_response_residual": 1.6879686443132846e-07,
+          "linear_newton_correction_norm": 1.521156147176312e-05,
+          "correction_to_step_ratio": 0.0003042312294352624
+        }
+      ],
+      "fixed_costs": [
+        {
+          "radius": 0.2,
+          "active_response_residual": 1.2550983472219077e-05,
+          "linear_newton_correction_norm": 0.0011393838953375277,
+          "correction_to_step_ratio": 0.005696919476687638
+        },
+        {
+          "radius": 0.1,
+          "active_response_residual": 5.628800592931616e-06,
+          "linear_newton_correction_norm": 0.0005105665708672304,
+          "correction_to_step_ratio": 0.005105665708672304
+        },
+        {
+          "radius": 0.05,
+          "active_response_residual": 2.653778109214417e-06,
+          "linear_newton_correction_norm": 0.000240614856682412,
+          "correction_to_step_ratio": 0.004812297133648239
+        }
+      ],
+      "current_cost_slope": 1.998837725733608,
+      "current_cost_r2": 0.999998436459901,
+      "fixed_cost_slope": 1.1217281452748158,
+      "fixed_cost_r2": 0.9996499946209735,
+      "fine_fixed_to_current_cost_ratio": 15.817893326011268,
+      "node_gate": true
+    },
+    {
+      "node": 3,
+      "principal_angle_radians": 0.04832841259538061,
+      "current_kernel_relative_residual": 2.2674125572982675e-08,
+      "fixed_active_relative_residual": 0.0015128521755092153,
+      "fixed_to_current_active_ratio": 66721.52232021914,
+      "current_costs": [
+        {
+          "radius": 0.2,
+          "active_response_residual": 2.867231660268304e-06,
+          "linear_newton_correction_norm": 0.0002536563155919012,
+          "correction_to_step_ratio": 0.0012682815779595058
+        },
+        {
+          "radius": 0.1,
+          "active_response_residual": 7.137094023113802e-07,
+          "linear_newton_correction_norm": 6.328176278781888e-05,
+          "correction_to_step_ratio": 0.0006328176278781887
+        },
+        {
+          "radius": 0.05,
+          "active_response_residual": 1.78035016429648e-07,
+          "linear_newton_correction_norm": 1.587632380784744e-05,
+          "correction_to_step_ratio": 0.00031752647615694877
+        }
+      ],
+      "fixed_costs": [
+        {
+          "radius": 0.2,
+          "active_response_residual": 1.7927088261248045e-05,
+          "linear_newton_correction_norm": 0.001624576317545355,
+          "correction_to_step_ratio": 0.008122881587726774
+        },
+        {
+          "radius": 0.1,
+          "active_response_residual": 8.299932697103e-06,
+          "linear_newton_correction_norm": 0.0007514269739502635,
+          "correction_to_step_ratio": 0.007514269739502634
+        },
+        {
+          "radius": 0.05,
+          "active_response_residual": 3.985054334121295e-06,
+          "linear_newton_correction_norm": 0.0003606042214885716,
+          "correction_to_step_ratio": 0.007212084429771432
+        }
+      ],
+      "current_cost_slope": 1.9989631419519223,
+      "current_cost_r2": 0.9999986315422454,
+      "fixed_cost_slope": 1.0857876636976889,
+      "fixed_cost_r2": 0.9998004188564654,
+      "fine_fixed_to_current_cost_ratio": 22.713332497686277,
+      "node_gate": true
+    }
+  ],
+  "retractions": [
+    {
+      "advance": 0,
+      "trace": [
+        {
+          "relative_error_before": 2.432270051100546e-06,
+          "correction_norm": 0.000220935110733702
+        },
+        {
+          "relative_error_before": 1.705402689756812e-11,
+          "correction_norm": 9.650395975809413e-09
+        }
+      ],
+      "final_relative_error": 4.17756741663112e-16
+    },
+    {
+      "advance": 1,
+      "trace": [
+        {
+          "relative_error_before": 2.574014474521555e-06,
+          "correction_norm": 0.00023187166788048654
+        },
+        {
+          "relative_error_before": 1.850180426395996e-11,
+          "correction_norm": 9.84788533844522e-09
+        }
+      ],
+      "final_relative_error": 6.641378362878829e-16
+    },
+    {
+      "advance": 2,
+      "trace": [
+        {
+          "relative_error_before": 2.719528227237707e-06,
+          "correction_norm": 0.0002427174935913375
+        },
+        {
+          "relative_error_before": 1.9698554984652203e-11,
+          "correction_norm": 1.0044804313194916e-08
+        }
+      ],
+      "final_relative_error": 3.593785309782387e-16
+    },
+    {
+      "advance": 3,
+      "trace": [
+        {
+          "relative_error_before": 2.8672316603796553e-06,
+          "correction_norm": 0.0002533643514767786
+        },
+        {
+          "relative_error_before": 2.059491304336815e-11,
+          "correction_norm": 1.0240154129893279e-08
+        }
+      ],
+      "final_relative_error": 4.787964358731095e-16
+    }
+  ],
+  "passing_nodes": 3,
+  "required_nodes": 2,
+  "maximum_path_response_error": 6.641378362878829e-16,
+  "instance_supported": true
+}

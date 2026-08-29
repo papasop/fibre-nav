@@ -1,0 +1,128 @@
+{
+  "seed": 24742,
+  "model": "openai-community/gpt2",
+  "lora_implementation": "native Conv1D wrapper with frozen random A and audited B coordinates",
+  "lora_rank": 2,
+  "lora_layers": [
+    10,
+    11
+  ],
+  "trainable_parameters": 9216,
+  "base_heldout_loss": 5.28061056137085,
+  "selected": {
+    "loss": 5.232339382171631,
+    "gain": 0.04827117919921875,
+    "leakage": 2.121490297213313e-06
+  },
+  "sign_reversed": {
+    "loss": 5.332310676574707,
+    "gain": -0.05170011520385742,
+    "leakage": 2.1119883513165405e-06
+  },
+  "shuffled_target": {
+    "loss": 5.263373374938965,
+    "gain": 0.017237186431884766,
+    "leakage": 2.9034201816102723e-06
+  },
+  "best_of_16_random": {
+    "loss": 5.278933525085449,
+    "gain": 0.0016770362854003906,
+    "leakage": 2.1389092808021815e-07
+  },
+  "random_controls": [
+    {
+      "loss": 5.281216621398926,
+      "gain": -0.0006060600280761719,
+      "leakage": 1.6982964723410987e-07
+    },
+    {
+      "loss": 5.280553340911865,
+      "gain": 5.7220458984375e-05,
+      "leakage": 1.2418526296187338e-07
+    },
+    {
+      "loss": 5.280252933502197,
+      "gain": 0.00035762786865234375,
+      "leakage": 1.6987394246825716e-07
+    },
+    {
+      "loss": 5.279799938201904,
+      "gain": 0.0008106231689453125,
+      "leakage": 9.725317084985363e-08
+    },
+    {
+      "loss": 5.280838966369629,
+      "gain": -0.00022840499877929688,
+      "leakage": 1.8656731981536723e-07
+    },
+    {
+      "loss": 5.280761241912842,
+      "gain": -0.0001506805419921875,
+      "leakage": 2.0564156955060753e-07
+    },
+    {
+      "loss": 5.278933525085449,
+      "gain": 0.0016770362854003906,
+      "leakage": 2.1389092808021815e-07
+    },
+    {
+      "loss": 5.280812740325928,
+      "gain": -0.000202178955078125,
+      "leakage": 2.9074928420413926e-07
+    },
+    {
+      "loss": 5.2823638916015625,
+      "gain": -0.0017533302307128906,
+      "leakage": 1.3193681525081047e-07
+    },
+    {
+      "loss": 5.280789375305176,
+      "gain": -0.00017881393432617188,
+      "leakage": 3.0817002993899223e-07
+    },
+    {
+      "loss": 5.279988765716553,
+      "gain": 0.000621795654296875,
+      "leakage": 1.7699863974485197e-07
+    },
+    {
+      "loss": 5.279956817626953,
+      "gain": 0.0006537437438964844,
+      "leakage": 1.8659984846181032e-07
+    },
+    {
+      "loss": 5.279410362243652,
+      "gain": 0.0012001991271972656,
+      "leakage": 8.924777716856624e-08
+    },
+    {
+      "loss": 5.280198097229004,
+      "gain": 0.0004124641418457031,
+      "leakage": 2.350289065589095e-07
+    },
+    {
+      "loss": 5.280954837799072,
+      "gain": -0.00034427642822265625,
+      "leakage": 1.0937570493751991e-07
+    },
+    {
+      "loss": 5.281160831451416,
+      "gain": -0.0005502700805664062,
+      "leakage": 1.5621576210378407e-07
+    }
+  ],
+  "max_selected_random_leakage_mismatch": 2.032242520044747e-06,
+  "finite_difference_jvp_relative_error": 9451.5703125,
+  "projected_kernel_relative_residual": 2.0449421356261155e-07,
+  "gates": {
+    "beats_no_tangent": true,
+    "beats_best_random": true,
+    "beats_sign_reverse": true,
+    "beats_shuffled_target": true,
+    "anchor_leakage": true,
+    "random_leakage_match": true,
+    "fd_jvp_consistency": false,
+    "kernel_projection": true
+  },
+  "instance_supported": false
+}

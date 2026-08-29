@@ -1,0 +1,393 @@
+{
+  "protocol": "CNER_GPT2_LORA_NATURAL_PROMPT_MOVING_FIBRE_V3",
+  "scientific_status": "PROSPECTIVE_NATURAL_TEXT_AUDIT_COMPLETED",
+  "decision": "NATURAL_TEXT_CURRENT_FIBRE_ADVANTAGE_SUPPORTED",
+  "seeds": [
+    38171,
+    38172,
+    38173,
+    38174,
+    38175,
+    38176,
+    38177,
+    38178
+  ],
+  "supporting_instances": 8,
+  "required_instances": 6,
+  "total_interior_nodes": 32,
+  "elapsed_seconds": 125.20490919199983,
+  "wall_clock_limit_seconds": 3300,
+  "frozen_gates": {
+    "audit_radii": [
+      0.2,
+      0.1,
+      0.05
+    ],
+    "path_step": 0.2,
+    "interior_nodes_per_seed": 4,
+    "minimum_current_cost_slope": 1.7,
+    "maximum_fixed_cost_slope": 1.4,
+    "minimum_slope_gap": 0.5,
+    "minimum_fixed_to_current_active_ratio": 100.0,
+    "minimum_fine_cost_ratio": 3.0,
+    "maximum_current_kernel_residual": 1e-05,
+    "maximum_path_response_error": 1e-10,
+    "required_passing_nodes_per_seed": 3,
+    "required_supporting_instances": 6
+  },
+  "instance_summaries": [
+    {
+      "seed": 38171,
+      "passing_nodes": 4,
+      "maximum_path_response_error": 1.0847068827496768e-15,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "fixed_to_current_active_ratio": 15372974.304248964,
+          "current_cost_slope": 1.9986892189782917,
+          "fixed_cost_slope": 1.2062077478018856,
+          "slope_gap": 0.7924814711764061,
+          "fine_fixed_to_current_cost_ratio": 9.232532595669356,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "fixed_to_current_active_ratio": 30436451.535105042,
+          "current_cost_slope": 1.9988650193046988,
+          "fixed_cost_slope": 1.1165650820090949,
+          "slope_gap": 0.882299937295604,
+          "fine_fixed_to_current_cost_ratio": 17.714679002145882,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "fixed_to_current_active_ratio": 45222305.58929842,
+          "current_cost_slope": 1.9990270017786291,
+          "fixed_cost_slope": 1.0813579445354577,
+          "slope_gap": 0.9176690572431714,
+          "fine_fixed_to_current_cost_ratio": 26.341223074678897,
+          "node_gate": true
+        },
+        {
+          "node": 4,
+          "fixed_to_current_active_ratio": 59765698.1938241,
+          "current_cost_slope": 1.9991774723497813,
+          "fixed_cost_slope": 1.062514958409112,
+          "slope_gap": 0.9366625139406692,
+          "fine_fixed_to_current_cost_ratio": 35.00307452240676,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 38172,
+      "passing_nodes": 4,
+      "maximum_path_response_error": 7.173609253937177e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "fixed_to_current_active_ratio": 16609060.4362638,
+          "current_cost_slope": 2.000731571538427,
+          "fixed_cost_slope": 1.2082651324206057,
+          "slope_gap": 0.7924664391178211,
+          "fine_fixed_to_current_cost_ratio": 9.134903654953302,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "fixed_to_current_active_ratio": 33204787.52839325,
+          "current_cost_slope": 2.0008082191095102,
+          "fixed_cost_slope": 1.1183180131147052,
+          "slope_gap": 0.882490205994805,
+          "fine_fixed_to_current_cost_ratio": 17.46268495275276,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "fixed_to_current_active_ratio": 49779157.78446402,
+          "current_cost_slope": 2.000887296859154,
+          "fixed_cost_slope": 1.0829853264548426,
+          "slope_gap": 0.9179019704043112,
+          "fine_fixed_to_current_cost_ratio": 25.988404836973455,
+          "node_gate": true
+        },
+        {
+          "node": 4,
+          "fixed_to_current_active_ratio": 66323891.43905929,
+          "current_cost_slope": 2.000968874365655,
+          "fixed_cost_slope": 1.0640833519024937,
+          "slope_gap": 0.9368855224631611,
+          "fine_fixed_to_current_cost_ratio": 34.71594091967666,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 38173,
+      "passing_nodes": 4,
+      "maximum_path_response_error": 8.888363179192416e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "fixed_to_current_active_ratio": 23878361.974894356,
+          "current_cost_slope": 2.003339520228319,
+          "fixed_cost_slope": 1.2101091853315744,
+          "slope_gap": 0.7932303348967447,
+          "fine_fixed_to_current_cost_ratio": 9.039001166718524,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "fixed_to_current_active_ratio": 47876291.077887155,
+          "current_cost_slope": 2.0036422144822414,
+          "fixed_cost_slope": 1.1199996599737372,
+          "slope_gap": 0.8836425545085043,
+          "fine_fixed_to_current_cost_ratio": 17.120281278380034,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "fixed_to_current_active_ratio": 72099775.24659751,
+          "current_cost_slope": 2.003755714045386,
+          "fixed_cost_slope": 1.0845813148349543,
+          "slope_gap": 0.9191743992104315,
+          "fine_fixed_to_current_cost_ratio": 25.29774724045938,
+          "node_gate": true
+        },
+        {
+          "node": 4,
+          "fixed_to_current_active_ratio": 96634586.96414347,
+          "current_cost_slope": 2.0036584067820167,
+          "fixed_cost_slope": 1.0655946769619296,
+          "slope_gap": 0.9380637298200871,
+          "fine_fixed_to_current_cost_ratio": 33.691064025323215,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 38174,
+      "passing_nodes": 4,
+      "maximum_path_response_error": 8.888363179192416e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "fixed_to_current_active_ratio": 24664909.61390475,
+          "current_cost_slope": 1.999250245383647,
+          "fixed_cost_slope": 1.2068599843480812,
+          "slope_gap": 0.7923902610355658,
+          "fine_fixed_to_current_cost_ratio": 9.161735581189225,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "fixed_to_current_active_ratio": 48921225.97321162,
+          "current_cost_slope": 1.9992532268657661,
+          "fixed_cost_slope": 1.1169594434960435,
+          "slope_gap": 0.8822937833697226,
+          "fine_fixed_to_current_cost_ratio": 17.54979133643825,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "fixed_to_current_active_ratio": 72738218.79361834,
+          "current_cost_slope": 1.9992553705884644,
+          "fixed_cost_slope": 1.0816326931624243,
+          "slope_gap": 0.9176226774260401,
+          "fine_fixed_to_current_cost_ratio": 26.164659289913985,
+          "node_gate": true
+        },
+        {
+          "node": 4,
+          "fixed_to_current_active_ratio": 96087304.05763038,
+          "current_cost_slope": 1.999256899153083,
+          "fixed_cost_slope": 1.0627222870109623,
+          "slope_gap": 0.9365346121421207,
+          "fine_fixed_to_current_cost_ratio": 35.00627329876385,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 38175,
+      "passing_nodes": 4,
+      "maximum_path_response_error": 6.294624666873264e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "fixed_to_current_active_ratio": 26608742.0025325,
+          "current_cost_slope": 2.0032796001887347,
+          "fixed_cost_slope": 1.2106389552623804,
+          "slope_gap": 0.7926406449263543,
+          "fine_fixed_to_current_cost_ratio": 8.874048958623371,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "fixed_to_current_active_ratio": 54190052.43599523,
+          "current_cost_slope": 2.0027913219598834,
+          "fixed_cost_slope": 1.119797414869947,
+          "slope_gap": 0.8829939070899364,
+          "fine_fixed_to_current_cost_ratio": 16.625370137721962,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "fixed_to_current_active_ratio": 82729865.50723626,
+          "current_cost_slope": 2.00224361797173,
+          "fixed_cost_slope": 1.0839247400429377,
+          "slope_gap": 0.9183188779287921,
+          "fine_fixed_to_current_cost_ratio": 24.34493166053801,
+          "node_gate": true
+        },
+        {
+          "node": 4,
+          "fixed_to_current_active_ratio": 112204369.0133219,
+          "current_cost_slope": 2.001642212069802,
+          "fixed_cost_slope": 1.0645962112864586,
+          "slope_gap": 0.9370460007833434,
+          "fine_fixed_to_current_cost_ratio": 32.131342717840106,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 38176,
+      "passing_nodes": 4,
+      "maximum_path_response_error": 5.339356499675884e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "fixed_to_current_active_ratio": 14055729.577666238,
+          "current_cost_slope": 2.0021689633789674,
+          "fixed_cost_slope": 1.208953806033217,
+          "slope_gap": 0.7932151573457504,
+          "fine_fixed_to_current_cost_ratio": 8.976636100996773,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "fixed_to_current_active_ratio": 27755551.46010173,
+          "current_cost_slope": 2.0028249692920674,
+          "fixed_cost_slope": 1.118843098466738,
+          "slope_gap": 0.8839818708253295,
+          "fine_fixed_to_current_cost_ratio": 16.81699042212751,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "fixed_to_current_active_ratio": 41147015.94619607,
+          "current_cost_slope": 2.0034228197416035,
+          "fixed_cost_slope": 1.083500845214225,
+          "slope_gap": 0.9199219745273786,
+          "fine_fixed_to_current_cost_ratio": 24.419840095352367,
+          "node_gate": true
+        },
+        {
+          "node": 4,
+          "fixed_to_current_active_ratio": 54274984.02896172,
+          "current_cost_slope": 2.003956971555263,
+          "fixed_cost_slope": 1.0646412435385877,
+          "slope_gap": 0.9393157280166753,
+          "fine_fixed_to_current_cost_ratio": 31.707502408891475,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 38177,
+      "passing_nodes": 4,
+      "maximum_path_response_error": 6.351936544235536e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "fixed_to_current_active_ratio": 14670015.351823373,
+          "current_cost_slope": 2.0000873774185646,
+          "fixed_cost_slope": 1.2074985310079098,
+          "slope_gap": 0.7925888464106547,
+          "fine_fixed_to_current_cost_ratio": 9.120870959202975,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "fixed_to_current_active_ratio": 29507533.892199542,
+          "current_cost_slope": 2.0001413792869527,
+          "fixed_cost_slope": 1.117563663357115,
+          "slope_gap": 0.8825777159298376,
+          "fine_fixed_to_current_cost_ratio": 17.387326973212883,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "fixed_to_current_active_ratio": 44520514.604846425,
+          "current_cost_slope": 2.0001969510339177,
+          "fixed_cost_slope": 1.0822370379260933,
+          "slope_gap": 0.9179599131078244,
+          "fine_fixed_to_current_cost_ratio": 25.781189728701907,
+          "node_gate": true
+        },
+        {
+          "node": 4,
+          "fixed_to_current_active_ratio": 59716839.18159915,
+          "current_cost_slope": 2.0002537562856224,
+          "fixed_cost_slope": 1.0633387585014524,
+          "slope_gap": 0.93691499778417,
+          "fine_fixed_to_current_cost_ratio": 34.28228178673362,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 38178,
+      "passing_nodes": 4,
+      "maximum_path_response_error": 1.0180674713472175e-15,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "fixed_to_current_active_ratio": 27592520.090434704,
+          "current_cost_slope": 1.9998545095149787,
+          "fixed_cost_slope": 1.2074903041969032,
+          "slope_gap": 0.7923642053180755,
+          "fine_fixed_to_current_cost_ratio": 9.202240168883035,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "fixed_to_current_active_ratio": 54390865.4018468,
+          "current_cost_slope": 1.9999316933819657,
+          "fixed_cost_slope": 1.1176775653931526,
+          "slope_gap": 0.8822541279888132,
+          "fine_fixed_to_current_cost_ratio": 17.69668611408842,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "fixed_to_current_active_ratio": 80352687.1796505,
+          "current_cost_slope": 2.0000306341805603,
+          "fixed_cost_slope": 1.0823992877546234,
+          "slope_gap": 0.9176313464259369,
+          "fine_fixed_to_current_cost_ratio": 26.484259597043156,
+          "node_gate": true
+        },
+        {
+          "node": 4,
+          "fixed_to_current_active_ratio": 105452558.53203481,
+          "current_cost_slope": 2.000149577145214,
+          "fixed_cost_slope": 1.0635254540509582,
+          "slope_gap": 0.9366241230942556,
+          "fine_fixed_to_current_cost_ratio": 35.55857979042388,
+          "node_gate": true
+        }
+      ]
+    }
+  ],
+  "claim_boundary": "Prospective eight-seed confirmation on disjoint, frozen natural-English continuations in rank-2 LoRA-B for GPT-2's final two blocks. A pass upgrades cross-modal evidence beyond synthetic codeword prompts, but does not establish semantic invariance, full-parameter transport, optimizer convergence, or a global variational principle."
+}

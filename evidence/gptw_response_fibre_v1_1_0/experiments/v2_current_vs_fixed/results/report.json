@@ -1,0 +1,246 @@
+{
+  "protocol": "CNER_GPT2_LORA_MOVING_FIBRE_CURRENT_VS_FIXED_V2",
+  "scientific_status": "PROSPECTIVE_GPT2_LORA_MOVING_FIBRE_AUDIT_COMPLETED",
+  "decision": "GPT2_LORA_CURRENT_FIBRE_REALIZABILITY_ADVANTAGE_SUPPORTED",
+  "seeds": [
+    26742,
+    26743,
+    26744,
+    26745,
+    26746,
+    26747
+  ],
+  "supporting_instances": 6,
+  "required_instances": 4,
+  "elapsed_seconds": 39.20780096999988,
+  "wall_clock_limit_seconds": 3300,
+  "frozen_gates": {
+    "audit_radii": [
+      0.2,
+      0.1,
+      0.05
+    ],
+    "path_step": 0.2,
+    "interior_nodes": 3,
+    "maximum_current_kernel_residual": 1e-05,
+    "minimum_fixed_to_current_active_ratio": 10.0,
+    "minimum_fine_cost_ratio": 2.0,
+    "minimum_current_cost_slope": 1.5,
+    "maximum_fixed_cost_slope": 1.4,
+    "required_passing_nodes": 2,
+    "maximum_path_response_error": 0.0002
+  },
+  "instance_summaries": [
+    {
+      "seed": 26742,
+      "passing_nodes": 3,
+      "maximum_path_response_error": 6.717591577103391e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "principal_angle_radians": 0.016828507163005352,
+          "fixed_to_current_active_ratio": 30874.64128176067,
+          "current_cost_slope": 2.00068570751468,
+          "fixed_cost_slope": 1.21144233864641,
+          "fine_fixed_to_current_cost_ratio": 8.976199606209113,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "principal_angle_radians": 0.03416439048870004,
+          "fixed_to_current_active_ratio": 61978.860286313706,
+          "current_cost_slope": 2.00017622215143,
+          "fixed_cost_slope": 1.1212963232007922,
+          "fine_fixed_to_current_cost_ratio": 17.023479105819188,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "principal_angle_radians": 0.052067754991334404,
+          "fixed_to_current_active_ratio": 93220.82382333554,
+          "current_cost_slope": 1.9996453731058226,
+          "fixed_cost_slope": 1.0857907594230742,
+          "fine_fixed_to_current_cost_ratio": 25.229791225139852,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 26743,
+      "passing_nodes": 3,
+      "maximum_path_response_error": 6.304989349485254e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "principal_angle_radians": 0.022372508592617853,
+          "fixed_to_current_active_ratio": 33888.42923609413,
+          "current_cost_slope": 2.008407044732557,
+          "fixed_cost_slope": 1.2150966746619583,
+          "fine_fixed_to_current_cost_ratio": 9.069270686512748,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "principal_angle_radians": 0.04458182030815246,
+          "fixed_to_current_active_ratio": 69343.2323807791,
+          "current_cost_slope": 2.0077175037975628,
+          "fixed_cost_slope": 1.125047137002202,
+          "fine_fixed_to_current_cost_ratio": 17.187748592111017,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "principal_angle_radians": 0.06652936818405576,
+          "fixed_to_current_active_ratio": 106381.20736793126,
+          "current_cost_slope": 2.0070543318675482,
+          "fixed_cost_slope": 1.0895285583914929,
+          "fine_fixed_to_current_cost_ratio": 25.40976666260228,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 26744,
+      "passing_nodes": 3,
+      "maximum_path_response_error": 5.76190619125048e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "principal_angle_radians": 0.023294782715754428,
+          "fixed_to_current_active_ratio": 14680.621128084878,
+          "current_cost_slope": 1.9986409490813886,
+          "fixed_cost_slope": 1.2099017989685272,
+          "fine_fixed_to_current_cost_ratio": 9.060423585280505,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "principal_angle_radians": 0.04666350884310019,
+          "fixed_to_current_active_ratio": 29739.8358120297,
+          "current_cost_slope": 1.998662694950742,
+          "fixed_cost_slope": 1.1201681728796795,
+          "fine_fixed_to_current_cost_ratio": 17.28629467677752,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "principal_angle_radians": 0.06984724429724917,
+          "fixed_to_current_active_ratio": 45217.8782220934,
+          "current_cost_slope": 1.998674348596771,
+          "fixed_cost_slope": 1.0849205394016639,
+          "fine_fixed_to_current_cost_ratio": 25.70334113742323,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 26745,
+      "passing_nodes": 3,
+      "maximum_path_response_error": 6.641378362878829e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "principal_angle_radians": 0.01608536959617026,
+          "fixed_to_current_active_ratio": 21121.453751164987,
+          "current_cost_slope": 1.9986197842232163,
+          "fixed_cost_slope": 1.2126816278739114,
+          "fine_fixed_to_current_cost_ratio": 8.598743503222536,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "principal_angle_radians": 0.03218462682750247,
+          "fixed_to_current_active_ratio": 43377.20060324774,
+          "current_cost_slope": 1.998837725733608,
+          "fixed_cost_slope": 1.1217281452748158,
+          "fine_fixed_to_current_cost_ratio": 15.817893326011268,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "principal_angle_radians": 0.04832841259538061,
+          "fixed_to_current_active_ratio": 66721.52232021914,
+          "current_cost_slope": 1.9989631419519223,
+          "fixed_cost_slope": 1.0857876636976889,
+          "fine_fixed_to_current_cost_ratio": 22.713332497686277,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 26746,
+      "passing_nodes": 3,
+      "maximum_path_response_error": 5.945235306774497e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "principal_angle_radians": 0.016842207159097317,
+          "fixed_to_current_active_ratio": 14244.846525049163,
+          "current_cost_slope": 2.002068456916566,
+          "fixed_cost_slope": 1.2123193675934987,
+          "fine_fixed_to_current_cost_ratio": 8.886508981657906,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "principal_angle_radians": 0.03376885400444969,
+          "fixed_to_current_active_ratio": 29193.72064626398,
+          "current_cost_slope": 2.0016641338469467,
+          "fixed_cost_slope": 1.1219146920315572,
+          "fine_fixed_to_current_cost_ratio": 16.713003847644664,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "principal_angle_radians": 0.05081354654142414,
+          "fixed_to_current_active_ratio": 44780.01248355371,
+          "current_cost_slope": 2.0012480096615652,
+          "fixed_cost_slope": 1.0862825891040755,
+          "fine_fixed_to_current_cost_ratio": 24.575023659135397,
+          "node_gate": true
+        }
+      ]
+    },
+    {
+      "seed": 26747,
+      "passing_nodes": 3,
+      "maximum_path_response_error": 6.076004148481123e-16,
+      "instance_supported": true,
+      "node_summaries": [
+        {
+          "node": 1,
+          "principal_angle_radians": 0.023303036612009394,
+          "fixed_to_current_active_ratio": 44094.47231206847,
+          "current_cost_slope": 2.005737572483941,
+          "fixed_cost_slope": 1.2132921992560124,
+          "fine_fixed_to_current_cost_ratio": 8.869364880380493,
+          "node_gate": true
+        },
+        {
+          "node": 2,
+          "principal_angle_radians": 0.0469807010497012,
+          "fixed_to_current_active_ratio": 89302.12154231327,
+          "current_cost_slope": 2.004973204813511,
+          "fixed_cost_slope": 1.1224728491954306,
+          "fine_fixed_to_current_cost_ratio": 16.670962098343633,
+          "node_gate": true
+        },
+        {
+          "node": 3,
+          "principal_angle_radians": 0.07126985696859596,
+          "fixed_to_current_active_ratio": 135501.636911381,
+          "current_cost_slope": 2.004213663499199,
+          "fixed_cost_slope": 1.0865848579709454,
+          "fine_fixed_to_current_cost_ratio": 24.603254575478605,
+          "node_gate": true
+        }
+      ]
+    }
+  ],
+  "claim_boundary": "Prospective six-seed audit of finite local current-kernel versus source-fixed LoRA replay along a constructed response-retracted GPT-2 path. A pass supports state-dependent response-fibre realizability advantage in this rank-2 LoRA-B domain only; it is not ordinary optimizer behavior, complete-kernel transport, a global action, or semantic generality."
+}

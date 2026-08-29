@@ -51,9 +51,20 @@ natural gradient has persistently higher smallest-radius retraction cost in
 two-objective structure, a renormalized cost density, or an independently
 derived scalar combination; none is selected here.
 
+## Cross-modal confirmation
+
+GPTW v1.1.0 confirms that the restricted mechanism is not confined to the
+CNN/ResNet setting. In the rank-2 LoRA-B subspace of the final two GPT-2
+blocks, the adaptive-value audit passed in 8/8 new seeds, the prospective
+current-versus-source-fixed audit passed in 6/6 instances and 18/18 interior
+nodes, and the disjoint natural-English audit passed in 8/8 instances and
+32/32 interior nodes. This is a cross-modal confirmation branch, not a new
+centre of the evidence ladder and not a full-model or semantic claim.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
 theorem, from a finite algorithm cohort to arbitrary causal paths, from the
 frozen ResNet final classifier to moving-fibre transport in an external model,
-from CNN--MNIST to LLMs, or from neural realizability cost to physical time.
+from a declared GPT-2 LoRA-B subspace to full-model LLM behaviour, or from
+neural realizability cost to physical time.

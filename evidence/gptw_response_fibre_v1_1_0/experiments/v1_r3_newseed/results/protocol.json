@@ -1,0 +1,83 @@
+{
+  "protocol": "CNER_GPT2_LORA_RESPONSE_FIBRE_ADAPTIVE_VALUE_V1_R3_NEWSEED",
+  "model_candidates": [
+    "openai-community/gpt2",
+    "gpt2"
+  ],
+  "seeds": [
+    25742,
+    25743,
+    25744,
+    25745,
+    25746,
+    25747,
+    25748,
+    25749
+  ],
+  "required": 6,
+  "prospective": true,
+  "construction": [
+    [
+      "Codeword dax means the color of snow. Snow is",
+      " white"
+    ],
+    [
+      "Codeword wug means the color of grass. Grass is",
+      " green"
+    ],
+    [
+      "Codeword zorp means the opposite of down. The answer is",
+      " up"
+    ],
+    [
+      "Codeword blick means the opposite of night. The answer is",
+      " day"
+    ],
+    [
+      "Remember: dax maps to white. Therefore dax is",
+      " white"
+    ],
+    [
+      "Remember: wug maps to green. Therefore wug is",
+      " green"
+    ],
+    [
+      "Remember: zorp maps to up. Therefore zorp is",
+      " up"
+    ],
+    [
+      "Remember: blick maps to day. Therefore blick is",
+      " day"
+    ]
+  ],
+  "heldout": [
+    [
+      "In this task dax denotes snow's colour. Answer:",
+      " white"
+    ],
+    [
+      "In this task wug denotes grass's colour. Answer:",
+      " green"
+    ],
+    [
+      "Under the stated code, zorp is the reverse of down:",
+      " up"
+    ],
+    [
+      "Under the stated code, blick is the reverse of night:",
+      " day"
+    ]
+  ],
+  "anchors": [
+    "The capital of France is",
+    "Water freezes at",
+    "A triangle has",
+    "The opposite of hot is"
+  ],
+  "response_tokens": [
+    " Paris",
+    " zero",
+    " three",
+    " cold"
+  ]
+}

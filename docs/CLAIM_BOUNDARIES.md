@@ -2,19 +2,26 @@
 
 ## Prospectively confirmed
 
-0. **ResNet-18/CIFAR-10 v4.0c-r1:** selected response-fibre tangent value in
+0. **GPTW v1.1.0:** restricted cross-modal confirmation in the rank-2 LoRA-B
+   subspace of the final two GPT-2 transformer blocks. The prospective
+   adaptive-value audit passed in 8/8 new seeds, current-fibre versus
+   source-fixed replay passed in 6/6 instances and 18/18 interior nodes, and
+   the disjoint natural-English prompt audit passed in 8/8 seeds and 32/32
+   interior nodes.
+
+1. **ResNet-18/CIFAR-10 v4.0c-r1:** selected response-fibre tangent value in
    the complete final classifier of a frozen ImageNet-pretrained ResNet-18
    representation. All gates passed in 16/16 new classifier-training seeds at
    4, 16 and 32 anchors.
 
-1. **F16 v16:** restricted CNER-F ordering in a frozen eight-dimensional
+2. **F16 v16:** restricted CNER-F ordering in a frozen eight-dimensional
    CNN--MNIST chart.
-2. **Moving-F16 v3.0b:** the restricted ordering survives pointwise moving
+3. **Moving-F16 v3.0b:** the restricted ordering survives pointwise moving
    Fisher and capacity evaluation in the frozen source-response chart.
-3. **Moving-Fibre v3.1e:** current-kernel paths have positive retraction-cost
+4. **Moving-Fibre v3.1e:** current-kernel paths have positive retraction-cost
    scaling while stale source-chart replay has approximately zero exponent and
    nonvanishing cost over the tested radii.
-4. **Moving-Fibre F16 v3.2c:** among 14/16 fully comparable prospective seeds,
+5. **Moving-Fibre F16 v3.2c:** among 14/16 fully comparable prospective seeds,
    true natural gradient minimizes the restricted moving-fibre action at all
    four radii in 14/14, beats wrong-Fisher natural in 14/14, and wins under the
    wrong metric in 0/14.
@@ -64,6 +71,7 @@ realizability-cost minimality.
 - a complete response-kernel bundle rather than an eight-dimensional chart;
 - adaptation of the ResNet backbone or external replication of moving-fibre
   transport, realizability-cost scaling, F16 ordering or action-cost separation;
-- GPT-2 or LLM transfer;
+- full-model GPT-2/LLM transfer, semantic invariance, or generalisation beyond
+  the declared rank-2 LoRA-B subspace and frozen prompt cohorts;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

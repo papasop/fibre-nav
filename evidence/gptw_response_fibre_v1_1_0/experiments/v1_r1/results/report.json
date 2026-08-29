@@ -1,0 +1,330 @@
+{
+  "protocol": "CNER_GPT2_LORA_RESPONSE_FIBRE_ADAPTIVE_VALUE_V1_R1",
+  "scientific_status": "PROSPECTIVE_GPT2_LORA_RESPONSE_FIBRE_AUDIT_COMPLETED",
+  "decision": "GPT2_LORA_SELECTED_RESPONSE_FIBRE_VALUE_NOT_SUPPORTED",
+  "model_candidates": [
+    "openai-community/gpt2",
+    "gpt2"
+  ],
+  "lora_implementation": "native Conv1D wrapper; PEFT not required",
+  "seeds": [
+    24742,
+    24743,
+    24744,
+    24745,
+    24746,
+    24747,
+    24748,
+    24749
+  ],
+  "supporting_instances": 0,
+  "required_instances": 6,
+  "elapsed_seconds": 28.339394874999925,
+  "wall_clock_limit_seconds": 3300,
+  "frozen_gates": {
+    "best_of_random_controls": 16,
+    "minimum_gain_margin": 0.0001,
+    "maximum_anchor_leakage": 0.025,
+    "maximum_random_leakage_mismatch": 0.015,
+    "maximum_fd_jvp_relative_error": 0.08
+  },
+  "instance_summaries": [
+    {
+      "seed": 24742,
+      "base_heldout_loss": 5.28061056137085,
+      "selected": {
+        "loss": 5.232339382171631,
+        "gain": 0.04827117919921875,
+        "leakage": 2.121490297213313e-06
+      },
+      "sign_reversed": {
+        "loss": 5.332310676574707,
+        "gain": -0.05170011520385742,
+        "leakage": 2.1119883513165405e-06
+      },
+      "shuffled_target": {
+        "loss": 5.263373374938965,
+        "gain": 0.017237186431884766,
+        "leakage": 2.9034201816102723e-06
+      },
+      "best_of_16_random": {
+        "loss": 5.278933525085449,
+        "gain": 0.0016770362854003906,
+        "leakage": 2.1389092808021815e-07
+      },
+      "finite_difference_jvp_relative_error": 9451.5703125,
+      "projected_kernel_relative_residual": 2.0449421356261155e-07,
+      "gates": {
+        "beats_no_tangent": true,
+        "beats_best_random": true,
+        "beats_sign_reverse": true,
+        "beats_shuffled_target": true,
+        "anchor_leakage": true,
+        "random_leakage_match": true,
+        "fd_jvp_consistency": false,
+        "kernel_projection": true
+      },
+      "instance_supported": false
+    },
+    {
+      "seed": 24743,
+      "base_heldout_loss": 5.28061056137085,
+      "selected": {
+        "loss": 5.256668567657471,
+        "gain": 0.023941993713378906,
+        "leakage": 7.00789030361193e-07
+      },
+      "sign_reversed": {
+        "loss": 5.304324150085449,
+        "gain": -0.02371358871459961,
+        "leakage": 6.885833840897249e-07
+      },
+      "shuffled_target": {
+        "loss": 5.256510257720947,
+        "gain": 0.024100303649902344,
+        "leakage": 6.752495096407074e-07
+      },
+      "best_of_16_random": {
+        "loss": 5.279226303100586,
+        "gain": 0.0013842582702636719,
+        "leakage": 1.200785959554196e-07
+      },
+      "finite_difference_jvp_relative_error": 9366.943359375,
+      "projected_kernel_relative_residual": 1.7696673637601634e-07,
+      "gates": {
+        "beats_no_tangent": true,
+        "beats_best_random": true,
+        "beats_sign_reverse": true,
+        "beats_shuffled_target": false,
+        "anchor_leakage": true,
+        "random_leakage_match": true,
+        "fd_jvp_consistency": false,
+        "kernel_projection": true
+      },
+      "instance_supported": false
+    },
+    {
+      "seed": 24744,
+      "base_heldout_loss": 5.28061056137085,
+      "selected": {
+        "loss": 5.24622106552124,
+        "gain": 0.034389495849609375,
+        "leakage": 1.418152237420145e-06
+      },
+      "sign_reversed": {
+        "loss": 5.31550407409668,
+        "gain": -0.03489351272583008,
+        "leakage": 1.3746603144682012e-06
+      },
+      "shuffled_target": {
+        "loss": 5.256407737731934,
+        "gain": 0.024202823638916016,
+        "leakage": 1.5334887848439394e-06
+      },
+      "best_of_16_random": {
+        "loss": 5.279430389404297,
+        "gain": 0.0011801719665527344,
+        "leakage": 9.97911797639972e-08
+      },
+      "finite_difference_jvp_relative_error": 8275.1240234375,
+      "projected_kernel_relative_residual": 1.7960151410534309e-07,
+      "gates": {
+        "beats_no_tangent": true,
+        "beats_best_random": true,
+        "beats_sign_reverse": true,
+        "beats_shuffled_target": true,
+        "anchor_leakage": true,
+        "random_leakage_match": true,
+        "fd_jvp_consistency": false,
+        "kernel_projection": true
+      },
+      "instance_supported": false
+    },
+    {
+      "seed": 24745,
+      "base_heldout_loss": 5.28061056137085,
+      "selected": {
+        "loss": 5.261005401611328,
+        "gain": 0.019605159759521484,
+        "leakage": 7.186554284999147e-07
+      },
+      "sign_reversed": {
+        "loss": 5.300296783447266,
+        "gain": -0.019686222076416016,
+        "leakage": 7.273052915479639e-07
+      },
+      "shuffled_target": {
+        "loss": 5.270047187805176,
+        "gain": 0.010563373565673828,
+        "leakage": 7.842591003281996e-07
+      },
+      "best_of_16_random": {
+        "loss": 5.279341220855713,
+        "gain": 0.0012693405151367188,
+        "leakage": 2.6291229460184695e-07
+      },
+      "finite_difference_jvp_relative_error": 4177.96875,
+      "projected_kernel_relative_residual": 2.0859610572188103e-07,
+      "gates": {
+        "beats_no_tangent": true,
+        "beats_best_random": true,
+        "beats_sign_reverse": true,
+        "beats_shuffled_target": true,
+        "anchor_leakage": true,
+        "random_leakage_match": true,
+        "fd_jvp_consistency": false,
+        "kernel_projection": true
+      },
+      "instance_supported": false
+    },
+    {
+      "seed": 24746,
+      "base_heldout_loss": 5.28061056137085,
+      "selected": {
+        "loss": 5.216268062591553,
+        "gain": 0.06434249877929688,
+        "leakage": 5.203424279898172e-06
+      },
+      "sign_reversed": {
+        "loss": 5.348353385925293,
+        "gain": -0.06774282455444336,
+        "leakage": 4.814878593606409e-06
+      },
+      "shuffled_target": {
+        "loss": 5.248122215270996,
+        "gain": 0.032488346099853516,
+        "leakage": 1.749358148117608e-06
+      },
+      "best_of_16_random": {
+        "loss": 5.279232501983643,
+        "gain": 0.0013780593872070312,
+        "leakage": 1.3927324005180708e-07
+      },
+      "finite_difference_jvp_relative_error": 5716.93603515625,
+      "projected_kernel_relative_residual": 3.2417554507446766e-07,
+      "gates": {
+        "beats_no_tangent": true,
+        "beats_best_random": true,
+        "beats_sign_reverse": true,
+        "beats_shuffled_target": true,
+        "anchor_leakage": true,
+        "random_leakage_match": true,
+        "fd_jvp_consistency": false,
+        "kernel_projection": true
+      },
+      "instance_supported": false
+    },
+    {
+      "seed": 24747,
+      "base_heldout_loss": 5.28061056137085,
+      "selected": {
+        "loss": 5.2277631759643555,
+        "gain": 0.05284738540649414,
+        "leakage": 1.3363651305553503e-05
+      },
+      "sign_reversed": {
+        "loss": 5.335134506225586,
+        "gain": -0.05452394485473633,
+        "leakage": 1.2854512533522211e-05
+      },
+      "shuffled_target": {
+        "loss": 5.2320451736450195,
+        "gain": 0.04856538772583008,
+        "leakage": 2.8654847028519725e-06
+      },
+      "best_of_16_random": {
+        "loss": 5.278601169586182,
+        "gain": 0.0020093917846679688,
+        "leakage": 3.3820811040641274e-07
+      },
+      "finite_difference_jvp_relative_error": 3305.966552734375,
+      "projected_kernel_relative_residual": 2.8757068548657116e-07,
+      "gates": {
+        "beats_no_tangent": true,
+        "beats_best_random": true,
+        "beats_sign_reverse": true,
+        "beats_shuffled_target": true,
+        "anchor_leakage": true,
+        "random_leakage_match": true,
+        "fd_jvp_consistency": false,
+        "kernel_projection": true
+      },
+      "instance_supported": false
+    },
+    {
+      "seed": 24748,
+      "base_heldout_loss": 5.28061056137085,
+      "selected": {
+        "loss": 5.221142768859863,
+        "gain": 0.05946779251098633,
+        "leakage": 5.333201897883555e-06
+      },
+      "sign_reversed": {
+        "loss": 5.341208457946777,
+        "gain": -0.060597896575927734,
+        "leakage": 5.169426458451198e-06
+      },
+      "shuffled_target": {
+        "loss": 5.2415385246276855,
+        "gain": 0.03907203674316406,
+        "leakage": 1.562798502163787e-06
+      },
+      "best_of_16_random": {
+        "loss": 5.279311656951904,
+        "gain": 0.0012989044189453125,
+        "leakage": 2.252179598372095e-07
+      },
+      "finite_difference_jvp_relative_error": 4016.88623046875,
+      "projected_kernel_relative_residual": 2.930481173279986e-07,
+      "gates": {
+        "beats_no_tangent": true,
+        "beats_best_random": true,
+        "beats_sign_reverse": true,
+        "beats_shuffled_target": true,
+        "anchor_leakage": true,
+        "random_leakage_match": true,
+        "fd_jvp_consistency": false,
+        "kernel_projection": true
+      },
+      "instance_supported": false
+    },
+    {
+      "seed": 24749,
+      "base_heldout_loss": 5.28061056137085,
+      "selected": {
+        "loss": 5.2599310874938965,
+        "gain": 0.020679473876953125,
+        "leakage": 5.988463726680493e-06
+      },
+      "sign_reversed": {
+        "loss": 5.301636219024658,
+        "gain": -0.021025657653808594,
+        "leakage": 6.010420293023344e-06
+      },
+      "shuffled_target": {
+        "loss": 5.272417068481445,
+        "gain": 0.008193492889404297,
+        "leakage": 1.3639545386467944e-06
+      },
+      "best_of_16_random": {
+        "loss": 5.279666900634766,
+        "gain": 0.0009436607360839844,
+        "leakage": 1.5770675076964835e-07
+      },
+      "finite_difference_jvp_relative_error": 12623.357421875,
+      "projected_kernel_relative_residual": 1.7072441949039785e-07,
+      "gates": {
+        "beats_no_tangent": true,
+        "beats_best_random": true,
+        "beats_sign_reverse": true,
+        "beats_shuffled_target": true,
+        "anchor_leakage": true,
+        "random_leakage_match": true,
+        "fd_jvp_consistency": false,
+        "kernel_projection": true
+      },
+      "instance_supported": false
+    }
+  ],
+  "claim_boundary": "Frozen GPT-2 with LoRA only in attention c_attn modules of layers 10-11; finite built-in prompt task and declared anchor-logit response. A pass supports selected response-fibre tangent value in this LoRA domain only; it is not moving-fibre transport, a full-model claim, semantic generality, an action principle, or global minimality."
+}

@@ -22,9 +22,10 @@ new seeds 70726--70741. Seed 70741 was excluded by the predeclared source
 accuracy gate (0.898 < 0.900); all 15 comparable seeds passed every substantive
 gate.
 
-No result has been relabelled by deleting a failed predecessor. No GPT-2 code
-is included in this release because GPT-2 currently supplies a boundary result,
-not a confirmed capacity-weighted CNER or moving-fibre replication.
+No result has been relabelled by deleting a failed predecessor. GPTW v1.1.0
+now preserves the complete restricted GPT-2/LoRA development and confirmation
+chain, including the formally unsuccessful initial audit and its dtype repair.
+It does not supply a capacity-weighted CNER replication or a full-model result.
 
 ## v1.2 addition: Moving-Fibre F16
 
@@ -86,3 +87,17 @@ Authoritative hashes:
 
 - v4.0c-r1 engine: `dca49cb187c59a2ac8e3e55fe4970349f258fed36b7ffbfca510770c19af9f63`
 - v4.0c-r1 raw results ZIP: `a3edf61ed8fcd029f302f922650071dec9a1b60c501ace34a4ec6965ebf71823`
+
+## v1.4.0 GPTW restricted cross-modal confirmation
+
+The GPTW snapshot was imported byte-for-byte under
+`evidence/gptw_response_fibre_v1_1_0/`. It retains the formal v1-r1 failure,
+the same-seed v1-r2a precision repair, the independent v1-r3 new-seed
+adaptive-value confirmation, the v2 current-versus-source-fixed extension,
+and the v3 prospective disjoint natural-English audit. The bundled
+`SHA256SUMS` and `verify_snapshot.py` jointly verify file identity, cohort
+counts, decisions and V3 node-level gates.
+
+The scope remains the rank-2 LoRA-B subspace of the final two GPT-2 blocks.
+No claim is made for full-model GPT-2, arbitrary prompts, semantic invariance,
+capacity-weighted CNER, or arbitrary-path/global variational optimality.

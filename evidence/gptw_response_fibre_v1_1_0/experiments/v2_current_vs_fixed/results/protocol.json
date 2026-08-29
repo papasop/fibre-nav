@@ -1,0 +1,68 @@
+{
+  "protocol": "CNER_GPT2_LORA_MOVING_FIBRE_CURRENT_VS_FIXED_V2",
+  "seeds": [
+    26742,
+    26743,
+    26744,
+    26745,
+    26746,
+    26747
+  ],
+  "prospective": true,
+  "frozen_gates": {
+    "audit_radii": [
+      0.2,
+      0.1,
+      0.05
+    ],
+    "path_step": 0.2,
+    "interior_nodes": 3,
+    "maximum_current_kernel_residual": 1e-05,
+    "minimum_fixed_to_current_active_ratio": 10.0,
+    "minimum_fine_cost_ratio": 2.0,
+    "minimum_current_cost_slope": 1.5,
+    "maximum_fixed_cost_slope": 1.4,
+    "required_passing_nodes": 2,
+    "maximum_path_response_error": 0.0002
+  },
+  "anchors": [
+    "The capital of France is",
+    "Water freezes at",
+    "A triangle has",
+    "The opposite of hot is"
+  ],
+  "task": [
+    [
+      "Codeword dax means the color of snow. Snow is",
+      " white"
+    ],
+    [
+      "Codeword wug means the color of grass. Grass is",
+      " green"
+    ],
+    [
+      "Codeword zorp means the opposite of down. The answer is",
+      " up"
+    ],
+    [
+      "Codeword blick means the opposite of night. The answer is",
+      " day"
+    ],
+    [
+      "Remember: dax maps to white. Therefore dax is",
+      " white"
+    ],
+    [
+      "Remember: wug maps to green. Therefore wug is",
+      " green"
+    ],
+    [
+      "Remember: zorp maps to up. Therefore zorp is",
+      " up"
+    ],
+    [
+      "Remember: blick maps to day. Therefore blick is",
+      " day"
+    ]
+  ]
+}
