@@ -1,0 +1,1145 @@
+{
+  "seed": 76752,
+  "trainable_parameters": 8398858,
+  "source_chart": {
+    "kernel_residual": 1.6906084461791795e-05,
+    "projection_rounds": 2,
+    "maximum_cg_relative_residual": 0.0013473262606360007,
+    "maximum_cg_iterations": 25
+  },
+  "source_confirm_loss_post_freeze": 0.5852352329505499,
+  "zero_step_cost_floor": {
+    "kl64": 0.0,
+    "kl64_distance": 0.0
+  },
+  "transverse_amplification_summary": {
+    "median_chart_residual_ratio_fixed_over_moving": 1160.5194573381673,
+    "median_active_residual_ratio_fixed_over_moving": 1243.3917395593076,
+    "median_moving_fixed_direction_cosine": 0.9999925775671521,
+    "median_transverse_parameter_norm": 0.003828828583607451,
+    "median_transverse_response_gain": 91.87078574959031,
+    "median_transverse_over_moving_gain": 321403.54019572877,
+    "median_finest_finite_over_linear_prediction": 0.9999909779549556,
+    "median_coarsest_finite_over_linear_prediction": 0.9995672298204346,
+    "fraction_states_improving_toward_linearity": 1.0,
+    "maximum_jvp_linearity_relative_error": 4.813064011399953e-14,
+    "audited_moving_state_steps": 11,
+    "audited_nonzero_transverse_steps": 8
+  },
+  "gates": {
+    "source_chart_feasible": true,
+    "moving_numerically_feasible": true,
+    "moving_endpoints": true,
+    "multistep_identifiable": true,
+    "chart_level_separation": true,
+    "near_collinearity": true,
+    "active_response_separation": true,
+    "transverse_gain_contrast": true,
+    "finite_radius_validation": true,
+    "radius_convergence": true,
+    "jvp_identity": true
+  },
+  "candidate": true,
+  "paths": [
+    {
+      "arm": "moving",
+      "radius": 0.004,
+      "steps": 2,
+      "endpoint_reached": true,
+      "initial_dev_loss": 0.9199768774285687,
+      "final_dev_loss": 0.8790202314871719,
+      "target_dev_loss": 0.8923775711057116,
+      "dev_reduction_fraction": 0.044519212326156396,
+      "total_realizability_cost": 4.2200558960787225e-05,
+      "total_kl64_distance": 4.2200558960787225e-05,
+      "total_pre_retraction_response_leakage": 4.155401988594035e-05,
+      "total_retraction_correction_norm": 2.1818729981373038e-05,
+      "step_cost_diagnostics": [
+        {
+          "step": 0,
+          "moving_chart_kernel_residual": 2.3353168890264478e-08,
+          "fixed_chart_kernel_residual": 1.6906084461791795e-05,
+          "chart_residual_ratio_fixed_over_moving": 723.9310665388817,
+          "moving_direction_response_residual": 6.604061682176799e-08,
+          "fixed_direction_response_residual": 4.780779912934368e-05,
+          "active_residual_ratio_fixed_over_moving": 723.915090895782,
+          "moving_fixed_direction_cosine": 0.9999999999997766,
+          "transverse_parameter_norm": 6.684403516006972e-07,
+          "transverse_response_norm": 4.780804667619794e-05,
+          "transverse_response_gain": 71.52178434726932,
+          "transverse_over_moving_gain": 1082996915.9781477,
+          "jvp_linearity_relative_error": 1.835605636426513e-10,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.004,
+              "response_difference": 1.9098544905347025e-07,
+              "finite_over_linear_prediction": 0.9987097483139571
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.001,
+              "response_difference": 4.781240254308675e-08,
+              "finite_over_linear_prediction": 1.0000911115845896
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.00025,
+              "response_difference": 1.1953609494073653e-08,
+              "finite_over_linear_prediction": 1.0001336867021562
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 6.25e-05,
+              "response_difference": 2.9886093896197034e-09,
+              "finite_over_linear_prediction": 1.000202969131599
+            }
+          ],
+          "moving_coefficient_participation": 1.0,
+          "fixed_coefficient_participation": 1.0,
+          "kl64": 2.6146489197937813e-10,
+          "kl64_distance": 2.2867658033973576e-05,
+          "pre_retraction_relative_response_leakage": 1.8777771325310158e-05,
+          "retraction_correction_norm": 1.0134314573607975e-05
+        },
+        {
+          "step": 1,
+          "moving_chart_kernel_residual": 0.00012197496904238614,
+          "fixed_chart_kernel_residual": 0.14155432488190972,
+          "chart_residual_ratio_fixed_over_moving": 1160.5194573381673,
+          "moving_direction_response_residual": 0.000344322837232056,
+          "fixed_direction_response_residual": 0.39995431079877813,
+          "active_residual_ratio_fixed_over_moving": 1161.5677717282206,
+          "moving_fixed_direction_cosine": 0.99999093100448,
+          "transverse_parameter_norm": 0.004258872038490246,
+          "transverse_response_norm": 0.39994768506411227,
+          "transverse_response_gain": 93.90929838922612,
+          "transverse_over_moving_gain": 272736.1889328765,
+          "jvp_linearity_relative_error": 1.9251181510381474e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.004,
+              "response_difference": 0.0015980445449202112,
+              "finite_over_linear_prediction": 0.998908485158529
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.001,
+              "response_difference": 0.00039983481700766156,
+              "finite_over_linear_prediction": 0.9997177929497639
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.00025,
+              "response_difference": 9.997744158947294e-05,
+              "finite_over_linear_prediction": 0.9999051908346102
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 6.25e-05,
+              "response_difference": 2.4996054213739898e-05,
+              "finite_over_linear_prediction": 0.9999729523518253
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000015982888,
+          "fixed_coefficient_participation": 1.0000000015524155,
+          "kl64": 1.8688052912299604e-10,
+          "kl64_distance": 1.9332900926813648e-05,
+          "pre_retraction_relative_response_leakage": 2.277624856063019e-05,
+          "retraction_correction_norm": 1.1684415407765065e-05
+        }
+      ],
+      "max_kernel_residual": 0.00012197496904238614,
+      "max_cg_relative_residual": 0.0016350859952888937,
+      "max_response_retraction_error": 4.415301787340274e-11,
+      "max_principal_angle": 0.004259247858244374,
+      "active_direction_diagnostics": [
+        {
+          "step": 0,
+          "moving_chart_kernel_residual": 2.3353168890264478e-08,
+          "fixed_chart_kernel_residual": 1.6906084461791795e-05,
+          "chart_residual_ratio_fixed_over_moving": 723.9310665388817,
+          "moving_direction_response_residual": 6.604061682176799e-08,
+          "fixed_direction_response_residual": 4.780779912934368e-05,
+          "active_residual_ratio_fixed_over_moving": 723.915090895782,
+          "moving_fixed_direction_cosine": 0.9999999999997766,
+          "transverse_parameter_norm": 6.684403516006972e-07,
+          "transverse_response_norm": 4.780804667619794e-05,
+          "transverse_response_gain": 71.52178434726932,
+          "transverse_over_moving_gain": 1082996915.9781477,
+          "jvp_linearity_relative_error": 1.835605636426513e-10,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.004,
+              "response_difference": 1.9098544905347025e-07,
+              "finite_over_linear_prediction": 0.9987097483139571
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.001,
+              "response_difference": 4.781240254308675e-08,
+              "finite_over_linear_prediction": 1.0000911115845896
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.00025,
+              "response_difference": 1.1953609494073653e-08,
+              "finite_over_linear_prediction": 1.0001336867021562
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 6.25e-05,
+              "response_difference": 2.9886093896197034e-09,
+              "finite_over_linear_prediction": 1.000202969131599
+            }
+          ],
+          "moving_coefficient_participation": 1.0,
+          "fixed_coefficient_participation": 1.0,
+          "kl64": 2.6146489197937813e-10,
+          "kl64_distance": 2.2867658033973576e-05,
+          "pre_retraction_relative_response_leakage": 1.8777771325310158e-05,
+          "retraction_correction_norm": 1.0134314573607975e-05
+        },
+        {
+          "step": 1,
+          "moving_chart_kernel_residual": 0.00012197496904238614,
+          "fixed_chart_kernel_residual": 0.14155432488190972,
+          "chart_residual_ratio_fixed_over_moving": 1160.5194573381673,
+          "moving_direction_response_residual": 0.000344322837232056,
+          "fixed_direction_response_residual": 0.39995431079877813,
+          "active_residual_ratio_fixed_over_moving": 1161.5677717282206,
+          "moving_fixed_direction_cosine": 0.99999093100448,
+          "transverse_parameter_norm": 0.004258872038490246,
+          "transverse_response_norm": 0.39994768506411227,
+          "transverse_response_gain": 93.90929838922612,
+          "transverse_over_moving_gain": 272736.1889328765,
+          "jvp_linearity_relative_error": 1.9251181510381474e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.004,
+              "response_difference": 0.0015980445449202112,
+              "finite_over_linear_prediction": 0.998908485158529
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.001,
+              "response_difference": 0.00039983481700766156,
+              "finite_over_linear_prediction": 0.9997177929497639
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.00025,
+              "response_difference": 9.997744158947294e-05,
+              "finite_over_linear_prediction": 0.9999051908346102
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 6.25e-05,
+              "response_difference": 2.4996054213739898e-05,
+              "finite_over_linear_prediction": 0.9999729523518253
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000015982888,
+          "fixed_coefficient_participation": 1.0000000015524155,
+          "kl64": 1.8688052912299604e-10,
+          "kl64_distance": 1.9332900926813648e-05,
+          "pre_retraction_relative_response_leakage": 2.277624856063019e-05,
+          "retraction_correction_norm": 1.1684415407765065e-05
+        }
+      ]
+    },
+    {
+      "arm": "moving",
+      "radius": 0.002,
+      "steps": 3,
+      "endpoint_reached": true,
+      "initial_dev_loss": 0.9199768774285687,
+      "final_dev_loss": 0.8891029073060981,
+      "target_dev_loss": 0.8923775711057116,
+      "dev_reduction_fraction": 0.0335595066353913,
+      "total_realizability_cost": 1.8597045488457868e-05,
+      "total_kl64_distance": 1.8597045488457868e-05,
+      "total_pre_retraction_response_leakage": 1.9299253112864245e-05,
+      "total_retraction_correction_norm": 1.0257303002414636e-05,
+      "step_cost_diagnostics": [
+        {
+          "step": 0,
+          "moving_chart_kernel_residual": 2.3353168890264478e-08,
+          "fixed_chart_kernel_residual": 1.6906084461791795e-05,
+          "chart_residual_ratio_fixed_over_moving": 723.9310665388817,
+          "moving_direction_response_residual": 6.604061672432626e-08,
+          "fixed_direction_response_residual": 4.780779912914434e-05,
+          "active_residual_ratio_fixed_over_moving": 723.915091960887,
+          "moving_fixed_direction_cosine": 0.9999999999997766,
+          "transverse_parameter_norm": 6.684403516007012e-07,
+          "transverse_response_norm": 4.780804667619634e-05,
+          "transverse_response_gain": 71.52178434726649,
+          "transverse_over_moving_gain": 1082996917.5760472,
+          "jvp_linearity_relative_error": 1.881731390903702e-10,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.002,
+              "response_difference": 9.555867207985548e-08,
+              "finite_over_linear_prediction": 0.9993994601690577
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.0005,
+              "response_difference": 2.390400734722343e-08,
+              "finite_over_linear_prediction": 0.9999993310383564
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.000125,
+              "response_difference": 5.977151083500034e-09,
+              "finite_over_linear_prediction": 1.0001916412077234
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 3.125e-05,
+              "response_difference": 1.4939627454108466e-09,
+              "finite_over_linear_prediction": 0.9999740875619194
+            }
+          ],
+          "moving_coefficient_participation": 1.0,
+          "fixed_coefficient_participation": 1.0,
+          "kl64": 2.478055206213356e-11,
+          "kl64_distance": 7.03996478146497e-06,
+          "pre_retraction_relative_response_leakage": 6.760286571364204e-06,
+          "retraction_correction_norm": 3.723383510244864e-06
+        },
+        {
+          "step": 1,
+          "moving_chart_kernel_residual": 0.00012142676683159377,
+          "fixed_chart_kernel_residual": 0.09477507073203728,
+          "chart_residual_ratio_fixed_over_moving": 780.5121819926277,
+          "moving_direction_response_residual": 0.00034296586168433915,
+          "fixed_direction_response_residual": 0.2676501866767142,
+          "active_residual_ratio_fixed_over_moving": 780.3989159803187,
+          "moving_fixed_direction_cosine": 0.9999955619686458,
+          "transverse_parameter_norm": 0.00297927217765142,
+          "transverse_response_norm": 0.2676347919316713,
+          "transverse_response_gain": 89.83227310995451,
+          "transverse_over_moving_gain": 261927.74018025983,
+          "jvp_linearity_relative_error": 4.121895729946608e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.002,
+              "response_difference": 0.0005347269622883691,
+              "finite_over_linear_prediction": 0.9989862648816004
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.0005,
+              "response_difference": 0.00013379107145005097,
+              "finite_over_linear_prediction": 0.999803280316474
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.000125,
+              "response_difference": 3.3454307753581146e-05,
+              "finite_over_linear_prediction": 0.9999987673388062
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 3.125e-05,
+              "response_difference": 8.363565460398987e-06,
+              "finite_over_linear_prediction": 0.9999973949616241
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000010437968,
+          "fixed_coefficient_participation": 1.0000000008784373,
+          "kl64": 1.5879898017384206e-11,
+          "kl64_distance": 5.635583025275061e-06,
+          "pre_retraction_relative_response_leakage": 3.3690276803428216e-06,
+          "retraction_correction_norm": 2.0124436792558524e-06
+        },
+        {
+          "step": 2,
+          "moving_chart_kernel_residual": 0.00010790598701442083,
+          "fixed_chart_kernel_residual": 0.14187756607661375,
+          "chart_residual_ratio_fixed_over_moving": 1314.8257108074354,
+          "moving_direction_response_residual": 0.00030478961779481853,
+          "fixed_direction_response_residual": 0.4008704426859753,
+          "active_residual_ratio_fixed_over_moving": 1315.2365411470068,
+          "moving_fixed_direction_cosine": 0.9999909169056447,
+          "transverse_parameter_norm": 0.0042621812151705666,
+          "transverse_response_norm": 0.4008643821036255,
+          "transverse_response_gain": 94.05146376151524,
+          "transverse_over_moving_gain": 308578.30539631366,
+          "jvp_linearity_relative_error": 2.3354906256253636e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.002,
+              "response_difference": 0.0008012879053726735,
+              "finite_over_linear_prediction": 0.999450114734235
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.0005,
+              "response_difference": 0.00020038184878561579,
+              "finite_over_linear_prediction": 0.9997488314330508
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.000125,
+              "response_difference": 5.0104158424520986e-05,
+              "finite_over_linear_prediction": 0.999922380962623
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 3.125e-05,
+              "response_difference": 1.252651572591746e-05,
+              "finite_over_linear_prediction": 0.9999603884131999
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000016003034,
+          "fixed_coefficient_participation": 1.0000000015524202,
+          "kl64": 1.753206739729487e-11,
+          "kl64_distance": 5.921497681717839e-06,
+          "pre_retraction_relative_response_leakage": 9.16993886115722e-06,
+          "retraction_correction_norm": 4.5214758129139195e-06
+        }
+      ],
+      "max_kernel_residual": 0.00012142676683159377,
+      "max_cg_relative_residual": 0.001978742832985366,
+      "max_response_retraction_error": 1.9697241133831355e-11,
+      "max_principal_angle": 0.002979522679832149,
+      "active_direction_diagnostics": [
+        {
+          "step": 0,
+          "moving_chart_kernel_residual": 2.3353168890264478e-08,
+          "fixed_chart_kernel_residual": 1.6906084461791795e-05,
+          "chart_residual_ratio_fixed_over_moving": 723.9310665388817,
+          "moving_direction_response_residual": 6.604061672432626e-08,
+          "fixed_direction_response_residual": 4.780779912914434e-05,
+          "active_residual_ratio_fixed_over_moving": 723.915091960887,
+          "moving_fixed_direction_cosine": 0.9999999999997766,
+          "transverse_parameter_norm": 6.684403516007012e-07,
+          "transverse_response_norm": 4.780804667619634e-05,
+          "transverse_response_gain": 71.52178434726649,
+          "transverse_over_moving_gain": 1082996917.5760472,
+          "jvp_linearity_relative_error": 1.881731390903702e-10,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.002,
+              "response_difference": 9.555867207985548e-08,
+              "finite_over_linear_prediction": 0.9993994601690577
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.0005,
+              "response_difference": 2.390400734722343e-08,
+              "finite_over_linear_prediction": 0.9999993310383564
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.000125,
+              "response_difference": 5.977151083500034e-09,
+              "finite_over_linear_prediction": 1.0001916412077234
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 3.125e-05,
+              "response_difference": 1.4939627454108466e-09,
+              "finite_over_linear_prediction": 0.9999740875619194
+            }
+          ],
+          "moving_coefficient_participation": 1.0,
+          "fixed_coefficient_participation": 1.0,
+          "kl64": 2.478055206213356e-11,
+          "kl64_distance": 7.03996478146497e-06,
+          "pre_retraction_relative_response_leakage": 6.760286571364204e-06,
+          "retraction_correction_norm": 3.723383510244864e-06
+        },
+        {
+          "step": 1,
+          "moving_chart_kernel_residual": 0.00012142676683159377,
+          "fixed_chart_kernel_residual": 0.09477507073203728,
+          "chart_residual_ratio_fixed_over_moving": 780.5121819926277,
+          "moving_direction_response_residual": 0.00034296586168433915,
+          "fixed_direction_response_residual": 0.2676501866767142,
+          "active_residual_ratio_fixed_over_moving": 780.3989159803187,
+          "moving_fixed_direction_cosine": 0.9999955619686458,
+          "transverse_parameter_norm": 0.00297927217765142,
+          "transverse_response_norm": 0.2676347919316713,
+          "transverse_response_gain": 89.83227310995451,
+          "transverse_over_moving_gain": 261927.74018025983,
+          "jvp_linearity_relative_error": 4.121895729946608e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.002,
+              "response_difference": 0.0005347269622883691,
+              "finite_over_linear_prediction": 0.9989862648816004
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.0005,
+              "response_difference": 0.00013379107145005097,
+              "finite_over_linear_prediction": 0.999803280316474
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.000125,
+              "response_difference": 3.3454307753581146e-05,
+              "finite_over_linear_prediction": 0.9999987673388062
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 3.125e-05,
+              "response_difference": 8.363565460398987e-06,
+              "finite_over_linear_prediction": 0.9999973949616241
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000010437968,
+          "fixed_coefficient_participation": 1.0000000008784373,
+          "kl64": 1.5879898017384206e-11,
+          "kl64_distance": 5.635583025275061e-06,
+          "pre_retraction_relative_response_leakage": 3.3690276803428216e-06,
+          "retraction_correction_norm": 2.0124436792558524e-06
+        },
+        {
+          "step": 2,
+          "moving_chart_kernel_residual": 0.00010790598701442083,
+          "fixed_chart_kernel_residual": 0.14187756607661375,
+          "chart_residual_ratio_fixed_over_moving": 1314.8257108074354,
+          "moving_direction_response_residual": 0.00030478961779481853,
+          "fixed_direction_response_residual": 0.4008704426859753,
+          "active_residual_ratio_fixed_over_moving": 1315.2365411470068,
+          "moving_fixed_direction_cosine": 0.9999909169056447,
+          "transverse_parameter_norm": 0.0042621812151705666,
+          "transverse_response_norm": 0.4008643821036255,
+          "transverse_response_gain": 94.05146376151524,
+          "transverse_over_moving_gain": 308578.30539631366,
+          "jvp_linearity_relative_error": 2.3354906256253636e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.002,
+              "response_difference": 0.0008012879053726735,
+              "finite_over_linear_prediction": 0.999450114734235
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.0005,
+              "response_difference": 0.00020038184878561579,
+              "finite_over_linear_prediction": 0.9997488314330508
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 0.000125,
+              "response_difference": 5.0104158424520986e-05,
+              "finite_over_linear_prediction": 0.999922380962623
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 3.125e-05,
+              "response_difference": 1.252651572591746e-05,
+              "finite_over_linear_prediction": 0.9999603884131999
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000016003034,
+          "fixed_coefficient_participation": 1.0000000015524202,
+          "kl64": 1.753206739729487e-11,
+          "kl64_distance": 5.921497681717839e-06,
+          "pre_retraction_relative_response_leakage": 9.16993886115722e-06,
+          "retraction_correction_norm": 4.5214758129139195e-06
+        }
+      ]
+    },
+    {
+      "arm": "moving",
+      "radius": 0.001,
+      "steps": 6,
+      "endpoint_reached": true,
+      "initial_dev_loss": 0.9199768774285687,
+      "final_dev_loss": 0.8891028613205264,
+      "target_dev_loss": 0.8923775711057116,
+      "dev_reduction_fraction": 0.033559556620964645,
+      "total_realizability_cost": 1.2985495258429394e-05,
+      "total_kl64_distance": 1.2985495258429394e-05,
+      "total_pre_retraction_response_leakage": 1.195923253195471e-05,
+      "total_retraction_correction_norm": 6.526344151317521e-06,
+      "step_cost_diagnostics": [
+        {
+          "step": 0,
+          "moving_chart_kernel_residual": 2.3353168890264478e-08,
+          "fixed_chart_kernel_residual": 1.6906084461791795e-05,
+          "chart_residual_ratio_fixed_over_moving": 723.9310665388817,
+          "moving_direction_response_residual": 6.604061683124374e-08,
+          "fixed_direction_response_residual": 4.7807799129413757e-05,
+          "active_residual_ratio_fixed_over_moving": 723.915090792973,
+          "moving_fixed_direction_cosine": 0.9999999999997766,
+          "transverse_parameter_norm": 6.68440351600694e-07,
+          "transverse_response_norm": 4.7808046676197684e-05,
+          "transverse_response_gain": 71.52178434726926,
+          "transverse_over_moving_gain": 1082996915.8227546,
+          "jvp_linearity_relative_error": 1.941228435574505e-10,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 4.781240254308675e-08,
+              "finite_over_linear_prediction": 1.000091111584595
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 1.1953609494073653e-08,
+              "finite_over_linear_prediction": 1.0001336867021615
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 2.9886093896197034e-09,
+              "finite_over_linear_prediction": 1.0002029691316043
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 7.469821859233878e-10,
+              "finite_over_linear_prediction": 0.9999751762060285
+            }
+          ],
+          "moving_coefficient_participation": 1.0,
+          "fixed_coefficient_participation": 1.0,
+          "kl64": 2.404066597613977e-12,
+          "kl64_distance": 2.1927455837894085e-06,
+          "pre_retraction_relative_response_leakage": 2.588802814817044e-06,
+          "retraction_correction_norm": 1.3718771746672455e-06
+        },
+        {
+          "step": 1,
+          "moving_chart_kernel_residual": 8.897568019652757e-05,
+          "fixed_chart_kernel_residual": 0.06474219908410271,
+          "chart_residual_ratio_fixed_over_moving": 727.6392711030873,
+          "moving_direction_response_residual": 0.000251380977969403,
+          "fixed_direction_response_residual": 0.1828814852566703,
+          "active_residual_ratio_fixed_over_moving": 727.5072550594097,
+          "moving_fixed_direction_cosine": 0.9999976318630523,
+          "transverse_parameter_norm": 0.0021762982093250036,
+          "transverse_response_norm": 0.1828498689371885,
+          "transverse_response_gain": 84.01875632379482,
+          "transverse_over_moving_gain": 334228.7749951439,
+          "jvp_linearity_relative_error": 4.813064011399953e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.0001828307581381549,
+              "finite_over_linear_prediction": 0.9998954836602035
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 4.570301012897288e-05,
+              "finite_over_linear_prediction": 0.9997931175914052
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 1.1426270645749337e-05,
+              "finite_over_linear_prediction": 0.9998384543266517
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 2.857025773777889e-06,
+              "finite_over_linear_prediction": 0.9999988000242774
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000002252039,
+          "fixed_coefficient_participation": 1.0000000001756801,
+          "kl64": 2.150760316860577e-12,
+          "kl64_distance": 2.0740107602713043e-06,
+          "pre_retraction_relative_response_leakage": 1.8726395471264288e-06,
+          "retraction_correction_norm": 1.0807880116584382e-06
+        },
+        {
+          "step": 2,
+          "moving_chart_kernel_residual": 8.092091703288773e-05,
+          "fixed_chart_kernel_residual": 0.09477506770982799,
+          "chart_residual_ratio_fixed_over_moving": 1171.2060513514657,
+          "moving_direction_response_residual": 0.00022845877464267164,
+          "fixed_direction_response_residual": 0.2676501778853676,
+          "active_residual_ratio_fixed_over_moving": 1171.546937971608,
+          "moving_fixed_direction_cosine": 0.999995561912835,
+          "transverse_parameter_norm": 0.0029792909106096483,
+          "transverse_response_norm": 0.2675922391369314,
+          "transverse_response_gain": 89.8174254095161,
+          "transverse_over_moving_gain": 393145.00198120193,
+          "jvp_linearity_relative_error": 3.360200980162263e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.00026755414963070543,
+              "finite_over_linear_prediction": 0.9998576584046351
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 6.688583595206839e-05,
+              "finite_over_linear_prediction": 0.9998172767311354
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 1.6724457501671402e-05,
+              "finite_over_linear_prediction": 0.9999965652584246
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 4.181123288912048e-06,
+              "finite_over_linear_prediction": 0.9999986970976382
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000010427024,
+          "fixed_coefficient_participation": 1.0000000008784364,
+          "kl64": 9.654264608000823e-13,
+          "kl64_distance": 1.389551338238413e-06,
+          "pre_retraction_relative_response_leakage": 1.1559492693296247e-06,
+          "retraction_correction_norm": 7.093399861215694e-07
+        },
+        {
+          "step": 3,
+          "moving_chart_kernel_residual": 5.274809794805469e-05,
+          "fixed_chart_kernel_residual": 0.10661698427726964,
+          "chart_residual_ratio_fixed_over_moving": 2021.2479392577147,
+          "moving_direction_response_residual": 0.00014873992154042988,
+          "fixed_direction_response_residual": 0.30107604550054035,
+          "active_residual_ratio_fixed_over_moving": 2024.1777888709125,
+          "moving_fixed_direction_cosine": 0.9999942241298243,
+          "transverse_parameter_norm": 0.003398785128724655,
+          "transverse_response_norm": 0.30107158115688815,
+          "transverse_response_gain": 88.5821167723718,
+          "transverse_over_moving_gain": 595550.3798507368,
+          "jvp_linearity_relative_error": 3.109914918758224e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.00030086290846341473,
+              "finite_over_linear_prediction": 0.9993069000645243
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 7.526518043927563e-05,
+              "finite_over_linear_prediction": 0.9999639308374975
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 1.8817082641224514e-05,
+              "finite_over_linear_prediction": 1.0000057830190991
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 4.704147499407956e-06,
+              "finite_over_linear_prediction": 0.9999796022103601
+            }
+          ],
+          "moving_coefficient_participation": 1.000000001898855,
+          "fixed_coefficient_participation": 1.000000001457719,
+          "kl64": 4.855832473145659e-12,
+          "kl64_distance": 3.1163544320714415e-06,
+          "pre_retraction_relative_response_leakage": 2.137020738760869e-06,
+          "retraction_correction_norm": 1.1345746965210113e-06
+        },
+        {
+          "step": 4,
+          "moving_chart_kernel_residual": 8.409986789467268e-05,
+          "fixed_chart_kernel_residual": 0.14187751051147712,
+          "chart_residual_ratio_fixed_over_moving": 1687.012287452884,
+          "moving_direction_response_residual": 0.00023753761420630828,
+          "fixed_direction_response_residual": 0.40087028499671656,
+          "active_residual_ratio_fixed_over_moving": 1687.607608319873,
+          "moving_fixed_direction_cosine": 0.9999909165858305,
+          "transverse_parameter_norm": 0.004262256249872187,
+          "transverse_response_norm": 0.40090808136451456,
+          "transverse_response_gain": 94.06006064898999,
+          "transverse_over_moving_gain": 395979.647110946,
+          "jvp_linearity_relative_error": 2.699515075756025e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.00040078153268666036,
+              "finite_over_linear_prediction": 0.9996843449066342
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 0.00010021600253607761,
+              "finite_over_linear_prediction": 0.9998900715095237
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 2.5055701764223748e-05,
+              "finite_over_linear_prediction": 0.9999579625911325
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 6.264092058186161e-06,
+              "finite_over_linear_prediction": 0.9999845609482872
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000015991157,
+          "fixed_coefficient_participation": 1.0000000015524162,
+          "kl64": 2.630997023071002e-12,
+          "kl64_distance": 2.2939036697607866e-06,
+          "pre_retraction_relative_response_leakage": 3.096767608089197e-06,
+          "retraction_correction_norm": 1.552359311113837e-06
+        },
+        {
+          "step": 5,
+          "moving_chart_kernel_residual": 0.00012717222826380675,
+          "fixed_chart_kernel_residual": 0.20659232983929915,
+          "chart_residual_ratio_fixed_over_moving": 1624.5082173974565,
+          "moving_direction_response_residual": 0.00035944338482353017,
+          "fixed_direction_response_residual": 0.5839451761336384,
+          "active_residual_ratio_fixed_over_moving": 1624.5817861422822,
+          "moving_fixed_direction_cosine": 0.9999829728477839,
+          "transverse_parameter_norm": 0.005835606603617164,
+          "transverse_response_norm": 0.58396396255907,
+          "transverse_response_gain": 100.0691105869103,
+          "transverse_over_moving_gain": 278400.2010109034,
+          "jvp_linearity_relative_error": 1.5410493906334736e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.0005839326834343126,
+              "finite_over_linear_prediction": 0.9999464365495768
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 0.00014598715461378985,
+              "finite_over_linear_prediction": 0.9999737242280441
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 3.6497679281850156e-05,
+              "finite_over_linear_prediction": 0.9999981265120149
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 9.124432639263766e-06,
+              "finite_over_linear_prediction": 0.9999995313988421
+            }
+          ],
+          "moving_coefficient_participation": 1.000000002963258,
+          "fixed_coefficient_participation": 1.0000000021402617,
+          "kl64": 1.841145163664877e-12,
+          "kl64_distance": 1.9189294742980403e-06,
+          "pre_retraction_relative_response_leakage": 1.1080525538315464e-06,
+          "retraction_correction_norm": 6.774049712354189e-07
+        }
+      ],
+      "max_kernel_residual": 0.00012717222826380675,
+      "max_cg_relative_residual": 0.0019444487162154419,
+      "max_response_retraction_error": 5.829303203001714e-12,
+      "max_principal_angle": 0.002983975799546237,
+      "active_direction_diagnostics": [
+        {
+          "step": 0,
+          "moving_chart_kernel_residual": 2.3353168890264478e-08,
+          "fixed_chart_kernel_residual": 1.6906084461791795e-05,
+          "chart_residual_ratio_fixed_over_moving": 723.9310665388817,
+          "moving_direction_response_residual": 6.604061683124374e-08,
+          "fixed_direction_response_residual": 4.7807799129413757e-05,
+          "active_residual_ratio_fixed_over_moving": 723.915090792973,
+          "moving_fixed_direction_cosine": 0.9999999999997766,
+          "transverse_parameter_norm": 6.68440351600694e-07,
+          "transverse_response_norm": 4.7808046676197684e-05,
+          "transverse_response_gain": 71.52178434726926,
+          "transverse_over_moving_gain": 1082996915.8227546,
+          "jvp_linearity_relative_error": 1.941228435574505e-10,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 4.781240254308675e-08,
+              "finite_over_linear_prediction": 1.000091111584595
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 1.1953609494073653e-08,
+              "finite_over_linear_prediction": 1.0001336867021615
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 2.9886093896197034e-09,
+              "finite_over_linear_prediction": 1.0002029691316043
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 7.469821859233878e-10,
+              "finite_over_linear_prediction": 0.9999751762060285
+            }
+          ],
+          "moving_coefficient_participation": 1.0,
+          "fixed_coefficient_participation": 1.0,
+          "kl64": 2.404066597613977e-12,
+          "kl64_distance": 2.1927455837894085e-06,
+          "pre_retraction_relative_response_leakage": 2.588802814817044e-06,
+          "retraction_correction_norm": 1.3718771746672455e-06
+        },
+        {
+          "step": 1,
+          "moving_chart_kernel_residual": 8.897568019652757e-05,
+          "fixed_chart_kernel_residual": 0.06474219908410271,
+          "chart_residual_ratio_fixed_over_moving": 727.6392711030873,
+          "moving_direction_response_residual": 0.000251380977969403,
+          "fixed_direction_response_residual": 0.1828814852566703,
+          "active_residual_ratio_fixed_over_moving": 727.5072550594097,
+          "moving_fixed_direction_cosine": 0.9999976318630523,
+          "transverse_parameter_norm": 0.0021762982093250036,
+          "transverse_response_norm": 0.1828498689371885,
+          "transverse_response_gain": 84.01875632379482,
+          "transverse_over_moving_gain": 334228.7749951439,
+          "jvp_linearity_relative_error": 4.813064011399953e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.0001828307581381549,
+              "finite_over_linear_prediction": 0.9998954836602035
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 4.570301012897288e-05,
+              "finite_over_linear_prediction": 0.9997931175914052
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 1.1426270645749337e-05,
+              "finite_over_linear_prediction": 0.9998384543266517
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 2.857025773777889e-06,
+              "finite_over_linear_prediction": 0.9999988000242774
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000002252039,
+          "fixed_coefficient_participation": 1.0000000001756801,
+          "kl64": 2.150760316860577e-12,
+          "kl64_distance": 2.0740107602713043e-06,
+          "pre_retraction_relative_response_leakage": 1.8726395471264288e-06,
+          "retraction_correction_norm": 1.0807880116584382e-06
+        },
+        {
+          "step": 2,
+          "moving_chart_kernel_residual": 8.092091703288773e-05,
+          "fixed_chart_kernel_residual": 0.09477506770982799,
+          "chart_residual_ratio_fixed_over_moving": 1171.2060513514657,
+          "moving_direction_response_residual": 0.00022845877464267164,
+          "fixed_direction_response_residual": 0.2676501778853676,
+          "active_residual_ratio_fixed_over_moving": 1171.546937971608,
+          "moving_fixed_direction_cosine": 0.999995561912835,
+          "transverse_parameter_norm": 0.0029792909106096483,
+          "transverse_response_norm": 0.2675922391369314,
+          "transverse_response_gain": 89.8174254095161,
+          "transverse_over_moving_gain": 393145.00198120193,
+          "jvp_linearity_relative_error": 3.360200980162263e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.00026755414963070543,
+              "finite_over_linear_prediction": 0.9998576584046351
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 6.688583595206839e-05,
+              "finite_over_linear_prediction": 0.9998172767311354
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 1.6724457501671402e-05,
+              "finite_over_linear_prediction": 0.9999965652584246
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 4.181123288912048e-06,
+              "finite_over_linear_prediction": 0.9999986970976382
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000010427024,
+          "fixed_coefficient_participation": 1.0000000008784364,
+          "kl64": 9.654264608000823e-13,
+          "kl64_distance": 1.389551338238413e-06,
+          "pre_retraction_relative_response_leakage": 1.1559492693296247e-06,
+          "retraction_correction_norm": 7.093399861215694e-07
+        },
+        {
+          "step": 3,
+          "moving_chart_kernel_residual": 5.274809794805469e-05,
+          "fixed_chart_kernel_residual": 0.10661698427726964,
+          "chart_residual_ratio_fixed_over_moving": 2021.2479392577147,
+          "moving_direction_response_residual": 0.00014873992154042988,
+          "fixed_direction_response_residual": 0.30107604550054035,
+          "active_residual_ratio_fixed_over_moving": 2024.1777888709125,
+          "moving_fixed_direction_cosine": 0.9999942241298243,
+          "transverse_parameter_norm": 0.003398785128724655,
+          "transverse_response_norm": 0.30107158115688815,
+          "transverse_response_gain": 88.5821167723718,
+          "transverse_over_moving_gain": 595550.3798507368,
+          "jvp_linearity_relative_error": 3.109914918758224e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.00030086290846341473,
+              "finite_over_linear_prediction": 0.9993069000645243
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 7.526518043927563e-05,
+              "finite_over_linear_prediction": 0.9999639308374975
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 1.8817082641224514e-05,
+              "finite_over_linear_prediction": 1.0000057830190991
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 4.704147499407956e-06,
+              "finite_over_linear_prediction": 0.9999796022103601
+            }
+          ],
+          "moving_coefficient_participation": 1.000000001898855,
+          "fixed_coefficient_participation": 1.000000001457719,
+          "kl64": 4.855832473145659e-12,
+          "kl64_distance": 3.1163544320714415e-06,
+          "pre_retraction_relative_response_leakage": 2.137020738760869e-06,
+          "retraction_correction_norm": 1.1345746965210113e-06
+        },
+        {
+          "step": 4,
+          "moving_chart_kernel_residual": 8.409986789467268e-05,
+          "fixed_chart_kernel_residual": 0.14187751051147712,
+          "chart_residual_ratio_fixed_over_moving": 1687.012287452884,
+          "moving_direction_response_residual": 0.00023753761420630828,
+          "fixed_direction_response_residual": 0.40087028499671656,
+          "active_residual_ratio_fixed_over_moving": 1687.607608319873,
+          "moving_fixed_direction_cosine": 0.9999909165858305,
+          "transverse_parameter_norm": 0.004262256249872187,
+          "transverse_response_norm": 0.40090808136451456,
+          "transverse_response_gain": 94.06006064898999,
+          "transverse_over_moving_gain": 395979.647110946,
+          "jvp_linearity_relative_error": 2.699515075756025e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.00040078153268666036,
+              "finite_over_linear_prediction": 0.9996843449066342
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 0.00010021600253607761,
+              "finite_over_linear_prediction": 0.9998900715095237
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 2.5055701764223748e-05,
+              "finite_over_linear_prediction": 0.9999579625911325
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 6.264092058186161e-06,
+              "finite_over_linear_prediction": 0.9999845609482872
+            }
+          ],
+          "moving_coefficient_participation": 1.0000000015991157,
+          "fixed_coefficient_participation": 1.0000000015524162,
+          "kl64": 2.630997023071002e-12,
+          "kl64_distance": 2.2939036697607866e-06,
+          "pre_retraction_relative_response_leakage": 3.096767608089197e-06,
+          "retraction_correction_norm": 1.552359311113837e-06
+        },
+        {
+          "step": 5,
+          "moving_chart_kernel_residual": 0.00012717222826380675,
+          "fixed_chart_kernel_residual": 0.20659232983929915,
+          "chart_residual_ratio_fixed_over_moving": 1624.5082173974565,
+          "moving_direction_response_residual": 0.00035944338482353017,
+          "fixed_direction_response_residual": 0.5839451761336384,
+          "active_residual_ratio_fixed_over_moving": 1624.5817861422822,
+          "moving_fixed_direction_cosine": 0.9999829728477839,
+          "transverse_parameter_norm": 0.005835606603617164,
+          "transverse_response_norm": 0.58396396255907,
+          "transverse_response_gain": 100.0691105869103,
+          "transverse_over_moving_gain": 278400.2010109034,
+          "jvp_linearity_relative_error": 1.5410493906334736e-14,
+          "finite_radius_ladder": [
+            {
+              "scale": 1.0,
+              "epsilon": 0.001,
+              "response_difference": 0.0005839326834343126,
+              "finite_over_linear_prediction": 0.9999464365495768
+            },
+            {
+              "scale": 0.25,
+              "epsilon": 0.00025,
+              "response_difference": 0.00014598715461378985,
+              "finite_over_linear_prediction": 0.9999737242280441
+            },
+            {
+              "scale": 0.0625,
+              "epsilon": 6.25e-05,
+              "response_difference": 3.6497679281850156e-05,
+              "finite_over_linear_prediction": 0.9999981265120149
+            },
+            {
+              "scale": 0.015625,
+              "epsilon": 1.5625e-05,
+              "response_difference": 9.124432639263766e-06,
+              "finite_over_linear_prediction": 0.9999995313988421
+            }
+          ],
+          "moving_coefficient_participation": 1.000000002963258,
+          "fixed_coefficient_participation": 1.0000000021402617,
+          "kl64": 1.841145163664877e-12,
+          "kl64_distance": 1.9189294742980403e-06,
+          "pre_retraction_relative_response_leakage": 1.1080525538315464e-06,
+          "retraction_correction_norm": 6.774049712354189e-07
+        }
+      ]
+    }
+  ]
+}

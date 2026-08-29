@@ -24,6 +24,18 @@ V_\theta=\ker DR(\theta).
 v3.1e confirms that online current-kernel transport and stale source-chart
 replay exhibit different realizability-cost scaling. This rejects a fixed
 source subspace as an adequate finite-path description in the tested model.
+ResNet v4.1b independently confirms the same qualitative finite-radius
+separation in a terminal residual adapter plus classifier over a frozen
+ImageNet-pretrained backbone: 16/16 new seeds passed every geometric and
+held-out gate.
+
+ResNet v4.2d then tests the local mechanism in trainable layer4 plus classifier.
+All 16/16 new seeds passed a frozen transverse-amplification joint gate; the
+median active residual ratio was 1437.844 despite a moving/fixed direction
+cosine of 0.999990. This connects chart motion to a directly measured
+high-gain transverse response direction without turning the result into a
+global bundle theorem.
+
 An archived-data LOO audit retained a minimum moving-minus-fixed median
 exponent separation of 0.6273 after deleting any one radius; this is labelled
 post-confirmation robustness rather than a new prospective confirmation.
@@ -65,6 +77,6 @@ centre of the evidence ladder and not a full-model or semantic claim.
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
 theorem, from a finite algorithm cohort to arbitrary causal paths, from the
-frozen ResNet final classifier to moving-fibre transport in an external model,
-from a declared GPT-2 LoRA-B subspace to full-model LLM behaviour, or from
-neural realizability cost to physical time.
+declared ResNet charts to unrestricted backbone geometry, from a declared
+GPT-2 LoRA-B subspace to full-model LLM behaviour, or from neural realizability
+cost to physical time.

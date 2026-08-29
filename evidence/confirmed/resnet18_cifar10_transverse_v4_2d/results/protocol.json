@@ -1,0 +1,41 @@
+{
+  "protocol": "CNER_RESNET18_CIFAR10_FULL_LAYER4_TRANSVERSE_CONFIRM_V4_2D",
+  "seeds": [
+    76742,
+    76743,
+    76744,
+    76745,
+    76746,
+    76747,
+    76748,
+    76749,
+    76750,
+    76751,
+    76752,
+    76753,
+    76754,
+    76755,
+    76756,
+    76757
+  ],
+  "radii": [
+    0.004,
+    0.002,
+    0.001
+  ],
+  "micro_scales": [
+    1.0,
+    0.25,
+    0.0625,
+    0.015625
+  ],
+  "audit_dtype": "float64",
+  "tf32": false,
+  "anchors": 8,
+  "chart_dim": 8,
+  "max_steps": 24,
+  "target_reduction": 0.03,
+  "ridge": 1e-05,
+  "cg_steps": 48,
+  "cg_tol": 0.002
+}

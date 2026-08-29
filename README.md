@@ -2,7 +2,7 @@
 
 ## Confirmed Scaling of Realizability Cost
 
-Repository-ready frozen evidence archive v1.4.0 for the associated paper by
+Repository-ready frozen evidence archive v1.5.0 for the associated paper by
 Y.Y.N. Li. This archive separates prospectively confirmed results from
 developmental mechanism studies and preserves failed or excluded cases rather
 than relabelling them after inspection.
@@ -40,6 +40,28 @@ dimensionless kernel residual was 2.28e-13 and maximum finite centered-logit
 leakage was 2.98e-13. This confirms selected tangent value in a frozen external
 representation; it does not update the ResNet backbone or externally confirm
 moving-kernel transport, cost scaling or Moving-Fibre F16 ordering.
+
+## ResNet mechanism closure: Sections 5.3--6
+
+Release v1.5.0 adds the two previously missing load-bearing ResNet archives.
+The v4.1b prospective dual-scaling audit used a frozen ImageNet-pretrained
+ResNet-18 backbone with a trainable terminal residual adapter and classifier.
+All 16/16 new seeds passed every geometric and held-out gate. Recomputed
+medians are a moving-minus-fixed slope gap of 0.5751, a smallest-radius
+fixed/moving cost ratio of 2.997, and raw/projected development-confirmation
+gradient cosines of 0.414/0.996.
+
+The v4.2d prospective transverse audit used trainable layer4 plus classifier,
+an eight-dimensional matrix-free transported chart, float64 response geometry,
+and TF32 disabled. All 16/16 new seeds passed the frozen 12/16 joint gate.
+Recomputed medians include direction cosine 0.999990, active residual ratio
+1437.844, transverse gain contrast 341,763 and finite-difference/JVP ratio
+0.999998.
+
+The full frozen programs, protocols, raw result ZIPs, 32 expanded per-seed JSON
+records, independent reconstruction script and publication-facing SI tables
+are included. These audits close the repository support for Sections 5.3--6;
+they do not establish arbitrary-path or global variational optimality.
 
 ## Main result I: moving-fibre realizability scaling
 
@@ -128,6 +150,8 @@ continuum or arbitrary-path theorem.
 
 | Stage | Frozen result | Formal status |
 |---|---|---|
+| ResNet-18/CIFAR-10 v4.2d | Layer4+fc transverse audit passed 16/16; median active residual ratio 1437.844 and gain contrast 341,763 | Confirmed finite-chart transverse amplification |
+| ResNet-18/CIFAR-10 v4.1b | Terminal adapter+classifier dual scaling passed all geometric and held-out gates in 16/16 seeds | Confirmed cross-model finite-radius scaling |
 | GPTW v1.1.0 | Rank-2 LoRA-B adaptive value passed 8/8 new seeds; current-vs-fixed passed 6/6; disjoint natural-text confirmation passed 8/8 seeds and 32/32 nodes | Confirmed restricted cross-modal mechanism |
 | ResNet-18/CIFAR-10 v4.0c-r1 | Selected final-classifier response-fibre tangent passed all gates in 16/16 seeds at 4, 16 and 32 anchors | Confirmed external functional premise |
 | F16 v16 | True output-Fisher natural flow minimized the restricted six-path CNER-F action in 15/16 seeds; Adam and wrong-Fisher natural won 0/16 | Confirmed restricted ordering |
@@ -161,6 +185,8 @@ evidence/
     moving_fibre_v3_1e/
     moving_fibre_f16_v3_2c/
     resnet18_cifar10_fibre_v4_0c_r1/
+    resnet18_cifar10_dual_scaling_v4_1b/
+    resnet18_cifar10_transverse_v4_2d/
   developmental/
     moving_fibre_v3_1a/
     moving_fibre_v3_1b/
@@ -172,8 +198,10 @@ docs/
   CLAIM_BOUNDARIES.md
   EVIDENCE_LADDER.md
   robustness_v3_1e/
+  supplementary/
 audits/
   formula_audit_v1/
+  resnet_v4_1b_v4_2d/
 provenance/
   PROVENANCE.md
   SHA256SUMS
@@ -193,15 +221,16 @@ The archive supports state-dependent response fibres, confirmed finite-radius
 realizability-cost scaling, and restricted six-algorithm Moving-Fibre F16
 ordering in frozen finite CNN--MNIST constructions. It also confirms selected
 response-fibre tangent value in the complete final classifier of a frozen
-ResNet-18 representation and provides prospective cross-modal confirmation in
+  ResNet-18 representation, cross-model ResNet cost scaling and finite-chart
+  transverse response amplification, and provides prospective cross-modal confirmation in
 the rank-2 LoRA-B subspace of the final two GPT-2 blocks. It does not establish:
 
 - a complete high-dimensional response-kernel bundle;
 - exact \(h\to0\) convergence or a horizontal-lift theorem;
 - local or global minimality over arbitrary causal paths;
 - a unique scalar combination of F16 action and realizability cost;
-- ResNet backbone adaptation or cross-architecture confirmation of moving-fibre
-  transport, realizability scaling or v3.2c;
+- unrestricted ResNet backbone adaptation, ResNet F16 ordering or an
+  arbitrary-path/global variational result;
 - full-model GPT-2/LLM confirmation, semantic invariance, or transfer beyond
   the declared LoRA-B subspace and frozen prompts;
 - a universal intelligence, physical-time or K=1 law.

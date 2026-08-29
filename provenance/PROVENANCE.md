@@ -101,3 +101,27 @@ counts, decisions and V3 node-level gates.
 The scope remains the rank-2 LoRA-B subspace of the final two GPT-2 blocks.
 No claim is made for full-model GPT-2, arbitrary prompts, semantic invariance,
 capacity-weighted CNER, or arbitrary-path/global variational optimality.
+
+## v1.5.0 ResNet mechanism and SI closure
+
+This release imports the original v4.1b and v4.2d executable packages and
+result ZIPs byte-for-byte. It also expands their 32 per-seed JSON records and
+adds an independent reconstruction script that ignores the aggregate values in
+`report.json`. The reconstructed values agree with Sections 5.3 and 6 of the
+paper at the displayed precision.
+
+v4.1b used new seeds 68726--68741. All twelve paths for each seed were generated
+and frozen from development data before the first confirmation access. All
+16/16 seeds passed every geometric and held-out gate. Its parameter domain is a
+trainable terminal residual adapter plus classifier over frozen ResNet-18
+features, not the complete backbone.
+
+v4.2d used new seeds 76742--76757 after a float32/TF32 development attempt
+failed the frozen JVP identity certification. The confirmation used float64
+response geometry with TF32 disabled, trainable layer4 plus classifier, and an
+eight-dimensional matrix-free chart. All 16/16 seeds passed the frozen 12/16
+joint gate. The failed precision stage is described as failure history and is
+not counted as positive evidence.
+
+Neither result establishes a complete high-dimensional kernel bundle,
+universal scaling, ResNet F16 ordering, or local/global variational optimality.

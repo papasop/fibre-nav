@@ -2,6 +2,16 @@
 
 ## Prospectively confirmed
 
+0. **ResNet-18/CIFAR-10 v4.2d:** transverse response amplification in an
+   eight-dimensional transported chart with trainable layer4 plus classifier.
+   All 16/16 new seeds passed the frozen joint gate; the median active residual
+   ratio was 1437.844 and the median transverse gain contrast was 341,763.
+
+0. **ResNet-18/CIFAR-10 v4.1b:** current-kernel versus source-fixed
+   realizability-cost scaling in a trainable terminal residual adapter plus
+   classifier over a frozen ImageNet-pretrained backbone. All 16/16 new seeds
+   passed every frozen geometric and held-out gate.
+
 0. **GPTW v1.1.0:** restricted cross-modal confirmation in the rank-2 LoRA-B
    subspace of the final two GPT-2 transformer blocks. The prospective
    adaptive-value audit passed in 8/8 new seeds, current-fibre versus
@@ -69,8 +79,8 @@ realizability-cost minimality.
 - arbitrary-path local or global variational minimality;
 - a unique scalar action combining F16 and realizability cost;
 - a complete response-kernel bundle rather than an eight-dimensional chart;
-- adaptation of the ResNet backbone or external replication of moving-fibre
-  transport, realizability-cost scaling, F16 ordering or action-cost separation;
+- unrestricted adaptation of the ResNet backbone, ResNet F16 ordering or
+  action-cost separation;
 - full-model GPT-2/LLM transfer, semantic invariance, or generalisation beyond
   the declared rank-2 LoRA-B subspace and frozen prompt cohorts;
 - universal intelligence, learning, physical realizability or time laws;
