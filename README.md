@@ -42,18 +42,23 @@ At recorded AdamW nodes, the instantaneous response kernel defines a superior
 held-out learning frontier under the same prospectively frozen finite response
 budgets.
 
-In the GPT-2 native-LoRA-B audit:
+In the strict GPT-2 native-LoRA-B R2 audit:
 
 - 8/8 prospectively frozen seeds passed;
-- all 24/24 noninitial nodes were positive and beat every declared control;
-- pooled median held-out AUC was 0.11858 for the current kernel, compared with
-  0.03341 for the source kernel, 0.03641 for the half-path shifted kernel,
-  0.00851 for recorded AdamW and 0.00853 for the signed permutation.
+- 6/8 seeds passed the complete frozen control family;
+- the current-minus-random-current-kernel seed contrast was positive in 7/8
+  seeds and 20/24 noninitial nodes;
+- the bootstrap 95% confidence interval for the mean seed contrast was
+  [0.0296, 0.1283] with exact two-sided sign-flip \(p=0.03125\).
 
 Candidate scales were selected on calibration prompts and evaluated once on
 disjoint held-out templates. The successful arm is a counterfactual projection
 at recorded optimizer nodes; the audit does not show that AdamW naturally
 discovers or follows the response fibre.
+
+This R2 strict-control upgrade supports task-specific low-response Pareto
+advantage beyond generic current-kernel membership. Historical R1 files and
+decisions remain unchanged.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/papasop/neural-fibre-geometry/blob/codex/readme-behaviour-learning-hierarchy/external_tests/gpt2_lora_pareto/GPT2_LORA_PARETO_EXTERNAL_ONE_CLICK.ipynb)
 
@@ -61,7 +66,7 @@ The Colab link targets this review branch. For a release, replace the branch
 with the immutable release tag rather than `main`. The launcher checks out and
 verifies fixed source commit `00500e1322be67c9774d44c15e44e598d6ec9039`.
 
-[Inspect protocol and archived results](evidence/low_response_pareto_v1/gpt2_lora_b_v1/)
+[Inspect protocol and archived results](evidence/low_response_pareto_v1/gpt2_lora_b_r2_strict/)
 
 ## Functional premise: selected fibre directions can carry adaptive value
 
@@ -154,6 +159,19 @@ prospectively declared controls under the same finite budgets and alpha grid.
 - All 24/24 noninitial nodes were positive and beat all declared controls.
 - Pooled median AUC: current 0.11858; source 0.03341; half-path shifted
   0.03641; recorded AdamW 0.00851; signed permutation 0.00853.
+
+### GPT-2 native-LoRA-B R2 strict-control upgrade - confirmed
+
+- 8/8 prospective GPU seeds completed.
+- 6/8 seeds passed the complete frozen control family.
+- Current-minus-random-current-kernel contrast was positive in 7/8 seeds and
+  20/24 noninitial nodes.
+- Bootstrap 95% confidence interval for the mean seed contrast: [0.0296,
+  0.1283]; exact two-sided sign-flip \(p=0.03125\).
+
+R2 adds a calibration-selected best-of-16 equal-norm random direction inside
+the same instantaneous response kernel. It therefore distinguishes
+task-specific direction selection from generic current-kernel membership.
 
 Recorded AdamW supplies real training nodes and proposals, but the successful
 instantaneous-kernel arm is a counterfactual projection. Ordinary optimizer navigation is not established.
@@ -271,7 +289,7 @@ continuum or arbitrary-path theorem.
 | Selected response-fibre directions carry adaptive value | ResNet-18/CIFAR-10 v4.0c-r1 passed all gates in 16/16 seeds at 4, 16 and 32 anchors | Confirmed fixed-chart functional premise |
 | Moving-fibre finite realizability-cost scaling | CNN--MNIST v3.1e passed 15/15 comparable seeds; ResNet v4.1b passed 16/16 seeds with slope gap 0.5751 and smallest-radius cost ratio 2.997 | Confirmed finite-radius scaling |
 | Transverse response amplification | ResNet v4.2d passed 16/16 seeds; median active residual ratio 1437.844 and transverse gain contrast 341,763 | Confirmed finite-chart transverse amplification |
-| Low-response held-out learning frontier | Reduced ResNet v4.6 is supported with 7/8 seeds. GPT-2 native-LoRA-B v1-r1 passed 8/8 seeds and 24/24 noninitial nodes | Supported in reduced ResNet; confirmed within the declared GPT-2 native-LoRA-B protocol |
+| Low-response held-out learning frontier | Reduced ResNet v4.6 is supported with 7/8 seeds. GPT-2 native-LoRA-B R1 passed 8/8 seeds and 24/24 noninitial nodes; R2 strict-control upgrade passed 6/8 complete-control seeds with 7/8 positive same-kernel seed contrasts and 20/24 positive noninitial nodes | Supported in reduced ResNet; confirmed within the declared GPT-2 native-LoRA-B R1 and R2 protocols |
 | GPTW current-versus-fixed correction-cost scaling | GPTW v2 is SUPPORTED in 6/6 seeds and 18/18 nodes; v3 natural text is SUPPORTED in 8/8 seeds and 32/32 nodes as not confined to codeword prompts | Supported restricted GPTW evidence |
 | Restricted Moving-Fibre F16 ordering | Moving-Fibre F16 v3.2c passed with natural minimizing the restricted action at all four radii in 14/14 comparable seeds and winning under the wrong metric in 0/14 | Confirmed restricted multi-radius ordering |
 | Action/realization-cost equivalence - Refuted | Natural gradient was not the least-cost path in 14/14 comparable seeds; smallest-radius correction-cost ratio median 2.25, range 1.60-4.19 | Refuted within the frozen six-algorithm family |
@@ -304,6 +322,7 @@ evidence/
   low_response_pareto_v1/
     resnet_v4_6/
     gpt2_lora_b_v1/
+    gpt2_lora_b_r2_strict/
   confirmed/
     f16_v16/
     moving_f16_v3_0b/

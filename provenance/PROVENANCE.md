@@ -222,3 +222,22 @@ the Colab-facing link should be moved to that immutable tag.
 Scientific role: same-cohort external reproduction of the prospectively frozen
 8-seed/24-node GPT-2 native-LoRA-B Pareto audit, not an independent new-seed
 confirmation. No frozen result, gate, seed count or decision is changed.
+
+## GPT-2 LoRA-B Pareto R2 strict-control confirmation
+
+This release imports
+`neural_fibre_geometry_gpt2_lora_pareto_r2_github_update.zip` as an independent
+prospective strict-control upgrade under
+`evidence/low_response_pareto_v1/gpt2_lora_b_r2_strict/`. ZIP SHA-256:
+`9b250a836f911ded7df1d7a06cab9451261a591819a3da1990a58f9ea44b320e`.
+
+R2 does not overwrite, repair or retroactively strengthen R1. It adds a
+calibration-selected best-of-16 equal-norm random direction inside the same
+current response kernel. The frozen decision is
+`GPT2_LORA_LOW_RESPONSE_PARETO_STRICT_CONFIRMED`: 8/8 prospective GPU seeds
+completed, 6/8 seeds passed the complete frozen control family, 7/8 seed-level
+same-kernel contrasts were positive, and 20/24 noninitial nodes were positive.
+
+The imported verifier `verify_gpt2_lora_pareto_r2.py` checks file hashes,
+protocol equality, cohort counts, node counts, bootstrap interval positivity
+and the exact two-sided sign-flip p-value before commit.
