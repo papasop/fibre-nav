@@ -196,3 +196,29 @@ The previous reviewed snapshot is preserved without deletion at
 
 No experimental result, protocol, seed count, gate, raw archive or scientific
 decision changed in this hierarchy and manuscript-snapshot repair.
+
+## GPT-2 LoRA-B Pareto reproduction repair
+
+This revision restores the parent engine required by the archived GPT-2
+native-LoRA-B eight-seed wrapper:
+`evidence/low_response_pareto_v1/gpt2_lora_b_v1/gptw_lora_low_response_pareto_cpu.py`.
+The file is extracted from the original frozen input ZIP
+`gptw_gpt2_lora_pareto_cpu_8seed_v1_r1.zip`; it is not a reconstructed or
+functionally similar replacement.
+
+Authoritative repair hashes:
+
+- original eight-seed ZIP: `ce0fe0ebc201478b8cac62cc8b067272bbf9ecbb851a87d5159c1ec9627eb08e`
+- restored parent engine: `531d08d128d31c8de1fac61a39fb2915c2de8b09561efc383430d444bab3b773`
+
+It also adds a zero-upload external reproduction wrapper under
+`external_tests/gpt2_lora_pareto/`. The wrapper verifies the archived snapshot,
+checks the parent engine and eight-seed wrapper, and can run archive-only,
+smoke-test or full same-cohort reproduction modes.
+The review-branch wrapper pins the executable source snapshot at commit
+`00500e1322be67c9774d44c15e44e598d6ec9039`; after a release tag is created,
+the Colab-facing link should be moved to that immutable tag.
+
+Scientific role: same-cohort external reproduction of the prospectively frozen
+8-seed/24-node GPT-2 native-LoRA-B Pareto audit, not an independent new-seed
+confirmation. No frozen result, gate, seed count or decision is changed.

@@ -36,6 +36,33 @@ The repository evidence does not show that every kernel direction is useful,
 that complete model behaviour is preserved, or that ordinary optimizers
 naturally follow the response fibre.
 
+## Strongest functional result
+
+At recorded AdamW nodes, the instantaneous response kernel defines a superior
+held-out learning frontier under the same prospectively frozen finite response
+budgets.
+
+In the GPT-2 native-LoRA-B audit:
+
+- 8/8 prospectively frozen seeds passed;
+- all 24/24 noninitial nodes were positive and beat every declared control;
+- pooled median held-out AUC was 0.11858 for the current kernel, compared with
+  0.03341 for the source kernel, 0.03641 for the half-path shifted kernel,
+  0.00851 for recorded AdamW and 0.00853 for the signed permutation.
+
+Candidate scales were selected on calibration prompts and evaluated once on
+disjoint held-out templates. The successful arm is a counterfactual projection
+at recorded optimizer nodes; the audit does not show that AdamW naturally
+discovers or follows the response fibre.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/papasop/neural-fibre-geometry/blob/codex/readme-behaviour-learning-hierarchy/external_tests/gpt2_lora_pareto/GPT2_LORA_PARETO_EXTERNAL_ONE_CLICK.ipynb)
+
+The Colab link targets this review branch. For a release, replace the branch
+with the immutable release tag rather than `main`. The launcher checks out and
+verifies fixed source commit `00500e1322be67c9774d44c15e44e598d6ec9039`.
+
+[Inspect protocol and archived results](evidence/low_response_pareto_v1/gpt2_lora_b_v1/)
+
 ## Functional premise: selected fibre directions can carry adaptive value
 
 ResNet-18/CIFAR-10 v4.0c-r1 prospectively tested the functional premise in the
@@ -307,6 +334,7 @@ provenance/
   SHA256SUMS
 external_tests/
   gptw_v3/
+  gpt2_lora_pareto/
 paper/
   Moving_Response_Fibres_A_Geometric_View_of_Behaviour_and_Learning.pdf
   archive/Moving_Response_Fibres_v5_unified_hierarchy.pdf
@@ -349,6 +377,14 @@ Each stage's `code/` directory contains its launcher, frozen `protocol.json`,
 main program and shared F16 engine where required. GPU execution is strongly
 recommended for v3.1e and v3.2c. Raw result ZIPs are authoritative; extracted
 JSON directories are supplied for inspection.
+
+Low-response Pareto reproduction has three layers:
+
+```bash
+python verify_low_response_snapshot.py
+python external_tests/gpt2_lora_pareto/COLAB_ONE_CLICK_GPT2_LORA_PARETO.py --source-root . --smoke
+python external_tests/gpt2_lora_pareto/COLAB_ONE_CLICK_GPT2_LORA_PARETO.py --source-root . --full
+```
 
 The publication-ready external-confirmation record is under `docs/si_v4_0c/`.
 The authoritative raw output is preserved under
