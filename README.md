@@ -1,13 +1,140 @@
-# Moving Response Fibres in Neural Networks
+# Moving Response Fibres
 
-## Confirmed Scaling of Realizability Cost
+## A Geometric View of Behaviour and Learning
 
-Repository-ready frozen evidence archive v1.5.0 for the associated paper by
-Y.Y.N. Li. This archive separates prospectively confirmed results from
-developmental mechanism studies and preserves failed or excluded cases rather
-than relabelling them after inspection.
+Current main-branch evidence snapshot for the associated paper by Y. Y. N. Li.
+This repository archives frozen programs, protocols, results, failed stages
+and verification records.
 
-## Cross-modal confirmation: GPT-2 + native LoRA
+Here, *behaviour* means the value of a prospectively declared finite response
+map \(R(\theta)\), not a model's complete input-output function. *Learning*
+means improvement on a separately declared adaptation objective, evaluated on
+held-out data where specified. A response fibre therefore collects internal
+realizations that agree on the declared behaviour but may differ in their
+capacity for subsequent learning.
+
+The archive is organized around one central mechanism, two main results, one
+limited cross-architecture confirmation and one strict failure boundary.
+Developmental, failed and excluded stages are preserved rather than relabelled
+after inspection.
+
+## Central mechanism: behaviour does not determine learning freedom
+
+For a prospectively frozen response map \(R\), local response-preserving
+freedom is represented by
+
+\[
+V_\theta = \ker DR(\theta).
+\]
+
+The central claim is not merely that this kernel is large. It is that the
+relevant response-preserving distribution changes with model state, and that
+using its instantaneous rather than stale geometry has finite geometric and
+learning consequences.
+
+The repository evidence does not show that every kernel direction is useful,
+that complete model behaviour is preserved, or that ordinary optimizers
+naturally follow the response fibre.
+
+## Functional premise: selected fibre directions can carry adaptive value
+
+ResNet-18/CIFAR-10 v4.0c-r1 prospectively tested the functional premise in the
+complete 5,130-parameter final classifier on top of a frozen ImageNet-pretrained
+ResNet-18 representation. Sixteen new classifier-training seeds were evaluated
+at 4, 16 and 32 anchors. Every seed passed every frozen response-preservation,
+effect-size and control gate at all three anchor counts. The learned tangent
+beat sign reversal, a shuffled-target tangent and the best of 32 matched random
+kernel tangents in all 48 seed-anchor settings.
+
+At the primary 16-anchor setting, the learned tangent's median confirmation-loss
+change was -0.01842, compared with +0.02307 for sign reversal, -0.00099 for the
+shuffled-target tangent and -0.00072 for the best random tangent. The maximum
+dimensionless kernel residual was 2.28e-13 and maximum finite centered-logit
+leakage was 2.98e-13. This confirms selected tangent value in a frozen
+pretrained representation; it does not update the ResNet backbone or provide
+cross-model confirmation of moving-kernel transport, cost scaling or
+Moving-Fibre F16 ordering.
+
+This is a fixed-chart functional premise. It is distinct from the moving-fibre
+geometry audits and from the real-node low-response Pareto frontier below.
+
+## Main result I: finite consequences of moving response geometry
+
+Current-kernel transport and source-fixed replay differ in finite
+realizability cost, and minute drift between their parameter directions can be
+strongly amplified in active response space. Realizability-cost scaling and
+transverse amplification are treated here as two measured consequences of one
+moving-geometric result, not as separate theoretical centres.
+
+Moving-Fibre v3.1e compared an online eight-dimensional chart reprojected into
+the current response kernel with replay in a stale source-fixed chart. Of 16
+new seeds, 15 were fully comparable and all 15 passed every frozen substantive
+gate. Median scaling statistics were
+
+\[
+\alpha_{\rm moving}=0.684,\qquad
+\alpha_{\rm fixed}=0.00715,
+\]
+
+with smallest-radius fixed/moving retraction-Fisher cost ratio 21.30 and
+tangent-residual ratio 21.47. This confirms finite-radius realizability-cost
+scaling in the frozen CNN--MNIST construction; it is not a continuum
+fibre-bundle theorem.
+
+ResNet v4.1b extends the finite-radius scaling audit to a frozen
+ImageNet-pretrained ResNet-18 backbone with a trainable terminal residual
+adapter and classifier. All 16/16 seeds passed every geometric and held-out
+gate; recomputed medians give slope gap 0.5751 and smallest-radius cost ratio
+2.997.
+
+ResNet v4.2d tests transverse response amplification with trainable layer4 plus
+classifier, an eight-dimensional matrix-free transported chart, float64
+response geometry and TF32 disabled. All 16/16 seeds passed the frozen 12/16
+joint gate; recomputed medians give direction cosine 0.999990, active residual
+ratio 1437.844, transverse gain contrast 341,763 and finite/JVP ratio 0.999998.
+
+These ResNet audits close the finite-chart support for the paper's moving
+geometry sections. They do not establish arbitrary-path, complete-kernel,
+continuum or global variational claims.
+
+## Main result II: low-response learning freedom
+
+The geometric distinction has a functional consequence at recorded optimizer
+nodes. Under four prospectively frozen finite response budgets, candidate
+scales are selected on calibration data and scored once on disjoint held-out
+data. The instantaneous response-kernel arm is compared with the recorded
+optimizer update, the source kernel, a half-path time-shifted kernel and a
+deterministic signed permutation.
+
+Low first-order response cost is partly induced by the kernel construction and
+is not itself the result. The nontrivial evidence is retained held-out learning
+utility, calibration-to-held-out generalization and superiority over the
+prospectively declared controls under the same finite budgets and alpha grid.
+
+### Reduced ResNet v4.6 - supported
+
+- 7/8 prospective seeds passed the complete frozen ordering.
+- Current positive: 51/56 noninitial nodes.
+- Current > source: 51/56.
+- Current > half-path shifted: 49/56.
+- Current > signed permutation: 52/56.
+- Pooled median AUC: current 0.000790, source 0.000681, half-path shifted
+  0.000728.
+
+### GPT-2 native-LoRA-B v1-r1 - confirmed within the declared protocol
+
+- 8/8 prospective seeds passed.
+- All 24/24 noninitial nodes were positive and beat all declared controls.
+- Pooled median AUC: current 0.11858; source 0.03341; half-path shifted
+  0.03641; recorded AdamW 0.00851; signed permutation 0.00853.
+
+Recorded AdamW supplies real training nodes and proposals, but the successful
+instantaneous-kernel arm is a counterfactual projection. Ordinary optimizer navigation is not established.
+
+## Limited cross-modal confirmation: GPTW correction-cost scaling
+
+This section concerns current-versus-source-fixed correction-cost scaling and
+is independent of the low-response Pareto audit above.
 
 GPTW v1.1.0 tests the moving-response-fibre mechanism in a deliberately
 restricted language-model domain: the rank-2 LoRA-B subspace of the final two
@@ -30,121 +157,49 @@ natural text, the corresponding substantive evidence is finest-radius ratio
 8.87--35.56, active-J residual amplification 1.41e7--1.12e8, maximum
 path-response error about 1.08e-15, and 8/8 seeds with 32/32 nodes passing.
 
-This is cross-modal confirmation of the restricted mechanism, not a full-model
-GPT-2 result, a semantic invariance theorem, an arbitrary-LoRA claim, or a
-global variational theorem. The formal initial audit and its
-near-zero-denominator finite-difference failure are retained in the snapshot.
+Keep these counts separate: GPTW-v3 correction-cost audit uses 8/8 seeds and
+32/32 interior nodes, while the GPT-2 Pareto audit uses 8/8 seeds and 24/24
+noninitial nodes. The formal initial audit and its near-zero-denominator
+finite-difference failure are retained in the snapshot.
+
+This is limited cross-modal confirmation of the restricted mechanism, not a
+full-model GPT-2 result, a semantic invariance theorem, an arbitrary-LoRA
+claim, ordinary optimizer navigation, or a global variational theorem.
 
 ### Zero-upload external reproduction
 
-GPTW-V3 now has a public one-cell Colab entry point under
-`external_tests/gptw_v3/`. It clones the immutable GPTW source tag, verifies
-the pinned commit and snapshot checksums, runs the frozen natural-text V3
-protocol, validates the 8-seed/32-node output, and downloads the result and
-environment manifest. No author ZIP upload is required. This is explicitly a
-same-cohort external reproduction, not a new-seed independent confirmation.
+GPTW-v3 has a public one-cell Colab entry point under `external_tests/gptw_v3/`.
+It clones the immutable GPTW source tag, verifies the pinned commit and
+snapshot checksums, runs the frozen natural-text V3 protocol, validates the
+8-seed/32-node output, and downloads the result and environment manifest. No
+author ZIP upload is required. This is explicitly a same-cohort external
+reproduction, not a new-seed independent confirmation.
 
-## Low-response Pareto audits
+## Restricted variational audit and strict failure boundary
 
-The `evidence/low_response_pareto_v1/` archive adds two prospective CPU audits
-of held-out learning utility under frozen finite response budgets. The
-instantaneous response-kernel arm is a counterfactual projection evaluated at
-recorded optimizer nodes; it is not evidence that ordinary AdamW or SGD
-naturally follows a response fibre.
-
-Reduced ResNet v4.6 supports the low-response Pareto ordering in 7/8
-prospective seeds. GPT-2 native LoRA-B v1-r1 confirms the ordering within its
-declared protocol in 8/8 seeds and 24/24 noninitial nodes. The 24-node Pareto
-count is separate from GPTW-v3's 32-node current-versus-source-fixed
-correction-cost audit and must not be interchanged.
-
-## External confirmation: selected response-fibre tangent value
-
-ResNet-18/CIFAR-10 v4.0c-r1 prospectively tested the functional premise in the
-complete 5,130-parameter final classifier on top of a frozen ImageNet-pretrained
-ResNet-18 representation. Sixteen new classifier-training seeds were evaluated
-at 4, 16 and 32 anchors. Every seed passed every frozen response-preservation,
-effect-size and control gate at all three anchor counts. The learned tangent
-beat sign reversal, a shuffled-target tangent and the best of 32 matched random
-kernel tangents in all 48 seed-anchor settings.
-
-At the primary 16-anchor setting, the learned tangent's median confirmation-loss
-change was -0.01842, compared with +0.02307 for sign reversal, -0.00099 for the
-shuffled-target tangent and -0.00072 for the best random tangent. The maximum
-dimensionless kernel residual was 2.28e-13 and maximum finite centered-logit
-leakage was 2.98e-13. This confirms selected tangent value in a frozen pretrained
-representation; it does not update the ResNet backbone or provide cross-model confirmation of
-moving-kernel transport, cost scaling or Moving-Fibre F16 ordering.
-
-## ResNet mechanism closure: Sections 5.3--6
-
-Release v1.5.0 adds the two previously missing load-bearing ResNet archives.
-The v4.1b prospective dual-scaling audit used a frozen ImageNet-pretrained
-ResNet-18 backbone with a trainable terminal residual adapter and classifier.
-All 16/16 new seeds passed every geometric and held-out gate. Recomputed
-medians are a moving-minus-fixed slope gap of 0.5751, a smallest-radius
-fixed/moving cost ratio of 2.997, and raw/projected development-confirmation
-gradient cosines of 0.414/0.996.
-
-The v4.2d prospective transverse audit used trainable layer4 plus classifier,
-an eight-dimensional matrix-free transported chart, float64 response geometry,
-and TF32 disabled. All 16/16 new seeds passed the frozen 12/16 joint gate.
-Recomputed medians include direction cosine 0.999990, active residual ratio
-1437.844, transverse gain contrast 341,763 and finite-difference/JVP ratio
-0.999998.
-
-The full frozen programs, protocols, raw result ZIPs, 32 expanded per-seed JSON
-records, independent reconstruction script and publication-facing SI tables
-are included. These audits close the repository support for Sections 5.3--6;
-they do not establish arbitrary-path or global variational optimality.
-
-## Main result I: moving-fibre realizability scaling
-
-Functional freedom relative to a prospectively declared response is represented
-locally by
-
-\[
-V_\theta=\ker DR(\theta).
-\]
-
-Moving-Fibre v3.1e compared an online eight-dimensional chart reprojected into
-the current response kernel with replay in a stale source-fixed chart. Of 16
-new seeds, 15 were fully comparable and all 15 passed every frozen substantive
-gate. Median scaling statistics were
-
-\[
-\alpha_{\rm moving}=0.684,\qquad
-\alpha_{\rm fixed}=0.00715,
-\]
-
-with smallest-radius fixed/moving retraction-Fisher cost ratio 21.30 and
-tangent-residual ratio 21.47. This confirms finite-radius realizability-cost
-scaling in the frozen CNN--MNIST construction; it is not a continuum fibre-
-bundle theorem.
-
-## Main result II: Moving-Fibre F16 prospective confirmation
+The restricted F16 audit tests a possible path-ordering functional; it is not
+the second main result and does not supply the foundation of the moving-fibre
+mechanism.
 
 v3.2c froze six causal online algorithms and four Fisher step radii
 \(h\in\{0.08,0.04,0.02,0.01\}\), giving 384 attempted paths across 16 new
 seeds. Fourteen seeds were fully comparable, exactly meeting the frozen
 eligibility requirement. In all 14 comparable seeds:
 
-- true natural gradient had the minimum Moving-Fibre F16 action at every radius;
-- true natural gradient beat wrong-Fisher natural gradient at every radius;
-- all six algorithms passed positive cost-scaling, fit-quality and fine-radius
-  action-convergence gates;
-- current response-row-space rotation was detected;
-- true natural gradient won under the wrong metric in 0/14 seeds.
+- natural gradient minimized the declared restricted action in 14/14
+  comparable seeds at all four radii;
+- natural gradient was not the least expensive path to realize;
+- median correction-cost ratio was 2.25, range 1.60-4.19;
+- action minimization and realization-cost minimization therefore cannot be
+  identified;
+- no global variational law is established.
 
-The median natural-gradient realizability-cost exponent was 0.716
-(range 0.573--0.871; median \(R^2=0.993\)). Its median action advantage over
-the best competing algorithm across radii was 22.8%.
-
-The result also preserves a nontrivial conflict: at the smallest radius,
-natural gradient had persistently higher retraction cost in 14/14 comparable
-seeds. Its cost relative to the least-cost algorithm had median 2.25 and range
-1.60--4.19. Thus minimum restricted action is not the same as minimum
-realizability cost.
+True natural gradient beat wrong-Fisher natural gradient at every radius; all
+six algorithms passed positive cost-scaling, fit-quality and fine-radius
+action-convergence gates; current response-row-space rotation was detected; and
+true natural gradient won under the wrong metric in 0/14 seeds. The median
+natural-gradient realizability-cost exponent was 0.716 (range 0.573--0.871;
+median \(R^2=0.993\)).
 
 Two seeds, 73730 and 73732, were excluded because the coarse-radius natural arm
 failed the frozen wrong-metric left-versus-trapezoid quadrature gate. Their
@@ -153,7 +208,8 @@ the raw and extracted results.
 
 ### Moving-Fibre F16 action used in v3.2c
 
-For a retracted discrete path \(\theta_0,\ldots,\theta_K\), the reported action is
+For a retracted discrete path \(\theta_0,\ldots,\theta_K\), the reported action
+is
 
 \[
 S_{\rm MF16}^{\rm trap}=\frac12\sum_{k=0}^{K-1}
@@ -183,25 +239,17 @@ continuum or arbitrary-path theorem.
 
 ## Confirmed evidence
 
-| Stage | Frozen result | Formal status |
+| Evidence item | Frozen result | Formal status |
 |---|---|---|
-| ResNet-18/CIFAR-10 v4.2d | Layer4+fc transverse audit passed 16/16; median active residual ratio 1437.844 and gain contrast 341,763 | Confirmed finite-chart transverse amplification |
-| ResNet-18/CIFAR-10 v4.1b | Terminal adapter+classifier dual scaling passed all geometric and held-out gates in 16/16 seeds | Confirmed cross-model finite-radius scaling |
-| GPTW v1.1.0/v1.1.1 | Rank-2 LoRA-B adaptive value passed 8/8 new seeds; current-vs-fixed v2 is SUPPORTED in 6/6 seeds and 18/18 nodes; v3 natural text is SUPPORTED in 8/8 seeds and 32/32 nodes as not confined to codeword prompts | r3 confirmed; v2/v3 supported restricted GPTW evidence |
-| Low-response Pareto v1 | Counterfactual instantaneous-kernel held-out utility frontier: ResNet v4.6 passed 7/8 seeds; GPT-2 LoRA-B passed 8/8 seeds and 24/24 noninitial nodes | ResNet supported; GPT-2 confirmed within declared protocol |
-| ResNet-18/CIFAR-10 v4.0c-r1 | Selected final-classifier response-fibre tangent passed all gates in 16/16 seeds at 4, 16 and 32 anchors | Confirmed external functional premise |
-| F16 v16 | True output-Fisher natural flow minimized the restricted six-path CNER-F action in 15/16 seeds; Adam and wrong-Fisher natural won 0/16 | Confirmed restricted ordering |
-| Moving-F16 v3.0b | With pointwise moving Fisher and capacity evaluation, 14/16 seeds were comparable and natural minimized moving action in 13/14 | Confirmed restricted ordering |
-| Moving-Fibre v3.1e | Current-fibre and stale-fibre replay had sharply separated realizability-cost scaling; 15/15 comparable seeds passed | Confirmed restricted scaling |
-| Moving-Fibre F16 v3.2c | Fourteen seeds were comparable; natural minimized the restricted moving-fibre action at all four radii in 14/14 and won under the wrong metric in 0/14 | Confirmed restricted multi-radius ordering |
+| Selected response-fibre directions carry adaptive value | ResNet-18/CIFAR-10 v4.0c-r1 passed all gates in 16/16 seeds at 4, 16 and 32 anchors | Confirmed fixed-chart functional premise |
+| Moving-fibre finite realizability-cost scaling | CNN--MNIST v3.1e passed 15/15 comparable seeds; ResNet v4.1b passed 16/16 seeds with slope gap 0.5751 and smallest-radius cost ratio 2.997 | Confirmed finite-radius scaling |
+| Transverse response amplification | ResNet v4.2d passed 16/16 seeds; median active residual ratio 1437.844 and transverse gain contrast 341,763 | Confirmed finite-chart transverse amplification |
+| Low-response held-out learning frontier | Reduced ResNet v4.6 is supported with 7/8 seeds. GPT-2 native-LoRA-B v1-r1 passed 8/8 seeds and 24/24 noninitial nodes | Supported in reduced ResNet; confirmed within the declared GPT-2 native-LoRA-B protocol |
+| GPTW current-versus-fixed correction-cost scaling | GPTW v2 is SUPPORTED in 6/6 seeds and 18/18 nodes; v3 natural text is SUPPORTED in 8/8 seeds and 32/32 nodes as not confined to codeword prompts | Supported restricted GPTW evidence |
+| Restricted Moving-Fibre F16 ordering | Moving-Fibre F16 v3.2c passed with natural minimizing the restricted action at all four radii in 14/14 comparable seeds and winning under the wrong metric in 0/14 | Confirmed restricted multi-radius ordering |
+| Action/realization-cost equivalence - Refuted | Natural gradient was not the least-cost path in 14/14 comparable seeds; smallest-radius correction-cost ratio median 2.25, range 1.60-4.19 | Refuted within the frozen six-algorithm family |
 
-## Developmental bridge to v3.2c
-
-| Stage | Role | Outcome |
-|---|---|---|
-| v3.2a | Four-seed same-domain action/cost Pareto preflight | Candidate supported; natural action won 4/4 but cost won 0/4 |
-| v3.2b | Four-seed, four-radius discretization audit | Frozen gate passed in 3/4; authorized independent confirmation |
-| v3.2c | Sixteen-seed prospective confirmation | Formal gate passed; 14/14 comparable seeds satisfied every positive gate |
+## Developmental and failed stages
 
 Earlier v3.1a--e development and repair history remains included. In
 particular, v3.1d is not erased: its inappropriate fixed-arm high-\(R^2\) veto
@@ -216,7 +264,7 @@ source-frozen response geometry. The A100 run record indicates that 8 seeds and
 results ZIP has not been imported. No positive or negative v4.4-r1 decision is
 repository-backed here.
 
-## Repository layout
+## Evidence map
 
 ```text
 evidence/
@@ -260,27 +308,28 @@ provenance/
 external_tests/
   gptw_v3/
 paper/
-  Moving_Response_Fibres_v5_unified_hierarchy.pdf
+  Moving_Response_Fibres_A_Geometric_View_of_Behaviour_and_Learning.pdf
+  archive/Moving_Response_Fibres_v5_unified_hierarchy.pdf
 ```
 
 Every confirmed stage preserves executable source, its frozen protocol,
 machine-readable results and/or the original result ZIP. Python cache files are
 excluded.
 
-The publication-ready v3.2c run record is under `docs/si_v3_2c/`. It contains
-the 384 algorithm-radius path rows, all 16 seed-level eligibility/gate rows,
-and the two excluded-arm diagnostics required by Supplementary Item 13.
-
 ## Claim boundary
 
-The archive supports state-dependent response fibres, confirmed finite-radius
-realizability-cost scaling, and restricted six-algorithm Moving-Fibre F16
-ordering in frozen finite CNN--MNIST constructions. It also confirms selected
-response-fibre tangent value in the complete final classifier of a frozen
-ResNet-18 representation, cross-model ResNet cost scaling, finite-chart
-transverse response amplification, prospective cross-modal evidence in the
-rank-2 LoRA-B subspace of the final two GPT-2 blocks, and a bounded
-low-response Pareto branch. It does not establish:
+The archive supports a state-dependent moving-response-fibre mechanism with
+two experimentally distinct consequences. First, stale and instantaneous
+response charts differ in finite realizability cost, and small chart drift can
+be transversely amplified. Second, the instantaneous response kernel defines a
+superior held-out low-response learning frontier within the declared reduced
+ResNet and GPT-2 native-LoRA-B protocols.
+
+GPTW-v3 supplies a separately frozen restricted correction-cost confirmation.
+The F16 programme supplies a strict boundary: restricted action minimization
+does not coincide with realization-cost minimization.
+
+The archive does not establish:
 
 - a complete high-dimensional response-kernel bundle;
 - exact \(h\to0\) convergence or a horizontal-lift theorem;
@@ -294,7 +343,7 @@ low-response Pareto branch. It does not establish:
 - a continuous Pareto optimum beyond the frozen finite budget and alpha grids;
 - a universal intelligence, physical-time or K=1 law.
 
-## Reproduction
+## Reproduce
 
 Each stage's `code/` directory contains its launcher, frozen `protocol.json`,
 main program and shared F16 engine where required. GPU execution is strongly
@@ -304,6 +353,10 @@ JSON directories are supplied for inspection.
 The publication-ready external-confirmation record is under `docs/si_v4_0c/`.
 The authoritative raw output is preserved under
 `evidence/confirmed/resnet18_cifar10_fibre_v4_0c_r1/raw/raw_results.zip`.
+
+The publication-ready v3.2c run record is under `docs/si_v3_2c/`. It contains
+the 384 algorithm-radius path rows, all 16 seed-level eligibility/gate rows,
+and the two excluded-arm diagnostics required by Supplementary Item 13.
 
 ## Citation and license
 

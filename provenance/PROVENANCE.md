@@ -180,3 +180,19 @@ response fibre.
 The imported paper PDF is a manuscript snapshot that distinguishes this
 24-node Pareto audit from the separately frozen 32-node GPTW-v3
 correction-cost audit.
+
+## Main-branch README and manuscript hierarchy repair
+
+This documentation revision retitles the repository-facing paper snapshot as
+`Moving Response Fibres: A Geometric View of Behaviour and Learning` and
+reorganizes the root README around one moving-response-fibre mechanism, two
+main results, limited GPTW correction-cost confirmation and the restricted F16
+failure boundary.
+
+The current paper-facing PDF is
+`paper/Moving_Response_Fibres_A_Geometric_View_of_Behaviour_and_Learning.pdf`.
+The previous reviewed snapshot is preserved without deletion at
+`paper/archive/Moving_Response_Fibres_v5_unified_hierarchy.pdf`.
+
+No experimental result, protocol, seed count, gate, raw archive or scientific
+decision changed in this hierarchy and manuscript-snapshot repair.
