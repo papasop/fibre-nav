@@ -139,3 +139,25 @@ decision, cohort counts and result checksum. No seed, prompt, gate, model,
 parameter domain or scientific decision rule changes in v1.5.1. Consequently
 this interface supports same-cohort external reproduction, not an independent
 new-seed or new-prompt confirmation.
+
+## GPTW claim calibration and v4.4-r1 staging
+
+This documentation correction calibrates the GPTW v2/v3
+current-versus-source-fixed interpretation. The 2-versus-1 exponent split is
+analytically forced by the arm definitions and retained as a
+numerical-correctness check. The repository-facing GPTW evidence is expressed
+in terms of finite-radius cost ratios, principal/current-source angular
+separation where recorded, active-J residual amplification, numerical-precision
+path-response error and prospective seed/node replication.
+
+This correction does not change any GPTW engine, per-seed result JSON, report,
+gate or scientific decision. The v2 codeword branch remains SUPPORTED, the v1-r3
+adaptive-value result remains confirmed, and v3 natural text supports only that
+the current-versus-source-fixed separation is not confined to the original
+codeword prompts.
+
+This revision also stages ResNet v4.4-r1 as a developmental frozen-code and
+protocol record for an ordinary AdamW current-versus-source response-geometry
+audit. The authoritative recovered results ZIP is intentionally deferred; no
+positive or negative v4.4-r1 decision is repository-backed by this staging
+record.
