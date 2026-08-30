@@ -23,9 +23,11 @@ from pathlib import Path
 
 REPOSITORY = "https://github.com/papasop/neural-fibre-geometry.git"
 DEFAULT_SOURCE_REF = os.environ.get(
-    "NFG_SOURCE_REF", "codex/readme-behaviour-learning-hierarchy"
+    "NFG_SOURCE_REF", "00500e1322be67c9774d44c15e44e598d6ec9039"
 )
-DEFAULT_SOURCE_COMMIT = os.environ.get("NFG_SOURCE_COMMIT", "")
+DEFAULT_SOURCE_COMMIT = os.environ.get(
+    "NFG_SOURCE_COMMIT", "00500e1322be67c9774d44c15e44e598d6ec9039"
+)
 DEFAULT_WORK = os.environ.get(
     "NFG_WORK",
     "/content/gpt2_lora_pareto_external"

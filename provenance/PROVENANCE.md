@@ -215,6 +215,9 @@ It also adds a zero-upload external reproduction wrapper under
 `external_tests/gpt2_lora_pareto/`. The wrapper verifies the archived snapshot,
 checks the parent engine and eight-seed wrapper, and can run archive-only,
 smoke-test or full same-cohort reproduction modes.
+The review-branch wrapper pins the executable source snapshot at commit
+`00500e1322be67c9774d44c15e44e598d6ec9039`; after a release tag is created,
+the Colab-facing link should be moved to that immutable tag.
 
 Scientific role: same-cohort external reproduction of the prospectively frozen
 8-seed/24-node GPT-2 native-LoRA-B Pareto audit, not an independent new-seed

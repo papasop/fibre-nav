@@ -13,6 +13,11 @@ check, an executable smoke test, or the full frozen cohort.
 The link above targets the PR branch for review. After release, replace it
 with the immutable release tag rather than `main`.
 
+The launcher checks out and verifies fixed source commit
+`00500e1322be67c9774d44c15e44e598d6ec9039`. After an immutable release tag is
+created, the notebook link can be moved to that tag without changing the frozen
+scientific source commit.
+
 The full run reproduces the original seeds 86841--86848. Scientific role:
 same-cohort external reproduction of the prospectively frozen 8-seed/24-node
 GPT-2 native-LoRA-B Pareto audit; not an independent new-seed confirmation.

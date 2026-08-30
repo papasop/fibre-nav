@@ -58,7 +58,8 @@ discovers or follows the response fibre.
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/papasop/neural-fibre-geometry/blob/codex/readme-behaviour-learning-hierarchy/external_tests/gpt2_lora_pareto/GPT2_LORA_PARETO_EXTERNAL_ONE_CLICK.ipynb)
 
 The Colab link targets this review branch. For a release, replace the branch
-with the immutable release tag rather than `main`.
+with the immutable release tag rather than `main`. The launcher checks out and
+verifies fixed source commit `00500e1322be67c9774d44c15e44e598d6ec9039`.
 
 [Inspect protocol and archived results](evidence/low_response_pareto_v1/gpt2_lora_b_v1/)
 
