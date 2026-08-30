@@ -1,0 +1,14 @@
+{
+  "protocol":"GPTW_GPT2_NATIVE_LORA_B_LOW_RESPONSE_PARETO_CPU_V1_R1_8SEED",
+  "prospective":true,
+  "development_seed_excluded":86741,
+  "seeds":[86841,86842,86843,86844,86845,86846,86847,86848],
+  "required_supporting_seeds":6,
+  "parent_protocol":"GPTW_GPT2_NATIVE_LORA_B_LOW_RESPONSE_PARETO_CPU_V1",
+  "all_parent_prompts_budgets_alphas_layers_optimizer_and_gates_unchanged":true,
+  "model":"openai-community/gpt2",
+  "device":"CPU",
+  "model_loaded_once":true,
+  "lora_hooks_removed_between_seeds":true,
+  "claim_boundary":"Eight-new-seed CPU confirmation in standard GPT-2 with a frozen backbone and rank-2 native LoRA-B on layers 10 and 11; not full-parameter tuning, broad semantic knowledge acquisition, arbitrary language tasks, or a universal intelligence law."
+}

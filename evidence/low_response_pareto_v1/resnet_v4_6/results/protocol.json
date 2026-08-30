@@ -1,0 +1,57 @@
+{
+  "protocol": "CNER_RESNET18_CIFAR10_LOW_RESPONSE_PARETO_V4_6_CPU",
+  "prospective": true,
+  "prior_seed_cohorts_excluded": [
+    83741,
+    [
+      84741,
+      84742,
+      84743,
+      84744,
+      84745,
+      84746,
+      84747,
+      84748
+    ]
+  ],
+  "seeds": [
+    85741,
+    85742,
+    85743,
+    85744,
+    85745,
+    85746,
+    85747,
+    85748
+  ],
+  "required": 6,
+  "budget_fractions": [
+    0.02,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "alpha_grid": [
+    0.0,
+    0.015625,
+    0.03125,
+    0.0625,
+    0.125,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "alpha_selected_on": "300-example calibration split only",
+  "heldout_split": "disjoint 300 examples; never used for alpha selection",
+  "primary_metric": "mean trapezoidal held-out utility over normalized low-response budgets",
+  "controls": [
+    "actual",
+    "source_kernel",
+    "far_time_kernel",
+    "permuted_kernel"
+  ],
+  "initial_node_excluded": true,
+  "min_node_win_fraction": 0.7142857142857143,
+  "hard_limit_seconds": 7200
+}

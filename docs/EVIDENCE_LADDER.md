@@ -85,6 +85,20 @@ the separation is not confined to the original codeword prompts. This is a
 cross-modal confirmation branch, not a new centre of the evidence ladder and
 not a full-model or semantic claim.
 
+## Low-response Pareto branch
+
+Low-response Pareto v1 adds a separate finite-budget held-out utility frontier
+audit. The instantaneous response-kernel arm is evaluated as a counterfactual
+projection at recorded optimizer nodes and compared with the recorded optimizer
+update plus stale, time-shifted and signed-permuted controls.
+
+Reduced ResNet v4.6 supports this ordering in 7/8 prospective seeds. GPT-2
+native LoRA-B confirms it within the declared protocol in 8/8 seeds and 24/24
+noninitial nodes. The 24-node Pareto audit is distinct from GPTW-v3's 32-node
+correction-cost audit. This branch evaluates finite response-budget Pareto
+frontiers; it does not show that AdamW or SGD naturally follows a response
+fibre and does not compute a continuous Pareto optimum.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum

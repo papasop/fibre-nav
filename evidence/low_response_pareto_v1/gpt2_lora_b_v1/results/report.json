@@ -1,0 +1,1756 @@
+{
+  "protocol": "GPTW_GPT2_NATIVE_LORA_B_LOW_RESPONSE_PARETO_CPU_V1_R1_8SEED",
+  "prospective": true,
+  "decision": "GPT2_LORA_LOW_RESPONSE_PARETO_CONFIRMED",
+  "supporting_seeds": 8,
+  "required": 6,
+  "attempted": 8,
+  "elapsed_seconds": 458.24873995780945,
+  "records": [
+    {
+      "seed": 86841,
+      "summary": {
+        "pre_heldout_loss": 9.26187515258789,
+        "post_heldout_loss": 4.02578592300415,
+        "heldout_loss_gain": 5.23608922958374,
+        "lora_b_dimension": 9216,
+        "source_response_rank": 12,
+        "audited_nodes_total": 4,
+        "primary_noninitial_nodes": 3,
+        "maximum_row_space_rotation": 0.64553603634231,
+        "fraction_current_positive_auc": 1.0,
+        "current_beats_actual_nodes": 3,
+        "median_current_minus_actual_auc": 0.2316511207156711,
+        "current_beats_source_kernel_nodes": 3,
+        "median_current_minus_source_kernel_auc": 0.17988569206661648,
+        "current_beats_far_time_kernel_nodes": 3,
+        "median_current_minus_far_time_kernel_auc": 0.17988569206661648,
+        "current_beats_permuted_kernel_nodes": 3,
+        "median_current_minus_permuted_kernel_auc": 0.23166680335998532
+      },
+      "gates": {
+        "real_adaptation_improves_heldout": true,
+        "nontrivial_rotation": true,
+        "current_positive_auc": true,
+        "current_beats_actual": true,
+        "current_beats_source_kernel": true,
+        "current_beats_far_time_kernel": true,
+        "current_beats_permuted_kernel": true
+      },
+      "supported": true,
+      "nodes": [
+        {
+          "step": 0,
+          "row_space_rotation": 3.6500241499888574e-08,
+          "response_rank": 12,
+          "update_norm": 1.9198657274246216,
+          "actual_full_response_cost": 0.015200424939393997,
+          "actual_heldout_auc": 0.013339943355984155,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.18738269805908203,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.18738269805908203,
+          "source_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.09638256496853298,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.5,
+            1.0
+          ],
+          "permuted_kernel_heldout_auc": 0.013358195622762043,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.17404275470309788,
+          "current_minus_source_kernel_auc": 0.0,
+          "current_minus_far_time_kernel_auc": 0.09100013309054905,
+          "current_minus_permuted_kernel_auc": 0.17402450243631998
+        },
+        {
+          "step": 6,
+          "row_space_rotation": 0.29933836652585233,
+          "response_rank": 12,
+          "update_norm": 1.7393823862075806,
+          "actual_full_response_cost": 0.012106665410101414,
+          "actual_heldout_auc": 0.013860940933227537,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.19929218292236328,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.11069483227199978,
+          "source_kernel_selected_alphas": [
+            0.125,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.08101314968532985,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            1.0
+          ],
+          "permuted_kernel_heldout_auc": 0.013869894875420462,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.18543124198913574,
+          "current_minus_source_kernel_auc": 0.0885973506503635,
+          "current_minus_far_time_kernel_auc": 0.11827903323703343,
+          "current_minus_permuted_kernel_auc": 0.18542228804694283
+        },
+        {
+          "step": 12,
+          "row_space_rotation": 0.5092137302454435,
+          "response_rank": 12,
+          "update_norm": 1.6618036031723022,
+          "actual_full_response_cost": 0.010507981292903423,
+          "actual_heldout_auc": 0.017250246471828882,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.24890136718749997,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.06901567512088351,
+          "source_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "far_time_kernel_heldout_auc": 0.06901567512088351,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.01723456382751465,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.2316511207156711,
+          "current_minus_source_kernel_auc": 0.17988569206661648,
+          "current_minus_far_time_kernel_auc": 0.17988569206661648,
+          "current_minus_permuted_kernel_auc": 0.23166680335998532
+        },
+        {
+          "step": 18,
+          "row_space_rotation": 0.64553603634231,
+          "response_rank": 12,
+          "update_norm": 1.6072163581848145,
+          "actual_full_response_cost": 0.01010082010179758,
+          "actual_heldout_auc": 0.017886506186591253,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.25169372558593744,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.03570114241706,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "far_time_kernel_heldout_auc": 0.07103366321987577,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.017892042795817055,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.23380721939934618,
+          "current_minus_source_kernel_auc": 0.21599258316887743,
+          "current_minus_far_time_kernel_auc": 0.1806600623660617,
+          "current_minus_permuted_kernel_auc": 0.2338016827901204
+        }
+      ]
+    },
+    {
+      "seed": 86842,
+      "summary": {
+        "pre_heldout_loss": 9.26187515258789,
+        "post_heldout_loss": 5.566348075866699,
+        "heldout_loss_gain": 3.6955270767211914,
+        "lora_b_dimension": 9216,
+        "source_response_rank": 12,
+        "audited_nodes_total": 4,
+        "primary_noninitial_nodes": 3,
+        "maximum_row_space_rotation": 0.7368504188738618,
+        "fraction_current_positive_auc": 1.0,
+        "current_beats_actual_nodes": 3,
+        "median_current_minus_actual_auc": 0.1517420344882541,
+        "current_beats_source_kernel_nodes": 3,
+        "median_current_minus_source_kernel_auc": 0.10553574562072751,
+        "current_beats_far_time_kernel_nodes": 3,
+        "median_current_minus_far_time_kernel_auc": 0.1063810454474555,
+        "current_beats_permuted_kernel_nodes": 3,
+        "median_current_minus_permuted_kernel_auc": 0.15179822180006236
+      },
+      "gates": {
+        "real_adaptation_improves_heldout": true,
+        "nontrivial_rotation": true,
+        "current_positive_auc": true,
+        "current_beats_actual": true,
+        "current_beats_source_kernel": true,
+        "current_beats_far_time_kernel": true,
+        "current_beats_permuted_kernel": true
+      },
+      "supported": true,
+      "nodes": [
+        {
+          "step": 0,
+          "row_space_rotation": 2.9802322387695312e-08,
+          "response_rank": 12,
+          "update_norm": 1.9198722839355469,
+          "actual_full_response_cost": 0.014821233227849007,
+          "actual_heldout_auc": 0.015210734473334415,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.21172523498535156,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.21172523498535156,
+          "source_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.058624876870049365,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.01519555515713162,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.19651450051201716,
+          "current_minus_source_kernel_auc": 0.0,
+          "current_minus_far_time_kernel_auc": 0.1531003581153022,
+          "current_minus_permuted_kernel_auc": 0.19652967982821995
+        },
+        {
+          "step": 6,
+          "row_space_rotation": 0.3162385414138706,
+          "response_rank": 12,
+          "update_norm": 1.7131671905517578,
+          "actual_full_response_cost": 0.010951214469969273,
+          "actual_heldout_auc": 0.01153829362657335,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.16328032811482746,
+          "current_kernel_selected_alphas": [
+            0.75,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.05774458249409994,
+          "source_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "far_time_kernel_heldout_auc": 0.05689928266737196,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "permuted_kernel_heldout_auc": 0.011482106314765083,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.1517420344882541,
+          "current_minus_source_kernel_auc": 0.10553574562072751,
+          "current_minus_far_time_kernel_auc": 0.1063810454474555,
+          "current_minus_permuted_kernel_auc": 0.15179822180006236
+        },
+        {
+          "step": 12,
+          "row_space_rotation": 0.5692840998354356,
+          "response_rank": 12,
+          "update_norm": 1.6065709590911865,
+          "actual_full_response_cost": 0.008800559677183628,
+          "actual_heldout_auc": 0.011660310957166884,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.16912126541137695,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.04653467072380913,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "far_time_kernel_heldout_auc": 0.04653467072380913,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.011659052636888292,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.15746095445421007,
+          "current_minus_source_kernel_auc": 0.12258659468756783,
+          "current_minus_far_time_kernel_auc": 0.12258659468756783,
+          "current_minus_permuted_kernel_auc": 0.15746221277448866
+        },
+        {
+          "step": 18,
+          "row_space_rotation": 0.7368504188738618,
+          "response_rank": 12,
+          "update_norm": 1.410803198814392,
+          "actual_full_response_cost": 0.008262746036052704,
+          "actual_heldout_auc": 0.008723841773139106,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.12384986877441405,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.03456503815121121,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "far_time_kernel_heldout_auc": 0.043491005897521966,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "permuted_kernel_heldout_auc": 0.008707139227125378,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.11512602700127494,
+          "current_minus_source_kernel_auc": 0.08928483062320283,
+          "current_minus_far_time_kernel_auc": 0.08035886287689209,
+          "current_minus_permuted_kernel_auc": 0.11514272954728867
+        }
+      ]
+    },
+    {
+      "seed": 86843,
+      "summary": {
+        "pre_heldout_loss": 9.26187515258789,
+        "post_heldout_loss": 7.9118499755859375,
+        "heldout_loss_gain": 1.3500251770019531,
+        "lora_b_dimension": 9216,
+        "source_response_rank": 12,
+        "audited_nodes_total": 4,
+        "primary_noninitial_nodes": 3,
+        "maximum_row_space_rotation": 0.7868986493864736,
+        "fraction_current_positive_auc": 1.0,
+        "current_beats_actual_nodes": 3,
+        "median_current_minus_actual_auc": 0.03839018609788683,
+        "current_beats_source_kernel_nodes": 3,
+        "median_current_minus_source_kernel_auc": 0.03019873301188151,
+        "current_beats_far_time_kernel_nodes": 3,
+        "median_current_minus_far_time_kernel_auc": 0.03019873301188151,
+        "current_beats_permuted_kernel_nodes": 3,
+        "median_current_minus_permuted_kernel_auc": 0.03836470180087619
+      },
+      "gates": {
+        "real_adaptation_improves_heldout": true,
+        "nontrivial_rotation": true,
+        "current_positive_auc": true,
+        "current_beats_actual": true,
+        "current_beats_source_kernel": true,
+        "current_beats_far_time_kernel": true,
+        "current_beats_permuted_kernel": true
+      },
+      "supported": true,
+      "nodes": [
+        {
+          "step": 0,
+          "row_space_rotation": 5.960464477539064e-08,
+          "response_rank": 12,
+          "update_norm": 1.9198896884918213,
+          "actual_full_response_cost": 0.011027022264897823,
+          "actual_heldout_auc": -0.00016307830810546875,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.0005216598510742188,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.0005216598510742188,
+          "source_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.00048385726081000437,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "permuted_kernel_heldout_auc": -0.00015679995218912757,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.0006847381591796875,
+          "current_minus_source_kernel_auc": 0.0,
+          "current_minus_far_time_kernel_auc": 3.780259026421438e-05,
+          "current_minus_permuted_kernel_auc": 0.0006784598032633463
+        },
+        {
+          "step": 6,
+          "row_space_rotation": 0.3651584332260443,
+          "response_rank": 12,
+          "update_norm": 1.7284210920333862,
+          "actual_full_response_cost": 0.012155894190073013,
+          "actual_heldout_auc": 0.0004942946963840061,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.011256217956542967,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.007072819603814019,
+          "source_kernel_selected_alphas": [
+            0.125,
+            0.25,
+            0.75,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.0036506123012966575,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "permuted_kernel_heldout_auc": 0.00048666530185275606,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.010761923260158962,
+          "current_minus_source_kernel_auc": 0.004183398352728948,
+          "current_minus_far_time_kernel_auc": 0.00760560565524631,
+          "current_minus_permuted_kernel_auc": 0.010769552654690212
+        },
+        {
+          "step": 12,
+          "row_space_rotation": 0.6283732538479365,
+          "response_rank": 12,
+          "update_norm": 1.6774723529815674,
+          "actual_full_response_cost": 0.011428163386881351,
+          "actual_heldout_auc": 0.002466175291273329,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.040856361389160156,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.010657628377278645,
+          "source_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "far_time_kernel_heldout_auc": 0.010657628377278645,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.0024916595882839626,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.03839018609788683,
+          "current_minus_source_kernel_auc": 0.03019873301188151,
+          "current_minus_far_time_kernel_auc": 0.03019873301188151,
+          "current_minus_permuted_kernel_auc": 0.03836470180087619
+        },
+        {
+          "step": 18,
+          "row_space_rotation": 0.7868986493864736,
+          "response_rank": 12,
+          "update_norm": 1.6622620820999146,
+          "actual_full_response_cost": 0.0098729208111763,
+          "actual_heldout_auc": 0.006446282068888347,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.10047721862792969,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.013085206349690754,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "far_time_kernel_heldout_auc": 0.02655273013644748,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.006439606348673501,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.09403093655904134,
+          "current_minus_source_kernel_auc": 0.08739201227823894,
+          "current_minus_far_time_kernel_auc": 0.07392448849148221,
+          "current_minus_permuted_kernel_auc": 0.09403761227925618
+        }
+      ]
+    },
+    {
+      "seed": 86844,
+      "summary": {
+        "pre_heldout_loss": 9.26187515258789,
+        "post_heldout_loss": 7.81976842880249,
+        "heldout_loss_gain": 1.4421067237854004,
+        "lora_b_dimension": 9216,
+        "source_response_rank": 12,
+        "audited_nodes_total": 4,
+        "primary_noninitial_nodes": 3,
+        "maximum_row_space_rotation": 0.7685986423911875,
+        "fraction_current_positive_auc": 1.0,
+        "current_beats_actual_nodes": 3,
+        "median_current_minus_actual_auc": 0.05076069302029079,
+        "current_beats_source_kernel_nodes": 3,
+        "median_current_minus_source_kernel_auc": 0.04212763574388292,
+        "current_beats_far_time_kernel_nodes": 3,
+        "median_current_minus_far_time_kernel_auc": 0.04212763574388292,
+        "current_beats_permuted_kernel_nodes": 3,
+        "median_current_minus_permuted_kernel_auc": 0.050782044728597
+      },
+      "gates": {
+        "real_adaptation_improves_heldout": true,
+        "nontrivial_rotation": true,
+        "current_positive_auc": true,
+        "current_beats_actual": true,
+        "current_beats_source_kernel": true,
+        "current_beats_far_time_kernel": true,
+        "current_beats_permuted_kernel": true
+      },
+      "supported": true,
+      "nodes": [
+        {
+          "step": 0,
+          "row_space_rotation": 4.4703483581542975e-08,
+          "response_rank": 12,
+          "update_norm": 1.9198414087295532,
+          "actual_full_response_cost": 0.012755672447383404,
+          "actual_heldout_auc": 0.003697845670912,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.05376815795898437,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.05376815795898437,
+          "source_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.018362892998589408,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "permuted_kernel_heldout_auc": 0.0036851035224066834,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.05007031228807237,
+          "current_minus_source_kernel_auc": 0.0,
+          "current_minus_far_time_kernel_auc": 0.035405264960394964,
+          "current_minus_permuted_kernel_auc": 0.050083054436577686
+        },
+        {
+          "step": 6,
+          "row_space_rotation": 0.2918693009587883,
+          "response_rank": 12,
+          "update_norm": 1.7213433980941772,
+          "actual_full_response_cost": 0.00929277390241623,
+          "actual_heldout_auc": 0.0037465625339084202,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.05450725555419921,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.018927256266276043,
+          "source_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "far_time_kernel_heldout_auc": 0.01449192894829644,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.003725210825602213,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.05076069302029079,
+          "current_minus_source_kernel_auc": 0.03557999928792317,
+          "current_minus_far_time_kernel_auc": 0.04001532660590277,
+          "current_minus_permuted_kernel_auc": 0.050782044728597
+        },
+        {
+          "step": 12,
+          "row_space_rotation": 0.5478256900850333,
+          "response_rank": 12,
+          "update_norm": 1.6273280382156372,
+          "actual_full_response_cost": 0.007311157416552305,
+          "actual_heldout_auc": 0.0035025013817681205,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.04919282595316569,
+          "current_kernel_selected_alphas": [
+            0.75,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.00706519020928277,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "far_time_kernel_heldout_auc": 0.00706519020928277,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "permuted_kernel_heldout_auc": 0.003505256440904405,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.045690324571397566,
+          "current_minus_source_kernel_auc": 0.04212763574388292,
+          "current_minus_far_time_kernel_auc": 0.04212763574388292,
+          "current_minus_permuted_kernel_auc": 0.045687569512261286
+        },
+        {
+          "step": 18,
+          "row_space_rotation": 0.7685986423911875,
+          "response_rank": 12,
+          "update_norm": 1.5628522634506226,
+          "actual_full_response_cost": 0.006919616833329201,
+          "actual_heldout_auc": 0.004486401875813802,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.0643310546875,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.00898660553826226,
+          "source_kernel_selected_alphas": [
+            0.015625,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "far_time_kernel_heldout_auc": 0.009037229749891493,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "permuted_kernel_heldout_auc": 0.004503700468275282,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.059844652811686196,
+          "current_minus_source_kernel_auc": 0.05534444914923774,
+          "current_minus_far_time_kernel_auc": 0.05529382493760851,
+          "current_minus_permuted_kernel_auc": 0.05982735421922472
+        }
+      ]
+    },
+    {
+      "seed": 86845,
+      "summary": {
+        "pre_heldout_loss": 9.26187515258789,
+        "post_heldout_loss": 6.025185585021973,
+        "heldout_loss_gain": 3.236689567565918,
+        "lora_b_dimension": 9216,
+        "source_response_rank": 12,
+        "audited_nodes_total": 4,
+        "primary_noninitial_nodes": 3,
+        "maximum_row_space_rotation": 0.720358151791663,
+        "fraction_current_positive_auc": 1.0,
+        "current_beats_actual_nodes": 3,
+        "median_current_minus_actual_auc": 0.1223635541068183,
+        "current_beats_source_kernel_nodes": 3,
+        "median_current_minus_source_kernel_auc": 0.09504293070899116,
+        "current_beats_far_time_kernel_nodes": 3,
+        "median_current_minus_far_time_kernel_auc": 0.08962036503685845,
+        "current_beats_permuted_kernel_nodes": 3,
+        "median_current_minus_permuted_kernel_auc": 0.12236691845787896
+      },
+      "gates": {
+        "real_adaptation_improves_heldout": true,
+        "nontrivial_rotation": true,
+        "current_positive_auc": true,
+        "current_beats_actual": true,
+        "current_beats_source_kernel": true,
+        "current_beats_far_time_kernel": true,
+        "current_beats_permuted_kernel": true
+      },
+      "supported": true,
+      "nodes": [
+        {
+          "step": 0,
+          "row_space_rotation": 1.4901161193847656e-08,
+          "response_rank": 12,
+          "update_norm": 1.9198707342147827,
+          "actual_full_response_cost": 0.017666926607489586,
+          "actual_heldout_auc": 0.014132181803385416,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.1889848709106445,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.1889848709106445,
+          "source_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.12280355559455022,
+          "far_time_kernel_selected_alphas": [
+            0.125,
+            0.25,
+            0.75,
+            1.0
+          ],
+          "permuted_kernel_heldout_auc": 0.014115280575222438,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.1748526891072591,
+          "current_minus_source_kernel_auc": 0.0,
+          "current_minus_far_time_kernel_auc": 0.06618131531609428,
+          "current_minus_permuted_kernel_auc": 0.17486959033542207
+        },
+        {
+          "step": 6,
+          "row_space_rotation": 0.3368846930895571,
+          "response_rank": 12,
+          "update_norm": 1.6754144430160522,
+          "actual_full_response_cost": 0.01634220965206623,
+          "actual_heldout_auc": 0.008510324690077039,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.11858367919921875,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.07874221271938747,
+          "source_kernel_selected_alphas": [
+            0.125,
+            0.25,
+            0.75,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.06403787930806476,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "permuted_kernel_heldout_auc": 0.008532550599839952,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.11007335450914171,
+          "current_minus_source_kernel_auc": 0.03984146647983128,
+          "current_minus_far_time_kernel_auc": 0.05454579989115399,
+          "current_minus_permuted_kernel_auc": 0.1100511285993788
+        },
+        {
+          "step": 12,
+          "row_space_rotation": 0.5662370855755458,
+          "response_rank": 12,
+          "update_norm": 1.5602443218231201,
+          "actual_full_response_cost": 0.013899246230721474,
+          "actual_heldout_auc": 0.009089483155144585,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.1314530372619629,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.036410106552971735,
+          "source_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "far_time_kernel_heldout_auc": 0.036410106552971735,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.00908611880408393,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.1223635541068183,
+          "current_minus_source_kernel_auc": 0.09504293070899116,
+          "current_minus_far_time_kernel_auc": 0.09504293070899116,
+          "current_minus_permuted_kernel_auc": 0.12236691845787896
+        },
+        {
+          "step": 18,
+          "row_space_rotation": 0.720358151791663,
+          "response_rank": 12,
+          "update_norm": 1.369140386581421,
+          "actual_full_response_cost": 0.012812762521207333,
+          "actual_heldout_auc": 0.009501073095533582,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.13723039627075195,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.03779693444569906,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "far_time_kernel_heldout_auc": 0.0476100312338935,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "permuted_kernel_heldout_auc": 0.009502357906765409,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.12772932317521837,
+          "current_minus_source_kernel_auc": 0.09943346182505289,
+          "current_minus_far_time_kernel_auc": 0.08962036503685845,
+          "current_minus_permuted_kernel_auc": 0.12772803836398655
+        }
+      ]
+    },
+    {
+      "seed": 86846,
+      "summary": {
+        "pre_heldout_loss": 9.26187515258789,
+        "post_heldout_loss": 7.997596740722656,
+        "heldout_loss_gain": 1.2642784118652344,
+        "lora_b_dimension": 9216,
+        "source_response_rank": 12,
+        "audited_nodes_total": 4,
+        "primary_noninitial_nodes": 3,
+        "maximum_row_space_rotation": 0.7872905039846744,
+        "fraction_current_positive_auc": 1.0,
+        "current_beats_actual_nodes": 3,
+        "median_current_minus_actual_auc": 0.045281542672051325,
+        "current_beats_source_kernel_nodes": 3,
+        "median_current_minus_source_kernel_auc": 0.035478697882758245,
+        "current_beats_far_time_kernel_nodes": 3,
+        "median_current_minus_far_time_kernel_auc": 0.035478697882758245,
+        "current_beats_permuted_kernel_nodes": 3,
+        "median_current_minus_permuted_kernel_auc": 0.045286973317464195
+      },
+      "gates": {
+        "real_adaptation_improves_heldout": true,
+        "nontrivial_rotation": true,
+        "current_positive_auc": true,
+        "current_beats_actual": true,
+        "current_beats_source_kernel": true,
+        "current_beats_far_time_kernel": true,
+        "current_beats_permuted_kernel": true
+      },
+      "supported": true,
+      "nodes": [
+        {
+          "step": 0,
+          "row_space_rotation": 3.332000937312528e-08,
+          "response_rank": 12,
+          "update_norm": 1.9198399782180786,
+          "actual_full_response_cost": 0.011145705357193947,
+          "actual_heldout_auc": 0.0017145209842258028,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.024245262145996094,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.024245262145996094,
+          "source_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.006852573818630642,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.0017027060190836587,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.02253074116177029,
+          "current_minus_source_kernel_auc": 0.0,
+          "current_minus_far_time_kernel_auc": 0.01739268832736545,
+          "current_minus_permuted_kernel_auc": 0.022542556126912434
+        },
+        {
+          "step": 6,
+          "row_space_rotation": 0.39044019575836597,
+          "response_rank": 12,
+          "update_norm": 1.6903225183486938,
+          "actual_full_response_cost": 0.008455494418740273,
+          "actual_heldout_auc": 0.0023736953735351562,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.03503704071044922,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.016548951466878254,
+          "source_kernel_selected_alphas": [
+            0.0625,
+            0.25,
+            0.5,
+            0.75
+          ],
+          "far_time_kernel_heldout_auc": 0.009397665659586588,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.002354145050048828,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.03266334533691406,
+          "current_minus_source_kernel_auc": 0.018488089243570965,
+          "current_minus_far_time_kernel_auc": 0.025639375050862633,
+          "current_minus_permuted_kernel_auc": 0.03268289566040039
+        },
+        {
+          "step": 12,
+          "row_space_rotation": 0.6030599932526804,
+          "response_rank": 12,
+          "update_norm": 1.605503797531128,
+          "actual_full_response_cost": 0.00717100640758872,
+          "actual_heldout_auc": 0.0032757388220893005,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.048557281494140625,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.013078583611382377,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "far_time_kernel_heldout_auc": 0.013078583611382377,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.0032703081766764317,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.045281542672051325,
+          "current_minus_source_kernel_auc": 0.035478697882758245,
+          "current_minus_far_time_kernel_auc": 0.035478697882758245,
+          "current_minus_permuted_kernel_auc": 0.045286973317464195
+        },
+        {
+          "step": 18,
+          "row_space_rotation": 0.7872905039846744,
+          "response_rank": 12,
+          "update_norm": 1.5738537311553955,
+          "actual_full_response_cost": 0.006575500126928091,
+          "actual_heldout_auc": 0.004927184846666125,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.07128707567850748,
+          "current_kernel_selected_alphas": [
+            0.75,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.009841521581013996,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "far_time_kernel_heldout_auc": 0.019542773564656574,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.0049173302120632595,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.06635989083184135,
+          "current_minus_source_kernel_auc": 0.061445554097493485,
+          "current_minus_far_time_kernel_auc": 0.05174430211385091,
+          "current_minus_permuted_kernel_auc": 0.06636974546644422
+        }
+      ]
+    },
+    {
+      "seed": 86847,
+      "summary": {
+        "pre_heldout_loss": 9.26187515258789,
+        "post_heldout_loss": 7.405359745025635,
+        "heldout_loss_gain": 1.8565154075622559,
+        "lora_b_dimension": 9216,
+        "source_response_rank": 12,
+        "audited_nodes_total": 4,
+        "primary_noninitial_nodes": 3,
+        "maximum_row_space_rotation": 0.7949089110186887,
+        "fraction_current_positive_auc": 1.0,
+        "current_beats_actual_nodes": 3,
+        "median_current_minus_actual_auc": 0.06573274400499132,
+        "current_beats_source_kernel_nodes": 3,
+        "median_current_minus_source_kernel_auc": 0.03990636931525336,
+        "current_beats_far_time_kernel_nodes": 3,
+        "median_current_minus_far_time_kernel_auc": 0.03990636931525336,
+        "current_beats_permuted_kernel_nodes": 3,
+        "median_current_minus_permuted_kernel_auc": 0.06573279698689778
+      },
+      "gates": {
+        "real_adaptation_improves_heldout": true,
+        "nontrivial_rotation": true,
+        "current_positive_auc": true,
+        "current_beats_actual": true,
+        "current_beats_source_kernel": true,
+        "current_beats_far_time_kernel": true,
+        "current_beats_permuted_kernel": true
+      },
+      "supported": true,
+      "nodes": [
+        {
+          "step": 0,
+          "row_space_rotation": 3.332000937312528e-08,
+          "response_rank": 12,
+          "update_norm": 1.9198060035705566,
+          "actual_full_response_cost": 0.026364978402853012,
+          "actual_heldout_auc": 0.0062800248463948565,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.09150505065917967,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.09150505065917967,
+          "source_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.02420568466186523,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.006255070368448893,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.08522502581278482,
+          "current_minus_source_kernel_auc": 0.0,
+          "current_minus_far_time_kernel_auc": 0.06729936599731444,
+          "current_minus_permuted_kernel_auc": 0.08524998029073078
+        },
+        {
+          "step": 6,
+          "row_space_rotation": 0.3322117166855723,
+          "response_rank": 12,
+          "update_norm": 1.718464970588684,
+          "actual_full_response_cost": 0.018169596791267395,
+          "actual_heldout_auc": 0.004893514845106337,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.07062625885009766,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.03968471950954861,
+          "source_kernel_selected_alphas": [
+            0.125,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.03675675392150879,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "permuted_kernel_heldout_auc": 0.004893461863199869,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.06573274400499132,
+          "current_minus_source_kernel_auc": 0.030941539340549044,
+          "current_minus_far_time_kernel_auc": 0.03386950492858887,
+          "current_minus_permuted_kernel_auc": 0.06573279698689778
+        },
+        {
+          "step": 12,
+          "row_space_rotation": 0.605775663717276,
+          "response_rank": 12,
+          "update_norm": 1.640621542930603,
+          "actual_full_response_cost": 0.014827246777713299,
+          "actual_heldout_auc": 0.0043183167775472,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.06198310852050781,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.022076739205254447,
+          "source_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "far_time_kernel_heldout_auc": 0.022076739205254447,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "permuted_kernel_heldout_auc": 0.00431513786315918,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.05766479174296061,
+          "current_minus_source_kernel_auc": 0.03990636931525336,
+          "current_minus_far_time_kernel_auc": 0.03990636931525336,
+          "current_minus_permuted_kernel_auc": 0.05766797065734863
+        },
+        {
+          "step": 18,
+          "row_space_rotation": 0.7949089110186887,
+          "response_rank": 12,
+          "update_norm": 1.5763835906982422,
+          "actual_full_response_cost": 0.013458275236189365,
+          "actual_heldout_auc": 0.005590822961595323,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.07899999618530272,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.011341598298814561,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "far_time_kernel_heldout_auc": 0.022429413265652124,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.5
+          ],
+          "permuted_kernel_heldout_auc": 0.00558230612013075,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.0734091732237074,
+          "current_minus_source_kernel_auc": 0.06765839788648816,
+          "current_minus_far_time_kernel_auc": 0.0565705829196506,
+          "current_minus_permuted_kernel_auc": 0.07341769006517197
+        }
+      ]
+    },
+    {
+      "seed": 86848,
+      "summary": {
+        "pre_heldout_loss": 9.26187515258789,
+        "post_heldout_loss": 3.415804386138916,
+        "heldout_loss_gain": 5.846070766448975,
+        "lora_b_dimension": 9216,
+        "source_response_rank": 12,
+        "audited_nodes_total": 4,
+        "primary_noninitial_nodes": 3,
+        "maximum_row_space_rotation": 0.98553912361466,
+        "fraction_current_positive_auc": 1.0,
+        "current_beats_actual_nodes": 3,
+        "median_current_minus_actual_auc": 0.2221372127532959,
+        "current_beats_source_kernel_nodes": 3,
+        "median_current_minus_source_kernel_auc": 0.20560120211707222,
+        "current_beats_far_time_kernel_nodes": 3,
+        "median_current_minus_far_time_kernel_auc": 0.20560120211707222,
+        "current_beats_permuted_kernel_nodes": 3,
+        "median_current_minus_permuted_kernel_auc": 0.2221311463250054
+      },
+      "gates": {
+        "real_adaptation_improves_heldout": true,
+        "nontrivial_rotation": true,
+        "current_positive_auc": true,
+        "current_beats_actual": true,
+        "current_beats_source_kernel": true,
+        "current_beats_far_time_kernel": true,
+        "current_beats_permuted_kernel": true
+      },
+      "supported": true,
+      "nodes": [
+        {
+          "step": 0,
+          "row_space_rotation": 5.575503985246929e-08,
+          "response_rank": 12,
+          "update_norm": 1.919930338859558,
+          "actual_full_response_cost": 0.03810007497668266,
+          "actual_heldout_auc": 0.01605105400085449,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.22163009643554685,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.22163009643554685,
+          "source_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "far_time_kernel_heldout_auc": 0.0771838559044732,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "permuted_kernel_heldout_auc": 0.016011979844835066,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.20557904243469236,
+          "current_minus_source_kernel_auc": 0.0,
+          "current_minus_far_time_kernel_auc": 0.14444624053107363,
+          "current_minus_permuted_kernel_auc": 0.20561811659071177
+        },
+        {
+          "step": 6,
+          "row_space_rotation": 0.7447963011583374,
+          "response_rank": 12,
+          "update_norm": 1.6497571468353271,
+          "actual_full_response_cost": 0.02177945338189602,
+          "actual_heldout_auc": 0.01295924186706543,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.1838793754577637,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.0639725128809611,
+          "source_kernel_selected_alphas": [
+            0.0625,
+            0.125,
+            0.25,
+            0.75
+          ],
+          "far_time_kernel_heldout_auc": 0.10081160068511963,
+          "far_time_kernel_selected_alphas": [
+            0.0625,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "permuted_kernel_heldout_auc": 0.012966314951578777,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.17092013359069827,
+          "current_minus_source_kernel_auc": 0.1199068625768026,
+          "current_minus_far_time_kernel_auc": 0.08306777477264407,
+          "current_minus_permuted_kernel_auc": 0.17091306050618493
+        },
+        {
+          "step": 12,
+          "row_space_rotation": 0.9619446520904895,
+          "response_rank": 12,
+          "update_norm": 1.5705682039260864,
+          "actual_full_response_cost": 0.01580898091197014,
+          "actual_heldout_auc": 0.016870737075805664,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.23900794982910156,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.033406747712029346,
+          "source_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "far_time_kernel_heldout_auc": 0.033406747712029346,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "permuted_kernel_heldout_auc": 0.016876803504096136,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.2221372127532959,
+          "current_minus_source_kernel_auc": 0.20560120211707222,
+          "current_minus_far_time_kernel_auc": 0.20560120211707222,
+          "current_minus_permuted_kernel_auc": 0.2221311463250054
+        },
+        {
+          "step": 18,
+          "row_space_rotation": 0.98553912361466,
+          "response_rank": 12,
+          "update_norm": 1.4448838233947754,
+          "actual_full_response_cost": 0.02136833593249321,
+          "actual_heldout_auc": 0.020451664924621582,
+          "actual_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_kernel_heldout_auc": 0.27800750732421875,
+          "current_kernel_selected_alphas": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "source_kernel_heldout_auc": 0.02019459671444363,
+          "source_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "far_time_kernel_heldout_auc": 0.03932091924879286,
+          "far_time_kernel_selected_alphas": [
+            0.03125,
+            0.0625,
+            0.125,
+            0.25
+          ],
+          "permuted_kernel_heldout_auc": 0.020446274015638564,
+          "permuted_kernel_selected_alphas": [
+            0.015625,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          "current_minus_actual_auc": 0.25755584239959717,
+          "current_minus_source_kernel_auc": 0.2578129106097751,
+          "current_minus_far_time_kernel_auc": 0.2386865880754259,
+          "current_minus_permuted_kernel_auc": 0.25756123330858016
+        }
+      ]
+    }
+  ],
+  "claim_boundary": "Eight-new-seed CPU confirmation in standard GPT-2 with a frozen backbone and rank-2 native LoRA-B on layers 10 and 11; not full-parameter tuning, broad semantic knowledge acquisition, arbitrary language tasks, or a universal intelligence law."
+}
