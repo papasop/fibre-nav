@@ -1,0 +1,874 @@
+{
+  "seed": 85746,
+  "summary": {
+    "source_accuracy": 0.8675000071525574,
+    "pre_heldout_loss": 0.7683218121528625,
+    "post_heldout_loss": 0.7240484356880188,
+    "heldout_loss_gain": 0.04427337646484375,
+    "audited_nodes_total": 8,
+    "primary_noninitial_nodes": 7,
+    "maximum_row_space_rotation": 0.6122160296567029,
+    "fraction_current_positive_auc": 1.0,
+    "fraction_current_auc_beats_actual": 1.0,
+    "median_current_minus_actual_auc": 0.0008521506107855292,
+    "fraction_current_auc_beats_source_kernel": 1.0,
+    "median_current_minus_source_kernel_auc": 0.0001854331780271212,
+    "fraction_current_auc_beats_far_time_kernel": 0.8571428571428571,
+    "median_current_minus_far_time_kernel_auc": 9.966495772344608e-05,
+    "fraction_current_auc_beats_permuted_kernel": 1.0,
+    "median_current_minus_permuted_kernel_auc": 0.0008495166997048195
+  },
+  "gates": {
+    "source_accuracy": true,
+    "real_adaptation_improves_heldout": true,
+    "nontrivial_rotation": true,
+    "current_positive_low_budget_auc": true,
+    "current_low_budget_auc_beats_actual": true,
+    "current_low_budget_auc_beats_source_kernel": true,
+    "current_low_budget_auc_beats_far_time_kernel": true,
+    "current_low_budget_auc_beats_permuted_kernel": true
+  },
+  "supported": true,
+  "nodes": [
+    {
+      "step": 0,
+      "row_space_rotation": 4.712160915387242e-08,
+      "update_norm": 0.06924662739038467,
+      "actual_full_response_cost": 0.22715179934321486,
+      "actual_heldout_auc": 0.0007600674591729681,
+      "actual_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "actual_heldout_utilities": [
+        0.00018076370547193132,
+        0.00035787646086415936,
+        0.0007011559121286037,
+        0.0013439787044968732
+      ],
+      "actual_response_costs": [
+        0.0035514509142713442,
+        0.007102831164618692,
+        0.014205377875209374,
+        0.028409604936011287
+      ],
+      "current_kernel_heldout_auc": 0.003619098312272584,
+      "current_kernel_selected_alphas": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "current_kernel_heldout_utilities": [
+        0.003619098312272584,
+        0.003619098312272584,
+        0.003619098312272584,
+        0.003619098312272584
+      ],
+      "current_kernel_response_costs": [
+        0.0021321289366013473,
+        0.0021321289366013473,
+        0.0021321289366013473,
+        0.0021321289366013473
+      ],
+      "source_kernel_heldout_auc": 0.003619098312272584,
+      "source_kernel_selected_alphas": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "source_kernel_heldout_utilities": [
+        0.003619098312272584,
+        0.003619098312272584,
+        0.003619098312272584,
+        0.003619098312272584
+      ],
+      "source_kernel_response_costs": [
+        0.0021321289366013473,
+        0.0021321289366013473,
+        0.0021321289366013473,
+        0.0021321289366013473
+      ],
+      "far_time_kernel_heldout_auc": 0.0024720402713202094,
+      "far_time_kernel_selected_alphas": [
+        0.125,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "far_time_kernel_heldout_utilities": [
+        0.00040830642792355487,
+        0.001578129652446858,
+        0.0030057397305672806,
+        0.0030057397305672806
+      ],
+      "far_time_kernel_response_costs": [
+        0.0023217587063107687,
+        0.009095844160072211,
+        0.017712616391889573,
+        0.017712616391889573
+      ],
+      "permuted_kernel_heldout_auc": 0.0007576409251734416,
+      "permuted_kernel_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "permuted_kernel_heldout_utilities": [
+        0.00018013839989583502,
+        0.0003566577679259275,
+        0.0006988462204868817,
+        0.0013398702655845751
+      ],
+      "permuted_kernel_response_costs": [
+        0.003529641838561199,
+        0.007059214504524446,
+        0.014118150556220338,
+        0.028235174566042645
+      ],
+      "current_minus_actual_auc": 0.002859030853099616,
+      "current_minus_source_kernel_auc": 0.0,
+      "current_minus_far_time_kernel_auc": 0.0011470580409523746,
+      "current_minus_permuted_kernel_auc": 0.002861457387099142
+    },
+    {
+      "step": 4,
+      "row_space_rotation": 0.41320645444194254,
+      "update_norm": 0.036601390689611435,
+      "actual_full_response_cost": 0.09778525848781958,
+      "actual_heldout_auc": 8.746189065824322e-05,
+      "actual_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "actual_heldout_utilities": [
+        2.1173265898455362e-05,
+        4.177000139449216e-05,
+        8.123392414838282e-05,
+        0.0001532439392619711
+      ],
+      "actual_response_costs": [
+        0.0015225349823087234,
+        0.003045254796277452,
+        0.006091246304190518,
+        0.012185418220556767
+      ],
+      "current_kernel_heldout_auc": 0.0015371642851823575,
+      "current_kernel_selected_alphas": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "current_kernel_heldout_utilities": [
+        0.0015371642851823575,
+        0.0015371642851823575,
+        0.0015371642851823575,
+        0.0015371642851823575
+      ],
+      "current_kernel_response_costs": [
+        0.0008212962595005887,
+        0.0008212962595005887,
+        0.0008212962595005887,
+        0.0008212962595005887
+      ],
+      "source_kernel_heldout_auc": 0.0010135620877076608,
+      "source_kernel_selected_alphas": [
+        0.125,
+        0.25,
+        0.75,
+        1.0
+      ],
+      "source_kernel_heldout_utilities": [
+        0.0002029760609562059,
+        0.00040229790384649355,
+        0.001163037892381591,
+        0.001521535535811136
+      ],
+      "source_kernel_response_costs": [
+        0.001219296292252598,
+        0.0024599549782204663,
+        0.0076179194386720795,
+        0.010301838632625267
+      ],
+      "far_time_kernel_heldout_auc": 0.0014374993274589114,
+      "far_time_kernel_selected_alphas": [
+        0.5,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "far_time_kernel_heldout_utilities": [
+        0.0007758255693672833,
+        0.001497651487285423,
+        0.001497651487285423,
+        0.001497651487285423
+      ],
+      "far_time_kernel_response_costs": [
+        0.0015510230464562177,
+        0.0030534963429495903,
+        0.0030534963429495903,
+        0.0030534963429495903
+      ],
+      "permuted_kernel_heldout_auc": 8.832308033864131e-05,
+      "permuted_kernel_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "permuted_kernel_heldout_utilities": [
+        2.1357027332302714e-05,
+        4.2142247469345584e-05,
+        8.19973052132994e-05,
+        0.00015484622522399238
+      ],
+      "permuted_kernel_response_costs": [
+        0.0015185548977584018,
+        0.003037294228174485,
+        0.006075323433122381,
+        0.012153564422298117
+      ],
+      "current_minus_actual_auc": 0.0014497023945241143,
+      "current_minus_source_kernel_auc": 0.0005236021974746967,
+      "current_minus_far_time_kernel_auc": 9.966495772344608e-05,
+      "current_minus_permuted_kernel_auc": 0.0014488412048437162
+    },
+    {
+      "step": 8,
+      "row_space_rotation": 0.5724959605327965,
+      "update_norm": 0.031632598489522934,
+      "actual_full_response_cost": 0.08669967254651073,
+      "actual_heldout_auc": 0.00012408032611334484,
+      "actual_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "actual_heldout_utilities": [
+        2.9059082916282897e-05,
+        5.771219851291587e-05,
+        0.0001138002267211391,
+        0.0002211013502411152
+      ],
+      "actual_response_costs": [
+        0.0013542056369498753,
+        0.002708428314212187,
+        0.005416924466856984,
+        0.010834117659290375
+      ],
+      "current_kernel_heldout_auc": 0.001458703198621736,
+      "current_kernel_selected_alphas": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "current_kernel_heldout_utilities": [
+        0.0014587031986217358,
+        0.0014587031986217358,
+        0.0014587031986217358,
+        0.0014587031986217358
+      ],
+      "current_kernel_response_costs": [
+        0.00019339918120208483,
+        0.00019339918120208483,
+        0.00019339918120208483,
+        0.00019339918120208483
+      ],
+      "source_kernel_heldout_auc": 0.0011847774624060001,
+      "source_kernel_selected_alphas": [
+        0.25,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "source_kernel_heldout_utilities": [
+        0.00036753989098181616,
+        0.0007281952036489736,
+        0.001428952293779151,
+        0.001428952293779151
+      ],
+      "source_kernel_response_costs": [
+        0.0014562343697003641,
+        0.002918605378654996,
+        0.005859287392755916,
+        0.005859287392755916
+      ],
+      "far_time_kernel_heldout_auc": 0.001316193513663312,
+      "far_time_kernel_selected_alphas": [
+        0.25,
+        0.75,
+        1.0,
+        1.0
+      ],
+      "far_time_kernel_heldout_utilities": [
+        0.00038236434208749337,
+        0.0011267800182173104,
+        0.0014888653327951307,
+        0.0014888653327951307
+      ],
+      "far_time_kernel_response_costs": [
+        0.0012453893569874955,
+        0.003737877818581367,
+        0.004983382803877064,
+        0.004983382803877064
+      ],
+      "permuted_kernel_heldout_auc": 0.00012080747443870182,
+      "permuted_kernel_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "permuted_kernel_heldout_utilities": [
+        2.8307125909066144e-05,
+        5.62128884878943e-05,
+        0.0001108200109777302,
+        0.00021521444294969605
+      ],
+      "permuted_kernel_response_costs": [
+        0.0013473956278481254,
+        0.002694807051906089,
+        0.005389676995117376,
+        0.010779603164745641
+      ],
+      "current_minus_actual_auc": 0.0013346228725083912,
+      "current_minus_source_kernel_auc": 0.0002739257362157359,
+      "current_minus_far_time_kernel_auc": 0.00014250968495842405,
+      "current_minus_permuted_kernel_auc": 0.0013378957241830343
+    },
+    {
+      "step": 12,
+      "row_space_rotation": 0.6122160296567029,
+      "update_norm": 0.029788454994559288,
+      "actual_full_response_cost": 0.055337975374876655,
+      "actual_heldout_auc": -3.434364048220272e-05,
+      "actual_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "actual_heldout_utilities": [
+        -7.343363985334861e-06,
+        -1.4868677398083285e-05,
+        -3.0465147395464243e-05,
+        -6.384143352866634e-05
+      ],
+      "actual_response_costs": [
+        0.000864673076154073,
+        0.0017293461503097235,
+        0.0034586921249118844,
+        0.0069173822636314315
+      ],
+      "current_kernel_heldout_auc": 0.0007549352773792428,
+      "current_kernel_selected_alphas": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "current_kernel_heldout_utilities": [
+        0.0007549352773792428,
+        0.0007549352773792428,
+        0.0007549352773792428,
+        0.0007549352773792428
+      ],
+      "current_kernel_response_costs": [
+        0.00029492003215902994,
+        0.00029492003215902994,
+        0.00029492003215902994,
+        0.00029492003215902994
+      ],
+      "source_kernel_heldout_auc": 0.0006644363871679085,
+      "source_kernel_selected_alphas": [
+        0.25,
+        0.75,
+        1.0,
+        1.0
+      ],
+      "source_kernel_heldout_utilities": [
+        0.0001955270808913223,
+        0.0005708423579073862,
+        0.0007506555932844661,
+        0.0007506555932844661
+      ],
+      "source_kernel_response_costs": [
+        0.0008175779107837438,
+        0.0024827085867629656,
+        0.0033332472783987924,
+        0.0033332472783987924
+      ],
+      "far_time_kernel_heldout_auc": 0.0007497163108664919,
+      "far_time_kernel_selected_alphas": [
+        0.25,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "far_time_kernel_heldout_utilities": [
+        0.00020749734338165737,
+        0.0007990089442742043,
+        0.0007990089442742043,
+        0.0007990089442742043
+      ],
+      "far_time_kernel_response_costs": [
+        0.0006209303446286462,
+        0.002446919057675755,
+        0.002446919057675755,
+        0.002446919057675755
+      ],
+      "permuted_kernel_heldout_auc": -3.581468418030938e-05,
+      "permuted_kernel_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "permuted_kernel_heldout_utilities": [
+        -7.673903759997103e-06,
+        -1.5530819937215057e-05,
+        -3.179368404926386e-05,
+        -6.651550989744681e-05
+      ],
+      "permuted_kernel_response_costs": [
+        0.0008665733844445444,
+        0.0017331473387685204,
+        0.0034662968102737368,
+        0.006932601032989681
+      ],
+      "current_minus_actual_auc": 0.0007892789178614455,
+      "current_minus_source_kernel_auc": 9.049889021133428e-05,
+      "current_minus_far_time_kernel_auc": 5.218966512750885e-06,
+      "current_minus_permuted_kernel_auc": 0.0007907499615595522
+    },
+    {
+      "step": 16,
+      "row_space_rotation": 0.575477737086065,
+      "update_norm": 0.030449671670794487,
+      "actual_full_response_cost": 0.0469193253543561,
+      "actual_heldout_auc": 0.0001437125028113754,
+      "actual_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "actual_heldout_utilities": [
+        3.2839130161721464e-05,
+        6.555191997004162e-05,
+        0.00013059838214379837,
+        0.0002591741618807042
+      ],
+      "actual_response_costs": [
+        0.0007335714183783214,
+        0.0014671388631627743,
+        0.002934259816421783,
+        0.005868431833978365
+      ],
+      "current_kernel_heldout_auc": 0.0012841045611967639,
+      "current_kernel_selected_alphas": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "current_kernel_heldout_utilities": [
+        0.0012841045611967639,
+        0.0012841045611967639,
+        0.0012841045611967639,
+        0.0012841045611967639
+      ],
+      "current_kernel_response_costs": [
+        0.0002115003732913388,
+        0.0002115003732913388,
+        0.0002115003732913388,
+        0.0002115003732913388
+      ],
+      "source_kernel_heldout_auc": 0.0007316722067031742,
+      "source_kernel_selected_alphas": [
+        0.0625,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "source_kernel_heldout_utilities": [
+        8.537756953896913e-05,
+        0.0003395506783023805,
+        0.0006738135241854959,
+        0.0013260458443495882
+      ],
+      "source_kernel_response_costs": [
+        0.000503906818092369,
+        0.0020112593572096014,
+        0.004009620198918194,
+        0.00795886881705117
+      ],
+      "far_time_kernel_heldout_auc": 0.0007316722067031742,
+      "far_time_kernel_selected_alphas": [
+        0.0625,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "far_time_kernel_heldout_utilities": [
+        8.537756953896913e-05,
+        0.0003395506783023805,
+        0.0006738135241854959,
+        0.0013260458443495882
+      ],
+      "far_time_kernel_response_costs": [
+        0.000503906818092369,
+        0.0020112593572096014,
+        0.004009620198918194,
+        0.00795886881705117
+      ],
+      "permuted_kernel_heldout_auc": 0.00014112280409511429,
+      "permuted_kernel_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "permuted_kernel_heldout_utilities": [
+        3.2248058362993604e-05,
+        6.43717643454833e-05,
+        0.00012824602154959397,
+        0.0002545012334327357
+      ],
+      "permuted_kernel_response_costs": [
+        0.0007280237444739336,
+        0.0014560438627268008,
+        0.002912071219475615,
+        0.0058240603710338285
+      ],
+      "current_minus_actual_auc": 0.0011403920583853884,
+      "current_minus_source_kernel_auc": 0.0005524323544935897,
+      "current_minus_far_time_kernel_auc": 0.0005524323544935897,
+      "current_minus_permuted_kernel_auc": 0.0011429817571016495
+    },
+    {
+      "step": 20,
+      "row_space_rotation": 0.44039875098031633,
+      "update_norm": 0.03159373253583908,
+      "actual_full_response_cost": 0.056386873361941724,
+      "actual_heldout_auc": 0.00012165835518475794,
+      "actual_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "actual_heldout_utilities": [
+        2.802134714774418e-05,
+        5.5842467361566506e-05,
+        0.000110883977214149,
+        0.00021856373481032865
+      ],
+      "actual_response_costs": [
+        0.0008845375262083099,
+        0.0017689613263101739,
+        0.0035374681194270956,
+        0.007073121255010931
+      ],
+      "current_kernel_heldout_auc": 0.0008250967618558258,
+      "current_kernel_selected_alphas": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "current_kernel_heldout_utilities": [
+        0.0008250967618558258,
+        0.0008250967618558258,
+        0.0008250967618558258,
+        0.0008250967618558258
+      ],
+      "current_kernel_response_costs": [
+        0.000503186589628965,
+        0.000503186589628965,
+        0.000503186589628965,
+        0.000503186589628965
+      ],
+      "source_kernel_heldout_auc": 0.0006396635838287046,
+      "source_kernel_selected_alphas": [
+        0.125,
+        0.25,
+        1.0,
+        1.0
+      ],
+      "source_kernel_heldout_utilities": [
+        0.00011182068261694766,
+        0.00022159038927682673,
+        0.0008367881542307165,
+        0.0008367881542307165
+      ],
+      "source_kernel_response_costs": [
+        0.0007578833792053251,
+        0.0014998701875026145,
+        0.005615701696272914,
+        0.005615701696272914
+      ],
+      "far_time_kernel_heldout_auc": 0.0007527509470559887,
+      "far_time_kernel_selected_alphas": [
+        0.25,
+        0.75,
+        1.0,
+        1.0
+      ],
+      "far_time_kernel_heldout_utilities": [
+        0.0002241073695040674,
+        0.0006488682615887198,
+        0.0008494306357117454,
+        0.0008494306357117454
+      ],
+      "far_time_kernel_response_costs": [
+        0.0008521523914300727,
+        0.002522518573932527,
+        0.003349858429223582,
+        0.003349858429223582
+      ],
+      "permuted_kernel_heldout_auc": 0.00011960120712285285,
+      "permuted_kernel_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "permuted_kernel_heldout_utilities": [
+        2.7558561764062794e-05,
+        5.491564117043879e-05,
+        0.00010902530376633024,
+        0.00021482630852720508
+      ],
+      "permuted_kernel_response_costs": [
+        0.000885160318435258,
+        0.001770206861790219,
+        0.0035399590076400037,
+        0.007078102405867654
+      ],
+      "current_minus_actual_auc": 0.0007034384066710678,
+      "current_minus_source_kernel_auc": 0.0001854331780271212,
+      "current_minus_far_time_kernel_auc": 7.234581479983711e-05,
+      "current_minus_permuted_kernel_auc": 0.000705495554732973
+    },
+    {
+      "step": 24,
+      "row_space_rotation": 0.38757141187656663,
+      "update_norm": 0.02908257022500038,
+      "actual_full_response_cost": 0.04501234269369839,
+      "actual_heldout_auc": 0.0,
+      "actual_selected_alphas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_heldout_utilities": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_response_costs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "current_kernel_heldout_auc": 0.00017717989081567073,
+      "current_kernel_selected_alphas": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "current_kernel_heldout_utilities": [
+        0.00017717989081567076,
+        0.00017717989081567076,
+        0.00017717989081567076,
+        0.00017717989081567076
+      ],
+      "current_kernel_response_costs": [
+        0.00015037068073738813,
+        0.00015037068073738813,
+        0.00015037068073738813,
+        0.00015037068073738813
+      ],
+      "source_kernel_heldout_auc": 0.00016513724444317904,
+      "source_kernel_selected_alphas": [
+        0.25,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "source_kernel_heldout_utilities": [
+        4.846701579130919e-05,
+        0.0001757436288660763,
+        0.0001757436288660763,
+        0.0001757436288660763
+      ],
+      "source_kernel_response_costs": [
+        0.0004613513954517852,
+        0.0017992450042724215,
+        0.0017992450042724215,
+        0.0017992450042724215
+      ],
+      "far_time_kernel_heldout_auc": 0.00017740996862166615,
+      "far_time_kernel_selected_alphas": [
+        0.25,
+        0.75,
+        1.0,
+        1.0
+      ],
+      "far_time_kernel_heldout_utilities": [
+        5.4243799555764305e-05,
+        0.00015406552262631212,
+        0.0001996601316280877,
+        0.0001996601316280877
+      ],
+      "far_time_kernel_response_costs": [
+        0.0006862351172989723,
+        0.002096058516113399,
+        0.002819908302754851,
+        0.002819908302754851
+      ],
+      "permuted_kernel_heldout_auc": 0.0,
+      "permuted_kernel_selected_alphas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "permuted_kernel_heldout_utilities": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "permuted_kernel_response_costs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "current_minus_actual_auc": 0.00017717989081567073,
+      "current_minus_source_kernel_auc": 1.2042646372491695e-05,
+      "current_minus_far_time_kernel_auc": -2.3007780599541405e-07,
+      "current_minus_permuted_kernel_auc": 0.00017717989081567073
+    },
+    {
+      "step": 28,
+      "row_space_rotation": 0.35308506652594174,
+      "update_norm": 0.028505075722932816,
+      "actual_full_response_cost": 0.038277005520089155,
+      "actual_heldout_auc": 0.00022139884745714372,
+      "actual_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "actual_heldout_utilities": [
+        5.040586622906407e-05,
+        0.00010069486507169323,
+        0.00020092227127854745,
+        0.0003999747920018226
+      ],
+      "actual_response_costs": [
+        0.0005981746375172104,
+        0.001196346145500899,
+        0.002392679785849824,
+        0.004785309655235583
+      ],
+      "current_kernel_heldout_auc": 0.001073549458242673,
+      "current_kernel_selected_alphas": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "current_kernel_heldout_utilities": [
+        0.001073549458242673,
+        0.001073549458242673,
+        0.001073549458242673,
+        0.001073549458242673
+      ],
+      "current_kernel_response_costs": [
+        9.470358908013874e-05,
+        9.470358908013874e-05,
+        9.470358908013874e-05,
+        9.470358908013874e-05
+      ],
+      "source_kernel_heldout_auc": 0.001036228731488999,
+      "source_kernel_selected_alphas": [
+        0.5,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "source_kernel_heldout_utilities": [
+        0.0005472595798088342,
+        0.0010806804725508323,
+        0.0010806804725508323,
+        0.0010806804725508323
+      ],
+      "source_kernel_response_costs": [
+        0.000714169357096758,
+        0.0014514471583041695,
+        0.0014514471583041695,
+        0.0014514471583041695
+      ],
+      "far_time_kernel_heldout_auc": 0.0008726561332791494,
+      "far_time_kernel_selected_alphas": [
+        0.125,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "far_time_kernel_heldout_utilities": [
+        0.00013628058240056085,
+        0.0005402409139108055,
+        0.0010673940695824502,
+        0.0010673940695824502
+      ],
+      "far_time_kernel_response_costs": [
+        0.0004313257940632063,
+        0.0017139959573194573,
+        0.003397831365397296,
+        0.003397831365397296
+      ],
+      "permuted_kernel_heldout_auc": 0.00022403275853785345,
+      "permuted_kernel_selected_alphas": [
+        0.015625,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      "permuted_kernel_heldout_utilities": [
+        5.100110377342926e-05,
+        0.00010188581124903617,
+        0.00020330604771234828,
+        0.0004047498790364923
+      ],
+      "permuted_kernel_response_costs": [
+        0.000597020725807592,
+        0.001194038012237365,
+        0.0023880622794158705,
+        0.004776069678518563
+      ],
+      "current_minus_actual_auc": 0.0008521506107855292,
+      "current_minus_source_kernel_auc": 3.7320726753673926e-05,
+      "current_minus_far_time_kernel_auc": 0.0002008933249635236,
+      "current_minus_permuted_kernel_auc": 0.0008495166997048195
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "protocol":"CNER_RESNET18_CIFAR10_LOW_RESPONSE_PARETO_V4_6_CPU",
+  "prospective":true,
+  "seeds":[85741,85742,85743,85744,85745,85746,85747,85748],
+  "required_supporting_seeds":6,
+  "excluded_prior_cohorts":[83741,84741,84742,84743,84744,84745,84746,84747,84748],
+  "budget_fractions":[0.02,0.05,0.10,0.20],
+  "alpha_grid":[0.0,0.015625,0.03125,0.0625,0.125,0.25,0.5,0.75,1.0],
+  "alpha_selection":"maximum calibration utility among response-feasible scales; held-out utility never inspected",
+  "calibration_examples":300,
+  "heldout_examples":300,
+  "primary_metric":"trapezoidal mean held-out utility over normalized low-response budgets",
+  "controls":["actual AdamW","source kernel","half-path time-shifted kernel","signed parameter-permuted kernel"],
+  "initial_node_excluded":true,
+  "primary_nodes_per_seed":7,
+  "minimum_node_win_fraction":0.7142857142857143,
+  "claim_boundary":"CPU reduced-workload local low-response Pareto audit in the declared frozen-backbone ResNet-18 adapter+head chart; not A100/full-backbone/cross-architecture confirmation or a universal law."
+}

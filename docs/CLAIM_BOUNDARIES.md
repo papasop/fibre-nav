@@ -34,6 +34,13 @@
    representation. All gates passed in 16/16 new classifier-training seeds at
    4, 16 and 32 anchors.
 
+2. **Low-response Pareto v1, GPT-2 native LoRA-B:** within the declared
+   finite rank-2 LoRA-B parameter chart, alpha grid, response budgets and
+   calibration/held-out splits, the instantaneous response-kernel arm defines
+   a better held-out low-response learning frontier than the recorded optimizer
+   update and declared stale, time-shifted and signed-permuted controls. The
+   GPT-2 audit passed 8/8 seeds and 24/24 noninitial nodes.
+
 2. **F16 v16:** restricted CNER-F ordering in a frozen eight-dimensional
    CNN--MNIST chart.
 3. **Moving-F16 v3.0b:** the restricted ordering survives pointwise moving
@@ -49,6 +56,13 @@
 The last statement is precisely an \(\arg\min\) over the frozen set
 \(\mathcal A_6\) of six causal online algorithms. No claim is made about an
 \(\arg\min\) over arbitrary causal paths.
+
+## Prospectively supported
+
+0. **Low-response Pareto v1, reduced ResNet v4.6:** within its declared reduced
+   ResNet-18/CIFAR-10 CPU protocol, the instantaneous response-kernel arm
+   supports the same low-response Pareto ordering in 7/8 prospective seeds.
+   This is supported evidence, not a universal ResNet or optimizer claim.
 
 ## Post-confirmation robustness audit
 
@@ -100,5 +114,9 @@ realizability-cost minimality.
   action-cost separation;
 - full-model GPT-2/LLM transfer, semantic invariance, or generalisation beyond
   the declared rank-2 LoRA-B subspace and frozen prompt cohorts;
+- ordinary AdamW, SGD or large-model training naturally follows the response
+  fibre;
+- continuous low-response Pareto optimality beyond the frozen finite response
+  budgets and alpha grids;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

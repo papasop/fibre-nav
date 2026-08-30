@@ -44,6 +44,20 @@ protocol, validates the 8-seed/32-node output, and downloads the result and
 environment manifest. No author ZIP upload is required. This is explicitly a
 same-cohort external reproduction, not a new-seed independent confirmation.
 
+## Low-response Pareto audits
+
+The `evidence/low_response_pareto_v1/` archive adds two prospective CPU audits
+of held-out learning utility under frozen finite response budgets. The
+instantaneous response-kernel arm is a counterfactual projection evaluated at
+recorded optimizer nodes; it is not evidence that ordinary AdamW or SGD
+naturally follows a response fibre.
+
+Reduced ResNet v4.6 supports the low-response Pareto ordering in 7/8
+prospective seeds. GPT-2 native LoRA-B v1-r1 confirms the ordering within its
+declared protocol in 8/8 seeds and 24/24 noninitial nodes. The 24-node Pareto
+count is separate from GPTW-v3's 32-node current-versus-source-fixed
+correction-cost audit and must not be interchanged.
+
 ## External confirmation: selected response-fibre tangent value
 
 ResNet-18/CIFAR-10 v4.0c-r1 prospectively tested the functional premise in the
@@ -174,6 +188,7 @@ continuum or arbitrary-path theorem.
 | ResNet-18/CIFAR-10 v4.2d | Layer4+fc transverse audit passed 16/16; median active residual ratio 1437.844 and gain contrast 341,763 | Confirmed finite-chart transverse amplification |
 | ResNet-18/CIFAR-10 v4.1b | Terminal adapter+classifier dual scaling passed all geometric and held-out gates in 16/16 seeds | Confirmed cross-model finite-radius scaling |
 | GPTW v1.1.0/v1.1.1 | Rank-2 LoRA-B adaptive value passed 8/8 new seeds; current-vs-fixed v2 is SUPPORTED in 6/6 seeds and 18/18 nodes; v3 natural text is SUPPORTED in 8/8 seeds and 32/32 nodes as not confined to codeword prompts | r3 confirmed; v2/v3 supported restricted GPTW evidence |
+| Low-response Pareto v1 | Counterfactual instantaneous-kernel held-out utility frontier: ResNet v4.6 passed 7/8 seeds; GPT-2 LoRA-B passed 8/8 seeds and 24/24 noninitial nodes | ResNet supported; GPT-2 confirmed within declared protocol |
 | ResNet-18/CIFAR-10 v4.0c-r1 | Selected final-classifier response-fibre tangent passed all gates in 16/16 seeds at 4, 16 and 32 anchors | Confirmed external functional premise |
 | F16 v16 | True output-Fisher natural flow minimized the restricted six-path CNER-F action in 15/16 seeds; Adam and wrong-Fisher natural won 0/16 | Confirmed restricted ordering |
 | Moving-F16 v3.0b | With pointwise moving Fisher and capacity evaluation, 14/16 seeds were comparable and natural minimized moving action in 13/14 | Confirmed restricted ordering |
@@ -211,6 +226,9 @@ evidence/
     paper/
   gptw_response_fibre_v1_1_1/
     V2 protocol-completeness documentation only
+  low_response_pareto_v1/
+    resnet_v4_6/
+    gpt2_lora_b_v1/
   confirmed/
     f16_v16/
     moving_f16_v3_0b/
@@ -241,6 +259,8 @@ provenance/
   SHA256SUMS
 external_tests/
   gptw_v3/
+paper/
+  Moving_Response_Fibres_v5_unified_hierarchy.pdf
 ```
 
 Every confirmed stage preserves executable source, its frozen protocol,
@@ -257,9 +277,10 @@ The archive supports state-dependent response fibres, confirmed finite-radius
 realizability-cost scaling, and restricted six-algorithm Moving-Fibre F16
 ordering in frozen finite CNN--MNIST constructions. It also confirms selected
 response-fibre tangent value in the complete final classifier of a frozen
-  ResNet-18 representation, cross-model ResNet cost scaling and finite-chart
-  transverse response amplification, and provides prospective cross-modal confirmation in
-the rank-2 LoRA-B subspace of the final two GPT-2 blocks. It does not establish:
+ResNet-18 representation, cross-model ResNet cost scaling, finite-chart
+transverse response amplification, prospective cross-modal evidence in the
+rank-2 LoRA-B subspace of the final two GPT-2 blocks, and a bounded
+low-response Pareto branch. It does not establish:
 
 - a complete high-dimensional response-kernel bundle;
 - exact \(h\to0\) convergence or a horizontal-lift theorem;
@@ -269,6 +290,8 @@ the rank-2 LoRA-B subspace of the final two GPT-2 blocks. It does not establish:
   arbitrary-path/global variational result;
 - full-model GPT-2/LLM confirmation, semantic invariance, or transfer beyond
   the declared LoRA-B subspace and frozen prompts;
+- ordinary AdamW or SGD naturally follows a response fibre;
+- a continuous Pareto optimum beyond the frozen finite budget and alpha grids;
 - a universal intelligence, physical-time or K=1 law.
 
 ## Reproduction

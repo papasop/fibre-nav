@@ -161,3 +161,22 @@ protocol record for an ordinary AdamW current-versus-source response-geometry
 audit. The authoritative recovered results ZIP is intentionally deferred; no
 positive or negative v4.4-r1 decision is repository-backed by this staging
 record.
+
+## Low-response Pareto v1
+
+This release imports `neural_fibre_geometry_low_response_pareto_github_ingest_v1.zip`
+as a root-relative evidence snapshot. ZIP SHA-256:
+`58e122b00444aca8ea161223437dcfcc0d174bb94d52206fe17b41c37a21d8e6`.
+
+The snapshot contains two prospective CPU audits of held-out low-response
+utility frontiers. Reduced ResNet v4.6 reports
+`LOW_RESPONSE_PARETO_ADVANTAGE_SUPPORTED` in 7/8 seeds. GPT-2 native LoRA-B
+reports `GPT2_LORA_LOW_RESPONSE_PARETO_CONFIRMED` in 8/8 seeds and 24/24
+noninitial nodes. These are finite-chart, finite-budget, frozen-alpha-grid
+claims. The successful instantaneous-kernel arm is a counterfactual projection,
+so the import does not establish that ordinary AdamW or SGD naturally follows a
+response fibre.
+
+The imported paper PDF is a manuscript snapshot that distinguishes this
+24-node Pareto audit from the separately frozen 32-node GPTW-v3
+correction-cost audit.
