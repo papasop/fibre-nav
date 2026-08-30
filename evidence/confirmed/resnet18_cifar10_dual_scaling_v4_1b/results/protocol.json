@@ -1,0 +1,45 @@
+{
+  "protocol": "CNER_RESNET18_CIFAR10_MOVING_FIBRE_DUAL_SCALING_CONFIRM_V4_1B",
+  "seeds": [
+    68726,
+    68727,
+    68728,
+    68729,
+    68730,
+    68731,
+    68732,
+    68733,
+    68734,
+    68735,
+    68736,
+    68737,
+    68738,
+    68739,
+    68740,
+    68741
+  ],
+  "radii": [
+    0.08,
+    0.04,
+    0.02,
+    0.01
+  ],
+  "anchors": 16,
+  "chart_dim": 8,
+  "maximum_steps": 48,
+  "dev_loss_reduction_fraction": 0.03,
+  "required_geometric_candidates": 12,
+  "geometric_thresholds": {
+    "maximum_response_retraction_error": 0.002,
+    "minimum_moving_alpha": 0.4,
+    "minimum_alpha_gap": 0.4,
+    "minimum_smallest_radius_cost_ratio": 2.0,
+    "minimum_censored_step_ratio": 2.0,
+    "minimum_progress_ratio": 1.5
+  },
+  "heldout_descriptive_thresholds": {
+    "minimum_projected_gradient_cosine": 0.95,
+    "moving_confirm_nonworsening": true
+  },
+  "causal_boundary": "All 12 dev paths freeze before first confirm access."
+}

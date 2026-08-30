@@ -1,0 +1,27 @@
+{
+  "protocol": "CNER_RESNET18_CIFAR10_MOVING_FIBRE_DUAL_SCALING_CONFIRM_V4_1B",
+  "seeds": [68726, 68727, 68728, 68729, 68730, 68731, 68732, 68733, 68734, 68735, 68736, 68737, 68738, 68739, 68740, 68741],
+  "radii": [0.08, 0.04, 0.02, 0.01],
+  "anchors": 16,
+  "chart_dim": 8,
+  "maximum_steps": 48,
+  "dev_loss_reduction_fraction": 0.03,
+  "arms": ["moving", "fixed", "transport_shuffled"],
+  "required_geometric_candidates": 12,
+  "geometric_gates": {
+    "moving_fixed_all_dev_endpoints": true,
+    "maximum_response_retraction_error": 0.002,
+    "minimum_moving_alpha": 0.40,
+    "minimum_moving_minus_fixed_alpha": 0.40,
+    "minimum_smallest_radius_fixed_over_moving_cost": 2.0,
+    "moving_faster_than_shuffled_at_all_radii": true,
+    "minimum_median_censored_step_ratio": 2.0,
+    "minimum_median_moving_over_shuffled_progress_ratio": 1.5
+  },
+  "heldout_descriptive_gates": {
+    "minimum_projected_dev_confirm_gradient_cosine": 0.95,
+    "moving_confirm_nonworsening_at_all_radii": true
+  },
+  "causal_boundary": "All 12 paths per seed are frozen using dev data before the first confirm access; held-out results cannot change geometric confirmation.",
+  "scope": "prospective confirmation in a terminal residual adapter plus complete classifier over frozen ResNet-18 features"
+}

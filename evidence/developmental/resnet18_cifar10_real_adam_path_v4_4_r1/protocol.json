@@ -1,0 +1,66 @@
+{
+  "protocol": "CNER_RESNET18_CIFAR10_REAL_ADAM_PATH_V4_4_R1",
+  "status": "PROSPECTIVE_BEFORE_OUTCOME",
+  "seeds": [81726, 81727, 81728, 81729, 81730, 81731, 81732, 81733],
+  "hardware": {"certification_gpu": "A100", "non_a100_diagnostic_flag": "--allow-non-a100", "tf32": false},
+  "model": {
+    "backbone": "torchvision ImageNet-pretrained ResNet-18, frozen, fc replaced by identity",
+    "feature_dimension": 512,
+    "classes": 10,
+    "adapter_rank": 8,
+    "adapter_formula": "h=x+0.20*tanh(x@U)@V",
+    "adapter_residual_scale": 0.20,
+    "initialization": {"U_std": 0.01, "V": "zeros", "classifier_weight_std": 0.02, "classifier_bias": "zeros", "generator_seed_offset": 91},
+    "trainable_parameters": ["U", "V", "classifier_weight", "classifier_bias"]
+  },
+  "response": {
+    "anchors": 12,
+    "definition": "first 9 coordinates of per-anchor mean-centered 10-class logits",
+    "retained_coordinates": [0,1,2,3,4,5,6,7,8],
+    "reason_for_nine": "the 10 centered logits have one exact linear dependence"
+  },
+  "data": {
+    "dataset": "CIFAR-10",
+    "source_train_indices": [0, 4999],
+    "response_anchor_train_indices": [5000, 5011],
+    "shifted_development_test_indices": [0, 1599],
+    "shifted_confirmation_test_indices": [1600, 3199],
+    "resize": 224,
+    "normalization_mean": [0.485, 0.456, 0.406],
+    "normalization_std": [0.229, 0.224, 0.225],
+    "shift": {"transform": "GaussianBlur", "kernel_size": 7, "sigma": 1.4}
+  },
+  "source_optimizer": {"name": "AdamW", "lr": 0.002, "weight_decay": 0.001, "steps": 120, "batch_size": 256, "batch_generator_seed_offset": 1},
+  "adapt_optimizer": {"name": "AdamW", "lr": 0.0006, "weight_decay": 0.0001, "steps": 32, "batch_size": 192, "batch_generator_seed_offset": 2},
+  "optimizer_exclusions": ["response projection", "response penalty", "retraction", "future information"],
+  "audit": {
+    "audit_every_steps": 2,
+    "audited_nodes": 16,
+    "node_convention": "J_t is evaluated at the pre-step parameter vector; delta_t is the complete post-step minus pre-step AdamW update including weight decay and optimizer state",
+    "random_directions_per_node": 8,
+    "random_directions": "deterministic ambient Gaussian directions rescaled to the realized update norm; identical directions evaluated under current and source Jacobians",
+    "random_generator_seed": "seed*1000+adaptation_step",
+    "time_shuffle": "circular shift by +1 over audited realized updates, evaluated under each unshifted node Jacobian",
+    "time_shift_nodes": 1,
+    "jacobian_dtype": "float64",
+    "leakage": "||J delta||_2/(||J||_2 ||delta||_2)",
+    "jacobian_norm": "spectral norm"
+  },
+  "evaluation": {"source_accuracy_train_indices": [0, 1599], "pre_and_post_confirmation_test_indices": [1600, 3199]},
+  "hard_limit_seconds": 3300,
+  "hard_limit_enforcement": "launcher kills the audit subprocess at 3300 seconds; in-engine checks occur between adaptation steps",
+  "frozen_gates": {
+    "minimum_source_accuracy": 0.60,
+    "minimum_confirmation_improvement": 0.002,
+    "maximum_median_current_to_source_leakage_ratio": 0.90,
+    "minimum_fraction_current_below_source": 0.70,
+    "maximum_median_current_to_time_shuffled_ratio": 0.90,
+    "maximum_median_current_to_random_ratio": 0.90,
+    "minimum_row_space_rotation_radians": 0.001,
+    "required_supporting_seeds": 6
+  },
+  "rotation_gate_role": "sanity check only",
+  "primary_non_tautological_metric": "raw AdamW update response leakage under current Jacobian versus the same raw update under the frozen source Jacobian",
+  "report_only_spectral_control": "(current update/current random median)/(source update/source random median); frozen before outcomes, no positivity threshold",
+  "claim_boundary": "Tests whether ordinary AdamW updates preferentially follow the current rather than source-fixed declared response geometry in one frozen-backbone ResNet-18/CIFAR-10 construction. It is not a proof for SGD, full-backbone training, arbitrary optimizers, complete kernels, semantic invariance, or a global variational law."
+}

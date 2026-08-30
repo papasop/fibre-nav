@@ -2,12 +2,32 @@
 
 ## Prospectively confirmed
 
-0. **GPTW v1.1.0:** restricted cross-modal confirmation in the rank-2 LoRA-B
+0. **ResNet-18/CIFAR-10 v4.2d:** transverse response amplification in an
+   eight-dimensional transported chart with trainable layer4 plus classifier.
+   All 16/16 new seeds passed the frozen joint gate; the median active residual
+   ratio was 1437.844 and the median transverse gain contrast was 341,763.
+
+0. **ResNet-18/CIFAR-10 v4.1b:** current-kernel versus source-fixed
+   realizability-cost scaling in a trainable terminal residual adapter plus
+   classifier over a frozen ImageNet-pretrained backbone. All 16/16 new seeds
+   passed every frozen geometric and held-out gate.
+
+0. **GPTW v1.1.0/v1.1.1:** restricted cross-modal confirmation in the rank-2 LoRA-B
    subspace of the final two GPT-2 transformer blocks. The prospective
    adaptive-value audit passed in 8/8 new seeds, current-fibre versus
    source-fixed replay passed in 6/6 instances and 18/18 interior nodes, and
    the disjoint natural-English prompt audit passed in 8/8 seeds and 32/32
-   interior nodes.
+   interior nodes. For v2/v3, the 2-versus-1 exponent split is analytically
+   forced by the arm definitions and retained as a numerical-correctness check;
+   `alpha_current approx 2`, `alpha_fixed approx 1` and the slope gap are not
+   independent discoveries. The empirical v2 claim rests on the frozen
+   finite-radius cost ratio 8.60-25.70, principal angle 0.0161-0.0713 rad,
+   active-J residual amplification about 1.4e4-1.4e5, maximum path-response
+   error 6.7e-16 below the `2e-4` gate, and all 18/18 nodes passing. V3 natural
+   text supports that the separation is not confined to the original codeword
+   prompts, with finest-radius ratio 8.87-35.56, active-J residual
+   amplification 1.41e7-1.12e8, maximum path-response error about 1.08e-15,
+   and 32/32 nodes passing.
 
 1. **ResNet-18/CIFAR-10 v4.0c-r1:** selected response-fibre tangent value in
    the complete final classifier of a frozen ImageNet-pretrained ResNet-18
@@ -62,6 +82,13 @@ realizability-cost minimality.
   passed. v4.0c-r0 produced no scientific result because a dtype mismatch
   stopped execution before any seed output. v4.0c-r1 repairs only that
   pre-result implementation error.
+- ResNet v4.4-r1 is staged only as a frozen-code/protocol developmental record
+  for an ordinary AdamW current-versus-source response-geometry audit. The
+  supplied run record says 8 seeds and 128 audited nodes completed before a
+  post-outcome packaging error (`NameError: name '__file__' is not defined`),
+  but the authoritative recovered results ZIP is not imported here. Therefore
+  no positive or negative v4.4-r1 decision is repository-backed, and the stage
+  must not be moved to confirmed until recovered results are verified.
 
 ## Not established
 
@@ -69,8 +96,8 @@ realizability-cost minimality.
 - arbitrary-path local or global variational minimality;
 - a unique scalar action combining F16 and realizability cost;
 - a complete response-kernel bundle rather than an eight-dimensional chart;
-- adaptation of the ResNet backbone or external replication of moving-fibre
-  transport, realizability-cost scaling, F16 ordering or action-cost separation;
+- unrestricted adaptation of the ResNet backbone, ResNet F16 ordering or
+  action-cost separation;
 - full-model GPT-2/LLM transfer, semantic invariance, or generalisation beyond
   the declared rank-2 LoRA-B subspace and frozen prompt cohorts;
 - universal intelligence, learning, physical realizability or time laws;

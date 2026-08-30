@@ -24,6 +24,18 @@ V_\theta=\ker DR(\theta).
 v3.1e confirms that online current-kernel transport and stale source-chart
 replay exhibit different realizability-cost scaling. This rejects a fixed
 source subspace as an adequate finite-path description in the tested model.
+ResNet v4.1b independently confirms the same qualitative finite-radius
+separation in a terminal residual adapter plus classifier over a frozen
+ImageNet-pretrained backbone: 16/16 new seeds passed every geometric and
+held-out gate.
+
+ResNet v4.2d then tests the local mechanism in trainable layer4 plus classifier.
+All 16/16 new seeds passed a frozen transverse-amplification joint gate; the
+median active residual ratio was 1437.844 despite a moving/fixed direction
+cosine of 0.999990. This connects chart motion to a directly measured
+high-gain transverse response direction without turning the result into a
+global bundle theorem.
+
 An archived-data LOO audit retained a minimum moving-minus-fixed median
 exponent separation of 0.6273 after deleting any one radius; this is labelled
 post-confirmation robustness rather than a new prospective confirmation.
@@ -53,18 +65,36 @@ derived scalar combination; none is selected here.
 
 ## Cross-modal confirmation
 
-GPTW v1.1.0 confirms that the restricted mechanism is not confined to the
-CNN/ResNet setting. In the rank-2 LoRA-B subspace of the final two GPT-2
-blocks, the adaptive-value audit passed in 8/8 new seeds, the prospective
-current-versus-source-fixed audit passed in 6/6 instances and 18/18 interior
-nodes, and the disjoint natural-English audit passed in 8/8 instances and
-32/32 interior nodes. This is a cross-modal confirmation branch, not a new
-centre of the evidence ladder and not a full-model or semantic claim.
+GPTW v1.1.0 confirms selected response-kernel tangent adaptive value in the
+rank-2 LoRA-B subspace of the final two GPT-2 blocks: the prospective
+adaptive-value audit passed in 8/8 new seeds. The v2 and v3
+current-versus-source-fixed audits are SUPPORTED finite-radius separation
+records, not additional exponent discoveries. Their 2-versus-1 exponent split
+is analytically forced by the arm definitions and retained as a
+numerical-correctness check.
+
+The nontrivial GPTW current-versus-source-fixed evidence is the finite-radius
+magnitude, active-J residual amplification and prospective replication:
+v2 codeword passed in 6/6 instances and 18/18 interior nodes, with
+finest-radius fixed/current correction-cost ratio 8.60-25.70, principal angles
+0.0161-0.0713 rad and active-J residual amplification about 1.4e4-1.4e5. V3
+natural text passed in 8/8 instances and 32/32 interior nodes, with
+finest-radius ratio 8.87-35.56, active-J residual amplification
+1.41e7-1.12e8 and maximum path-response error about 1.08e-15. V3 supports that
+the separation is not confined to the original codeword prompts. This is a
+cross-modal confirmation branch, not a new centre of the evidence ladder and
+not a full-model or semantic claim.
 
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
 theorem, from a finite algorithm cohort to arbitrary causal paths, from the
-frozen ResNet final classifier to moving-fibre transport in an external model,
-from a declared GPT-2 LoRA-B subspace to full-model LLM behaviour, or from
-neural realizability cost to physical time.
+declared ResNet charts to unrestricted backbone geometry, from a declared
+GPT-2 LoRA-B subspace to full-model LLM behaviour, or from neural realizability
+cost to physical time.
+
+ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
+this revision. It tests ordinary AdamW current-versus-source response-geometry
+alignment, but the authoritative recovered results ZIP is not yet imported.
+It therefore contributes no repository-backed positive or negative decision to
+the ladder.

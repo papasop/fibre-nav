@@ -2,7 +2,7 @@
 
 ## Confirmed Scaling of Realizability Cost
 
-Repository-ready frozen evidence archive v1.4.0 for the associated paper by
+Repository-ready frozen evidence archive v1.5.0 for the associated paper by
 Y.Y.N. Li. This archive separates prospectively confirmed results from
 developmental mechanism studies and preserves failed or excluded cases rather
 than relabelling them after inspection.
@@ -18,10 +18,31 @@ current-versus-source-fixed moving-fibre audit passed in 6/6 instances and
 natural-English development and response prompts passed in 8/8 new seeds and
 32/32 interior nodes.
 
+The v2/v3 current-versus-source-fixed audits are calibrated in
+`docs/GPTW_SCALING_INTERPRETATION.md` and the v1.1.1
+protocol-completeness addendum. The 2-versus-1 exponent split is analytically
+forced by the arm definitions and retained as a numerical-correctness check,
+not an independent discovery. The substantive v2 empirical quantities are the
+finest-radius cost ratio 8.60--25.70, principal angle 0.0161--0.0713 rad,
+active-J residual amplification about 1.4e4--1.4e5, maximum path-response error
+6.7e-16 below the 2e-4 gate, and 6/6 seeds with 18/18 nodes passing. For v3
+natural text, the corresponding substantive evidence is finest-radius ratio
+8.87--35.56, active-J residual amplification 1.41e7--1.12e8, maximum
+path-response error about 1.08e-15, and 8/8 seeds with 32/32 nodes passing.
+
 This is cross-modal confirmation of the restricted mechanism, not a full-model
 GPT-2 result, a semantic invariance theorem, an arbitrary-LoRA claim, or a
 global variational theorem. The formal initial audit and its
 near-zero-denominator finite-difference failure are retained in the snapshot.
+
+### Zero-upload external reproduction
+
+GPTW-V3 now has a public one-cell Colab entry point under
+`external_tests/gptw_v3/`. It clones the immutable GPTW source tag, verifies
+the pinned commit and snapshot checksums, runs the frozen natural-text V3
+protocol, validates the 8-seed/32-node output, and downloads the result and
+environment manifest. No author ZIP upload is required. This is explicitly a
+same-cohort external reproduction, not a new-seed independent confirmation.
 
 ## External confirmation: selected response-fibre tangent value
 
@@ -37,9 +58,31 @@ At the primary 16-anchor setting, the learned tangent's median confirmation-loss
 change was -0.01842, compared with +0.02307 for sign reversal, -0.00099 for the
 shuffled-target tangent and -0.00072 for the best random tangent. The maximum
 dimensionless kernel residual was 2.28e-13 and maximum finite centered-logit
-leakage was 2.98e-13. This confirms selected tangent value in a frozen external
-representation; it does not update the ResNet backbone or externally confirm
+leakage was 2.98e-13. This confirms selected tangent value in a frozen pretrained
+representation; it does not update the ResNet backbone or provide cross-model confirmation of
 moving-kernel transport, cost scaling or Moving-Fibre F16 ordering.
+
+## ResNet mechanism closure: Sections 5.3--6
+
+Release v1.5.0 adds the two previously missing load-bearing ResNet archives.
+The v4.1b prospective dual-scaling audit used a frozen ImageNet-pretrained
+ResNet-18 backbone with a trainable terminal residual adapter and classifier.
+All 16/16 new seeds passed every geometric and held-out gate. Recomputed
+medians are a moving-minus-fixed slope gap of 0.5751, a smallest-radius
+fixed/moving cost ratio of 2.997, and raw/projected development-confirmation
+gradient cosines of 0.414/0.996.
+
+The v4.2d prospective transverse audit used trainable layer4 plus classifier,
+an eight-dimensional matrix-free transported chart, float64 response geometry,
+and TF32 disabled. All 16/16 new seeds passed the frozen 12/16 joint gate.
+Recomputed medians include direction cosine 0.999990, active residual ratio
+1437.844, transverse gain contrast 341,763 and finite-difference/JVP ratio
+0.999998.
+
+The full frozen programs, protocols, raw result ZIPs, 32 expanded per-seed JSON
+records, independent reconstruction script and publication-facing SI tables
+are included. These audits close the repository support for Sections 5.3--6;
+they do not establish arbitrary-path or global variational optimality.
 
 ## Main result I: moving-fibre realizability scaling
 
@@ -128,7 +171,9 @@ continuum or arbitrary-path theorem.
 
 | Stage | Frozen result | Formal status |
 |---|---|---|
-| GPTW v1.1.0 | Rank-2 LoRA-B adaptive value passed 8/8 new seeds; current-vs-fixed passed 6/6; disjoint natural-text confirmation passed 8/8 seeds and 32/32 nodes | Confirmed restricted cross-modal mechanism |
+| ResNet-18/CIFAR-10 v4.2d | Layer4+fc transverse audit passed 16/16; median active residual ratio 1437.844 and gain contrast 341,763 | Confirmed finite-chart transverse amplification |
+| ResNet-18/CIFAR-10 v4.1b | Terminal adapter+classifier dual scaling passed all geometric and held-out gates in 16/16 seeds | Confirmed cross-model finite-radius scaling |
+| GPTW v1.1.0/v1.1.1 | Rank-2 LoRA-B adaptive value passed 8/8 new seeds; current-vs-fixed v2 is SUPPORTED in 6/6 seeds and 18/18 nodes; v3 natural text is SUPPORTED in 8/8 seeds and 32/32 nodes as not confined to codeword prompts | r3 confirmed; v2/v3 supported restricted GPTW evidence |
 | ResNet-18/CIFAR-10 v4.0c-r1 | Selected final-classifier response-fibre tangent passed all gates in 16/16 seeds at 4, 16 and 32 anchors | Confirmed external functional premise |
 | F16 v16 | True output-Fisher natural flow minimized the restricted six-path CNER-F action in 15/16 seeds; Adam and wrong-Fisher natural won 0/16 | Confirmed restricted ordering |
 | Moving-F16 v3.0b | With pointwise moving Fisher and capacity evaluation, 14/16 seeds were comparable and natural minimized moving action in 13/14 | Confirmed restricted ordering |
@@ -147,6 +192,15 @@ Earlier v3.1a--e development and repair history remains included. In
 particular, v3.1d is not erased: its inappropriate fixed-arm high-\(R^2\) veto
 is documented, and v3.1e changed that statistic before observing a new cohort.
 
+ResNet v4.4-r1 is staged only as a developmental frozen-code/protocol record
+under `evidence/developmental/resnet18_cifar10_real_adam_path_v4_4_r1/`. It
+tests whether ordinary AdamW updates align with current rather than
+source-frozen response geometry. The A100 run record indicates that 8 seeds and
+128 audited nodes completed before a post-outcome packaging error
+(`NameError: name '__file__' is not defined`), but the authoritative recovered
+results ZIP has not been imported. No positive or negative v4.4-r1 decision is
+repository-backed here.
+
 ## Repository layout
 
 ```text
@@ -155,12 +209,16 @@ evidence/
     experiments/
     development/
     paper/
+  gptw_response_fibre_v1_1_1/
+    V2 protocol-completeness documentation only
   confirmed/
     f16_v16/
     moving_f16_v3_0b/
     moving_fibre_v3_1e/
     moving_fibre_f16_v3_2c/
     resnet18_cifar10_fibre_v4_0c_r1/
+    resnet18_cifar10_dual_scaling_v4_1b/
+    resnet18_cifar10_transverse_v4_2d/
   developmental/
     moving_fibre_v3_1a/
     moving_fibre_v3_1b/
@@ -168,15 +226,21 @@ evidence/
     realisability_cost_v3_1d/
     moving_fibre_f16_v3_2a/
     moving_fibre_f16_v3_2b/
+    resnet18_cifar10_real_adam_path_v4_4_r1/
 docs/
+  GPTW_SCALING_INTERPRETATION.md
   CLAIM_BOUNDARIES.md
   EVIDENCE_LADDER.md
   robustness_v3_1e/
+  supplementary/
 audits/
   formula_audit_v1/
+  resnet_v4_1b_v4_2d/
 provenance/
   PROVENANCE.md
   SHA256SUMS
+external_tests/
+  gptw_v3/
 ```
 
 Every confirmed stage preserves executable source, its frozen protocol,
@@ -193,15 +257,16 @@ The archive supports state-dependent response fibres, confirmed finite-radius
 realizability-cost scaling, and restricted six-algorithm Moving-Fibre F16
 ordering in frozen finite CNN--MNIST constructions. It also confirms selected
 response-fibre tangent value in the complete final classifier of a frozen
-ResNet-18 representation and provides prospective cross-modal confirmation in
+  ResNet-18 representation, cross-model ResNet cost scaling and finite-chart
+  transverse response amplification, and provides prospective cross-modal confirmation in
 the rank-2 LoRA-B subspace of the final two GPT-2 blocks. It does not establish:
 
 - a complete high-dimensional response-kernel bundle;
 - exact \(h\to0\) convergence or a horizontal-lift theorem;
 - local or global minimality over arbitrary causal paths;
 - a unique scalar combination of F16 action and realizability cost;
-- ResNet backbone adaptation or cross-architecture confirmation of moving-fibre
-  transport, realizability scaling or v3.2c;
+- unrestricted ResNet backbone adaptation, ResNet F16 ordering or an
+  arbitrary-path/global variational result;
 - full-model GPT-2/LLM confirmation, semantic invariance, or transfer beyond
   the declared LoRA-B subspace and frozen prompts;
 - a universal intelligence, physical-time or K=1 law.

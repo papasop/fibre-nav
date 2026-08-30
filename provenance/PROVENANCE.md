@@ -101,3 +101,63 @@ counts, decisions and V3 node-level gates.
 The scope remains the rank-2 LoRA-B subspace of the final two GPT-2 blocks.
 No claim is made for full-model GPT-2, arbitrary prompts, semantic invariance,
 capacity-weighted CNER, or arbitrary-path/global variational optimality.
+
+## v1.5.0 ResNet mechanism and SI closure
+
+This release imports the original v4.1b and v4.2d executable packages and
+result ZIPs byte-for-byte. It also expands their 32 per-seed JSON records and
+adds an independent reconstruction script that ignores the aggregate values in
+`report.json`. The reconstructed values agree with Sections 5.3 and 6 of the
+paper at the displayed precision.
+
+v4.1b used new seeds 68726--68741. All twelve paths for each seed were generated
+and frozen from development data before the first confirmation access. All
+16/16 seeds passed every geometric and held-out gate. Its parameter domain is a
+trainable terminal residual adapter plus classifier over frozen ResNet-18
+features, not the complete backbone.
+
+v4.2d used new seeds 76742--76757 after a float32/TF32 development attempt
+failed the frozen JVP identity certification. The confirmation used float64
+response geometry with TF32 disabled, trainable layer4 plus classifier, and an
+eight-dimensional matrix-free chart. All 16/16 seeds passed the frozen 12/16
+joint gate. The failed precision stage is described as failure history and is
+not counted as positive evidence.
+
+Neither result establishes a complete high-dimensional kernel bundle,
+universal scaling, ResNet F16 ordering, or local/global variational optimality.
+
+## v1.5.1 GPTW-V3 external reproduction interface
+
+This release adds only an execution and provenance wrapper. The wrapper pins
+the already confirmed GPTW source at tag
+`v1.4.0-gptw-natural-text-confirmed`, commit
+`236f646c472018a7e38be11fd658519763bc2346`; verifies its byte-level
+`SHA256SUMS` and semantic cohort checks; and runs the unmodified V3 program.
+
+The resulting archive records the environment, GPU, pinned source identity,
+decision, cohort counts and result checksum. No seed, prompt, gate, model,
+parameter domain or scientific decision rule changes in v1.5.1. Consequently
+this interface supports same-cohort external reproduction, not an independent
+new-seed or new-prompt confirmation.
+
+## GPTW claim calibration and v4.4-r1 staging
+
+This documentation correction calibrates the GPTW v2/v3
+current-versus-source-fixed interpretation. The 2-versus-1 exponent split is
+analytically forced by the arm definitions and retained as a
+numerical-correctness check. The repository-facing GPTW evidence is expressed
+in terms of finite-radius cost ratios, principal/current-source angular
+separation where recorded, active-J residual amplification, numerical-precision
+path-response error and prospective seed/node replication.
+
+This correction does not change any GPTW engine, per-seed result JSON, report,
+gate or scientific decision. The v2 codeword branch remains SUPPORTED, the v1-r3
+adaptive-value result remains confirmed, and v3 natural text supports only that
+the current-versus-source-fixed separation is not confined to the original
+codeword prompts.
+
+This revision also stages ResNet v4.4-r1 as a developmental frozen-code and
+protocol record for an ordinary AdamW current-versus-source response-geometry
+audit. The authoritative recovered results ZIP is intentionally deferred; no
+positive or negative v4.4-r1 decision is repository-backed by this staging
+record.
