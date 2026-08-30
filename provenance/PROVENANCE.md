@@ -241,3 +241,24 @@ same-kernel contrasts were positive, and 20/24 noninitial nodes were positive.
 The imported verifier `verify_gpt2_lora_pareto_r2.py` checks file hashes,
 protocol equality, cohort counts, node counts, bootstrap interval positivity
 and the exact two-sided sign-flip p-value before commit.
+
+## GPT-2 LoRA-B R2 predictive and causal boundary overlay
+
+This release imports
+`neural_fibre_geometry_r2_pc1_pc4_github_overlay_r1.zip` as an add-only overlay.
+ZIP SHA-256:
+`18c7da256e1c4e89b496e814f5d0a23dde4fbd924e4d97b09f746d30d706a334`.
+
+The overlay adds a root-level R2 strict-control evidence layout under
+`evidence/gpt2_lora_r2_strict/` and predictive/causal boundary audits under
+`evidence/predictive_causal_boundaries/`. PC1 reports
+`PREDICTIVE_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED`, PC3 reports
+`DYNAMIC_RESPONSE_FIBRE_CAPACITY_PREDICTIVE_STATE_NOT_SUPPORTED`, and PC4
+reports `CAUSAL_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED`. PC2 source and protocol
+are archived, but its authoritative result artifact is absent and remains
+required before a repository-backed PC2 claim.
+
+No historical R1 or low-response R2 raw result is deleted or relabelled. The
+boundary overlay narrows interpretation of the R2 confirmation: it remains a
+counterfactual finite-budget held-out frontier at recorded nodes, not a
+predictive or causal law for ordinary optimizer futures.

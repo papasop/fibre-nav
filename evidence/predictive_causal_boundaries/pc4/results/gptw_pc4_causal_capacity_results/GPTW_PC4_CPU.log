@@ -1,0 +1,73 @@
+[preflight] GPTW_PC4_PAIRED_CAUSAL_RESPONSE_FIBRE_CAPACITY_CPU_V1 device=cpu seeds=[90841, 90842, 90843, 90844, 90845, 90846, 90847, 90848]
+2026-08-30 11:14:04.212052: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-08-30 11:14:04.277355: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[seed 1/8] 90841
+{
+  "seed": 90841,
+  "median_causal_contrast": -0.0007259845733642578
+}
+[seed 2/8] 90842
+{
+  "seed": 90842,
+  "median_causal_contrast": 0.0005822181701660156
+}
+[seed 3/8] 90843
+{
+  "seed": 90843,
+  "median_causal_contrast": 0.0002410411834716797
+}
+[seed 4/8] 90844
+{
+  "seed": 90844,
+  "median_causal_contrast": -0.0008149147033691406
+}
+[seed 5/8] 90845
+{
+  "seed": 90845,
+  "median_causal_contrast": -0.001493215560913086
+}
+[seed 6/8] 90846
+{
+  "seed": 90846,
+  "median_causal_contrast": -0.0010929107666015625
+}
+[seed 7/8] 90847
+{
+  "seed": 90847,
+  "median_causal_contrast": 0.0007066726684570312
+}
+[seed 8/8] 90848
+{
+  "seed": 90848,
+  "median_causal_contrast": 0.0001323223114013672
+}
+========================================================================================
+{
+  "decision": "CAUSAL_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED",
+  "primary": {
+    "positive_seed_count": 4,
+    "mean_paired_causal_gain_contrast": -0.00030809640884399414,
+    "median_paired_causal_gain_contrast": -0.0002968311309814453,
+    "paired_bootstrap_mean_95ci": [
+      -0.000830291211605072,
+      0.00021332502365112305
+    ],
+    "exact_two_sided_sign_flip_p": 0.3203125,
+    "mean_absolute_random_control_contrast": 0.0004886835813522339,
+    "median_response_cost_gap_over_budget": 0.01006107745462325,
+    "positive_selection_contrast_nodes": 16
+  },
+  "gates": {
+    "complete_seeds": true,
+    "complete_nodes": true,
+    "selection_non_degenerate": true,
+    "response_matched": true,
+    "at_least_6_of_8_seed_blocks_positive": false,
+    "mean_causal_contrast_positive": false,
+    "bootstrap_ci_lower_positive": false,
+    "effect_exceeds_random_pairing": false
+  }
+}
+RESULT ZIP: /content/gptw_pc4_causal_capacity_results.zip
+SHA-256: f069d2002733f8b93775b3523bc0e53ab8121dc30394b4ec3c0f7c10d5265b62

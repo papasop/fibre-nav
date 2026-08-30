@@ -99,13 +99,25 @@ correction-cost audit. This branch evaluates finite response-budget Pareto
 frontiers; it does not show that AdamW or SGD naturally follows a response
 fibre and does not compute a continuous Pareto optimum.
 
+The R2 strict-control upgrade adds a best-of-16 equal-norm random direction
+inside the same instantaneous response kernel and confirms task-specific
+counterfactual direction selection within the declared protocol. Its companion
+predictive and causal boundary audits keep the ladder from crossing into
+stronger optimizer-future claims: PC1 static predictive capacity is not
+supported, PC3 dynamic/history predictive state is not supported and PC4
+response-matched causal capacity is not supported. PC2 archives source only
+until the authoritative result artifact is imported.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
 theorem, from a finite algorithm cohort to arbitrary causal paths, from the
 declared ResNet charts to unrestricted backbone geometry, from a declared
 GPT-2 LoRA-B subspace to full-model LLM behaviour, or from neural realizability
-cost to physical time.
+cost to physical time. The low-response Pareto branch has also not crossed
+from counterfactual finite-budget opportunity to predictive, optimizer-access,
+dynamic-state or causal-capacity laws for the future selected by ordinary
+optimizers.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry

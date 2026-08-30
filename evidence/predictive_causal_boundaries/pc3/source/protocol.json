@@ -1,0 +1,49 @@
+{
+  "protocol": "GPTW_PC3_DYNAMIC_PERSISTENT_RESPONSE_FIBRE_CAPACITY_CPU_V1",
+  "prospective": true,
+  "pc1_negative_decision_unchanged": true,
+  "pc2_negative_decision_unchanged": true,
+  "model": "openai-community/gpt2",
+  "seeds": [89841, 89842, 89843, 89844, 89845, 89846, 89847, 89848, 89849, 89850, 89851, 89852, 89853, 89854, 89855, 89856],
+  "all_previous_capacity_audit_seeds_excluded": true,
+  "adapt_steps": 24,
+  "capacity_measurement_steps": [6, 12, 18],
+  "prediction_steps": [12, 18],
+  "history_lag_steps": 6,
+  "future_horizon_steps": 6,
+  "path_scale": "accumulated Euclidean AdamW update length",
+  "dynamic_current_features": [
+    "current_capacity",
+    "backward_current_capacity_rate_per_path_length",
+    "backward_response_kernel_projector_drift_per_path_length"
+  ],
+  "no_future_quantity_enters_dynamic_features": true,
+  "capacity_selection_scoring_and_future_evaluation_sets_disjoint": true,
+  "unit_of_blocked_validation": "seed",
+  "ridge_alpha": 1.0,
+  "ordinary_baseline_variables": [
+    "step_fraction",
+    "train_loss",
+    "capacity_select_loss",
+    "gradient_norm",
+    "update_norm",
+    "actual_full_response_cost"
+  ],
+  "controls": [
+    "static_current_capacity",
+    "dynamic_source_capacity_history",
+    "same-step cyclically seed-mismatched current history"
+  ],
+  "primary_gates": {
+    "complete_seeds": 16,
+    "complete_prediction_nodes": 32,
+    "dynamic_prediction_spearman": 0.3,
+    "dynamic_incremental_loo_r2_over_baseline": 0.05,
+    "dynamic_minus_static_loo_r2": 0.03,
+    "seedwise_mae_improvement_count": 11,
+    "dynamic_current_minus_dynamic_source_loo_r2": 0.02,
+    "dynamic_current_minus_mismatched_history_loo_r2": 0.02
+  },
+  "hard_limit_seconds": 7200,
+  "claim_boundary": "Prospective finite-template dynamic-capacity audit in frozen GPT-2 rank-2 native-LoRA-B coordinates. A positive result supports incremental prediction of six-step recorded AdamW learning from present-and-past capacity and kernel drift within this protocol; it does not revise PC1 or PC2, prove causal optimizer access, establish full-model representation theory or population generalization, or imply a universal learning law."
+}

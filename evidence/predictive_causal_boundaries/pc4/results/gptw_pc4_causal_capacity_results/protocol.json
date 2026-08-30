@@ -1,0 +1,59 @@
+{
+  "protocol": "GPTW_PC4_PAIRED_CAUSAL_RESPONSE_FIBRE_CAPACITY_CPU_V1",
+  "prospective": true,
+  "parents": [
+    "PC1 predictive capacity not supported",
+    "PC2 optimizer access not supported",
+    "PC3 dynamic capacity not supported"
+  ],
+  "parent_negative_decisions_are_not_revised": true,
+  "model": "openai-community/gpt2",
+  "trainable_domain": "native LoRA-B only on GPT-2 layers 10 and 11; rank 2; frozen backbone and LoRA-A",
+  "seeds": [
+    90841,
+    90842,
+    90843,
+    90844,
+    90845,
+    90846,
+    90847,
+    90848
+  ],
+  "audit_steps": [
+    6,
+    18
+  ],
+  "candidate_directions_per_node": 12,
+  "candidate_generation": "seeded isotropic Gaussian directions projected into the current response kernel",
+  "intervention_norm": "one recorded AdamW update norm",
+  "response_budget_fraction_of_recorded_update": 0.1,
+  "alpha_grid": [
+    0.0,
+    0.125,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "branch_horizon_steps": 4,
+  "branch_optimizer": {
+    "name": "AdamW",
+    "lr": 0.02,
+    "weight_decay": 0.0001,
+    "moments_at_each_root": "zero"
+  },
+  "prompt_partition": "selection, branch-training and final-evaluation templates are pairwise disjoint",
+  "unit_of_inference": "seed; two nodes averaged within each seed",
+  "primary_gates": {
+    "complete_seeds": 8,
+    "complete_nodes": 16,
+    "selection_contrast_positive_at_every_node": true,
+    "median_response_cost_gap_over_budget_max": 0.25,
+    "positive_seed_blocks_min": 6,
+    "mean_paired_causal_gain_contrast_positive": true,
+    "paired_bootstrap_mean_95ci_lower_positive": true,
+    "effect_exceeds_mean_absolute_random_pairing_control": true
+  },
+  "hard_limit_seconds": 7200,
+  "claim_boundary": "Prospective paired intervention in a finite artificial GPT-2 rank-2 native-LoRA-B task. A positive result supports a causal difference in short-horizon held-out learning between response-matched states selected by frozen local capacity; it does not revise PC1-PC3, establish natural AdamW navigation, full-model representation theory, semantic learning, generalization, or a universal law of intelligence."
+}

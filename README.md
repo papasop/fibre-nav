@@ -174,7 +174,29 @@ the same instantaneous response kernel. It therefore distinguishes
 task-specific direction selection from generic current-kernel membership.
 
 Recorded AdamW supplies real training nodes and proposals, but the successful
-instantaneous-kernel arm is a counterfactual projection. Ordinary optimizer navigation is not established.
+instantaneous-kernel arm is a counterfactual projection. Ordinary optimizer
+navigation is not established.
+
+### Predictive and causal boundary audits
+
+The R2 strict-control confirmation is accompanied by add-only predictive and
+causal boundary audits. These audits ask whether the local low-response
+opportunity can be promoted to stronger optimizer-future or causal-capacity
+claims.
+
+- PC1: static instantaneous capacity predicting subsequent AdamW gain is not
+  supported.
+- PC2: optimizer-access source is archived, but the authoritative result
+  artifact is still required before any public repository-backed claim.
+- PC3: capacity history and kernel drift forming a predictive state is not
+  supported.
+- PC4: response-matched high capacity causally raising subsequent gain is not
+  supported.
+
+These negative boundary results do not negate R2. They preserve the narrower
+interpretation: the confirmed object is a counterfactual finite-budget
+held-out frontier at recorded nodes, not a law for the future selected by
+ordinary AdamW.
 
 ## Limited cross-modal confirmation: GPTW correction-cost scaling
 
@@ -313,6 +335,13 @@ repository-backed here.
 
 ```text
 evidence/
+  gpt2_lora_r2_strict/
+    overlay-format R2 strict-control confirmation
+  predictive_causal_boundaries/
+    pc1/ static predictive-capacity negative audit
+    pc2/ optimizer-access source only; result artifact required
+    pc3/ dynamic/history predictive-state negative audit
+    pc4/ response-matched causal-capacity negative audit
   gptw_response_fibre_v1_1_0/
     experiments/
     development/
@@ -387,6 +416,8 @@ The archive does not establish:
 - full-model GPT-2/LLM confirmation, semantic invariance, or transfer beyond
   the declared LoRA-B subspace and frozen prompts;
 - ordinary AdamW or SGD naturally follows a response fibre;
+- predictive capacity, optimizer-access, dynamic-state or causal-capacity laws
+  for ordinary optimizer futures;
 - a continuous Pareto optimum beyond the frozen finite budget and alpha grids;
 - a universal intelligence, physical-time or K=1 law.
 

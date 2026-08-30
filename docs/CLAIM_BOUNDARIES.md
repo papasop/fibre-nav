@@ -41,6 +41,15 @@
    update and declared stale, time-shifted and signed-permuted controls. The
    GPT-2 audit passed 8/8 seeds and 24/24 noninitial nodes.
 
+3. **GPT-2 native LoRA-B R2 strict-control upgrade:** within the same finite
+   low-response Pareto framework, R2 adds a calibration-selected best-of-16
+   equal-norm random direction inside the instantaneous response kernel. The
+   strict-control audit completed 8/8 prospective GPU seeds, with 6/8 seeds
+   passing the complete frozen control family, 7/8 positive same-kernel seed
+   contrasts and 20/24 positive noninitial nodes. This confirms task-specific
+   counterfactual direction selection within the declared protocol; it does
+   not establish natural optimizer navigation.
+
 2. **F16 v16:** restricted CNER-F ordering in a frozen eight-dimensional
    CNN--MNIST chart.
 3. **Moving-F16 v3.0b:** the restricted ordering survives pointwise moving
@@ -80,6 +89,24 @@ at least 1.5 times the least-cost algorithm in 14/14 comparable v3.2c seeds.
 Its median ratio is 2.25. Restricted action minimality therefore does not imply
 realizability-cost minimality.
 
+## Predictive and causal boundary audits
+
+The GPT-2 native LoRA-B R2 evidence is bounded by separate predictive and
+causal audits. PC1 reports
+`PREDICTIVE_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED`: static instantaneous
+capacity did not supply the required incremental prediction of subsequent
+AdamW gain. PC3 reports
+`DYNAMIC_RESPONSE_FIBRE_CAPACITY_PREDICTIVE_STATE_NOT_SUPPORTED`: capacity
+history and kernel drift did not form a supported predictive state. PC4
+reports `CAUSAL_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED`: response-matched high
+capacity did not produce the required paired causal gain contrast.
+
+PC2 currently archives source and protocol only; its authoritative result
+artifact is required before any repository-backed public claim. These audits
+therefore block promotion of R2 into a predictive, optimizer-access,
+dynamic-state or causal-capacity law, while leaving the narrower R2
+counterfactual frontier result unchanged.
+
 ## Developmental or formally unsuccessful
 
 - v3.1a, v3.1c, v3.2a and v3.2b are development-stage positive candidates.
@@ -116,6 +143,8 @@ realizability-cost minimality.
   the declared rank-2 LoRA-B subspace and frozen prompt cohorts;
 - ordinary AdamW, SGD or large-model training naturally follows the response
   fibre;
+- predictive capacity, optimizer-access, dynamic-state or causal-capacity laws
+  for ordinary optimizer futures;
 - continuous low-response Pareto optimality beyond the frozen finite response
   budgets and alpha grids;
 - universal intelligence, learning, physical realizability or time laws;

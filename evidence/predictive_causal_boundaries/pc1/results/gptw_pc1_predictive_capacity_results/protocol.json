@@ -1,0 +1,79 @@
+{
+  "protocol": "GPTW_PC1_PREDICTIVE_RESPONSE_FIBRE_CAPACITY_CPU_V1",
+  "prospective": true,
+  "model": "openai-community/gpt2",
+  "device": "cpu",
+  "seeds": [
+    87841,
+    87842,
+    87843,
+    87844,
+    87845,
+    87846,
+    87847,
+    87848
+  ],
+  "parent_development_and_confirmation_seeds_excluded": [
+    86741,
+    86841,
+    86842,
+    86843,
+    86844,
+    86845,
+    86846,
+    86847,
+    86848
+  ],
+  "trainable_domain": "rank-2 native LoRA-B only in GPT-2 layers 10 and 11; LoRA-A frozen random and included in seed axis",
+  "adapt_steps": 24,
+  "audit_steps": [
+    0,
+    6,
+    12,
+    18
+  ],
+  "future_horizon_steps": 6,
+  "response_budget_fractions": [
+    0.02,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "alpha_grid": [
+    0.0,
+    0.015625,
+    0.03125,
+    0.0625,
+    0.125,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "capacity_scale_selection": "capacity_select_templates only",
+  "capacity_scoring": "disjoint capacity_score_templates only",
+  "prediction_target": "future_eval loss at theta_t minus future_eval loss at theta_(t+6) along recorded AdamW path",
+  "future_eval_never_used_for_capacity": true,
+  "unit_of_blocked_validation": "seed",
+  "primary_model": "fixed-alpha ridge leave-one-seed-out: ordinary baseline variables plus current-kernel capacity",
+  "ordinary_baseline_variables": [
+    "step_fraction",
+    "train_loss",
+    "capacity_select_loss",
+    "gradient_norm",
+    "update_norm",
+    "actual_full_response_cost"
+  ],
+  "ridge_alpha": 1.0,
+  "primary_gates": {
+    "complete_seeds": 8,
+    "complete_nodes": 32,
+    "current_capacity_positive_spearman": 0.3,
+    "incremental_leave_one_seed_out_r2": 0.05,
+    "seedwise_mae_improvement_count": 6,
+    "current_minus_source_incremental_r2": 0.02,
+    "current_minus_permuted_incremental_r2": 0.02
+  },
+  "hard_limit_seconds": 7200,
+  "claim_boundary": "Prospective finite-template, finite-budget predictive audit in frozen GPT-2 rank-2 native-LoRA-B coordinates. A positive result supports incremental prediction of six-step realized AdamW learning within this protocol; it does not establish full-model representation theory, generalization, causal optimizer selection, or a universal learning law."
+}

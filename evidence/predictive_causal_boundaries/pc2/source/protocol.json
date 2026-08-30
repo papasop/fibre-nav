@@ -1,0 +1,45 @@
+{
+  "protocol": "GPTW_PC2_RESPONSE_FIBRE_CAPACITY_OPTIMIZER_ACCESS_CPU_V1",
+  "prospective": true,
+  "parent_result": "GPTW-PC1 PREDICTIVE_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED",
+  "parent_negative_result_is_not_revised": true,
+  "model": "openai-community/gpt2",
+  "seeds": [88841, 88842, 88843, 88844, 88845, 88846, 88847, 88848],
+  "all_pc1_and_pareto_seeds_excluded": true,
+  "recorded_path_steps": 24,
+  "audit_steps": [6, 12, 18],
+  "branch_horizon_steps": 4,
+  "branches": [
+    "branch_local_unprojected_adamw",
+    "online_current_kernel_projected_adamw",
+    "node_frozen_source_kernel_projected_adamw",
+    "online_signed_permuted_kernel_projected_adamw"
+  ],
+  "branch_adamw_lr": 0.02,
+  "branch_adamw_weight_decay": 0.0001,
+  "branch_optimizer_moments": "initialized identically at zero at each branch root; retained within each four-step branch",
+  "capacity_selection_scoring_and_future_evaluation_sets_disjoint": true,
+  "unit_of_blocked_validation": "seed",
+  "ordinary_baseline_variables": [
+    "step_fraction",
+    "train_loss",
+    "capacity_select_loss",
+    "gradient_norm",
+    "update_norm",
+    "actual_full_response_cost"
+  ],
+  "ridge_alpha": 1.0,
+  "primary_gates": {
+    "complete_seeds": 8,
+    "complete_nodes": 24,
+    "current_capacity_to_current_branch_spearman": 0.3,
+    "current_branch_incremental_loo_r2": 0.05,
+    "current_branch_seedwise_mae_improvement_count": 6,
+    "current_branch_minus_unprojected_branch_incremental_r2": 0.03,
+    "current_predictor_minus_source_predictor_r2_on_current_branch": 0.02,
+    "current_predictor_minus_permuted_predictor_r2_on_current_branch": 0.02,
+    "median_current_to_unprojected_response_cost_ratio_max": 0.5
+  },
+  "hard_limit_seconds": 7200,
+  "claim_boundary": "Prospective finite-template branch intervention in frozen GPT-2 rank-2 native-LoRA-B coordinates. A positive result supports predictive capacity when current-kernel access is imposed; it does not alter the negative PC1 decision, show natural AdamW navigation, establish full-model representation theory or generalization, or imply a universal learning law."
+}

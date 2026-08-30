@@ -1,0 +1,32 @@
+{
+  "protocol": "GPTW_PC4_PAIRED_CAUSAL_RESPONSE_FIBRE_CAPACITY_CPU_V1",
+  "prospective": true,
+  "decision": "CAUSAL_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED",
+  "attempted_seeds": 8,
+  "nodes": 16,
+  "primary": {
+    "positive_seed_count": 4,
+    "mean_paired_causal_gain_contrast": -0.00030809640884399414,
+    "median_paired_causal_gain_contrast": -0.0002968311309814453,
+    "paired_bootstrap_mean_95ci": [
+      -0.000830291211605072,
+      0.00021332502365112305
+    ],
+    "exact_two_sided_sign_flip_p": 0.3203125,
+    "mean_absolute_random_control_contrast": 0.0004886835813522339,
+    "median_response_cost_gap_over_budget": 0.01006107745462325,
+    "positive_selection_contrast_nodes": 16
+  },
+  "gates": {
+    "complete_seeds": true,
+    "complete_nodes": true,
+    "selection_non_degenerate": true,
+    "response_matched": true,
+    "at_least_6_of_8_seed_blocks_positive": false,
+    "mean_causal_contrast_positive": false,
+    "bootstrap_ci_lower_positive": false,
+    "effect_exceeds_random_pairing": false
+  },
+  "elapsed_seconds": 298.413437128067,
+  "claim_boundary": "Prospective paired intervention in a finite artificial GPT-2 rank-2 native-LoRA-B task. A positive result supports a causal difference in short-horizon held-out learning between response-matched states selected by frozen local capacity; it does not revise PC1-PC3, establish natural AdamW navigation, full-model representation theory, semantic learning, generalization, or a universal law of intelligence."
+}

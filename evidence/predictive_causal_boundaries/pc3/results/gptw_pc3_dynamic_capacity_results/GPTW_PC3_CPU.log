@@ -1,0 +1,139 @@
+[preflight] GPTW_PC3_DYNAMIC_PERSISTENT_RESPONSE_FIBRE_CAPACITY_CPU_V1 device=cpu seeds=[89841, 89842, 89843, 89844, 89845, 89846, 89847, 89848, 89849, 89850, 89851, 89852, 89853, 89854, 89855, 89856]
+2026-08-30 10:56:18.219405: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-08-30 10:56:18.284330: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[seed 1/16] 89841
+{
+  "seed": 89841,
+  "median_capacity": 0.038142402966817215,
+  "median_capacity_rate": 0.0036827256737796184,
+  "median_future_gain": 0.7772760391235352
+}
+[seed 2/16] 89842
+{
+  "seed": 89842,
+  "median_capacity": 0.21973013877868652,
+  "median_capacity_rate": 0.004137711297608656,
+  "median_future_gain": 1.7633804082870483
+}
+[seed 3/16] 89843
+{
+  "seed": 89843,
+  "median_capacity": 0.24024510383605957,
+  "median_capacity_rate": -0.002912921644972333,
+  "median_future_gain": 1.0385732650756836
+}
+[seed 4/16] 89844
+{
+  "seed": 89844,
+  "median_capacity": 0.1355433464050293,
+  "median_capacity_rate": 0.004803228195244801,
+  "median_future_gain": 1.412224531173706
+}
+[seed 5/16] 89845
+{
+  "seed": 89845,
+  "median_capacity": 0.12189722061157225,
+  "median_capacity_rate": 0.0032289631420758485,
+  "median_future_gain": 1.7168476581573486
+}
+[seed 6/16] 89846
+{
+  "seed": 89846,
+  "median_capacity": 0.14099184672037762,
+  "median_capacity_rate": -0.0011022291133766116,
+  "median_future_gain": 0.645526647567749
+}
+[seed 7/16] 89847
+{
+  "seed": 89847,
+  "median_capacity": 0.22553698221842447,
+  "median_capacity_rate": 0.006132862242880714,
+  "median_future_gain": 1.5900771617889404
+}
+[seed 8/16] 89848
+{
+  "seed": 89848,
+  "median_capacity": 0.08012970288594563,
+  "median_capacity_rate": 0.005241249690160481,
+  "median_future_gain": 1.0985846519470215
+}
+[seed 9/16] 89849
+{
+  "seed": 89849,
+  "median_capacity": 0.10300819079081217,
+  "median_capacity_rate": 0.004602247037072336,
+  "median_future_gain": 0.9894669055938721
+}
+[seed 10/16] 89850
+{
+  "seed": 89850,
+  "median_capacity": 0.2082536220550537,
+  "median_capacity_rate": 0.0052867894699412015,
+  "median_future_gain": 0.561453104019165
+}
+[seed 11/16] 89851
+{
+  "seed": 89851,
+  "median_capacity": 0.1631405883365207,
+  "median_capacity_rate": 0.005984850691186131,
+  "median_future_gain": 1.512101411819458
+}
+[seed 12/16] 89852
+{
+  "seed": 89852,
+  "median_capacity": 0.17055559158325195,
+  "median_capacity_rate": 0.0019553860226958304,
+  "median_future_gain": 1.3305792808532715
+}
+[seed 13/16] 89853
+{
+  "seed": 89853,
+  "median_capacity": 0.11773590246836343,
+  "median_capacity_rate": 0.003145714330849732,
+  "median_future_gain": 1.4655247926712036
+}
+[seed 14/16] 89854
+{
+  "seed": 89854,
+  "median_capacity": 0.2604057788848877,
+  "median_capacity_rate": 0.004030659624207908,
+  "median_future_gain": 1.334368348121643
+}
+[seed 15/16] 89855
+{
+  "seed": 89855,
+  "median_capacity": 0.14260244369506836,
+  "median_capacity_rate": 0.005652478387922443,
+  "median_future_gain": 0.9978816509246826
+}
+[seed 16/16] 89856
+{
+  "seed": 89856,
+  "median_capacity": 0.17905624707539874,
+  "median_capacity_rate": 0.0032495554845626586,
+  "median_future_gain": 0.747675895690918
+}
+========================================================================================
+{
+  "decision": "DYNAMIC_RESPONSE_FIBRE_CAPACITY_PREDICTIVE_STATE_NOT_SUPPORTED",
+  "primary": {
+    "dynamic_prediction_spearman": 0.04508797653958944,
+    "dynamic_incremental_loo_r2_over_baseline": -0.11907695356599035,
+    "dynamic_minus_static_loo_r2": -0.11097461707426448,
+    "seedwise_mae_improvement_count": 8,
+    "dynamic_current_minus_dynamic_source_loo_r2": -0.3969989776259564,
+    "dynamic_current_minus_mismatched_history_loo_r2": -0.5049120666487477
+  },
+  "gates": {
+    "complete_seeds": true,
+    "complete_prediction_nodes": true,
+    "dynamic_prediction_spearman": false,
+    "dynamic_incremental_loo_r2": false,
+    "dynamic_beats_static": false,
+    "seedwise_mae_improvement": false,
+    "dynamic_current_beats_dynamic_source": false,
+    "dynamic_current_beats_mismatched_history": false
+  }
+}
+RESULT DIRECTORY: /content/gptw_pc3_dynamic_capacity_results
