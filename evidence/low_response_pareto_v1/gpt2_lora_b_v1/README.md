@@ -20,8 +20,24 @@ the random frozen LoRA-A factor included in the seed axis. The artificial
 color-code task is expressed through disjoint natural-language templates and
 does not establish general semantic invariance.
 
-Run in a fresh Colab CPU runtime:
+The parent engine used by the eight-seed wrapper is archived in this directory
+as `gptw_lora_low_response_pareto_cpu.py`. It is the original source file from
+the frozen input ZIP, not a reconstructed replacement.
+
+The historical Colab launcher below expects an author-supplied ZIP upload and
+is preserved for provenance:
 
 ```python
 %run COLAB_LAUNCHER_GPTW_LORA_8SEED_CPU.py
+```
+
+For a zero-upload same-cohort external reproduction, use:
+
+```bash
+python external_tests/gpt2_lora_pareto/COLAB_ONE_CLICK_GPT2_LORA_PARETO.py \
+  --source-root . --verify-archived
+python external_tests/gpt2_lora_pareto/COLAB_ONE_CLICK_GPT2_LORA_PARETO.py \
+  --source-root . --smoke
+python external_tests/gpt2_lora_pareto/COLAB_ONE_CLICK_GPT2_LORA_PARETO.py \
+  --source-root . --full
 ```
