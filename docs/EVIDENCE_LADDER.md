@@ -108,6 +108,21 @@ supported, PC3 dynamic/history predictive state is not supported and PC4
 response-matched causal capacity is not supported. PC2 archives source only
 until the authoritative result artifact is imported.
 
+## Cached intrinsic Picard side branch
+
+Picard v0.2.6 is a supported timing side branch in a frozen-feature
+ResNet-18/CIFAR-10 classifier and a 20-dimensional float64-certified intrinsic
+response kernel. It freezes v0.2.5 learning rates and a strict
+validation-loss target, repeats identical deterministic trajectories five
+times per seed and compares cached intrinsic Picard updates with AdamW.
+
+All five new evaluation seeds passed every frozen timing, endpoint,
+accuracy-noninferiority and response-leakage gate. The median
+time-to-equal-loss speedup was 24.46%, the median fixed-budget speedup was
+16.70%, the median steps-to-target reduction was 9.09% and certified response
+leakage was 8.23e-16. This side branch does not alter the moving-fibre ladder
+and does not establish universal optimizer superiority or global Picard flow.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
@@ -117,7 +132,9 @@ GPT-2 LoRA-B subspace to full-model LLM behaviour, or from neural realizability
 cost to physical time. The low-response Pareto branch has also not crossed
 from counterfactual finite-budget opportunity to predictive, optimizer-access,
 dynamic-state or causal-capacity laws for the future selected by ordinary
-optimizers.
+optimizers. The Picard side branch has not crossed from the frozen intrinsic
+classifier protocol to end-to-end fine-tuning, a universal optimizer
+comparison or global Picard-flow convergence.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry

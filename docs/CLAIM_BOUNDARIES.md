@@ -73,6 +73,17 @@ The last statement is precisely an \(\arg\min\) over the frozen set
    supports the same low-response Pareto ordering in 7/8 prospective seeds.
    This is supported evidence, not a universal ResNet or optimizer claim.
 
+1. **Cached intrinsic Picard fine-tuning v0.2.6:** within a frozen-feature
+   ResNet-18/CIFAR-10 classifier and a 20-dimensional float64-certified
+   intrinsic response kernel, the cached intrinsic Picard update supports a
+   repeated-timing speedup over AdamW under frozen v0.2.5 learning rates and
+   target. Five new evaluation seeds passed every frozen gate, with median
+   time-to-equal-loss speedup 24.46%, median fixed-budget speedup 16.70%,
+   median steps-to-target reduction 9.09%, median endpoint loss delta
+   -0.000099 and response leakage 8.23e-16. This is not end-to-end
+   fine-tuning, a universal optimizer comparison or a global Picard-flow
+   result.
+
 ## Post-confirmation robustness audit
 
 The v3.1e four-radius scaling fit was subjected to leave-one-radius-out (LOO)
@@ -145,6 +156,8 @@ counterfactual frontier result unchanged.
   fibre;
 - predictive capacity, optimizer-access, dynamic-state or causal-capacity laws
   for ordinary optimizer futures;
+- universal optimizer superiority, end-to-end Picard fine-tuning, or global
+  Picard-flow convergence;
 - continuous low-response Pareto optimality beyond the frozen finite response
   budgets and alpha grids;
 - universal intelligence, learning, physical realizability or time laws;

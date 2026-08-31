@@ -177,6 +177,25 @@ Recorded AdamW supplies real training nodes and proposals, but the successful
 instantaneous-kernel arm is a counterfactual projection. Ordinary optimizer
 navigation is not established.
 
+### Cached intrinsic Picard fine-tuning v0.2.6 - supported side branch
+
+Picard v0.2.6 is a separate frozen-feature ResNet-18/CIFAR-10 timing audit in
+a 20-dimensional float64-certified intrinsic response kernel. It compares a
+cached intrinsic Picard update with AdamW using frozen v0.2.5 learning rates,
+a frozen strict validation-loss target and five deterministic timing repeats
+per seed.
+
+All five new evaluation seeds passed every frozen timing, endpoint,
+accuracy-noninferiority and response-leakage gate. Median time-to-equal-loss
+speedup was 24.46%, median fixed-budget speedup was 16.70%, median
+steps-to-target reduction was 9.09%, median endpoint loss delta was -0.000099
+and certified response leakage was 8.23e-16. The status is
+`PICARD_V0_2_6_REPEATED_TIMING_DUAL_10PCT_SPEEDUP_SUPPORTED`.
+
+This is supported evidence for the declared cached intrinsic Picard protocol
+only. It is not end-to-end fine-tuning, a GPT-2/LoRA result, a universal
+optimizer comparison, or a proof of global Picard flow.
+
 ### Predictive and causal boundary audits
 
 The R2 strict-control confirmation is accompanied by add-only predictive and
@@ -342,6 +361,8 @@ evidence/
     pc2/ optimizer-access source only; result artifact required
     pc3/ dynamic/history predictive-state negative audit
     pc4/ response-matched causal-capacity negative audit
+  picard_finetune_v0_2_6/
+    cached intrinsic Picard timing audit; supported side branch
   gptw_response_fibre_v1_1_0/
     experiments/
     development/
@@ -418,6 +439,8 @@ The archive does not establish:
 - ordinary AdamW or SGD naturally follows a response fibre;
 - predictive capacity, optimizer-access, dynamic-state or causal-capacity laws
   for ordinary optimizer futures;
+- universal optimizer superiority, end-to-end Picard fine-tuning, or global
+  Picard-flow convergence;
 - a continuous Pareto optimum beyond the frozen finite budget and alpha grids;
 - a universal intelligence, physical-time or K=1 law.
 
@@ -432,6 +455,7 @@ Low-response Pareto reproduction has three layers:
 
 ```bash
 python verify_low_response_snapshot.py
+python verify_picard_finetune_v0_2_6.py
 python external_tests/gpt2_lora_pareto/COLAB_ONE_CLICK_GPT2_LORA_PARETO.py --source-root . --smoke
 python external_tests/gpt2_lora_pareto/COLAB_ONE_CLICK_GPT2_LORA_PARETO.py --source-root . --full
 ```

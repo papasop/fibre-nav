@@ -262,3 +262,27 @@ No historical R1 or low-response R2 raw result is deleted or relabelled. The
 boundary overlay narrows interpretation of the R2 confirmation: it remains a
 counterfactual finite-budget held-out frontier at recorded nodes, not a
 predictive or causal law for ordinary optimizer futures.
+
+## Cached intrinsic Picard fine-tuning v0.2.6
+
+This release imports `picard_finetune_github_v0_2_6.zip` as an independent
+supported side-branch evidence snapshot under
+`evidence/picard_finetune_v0_2_6/`. ZIP SHA-256:
+`9c88601620c11f1cdcf09d8607400a2a0df0d25803a142122fe799757f072899`.
+
+The frozen protocol is
+`GEOMETRIC_INTRINSIC_PICARD_FINETUNE_V0_2_6_REPEATED_TIMING_CONFIRMATORY`.
+The machine-readable status is
+`PICARD_V0_2_6_REPEATED_TIMING_DUAL_10PCT_SPEEDUP_SUPPORTED`. Five new
+evaluation seeds passed every frozen timing, endpoint, accuracy and
+float64-response-leakage gate. Median time-to-equal-loss speedup was 24.46%,
+median fixed-budget speedup was 16.70%, median steps-to-target reduction was
+9.09%, median endpoint loss delta was -0.000099 and certified response leakage
+was 8.23e-16.
+
+This import preserves the original returned results archive
+`evidence/v0_2_6/picard_v0_2_6_results.zip` inside the snapshot and adds a
+repository-level verifier. Its scope is frozen-feature ResNet-18/CIFAR-10 in a
+20-dimensional float64-certified intrinsic response kernel; it is not
+end-to-end fine-tuning, GPT-2/LoRA evidence, a universal optimizer comparison
+or a global Picard-flow theorem.

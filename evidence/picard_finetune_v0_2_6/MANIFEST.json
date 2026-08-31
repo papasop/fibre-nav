@@ -1,0 +1,35 @@
+{
+  "release": "picard-finetune-v0.2.6",
+  "protocol": "GEOMETRIC_INTRINSIC_PICARD_FINETUNE_V0_2_6_REPEATED_TIMING_CONFIRMATORY",
+  "scientific_status": "PICARD_V0_2_6_REPEATED_TIMING_DUAL_10PCT_SPEEDUP_SUPPORTED",
+  "device_reported": "NVIDIA A100-SXM4-40GB",
+  "evaluation_seeds": [22229, 22247, 22259, 22271, 22277],
+  "frozen_learning_rates": {
+    "adamw": 0.003,
+    "picard_cached": 0.12
+  },
+  "frozen_target": 1.6318350233280339,
+  "timing_repeats": 5,
+  "headline_metrics": {
+    "median_time_to_equal_loss_speedup_fraction": 0.244556609230325,
+    "median_fixed_budget_speedup_fraction": 0.16697946594306454,
+    "median_step_reduction_fraction": 0.09090909090909091,
+    "median_endpoint_loss_delta": -0.00009865702878331106,
+    "float64_response_leakage": 8.234028604458257e-16
+  },
+  "primary_files": {
+    "source": "src/picard_finetune_benchmark_v0_2_6.py",
+    "colab_launcher": "colab/picard_finetune_v0_2_6_colab_launcher.py",
+    "demo_bundle": "bundles/picard_finetune_demo_v0_2_6.zip",
+    "original_results_archive": "evidence/v0_2_6/picard_v0_2_6_results.zip",
+    "summary": "evidence/v0_2_6/results/run_summary.json"
+  },
+  "primary_sha256": {
+    "src/picard_finetune_benchmark_v0_2_6.py": "9bcdb8703ad71bc0420084b2a0f743ae0b27e37a7c196f0ff4ddfb5e09d09a4e",
+    "colab/picard_finetune_v0_2_6_colab_launcher.py": "5a8c05e301c6fab0d88c3f53755dce8bade7ef032c4a7d05930370307bcc39aa",
+    "bundles/picard_finetune_demo_v0_2_6.zip": "f08dcc4258ba5bb3e102b87b2748ca06279a5acff63fef0c2b9bb6ee92d9c044",
+    "evidence/v0_2_6/picard_v0_2_6_results.zip": "cda18c107b918eb23dc472f2518f8ae09d6b984566430ebfd0a9b14434512a37",
+    "evidence/v0_2_6/results/run_summary.json": "8b0c875592ac2eafa640a833a224c56db8f49bfbb4fdf5c3ba6f5ea88fed8ccc"
+  },
+  "claim_boundary": "Frozen-feature ResNet-18/CIFAR-10 in a 20-dimensional float64-certified intrinsic response kernel only; not end-to-end, GPT-2/LoRA, universal optimizer, or global-flow evidence."
+}
