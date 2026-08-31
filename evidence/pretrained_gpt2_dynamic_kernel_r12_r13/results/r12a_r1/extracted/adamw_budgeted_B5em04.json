@@ -1,0 +1,70 @@
+{
+  "seed": 31211,
+  "arm": "adamw_budgeted",
+  "budget": 0.0005,
+  "final_validation_loss": 4.3741060098012285,
+  "best_validation_loss": 4.374105970064799,
+  "max_global_response_drift": 0.000499824521363745,
+  "zero_step_fraction": 0.1625,
+  "median_accepted_step_norm": 0.028721342295689734,
+  "accepted_steps": 67,
+  "max_restored_state_response_repeat_error": 0.0,
+  "median_backtracks": 0.0,
+  "max_projector_leakage": 2.257646333299733e-16,
+  "max_projector_idempotence": 2.4342226339215717e-16,
+  "response_ranks": [
+    2
+  ],
+  "timed_seconds": 13.291802256000665,
+  "geometry_seconds": 0.0013055150120635517,
+  "trace": [
+    {
+      "step": 10,
+      "validation_loss": 4.374210516611735,
+      "global_response_drift": 2.710851746282939e-05,
+      "accepted_step_norm": 0.028064767958914924
+    },
+    {
+      "step": 20,
+      "validation_loss": 4.374197006225586,
+      "global_response_drift": 8.058547973632812e-05,
+      "accepted_step_norm": 0.027762520554420498
+    },
+    {
+      "step": 30,
+      "validation_loss": 4.37418007850647,
+      "global_response_drift": 0.00014871281229936434,
+      "accepted_step_norm": 0.028560961816855416
+    },
+    {
+      "step": 40,
+      "validation_loss": 4.374163707097371,
+      "global_response_drift": 0.00022478611422060431,
+      "accepted_step_norm": 0.029288547923091178
+    },
+    {
+      "step": 50,
+      "validation_loss": 4.374141494433085,
+      "global_response_drift": 0.00033611878888051625,
+      "accepted_step_norm": 0.03776707464041675
+    },
+    {
+      "step": 60,
+      "validation_loss": 4.374111175537109,
+      "global_response_drift": 0.0004844158626680522,
+      "accepted_step_norm": 0.03604795940537455
+    },
+    {
+      "step": 70,
+      "validation_loss": 4.374105970064799,
+      "global_response_drift": 0.0004997226118056879,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 80,
+      "validation_loss": 4.3741060098012285,
+      "global_response_drift": 0.000499824521363745,
+      "accepted_step_norm": 0.0
+    }
+  ]
+}

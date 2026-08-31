@@ -1,0 +1,18 @@
+{
+  "protocol": "PRETRAINED_GPT2_LORA_DYNAMIC_KERNEL_R12A_R2_PARETO_SWEEP",
+  "role": "one_seed_response_loss_pareto_development_nonclaim",
+  "model": "openai-community/gpt2",
+  "seed": 31211,
+  "global_response_budgets": [0.00001, 0.00002, 0.00005, 0.0001],
+  "arms": ["current_identity", "source_identity", "adamw_budgeted"],
+  "steps": 300,
+  "warm_steps": 30,
+  "chart_dim": 24,
+  "lora_rank": 4,
+  "adapted_layers": 2,
+  "determinism_fix": "all pretrained GPT-2 dropout modules set to p=0 before warm start",
+  "determinism_gate": "fixed-state and restored-state response repeat errors <= 1e-12",
+  "acceptance_gate": "every arm-budget record accepts at least one step and zero-step fraction < 0.95",
+  "promotion_rule": "at least one budget where current_identity has lower final validation loss than both source_identity and adamw_budgeted; nomination only",
+  "claim_policy": "one-seed Pareto development only; no optimizer superiority claim"
+}

@@ -117,6 +117,26 @@ universal-optimizer or global-Picard claim.
 
 [Inspect R10/R11 evidence](evidence/gpt2_lora_global_response_budget_r10_r11/)
 
+## Pretrained GPT-2 dynamic-kernel confirmation
+
+R12/R13 extend the dynamic response-kernel global-budget test from a compact
+random byte model to `openai-community/gpt2` with a shared 24-dimensional
+rank-4 LoRA chart in the final two `c_attn` modules and SHA-256-bound Tiny
+Shakespeare data. R12 is the development chain; R13 is the frozen five-seed
+confirmation under two declared global response balls.
+
+R13 confirmed that current-response-kernel identity updates achieved lower
+validation loss than both source-frozen updates and response-budgeted AdamW in
+all five untouched seeds at both budgets. Median budgeted-AdamW-minus-current
+loss gaps were 0.001384894 and 0.001366377 at budgets `2e-5` and `5e-5`;
+median source-minus-current gaps were 0.001331011 and 0.001289566. The five
+seeds are the independent units; the ten seed-by-budget contrasts are
+correlated. Unconstrained AdamW reached lower loss but exceeded the response
+budgets by hundreds of times, so it is retained as a scope diagnostic rather
+than part of the matched-budget confirmation gate.
+
+[Inspect R12/R13 evidence](evidence/pretrained_gpt2_dynamic_kernel_r12_r13/)
+
 ## Functional premise: selected fibre directions can carry adaptive value
 
 ResNet-18/CIFAR-10 v4.0c-r1 prospectively tested the functional premise in the
@@ -383,6 +403,7 @@ continuum or arbitrary-path theorem.
 | Transverse response amplification | ResNet v4.2d passed 16/16 seeds; median active residual ratio 1437.844 and transverse gain contrast 341,763 | Confirmed finite-chart transverse amplification |
 | Low-response held-out learning frontier | Reduced ResNet v4.6 is supported with 7/8 seeds. GPT-2 native-LoRA-B R1 passed 8/8 seeds and 24/24 noninitial nodes; R2 strict-control upgrade passed 6/8 complete-control seeds with 7/8 positive same-kernel seed contrasts and 20/24 positive noninitial nodes | Supported in reduced ResNet; confirmed within the declared GPT-2 native-LoRA-B R1 and R2 protocols |
 | GPTW current-versus-fixed correction-cost scaling | GPTW v2 is SUPPORTED in 6/6 seeds and 18/18 nodes; v3 natural text is SUPPORTED in 8/8 seeds and 32/32 nodes as not confined to codeword prompts | Supported restricted GPTW evidence |
+| Pretrained GPT-2 dynamic response-kernel ordering | R13 passed 5/5 untouched seeds at both frozen global response budgets; current-kernel updates beat source-frozen and response-budgeted AdamW controls, while unconstrained AdamW is retained as an out-of-budget diagnostic | Confirmed within the declared pretrained GPT-2 LoRA response-budget protocol |
 | Restricted Moving-Fibre F16 ordering | Moving-Fibre F16 v3.2c passed with natural minimizing the restricted action at all four radii in 14/14 comparable seeds and winning under the wrong metric in 0/14 | Confirmed restricted multi-radius ordering |
 | Action/realization-cost equivalence - Refuted | Natural gradient was not the least-cost path in 14/14 comparable seeds; smallest-radius correction-cost ratio median 2.25, range 1.60-4.19 | Refuted within the frozen six-algorithm family |
 
@@ -424,6 +445,8 @@ evidence/
     resnet_v4_6/
     gpt2_lora_b_v1/
     gpt2_lora_b_r2_strict/
+  pretrained_gpt2_dynamic_kernel_r12_r13/
+    R12 development chain and R13 frozen pretrained GPT-2 confirmation
   confirmed/
     picard_gpt2_lora_r4/
     f16_v16/

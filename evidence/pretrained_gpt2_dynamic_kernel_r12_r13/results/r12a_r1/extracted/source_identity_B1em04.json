@@ -1,0 +1,70 @@
+{
+  "seed": 31211,
+  "arm": "source_identity",
+  "budget": 0.0001,
+  "final_validation_loss": 4.3741527398427325,
+  "best_validation_loss": 4.3741527398427325,
+  "max_global_response_drift": 9.51107863362983e-05,
+  "zero_step_fraction": 0.0,
+  "median_accepted_step_norm": 0.025,
+  "accepted_steps": 80,
+  "max_restored_state_response_repeat_error": 0.0,
+  "median_backtracks": 0.0,
+  "max_projector_leakage": 2.257646333299733e-16,
+  "max_projector_idempotence": 2.4342226339215717e-16,
+  "response_ranks": [
+    2
+  ],
+  "timed_seconds": 4.869748097000411,
+  "geometry_seconds": 0.001214775002154056,
+  "trace": [
+    {
+      "step": 10,
+      "validation_loss": 4.374216794967651,
+      "global_response_drift": 1.0271386732357986e-05,
+      "accepted_step_norm": 0.025
+    },
+    {
+      "step": 20,
+      "validation_loss": 4.374217351277669,
+      "global_response_drift": 8.996945507103542e-06,
+      "accepted_step_norm": 0.02500000000000001
+    },
+    {
+      "step": 30,
+      "validation_loss": 4.374214808146159,
+      "global_response_drift": 8.908053251394942e-06,
+      "accepted_step_norm": 0.025
+    },
+    {
+      "step": 40,
+      "validation_loss": 4.3742116292317705,
+      "global_response_drift": 1.4024201555111639e-05,
+      "accepted_step_norm": 0.024999999999999998
+    },
+    {
+      "step": 50,
+      "validation_loss": 4.374205907185872,
+      "global_response_drift": 2.7549470568951206e-05,
+      "accepted_step_norm": 0.025
+    },
+    {
+      "step": 60,
+      "validation_loss": 4.374192953109741,
+      "global_response_drift": 4.375484370023522e-05,
+      "accepted_step_norm": 0.024999999999999998
+    },
+    {
+      "step": 70,
+      "validation_loss": 4.37417717774709,
+      "global_response_drift": 7.421522696816909e-05,
+      "accepted_step_norm": 0.024999999999999998
+    },
+    {
+      "step": 80,
+      "validation_loss": 4.3741527398427325,
+      "global_response_drift": 9.51107863362983e-05,
+      "accepted_step_norm": 0.025
+    }
+  ]
+}

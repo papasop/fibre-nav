@@ -355,3 +355,34 @@ from the r4/r5 Picard-vs-AdamW timing branch and does not establish AdamW
 superiority, training speed, pretrained GPT-2 fine-tuning, semantic transfer,
 inverse-Fisher superiority, universal optimizer ordering or a global Picard
 theorem.
+
+## Pretrained GPT-2 dynamic response-kernel R12/R13
+
+This import adds `pretrained_gpt2_dynamic_kernel_r12_r13_github_bundle.zip`
+under `evidence/pretrained_gpt2_dynamic_kernel_r12_r13/`. The expected and
+observed ZIP SHA-256 was
+`cd4b9aadbc7b4b2738a9fa82520b5fdb626e9545cec3d0632f463e9da318f1ad`.
+
+The snapshot preserves R12a, R12a-r1, R12a-r2 and R12b as development and
+repair stages, and R13 as the frozen five-untouched-seed confirmation:
+`R13_PRETRAINED_GPT2_CURRENT_KERNEL_BUDGETED_DUAL_ADVANTAGE_CONFIRMED`.
+The confirmed setting is `openai-community/gpt2`, SHA-256-bound Tiny
+Shakespeare data, two adapted final `c_attn` modules and a shared
+24-dimensional rank-4 LoRA chart. R13 used seeds `33211`, `33217`, `33229`,
+`33241` and `33253` and budgets `2e-5` and `5e-5`. Current-kernel identity
+updates beat both source-frozen updates and response-budgeted AdamW in all five
+seeds at both budgets. Median budgeted-AdamW-minus-current validation-loss gaps
+were 0.001384894 and 0.001366377; median source-minus-current gaps were
+0.001331011 and 0.001289566.
+
+The original returned result ZIPs are preserved for R12a, R12a-r1, R12a-r2 and
+R13. The original R12b result ZIP was not supplied; its results are disclosed
+as mechanically recovered from a complete returned Colab log embedded in the
+archive. This provenance distinction remains part of the imported record.
+
+Unconstrained AdamW reached lower validation loss but exceeded the response
+budgets by hundreds of times. It is retained as a scope diagnostic, not as a
+matched-budget control. This evidence does not establish superiority to
+unconstrained AdamW, ordinary full-model GPT-2 training, semantic transfer,
+downstream-task transfer, inverse-Fisher superiority, lower universal per-step
+complexity, universal optimizer superiority or a global Picard theorem.

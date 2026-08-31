@@ -125,6 +125,27 @@ does not compare against AdamW, does not measure training speed and does not
 support pretrained GPT-2, semantic-transfer, inverse-Fisher, universal
 optimizer or global-Picard claims.
 
+## Pretrained GPT-2 dynamic-kernel branch
+
+R12/R13 extend the dynamic-kernel global-budget audit to
+`openai-community/gpt2`, SHA-256-bound Tiny Shakespeare data and a shared
+24-dimensional rank-4 LoRA chart in the final two `c_attn` modules. R12a,
+R12a-r1, R12a-r2 and R12b are preserved as development and repair stages. R13
+is the frozen five-untouched-seed confirmation.
+
+R13 confirms, under two declared global response balls, that the current
+response-kernel identity arm beats both the source-frozen arm and
+response-budgeted AdamW in 5/5 seeds at each budget. Median
+budgeted-AdamW-minus-current validation-loss gaps were 0.001384894 and
+0.001366377 at budgets `2e-5` and `5e-5`; median source-minus-current gaps
+were 0.001331011 and 0.001289566. The five seeds are the independent units;
+the two budget observations within a seed are correlated. Unconstrained AdamW
+is lower-loss but out of budget by hundreds of times, so it is a scope
+diagnostic rather than a matched-budget control. This branch does not establish
+ordinary GPT-2 fine-tuning superiority, semantic transfer, inverse-Fisher
+superiority, universal optimizer ordering, lower universal per-step complexity
+or a global Picard theorem.
+
 ## GPT-2 LoRA Picard branch
 
 The featured Picard branch is now GPT-2 small with rank-4 LoRA on `c_attn`,

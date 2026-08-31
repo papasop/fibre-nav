@@ -1,0 +1,70 @@
+{
+  "seed": 31211,
+  "arm": "adamw_budgeted",
+  "budget": 0.0001,
+  "final_validation_loss": 4.374189813931783,
+  "best_validation_loss": 4.374189535776774,
+  "max_global_response_drift": 9.988571909161501e-05,
+  "zero_step_fraction": 0.4125,
+  "median_accepted_step_norm": 7.148033979420919e-06,
+  "accepted_steps": 47,
+  "max_restored_state_response_repeat_error": 0.0,
+  "median_backtracks": 12.0,
+  "max_projector_leakage": 2.257646333299733e-16,
+  "max_projector_idempotence": 2.4342226339215717e-16,
+  "response_ranks": [
+    2
+  ],
+  "timed_seconds": 29.42982474999735,
+  "geometry_seconds": 0.0012778920026903506,
+  "trace": [
+    {
+      "step": 10,
+      "validation_loss": 4.374210516611735,
+      "global_response_drift": 2.710851746282939e-05,
+      "accepted_step_norm": 0.028064767958914924
+    },
+    {
+      "step": 20,
+      "validation_loss": 4.374197006225586,
+      "global_response_drift": 8.058547973632812e-05,
+      "accepted_step_norm": 0.027762520554420498
+    },
+    {
+      "step": 30,
+      "validation_loss": 4.374189575513204,
+      "global_response_drift": 9.953568787167721e-05,
+      "accepted_step_norm": 0.00010948724448674497
+    },
+    {
+      "step": 40,
+      "validation_loss": 4.374189893404643,
+      "global_response_drift": 9.953568787167721e-05,
+      "accepted_step_norm": 1.6375335168059275e-06
+    },
+    {
+      "step": 50,
+      "validation_loss": 4.3741897741953535,
+      "global_response_drift": 9.951284181742116e-05,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 60,
+      "validation_loss": 4.374189615249634,
+      "global_response_drift": 9.988571909161501e-05,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 70,
+      "validation_loss": 4.374189535776774,
+      "global_response_drift": 9.988571909161501e-05,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 80,
+      "validation_loss": 4.374189813931783,
+      "global_response_drift": 9.988571909161501e-05,
+      "accepted_step_norm": 0.0
+    }
+  ]
+}

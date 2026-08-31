@@ -1,0 +1,68 @@
+{
+  "seed": 31211,
+  "arm": "current_picard_a025",
+  "budget": 0.0001,
+  "final_validation_loss": 4.37421452999115,
+  "best_validation_loss": 4.37421452999115,
+  "max_global_response_drift": 0.36602730105555425,
+  "zero_step_fraction": 1.0,
+  "median_accepted_step_norm": 0.0,
+  "median_backtracks": 15.0,
+  "max_projector_leakage": 3.73829726345942e-16,
+  "max_projector_idempotence": 3.5814878110757943e-16,
+  "response_ranks": [
+    2
+  ],
+  "timed_seconds": 54.01381147400025,
+  "geometry_seconds": 9.176103824007441,
+  "trace": [
+    {
+      "step": 10,
+      "validation_loss": 4.37421452999115,
+      "global_response_drift": 0.32884226197387545,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 20,
+      "validation_loss": 4.37421452999115,
+      "global_response_drift": 0.2861265896527464,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 30,
+      "validation_loss": 4.37421452999115,
+      "global_response_drift": 0.24073277324955883,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 40,
+      "validation_loss": 4.37421452999115,
+      "global_response_drift": 0.2754931101929582,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 50,
+      "validation_loss": 4.37421452999115,
+      "global_response_drift": 0.1907409087331667,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 60,
+      "validation_loss": 4.37421452999115,
+      "global_response_drift": 0.20826702719427795,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 70,
+      "validation_loss": 4.37421452999115,
+      "global_response_drift": 0.09541904027345026,
+      "accepted_step_norm": 0.0
+    },
+    {
+      "step": 80,
+      "validation_loss": 4.37421452999115,
+      "global_response_drift": 0.36602730105555425,
+      "accepted_step_norm": 0.0
+    }
+  ]
+}

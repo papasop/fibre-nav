@@ -1,0 +1,203 @@
+{
+  "seed": 33217,
+  "arm": "adamw_unconstrained",
+  "budget": 2e-05,
+  "budget_constrained": false,
+  "final_validation_loss": 4.367939869562785,
+  "best_validation_loss": 4.367939869562785,
+  "max_global_response_drift": 0.017803654461389946,
+  "zero_step_fraction": 0.0,
+  "median_accepted_step_norm": 0.04949768464340082,
+  "accepted_steps": 300,
+  "max_restored_state_response_repeat_error": 0.0,
+  "median_backtracks": 0.0,
+  "max_projector_leakage": 2.5807679504404953e-16,
+  "max_projector_idempotence": 2.757734872237566e-16,
+  "response_ranks": [
+    2
+  ],
+  "timed_seconds": 18.854933486999926,
+  "geometry_seconds": 0.004977596996468492,
+  "trace": [
+    {
+      "step": 10,
+      "validation_loss": 4.3741698662439985,
+      "global_response_drift": 3.875310473113797e-05,
+      "accepted_step_norm": 0.027017648436487997
+    },
+    {
+      "step": 20,
+      "validation_loss": 4.374145269393921,
+      "global_response_drift": 8.767192879341973e-05,
+      "accepted_step_norm": 0.02770412917018578
+    },
+    {
+      "step": 30,
+      "validation_loss": 4.3741148710250854,
+      "global_response_drift": 0.00014426826228496195,
+      "accepted_step_norm": 0.03183382813296019
+    },
+    {
+      "step": 40,
+      "validation_loss": 4.374070445696513,
+      "global_response_drift": 0.00023779310197307528,
+      "accepted_step_norm": 0.034030938709838136
+    },
+    {
+      "step": 50,
+      "validation_loss": 4.374019781748454,
+      "global_response_drift": 0.00034427940018657633,
+      "accepted_step_norm": 0.0381474675908878
+    },
+    {
+      "step": 60,
+      "validation_loss": 4.373948415120442,
+      "global_response_drift": 0.0004941020134195816,
+      "accepted_step_norm": 0.041526443433290594
+    },
+    {
+      "step": 70,
+      "validation_loss": 4.373863935470581,
+      "global_response_drift": 0.0006885470775773859,
+      "accepted_step_norm": 0.045825494375154485
+    },
+    {
+      "step": 80,
+      "validation_loss": 4.373761812845866,
+      "global_response_drift": 0.0009277384973186585,
+      "accepted_step_norm": 0.0466814934584575
+    },
+    {
+      "step": 90,
+      "validation_loss": 4.373646219571431,
+      "global_response_drift": 0.0011826773742871673,
+      "accepted_step_norm": 0.0449625308078931
+    },
+    {
+      "step": 100,
+      "validation_loss": 4.373512188593547,
+      "global_response_drift": 0.0015167094931336758,
+      "accepted_step_norm": 0.053904826557307786
+    },
+    {
+      "step": 110,
+      "validation_loss": 4.373376925786336,
+      "global_response_drift": 0.0019333330678448953,
+      "accepted_step_norm": 0.05281920660938669
+    },
+    {
+      "step": 120,
+      "validation_loss": 4.373212496439616,
+      "global_response_drift": 0.002364546233161,
+      "accepted_step_norm": 0.048154618760712316
+    },
+    {
+      "step": 130,
+      "validation_loss": 4.373010039329529,
+      "global_response_drift": 0.0028634258352235992,
+      "accepted_step_norm": 0.04707072657898081
+    },
+    {
+      "step": 140,
+      "validation_loss": 4.37283209959666,
+      "global_response_drift": 0.0033636535566452445,
+      "accepted_step_norm": 0.050251427779519534
+    },
+    {
+      "step": 150,
+      "validation_loss": 4.372591137886047,
+      "global_response_drift": 0.00395276333061869,
+      "accepted_step_norm": 0.059869048249717144
+    },
+    {
+      "step": 160,
+      "validation_loss": 4.372339725494385,
+      "global_response_drift": 0.0045827802183006,
+      "accepted_step_norm": 0.052348755205335884
+    },
+    {
+      "step": 170,
+      "validation_loss": 4.372105757395427,
+      "global_response_drift": 0.005204351234077711,
+      "accepted_step_norm": 0.05212310288357872
+    },
+    {
+      "step": 180,
+      "validation_loss": 4.371812184651692,
+      "global_response_drift": 0.00589653876104581,
+      "accepted_step_norm": 0.051844417747342164
+    },
+    {
+      "step": 190,
+      "validation_loss": 4.371540904045105,
+      "global_response_drift": 0.006630792250744695,
+      "accepted_step_norm": 0.04606380744113546
+    },
+    {
+      "step": 200,
+      "validation_loss": 4.371249198913574,
+      "global_response_drift": 0.0074355386795222,
+      "accepted_step_norm": 0.05687748655357293
+    },
+    {
+      "step": 210,
+      "validation_loss": 4.370915373166402,
+      "global_response_drift": 0.008406022474401295,
+      "accepted_step_norm": 0.05980956359962065
+    },
+    {
+      "step": 220,
+      "validation_loss": 4.3706367413202925,
+      "global_response_drift": 0.009420542707131309,
+      "accepted_step_norm": 0.05136096376514158
+    },
+    {
+      "step": 230,
+      "validation_loss": 4.370342373847961,
+      "global_response_drift": 0.010403383090971233,
+      "accepted_step_norm": 0.05112673332116939
+    },
+    {
+      "step": 240,
+      "validation_loss": 4.370069742202759,
+      "global_response_drift": 0.011333627486589112,
+      "accepted_step_norm": 0.047763123909766995
+    },
+    {
+      "step": 250,
+      "validation_loss": 4.3697448174158735,
+      "global_response_drift": 0.012332894329735314,
+      "accepted_step_norm": 0.054127148031953946
+    },
+    {
+      "step": 260,
+      "validation_loss": 4.369390328725179,
+      "global_response_drift": 0.0134550590428242,
+      "accepted_step_norm": 0.048288836046836085
+    },
+    {
+      "step": 270,
+      "validation_loss": 4.369059483210246,
+      "global_response_drift": 0.014532137650845869,
+      "accepted_step_norm": 0.05126000644780737
+    },
+    {
+      "step": 280,
+      "validation_loss": 4.368707736333211,
+      "global_response_drift": 0.015618729107160416,
+      "accepted_step_norm": 0.056820685432290616
+    },
+    {
+      "step": 290,
+      "validation_loss": 4.3683247566223145,
+      "global_response_drift": 0.016776728791193206,
+      "accepted_step_norm": 0.046337906074223466
+    },
+    {
+      "step": 300,
+      "validation_loss": 4.367939869562785,
+      "global_response_drift": 0.017803654461389946,
+      "accepted_step_norm": 0.04554638482678596
+    }
+  ]
+}

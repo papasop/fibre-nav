@@ -63,6 +63,22 @@
    fine-tuning, semantic transfer, inverse-Fisher superiority, universal
    optimizer ordering or a global Picard theorem.
 
+5. **Pretrained GPT-2 dynamic response-kernel R13:** within
+   `openai-community/gpt2`, SHA-256-bound Tiny Shakespeare data, two adapted
+   final `c_attn` modules and a shared 24-dimensional rank-4 LoRA chart, the
+   current-response-kernel identity arm outperformed both source-frozen and
+   response-budgeted AdamW arms under the two frozen global response balls.
+   R13 used five untouched confirmation seeds, with 5/5 positive seeds at both
+   budgets. Median budgeted-AdamW-minus-current validation-loss gaps were
+   0.001384894 and 0.001366377 at budgets `2e-5` and `5e-5`; median
+   source-minus-current gaps were 0.001331011 and 0.001289566. The five seeds,
+   not the ten correlated seed-by-budget contrasts, are the independent units.
+   R12a/R12b are development only. This does not establish superiority to
+   unconstrained AdamW, ordinary full-model GPT-2 training, semantic transfer,
+   downstream-task transfer, inverse-Fisher superiority, lower universal
+   per-step complexity, universal optimizer superiority or a global Picard
+   theorem.
+
 2. **F16 v16:** restricted CNER-F ordering in a frozen eight-dimensional
    CNN--MNIST chart.
 3. **Moving-F16 v3.0b:** the restricted ordering survives pointwise moving

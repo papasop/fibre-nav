@@ -1,0 +1,19 @@
+{
+  "protocol": "PRETRAINED_GPT2_LORA_DYNAMIC_KERNEL_R12B_MULTISEED_DEVELOPMENT",
+  "role": "three_new_seed_multibudget_development_nonclaim",
+  "model": "openai-community/gpt2",
+  "seeds": [32211, 32217, 32229],
+  "global_response_budgets": [0.00002, 0.00005],
+  "primary_arms": ["current_identity", "source_identity", "adamw_budgeted"],
+  "diagnostic_arm": "adamw_unconstrained",
+  "steps": 300,
+  "warm_steps": 30,
+  "chart_dim": 24,
+  "lora_rank": 4,
+  "adapted_layers": 2,
+  "determinism_fix": "all pretrained GPT-2 dropout modules set to p=0 before warm start",
+  "determinism_gate": "fixed-state and restored-state response repeat errors <= 1e-12",
+  "acceptance_gate": "every arm-budget record accepts at least one step and zero-step fraction < 0.95",
+  "promotion_rule": "at both budgets, positive median source-minus-current and budgeted-AdamW-minus-current loss with current dual-winning at least two of three seeds",
+  "claim_policy": "three-seed development only; a positive result freezes but does not confirm R13"
+}
