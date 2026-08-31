@@ -108,6 +108,23 @@ supported, PC3 dynamic/history predictive state is not supported and PC4
 response-matched causal capacity is not supported. PC2 archives source only
 until the authoritative result artifact is imported.
 
+## Dynamic global-budget response-kernel branch
+
+R10/R11 test a separate current-versus-source kernel comparison under four
+frozen global response balls in a deterministic compact randomly initialized
+GPT-2 byte language model and shared 24-dimensional rank-4 LoRA chart. R10 is
+same-seed development. R11 freezes the R10 configuration and confirms on five
+untouched seeds that the current-kernel arm beats the source-frozen arm at all
+four budgets.
+
+The R11 median source-minus-current validation-loss gaps are 0.003762603,
+0.003669620, 0.003578544 and 0.003186703 for budgets `5e-5`, `1e-4`, `2e-4`
+and `5e-4`, with 5/5 positive seeds at each budget. The seed is the independent
+unit; the four budget observations within a seed are correlated. This branch
+does not compare against AdamW, does not measure training speed and does not
+support pretrained GPT-2, semantic-transfer, inverse-Fisher, universal
+optimizer or global-Picard claims.
+
 ## GPT-2 LoRA Picard branch
 
 The featured Picard branch is now GPT-2 small with rank-4 LoRA on `c_attn`,

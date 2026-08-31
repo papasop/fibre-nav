@@ -1,0 +1,9 @@
+{
+  "protocol": "GPT2_LORA_GLOBAL_RESPONSE_BUDGET_PARETO_V0_3_R10_DEVELOPMENT",
+  "kernels": ["current_refresh_1", "source_frozen"],
+  "global_response_budgets": [0.00005, 0.0001, 0.0002, 0.0005],
+  "metric": "identity",
+  "constraint": "norm(R(theta_t)-R(theta_warm)) <= B at every accepted step",
+  "promotion_gate": "current wins in >=4/5 seeds with positive median at >=3/4 budgets",
+  "seed_policy": "reuse development seeds; untouched seeds required after candidate selection"
+}

@@ -329,3 +329,29 @@ archived under `evidence/confirmed/picard_gpt2_lora_r4/`; R5 is archived under
 reproduction route. The claim is task-specific GPT-2 small LoRA evidence, not
 full-model GPT-2 fine-tuning, semantic-invariance evidence, downstream-task
 transfer, universal optimizer superiority or a global Picard-flow theorem.
+
+## GPT-2 LoRA global response-budget R10/R11
+
+This import adds `github_r10_r11_evidence_bundle.zip` as an independent
+current-versus-source response-kernel global-budget branch under
+`evidence/gpt2_lora_global_response_budget_r10_r11/`. The observed local ZIP
+SHA-256 was
+`d8a3e0c8a8565f69fec098b6aaf731ccf142639b6440f07e47cfe7ad94629d99`; no
+external expected SHA-256 was supplied in the user request.
+
+R10 is development:
+`R10_GLOBAL_BUDGET_PARETO_DIAGNOSTIC_COMPLETE`, using intentionally reused
+R7-R9 development seeds. R11 is the untouched-seed confirmation:
+`R11_CURRENT_KERNEL_GLOBAL_BUDGET_PARETO_CONFIRMED`. It uses five untouched
+seeds and four frozen global response budgets. At budgets `5e-5`, `1e-4`,
+`2e-4` and `5e-4`, the median source-minus-current validation-loss gaps were
+0.003762603, 0.003669620, 0.003578544 and 0.003186703, respectively, with 5/5
+current-positive seeds at each budget. The five seeds are the independent
+experimental units; the 20 seed-by-budget contrasts are correlated.
+
+The scope is a deterministic compact randomly initialized GPT-2 byte language
+model and shared 24-dimensional rank-4 LoRA chart. This evidence is separate
+from the r4/r5 Picard-vs-AdamW timing branch and does not establish AdamW
+superiority, training speed, pretrained GPT-2 fine-tuning, semantic transfer,
+inverse-Fisher superiority, universal optimizer ordering or a global Picard
+theorem.

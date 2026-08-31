@@ -50,6 +50,19 @@
    counterfactual direction selection within the declared protocol; it does
    not establish natural optimizer navigation.
 
+4. **GPT-2 LoRA global response-budget R11:** within a deterministic compact
+   randomly initialized GPT-2 byte language model and shared 24-dimensional
+   rank-4 LoRA chart, the current response-kernel arm outperformed the
+   source-frozen arm under all four frozen global response balls. R11 used five
+   untouched confirmation seeds, with 5/5 positive seeds at each budget and
+   median source-minus-current validation-loss gaps 0.003762603, 0.003669620,
+   0.003578544 and 0.003186703 for budgets `5e-5`, `1e-4`, `2e-4` and `5e-4`.
+   The five seeds, not the 20 correlated seed-by-budget contrasts, are the
+   independent units. R10 is development only. This does not establish
+   superiority to AdamW, training-speed advantage, pretrained GPT-2
+   fine-tuning, semantic transfer, inverse-Fisher superiority, universal
+   optimizer ordering or a global Picard theorem.
+
 2. **F16 v16:** restricted CNER-F ordering in a frozen eight-dimensional
    CNN--MNIST chart.
 3. **Moving-F16 v3.0b:** the restricted ordering survives pointwise moving

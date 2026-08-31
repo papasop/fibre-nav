@@ -1,0 +1,10 @@
+{
+  "protocol": "GPT2_LORA_GLOBAL_RESPONSE_BUDGET_PARETO_V0_3_R11_CONFIRMATORY",
+  "development_reference": "R10_GLOBAL_BUDGET_PARETO_DIAGNOSTIC_COMPLETE",
+  "untouched_seeds": [27211, 27217, 27229, 27241, 27253],
+  "kernels": ["current_refresh_1", "source_frozen"],
+  "global_response_budgets": [0.00005, 0.0001, 0.0002, 0.0005],
+  "frozen_hyperparameters": {"steps": 180, "warm_steps": 50, "chart_dim": 24, "lora_rank": 4, "layers": 2, "lr": 0.035, "warm_lr": 0.02, "max_backtracks": 14},
+  "confirmation_gate": "at least 3/4 budgets have positive paired median and at least 4/5 current-positive seeds",
+  "fail_policy": "any numerical failure or fewer than three supporting budgets is fail-closed"
+}

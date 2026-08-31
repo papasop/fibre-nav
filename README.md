@@ -100,6 +100,23 @@ verifies fixed source commit `00500e1322be67c9774d44c15e44e598d6ec9039`.
 
 [Inspect protocol and archived results](evidence/low_response_pareto_v1/gpt2_lora_b_r2_strict/)
 
+## Dynamic response-kernel global-budget confirmation
+
+R10/R11 add a separate current-versus-source response-kernel Pareto audit under
+four frozen global response balls in a compact randomly initialized GPT-2 byte
+language model. R10 is same-seed development; R11 freezes the configuration
+and evaluates five untouched seeds.
+
+R11 confirmed the current-kernel arm over the source-frozen arm in all four
+budgets, with 5/5 positive seeds at each budget. Median source-minus-current
+validation-loss gaps were 0.003762603, 0.003669620, 0.003578544 and
+0.003186703 for budgets `5e-5`, `1e-4`, `2e-4` and `5e-4`, respectively.
+The five seeds are the independent units; the 20 seed-by-budget contrasts are
+correlated. This is not an AdamW, speed, pretrained GPT-2, semantic-transfer,
+universal-optimizer or global-Picard claim.
+
+[Inspect R10/R11 evidence](evidence/gpt2_lora_global_response_budget_r10_r11/)
+
 ## Functional premise: selected fibre directions can carry adaptive value
 
 ResNet-18/CIFAR-10 v4.0c-r1 prospectively tested the functional premise in the

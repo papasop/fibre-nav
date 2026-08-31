@@ -1,0 +1,125 @@
+{
+  "protocol": "GPT2_LORA_GLOBAL_RESPONSE_BUDGET_PARETO_V0_3_R11_CONFIRMATORY",
+  "mode": "untouched_seed_confirmatory",
+  "development_reference": "R10_GLOBAL_BUDGET_PARETO_DIAGNOSTIC_COMPLETE",
+  "frozen_configuration": {
+    "budgets": [
+      5e-05,
+      0.0001,
+      0.0002,
+      0.0005
+    ],
+    "steps": 180,
+    "warm_steps": 50,
+    "chart_dim": 24,
+    "lora_rank": 4,
+    "layers": 2,
+    "lr": 0.035,
+    "warm_lr": 0.02,
+    "max_backtracks": 14
+  },
+  "seeds": [
+    27211,
+    27217,
+    27229,
+    27241,
+    27253
+  ],
+  "pairs": [
+    {
+      "budget": 5e-05,
+      "source_minus_current_loss_by_seed": [
+        0.0032265186309814453,
+        0.004671573638916016,
+        0.001814126968383789,
+        0.0037626028060913086,
+        0.008285284042358398
+      ],
+      "median_source_minus_current_loss": 0.0037626028060913086,
+      "current_positive_seeds": 5,
+      "supports_frozen_gate": true
+    },
+    {
+      "budget": 0.0001,
+      "source_minus_current_loss_by_seed": [
+        0.0032051801681518555,
+        0.004228115081787109,
+        0.0017780065536499023,
+        0.0036696195602416992,
+        0.008053421974182129
+      ],
+      "median_source_minus_current_loss": 0.0036696195602416992,
+      "current_positive_seeds": 5,
+      "supports_frozen_gate": true
+    },
+    {
+      "budget": 0.0002,
+      "source_minus_current_loss_by_seed": [
+        0.003087162971496582,
+        0.0041735172271728516,
+        0.0016133785247802734,
+        0.0035785436630249023,
+        0.007760167121887207
+      ],
+      "median_source_minus_current_loss": 0.0035785436630249023,
+      "current_positive_seeds": 5,
+      "supports_frozen_gate": true
+    },
+    {
+      "budget": 0.0005,
+      "source_minus_current_loss_by_seed": [
+        0.002714872360229492,
+        0.00400853157043457,
+        0.0012894868850708008,
+        0.0031867027282714844,
+        0.007110595703125
+      ],
+      "median_source_minus_current_loss": 0.0031867027282714844,
+      "current_positive_seeds": 5,
+      "supports_frozen_gate": true
+    }
+  ],
+  "supporting_budget_count": 4,
+  "median_loss": {
+    "current_5e-05": 5.526777982711792,
+    "source_5e-05": 5.528592109680176,
+    "current_1e-04": 5.526777982711792,
+    "source_1e-04": 5.528555989265442,
+    "current_2e-04": 5.526777982711792,
+    "source_2e-04": 5.528391361236572,
+    "current_5e-04": 5.526777982711792,
+    "source_5e-04": 5.528067469596863
+  },
+  "median_max_drift": {
+    "current_5e-05": 3.0326993210139933e-05,
+    "source_5e-05": 4.997699295419747e-05,
+    "current_1e-04": 3.0326993210139933e-05,
+    "source_1e-04": 9.995398590839495e-05,
+    "current_2e-04": 3.0326993210139933e-05,
+    "source_2e-04": 0.00019986531507553836,
+    "current_5e-04": 3.0326993210139933e-05,
+    "source_5e-04": 0.0004999320952939324
+  },
+  "median_zero_step_fraction": {
+    "current_5e-05": 0.0,
+    "source_5e-05": 0.24444444444444444,
+    "current_1e-04": 0.0,
+    "source_1e-04": 0.4444444444444444,
+    "current_2e-04": 0.0,
+    "source_2e-04": 0.6277777777777778,
+    "current_5e-04": 0.0,
+    "source_5e-04": 0.5222222222222223
+  },
+  "gates": {
+    "five_untouched_confirmation_seeds": true,
+    "all_runs_finite": true,
+    "all_global_budgets_respected": true,
+    "float64_projectors_eligible": true,
+    "projector_idempotence_at_most_1e_10": true,
+    "response_rank_constant": true,
+    "at_least_three_of_four_budgets_support": true
+  },
+  "scientific_status": "R11_CURRENT_KERNEL_GLOBAL_BUDGET_PARETO_CONFIRMED",
+  "wall_seconds": 692.859503030777,
+  "claim_boundary": "Confirmation within a deterministic compact randomly initialized GPT-2 byte language model and shared 24-dimensional LoRA chart. It establishes a current-versus-source kernel Pareto ordering under the four frozen global response balls only; it is not pretrained GPT-2, AdamW, speed, semantic transfer, universal optimizer superiority, or a global Picard theorem."
+}
