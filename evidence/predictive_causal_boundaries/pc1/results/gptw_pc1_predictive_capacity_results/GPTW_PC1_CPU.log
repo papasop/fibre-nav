@@ -1,0 +1,78 @@
+[preflight] GPTW_PC1_PREDICTIVE_RESPONSE_FIBRE_CAPACITY_CPU_V1 device=cpu seeds=[87841, 87842, 87843, 87844, 87845, 87846, 87847, 87848]
+2026-08-30 10:28:22.911885: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-08-30 10:28:22.976856: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[seed 1/8] 87841
+/content/gptw_pc1_external_run/gptw_pc1_predictive_capacity.py:158: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  "train_loss": float(loss),
+/content/gptw_pc1_external_run/gptw_pc1_predictive_capacity.py:61: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  return float(np.trapz(values, v.BUDGETS) / (v.BUDGETS[-1] - v.BUDGETS[0]))
+{
+  "seed": 87841,
+  "median_capacity": 0.17241934935251874,
+  "median_future_gain": 1.6125637292861938
+}
+[seed 2/8] 87842
+{
+  "seed": 87842,
+  "median_capacity": 0.08392588297526041,
+  "median_future_gain": 1.0016114711761475
+}
+[seed 3/8] 87843
+{
+  "seed": 87843,
+  "median_capacity": 0.17018481095631915,
+  "median_future_gain": 1.194403886795044
+}
+[seed 4/8] 87844
+{
+  "seed": 87844,
+  "median_capacity": 0.18964195251464844,
+  "median_future_gain": 1.5137670040130615
+}
+[seed 5/8] 87845
+{
+  "seed": 87845,
+  "median_capacity": 0.19627629386054143,
+  "median_future_gain": 1.1081197261810303
+}
+[seed 6/8] 87846
+{
+  "seed": 87846,
+  "median_capacity": 0.13053083419799805,
+  "median_future_gain": 1.4030773639678955
+}
+[seed 7/8] 87847
+{
+  "seed": 87847,
+  "median_capacity": 0.046382904052734375,
+  "median_future_gain": 0.7181558609008789
+}
+[seed 8/8] 87848
+{
+  "seed": 87848,
+  "median_capacity": 0.0,
+  "median_future_gain": 0.8325698375701904
+}
+========================================================================================
+{
+  "decision": "PREDICTIVE_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED",
+  "primary": {
+    "raw_current_capacity_spearman": 0.5929189799406943,
+    "incremental_loo_r2": 0.002328128955446873,
+    "seedwise_mae_improvement_count": 4,
+    "current_minus_source_incremental_r2": -0.017829954910924428,
+    "current_minus_permuted_incremental_r2": 0.005424708035249859
+  },
+  "gates": {
+    "complete_seeds": true,
+    "complete_nodes": true,
+    "current_capacity_positive_spearman": true,
+    "incremental_loo_r2": false,
+    "seedwise_mae_improvement": false,
+    "current_beats_source_predictor": false,
+    "current_beats_permuted_predictor": false
+  }
+}
+RESULT DIRECTORY: /content/gptw_pc1_predictive_capacity_results

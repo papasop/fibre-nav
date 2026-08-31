@@ -1,0 +1,39 @@
+{
+  "protocol": "GPTW_GPT2_NATIVE_LORA_B_LOW_RESPONSE_PARETO_GPU_V1_R2_STRICT",
+  "prospective": true,
+  "parent_protocol": "GPTW_GPT2_NATIVE_LORA_B_LOW_RESPONSE_PARETO_GPU_V1_R1_8SEED",
+  "parent_decision_is_not_revised": true,
+  "new_seeds": [
+    91841,
+    91842,
+    91843,
+    91844,
+    91845,
+    91846,
+    91847,
+    91848
+  ],
+  "required_supporting_seeds": 6,
+  "model": "openai-community/gpt2",
+  "layers": [
+    10,
+    11
+  ],
+  "lora_rank": 2,
+  "best_of_random_current_kernel_directions": 16,
+  "random_candidate_selection": "calibration AUC only; held-out AUC never selects the candidate",
+  "far_time_rule": "maximum temporal separation among nonself snapshots, excluding source when possible",
+  "unit_of_primary_inference": "seed median over three noninitial nodes",
+  "cohort_primary_gates": {
+    "complete_seeds": 8,
+    "supporting_seeds_min": 6,
+    "positive_current_minus_best_of_16_random_current_seed_medians_min": 6,
+    "bootstrap_mean_95ci_lower_positive": true
+  },
+  "device": "CUDA float32",
+  "tf32_disabled": true,
+  "a100_required": false,
+  "hard_limit_seconds": 7200,
+  "timeout_policy": "write recoverable partial report and ZIP; never issue a scientific confirmation decision from an incomplete cohort",
+  "claim_boundary": "Prospective strict-control GPU audit in standard GPT-2 with a frozen backbone and rank-2 native LoRA-B on layers 10 and 11. A positive result supports task-specific low-response Pareto advantage over a calibration-selected best-of-16 equal-norm random direction in the same current response kernel. It does not establish full-parameter tuning, broad semantic learning, prediction of future optimizer dynamics, or a universal representation theory."
+}

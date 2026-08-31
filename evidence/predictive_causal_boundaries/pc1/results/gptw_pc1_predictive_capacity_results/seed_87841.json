@@ -1,0 +1,181 @@
+{
+  "seed": 87841,
+  "nodes": [
+    {
+      "seed": 87841,
+      "step": 0,
+      "step_fraction": 0.0,
+      "train_loss": 9.296243667602539,
+      "gradient_norm": 0.5186207890510559,
+      "update_norm": 1.919838309288025,
+      "capacity_select_loss": 10.911905288696289,
+      "actual_full_response_cost": 0.031587302684783936,
+      "response_rank": 12,
+      "row_space_rotation": 4.712160915387242e-08,
+      "current_capacity": 0.12095260620117186,
+      "source_capacity": 0.12095260620117186,
+      "permuted_capacity": 0.008822917938232422,
+      "actual_capacity": 0.008806387583414713,
+      "future_heldout_gain": 1.5807452201843262,
+      "future_horizon": 6,
+      "selected_alphas": {
+        "current": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "source": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "permuted": [
+          0.015625,
+          0.03125,
+          0.0625,
+          0.125
+        ],
+        "actual": [
+          0.015625,
+          0.03125,
+          0.0625,
+          0.125
+        ]
+      }
+    },
+    {
+      "seed": 87841,
+      "step": 6,
+      "step_fraction": 0.25,
+      "train_loss": 6.996860027313232,
+      "gradient_norm": 0.45337048172950745,
+      "update_norm": 1.6924735307693481,
+      "capacity_select_loss": 9.87701416015625,
+      "actual_full_response_cost": 0.020051857456564903,
+      "response_rank": 12,
+      "row_space_rotation": 0.33736905109758,
+      "current_capacity": 0.14174652099609375,
+      "source_capacity": 0.09245263205634223,
+      "permuted_capacity": 0.009962320327758789,
+      "actual_capacity": 0.009965022404988607,
+      "future_heldout_gain": 1.8497166633605957,
+      "future_horizon": 6,
+      "selected_alphas": {
+        "current": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "source": [
+          0.125,
+          0.25,
+          0.75,
+          1.0
+        ],
+        "permuted": [
+          0.015625,
+          0.03125,
+          0.0625,
+          0.125
+        ],
+        "actual": [
+          0.015625,
+          0.03125,
+          0.0625,
+          0.125
+        ]
+      }
+    },
+    {
+      "seed": 87841,
+      "step": 12,
+      "step_fraction": 0.5,
+      "train_loss": 4.77876091003418,
+      "gradient_norm": 0.4687008261680603,
+      "update_norm": 1.6320101022720337,
+      "capacity_select_loss": 8.565628051757812,
+      "actual_full_response_cost": 0.011271717958152294,
+      "response_rank": 12,
+      "row_space_rotation": 0.5335002630592894,
+      "current_capacity": 0.2030921777089437,
+      "source_capacity": 0.02801145447625054,
+      "permuted_capacity": 0.014234542846679688,
+      "actual_capacity": 0.014234145482381184,
+      "future_heldout_gain": 1.6443822383880615,
+      "future_horizon": 6,
+      "selected_alphas": {
+        "current": [
+          0.75,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "source": [
+          0.03125,
+          0.0625,
+          0.125,
+          0.25
+        ],
+        "permuted": [
+          0.015625,
+          0.03125,
+          0.0625,
+          0.125
+        ],
+        "actual": [
+          0.015625,
+          0.03125,
+          0.0625,
+          0.125
+        ]
+      }
+    },
+    {
+      "seed": 87841,
+      "step": 18,
+      "step_fraction": 0.75,
+      "train_loss": 3.254566192626953,
+      "gradient_norm": 0.17808914184570312,
+      "update_norm": 1.4274733066558838,
+      "capacity_select_loss": 7.007330894470215,
+      "actual_full_response_cost": 0.00551534304395318,
+      "response_rank": 12,
+      "row_space_rotation": 0.7452149153604246,
+      "current_capacity": 0.22447299957275388,
+      "source_capacity": 0.016538712713453505,
+      "permuted_capacity": 0.0170344246758355,
+      "actual_capacity": 0.017032980918884277,
+      "future_heldout_gain": 0.7880716323852539,
+      "future_horizon": 6,
+      "selected_alphas": {
+        "current": [
+          0.5,
+          0.75,
+          1.0,
+          1.0
+        ],
+        "source": [
+          0.0,
+          0.03125,
+          0.0625,
+          0.125
+        ],
+        "permuted": [
+          0.015625,
+          0.03125,
+          0.0625,
+          0.125
+        ],
+        "actual": [
+          0.015625,
+          0.03125,
+          0.0625,
+          0.125
+        ]
+      }
+    }
+  ]
+}

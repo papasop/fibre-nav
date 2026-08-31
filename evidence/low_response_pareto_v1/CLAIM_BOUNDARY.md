@@ -11,11 +11,20 @@ The reduced ResNet audit supports this ordering in 7/8 prospective seeds. The
 GPT-2 native-LoRA-B audit confirms it within its frozen protocol in 8/8 seeds
 and at 24/24 noninitial nodes.
 
+The GPT-2 native-LoRA-B R2 strict-control upgrade further confirms
+direction-specific held-out low-response Pareto advantage over a
+calibration-selected best-of-16 equal-norm random direction in the same current
+response kernel: 8/8 prospective GPU seeds completed, 6/8 seeds passed the
+complete frozen control family, and the same-kernel contrast was positive in
+7/8 seeds and 20/24 noninitial nodes.
+
 ## Not established
 
 - Ordinary AdamW, SGD or large-model training naturally follows the response
   fibre.
 - Every response-kernel direction carries adaptive value.
+- Generic membership in the current response kernel is sufficient for the R2
+  task-specific advantage.
 - The two architectures have the same response map, parameter chart or effect
   magnitude.
 - The GPT-2 result establishes full-parameter geometry, semantic invariance or

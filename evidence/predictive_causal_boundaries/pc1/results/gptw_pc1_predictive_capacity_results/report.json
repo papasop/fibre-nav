@@ -1,0 +1,87 @@
+{
+  "protocol": "GPTW_PC1_PREDICTIVE_RESPONSE_FIBRE_CAPACITY_CPU_V1",
+  "prospective": true,
+  "decision": "PREDICTIVE_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED",
+  "attempted_seeds": 8,
+  "prediction_nodes": 32,
+  "primary": {
+    "raw_current_capacity_spearman": 0.5929189799406943,
+    "incremental_loo_r2": 0.002328128955446873,
+    "seedwise_mae_improvement_count": 4,
+    "current_minus_source_incremental_r2": -0.017829954910924428,
+    "current_minus_permuted_incremental_r2": 0.005424708035249859
+  },
+  "models": {
+    "baseline": {
+      "loo_r2": 0.7113459663145805,
+      "mae": 0.15823613326370056,
+      "spearman_prediction_target": 0.8947947214076246,
+      "seed_mae": {
+        "87841": 0.27976634361665564,
+        "87842": 0.08589100493312327,
+        "87843": 0.23110329109170175,
+        "87844": 0.18601640926739504,
+        "87845": 0.05752078981364481,
+        "87846": 0.10607895235402315,
+        "87847": 0.20627779496911494,
+        "87848": 0.11323448006394599
+      }
+    },
+    "baseline_plus_current": {
+      "loo_r2": 0.7136740952700273,
+      "mae": 0.15630047522109078,
+      "spearman_prediction_target": 0.8804985337243401,
+      "seed_mae": {
+        "87841": 0.2767330258648457,
+        "87842": 0.1035020450546438,
+        "87843": 0.21886763030800818,
+        "87844": 0.1998399376466048,
+        "87845": 0.01814094096731128,
+        "87846": 0.12372870229215677,
+        "87847": 0.20813286830142066,
+        "87848": 0.10145865133373497
+      }
+    },
+    "baseline_plus_source": {
+      "loo_r2": 0.7315040501809518,
+      "mae": 0.15772782451949474,
+      "spearman_prediction_target": 0.8841642228739002,
+      "seed_mae": {
+        "87841": 0.26474804401036817,
+        "87842": 0.11729151884241809,
+        "87843": 0.20682179698358116,
+        "87844": 0.18306293945943453,
+        "87845": 0.08003151605860581,
+        "87846": 0.11653631186418884,
+        "87847": 0.1940733158153958,
+        "87848": 0.09925715312196559
+      }
+    },
+    "baseline_plus_permuted": {
+      "loo_r2": 0.7082493872347775,
+      "mae": 0.15868261527488378,
+      "spearman_prediction_target": 0.877565982404692,
+      "seed_mae": {
+        "87841": 0.278419413801438,
+        "87842": 0.100673647457037,
+        "87843": 0.22477177865000877,
+        "87844": 0.20459299762278382,
+        "87845": 0.025022138047373133,
+        "87846": 0.12368378826412069,
+        "87847": 0.20747711993777063,
+        "87848": 0.10482003841853821
+      }
+    }
+  },
+  "gates": {
+    "complete_seeds": true,
+    "complete_nodes": true,
+    "current_capacity_positive_spearman": true,
+    "incremental_loo_r2": false,
+    "seedwise_mae_improvement": false,
+    "current_beats_source_predictor": false,
+    "current_beats_permuted_predictor": false
+  },
+  "elapsed_seconds": 404.52669525146484,
+  "claim_boundary": "Prospective finite-template, finite-budget predictive audit in frozen GPT-2 rank-2 native-LoRA-B coordinates. A positive result supports incremental prediction of six-step realized AdamW learning within this protocol; it does not establish full-model representation theory, generalization, causal optimizer selection, or a universal learning law."
+}

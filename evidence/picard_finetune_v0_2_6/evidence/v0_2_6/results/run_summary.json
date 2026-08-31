@@ -1,0 +1,136 @@
+{
+  "protocol": "GEOMETRIC_INTRINSIC_PICARD_FINETUNE_V0_2_6_REPEATED_TIMING_CONFIRMATORY",
+  "mode": "repeated_timing_confirmatory_new_seed_evaluation",
+  "intrinsic_dimension": 20,
+  "response_rank": 4,
+  "float64_response_leakage": 8.234028604458257e-16,
+  "frozen_config": {
+    "source": "v0.2.5 fair-tuning protocol",
+    "learning_rates": {
+      "adamw": 0.003,
+      "picard_cached": 0.12
+    },
+    "target": 1.6318350233280339,
+    "timing_repeats": 5,
+    "selection_or_tuning_in_v0_2_6": false
+  },
+  "pairs": [
+    {
+      "seed": 22229,
+      "valid": true,
+      "speedup_fraction": 0.3817429794149784,
+      "step_reduction_fraction": 0.25,
+      "fixed_budget_speedup_fraction": 0.17372081501201575,
+      "per_step_kernel_seconds": {
+        "adamw": 0.0004290059760373576,
+        "picard_cached": 0.0003544787082351225
+      },
+      "aggregate_target_measurement_seconds": {
+        "adamw": 2.5849724720865197,
+        "picard_cached": 1.5941862400031823
+      },
+      "final_loss_delta": -2.4311789723174826e-05,
+      "accuracy_delta": -0.00020000338554382324
+    },
+    {
+      "seed": 22247,
+      "valid": true,
+      "speedup_fraction": 0.22572727287841765,
+      "step_reduction_fraction": 0.07142857142857142,
+      "fixed_budget_speedup_fraction": 0.16697946594306454,
+      "per_step_kernel_seconds": {
+        "adamw": 0.00042718851663121313,
+        "picard_cached": 0.0003558568062671232
+      },
+      "aggregate_target_measurement_seconds": {
+        "adamw": 2.9745609550300287,
+        "picard_cached": 2.3048218159929093
+      },
+      "final_loss_delta": -0.00016167179059345393,
+      "accuracy_delta": -0.0006000101566314697
+    },
+    {
+      "seed": 22259,
+      "valid": true,
+      "speedup_fraction": 0.1649536510350277,
+      "step_reduction_fraction": 0.0,
+      "fixed_budget_speedup_fraction": 0.16802793755972276,
+      "per_step_kernel_seconds": {
+        "adamw": 0.0004275119648718828,
+        "picard_cached": 0.0003556780111323557
+      },
+      "aggregate_target_measurement_seconds": {
+        "adamw": 2.5684951280964015,
+        "picard_cached": 2.1408057239150367
+      },
+      "final_loss_delta": -0.00011703763641657261,
+      "accuracy_delta": 0.00020000338554382324
+    },
+    {
+      "seed": 22271,
+      "valid": true,
+      "speedup_fraction": 0.244556609230325,
+      "step_reduction_fraction": 0.09090909090909091,
+      "fixed_budget_speedup_fraction": 0.16446802120580947,
+      "per_step_kernel_seconds": {
+        "adamw": 0.00042725072703942715,
+        "picard_cached": 0.0003569816454045091
+      },
+      "aggregate_target_measurement_seconds": {
+        "adamw": 2.3520455280358874,
+        "picard_cached": 1.7823157720122254
+      },
+      "final_loss_delta": -9.865702878331106e-05,
+      "accuracy_delta": -0.000599980354309082
+    },
+    {
+      "seed": 22277,
+      "valid": true,
+      "speedup_fraction": 0.4497702929534997,
+      "step_reduction_fraction": 0.35294117647058826,
+      "fixed_budget_speedup_fraction": 0.16079185619943198,
+      "per_step_kernel_seconds": {
+        "adamw": 0.00042728673536961045,
+        "picard_cached": 0.0003585825080601353
+      },
+      "aggregate_target_measurement_seconds": {
+        "adamw": 3.6156542359894956,
+        "picard_cached": 1.9880624209472444
+      },
+      "final_loss_delta": 0.00011820141754403934,
+      "accuracy_delta": 0.0004000067710876465
+    }
+  ],
+  "median_time_to_equal_loss_speedup_fraction": 0.244556609230325,
+  "median_step_reduction_fraction": 0.09090909090909091,
+  "fixed_budget_speedup_fractions": [
+    0.17372081501201575,
+    0.16697946594306454,
+    0.16802793755972276,
+    0.16446802120580947,
+    0.16079185619943198
+  ],
+  "median_fixed_budget_speedup_fraction": 0.16697946594306454,
+  "median_endpoint_loss_delta": -9.865702878331106e-05,
+  "median_timed_train_seconds_per_repeat": 11.786565370370226,
+  "median_adamw_target_seconds_per_repeat": 0.5148410149849951,
+  "median_aggregate_adamw_target_measurement_seconds": 2.5849724720865197,
+  "gates": {
+    "five_new_frozen_eval_seeds": true,
+    "no_v0_2_6_tuning_or_target_selection": true,
+    "five_timing_repeats_per_seed_arm": true,
+    "repeat_trajectories_numerically_identical": true,
+    "all_repeat_timing_cv_at_most_10pct": true,
+    "all_both_arms_reach_strict_target": true,
+    "median_time_to_equal_loss_speedup_at_least_10pct": true,
+    "fixed_budget_speedup_at_least_10pct": true,
+    "accuracy_noninferior_0_5pp": true,
+    "median_endpoint_loss_delta_at_most_0_002": true,
+    "every_endpoint_loss_delta_at_most_0_003": true,
+    "median_aggregate_adamw_target_measurement_at_least_2s": true,
+    "median_full_train_repeat_measurement_at_least_10s": true,
+    "float64_response_leakage_at_most_1e_10": true
+  },
+  "scientific_status": "PICARD_V0_2_6_REPEATED_TIMING_DUAL_10PCT_SPEEDUP_SUPPORTED",
+  "claim_boundary": "No retuning: v0.2.5 learning rates and target are frozen; each new-seed arm repeats the identical trajectory five times and uses median synchronized kernel timing. Frozen-feature ResNet-18/CIFAR-10 only, not a universal optimizer claim."
+}

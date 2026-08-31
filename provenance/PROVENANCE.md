@@ -222,3 +222,67 @@ the Colab-facing link should be moved to that immutable tag.
 Scientific role: same-cohort external reproduction of the prospectively frozen
 8-seed/24-node GPT-2 native-LoRA-B Pareto audit, not an independent new-seed
 confirmation. No frozen result, gate, seed count or decision is changed.
+
+## GPT-2 LoRA-B Pareto R2 strict-control confirmation
+
+This release imports
+`neural_fibre_geometry_gpt2_lora_pareto_r2_github_update.zip` as an independent
+prospective strict-control upgrade under
+`evidence/low_response_pareto_v1/gpt2_lora_b_r2_strict/`. ZIP SHA-256:
+`9b250a836f911ded7df1d7a06cab9451261a591819a3da1990a58f9ea44b320e`.
+
+R2 does not overwrite, repair or retroactively strengthen R1. It adds a
+calibration-selected best-of-16 equal-norm random direction inside the same
+current response kernel. The frozen decision is
+`GPT2_LORA_LOW_RESPONSE_PARETO_STRICT_CONFIRMED`: 8/8 prospective GPU seeds
+completed, 6/8 seeds passed the complete frozen control family, 7/8 seed-level
+same-kernel contrasts were positive, and 20/24 noninitial nodes were positive.
+
+The imported verifier `verify_gpt2_lora_pareto_r2.py` checks file hashes,
+protocol equality, cohort counts, node counts, bootstrap interval positivity
+and the exact two-sided sign-flip p-value before commit.
+
+## GPT-2 LoRA-B R2 predictive and causal boundary overlay
+
+This release imports
+`neural_fibre_geometry_r2_pc1_pc4_github_overlay_r1.zip` as an add-only overlay.
+ZIP SHA-256:
+`18c7da256e1c4e89b496e814f5d0a23dde4fbd924e4d97b09f746d30d706a334`.
+
+The overlay adds a root-level R2 strict-control evidence layout under
+`evidence/gpt2_lora_r2_strict/` and predictive/causal boundary audits under
+`evidence/predictive_causal_boundaries/`. PC1 reports
+`PREDICTIVE_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED`, PC3 reports
+`DYNAMIC_RESPONSE_FIBRE_CAPACITY_PREDICTIVE_STATE_NOT_SUPPORTED`, and PC4
+reports `CAUSAL_RESPONSE_FIBRE_CAPACITY_NOT_SUPPORTED`. PC2 source and protocol
+are archived, but its authoritative result artifact is absent and remains
+required before a repository-backed PC2 claim.
+
+No historical R1 or low-response R2 raw result is deleted or relabelled. The
+boundary overlay narrows interpretation of the R2 confirmation: it remains a
+counterfactual finite-budget held-out frontier at recorded nodes, not a
+predictive or causal law for ordinary optimizer futures.
+
+## Cached intrinsic Picard fine-tuning v0.2.6
+
+This release imports `picard_finetune_github_v0_2_6.zip` as an independent
+supported side-branch evidence snapshot under
+`evidence/picard_finetune_v0_2_6/`. ZIP SHA-256:
+`9c88601620c11f1cdcf09d8607400a2a0df0d25803a142122fe799757f072899`.
+
+The frozen protocol is
+`GEOMETRIC_INTRINSIC_PICARD_FINETUNE_V0_2_6_REPEATED_TIMING_CONFIRMATORY`.
+The machine-readable status is
+`PICARD_V0_2_6_REPEATED_TIMING_DUAL_10PCT_SPEEDUP_SUPPORTED`. Five new
+evaluation seeds passed every frozen timing, endpoint, accuracy and
+float64-response-leakage gate. Median time-to-equal-loss speedup was 24.46%,
+median fixed-budget speedup was 16.70%, median steps-to-target reduction was
+9.09%, median endpoint loss delta was -0.000099 and certified response leakage
+was 8.23e-16.
+
+This import preserves the original returned results archive
+`evidence/v0_2_6/picard_v0_2_6_results.zip` inside the snapshot and adds a
+repository-level verifier. Its scope is frozen-feature ResNet-18/CIFAR-10 in a
+20-dimensional float64-certified intrinsic response kernel; it is not
+end-to-end fine-tuning, GPT-2/LoRA evidence, a universal optimizer comparison
+or a global Picard-flow theorem.
