@@ -44,7 +44,7 @@ The result is task-specific GPT-2 LoRA evidence. It does not establish a
 universal optimizer ordering, ordinary full-model GPT-2 fine-tuning, semantic
 invariance, downstream-task transfer, or a global Picard-flow theorem.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/papasop/fibre-nav/blob/v1.6.0/external_tests/picard_gpt2_lora/COLAB_ONE_CLICK.py)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/papasop/fibre-nav/blob/main/external_tests/picard_gpt2_lora/GPT2_LORA_PICARD_R5_ONE_CLICK.ipynb)
 
 ```bash
 python verify_picard_gpt2_lora_v1_6.py

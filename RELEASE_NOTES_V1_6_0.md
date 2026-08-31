@@ -28,6 +28,13 @@ second independent confirmation.
 - `evidence/developmental/picard_gpt2_lora/`
 - `external_tests/picard_gpt2_lora/`
 
+The blank-Colab entry point hosted on `main` is
+`external_tests/picard_gpt2_lora/GPT2_LORA_PICARD_R5_ONE_CLICK.ipynb`. It
+clones `papasop/fibre-nav`, checks out the frozen `v1.6.0` tag, verifies commit
+`bad9b71d6dbbc36775eb14400e14af719b58e4c5`, reruns the repository verifier,
+executes r5 and downloads a result ZIP. This avoids rewriting the existing
+`v1.6.0` tag while fixing the external Colab entry point.
+
 The older CIFAR Picard v0.2.6 archive is retained as secondary cross-model
 support under `evidence/picard_finetune_v0_2_6/`.
 
