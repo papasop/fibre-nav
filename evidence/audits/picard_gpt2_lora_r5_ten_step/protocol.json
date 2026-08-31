@@ -1,0 +1,51 @@
+{
+  "protocol": "GPT2_LORA_PICARD_V0_2_6_R5_TEN_STEP_RESOLUTION_AUDIT",
+  "mode": "frozen_ten_step_resolution_audit",
+  "model": "openai-community/gpt2",
+  "data_identity": {
+    "url": "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt",
+    "bytes": 1115394,
+    "sha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed",
+    "split": "first 90% characters / final 10% characters"
+  },
+  "sequence_length": 128,
+  "batch_size": 8,
+  "target_evaluation_interval_steps": 10,
+  "shared_warm_start": {
+    "steps": 50,
+    "optimizer": "AdamW",
+    "lr": 0.0005,
+    "excluded_from_comparison_timing": true
+  },
+  "frozen_configuration": {
+    "adamw_lr": 0.0005,
+    "picard_lr": 2.0,
+    "picard_metric_exponent": 0.5,
+    "target_val_loss": 3.6593519747257233,
+    "source_protocol": "GPT2_LORA_PICARD_V0_2_6_R4_FROZEN_CONFIRMATORY"
+  },
+  "eval_seeds": [
+    23311,
+    23321,
+    23327,
+    23333,
+    23339
+  ],
+  "gates": {
+    "no_same_run_hyperparameter_tuning": true,
+    "ten_step_target_detection": true,
+    "frozen_dataset_sha256_matches": true,
+    "real_gpt2_lora_model": true,
+    "same_lora_parameterization": true,
+    "shared_warm_start_identical": true,
+    "same_five_seeds_as_r4_resolution_control": true,
+    "all_picard_runs_stable": true,
+    "both_arms_reach_frozen_target_all_seeds": true,
+    "median_time_to_equal_loss_speedup_at_least_10pct": true,
+    "at_least_four_of_five_seed_speedups_positive": true,
+    "median_final_loss_delta_at_most_0_02": true,
+    "each_final_loss_delta_at_most_0_03": true,
+    "runtime_within_hard_limit": true
+  },
+  "claim_boundary": "Measurement-resolution audit of the frozen r4 GPT-2-small, rank-4 c_attn LoRA result using the same five seeds but target checks every 10 rather than 50 steps. Shared warm start is excluded from timing; fixed-budget speed is diagnostic. This is not an independent new-seed replication or a universal optimizer claim."
+}

@@ -1,0 +1,66 @@
+{
+  "protocol": "GPT2_LORA_CACHED_PICARD_V0_2_6_R1_QUICK_DEVELOPMENT",
+  "mode": "quick_development_nonclaim",
+  "model": "openai-community/gpt2",
+  "data_source": "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt",
+  "sequence_length": 128,
+  "batch_size": 8,
+  "pilot": {
+    "adamw": {
+      "lr": 0.0005,
+      "final_val_loss": 3.7025616566340127,
+      "grid": [
+        0.0002,
+        0.0005
+      ]
+    },
+    "picard": {
+      "lr": 0.01,
+      "final_val_loss": 3.9831740260124207,
+      "grid": [
+        0.001,
+        0.003,
+        0.01
+      ]
+    }
+  },
+  "development_target": 3.7025616566340127,
+  "eval_seeds": [
+    23117,
+    23131
+  ],
+  "pairs": [
+    {
+      "seed": 23117,
+      "valid": false,
+      "time_to_equal_loss_speedup_fraction": null,
+      "fixed_budget_speedup_fraction": -0.03464297587930843,
+      "steps_reduction_fraction": null,
+      "final_val_loss_delta": 0.11401965220769261
+    },
+    {
+      "seed": 23131,
+      "valid": false,
+      "time_to_equal_loss_speedup_fraction": null,
+      "fixed_budget_speedup_fraction": -0.032445450093893276,
+      "steps_reduction_fraction": null,
+      "final_val_loss_delta": 0.09569874405860901
+    }
+  ],
+  "median_time_to_equal_loss_speedup_fraction": null,
+  "median_fixed_budget_speedup_fraction": -0.03354421298660085,
+  "median_final_val_loss_delta": 0.10485919813315081,
+  "wall_seconds": 143.5418068759991,
+  "gates": {
+    "real_gpt2_lora_model": true,
+    "same_lora_parameterization": true,
+    "two_new_eval_seeds": true,
+    "both_arms_reach_development_target": false,
+    "median_time_to_equal_loss_speedup_positive": false,
+    "median_fixed_budget_speedup_positive": false,
+    "median_final_loss_delta_at_most_0_02": false,
+    "runtime_within_hard_limit": true
+  },
+  "scientific_status": "GPT2_LORA_PICARD_V0_2_6_R1_QUICK_INCONCLUSIVE_FAIL_CLOSED",
+  "claim_boundary": "Development-only GPT-2 small LoRA smoke comparison on WikiText-2 (or logged public-domain fallback); two evaluation seeds after same-run pilot; not confirmatory, universal, or paper-level evidence."
+}

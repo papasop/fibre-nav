@@ -286,3 +286,46 @@ repository-level verifier. Its scope is frozen-feature ResNet-18/CIFAR-10 in a
 20-dimensional float64-certified intrinsic response kernel; it is not
 end-to-end fine-tuning, GPT-2/LoRA evidence, a universal optimizer comparison
 or a global Picard-flow theorem.
+
+## GPT-2 LoRA Picard frozen confirmation v1.6.0
+
+This release imports the GPT-2 LoRA Picard r1-r5 evidence chain while preserving
+the earlier CIFAR Picard v0.2.6 snapshot as secondary support.
+
+Imported source/result ZIP SHA-256 values:
+
+- `picard_gpt2_lora_quick_v0_2_6_r1.zip`:
+  `b8d42803560621e6801458b12f5f016bf233ce26ec7a55778b05ae708dac33b1`
+- `picard_gpt2_lora_quick_v0_2_6_r1_results.zip`:
+  `56e86103f0e3527db9a72a1ef03cf8ca1f48e3081bdba8d1c47d61d65ac73e4e`
+- `picard_gpt2_lora_quick_v0_2_6_r2.zip`:
+  `85f4cbbe2ecf93c0b279edbac26e53099262fe35f73e1ef122e1db9d6ccb7100`
+- `picard_gpt2_lora_quick_v0_2_6_r2_results.zip`:
+  `1f2728501d7582d6e562f3621cad0b36212e7853966f5b61cc0efd3a3adaad3f`
+- `picard_gpt2_lora_quick_v0_2_6_r3.zip`:
+  `e000a2217ae8baa3130a44955d5cc50bd434daba2c129a118dec1c547cb4caeb`
+- `picard_gpt2_lora_quick_v0_2_6_r3_results.zip`:
+  `79f2f638a6b4834847513eca016a3ee78d9106d7fb17f6451d2abf0680a01a73`
+- `picard_gpt2_lora_confirm_v0_2_6_r4.zip`:
+  `8b1aae50ba28e981d49f4a2c40eac60dd193fd88139565f597ec8afc5ca8a105`
+- `picard_gpt2_lora_confirm_v0_2_6_r4_results.zip`:
+  `d1e18f8cc12c60bc13d1a72b4c56a55efff2a9babbb7b8bf19bcb3dc0a108547`
+- `picard_gpt2_lora_confirm_v0_2_6_r5.zip`:
+  `0ed7bc923ffae5fff596b5ceb90b215834281cbb3dd528dd8c75105adaa67ba1`
+- `picard_gpt2_lora_confirm_v0_2_6_r5_results.zip`:
+  `c86e3ab46e3dc65893b6d5cbf6dda8acc6b78ad589aa4c8cce8029b580d8e0b1`
+
+R4 is the repository-backed frozen five-new-seed confirmation:
+`GPT2_LORA_PICARD_V0_2_6_R4_FROZEN_CONFIRMATORY_SUPPORTED`, with 5/5 positive
+seeds. R5 is a ten-step target-detection resolution audit on the same seed
+cohort: `GPT2_LORA_PICARD_V0_2_6_R5_TEN_STEP_RESOLUTION_SUPPORTED`, with
+37.46% median time-to-equal-loss speedup, 5/5 positive seeds and 1.17%
+fixed-budget compute-time advantage retained as diagnostic only.
+
+R1-R3 are preserved under `evidence/developmental/picard_gpt2_lora/` as the
+device, dtype, direct-Fisher and metric-exponent development history. R4 is
+archived under `evidence/confirmed/picard_gpt2_lora_r4/`; R5 is archived under
+`evidence/audits/picard_gpt2_lora_r5_ten_step/` and is the default external
+reproduction route. The claim is task-specific GPT-2 small LoRA evidence, not
+full-model GPT-2 fine-tuning, semantic-invariance evidence, downstream-task
+transfer, universal optimizer superiority or a global Picard-flow theorem.

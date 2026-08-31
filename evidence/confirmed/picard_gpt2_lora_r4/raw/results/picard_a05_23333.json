@@ -1,0 +1,109 @@
+{
+  "kind": "picard_a05",
+  "metric_exponent": 0.5,
+  "seed": 23333,
+  "lr": 2.0,
+  "stable": true,
+  "max_update_to_parameter_norm_ratio": 0.026750352571867662,
+  "shared_warm_steps": 50,
+  "shared_warm_lr": 0.0005,
+  "shared_warm_val_loss": 3.7702161272366843,
+  "steps": 600,
+  "time_to_target": 3.2920949410108733,
+  "steps_to_target": 100,
+  "timed_train_seconds": 19.686494116034737,
+  "final_val_loss": 3.6099798878033957,
+  "metric_stats": {
+    "min": 0.10001283138990402,
+    "median": 0.29926469922065735,
+    "max": 1007.20556640625,
+    "max_to_min_ratio": 10070.763445138542
+  },
+  "trainable_parameters": 147456,
+  "trace": [
+    {
+      "step": 50,
+      "train_kernel_seconds": 1.6511661120130157,
+      "val_loss": 3.6617405911286673,
+      "update_to_parameter_norm_ratio": 0.026750352571867662,
+      "finite": true
+    },
+    {
+      "step": 100,
+      "train_kernel_seconds": 3.2920949410108733,
+      "val_loss": 3.65373765428861,
+      "update_to_parameter_norm_ratio": 0.026028384681395546,
+      "finite": true
+    },
+    {
+      "step": 150,
+      "train_kernel_seconds": 4.936678203022893,
+      "val_loss": 3.6335882345835366,
+      "update_to_parameter_norm_ratio": 0.022018293110435305,
+      "finite": true
+    },
+    {
+      "step": 200,
+      "train_kernel_seconds": 6.623221779023879,
+      "val_loss": 3.6184609631697335,
+      "update_to_parameter_norm_ratio": 0.02459950600969646,
+      "finite": true
+    },
+    {
+      "step": 250,
+      "train_kernel_seconds": 8.239619240026514,
+      "val_loss": 3.6084727148214975,
+      "update_to_parameter_norm_ratio": 0.021903442560280584,
+      "finite": true
+    },
+    {
+      "step": 300,
+      "train_kernel_seconds": 9.856487944016408,
+      "val_loss": 3.611557275056839,
+      "update_to_parameter_norm_ratio": 0.020534437923117276,
+      "finite": true
+    },
+    {
+      "step": 350,
+      "train_kernel_seconds": 11.498609815022064,
+      "val_loss": 3.6041115522384644,
+      "update_to_parameter_norm_ratio": 0.0218167781301908,
+      "finite": true
+    },
+    {
+      "step": 400,
+      "train_kernel_seconds": 13.126623307023692,
+      "val_loss": 3.621252735455831,
+      "update_to_parameter_norm_ratio": 0.022279448589037132,
+      "finite": true
+    },
+    {
+      "step": 450,
+      "train_kernel_seconds": 14.792679970021709,
+      "val_loss": 3.6107806464036307,
+      "update_to_parameter_norm_ratio": 0.020552328416493307,
+      "finite": true
+    },
+    {
+      "step": 500,
+      "train_kernel_seconds": 16.43483211502462,
+      "val_loss": 3.6069673895835876,
+      "update_to_parameter_norm_ratio": 0.020975089069004707,
+      "finite": true
+    },
+    {
+      "step": 550,
+      "train_kernel_seconds": 18.065701604031347,
+      "val_loss": 3.610212435324987,
+      "update_to_parameter_norm_ratio": 0.019908618955357716,
+      "finite": true
+    },
+    {
+      "step": 600,
+      "train_kernel_seconds": 19.686494116034737,
+      "val_loss": 3.6099798878033957,
+      "update_to_parameter_norm_ratio": 0.019812657266689602,
+      "finite": true
+    }
+  ]
+}

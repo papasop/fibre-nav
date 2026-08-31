@@ -1,0 +1,78 @@
+{
+  "kind": "picard",
+  "seed": 23117,
+  "lr": 0.01,
+  "steps": 600,
+  "time_to_target": null,
+  "steps_to_target": null,
+  "timed_train_seconds": 19.982183821013678,
+  "final_val_loss": 3.7090786397457123,
+  "metric_stats": {
+    "min": 0.10000000149011612,
+    "median": 0.14719466865062714,
+    "max": 549.4122924804688
+  },
+  "trainable_parameters": 147456,
+  "trace": [
+    {
+      "step": 50,
+      "train_kernel_seconds": 1.6540796850003971,
+      "val_loss": 4.491792033116023
+    },
+    {
+      "step": 100,
+      "train_kernel_seconds": 3.316878108003948,
+      "val_loss": 4.077879498402278
+    },
+    {
+      "step": 150,
+      "train_kernel_seconds": 4.9927336540058604,
+      "val_loss": 3.9000405073165894
+    },
+    {
+      "step": 200,
+      "train_kernel_seconds": 6.656071162000444,
+      "val_loss": 3.8265534341335297
+    },
+    {
+      "step": 250,
+      "train_kernel_seconds": 8.313795926003877,
+      "val_loss": 3.795804500579834
+    },
+    {
+      "step": 300,
+      "train_kernel_seconds": 9.972613837002427,
+      "val_loss": 3.772027611732483
+    },
+    {
+      "step": 350,
+      "train_kernel_seconds": 11.632869024999309,
+      "val_loss": 3.755215177933375
+    },
+    {
+      "step": 400,
+      "train_kernel_seconds": 13.307641216002594,
+      "val_loss": 3.746018727620443
+    },
+    {
+      "step": 450,
+      "train_kernel_seconds": 14.980960334003612,
+      "val_loss": 3.7454184095064798
+    },
+    {
+      "step": 500,
+      "train_kernel_seconds": 16.645901810006762,
+      "val_loss": 3.730272283156713
+    },
+    {
+      "step": 550,
+      "train_kernel_seconds": 18.315475542007334,
+      "val_loss": 3.726027101278305
+    },
+    {
+      "step": 600,
+      "train_kernel_seconds": 19.982183821013678,
+      "val_loss": 3.7090786397457123
+    }
+  ]
+}

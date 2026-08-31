@@ -1,0 +1,86 @@
+{
+  "protocol": "GPT2_LORA_CACHED_PICARD_V0_2_6_R2_WARM_CHART_DEVELOPMENT",
+  "mode": "warm_chart_quick_development_nonclaim",
+  "model": "openai-community/gpt2",
+  "data_source": "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt",
+  "sequence_length": 128,
+  "batch_size": 8,
+  "shared_warm_start": {
+    "steps": 50,
+    "optimizer": "AdamW",
+    "lr": 0.0005,
+    "excluded_from_comparison_timing": true
+  },
+  "pilot": {
+    "adamw": {
+      "lr": 0.0005,
+      "final_val_loss": 3.6586604515711465,
+      "grid": [
+        0.0002,
+        0.0005
+      ]
+    },
+    "picard": {
+      "lr": 0.3,
+      "final_val_loss": 3.6930893858273826,
+      "grid": [
+        0.01,
+        0.03,
+        0.1,
+        0.3
+      ]
+    }
+  },
+  "development_target": 3.6586604515711465,
+  "eval_seeds": [
+    23117,
+    23131
+  ],
+  "pairs": [
+    {
+      "seed": 23117,
+      "valid": true,
+      "shared_warm_val_loss_delta": 0.0,
+      "time_to_equal_loss_speedup_fraction": -0.3363419755730622,
+      "fixed_budget_speedup_fraction": 0.006284661227547357,
+      "steps_reduction_fraction": -0.3333333333333333,
+      "final_val_loss_delta": 0.01058804988861084,
+      "metric_max_to_min_ratio": {
+        "adamw": 5965.409793219987,
+        "picard": 5965.409793219987
+      }
+    },
+    {
+      "seed": 23131,
+      "valid": true,
+      "shared_warm_val_loss_delta": 0.0,
+      "time_to_equal_loss_speedup_fraction": -0.32206661619249904,
+      "fixed_budget_speedup_fraction": 0.013824531649651698,
+      "steps_reduction_fraction": -0.3333333333333333,
+      "final_val_loss_delta": 0.02703641851743077,
+      "metric_max_to_min_ratio": {
+        "adamw": 6182.716177732712,
+        "picard": 6182.716177732712
+      }
+    }
+  ],
+  "median_time_to_equal_loss_speedup_fraction": -0.32920429588278066,
+  "median_fixed_budget_speedup_fraction": 0.010054596438599527,
+  "median_final_val_loss_delta": 0.018812234203020806,
+  "wall_seconds": 169.28105028600112,
+  "gates": {
+    "real_gpt2_lora_model": true,
+    "same_lora_parameterization": true,
+    "shared_warm_start_identical": true,
+    "warm_chart_after_50_shared_steps": true,
+    "fused_foreach_picard_update": true,
+    "two_new_eval_seeds": true,
+    "both_arms_reach_development_target": true,
+    "median_time_to_equal_loss_speedup_positive": false,
+    "median_fixed_budget_speedup_positive": true,
+    "median_final_loss_delta_at_most_0_02": true,
+    "runtime_within_hard_limit": true
+  },
+  "scientific_status": "GPT2_LORA_PICARD_V0_2_6_R2_WARM_CHART_INCONCLUSIVE_FAIL_CLOSED",
+  "claim_boundary": "Development-only GPT-2 small LoRA warm-chart mechanism test on WikiText-2 (or logged public-domain fallback); shared 50-step AdamW warm-start is excluded from comparison timing; two evaluation seeds after same-run pilot; not confirmatory, universal, or paper-level evidence."
+}

@@ -1,0 +1,231 @@
+{
+  "protocol": "GPT2_LORA_PICARD_V0_2_6_R3_METRIC_EXPONENT_DEVELOPMENT",
+  "mode": "metric_exponent_final_development_screen",
+  "model": "openai-community/gpt2",
+  "data_source": "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt",
+  "sequence_length": 128,
+  "batch_size": 8,
+  "shared_warm_start": {
+    "steps": 50,
+    "optimizer": "AdamW",
+    "lr": 0.0005,
+    "excluded_from_comparison_timing": true
+  },
+  "pilot": {
+    "adamw": {
+      "lr": 0.0005,
+      "final_val_loss": 3.6593519747257233,
+      "grid": [
+        0.0002,
+        0.0005
+      ]
+    },
+    "picard_a0": {
+      "alpha": 0.0,
+      "lr": 1.0,
+      "final_val_loss": 3.6526487867037454,
+      "grid": [
+        0.3,
+        0.6,
+        1.0,
+        2.0
+      ],
+      "candidates": [
+        {
+          "lr": 0.3,
+          "stable": true,
+          "final_val_loss": 3.674089938402176,
+          "max_update_ratio": 0.00796229183959733
+        },
+        {
+          "lr": 0.6,
+          "stable": true,
+          "final_val_loss": 3.6590715944767,
+          "max_update_ratio": 0.013586673683796633
+        },
+        {
+          "lr": 1.0,
+          "stable": true,
+          "final_val_loss": 3.6526487867037454,
+          "max_update_ratio": 0.02041465369598512
+        },
+        {
+          "lr": 2.0,
+          "stable": true,
+          "final_val_loss": 3.6555866996447244,
+          "max_update_ratio": 0.029950006319408976
+        }
+      ]
+    },
+    "picard_a025": {
+      "alpha": 0.25,
+      "lr": 2.0,
+      "final_val_loss": 3.6498007078965506,
+      "grid": [
+        0.3,
+        0.6,
+        1.0,
+        2.0
+      ],
+      "candidates": [
+        {
+          "lr": 0.3,
+          "stable": true,
+          "final_val_loss": 3.6835418740908303,
+          "max_update_ratio": 0.006477563109086948
+        },
+        {
+          "lr": 0.6,
+          "stable": true,
+          "final_val_loss": 3.659908870855967,
+          "max_update_ratio": 0.011931249296586687
+        },
+        {
+          "lr": 1.0,
+          "stable": true,
+          "final_val_loss": 3.6506746113300323,
+          "max_update_ratio": 0.017607353005378485
+        },
+        {
+          "lr": 2.0,
+          "stable": true,
+          "final_val_loss": 3.6498007078965506,
+          "max_update_ratio": 0.02750987197289224
+        }
+      ]
+    },
+    "picard_a05": {
+      "alpha": 0.5,
+      "lr": 2.0,
+      "final_val_loss": 3.648157229026159,
+      "grid": [
+        0.3,
+        0.6,
+        1.0,
+        2.0
+      ],
+      "candidates": [
+        {
+          "lr": 0.3,
+          "stable": true,
+          "final_val_loss": 3.6910842955112457,
+          "max_update_ratio": 0.006501581414379833
+        },
+        {
+          "lr": 0.6,
+          "stable": true,
+          "final_val_loss": 3.6630530953407288,
+          "max_update_ratio": 0.012434982929097107
+        },
+        {
+          "lr": 1.0,
+          "stable": true,
+          "final_val_loss": 3.6502523124217987,
+          "max_update_ratio": 0.018169173833490284
+        },
+        {
+          "lr": 2.0,
+          "stable": true,
+          "final_val_loss": 3.648157229026159,
+          "max_update_ratio": 0.029420758857479305
+        }
+      ]
+    },
+    "picard_a1": {
+      "alpha": 1.0,
+      "lr": 2.0,
+      "final_val_loss": 3.6543738742669425,
+      "grid": [
+        0.3,
+        0.6,
+        1.0,
+        2.0
+      ],
+      "candidates": [
+        {
+          "lr": 0.3,
+          "stable": true,
+          "final_val_loss": 3.6873600681622825,
+          "max_update_ratio": 0.009861786093185413
+        },
+        {
+          "lr": 0.6,
+          "stable": true,
+          "final_val_loss": 3.6576471626758575,
+          "max_update_ratio": 0.018872888519859098
+        },
+        {
+          "lr": 1.0,
+          "stable": true,
+          "final_val_loss": 3.6545957227547965,
+          "max_update_ratio": 0.02660342208282335
+        },
+        {
+          "lr": 2.0,
+          "stable": true,
+          "final_val_loss": 3.6543738742669425,
+          "max_update_ratio": 0.04196920396094924
+        }
+      ]
+    },
+    "selected_geometry": {
+      "kind": "picard_a05",
+      "alpha": 0.5,
+      "lr": 2.0,
+      "rule": "lowest stable finite pilot validation loss"
+    }
+  },
+  "selected_geometry": "picard_a05",
+  "selected_metric_exponent": 0.5,
+  "development_target": 3.6593519747257233,
+  "eval_seeds": [
+    23209,
+    23227
+  ],
+  "pairs": [
+    {
+      "seed": 23209,
+      "valid": true,
+      "shared_warm_val_loss_delta": 0.0,
+      "time_to_equal_loss_speedup_fraction": 0.3411825470159474,
+      "fixed_budget_speedup_fraction": 0.014983907546688,
+      "steps_reduction_fraction": 0.3333333333333333,
+      "final_val_loss_delta": 0.02045542001724243,
+      "metric_max_to_min_ratio": {
+        "adamw": 6890.330615310326,
+        "picard": 6890.330615310326
+      }
+    },
+    {
+      "seed": 23227,
+      "valid": true,
+      "shared_warm_val_loss_delta": 0.0,
+      "time_to_equal_loss_speedup_fraction": -0.0035937518772940127,
+      "fixed_budget_speedup_fraction": 0.004536397348091683,
+      "steps_reduction_fraction": 0.0,
+      "final_val_loss_delta": -0.024618993202845108,
+      "metric_max_to_min_ratio": {
+        "adamw": 5885.428086649842,
+        "picard": 5885.428086649842
+      }
+    }
+  ],
+  "median_time_to_equal_loss_speedup_fraction": 0.1687943975693267,
+  "median_fixed_budget_speedup_fraction_diagnostic": 0.009760152447389842,
+  "median_final_val_loss_delta": -0.002081786592801338,
+  "wall_seconds": 269.01778998100053,
+  "gates": {
+    "real_gpt2_lora_model": true,
+    "same_lora_parameterization": true,
+    "shared_warm_start_identical": true,
+    "four_metric_exponents_piloted": true,
+    "selected_picard_stable": true,
+    "two_new_eval_seeds": true,
+    "both_arms_reach_development_target": true,
+    "median_time_to_equal_loss_speedup_positive": true,
+    "median_final_loss_delta_at_most_0_02": true,
+    "runtime_within_hard_limit": true
+  },
+  "scientific_status": "GPT2_LORA_PICARD_V0_2_6_R3_METRIC_EXPONENT_POSITIVE_SIGNAL",
+  "claim_boundary": "Final development screen of metric exponents 0, 1/4, 1/2, and 1 after a shared 50-step AdamW warm-start; Tiny Shakespeare fallback is logged when WikiText is unavailable; two evaluation seeds after same-run pilot; fixed-budget speed is diagnostic only; not confirmatory or universal evidence."
+}

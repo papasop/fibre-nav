@@ -1,0 +1,122 @@
+{
+  "protocol": "GPT2_LORA_PICARD_V0_2_6_R4_FROZEN_CONFIRMATORY",
+  "mode": "frozen_five_seed_confirmation",
+  "model": "openai-community/gpt2",
+  "data_identity": {
+    "url": "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt",
+    "bytes": 1115394,
+    "sha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed",
+    "split": "first 90% characters / final 10% characters"
+  },
+  "sequence_length": 128,
+  "batch_size": 8,
+  "shared_warm_start": {
+    "steps": 50,
+    "optimizer": "AdamW",
+    "lr": 0.0005,
+    "excluded_from_comparison_timing": true
+  },
+  "frozen_configuration": {
+    "adamw_lr": 0.0005,
+    "picard_lr": 2.0,
+    "picard_metric_exponent": 0.5,
+    "target_val_loss": 3.6593519747257233,
+    "source_protocol": "GPT2_LORA_PICARD_V0_2_6_R3_METRIC_EXPONENT_DEVELOPMENT"
+  },
+  "eval_seeds": [
+    23311,
+    23321,
+    23327,
+    23333,
+    23339
+  ],
+  "pairs": [
+    {
+      "seed": 23311,
+      "valid": true,
+      "shared_warm_val_loss_delta": 0.0,
+      "time_to_equal_loss_speedup_fraction": 0.37733933299697414,
+      "fixed_budget_speedup_fraction": 0.047023232437641976,
+      "steps_reduction_fraction": 0.3333333333333333,
+      "final_val_loss_delta": -0.021469275156656753,
+      "metric_max_to_min_ratio": {
+        "adamw": 5518.9343325915415,
+        "picard": 5518.9343325915415
+      }
+    },
+    {
+      "seed": 23321,
+      "valid": true,
+      "shared_warm_val_loss_delta": 0.0,
+      "time_to_equal_loss_speedup_fraction": 0.008269906337883562,
+      "fixed_budget_speedup_fraction": 0.003259179982959055,
+      "steps_reduction_fraction": 0.0,
+      "final_val_loss_delta": -0.023750434319178115,
+      "metric_max_to_min_ratio": {
+        "adamw": 7392.765697103405,
+        "picard": 7392.765697103405
+      }
+    },
+    {
+      "seed": 23327,
+      "valid": true,
+      "shared_warm_val_loss_delta": 0.0,
+      "time_to_equal_loss_speedup_fraction": 0.34384499716051947,
+      "fixed_budget_speedup_fraction": 0.03213470044229851,
+      "steps_reduction_fraction": 0.3333333333333333,
+      "final_val_loss_delta": -0.028898229201634873,
+      "metric_max_to_min_ratio": {
+        "adamw": 5693.08512554365,
+        "picard": 5693.08512554365
+      }
+    },
+    {
+      "seed": 23333,
+      "valid": true,
+      "shared_warm_val_loss_delta": 0.0,
+      "time_to_equal_loss_speedup_fraction": 0.34072010208288234,
+      "fixed_budget_speedup_fraction": 0.009379945554559881,
+      "steps_reduction_fraction": 0.3333333333333333,
+      "final_val_loss_delta": 0.00130540132522583,
+      "metric_max_to_min_ratio": {
+        "adamw": 10070.763445138542,
+        "picard": 10070.763445138542
+      }
+    },
+    {
+      "seed": 23339,
+      "valid": true,
+      "shared_warm_val_loss_delta": 0.0,
+      "time_to_equal_loss_speedup_fraction": 0.3482630310225511,
+      "fixed_budget_speedup_fraction": 0.016582678272951998,
+      "steps_reduction_fraction": 0.3333333333333333,
+      "final_val_loss_delta": -0.005828519662220977,
+      "metric_max_to_min_ratio": {
+        "adamw": 7556.134969273994,
+        "picard": 7556.134969273994
+      }
+    }
+  ],
+  "positive_seed_count": 5,
+  "median_time_to_equal_loss_speedup_fraction": 0.34384499716051947,
+  "median_fixed_budget_speedup_fraction_diagnostic": 0.016582678272951998,
+  "median_final_val_loss_delta": -0.021469275156656753,
+  "wall_seconds": 298.3220584069986,
+  "gates": {
+    "no_same_run_hyperparameter_tuning": true,
+    "frozen_dataset_sha256_matches": true,
+    "real_gpt2_lora_model": true,
+    "same_lora_parameterization": true,
+    "shared_warm_start_identical": true,
+    "five_new_frozen_eval_seeds": true,
+    "all_picard_runs_stable": true,
+    "both_arms_reach_frozen_target_all_seeds": true,
+    "median_time_to_equal_loss_speedup_at_least_10pct": true,
+    "at_least_four_of_five_seed_speedups_positive": true,
+    "median_final_loss_delta_at_most_0_02": true,
+    "each_final_loss_delta_at_most_0_03": true,
+    "runtime_within_hard_limit": true
+  },
+  "scientific_status": "GPT2_LORA_PICARD_V0_2_6_R4_FROZEN_CONFIRMATORY_SUPPORTED",
+  "claim_boundary": "Frozen five-seed confirmation on GPT-2 small with c_attn LoRA rank 4 and SHA-256-bound Tiny Shakespeare bytes, after a shared 50-step AdamW warm start excluded from timing. Fixed-budget speed remains diagnostic. This is task-specific evidence, not a universal optimizer or global Picard theorem."
+}

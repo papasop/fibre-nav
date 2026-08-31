@@ -1,0 +1,26 @@
+{
+  "purpose": "Compare the r4 frozen confirmation with the r5 ten-step target-detection resolution audit.",
+  "independence_boundary": "r5 reuses the same five seeds as r4 and is not a second independent confirmation.",
+  "r4": {
+    "protocol": "GPT2_LORA_PICARD_V0_2_6_R4_FROZEN_CONFIRMATORY",
+    "scientific_status": "GPT2_LORA_PICARD_V0_2_6_R4_FROZEN_CONFIRMATORY_SUPPORTED",
+    "positive_seed_count": 5,
+    "median_time_to_equal_loss_speedup_fraction": 0.34384499716051947,
+    "median_fixed_budget_speedup_fraction_diagnostic": 0.016582678272951998,
+    "median_final_val_loss_delta": -0.021469275156656753
+  },
+  "r5": {
+    "protocol": "GPT2_LORA_PICARD_V0_2_6_R5_TEN_STEP_RESOLUTION_AUDIT",
+    "scientific_status": "GPT2_LORA_PICARD_V0_2_6_R5_TEN_STEP_RESOLUTION_SUPPORTED",
+    "positive_seed_count": 5,
+    "median_time_to_equal_loss_speedup_fraction": 0.37460048867822615,
+    "median_fixed_budget_speedup_fraction_diagnostic": 0.011655298360897562,
+    "median_final_val_loss_delta": -0.021469275156656753,
+    "target_evaluation_interval_steps": 10
+  },
+  "headline_interpretation": {
+    "featured_speedup_percent": 37.46,
+    "featured_positive_seeds": "5/5",
+    "fixed_600_step_time_advantage_percent_diagnostic": 1.17
+  }
+}

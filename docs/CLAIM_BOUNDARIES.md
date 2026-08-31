@@ -73,7 +73,19 @@ The last statement is precisely an \(\arg\min\) over the frozen set
    supports the same low-response Pareto ordering in 7/8 prospective seeds.
    This is supported evidence, not a universal ResNet or optimizer claim.
 
-1. **Cached intrinsic Picard fine-tuning v0.2.6:** within a frozen-feature
+1. **GPT-2 LoRA Picard r4/r5:** within GPT-2 small, rank-4 LoRA on `c_attn`
+   and SHA-256-bound Tiny Shakespeare bytes, the cached intrinsic Picard update
+   is supported against AdamW after a shared 50-step AdamW warm start excluded
+   from comparison timing. R4 is the frozen five-new-seed confirmation and
+   passed 5/5 seeds. R5 is a ten-step target-detection resolution audit on the
+   same five seeds and reports 37.46% median time-to-equal-loss speedup and
+   5/5 positive seeds. The fixed 600-step compute-time advantage is 1.17% and
+   is retained only as diagnostic. This is not a second independent
+   confirmation, full-model GPT-2 fine-tuning, semantic-invariance evidence, a
+   downstream-task result, a universal optimizer comparison or a global
+   Picard-flow result.
+
+2. **Secondary cached intrinsic Picard CIFAR v0.2.6:** within a frozen-feature
    ResNet-18/CIFAR-10 classifier and a 20-dimensional float64-certified
    intrinsic response kernel, the cached intrinsic Picard update supports a
    repeated-timing speedup over AdamW under frozen v0.2.5 learning rates and

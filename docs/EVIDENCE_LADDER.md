@@ -108,7 +108,24 @@ supported, PC3 dynamic/history predictive state is not supported and PC4
 response-matched causal capacity is not supported. PC2 archives source only
 until the authoritative result artifact is imported.
 
-## Cached intrinsic Picard side branch
+## GPT-2 LoRA Picard branch
+
+The featured Picard branch is now GPT-2 small with rank-4 LoRA on `c_attn`,
+trained on SHA-256-bound Tiny Shakespeare bytes. Both arms start from the same
+50-step AdamW warm start, which is excluded from comparison timing. R4 is the
+frozen five-new-seed confirmation and passed 5/5 seeds. R5 is a ten-step
+target-detection resolution audit on the same five seeds and is the default
+external reproduction path.
+
+R5 reports 37.46% median time-to-equal-loss speedup and 5/5 positive seeds.
+The fixed 600-step compute-time advantage is 1.17% and remains diagnostic
+only. Because r5 reuses the r4 seed cohort, it improves measurement resolution
+but is not a second independent confirmation. This branch supports a
+task-specific GPT-2 LoRA Picard-vs-AdamW timing result; it does not establish
+ordinary full-model GPT-2 fine-tuning, semantic invariance, downstream-task
+transfer, universal optimizer superiority or global Picard-flow convergence.
+
+## Secondary cached intrinsic Picard CIFAR side branch
 
 Picard v0.2.6 is a supported timing side branch in a frozen-feature
 ResNet-18/CIFAR-10 classifier and a 20-dimensional float64-certified intrinsic
@@ -133,8 +150,9 @@ cost to physical time. The low-response Pareto branch has also not crossed
 from counterfactual finite-budget opportunity to predictive, optimizer-access,
 dynamic-state or causal-capacity laws for the future selected by ordinary
 optimizers. The Picard side branch has not crossed from the frozen intrinsic
-classifier protocol to end-to-end fine-tuning, a universal optimizer
-comparison or global Picard-flow convergence.
+classifier protocol or the GPT-2 LoRA task protocol to end-to-end fine-tuning,
+semantic transfer, a universal optimizer comparison or global Picard-flow
+convergence.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry

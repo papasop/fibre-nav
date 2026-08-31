@@ -13,10 +13,43 @@ held-out data where specified. A response fibre therefore collects internal
 realizations that agree on the declared behaviour but may differ in their
 capacity for subsequent learning.
 
-The archive is organized around one central mechanism, two main results, one
-limited cross-architecture confirmation and one strict failure boundary.
-Developmental, failed and excluded stages are preserved rather than relabelled
-after inspection.
+The archive is organized around one featured GPT-2 LoRA Picard result, one
+central response-fibre mechanism, two moving-fibre evidence branches, limited
+cross-architecture confirmations and strict failure boundaries. Developmental,
+failed and excluded stages are preserved rather than relabelled after
+inspection.
+
+## Featured result: GPT-2 LoRA Picard vs AdamW
+
+The headline result is a frozen GPT-2 small LoRA comparison between a cached
+intrinsic Picard update and AdamW on SHA-256-bound Tiny Shakespeare bytes.
+Both arms start from the same 50-step AdamW warm start, which is excluded from
+comparison timing. The trainable domain is rank-4 LoRA on `c_attn`.
+
+| Primary metric | Result |
+| --- | ---: |
+| Median time-to-equal-loss training speedup | **37.46%** |
+| Positive seeds | **5/5** |
+| Fixed 600-step compute-time advantage | **1.17%, diagnostic only** |
+
+r4 is the formal frozen five-new-seed confirmation:
+`GPT2_LORA_PICARD_V0_2_6_R4_FROZEN_CONFIRMATORY_SUPPORTED`. r5 is the
+ten-step target-detection resolution audit:
+`GPT2_LORA_PICARD_V0_2_6_R5_TEN_STEP_RESOLUTION_SUPPORTED`. r5 reuses the same
+five seeds as r4, so it is not a second independent confirmation; it is the
+default external reproduction path because the target crossing is resolved at
+10-step granularity rather than 50-step granularity.
+
+The result is task-specific GPT-2 LoRA evidence. It does not establish a
+universal optimizer ordering, ordinary full-model GPT-2 fine-tuning, semantic
+invariance, downstream-task transfer, or a global Picard-flow theorem.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/papasop/fibre-nav/blob/v1.6.0/external_tests/picard_gpt2_lora/COLAB_ONE_CLICK.py)
+
+```bash
+python verify_picard_gpt2_lora_v1_6.py
+python external_tests/picard_gpt2_lora/COLAB_ONE_CLICK.py --source-root . --verify-only
+```
 
 ## Central mechanism: behaviour does not determine learning freedom
 
@@ -36,7 +69,7 @@ The repository evidence does not show that every kernel direction is useful,
 that complete model behaviour is preserved, or that ordinary optimizers
 naturally follow the response fibre.
 
-## Strongest functional result
+## Strongest response-fibre frontier result
 
 At recorded AdamW nodes, the instantaneous response kernel defines a superior
 held-out learning frontier under the same prospectively frozen finite response
@@ -60,10 +93,9 @@ This R2 strict-control upgrade supports task-specific low-response Pareto
 advantage beyond generic current-kernel membership. Historical R1 files and
 decisions remain unchanged.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/papasop/neural-fibre-geometry/blob/codex/readme-behaviour-learning-hierarchy/external_tests/gpt2_lora_pareto/GPT2_LORA_PARETO_EXTERNAL_ONE_CLICK.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/papasop/fibre-nav/blob/v1.6.0/external_tests/gpt2_lora_pareto/GPT2_LORA_PARETO_EXTERNAL_ONE_CLICK.ipynb)
 
-The Colab link targets this review branch. For a release, replace the branch
-with the immutable release tag rather than `main`. The launcher checks out and
+The Colab link targets the immutable `v1.6.0` tag. The launcher checks out and
 verifies fixed source commit `00500e1322be67c9774d44c15e44e598d6ec9039`.
 
 [Inspect protocol and archived results](evidence/low_response_pareto_v1/gpt2_lora_b_r2_strict/)
@@ -177,7 +209,7 @@ Recorded AdamW supplies real training nodes and proposals, but the successful
 instantaneous-kernel arm is a counterfactual projection. Ordinary optimizer
 navigation is not established.
 
-### Cached intrinsic Picard fine-tuning v0.2.6 - supported side branch
+### Secondary evidence: cached intrinsic Picard CIFAR v0.2.6
 
 Picard v0.2.6 is a separate frozen-feature ResNet-18/CIFAR-10 timing audit in
 a 20-dimensional float64-certified intrinsic response kernel. It compares a
@@ -192,9 +224,10 @@ steps-to-target reduction was 9.09%, median endpoint loss delta was -0.000099
 and certified response leakage was 8.23e-16. The status is
 `PICARD_V0_2_6_REPEATED_TIMING_DUAL_10PCT_SPEEDUP_SUPPORTED`.
 
-This is supported evidence for the declared cached intrinsic Picard protocol
-only. It is not end-to-end fine-tuning, a GPT-2/LoRA result, a universal
-optimizer comparison, or a proof of global Picard flow.
+This earlier CIFAR result is secondary cross-model support for the declared
+cached intrinsic Picard protocol only. It is not end-to-end fine-tuning, not
+the GPT-2 LoRA r4/r5 result above, not a universal optimizer comparison and
+not a proof of global Picard flow.
 
 ### Predictive and causal boundary audits
 
@@ -327,6 +360,7 @@ continuum or arbitrary-path theorem.
 
 | Evidence item | Frozen result | Formal status |
 |---|---|---|
+| GPT-2 LoRA Picard vs AdamW | r4 frozen five-new-seed confirmation passed 5/5 seeds; r5 ten-step audit reports 37.46% median time-to-equal-loss speedup, 5/5 positive seeds and 1.17% fixed-budget advantage as diagnostic only | Supported GPT-2 LoRA Picard confirmation plus resolution audit |
 | Selected response-fibre directions carry adaptive value | ResNet-18/CIFAR-10 v4.0c-r1 passed all gates in 16/16 seeds at 4, 16 and 32 anchors | Confirmed fixed-chart functional premise |
 | Moving-fibre finite realizability-cost scaling | CNN--MNIST v3.1e passed 15/15 comparable seeds; ResNet v4.1b passed 16/16 seeds with slope gap 0.5751 and smallest-radius cost ratio 2.997 | Confirmed finite-radius scaling |
 | Transverse response amplification | ResNet v4.2d passed 16/16 seeds; median active residual ratio 1437.844 and transverse gain contrast 341,763 | Confirmed finite-chart transverse amplification |
@@ -362,7 +396,7 @@ evidence/
     pc3/ dynamic/history predictive-state negative audit
     pc4/ response-matched causal-capacity negative audit
   picard_finetune_v0_2_6/
-    cached intrinsic Picard timing audit; supported side branch
+    cached intrinsic Picard CIFAR timing audit; secondary supported side branch
   gptw_response_fibre_v1_1_0/
     experiments/
     development/
@@ -374,6 +408,7 @@ evidence/
     gpt2_lora_b_v1/
     gpt2_lora_b_r2_strict/
   confirmed/
+    picard_gpt2_lora_r4/
     f16_v16/
     moving_f16_v3_0b/
     moving_fibre_v3_1e/
@@ -382,6 +417,10 @@ evidence/
     resnet18_cifar10_dual_scaling_v4_1b/
     resnet18_cifar10_transverse_v4_2d/
   developmental/
+    picard_gpt2_lora/
+      r1/
+      r2/
+      r3/
     moving_fibre_v3_1a/
     moving_fibre_v3_1b/
     realisability_cost_v3_1c/
@@ -396,12 +435,14 @@ docs/
   robustness_v3_1e/
   supplementary/
 audits/
+  picard_gpt2_lora_r5_ten_step/
   formula_audit_v1/
   resnet_v4_1b_v4_2d/
 provenance/
   PROVENANCE.md
   SHA256SUMS
 external_tests/
+  picard_gpt2_lora/
   gptw_v3/
   gpt2_lora_pareto/
 paper/
