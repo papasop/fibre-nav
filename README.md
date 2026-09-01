@@ -137,6 +137,47 @@ than part of the matched-budget confirmation gate.
 
 [Inspect R12/R13 evidence](evidence/pretrained_gpt2_dynamic_kernel_r12_r13/)
 
+## Pythia-160M constrained Onsager confirmation
+
+R17d tests whether the instantaneous response kernel can enter a prospectively
+declared incremental variational update, rather than only a counterfactual
+finite-budget direction audit. The learning target is prompted GLUE/SST-2; the
+independently declared response map comprises four AG News topic-margin
+coordinates on frozen, disjoint inputs.
+
+For Adam first- and second-moment statistics \(\hat m_k,\hat v_k\), define
+\(M_k=\operatorname{diag}(\sqrt{\hat v_k}+\epsilon)\). The frozen candidate is
+the exact metric-constrained Onsager step:
+
+\[
+\min_{DR(\theta_k)\delta=0}
+\left[\hat m_k^T\delta+\frac{1}{2\eta_k}\delta^TM_k\delta\right].
+\]
+
+R17c intentionally reused its development seed to select multiplier 1.15 under
+a predeclared response-budget-utilization rule. R17d then evaluated that
+configuration once on five untouched seeds against current-kernel projected
+AdamW and source-frozen metric Onsager under the same global response-budget
+ceiling.
+
+The R17d authoritative status is
+`R17D_METRIC_CONSTRAINED_ONSAGER_CONFIRMED`: 4/5 untouched seeds passed the
+complete frozen seedwise gate, with all numerical, response-budget, rank, KKT
+and finite-value gates passing. Median AdamW-minus-metric-Onsager validation
+loss was +0.00135338, median source-frozen-minus-current validation loss was
++0.01599610, and median metric-Onsager-minus-AdamW accuracy was -0.390625
+percentage points, inside the frozen -0.5-point noninferiority margin.
+
+This is a model- and protocol-specific confirmation within pretrained
+Pythia-160M, one 32-dimensional LoRA chart, one learning task, one independent
+response map and one global response budget. It is not a continuous-action
+theorem, universal optimizer ordering, Principle-R theorem or physical law.
+One seed strongly favored projected AdamW, and the comparison is under a
+shared budget ceiling rather than equal realized budget consumption in every
+seed. R16b is retained as the response-occupancy-only action negative boundary.
+
+[Inspect R17d evidence](evidence/confirmed/pythia160m_metric_onsager_r17d/)
+
 ## Functional premise: selected fibre directions can carry adaptive value
 
 ResNet-18/CIFAR-10 v4.0c-r1 prospectively tested the functional premise in the
@@ -404,6 +445,7 @@ continuum or arbitrary-path theorem.
 | Low-response held-out learning frontier | Reduced ResNet v4.6 is supported with 7/8 seeds. GPT-2 native-LoRA-B R1 passed 8/8 seeds and 24/24 noninitial nodes; R2 strict-control upgrade passed 6/8 complete-control seeds with 7/8 positive same-kernel seed contrasts and 20/24 positive noninitial nodes | Supported in reduced ResNet; confirmed within the declared GPT-2 native-LoRA-B R1 and R2 protocols |
 | GPTW current-versus-fixed correction-cost scaling | GPTW v2 is SUPPORTED in 6/6 seeds and 18/18 nodes; v3 natural text is SUPPORTED in 8/8 seeds and 32/32 nodes as not confined to codeword prompts | Supported restricted GPTW evidence |
 | Pretrained GPT-2 dynamic response-kernel ordering | R13 passed 5/5 untouched seeds at both frozen global response budgets; current-kernel updates beat source-frozen and response-budgeted AdamW controls, while unconstrained AdamW is retained as an out-of-budget diagnostic | Confirmed within the declared pretrained GPT-2 LoRA response-budget protocol |
+| Pythia-160M metric-constrained Onsager implementation | R17d passed the frozen aggregate gate with 4/5 untouched supporting seeds; median AdamW-minus-metric-Onsager loss +0.00135338 and source-frozen-minus-current loss +0.01599610 under one global response-budget ceiling | Confirmed model-specific variational implementation bridge |
 | Restricted Moving-Fibre F16 ordering | Moving-Fibre F16 v3.2c passed with natural minimizing the restricted action at all four radii in 14/14 comparable seeds and winning under the wrong metric in 0/14 | Confirmed restricted multi-radius ordering |
 | Action/realization-cost equivalence - Refuted | Natural gradient was not the least-cost path in 14/14 comparable seeds; smallest-radius correction-cost ratio median 2.25, range 1.60-4.19 | Refuted within the frozen six-algorithm family |
 
@@ -448,6 +490,8 @@ evidence/
   pretrained_gpt2_dynamic_kernel_r12_r13/
     R12 development chain and R13 frozen pretrained GPT-2 confirmation
   confirmed/
+    pythia160m_metric_onsager_r17d/
+      R17d five-untouched-seed metric-constrained Onsager confirmation
     picard_gpt2_lora_r4/
     f16_v16/
     moving_f16_v3_0b/
@@ -457,6 +501,10 @@ evidence/
     resnet18_cifar10_dual_scaling_v4_1b/
     resnet18_cifar10_transverse_v4_2d/
   developmental/
+    pythia160m_metric_onsager_r17_chain/
+      R17a/R17b development and R17c same-seed budget calibration
+    pythia160m_response_action_r16b/
+      response-occupancy-only action negative boundary
     picard_gpt2_lora/
       r1/
       r2/

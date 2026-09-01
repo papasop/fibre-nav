@@ -1,0 +1,14 @@
+{
+  "protocol":"PYTHIA160M_SST2_AGNEWS_METRIC_ONSAGER_R17D_CONFIRMATORY",
+  "mode":"untouched_seed_confirmatory",
+  "development_reference":"R17C_BUDGET_MATCHED_METRIC_ONSAGER_CANDIDATE_SELECTED",
+  "seeds":[55211,55219,55229,55243,55259],
+  "multiplier":1.15,
+  "global_response_budget":0.004543482202852718,
+  "steps":80,
+  "warm_steps":20,
+  "step_norm":0.025,
+  "arms":["current_metric_m115","current_projected_adamw","source_frozen_metric_m100"],
+  "gates":{"minimum_supporting_seeds":4,"median_adamw_loss_margin":"positive","median_source_loss_margin":"positive","median_accuracy_delta_minimum":-0.005},
+  "claim_boundary":"Frozen five-seed model-specific confirmation only; no universal optimizer, continuous-action, Principle-R, or physical-law claim."
+}

@@ -1,0 +1,101 @@
+{
+  "protocol": "PYTHIA160M_SST2_AGNEWS_METRIC_ONSAGER_R17D_CONFIRMATORY",
+  "mode": "untouched_seed_confirmatory",
+  "development_reference": "R17C_BUDGET_MATCHED_METRIC_ONSAGER_CANDIDATE_SELECTED",
+  "model": "EleutherAI/pythia-160m",
+  "pretrained": true,
+  "learning_target_L": "GLUE/SST-2 prompted binary sentiment loss",
+  "response_map_R": "four AG News topic-margin coordinates on frozen disjoint inputs",
+  "r_l_separation": "different datasets, prompts, labels, verbalizers and declared functionals",
+  "frozen_configuration": {
+    "multiplier": 1.15,
+    "budget": 0.004543482202852718,
+    "steps": 80,
+    "warm_steps": 20,
+    "step_norm": 0.025,
+    "chart_dim": 32,
+    "lora_rank": 4,
+    "layers": 2,
+    "arms": [
+      "current_metric_m115",
+      "current_projected_adamw",
+      "source_frozen_metric_m100"
+    ]
+  },
+  "seeds": [
+    55211,
+    55219,
+    55229,
+    55243,
+    55259
+  ],
+  "pairs": [
+    {
+      "seed": 55211,
+      "adamw_minus_metric_onsager_loss": 0.000889897346496582,
+      "source_minus_metric_onsager_loss": 0.017584562301635742,
+      "metric_onsager_minus_adamw_accuracy": -0.00390625,
+      "metric_response_budget_utilization": 0.46605463270414715,
+      "worker_numerical_gates_pass": true,
+      "supports_frozen_gate": true
+    },
+    {
+      "seed": 55219,
+      "adamw_minus_metric_onsager_loss": -0.0077713727951049805,
+      "source_minus_metric_onsager_loss": 0.0012372136116027832,
+      "metric_onsager_minus_adamw_accuracy": -0.00390625,
+      "metric_response_budget_utilization": 0.9917777967939391,
+      "worker_numerical_gates_pass": true,
+      "supports_frozen_gate": false
+    },
+    {
+      "seed": 55229,
+      "adamw_minus_metric_onsager_loss": 0.0013533830642700195,
+      "source_minus_metric_onsager_loss": 0.015996098518371582,
+      "metric_onsager_minus_adamw_accuracy": -0.00390625,
+      "metric_response_budget_utilization": 0.9967916772254741,
+      "worker_numerical_gates_pass": true,
+      "supports_frozen_gate": true
+    },
+    {
+      "seed": 55243,
+      "adamw_minus_metric_onsager_loss": 0.0018475055694580078,
+      "source_minus_metric_onsager_loss": 0.006486117839813232,
+      "metric_onsager_minus_adamw_accuracy": 0.0,
+      "metric_response_budget_utilization": 0.998967457724733,
+      "worker_numerical_gates_pass": true,
+      "supports_frozen_gate": true
+    },
+    {
+      "seed": 55259,
+      "adamw_minus_metric_onsager_loss": 0.006553530693054199,
+      "source_minus_metric_onsager_loss": 0.020111441612243652,
+      "metric_onsager_minus_adamw_accuracy": 0.01171875,
+      "metric_response_budget_utilization": 0.8993090969540918,
+      "worker_numerical_gates_pass": true,
+      "supports_frozen_gate": true
+    }
+  ],
+  "supporting_seed_count": 4,
+  "medians": {
+    "adamw_minus_metric_onsager_loss": 0.0013533830642700195,
+    "source_minus_metric_onsager_loss": 0.015996098518371582,
+    "metric_onsager_minus_adamw_accuracy": -0.00390625
+  },
+  "gates": {
+    "five_untouched_confirmation_seeds": true,
+    "frozen_seed_list_exact": true,
+    "frozen_multiplier_1_15_exact": true,
+    "three_frozen_arms_exact": true,
+    "one_frozen_budget_exact": true,
+    "all_worker_numerical_gates": true,
+    "all_records_finite": true,
+    "at_least_four_of_five_seeds_support": true,
+    "median_adamw_minus_metric_onsager_loss_positive": true,
+    "median_source_minus_metric_onsager_loss_positive": true,
+    "median_accuracy_noninferior_0_5pp": true
+  },
+  "scientific_status": "R17D_METRIC_CONSTRAINED_ONSAGER_CONFIRMED",
+  "wall_seconds": 375.59754395484924,
+  "claim_boundary": "Frozen five-seed confirmation within pretrained Pythia-160M, SST-2 learning, an independent AG News response map, one 32-dimensional LoRA chart and one global response budget. It confirms or rejects only the nominated metric-constrained Onsager versus projected AdamW and source-frozen ordering; it is not a continuous-action theorem, universal optimizer result, Principle-R theorem, or physical law."
+}

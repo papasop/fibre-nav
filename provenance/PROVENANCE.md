@@ -386,3 +386,37 @@ matched-budget control. This evidence does not establish superiority to
 unconstrained AdamW, ordinary full-model GPT-2 training, semantic transfer,
 downstream-task transfer, inverse-Fisher superiority, lower universal per-step
 complexity, universal optimizer superiority or a global Picard theorem.
+
+## Pythia-160M metric-constrained Onsager R17d
+
+This import adds `fibre_nav_r17d_github_overlay.zip` as an add-only evidence
+overlay. The expected and observed ZIP SHA-256 was
+`b01d0dd56353c804030aab8844d82c15dc69e6ccc715017d170a2180ba5c82eb`.
+
+The confirmed archive is
+`evidence/confirmed/pythia160m_metric_onsager_r17d/`, with authoritative status
+`R17D_METRIC_CONSTRAINED_ONSAGER_CONFIRMED`. R17d tests a pretrained
+Pythia-160M prompted GLUE/SST-2 learning target, a disjoint frozen AG News
+response map, one 32-dimensional LoRA chart and one global response-budget
+ceiling. The frozen metric-constrained Onsager arm passed the aggregate gate on
+five untouched seeds: four of five seeds passed the complete frozen seedwise
+gate, all numerical, response-budget, rank, KKT and finite-value gates passed,
+median AdamW-minus-metric-Onsager validation loss was +0.00135338, median
+source-frozen-minus-current validation loss was +0.01599610, and median
+metric-Onsager-minus-AdamW accuracy was -0.390625 percentage points, inside the
+frozen -0.5-point noninferiority margin.
+
+The development chain is archived under
+`evidence/developmental/pythia160m_metric_onsager_r17_chain/`: R17a is
+Euclidean constrained-Onsager diagnosis, R17b is adaptive-metric diagnosis and
+R17c is same-seed budget calibration. R17c is not confirmation. R16b is
+archived under `evidence/developmental/pythia160m_response_action_r16b/` as the
+response-occupancy-only action negative boundary. R17c and R16b disclose that
+the available Colab logs are preserved verbatim and their JSON summaries are
+mechanical recoveries from those logs.
+
+This evidence does not establish a continuous-action theorem, universal
+optimizer ordering, Principle-R theorem, physical law, equal-realized-budget
+result or claim that every seed beats projected AdamW. It does not replace the
+R13 pretrained GPT-2 dynamic-kernel confirmation; it adds a separate
+model-specific variational implementation bridge.

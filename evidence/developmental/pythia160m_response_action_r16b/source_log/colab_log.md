@@ -1,0 +1,216 @@
+1. **pythia160m\_response\_only\_nogo\_r16b\_all\_in\_one.zip**(application/zip) - 113773 bytes, last modified: 2026/9/1 - 100% done
+
+```
+Saving pythia160m_response_only_nogo_r16b_all_in_one.zip to pythia160m_response_only_nogo_r16b_all_in_one.zip
+Running CPU-only audit: /usr/bin/python3 /content/pythia_r16b_run/output/pythia160m_response_only_nogo_r16b_all_in_one/pythia160m_response_only_nogo_r16b.py --input /content/pythia_r16b_run/output/pythia160m_response_only_nogo_r16b_all_in_one/r16a_r6_run_summary.json --outdir /content/pythia_r16b_results
+{
+  "protocol": "PYTHIA160M_RESPONSE_OCCUPANCY_STATIONARITY_NOGO_R16B_DIAGNOSTIC",
+  "mode": "same_result_response_only_stationarity_nogo",
+  "source_protocol": "PYTHIA160M_SST2_AGNEWS_FIXED_ENDPOINT_VARIATION_R16A_R6_DIAGNOSTIC",
+  "source_seed": 50207,
+  "frozen_thresholds": {
+    "absolute_epsilon_zero_first_variation_floor": 0.0001,
+    "order_8_16_relative_tolerance": 0.01,
+    "negative_second_variation_tolerance": -1e-06
+  },
+  "field_analyses": [
+    {
+      "field_seed": 51818,
+      "epsilons": [
+        0.001,
+        0.003,
+        0.006
+      ],
+      "by_order": {
+        "8": {
+          "central_first_variations": [
+            0.0006600177120739785,
+            0.0006610538735601622,
+            0.0006645003773135596
+          ],
+          "central_second_variations": [
+            0.05622471758830183,
+            0.05675596887740361,
+            0.05854399994291514
+          ],
+          "epsilon_zero_first_variation": 0.0006598951544605383,
+          "epsilon_squared_slope": 0.12796738187142495,
+          "maximum_first_variation_fit_residual": 7.012662781090244e-09,
+          "nonzero_at_frozen_floor": true
+        },
+        "16": {
+          "central_first_variations": [
+            0.0006600172018787938,
+            0.0006610538312515577,
+            0.0006645003903239134
+          ],
+          "central_second_variations": [
+            0.056226763354635945,
+            0.056756228903586295,
+            0.05854404907813842
+          ],
+          "epsilon_zero_first_variation": 0.0006598947956982196,
+          "epsilon_squared_slope": 0.12797905129578976,
+          "maximum_first_variation_fit_residual": 7.2240916759898355e-09,
+          "nonzero_at_frozen_floor": true
+        }
+      },
+      "epsilon_zero_order_relative_error": 5.436656357544239e-07,
+      "epsilon_zero_sign_agreement": true,
+      "smallest_epsilon_descent": {
+        "8": {
+          "sign": "-",
+          "best_action": 0.004421714159908225,
+          "base_action": 0.004422346065261504,
+          "strict_decrease": true
+        },
+        "16": {
+          "sign": "-",
+          "best_action": 0.004421714160636469,
+          "base_action": 0.004422346064456671,
+          "strict_decrease": true
+        }
+      },
+      "has_negative_second_variation": false
+    },
+    {
+      "field_seed": 51820,
+      "epsilons": [
+        0.001,
+        0.003,
+        0.006
+      ],
+      "by_order": {
+        "8": {
+          "central_first_variations": [
+            0.0018984813410184362,
+            0.0018986331631071912,
+            0.0018991774290074072
+          ],
+          "central_second_variations": [
+            -0.1985088984701039,
+            -0.19836897166654938,
+            -0.19790260105172786
+          ],
+          "epsilon_zero_first_variation": 0.0018984579733438206,
+          "epsilon_squared_slope": 0.01995680655592626,
+          "maximum_first_variation_fit_residual": 4.421495632730282e-09,
+          "nonzero_at_frozen_floor": true
+        },
+        "16": {
+          "central_first_variations": [
+            0.0018984820572393556,
+            0.0018986332778027706,
+            0.0018991773890054066
+          ],
+          "central_second_variations": [
+            -0.19850616577408997,
+            -0.19836887709462964,
+            -0.197902548467537
+          ],
+          "epsilon_zero_first_variation": 0.0018984585063930573,
+          "epsilon_squared_slope": 0.019939236268720538,
+          "maximum_first_variation_fit_residual": 4.6817167050679925e-09,
+          "nonzero_at_frozen_floor": true
+        }
+      },
+      "epsilon_zero_order_relative_error": 2.80780030166589e-07,
+      "epsilon_zero_sign_agreement": true,
+      "smallest_epsilon_descent": {
+        "8": {
+          "sign": "-",
+          "best_action": 0.004420348329471251,
+          "base_action": 0.004422346065261504,
+          "strict_decrease": true
+        },
+        "16": {
+          "sign": "-",
+          "best_action": 0.004420348329316544,
+          "base_action": 0.004422346064456671,
+          "strict_decrease": true
+        }
+      },
+      "has_negative_second_variation": true
+    },
+    {
+      "field_seed": 51824,
+      "epsilons": [
+        0.001,
+        0.003,
+        0.006
+      ],
+      "by_order": {
+        "8": {
+          "central_first_variations": [
+            -0.0013148708302370034,
+            -0.0012715515387902155,
+            -0.0011229141121826796
+          ],
+          "central_second_variations": [
+            1.2496157898323619,
+            1.2523274436701768,
+            1.2615142989586858
+          ],
+          "epsilon_zero_first_variation": -0.0013206211625781325,
+          "epsilon_squared_slope": 5.489717533141279,
+          "maximum_first_variation_fit_residual": 3.378340103544781e-07,
+          "nonzero_at_frozen_floor": true
+        },
+        "16": {
+          "central_first_variations": [
+            -0.001314870336427583,
+            -0.0012715511186177826,
+            -0.0011229139808227682
+          ],
+          "central_second_variations": [
+            1.2496155742947046,
+            1.2523276110239618,
+            1.2615143505350024
+          ],
+          "epsilon_zero_first_variation": -0.0013206206540140502,
+          "epsilon_squared_slope": 5.489707090739498,
+          "maximum_first_variation_fit_residual": 3.378284203878375e-07,
+          "nonzero_at_frozen_floor": true
+        }
+      },
+      "epsilon_zero_order_relative_error": 3.850946030175674e-07,
+      "epsilon_zero_sign_agreement": true,
+      "smallest_epsilon_descent": {
+        "8": {
+          "sign": "+",
+          "best_action": 0.004421656002326183,
+          "base_action": 0.004422346065261504,
+          "strict_decrease": true
+        },
+        "16": {
+          "sign": "+",
+          "best_action": 0.00442165600190739,
+          "base_action": 0.004422346064456671,
+          "strict_decrease": true
+        }
+      },
+      "has_negative_second_variation": false
+    }
+  ],
+  "gates": {
+    "source_protocol_exact": true,
+    "three_frozen_fields_exact": true,
+    "three_frozen_epsilons_exact": true,
+    "source_endpoints_exact": true,
+    "source_response_ball_respected": true,
+    "source_8_16_actions_stable": true,
+    "all_epsilon_zero_first_variations_nonzero": true,
+    "all_epsilon_zero_signs_agree_between_orders": true,
+    "all_epsilon_zero_order_relative_errors_at_most_1pct": true,
+    "every_field_has_feasible_descent_sign_at_smallest_epsilon": true,
+    "at_least_one_field_has_negative_second_variation": true
+  },
+  "scientific_status": "R16B_A1_RESPONSE_OCCUPANCY_STATIONARITY_REJECTED",
+  "logical_consequence": "If delta A1 is nonzero, delta phi(A1)=phi'(A1) delta A1 is also nonzero for every differentiable scalar reparameterization with phi'(A1) != 0. This does not cover locally flat phi or actions with additional path-dependent terms.",
+  "next_admissible_direction": "Derive and preregister a joint response-learning or energy-dissipation action before any new Pythia variation run.",
+  "wall_seconds": 0.006371974945068359,
+  "claim_boundary": "CPU postprocessing of one same-seed R16a-r6 diagnostic. It rejects stationarity of A1 along three frozen feasible fields, and consequently locally non-flat differentiable scalar reparameterizations phi(A1). It does not reject all response-only functionals, joint response-learning actions, geometric-flow ODE existence, Principle R, K=1, or any universal variational law."
+}
+
+
+```

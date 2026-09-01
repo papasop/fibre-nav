@@ -79,6 +79,22 @@
    per-step complexity, universal optimizer superiority or a global Picard
    theorem.
 
+6. **Pythia-160M metric-constrained Onsager R17d:** within pretrained
+   Pythia-160M, a prompted GLUE/SST-2 learning target, a disjoint four-coordinate
+   AG News response map, one 32-dimensional LoRA chart and one global
+   response-budget ceiling, the metric-constrained Onsager implementation
+   passed its frozen aggregate gate on five untouched seeds. Four of five seeds
+   passed the complete frozen seedwise gate; all numerical, response-budget,
+   rank, KKT and finite-value gates passed. The median
+   AdamW-minus-metric-Onsager validation-loss margin was +0.00135338, the
+   median source-frozen-minus-current margin was +0.01599610, and the median
+   metric-Onsager-minus-AdamW accuracy difference was -0.390625 percentage
+   points, within the frozen -0.5-point noninferiority margin. R17c is
+   same-seed development and budget calibration only; R17d is the untouched-seed
+   confirmation. This is not a continuous-action theorem, universal optimizer
+   ordering, Principle-R theorem, physical law, equal-realized-budget result or
+   claim that every seed beats projected AdamW.
+
 2. **F16 v16:** restricted CNER-F ordering in a frozen eight-dimensional
    CNN--MNIST chart.
 3. **Moving-F16 v3.0b:** the restricted ordering survives pointwise moving
@@ -140,6 +156,13 @@ At the smallest tested radius, natural gradient's realizability cost remains
 at least 1.5 times the least-cost algorithm in 14/14 comparable v3.2c seeds.
 Its median ratio is 2.25. Restricted action minimality therefore does not imply
 realizability-cost minimality.
+
+R16b rejects stationarity of the response-occupancy-only A1 path functional
+along three frozen feasible fixed-endpoint fields, and rejects locally
+non-flat differentiable scalar reparameterizations of A1. This is a strict
+negative boundary for that response-only action, not a rejection of all
+response-only functionals, joint response-learning actions, moving kernels,
+Geometric-Flow ODE existence, Principle R or universal variational laws.
 
 ## Predictive and causal boundary audits
 

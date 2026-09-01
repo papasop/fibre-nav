@@ -146,6 +146,31 @@ ordinary GPT-2 fine-tuning superiority, semantic transfer, inverse-Fisher
 superiority, universal optimizer ordering, lower universal per-step complexity
 or a global Picard theorem.
 
+## Pythia constrained-Onsager implementation branch
+
+R17d tests a prospectively declared incremental variational implementation:
+the exact metric-constrained Onsager step in the instantaneous response kernel.
+The learning target is prompted GLUE/SST-2, while the independent response map
+uses four AG News topic-margin coordinates on frozen disjoint inputs. R17a and
+R17b are development diagnostics, R17c is same-seed budget calibration, and
+R17d is the five-untouched-seed confirmation.
+
+R17d passed its frozen aggregate gate with 4/5 complete seedwise successes.
+Median AdamW-minus-metric-Onsager validation loss was +0.00135338, median
+source-frozen-minus-current validation loss was +0.01599610, and median
+metric-Onsager-minus-AdamW accuracy was -0.390625 percentage points, inside the
+frozen -0.5-point noninferiority margin. All numerical, response-budget, rank,
+KKT and finite-value gates passed. This is a finite model- and
+protocol-specific variational implementation bridge from moving response
+kernel geometry to a constrained Onsager update. It is not a
+continuous-action theorem, universal optimizer ordering, Principle-R theorem,
+physical law or equal-realized-budget result.
+
+R16b remains the corresponding negative boundary: a response-occupancy-only
+A1 action was not stationary along three frozen feasible fixed-endpoint fields.
+That failure bounds one proposed action functional; it does not refute the
+moving kernel or the R17d metric-constrained implementation.
+
 ## GPT-2 LoRA Picard branch
 
 The featured Picard branch is now GPT-2 small with rank-4 LoRA on `c_attn`,

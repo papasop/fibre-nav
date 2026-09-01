@@ -1,0 +1,345 @@
+{
+  "protocol": "PYTHIA160M_SST2_AGNEWS_METRIC_ONSAGER_R17D_SEED_CONFIRMATORY",
+  "mode": "frozen_untouched_seed_worker",
+  "model": "EleutherAI/pythia-160m",
+  "pretrained": true,
+  "seed": 55229,
+  "learning_target_L": "GLUE/SST-2 prompted binary sentiment loss",
+  "response_map_R": "four AG News topic-margin coordinates on frozen disjoint inputs",
+  "r_l_separation": "different datasets, prompts, labels, verbalizers and declared functionals",
+  "development_reference": "R17C_BUDGET_MATCHED_METRIC_ONSAGER_CANDIDATE_SELECTED",
+  "frozen_step_multiplier": 1.15,
+  "frozen_incremental_principle": "min <mhat,delta>+delta^T M delta/(2 eta) subject to DR(theta)delta=0; M=diag(sqrt(vhat)+eps)",
+  "analytic_solution": "delta*=-eta[M^-1-M^-1 J^T(J M^-1 J^T)^-1 J M^-1]mhat",
+  "frozen_global_response_budget": 0.004543482202852718,
+  "arms": [
+    "current_metric_m115",
+    "current_projected_adamw",
+    "source_frozen_metric_m100"
+  ],
+  "data": {
+    "learning_dataset": "glue/sst2",
+    "response_dataset": "ag_news",
+    "learning_train_sha256": "9b603c62b1d6b12ed2b6c656d0131f0b8e3654855a589f0b8f48e5bd9c52ae5e",
+    "learning_validation_sha256": "5b3e0ec670a7f88b94294d9c90f8bc7c5663a27663cf07d4921456be4583a0d0",
+    "response_anchors_sha256": "c3bf3709da84c000ef34666a0fa0f3eaa35d843740983cb5ffd02f0230d0c483",
+    "learning_train_examples": 2048,
+    "learning_validation_examples": 256,
+    "response_anchor_examples": 16,
+    "response_anchor_examples_per_topic": 4,
+    "r_l_datasets_distinct": true
+  },
+  "learning_verbalizers": [
+    " negative",
+    " positive"
+  ],
+  "response_verbalizers": [
+    " World",
+    " Sports",
+    " Business",
+    " Technology"
+  ],
+  "chart": {
+    "dimension": 32,
+    "lora_rank": 4,
+    "layers": [
+      10,
+      11
+    ]
+  },
+  "records": [
+    {
+      "seed": 55229,
+      "arm": "current_metric_m115",
+      "metric_step_multiplier": 1.15,
+      "initial_validation_loss": 0.6545829176902771,
+      "initial_validation_accuracy": 0.56640625,
+      "final_validation_loss": 0.6348005533218384,
+      "final_validation_accuracy": 0.58203125,
+      "validation_loss_gain": 0.01978236436843872,
+      "median_current_metric_onsager_regret": 0.0,
+      "maximum_negative_regret_numerical": 0.0,
+      "median_kkt_residual": 2.3901339397900694e-18,
+      "maximum_linearized_response_leak": 1.071641230034079e-12,
+      "maximum_global_response_drift": 0.004528905245425653,
+      "median_backtracks": 0.0,
+      "zero_step_fraction": 0.0,
+      "response_ranks": [
+        4
+      ],
+      "maximum_projector_leakage": 3.613507168294289e-16,
+      "maximum_projector_idempotence": 3.9850705738541133e-16,
+      "timed_seconds": 13.006431557000269,
+      "trace": [
+        {
+          "step": 10,
+          "validation_loss": 0.6519303917884827,
+          "validation_accuracy": 0.56640625,
+          "response_drift": 0.0005486802550160279,
+          "onsager_regret": 0.0,
+          "kkt_residual": 3.637687698502208e-18
+        },
+        {
+          "step": 20,
+          "validation_loss": 0.6494083404541016,
+          "validation_accuracy": 0.5625,
+          "response_drift": 0.0011484709819142892,
+          "onsager_regret": 0.0,
+          "kkt_residual": 1.662616718339983e-18
+        },
+        {
+          "step": 30,
+          "validation_loss": 0.6474136114120483,
+          "validation_accuracy": 0.56640625,
+          "response_drift": 0.002059145174964752,
+          "onsager_regret": 0.0,
+          "kkt_residual": 1.5101948977981725e-18
+        },
+        {
+          "step": 40,
+          "validation_loss": 0.6434499621391296,
+          "validation_accuracy": 0.57421875,
+          "response_drift": 0.002302661991680406,
+          "onsager_regret": 0.0,
+          "kkt_residual": 1.901477036359247e-18
+        },
+        {
+          "step": 50,
+          "validation_loss": 0.639527440071106,
+          "validation_accuracy": 0.578125,
+          "response_drift": 0.002260516342845474,
+          "onsager_regret": 0.0,
+          "kkt_residual": 2.5761658720987446e-18
+        },
+        {
+          "step": 60,
+          "validation_loss": 0.6369272470474243,
+          "validation_accuracy": 0.58203125,
+          "response_drift": 0.00356673990341373,
+          "onsager_regret": 0.0,
+          "kkt_residual": 1.8712704321377884e-18
+        },
+        {
+          "step": 70,
+          "validation_loss": 0.6353012919425964,
+          "validation_accuracy": 0.58203125,
+          "response_drift": 0.004249702876237315,
+          "onsager_regret": 0.0,
+          "kkt_residual": 4.669215629669701e-18
+        },
+        {
+          "step": 80,
+          "validation_loss": 0.6348005533218384,
+          "validation_accuracy": 0.58203125,
+          "response_drift": 0.004435743365351242,
+          "onsager_regret": 0.0,
+          "kkt_residual": 3.897537223095992e-18
+        }
+      ],
+      "response_budget_utilization": 0.9967916772254741
+    },
+    {
+      "seed": 55229,
+      "arm": "current_projected_adamw",
+      "metric_step_multiplier": null,
+      "initial_validation_loss": 0.6545829176902771,
+      "initial_validation_accuracy": 0.56640625,
+      "final_validation_loss": 0.6361539363861084,
+      "final_validation_accuracy": 0.5859375,
+      "validation_loss_gain": 0.0184289813041687,
+      "median_current_metric_onsager_regret": 3.0993063645052762e-06,
+      "maximum_negative_regret_numerical": 0.0,
+      "median_kkt_residual": 0.0016814799079040625,
+      "maximum_linearized_response_leak": 1.5084151460424913e-18,
+      "maximum_global_response_drift": 0.003059415745780428,
+      "median_backtracks": 0.0,
+      "zero_step_fraction": 0.0,
+      "response_ranks": [
+        4
+      ],
+      "maximum_projector_leakage": 4.020105328493387e-16,
+      "maximum_projector_idempotence": 4.4193861329354397e-16,
+      "timed_seconds": 11.910487173000092,
+      "trace": [
+        {
+          "step": 10,
+          "validation_loss": 0.6524559855461121,
+          "validation_accuracy": 0.56640625,
+          "response_drift": 0.0008770817787597604,
+          "onsager_regret": 3.148388584431523e-06,
+          "kkt_residual": 0.00218889701263794
+        },
+        {
+          "step": 20,
+          "validation_loss": 0.6505130529403687,
+          "validation_accuracy": 0.5625,
+          "response_drift": 0.00133669082416234,
+          "onsager_regret": 2.3013393375490444e-06,
+          "kkt_residual": 0.001396274882785159
+        },
+        {
+          "step": 30,
+          "validation_loss": 0.6486984491348267,
+          "validation_accuracy": 0.56640625,
+          "response_drift": 0.0014147950535297743,
+          "onsager_regret": 4.563159677514392e-06,
+          "kkt_residual": 0.0016123732413645684
+        },
+        {
+          "step": 40,
+          "validation_loss": 0.6462088823318481,
+          "validation_accuracy": 0.57421875,
+          "response_drift": 0.0012619673540121663,
+          "onsager_regret": 1.3918095465525158e-07,
+          "kkt_residual": 0.00043196188196220674
+        },
+        {
+          "step": 50,
+          "validation_loss": 0.642911970615387,
+          "validation_accuracy": 0.57421875,
+          "response_drift": 0.0024497366879276004,
+          "onsager_regret": 2.8845847532606053e-06,
+          "kkt_residual": 0.0012370593390865373
+        },
+        {
+          "step": 60,
+          "validation_loss": 0.6392219066619873,
+          "validation_accuracy": 0.578125,
+          "response_drift": 0.002237065456059852,
+          "onsager_regret": 1.2319038133272692e-06,
+          "kkt_residual": 0.0011181121482086445
+        },
+        {
+          "step": 70,
+          "validation_loss": 0.6375038027763367,
+          "validation_accuracy": 0.58203125,
+          "response_drift": 0.002363733689687125,
+          "onsager_regret": 1.0340395376904081e-05,
+          "kkt_residual": 0.0036089622379006443
+        },
+        {
+          "step": 80,
+          "validation_loss": 0.6361539363861084,
+          "validation_accuracy": 0.5859375,
+          "response_drift": 0.002416387154731572,
+          "onsager_regret": 5.054875543222039e-06,
+          "kkt_residual": 0.002160856510143229
+        }
+      ]
+    },
+    {
+      "seed": 55229,
+      "arm": "source_frozen_metric_m100",
+      "metric_step_multiplier": null,
+      "initial_validation_loss": 0.6545829176902771,
+      "initial_validation_accuracy": 0.56640625,
+      "final_validation_loss": 0.65079665184021,
+      "final_validation_accuracy": 0.5703125,
+      "validation_loss_gain": 0.0037862658500671387,
+      "median_current_metric_onsager_regret": -5.623658776749857e-06,
+      "maximum_negative_regret_numerical": 4.7279127422109464e-05,
+      "median_kkt_residual": 0.001622356064204333,
+      "maximum_linearized_response_leak": 0.0015666233553488743,
+      "maximum_global_response_drift": 0.004534094673919157,
+      "median_backtracks": 6.0,
+      "zero_step_fraction": 0.2375,
+      "response_ranks": [
+        4
+      ],
+      "maximum_projector_leakage": 3.668213768890867e-16,
+      "maximum_projector_idempotence": 3.719443124626359e-16,
+      "timed_seconds": 25.77819267699988,
+      "trace": [
+        {
+          "step": 10,
+          "validation_loss": 0.6528332233428955,
+          "validation_accuracy": 0.56640625,
+          "response_drift": 0.004361211770910496,
+          "onsager_regret": -1.4690849724488644e-05,
+          "kkt_residual": 0.0017430061123938523
+        },
+        {
+          "step": 20,
+          "validation_loss": 0.6525201797485352,
+          "validation_accuracy": 0.56640625,
+          "response_drift": 0.004020944258003132,
+          "onsager_regret": 3.4927549939164383e-07,
+          "kkt_residual": 0.0019382036537299431
+        },
+        {
+          "step": 30,
+          "validation_loss": 0.6513264179229736,
+          "validation_accuracy": 0.56640625,
+          "response_drift": 0.0044577083925805595,
+          "onsager_regret": 4.65118025609833e-06,
+          "kkt_residual": 0.0014919504904761481
+        },
+        {
+          "step": 40,
+          "validation_loss": 0.6509291529655457,
+          "validation_accuracy": 0.5703125,
+          "response_drift": 0.0043167543055163335,
+          "onsager_regret": -4.696924967310668e-06,
+          "kkt_residual": 0.002339926296139931
+        },
+        {
+          "step": 50,
+          "validation_loss": 0.6508345603942871,
+          "validation_accuracy": 0.5703125,
+          "response_drift": 0.0044655101025230775,
+          "onsager_regret": -8.355935545538713e-06,
+          "kkt_residual": 0.0008563258800761101
+        },
+        {
+          "step": 60,
+          "validation_loss": 0.6507952809333801,
+          "validation_accuracy": 0.5703125,
+          "response_drift": 0.00450684808830698,
+          "onsager_regret": 1.1452786713546045e-06,
+          "kkt_residual": 0.0005593035212011344
+        },
+        {
+          "step": 70,
+          "validation_loss": 0.65080326795578,
+          "validation_accuracy": 0.5703125,
+          "response_drift": 0.004516266475310103,
+          "onsager_regret": -1.9300266490410964e-05,
+          "kkt_residual": 0.0018130300080895527
+        },
+        {
+          "step": 80,
+          "validation_loss": 0.65079665184021,
+          "validation_accuracy": 0.5703125,
+          "response_drift": 0.004507467983971042,
+          "onsager_regret": -2.871333769914436e-05,
+          "kkt_residual": 0.0019218044875198394
+        }
+      ]
+    }
+  ],
+  "selected_multiplier": 1.15,
+  "selected_arm": "current_metric_m115",
+  "control_minus_selected_final_loss": {
+    "current_projected_adamw": 0.0013533830642700195,
+    "source_frozen_metric_m100": 0.015996098518371582
+  },
+  "numerical_gates": {
+    "all_runs_finite": true,
+    "all_response_balls_respected": true,
+    "float64_projector_leakage_at_most_1e_10": true,
+    "projector_idempotence_at_most_1e_10": true,
+    "response_rank_constant": true,
+    "frozen_multiplier_exact": true,
+    "all_current_metric_kkt_residuals_at_most_1e_8": true,
+    "all_current_metric_linearized_constraint_residuals_at_most_1e_8": true,
+    "all_current_metric_onsager_regrets_numerically_zero": true
+  },
+  "scientific_gates": {
+    "selected_multiplier_beats_source_frozen_metric": true,
+    "selected_multiplier_beats_projected_adamw": true,
+    "selected_multiplier_positive_learning_gain": true
+  },
+  "scientific_status": "R17D_SEED_SUPPORTS_FROZEN_METRIC_ONSAGER",
+  "wall_seconds": 64.32596230506897,
+  "claim_boundary": "One worker of a frozen five-seed R17d confirmation. It has no standalone confirmatory status."
+}
