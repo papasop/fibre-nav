@@ -1,0 +1,48 @@
+{
+  "protocol": "FIBRE_QWEN_PROSPECTIVE_NEW_ITEM_ROUTED_CAPACITY_R21D",
+  "mode": "prospectively_frozen_new_item_automatic_audit",
+  "models": [
+    "Qwen/Qwen3-0.6B",
+    "Qwen/Qwen3-8B"
+  ],
+  "arms": [
+    "Qwen3-0.6B_router",
+    "Qwen3-8B_bare",
+    "Qwen3-8B_router"
+  ],
+  "items": 20,
+  "eval_sha256": "02a278eb00e6055eff2a65e2dd18a5b149a1625a05e778e5caf7103105f4700a",
+  "cards_sha256": "261a00407574e7d07ca5e3e99c46a7450d84e7124921387c42c3756b8924d46c",
+  "counts": {
+    "small_router": {
+      "semantic": 0,
+      "healthy": 19
+    },
+    "large_bare": {
+      "semantic": 0,
+      "healthy": 20
+    },
+    "large_router": {
+      "semantic": 0,
+      "healthy": 20
+    }
+  },
+  "large_router_unique_wins": {
+    "versus_small_router": 0,
+    "versus_large_bare": 0
+  },
+  "automatic_gates": {
+    "twenty_new_items_exact": true,
+    "sixty_records_exact": true,
+    "all_records_finite": true,
+    "router_exact_20_of_20": false,
+    "large_router_semantic_at_least_14_of_20": false,
+    "large_router_healthy_at_least_18_of_20": true,
+    "large_router_beats_small_on_at_least_6_items": false,
+    "large_router_beats_large_bare_on_at_least_4_items": false
+  },
+  "human_review_status": "PENDING_BLINDED_REVIEW",
+  "scientific_status": "R21D_AUTOMATIC_AUDIT_INCONCLUSIVE_FAIL_CLOSED",
+  "wall_seconds": 504.7009403705597,
+  "claim_boundary": "Prospectively frozen automatic audit on twenty newly authored research-assistant items. The v2 contracts were frozen before these outputs, but they are authored lexical contracts rather than blinded human labels. No weight learning occurs. This is not broad personalization, moving-fibre superiority, safety certification, continual learning, or deployment readiness."
+}

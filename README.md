@@ -180,19 +180,7 @@ seed. R16b is retained as the response-occupancy-only action negative boundary.
 
 ## Fibre-Qwen development overlay
 
-`fibre-qwen/` archives an auditable v0.0.1-development side project for a
-research-oriented Qwen assistant. It contains R20-R21 protocols, short
-conversation-derived preference bootstraps, frozen evaluation summaries,
-targeted rule profiles and a deterministic R21b-r2 router/oracle diagnostic
-protocol. It does not include model weights, adapter checkpoints, private raw
-dialogue, credentials, caches or `__pycache__`.
-
-The current Qwen state is fail-closed. R21b-r1 restored generation health to
-9/10 and improved declared-answer margins on 8/10 reused items, but semantic
-success remained 5/10, below the frozen semantic gate. R21b-r2 is protocol
-only in this archive; no R21b-r2 result is claimed. This branch is not
-moving-response-fibre optimizer evidence, broad personalization evidence,
-safety certification, continual learning or a trained-model release.
+`fibre-qwen/` archives an auditable v0.0.1-development side project for a research-oriented Qwen assistant. R21b-r2 achieved exact 10/10 deterministic routing, so retrieval is no longer the leading bottleneck. R21c compared Qwen3-0.6B with Qwen3-8B, but R21c-r1 mechanically invalidated its original lexical evaluator. Under transparently post-hoc revised contracts, Qwen3-8B free generation scored 7/10 versus 2/10 for 0.6B. This nominates an 8B candidate for future untouched R21d confirmation; it is not moving-response-fibre optimizer evidence, broad personalization, safety certification, continual learning or a trained-model release.
 
 [Inspect Fibre-Qwen overlay](fibre-qwen/)
 

@@ -1,0 +1,43 @@
+{
+  "protocol": "FIBRE_QWEN_ORACLE_GENERATOR_CAPACITY_R21C_DEVELOPMENT",
+  "mode": "same_item_oracle_retrieval_generator_mechanism_diagnostic",
+  "models": [
+    "Qwen/Qwen3-0.6B",
+    "Qwen/Qwen3-8B"
+  ],
+  "items": 10,
+  "counts": {
+    "Qwen/Qwen3-0.6B|oracle_free": {
+      "semantic": 4,
+      "healthy": 10,
+      "slot_format": 10
+    },
+    "Qwen/Qwen3-0.6B|oracle_slots": {
+      "semantic": 0,
+      "healthy": 9,
+      "slot_format": 9
+    },
+    "Qwen/Qwen3-8B|oracle_free": {
+      "semantic": 5,
+      "healthy": 10,
+      "slot_format": 10
+    },
+    "Qwen/Qwen3-8B|oracle_slots": {
+      "semantic": 2,
+      "healthy": 10,
+      "slot_format": 10
+    }
+  },
+  "gates": {
+    "ten_same_development_items": true,
+    "all_records_present": true,
+    "all_generations_healthy": false,
+    "small_slots_format_at_least_9_of_10": true,
+    "small_slots_semantic_beats_small_free": false,
+    "large_slots_semantic_at_least_7_of_10": false
+  },
+  "diagnosis": "CARD_OR_EVALUATION_REPRESENTATION_LIMITING",
+  "wall_seconds": 212.7379310131073,
+  "scientific_status": "R21C_GENERATOR_INCONCLUSIVE_FAIL_CLOSED",
+  "claim_boundary": "Same ten authored development items with declared oracle retrieval. Qwen3-8B is a capacity control, not a personalized model. The oracle is non-deployable and the slot prompt is development-selected. This diagnoses generator capacity and output structure only; it is not untouched confirmation, weight learning, broad personalization, safety certification, moving-fibre evidence, or deployment readiness."
+}

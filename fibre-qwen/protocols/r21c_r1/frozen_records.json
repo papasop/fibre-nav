@@ -1,0 +1,790 @@
+[
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e01",
+    "oracle_card": "evidence",
+    "generation": "不能称普遍优于 AdamW。根据规则，只有在冻结模型、任务、预算和指标的前提下，局部实验的结果才可支持结论。当前情况仅在五个种子上验证了新优化器的表现，未提供足够的证据来证明其普遍性。因此，无法得出“普遍优于 AdamW”的结论。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 67
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e02",
+    "oracle_card": "kernel",
+    "generation": "结论：ker DR 不是一个完整的学习算法。\n\n理由：ker DR 仅给出了响应一阶不变的局部切向机会，并且在有限步保持时需要回缩或预算，而学习价值与优化器选择需要另证。因此，它无法自动保证任意有限步提升，这表明其在某些情况下可能不足以达到理想的学习效果。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": [
+        "自动保证任意"
+      ]
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 75
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e03",
+    "oracle_card": "runtime",
+    "generation": "结论：工程崩溃  \n理由：SystemExit: 2 表明系统在运行过程中出现了异常终止，但存在完整的 run_summary，这表明系统可能处于非死锁状态，因此属于工程崩溃。边界：该情况不符合“静默工作”的定义，且未达到“一分钟就一定卡死”的条件。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        false,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 69
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e04",
+    "oracle_card": "lr_separation",
+    "generation": "结论：同一分类标签同时定义学习损失和响应保持坐标可能导致目标与响应的不一致，从而影响模型的公平性。\n\n理由：  \n根据规则，学习目标（L）与响应图（R）必须在数据、提示、标签或功能坐标上分离，否则可能存在偷渡学习目标的风险。如果在同一分类标签下同时定义学习损失和响应保持坐标，可能会导致目标与响应之间存在混淆或偏差，进而影响模型的公平性和有效性。\n\n边界：  \n该问题仅适用于在分类标签下同时定义学习损失和响应保持坐标的情况，其他情况下应遵循相关规则进行合理设计。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 131
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e05",
+    "oracle_card": "evidence",
+    "generation": "不，不应不断换种子。开发失败后应首先进行诊断，而不是通过更换种子来追求通过。根据规则，开发失败必须保留并先诊断，不能通过更换种子或门槛来实现通过。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 45
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e06",
+    "oracle_card": "metric",
+    "generation": "结论：半正定退化形式并不等同于洛伦兹度规。\n\n理由：半正定退化形式处处非负并允许非零核，而洛伦兹形式是非退化且不定，属于需要额外表示假设的条件分支。因此，它们是不同的概念，不能简单地等同。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 69
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e07",
+    "oracle_card": "principle_r",
+    "generation": "结论：神经网络中利用零方向并不直接验证 Principle R。\n\n理由：神经网络零方向仅展示局部可利用性，而 Principle R 强调的是在真实物理模型中，非恒定零成本过程达到声明的收缩下界。因此，神经网络零方向无法直接验证 Principle R 的要求。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 68
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e08",
+    "oracle_card": "paper",
+    "generation": "结论：论文保留两个最吸睛的小边际实验是合理的。\n\n理由：小边际实验能够有效突出研究的创新点或显著贡献，同时通过删减强几何证据来避免冗余信息，符合科学写作中的逻辑与简洁性原则。\n\n边界：论文应保留几何支撑、功能后果和失败边界，以确保研究的完整性和可信度。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 77
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e09",
+    "oracle_card": "runtime",
+    "generation": "**结论：**  \nColab 任务是否真的卡住，可以通过检查 `gates` 和 `traceback` 的信息来判断。\n\n**理由：**  \n- **`gates`** 是 Colab 中用于表示任务执行状态的指标，如果 `gates` 显示为“0”或“未完成”，说明任务可能处于“静默工作”或“未完成”的状态，而非真正卡住。  \n- **`traceback`** 提供了任务执行过程中的详细日志，若 `traceback` 中没有异常或错误信息，则表明任务可能仍在正常运行中。  \n\n**边界：**  \n- 一分钟静默不等于死锁，因此不能简单地认为“一分钟就一定卡死”。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 159
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_free",
+    "id": "e10",
+    "oracle_card": "assistant",
+    "generation": "**结论**: 核验结论为“研究助手能够根据给定规则提供符合要求的回答。”\n\n**证据等级与适用边界**:  \n- **证据等级**: 一级（高度可信）  \n- **适用边界**: 适用于所有基于规则的推理任务。\n\n**最小可执行下一步**:  \n- 确认规则是否已被正确应用，并继续进行后续步骤。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 79
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e01",
+    "oracle_card": "evidence",
+    "generation": "结论：无法确定普遍优于AdamW。\n\n理由一：该新优化器在任务的五个种子上均表现优异。\n\n理由二：未提供足够的信息来验证其是否普遍优于AdamW。\n\n边界：当前数据仅支持在特定任务和种子上的表现，无法推断出普遍性优势。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 65
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e02",
+    "oracle_card": "kernel",
+    "generation": "结论：因为没有提供足够的信息来证明其完整性。\n\n理由一：没有提供足够的信息来证明其完整性。\n\n理由二：没有提供足够的信息来证明其完整性。\n\n边界：无法确定是否在所有情况下都有效。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        false,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": false,
+    "slot_format": true,
+    "tokens": 48
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e03",
+    "oracle_card": "runtime",
+    "generation": "结论：实验输出 SystemExit: 2，但有完整 run_summary，应视为正常运行。\n\n理由一：关键事实为：Gates 已达到阈值，表明系统处于正常状态。\n\n理由二：关键事实为：Traceback 显示了完整的执行日志，未出现异常或死锁信息。\n\n边界：不能推出“一分钟就一定卡死”的结论。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        false,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 81
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e04",
+    "oracle_card": "lr_separation",
+    "generation": "结论：同一分类标签同时定义学习损失和响应保持坐标可能导致模型无法区分不同样本的类别，影响性能。\n\n理由一：同一分类标签同时定义学习损失和响应保持坐标意味着模型需要同时优化两个不同的指标，这可能会导致模型在训练过程中产生冲突。\n\n理由二：由于学习损失和响应保持坐标是两个独立的目标函数，它们之间可能存在潜在的干扰，从而影响模型的整体表现。\n\n边界：该问题仅限于模型在分类任务中的表现，不涉及其他类型的损失函数或目标函数。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 112
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e05",
+    "oracle_card": "evidence",
+    "generation": "结论：开发失败后应保留并进行诊断，不应更换种子。\n\n理由一：动态核在开发种子时出现性能下降，未达到预期目标。\n\n理由二：根据规则，开发失败后应保留并进行诊断，不能通过更换种子或门槛来解决。\n\n边界：开发失败后不应更换种子，且需保留并分析失败原因。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 75
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e06",
+    "oracle_card": "metric",
+    "generation": "结论：半正定退化度规不等同于洛伦兹度规。\n\n理由一：不等同、非负核、额外假设。\n\n边界：退化自动产生洛伦兹时空。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": false,
+    "tokens": 45
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e07",
+    "oracle_card": "principle_r",
+    "generation": "结论：神经网络零方向不直接验证 Principle R。\n\n理由一：神经网络中存在零方向，这些方向可以用于优化目标函数。\n\n理由二：神经网络中的零方向是通过非恒定零成本过程实现的，符合物理模型的要求。\n\n边界：不能推出神经网络零方向直接验证 Principle R 的结论。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        false,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 70
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e08",
+    "oracle_card": "paper",
+    "generation": "结论：论文保留了两个最吸睛的小边际实验，但删除了强几何证据。\n\n理由一：论文仅保留了两个最吸引人的小实验，符合研究重点。\n\n理由二：删除了强几何证据，可能影响实验的可信度和结果的有效性。\n\n边界：不推出实验结果与实际数据之间的因果关系。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 72
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e09",
+    "oracle_card": "runtime",
+    "generation": "结论：需要结合科学失败关闭、静默工作与工程崩溃的条件进行判断。\n\n理由一：检查 gates 和 traceback，以确定是否发生了科学失败关闭或工程崩溃。\n\n理由二：分钟内的静默不等同于死锁，需进一步分析任务状态。\n\n边界：不能直接推断任务是否真的卡住，需结合具体上下文和系统日志信息。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 82
+  },
+  {
+    "model": "Qwen/Qwen3-0.6B",
+    "style": "oracle_slots",
+    "id": "e10",
+    "oracle_card": "assistant",
+    "generation": "结论：研究助手应根据已有知识和逻辑推理进行合理推断。\n\n理由一：关键事实为“研究助手在处理复杂问题时通常会采用系统化方法”。\n\n理由二：关键事实为“研究助手需要考虑多个因素以确保决策的准确性”。\n\n边界：不能推出“所有复杂问题都能通过系统化方法解决”，且不能假设所有情况都符合现有知识。\n\n行动：继续深入分析并验证假设。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 91
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e01",
+    "oracle_card": "evidence",
+    "generation": "结论：不能称普遍优于 AdamW。\n\n理由：根据规则，局部实验仅能支持冻结模型、任务、预算和指标内的结论。该实验仅在单一任务的五个种子上进行，未涉及其他任务或模型配置，因此无法得出普遍优于 AdamW 的结论。\n\n边界：若要在更广泛的范围内声称优越性，需在多个任务、不同模型架构、多种预算限制及不同评估指标下进行验证，并确保实验结果的一致性。同时，任何失败案例均应被保留并进行诊断，而非通过更换种子或调整参数来规避失败。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 123
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e02",
+    "oracle_card": "kernel",
+    "generation": "结论：ker DR 不是一个完整的学习算法。\n\n理由：ker DR 仅提供了一阶不变的局部切向机会，其效果依赖于特定条件下的回缩或预算机制，并未涵盖完整的优化过程或学习策略。学习价值与优化器选择需通过其他方式验证，无法自动保证在任意有限步内实现性能提升。\n\n边界：该分析基于一阶、局部及有限步需另证的前提，不涉及具体实验数据或参数设置。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 99
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e03",
+    "oracle_card": "runtime",
+    "generation": "结论：属于科学失败关闭。\n\n理由：SystemExit: 2 表示程序主动退出，通常由异常或错误触发，而完整的 run_summary 表明实验流程已执行完毕并记录了结果。这表明实验在达到某种终止条件后结束，而非因系统资源耗尽或进程阻塞导致的静默工作或工程崩溃。\n\n边界：需进一步检查 gates 和 traceback 以确定具体原因，但 SystemExit: 2 不等同于硬超时或死锁，应视为科学计算过程中出现的逻辑终止。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 117
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e04",
+    "oracle_card": "lr_separation",
+    "generation": "结论：这会导致学习目标（L）与响应图（R）在标签坐标上未分离，违反了L/R分离原则。\n\n理由：当同一分类标签同时用于定义学习损失和响应保持坐标时，该标签既作为训练信号又作为响应生成的参考标准，从而使得学习目标与响应图在标签维度上产生耦合。这种耦合会破坏L/R分离性，进而可能导致模型通过“作弊”方式直接利用标签信息来构造响应，而非真正理解任务本质。\n\n边界：若标签仅用于定义损失函数而不参与响应图的构建，则不构成违规；反之，若标签被同时用于损失计算与响应生成的坐标系，则必然导致L/R未分离。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 151
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e05",
+    "oracle_card": "evidence",
+    "generation": "结论：不应该不断换种子。\n\n理由：根据规则，开发失败必须保留并先诊断，不得通过更换种子追求通过。动态核在开发种子上的失败属于开发失败，应保留该失败案例进行诊断，而非通过更换种子来规避问题。\n\n边界：仅当完成对失败原因的充分诊断，并确认更换种子可能带来新的有效结果时，才可考虑更换种子。但此过程仍需基于原有冻结范围、跨任务确认及保留失败的原则进行。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 102
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e06",
+    "oracle_card": "metric",
+    "generation": "结论：否。\n\n理由：半正定退化度规允许非零核，其性质为处处非负，但并非非退化。而洛伦兹度规是非退化的，并且是不定的，属于需要额外表示假设的条件分支。因此二者在数学结构上并不等同。\n\n边界：半正定退化度规与洛伦兹度规的区别在于退化性与不定性，二者不能互相替代或等同。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 98
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e07",
+    "oracle_card": "principle_r",
+    "generation": "结论：没有直接验证 Principle R。\n\n理由：神经网络中利用零方向仅展示了局部可利用性，而未直接验证 Principle R。根据规则，直接支持 Principle R 需要真实物理模型中的非恒定零成本过程达到声明的收缩下界，这超出了单纯利用零方向的范畴。\n\n边界：讨论限于神经网络内的局部性质，不涉及对物理定律的直接验证或证明。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 91
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e08",
+    "oracle_card": "paper",
+    "generation": "**结论：不合适。**\n\n**理由：**  \n根据规则 R17d，步级变分桥梁必须保留几何承重与功能后果，而“强几何证据”是确保结构稳定性和科学严谨性的基础。删除此类证据会削弱研究的可信度，并可能违反 R13 关于动态核核心的前置要求，导致逻辑链条断裂。\n\n**边界：**  \n- **不可删除**任何与几何支撑或功能后果直接相关的数据。  \n- **不可舍弃**失败边界分析，否则无法评估实验结果的可靠性。  \n- **仅可保留**两个小边际实验的前提是，它们必须不损害上述核心要素。  \n\n**禁止主张：**  \n不得以“叙事允许放弃证据边界”为由，忽略几何支撑与失败边界的必要性。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 169
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e09",
+    "oracle_card": "runtime",
+    "generation": "**结论：**  \n无法仅凭一分钟静默断言 Colab 任务卡住，需综合分析 `gates`、`traceback`、科学状态、GPU 利用率及硬超时。\n\n**理由：**  \n1. **`gates` 检查**：若存在未通过的 gate（如依赖未完成或资源不足），任务可能因逻辑阻塞而非卡死。  \n2. **`traceback` 分析**：无 traceback 表明未触发异常，但可能因计算密集型任务导致延迟。  \n3. **科学状态**：若任务仍在推进（如模型训练进度正常），则非卡死。  \n4. **GPU 利用率**：高利用率说明任务在执行，低利用率可能因资源分配问题或任务等待。  \n5. **硬超时",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 180
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_free",
+    "id": "e10",
+    "oracle_card": "assistant",
+    "generation": "**结论**：研究助手回答问题时应优先遵循“核验结论—证据等级—适用边界—最小可执行下一步”的逻辑顺序。\n\n**理由与边界**：  \n1. **核验结论**是基础，确保回答基于可验证的事实或数据，避免主观臆断或未经证实的信息。  \n2. **证据等级**需明确区分不同来源的可信度（如实验数据、权威文献、共识观点等），以评估结论的可靠性。  \n3. **适用边界**指明结论的适用范围及限制条件，防止过度泛化或误用。  \n4. **最小可执行下一步**提供具体可行的操作建议，而非空泛的理论讨论。  \n\n**禁止主张**：不优先迎合宏大叙事或未被验证的假设，仅聚焦于可核查、可操作的内容。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 175
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e01",
+    "oracle_card": "evidence",
+    "generation": "结论：不能称普遍优于 AdamW。  \n理由一：局部实验仅在单一任务和有限种子上验证性能。  \n理由二：未进行跨任务泛化能力及不同超参数设置下的对比。  \n边界：无法从单一任务表现推断出对所有任务的优越性。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        false,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 64
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e02",
+    "oracle_card": "kernel",
+    "generation": "结论：ker DR 不是一个完整的学习算法。  \n理由一：它仅提供一阶局部切向机会。  \n理由二：有限步保持需要额外回缩或预算。  \n边界：无法自动保证任意有限步提升。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": [
+        "自动保证任意"
+      ]
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 50
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e03",
+    "oracle_card": "runtime",
+    "generation": "结论：应优先检查 gates 和 traceback 以确定原因。  \n理由一：SystemExit: 2 可能由 gates 中的条件触发导致。  \n理由二：完整的 run_summary 表明程序未完全终止，可能处于异常状态。  \n边界：不能仅凭 SystemExit: 2 推断为工程崩溃或死锁。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        false,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 75
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e04",
+    "oracle_card": "lr_separation",
+    "generation": "结论：这会导致学习目标与响应图无法有效分离。  \n理由一：分类标签被用于衡量模型的预测准确性。  \n理由二：同一标签同时影响损失函数和响应保持的评估标准。  \n边界：无法保证模型优化过程中的对齐性与公平性。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 61
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e05",
+    "oracle_card": "evidence",
+    "generation": "结论：不应该不断换种子。  \n理由一：开发失败必须保留并先诊断。  \n理由二：更换种子无法解决根本问题。  \n边界：不能通过更换种子证明模型有效性。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 42
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e06",
+    "oracle_card": "metric",
+    "generation": "结论：半正定退化度规不等同于洛伦兹度规。  \n理由一：半正定退化形式允许非零核且处处非负。  \n理由二：洛伦兹形式是非退化且不定，需额外假设才能定义。  \n边界：不能推出退化度规自动具有洛伦兹时空结构。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 76
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e07",
+    "oracle_card": "principle_r",
+    "generation": "结论：没有直接验证 Principle R。  \n理由一：神经网络零方向仅展示局部可利用性。  \n理由二：缺乏真实物理模型的支持。  \n边界：无法推出 ker DR 已证明物理定律。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 47
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e08",
+    "oracle_card": "paper",
+    "generation": "结论：不适宜删除强几何证据。  \n理由一：几何支撑是验证结构稳定性的基础。  \n理由二：失败边界需依赖完整证据链支撑。  \n边界：无法通过小实验推导出整体可靠性。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 49
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e09",
+    "oracle_card": "runtime",
+    "generation": "结论：需要综合分析多个指标来判断是否真的卡住。  \n理由一：检查是否有未完成的 gates 或异常的 traceback 记录。  \n理由二：观察 GPU 利用率及阶段日志是否持续无进展超过合理时间。  \n边界：不能仅凭一分钟内无输出就断定任务已卡死。",
+    "semantic": false,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 73
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "style": "oracle_slots",
+    "id": "e10",
+    "oracle_card": "assistant",
+    "generation": "结论：优先顺序是核验结论、证据、边界、行动。  \n理由一：核验结论确保回答准确且可验证。  \n理由二：证据支持结论并提供可信度基础。  \n边界：不能忽略未被证实的信息或假设。",
+    "semantic": true,
+    "semantic_audit": {
+      "required_group_pass": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "forbidden_hits": []
+    },
+    "health": true,
+    "slot_format": true,
+    "tokens": 55
+  }
+]

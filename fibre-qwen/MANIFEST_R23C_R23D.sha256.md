@@ -1,0 +1,26 @@
+# R23c-r2 / R23d import manifest
+
+Source result ZIP SHA-256:
+- R23c-r2: 2600a216ba2807f166eed554c2033ce9cb1f9daa7c847a3f15eb78a5fcd62af4
+- R23d: 06ad30ad6d80d7dcdcfc08134a440610a7373065dfd0de97ce5d5277d193aa11
+
+Imported file hashes:
+
+```
+a490dd4eb1001764a16a25a11e4174387c9fb5b7abbc6ff2cc030c32736aa6d9  fibre-qwen/evidence/r23c_r2/PROVENANCE.md
+3fbd1e8adb91a79e5825bd62be887533c6819f627a70df2fb47fb314cf9644f8  fibre-qwen/evidence/r23c_r2/child_combined.log
+5f6a41156a79feb4b11922f15b891a45dce2b390a2a80a2f857a62f95057e7f0  fibre-qwen/evidence/r23c_r2/launcher_summary.json
+38af8d1cb7d9098cd557057cc7097e2577c2095621618a487e37751ab002278d  fibre-qwen/evidence/r23c_r2/run_summary.json
+db47c9a70fc8c7308de2b8f4bdbb9181fd1289824026009f60150527690934e4  fibre-qwen/evidence/r23d/PROVENANCE.md
+6c348dc15176d06b349d70ccb50b0ea28d337de56b4a97f8d13396ec87d2eb28  fibre-qwen/evidence/r23d/child_combined.log
+6345245aa5d323170e54a57ea4a656a82907bf84f8b9fe41e1a6bfbf360c73a0  fibre-qwen/evidence/r23d/launcher_summary.json
+f31a4fac68c40149099e69428374724bd11c1329bb44f08cc90ce43d283792f9  fibre-qwen/evidence/r23d/run_summary.json
+4c37f13ed4449c10eeef5c9df3f6f6ea23111f20979b2ae9748c6ed790a2de1e  fibre-qwen/protocols/r23c_r2/README.md
+ca02b38b8706a3381da420c398414ae5d6f6bad66cd75ec67a7b2eb2e49e0a49  fibre-qwen/protocols/r23c_r2/colab_launcher_r23c_r2.py
+532148354e3a08ee697e4ec94d3482b17425a0084b6b090af25b0e43ca3df728  fibre-qwen/protocols/r23c_r2/fibre_qwen_r23c.py
+805b4555cc850e6fb15f52ff08fa1be5916972038f2e919bf963914f08f7090b  fibre-qwen/protocols/r23c_r2/requirements.txt
+a82b8938b1d6a27823f428bb8434c7d84f7d86249986b4d08ee138fb75e71413  fibre-qwen/protocols/r23d/README.md
+ca22319a169d088b80d8b1dbceb312c0a138c4063f8a39ecbefc82e86ca28d54  fibre-qwen/protocols/r23d/fibre_qwen_r23d.py
+7a3573cb5c43ffde53ddd7ad3ccb4c07ca94f90452a5508f8e76e9a5ac483cf9  fibre-qwen/protocols/r23d/requirements.txt
+3cf56557f7582ce649543f38d6bf4b2ac7dad480fd1840ffa5847754423d1618  fibre-qwen/protocols/r23d/run_fibre_qwen_r23d_colab.py
+```

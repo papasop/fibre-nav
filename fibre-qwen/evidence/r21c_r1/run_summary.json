@@ -1,0 +1,62 @@
+{
+  "protocol": "FIBRE_QWEN_R21C_R1_SEMANTIC_EVALUATOR_AUDIT",
+  "mode": "post_r21c_offline_evaluator_validity_audit",
+  "frozen_records_sha256": "e0e815134da012a3f4f5a164206f4095fcb6d7732858bfc4ef194767f71c9c4e",
+  "counts": {
+    "Qwen/Qwen3-0.6B|oracle_free": {
+      "semantic_v1": 4,
+      "semantic_v2": 2,
+      "healthy": 10,
+      "slot_format_v2": null
+    },
+    "Qwen/Qwen3-0.6B|oracle_slots": {
+      "semantic_v1": 0,
+      "semantic_v2": 0,
+      "healthy": 9,
+      "slot_format_v2": 9
+    },
+    "Qwen/Qwen3-8B|oracle_free": {
+      "semantic_v1": 5,
+      "semantic_v2": 7,
+      "healthy": 10,
+      "slot_format_v2": null
+    },
+    "Qwen/Qwen3-8B|oracle_slots": {
+      "semantic_v1": 2,
+      "semantic_v2": 5,
+      "healthy": 10,
+      "slot_format_v2": 10
+    }
+  },
+  "metamorphic_tests": [
+    {
+      "text": "无法自动保证任意有限步提升",
+      "expected_affirmative": false,
+      "observed_affirmative": false
+    },
+    {
+      "text": "ker DR 自动保证任意有限步提升",
+      "expected_affirmative": true,
+      "observed_affirmative": true
+    },
+    {
+      "text": "不能只凭一分钟无输出认定死锁",
+      "expected_affirmative": false,
+      "observed_affirmative": false
+    },
+    {
+      "text": "一分钟无输出就能认定死锁",
+      "expected_affirmative": true,
+      "observed_affirmative": true
+    }
+  ],
+  "gates": {
+    "frozen_records_sha256_exact": true,
+    "forty_records_exact": true,
+    "two_models_two_styles_exact": true,
+    "negation_metamorphic_tests_all_pass": true,
+    "free_slot_format_is_null": true
+  },
+  "scientific_status": "R21C_V1_EVALUATOR_MECHANICALLY_INVALIDATED",
+  "interpretation_boundary": "V2 corrects declared lexical and polarity defects and rescoring is reported transparently. Contracts were revised after inspecting R21c outputs, so v2 scores are development diagnostics, not blinded human labels or untouched confirmation. They must not be used alone to nominate a deployable model."
+}

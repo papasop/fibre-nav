@@ -1,0 +1,28 @@
+{
+  "protocol": "FIBRE_QWEN_DETERMINISTIC_ROUTER_ORACLE_R21B_R2_DIAGNOSTIC",
+  "mode": "same_item_post_r21b_r1_router_oracle_diagnostic",
+  "model": "Qwen/Qwen3-0.6B",
+  "items": 10,
+  "median_deterministic_margin_delta": 0.9993991851806641,
+  "deterministic_improved_items": 10,
+  "counts": {
+    "bare": {"declared": 5, "semantic": 0, "healthy": 10},
+    "long_constitution": {"declared": 6, "semantic": 2, "healthy": 10},
+    "deterministic_router": {"declared": 9, "semantic": 2, "healthy": 10},
+    "retrieval_oracle": {"declared": 9, "semantic": 2, "healthy": 10}
+  },
+  "router_exact_count": 10,
+  "diagnosis": "GENERATOR_OR_CARD_REPRESENTATION_LIMITING",
+  "gates": {
+    "ten_same_development_items": true,
+    "all_records_finite": true,
+    "deterministic_router_exact_10_of_10": true,
+    "oracle_semantic_at_least_7_of_10": false,
+    "deterministic_semantic_at_least_7_of_10": false,
+    "deterministic_healthy_at_least_9_of_10": true,
+    "deterministic_prefers_declared_at_least_8_of_10": true,
+    "median_margin_delta_positive": true
+  },
+  "scientific_status": "R21B_R2_INCONCLUSIVE_FAIL_CLOSED",
+  "claim_boundary": "Same ten authored development items reused after R21a/R21b. The oracle arm diagnoses retrieval versus generation; it is not an implementable baseline, untouched confirmation, weight learning, moving-fibre evidence, broad personalization, safety certification, or deployment readiness."
+}

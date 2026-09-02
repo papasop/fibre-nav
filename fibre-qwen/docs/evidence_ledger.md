@@ -9,4 +9,10 @@
 | R21a | Does a full research constitution work? | margin 6/10 improved; semantic 2/10 | Fail-closed |
 | R21b | Does targeted retrieval reduce interference? | margin 7/10 improved; declared 8/10; semantic 5/10; health 7/10 | Mechanism signal; fail-closed |
 | R21b-r1 | Can one-card structured output restore health? | margin 8/10 improved; declared 8/10; health 9/10; semantic 5/10 | Stability repaired; semantic gate failed |
-| R21b-r2 | Is the remaining error caused by retrieval or generation? | Protocol frozen; no result in this archive | Same-item mechanism diagnostic |
+| R21b-r2 | Is the remaining error caused by retrieval or generation? | exact routing 10/10; deterministic/oracle declared 9/10 and semantic-v1 2/10 | Routing solved; summary transcript-reconstructed; fail-closed |
+| R21c | Does 8B or slot structure lift semantic generation? | v1: 8B free 5/10, 8B slots 2/10; all 8B outputs healthy | Inconclusive because evaluator was defective |
+| R21c-r1 | Was the R21c semantic evaluator valid? | Negation and slot-accounting defects confirmed; post-hoc v2: 8B free 7/10, 0.6B free 2/10 | v1 mechanically invalidated; 8B candidate only |
+| R21d | On 20 newly frozen items, does 8B+router beat 0.6B+router and bare 8B? | Generation health 19/20, 20/20, 20/20; lexical semantic score saturated at 0/20 for every arm; router exact 16/20 | Automatic comparison invalid; fail-closed |
+| R21d-r1 | Why did R21d score every arm 0/20? | Frozen hashes reproduced; lexical evaluator saturation and four router-coverage misses per routed model localized; 40 blinded pairs prepared | Measurement failure localized; human review pending |
+| R23c-r2 | Does the Qwen compute core numerically execute current `DR(theta)`, kernel projection and finite response budgets above the precision floor? | All 9 execution gates passed; one-seed moving loss below both controls at both calibrated budgets | Precision audit complete; developmental nomination only |
+| R23d | Does the frozen R23c-r2 ordering reproduce on five unused training-order seeds? | 5/5 support at both budgets; median moving advantages 0.07148/0.03455 vs source and 0.12631/0.12380 vs AdamW | **Frozen confirmation passed within the declared restricted scope** |

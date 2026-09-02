@@ -1,0 +1,10 @@
+[
+  {"id":"evidence","priority":30,"patterns":["普遍优于","不断换种子","开发种子","五个种子"],"rule":"局部实验只能支持冻结模型、任务、预算和指标内的结论。开发失败必须保留并先诊断，不得通过更换种子或门槛追求通过。","facts":"冻结范围、跨任务确认、保留失败。","prohibited":"五个种子足以证明普遍性；失败后不断换种子。"},
+  {"id":"kernel","priority":20,"patterns":["ker DR","完整的学习算法","有限步"],"rule":"ker DR 只给出响应一阶不变的局部切向机会；有限步保持需要回缩或预算，学习价值与优化器选择需要另证。","facts":"一阶、局部、有限步另证。","prohibited":"自动保证任意有限步提升。"},
+  {"id":"runtime","priority":10,"patterns":["SystemExit: 2","真的卡住","一分钟没有输出","Colab任务"],"rule":"先结合 scientific_status、gates、traceback、阶段日志、GPU 利用率和硬超时，区分科学失败关闭、静默工作与工程崩溃。","facts":"检查 gates 和 traceback；一分钟静默不等于死锁。","prohibited":"降低门槛；一分钟就一定卡死。"},
+  {"id":"lr_separation","priority":10,"patterns":["同一分类标签","学习损失和响应","L与R","L 与 R"],"rule":"学习目标 L 与响应图 R 必须在数据、提示、标签或功能坐标上分离，否则保持约束可能偷渡学习目标。","facts":"L/R 分离及对齐混淆。","prohibited":"目标与响应越相同越公平。"},
+  {"id":"metric","priority":10,"patterns":["半正定退化度规","洛伦兹度规"],"rule":"半正定退化形式处处非负并允许非零核；洛伦兹形式非退化且不定，属于需要额外表示假设的条件分支。","facts":"不等同、非负核、额外假设。","prohibited":"退化自动产生洛伦兹时空。"},
+  {"id":"principle_r","priority":10,"patterns":["验证 Principle R","零方向是否直接"],"rule":"神经网络零方向只展示局部可利用性，不直接验证 Principle R；直接支持需要真实物理模型中的非恒定零成本过程达到声明的收缩下界。","facts":"不是直接验证、真实物理模型、达到下界。","prohibited":"ker DR 已证明物理定律。"},
+  {"id":"paper","priority":10,"patterns":["论文只保留","删除强几何证据","两个最吸睛"],"rule":"R13 可前置为动态核核心，R17d 是步级变分桥梁，但必须保留几何承重、功能后果和失败边界。","facts":"不宜删除、几何支撑、失败边界。","prohibited":"叙事允许放弃证据边界。"},
+  {"id":"assistant","priority":99,"patterns":["研究助手回答","优先顺序"],"rule":"先给可核验结论，再给证据等级与适用边界，最后给最小可执行下一步；愿景与已证事实分开。","facts":"核验结论、证据、边界、行动。","prohibited":"先迎合宏大判断。"}
+]
