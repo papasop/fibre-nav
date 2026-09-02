@@ -6,7 +6,7 @@ Auditable development of a research-oriented Qwen assistant using conversation-d
 
 ## Current result
 
-Small-data LoRA training completed but did not survive frozen generation-health evaluation. Targeted prompting is currently more promising than weight training, but remains developmental. R21b-r1 restored generation health from 7/10 to 9/10 and improved declared-answer margins on 8/10 reused items, while semantic success remained 5/10. It therefore remains fail-closed. R21b-r2 is the next executable diagnostic: an auditable deterministic router is compared with a non-deployable retrieval oracle to separate routing error from Qwen3-0.6B generation limits. No R21b-r2 result is claimed in this archive.
+Small-data LoRA training completed but did not survive frozen generation-health evaluation. Targeted prompting is currently more promising than weight training, but remains developmental. R21b-r2 achieved exact 10/10 deterministic routing, so retrieval is no longer the leading bottleneck. R21c compared Qwen3-0.6B with Qwen3-8B, but its original lexical evaluator was mechanically invalidated by R21c-r1. Under the transparently revised post-hoc contracts, Qwen3-8B free generation scored 7/10 versus 2/10 for 0.6B. This nominates an 8B free-generation candidate for a future untouched R21d confirmation; it does not validate or deploy a personal model.
 
 ## Reproduce
 
@@ -14,9 +14,9 @@ Install Python 3.11+, PyTorch, `transformers==4.56.2`, `accelerate==1.10.1`, `pe
 
 ## Repository map
 
-- `protocols/`: executable R20–R21 protocols, including the R21b-r2 router/oracle diagnostic; adapters are deliberately excluded.
+- `protocols/`: executable R20–R21 protocols through the R21c-r1 evaluator audit; adapters are deliberately excluded.
 - `profiles/`: editable research constitution and retrieval cards.
-- `evidence/`: exact summaries and per-item records, including negative results.
+- `evidence/`: exact summaries and per-item records, including negative results. R21b-r2 is explicitly marked as transcript-reconstructed because its original result ZIP was unavailable.
 - `docs/`: evidence ledger, boundaries, and roadmap.
 
 ## Privacy

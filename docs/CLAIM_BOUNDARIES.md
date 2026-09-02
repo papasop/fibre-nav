@@ -205,12 +205,13 @@ counterfactual frontier result unchanged.
   but the authoritative recovered results ZIP is not imported here. Therefore
   no positive or negative v4.4-r1 decision is repository-backed, and the stage
   must not be moved to confirmed until recovered results are verified.
-- Fibre-Qwen v0.0.1-development is a fail-closed side overlay. R21b-r1 restored
-  generation health to 9/10 and improved declared-answer margins on 8/10 reused
-  items, but semantic success remained 5/10 below the frozen semantic gate.
-  R21b-r2 is protocol only; no R21b-r2 result is claimed. The overlay contains
-  no model weights, adapter checkpoints, private raw dialogue, credentials,
-  caches or `__pycache__`.
+- Fibre-Qwen v0.0.1-development remains a side overlay. R21b-r2 achieved
+  exact 10/10 deterministic routing. R21c-r1 mechanically invalidated the
+  original lexical evaluator; its post-hoc v2 contracts score Qwen3-8B free
+  generation at 7/10 versus 2/10 for 0.6B. This only nominates an 8B candidate
+  for untouched R21d confirmation. The overlay contains no model weights,
+  adapter checkpoints, private raw dialogue, credentials, caches or
+  `__pycache__`.
 
 ## Not established
 
@@ -229,7 +230,7 @@ counterfactual frontier result unchanged.
 - universal optimizer superiority, end-to-end Picard fine-tuning, or global
   Picard-flow convergence;
 - Qwen personalization, safety certification, continual learning, trained
-  adapter release, targeted-prompting success beyond the fail-closed R21b-r1
+  adapter release, targeted-prompting success beyond the post-hoc R21c-r1 development
   audit, or moving-response-fibre optimizer evidence from `fibre-qwen/`;
 - continuous low-response Pareto optimality beyond the frozen finite response
   budgets and alpha grids;

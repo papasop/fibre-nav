@@ -441,3 +441,8 @@ success remains 5/10 below the frozen semantic gate. R21b-r2 is protocol only;
 no R21b-r2 result is claimed. This overlay is not moving-response-fibre
 optimizer evidence, broad personalization evidence, safety certification,
 continual learning or a trained-model release.
+
+
+## Fibre-Qwen R21b-r2 through R21c-r1 update
+
+The development overlay was updated from parent commit `5700a527ea60639178291f0b2b7ba2a6abb61adb` using archive SHA-256 `ac0e4d7a0017093e83ad96c618d8002d3c0583cf9991338533c569a1111baffd`. R21b-r2 achieved exact deterministic routing, but its original result ZIP was unavailable at packaging time; only a transcript-reconstructed summary is included and explicitly marked, with no fabricated per-item record. R21c preserves the exact 40-record Qwen3-0.6B/Qwen3-8B comparison. R21c-r1 mechanically invalidates the v1 evaluator and reports post-hoc v2 rescoring. The 8B 7/10 score is a development nomination only, not untouched confirmation, personalization, safety certification, weight learning or deployment readiness.

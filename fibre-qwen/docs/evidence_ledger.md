@@ -9,4 +9,6 @@
 | R21a | Does a full research constitution work? | margin 6/10 improved; semantic 2/10 | Fail-closed |
 | R21b | Does targeted retrieval reduce interference? | margin 7/10 improved; declared 8/10; semantic 5/10; health 7/10 | Mechanism signal; fail-closed |
 | R21b-r1 | Can one-card structured output restore health? | margin 8/10 improved; declared 8/10; health 9/10; semantic 5/10 | Stability repaired; semantic gate failed |
-| R21b-r2 | Is the remaining error caused by retrieval or generation? | Protocol frozen; no result in this archive | Same-item mechanism diagnostic |
+| R21b-r2 | Is the remaining error caused by retrieval or generation? | exact routing 10/10; deterministic/oracle declared 9/10 and semantic-v1 2/10 | Routing solved; summary transcript-reconstructed; fail-closed |
+| R21c | Does 8B or slot structure lift semantic generation? | v1: 8B free 5/10, 8B slots 2/10; all 8B outputs healthy | Inconclusive because evaluator was defective |
+| R21c-r1 | Was the R21c semantic evaluator valid? | Negation and slot-accounting defects confirmed; post-hoc v2: 8B free 7/10, 0.6B free 2/10 | v1 mechanically invalidated; 8B candidate only |

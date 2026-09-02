@@ -205,17 +205,7 @@ and does not establish universal optimizer superiority or global Picard flow.
 
 ## Fibre-Qwen development overlay
 
-`fibre-qwen/` is archived as a v0.0.1-development side overlay, not as a rung
-of the moving-response-fibre evidence ladder. It records R20-R21 protocols,
-short preference bootstraps, frozen evaluation summaries, targeted rule
-profiles and the deterministic R21b-r2 router/oracle diagnostic protocol.
-
-The current state is fail-closed: R21b-r1 reports generation health 9/10 and
-8/10 reused items with improved declared-answer margins, but semantic success
-remained 5/10 below the frozen gate. R21b-r2 is protocol only and contributes
-no result. The overlay supports future auditability of the Qwen development
-line; it does not support personalization, safety certification,
-continual-learning, trained-adapter or response-fibre optimizer claims.
+`fibre-qwen/` is a v0.0.1-development side overlay, not a rung of the moving-response-fibre evidence ladder. R21b-r2 achieved exact 10/10 deterministic routing. R21c-r1 mechanically invalidated the original lexical evaluator; transparently post-hoc v2 contracts score Qwen3-8B free generation at 7/10 versus 2/10 for 0.6B. This nominates an 8B candidate for untouched R21d confirmation, but does not support personalization, safety certification, continual learning, trained-adapter or response-fibre optimizer claims.
 
 ## Uncrossed bridges
 
@@ -229,7 +219,7 @@ dynamic-state or causal-capacity laws for the future selected by ordinary
 optimizers. The Picard side branch has not crossed from the frozen intrinsic
 classifier protocol or the GPT-2 LoRA task protocol to end-to-end fine-tuning,
 semantic transfer, a universal optimizer comparison or global Picard-flow
-convergence. The Fibre-Qwen overlay has not crossed from fail-closed
+convergence. The Fibre-Qwen overlay has not crossed from post-hoc
 developmental prompting and bootstrap records to Qwen personalization, safety,
 continual-learning, trained-adapter or response-fibre optimizer evidence.
 
