@@ -178,6 +178,24 @@ seed. R16b is retained as the response-occupancy-only action negative boundary.
 
 [Inspect R17d evidence](evidence/confirmed/pythia160m_metric_onsager_r17d/)
 
+## Fibre-Qwen development overlay
+
+`fibre-qwen/` archives an auditable v0.0.1-development side project for a
+research-oriented Qwen assistant. It contains R20-R21 protocols, short
+conversation-derived preference bootstraps, frozen evaluation summaries,
+targeted rule profiles and a deterministic R21b-r2 router/oracle diagnostic
+protocol. It does not include model weights, adapter checkpoints, private raw
+dialogue, credentials, caches or `__pycache__`.
+
+The current Qwen state is fail-closed. R21b-r1 restored generation health to
+9/10 and improved declared-answer margins on 8/10 reused items, but semantic
+success remained 5/10, below the frozen semantic gate. R21b-r2 is protocol
+only in this archive; no R21b-r2 result is claimed. This branch is not
+moving-response-fibre optimizer evidence, broad personalization evidence,
+safety certification, continual learning or a trained-model release.
+
+[Inspect Fibre-Qwen overlay](fibre-qwen/)
+
 ## Functional premise: selected fibre directions can carry adaptive value
 
 ResNet-18/CIFAR-10 v4.0c-r1 prospectively tested the functional premise in the
@@ -489,6 +507,8 @@ evidence/
     gpt2_lora_b_r2_strict/
   pretrained_gpt2_dynamic_kernel_r12_r13/
     R12 development chain and R13 frozen pretrained GPT-2 confirmation
+  fibre-qwen/
+    Qwen v0.0.1-development protocols, fail-closed evidence and roadmap
   confirmed/
     pythia160m_metric_onsager_r17d/
       R17d five-untouched-seed metric-constrained Onsager confirmation
@@ -571,6 +591,9 @@ The archive does not establish:
 - universal optimizer superiority, end-to-end Picard fine-tuning, or global
   Picard-flow convergence;
 - a continuous Pareto optimum beyond the frozen finite budget and alpha grids;
+- Qwen personalization, safety certification, trained-model release or
+  moving-response-fibre optimizer evidence from the fail-closed
+  `fibre-qwen/` development overlay;
 - a universal intelligence, physical-time or K=1 law.
 
 ## Reproduce

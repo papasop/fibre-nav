@@ -203,6 +203,20 @@ time-to-equal-loss speedup was 24.46%, the median fixed-budget speedup was
 leakage was 8.23e-16. This side branch does not alter the moving-fibre ladder
 and does not establish universal optimizer superiority or global Picard flow.
 
+## Fibre-Qwen development overlay
+
+`fibre-qwen/` is archived as a v0.0.1-development side overlay, not as a rung
+of the moving-response-fibre evidence ladder. It records R20-R21 protocols,
+short preference bootstraps, frozen evaluation summaries, targeted rule
+profiles and the deterministic R21b-r2 router/oracle diagnostic protocol.
+
+The current state is fail-closed: R21b-r1 reports generation health 9/10 and
+8/10 reused items with improved declared-answer margins, but semantic success
+remained 5/10 below the frozen gate. R21b-r2 is protocol only and contributes
+no result. The overlay supports future auditability of the Qwen development
+line; it does not support personalization, safety certification,
+continual-learning, trained-adapter or response-fibre optimizer claims.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
@@ -215,7 +229,9 @@ dynamic-state or causal-capacity laws for the future selected by ordinary
 optimizers. The Picard side branch has not crossed from the frozen intrinsic
 classifier protocol or the GPT-2 LoRA task protocol to end-to-end fine-tuning,
 semantic transfer, a universal optimizer comparison or global Picard-flow
-convergence.
+convergence. The Fibre-Qwen overlay has not crossed from fail-closed
+developmental prompting and bootstrap records to Qwen personalization, safety,
+continual-learning, trained-adapter or response-fibre optimizer evidence.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry

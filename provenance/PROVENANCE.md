@@ -420,3 +420,24 @@ optimizer ordering, Principle-R theorem, physical law, equal-realized-budget
 result or claim that every seed beats projected AdamW. It does not replace the
 R13 pretrained GPT-2 dynamic-kernel confirmation; it adds a separate
 model-specific variational implementation bridge.
+
+## Fibre-Qwen v0.0.1-development overlay
+
+This import adds `fibre-qwen-v0.0.1-development-github.zip` as a development
+side overlay under `fibre-qwen/`. The expected and observed ZIP SHA-256 was
+`4dd1670c131de44b063906493a4baf0fe6921655d94beeaeb065be640b3c3e8f`.
+The package manifest was verified before import; the in-repository
+`fibre-qwen/MANIFEST.sha256` is regenerated for the final `fibre-qwen/` path.
+
+The overlay preserves R20-R21 protocols, short conversation-derived preference
+bootstraps, frozen evaluation summaries, targeted rule profiles and a
+deterministic R21b-r2 router/oracle diagnostic protocol. It contains no model
+weights, adapter checkpoints, private raw dialogue, credentials, caches,
+`__pycache__` directories or compiled Python bytecode.
+
+The current Fibre-Qwen state is fail-closed. R21b-r1 reports generation health
+9/10 and improved declared-answer margins on 8/10 reused items, but semantic
+success remains 5/10 below the frozen semantic gate. R21b-r2 is protocol only;
+no R21b-r2 result is claimed. This overlay is not moving-response-fibre
+optimizer evidence, broad personalization evidence, safety certification,
+continual learning or a trained-model release.
