@@ -1,0 +1,102 @@
+{
+  "protocol": "FIBRE_QWEN_R21D_R1_FROZEN_OUTPUT_EVALUATOR_AUDIT",
+  "mode": "post_r21d_frozen_output_mechanical_diagnostic",
+  "hashes": {
+    "records": "9316dda03c440f067b4b1a1cf2475c6e448158f03750f71ccfaa39fb8c6b055d",
+    "eval": "02a278eb00e6055eff2a65e2dd18a5b149a1625a05e778e5caf7103105f4700a",
+    "cards": "261a00407574e7d07ca5e3e99c46a7450d84e7124921387c42c3756b8924d46c"
+  },
+  "arms": [
+    "Qwen3-0.6B_router",
+    "Qwen3-8B_bare",
+    "Qwen3-8B_router"
+  ],
+  "semantic_counts_reproduced": {
+    "Qwen3-0.6B_router": 0,
+    "Qwen3-8B_bare": 0,
+    "Qwen3-8B_router": 0
+  },
+  "healthy_counts": {
+    "Qwen3-0.6B_router": 19,
+    "Qwen3-8B_bare": 20,
+    "Qwen3-8B_router": 20
+  },
+  "router_exact_counts": {
+    "Qwen3-0.6B_router": 16,
+    "Qwen3-8B_router": 16
+  },
+  "router_misses": [
+    {
+      "arm": "Qwen3-0.6B_router",
+      "id": "n02",
+      "expected": "evidence",
+      "observed": "assistant"
+    },
+    {
+      "arm": "Qwen3-0.6B_router",
+      "id": "n08",
+      "expected": "lr",
+      "observed": "assistant"
+    },
+    {
+      "arm": "Qwen3-0.6B_router",
+      "id": "n16",
+      "expected": "personal",
+      "observed": "assistant"
+    },
+    {
+      "arm": "Qwen3-0.6B_router",
+      "id": "n18",
+      "expected": "personal",
+      "observed": "assistant"
+    },
+    {
+      "arm": "Qwen3-8B_router",
+      "id": "n02",
+      "expected": "evidence",
+      "observed": "assistant"
+    },
+    {
+      "arm": "Qwen3-8B_router",
+      "id": "n08",
+      "expected": "lr",
+      "observed": "assistant"
+    },
+    {
+      "arm": "Qwen3-8B_router",
+      "id": "n16",
+      "expected": "personal",
+      "observed": "assistant"
+    },
+    {
+      "arm": "Qwen3-8B_router",
+      "id": "n18",
+      "expected": "personal",
+      "observed": "assistant"
+    }
+  ],
+  "lexical_failure_components": {
+    "conclusion": 34,
+    "boundary": 36
+  },
+  "lexical_core_failure_positions": {
+    "1": 45,
+    "2": 45,
+    "0": 41,
+    "3": 21
+  },
+  "gates": {
+    "records_sha_exact": true,
+    "eval_sha_exact": true,
+    "cards_sha_exact": true,
+    "twenty_items_exact": true,
+    "sixty_records_exact": true,
+    "three_arms_exact": true,
+    "forty_blinded_pairs_exact": true,
+    "r21d_semantic_evaluator_saturated": true
+  },
+  "diagnosis": "R21D_LEXICAL_EVALUATOR_SATURATED_AND_ROUTER_COVERAGE_INCOMPLETE",
+  "human_review_status": "PENDING_40_BLINDED_PAIRWISE_JUDGMENTS",
+  "scientific_status": "R21D_R1_MEASUREMENT_FAILURE_LOCALIZED",
+  "claim_boundary": "Post-output diagnostic on the frozen R21d records. It localizes measurement and routing defects and prepares blinded review, but cannot repair R21d into confirmation, establish an 8B ordering, validate personalization, demonstrate weight learning or moving-fibre superiority, certify safety, or justify deployment."
+}

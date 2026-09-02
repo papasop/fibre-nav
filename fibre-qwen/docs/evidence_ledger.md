@@ -12,3 +12,5 @@
 | R21b-r2 | Is the remaining error caused by retrieval or generation? | exact routing 10/10; deterministic/oracle declared 9/10 and semantic-v1 2/10 | Routing solved; summary transcript-reconstructed; fail-closed |
 | R21c | Does 8B or slot structure lift semantic generation? | v1: 8B free 5/10, 8B slots 2/10; all 8B outputs healthy | Inconclusive because evaluator was defective |
 | R21c-r1 | Was the R21c semantic evaluator valid? | Negation and slot-accounting defects confirmed; post-hoc v2: 8B free 7/10, 0.6B free 2/10 | v1 mechanically invalidated; 8B candidate only |
+| R21d | On 20 newly frozen items, does 8B+router beat 0.6B+router and bare 8B? | Generation health 19/20, 20/20, 20/20; lexical semantic score saturated at 0/20 for every arm; router exact 16/20 | Automatic comparison invalid; fail-closed |
+| R21d-r1 | Why did R21d score every arm 0/20? | Frozen hashes reproduced; lexical evaluator saturation and four router-coverage misses per routed model localized; 40 blinded pairs prepared | Measurement failure localized; human review pending |

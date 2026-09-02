@@ -6,7 +6,7 @@ Auditable development of a research-oriented Qwen assistant using conversation-d
 
 ## Current result
 
-Small-data LoRA training completed but did not survive frozen generation-health evaluation. Targeted prompting is currently more promising than weight training, but remains developmental. R21b-r2 achieved exact 10/10 deterministic routing, so retrieval is no longer the leading bottleneck. R21c compared Qwen3-0.6B with Qwen3-8B, but its original lexical evaluator was mechanically invalidated by R21c-r1. Under the transparently revised post-hoc contracts, Qwen3-8B free generation scored 7/10 versus 2/10 for 0.6B. This nominates an 8B free-generation candidate for a future untouched R21d confirmation; it does not validate or deploy a personal model.
+Small-data LoRA training completed but did not survive frozen generation-health evaluation. Targeted prompting remains more promising than weight training, but is still developmental. R21d generated all 60 records on 20 newly frozen items: generation health was 19/20 for routed 0.6B and 20/20 for both 8B arms. Its lexical evaluator nevertheless assigned 0/20 to every arm and routing covered only 16/20 items. R21d-r1 reproduced the frozen hashes and localized evaluator saturation plus four missing routing triggers per routed model. The automatic model ordering is therefore invalid and human review of 40 blinded pairs remains pending; no personal model has been validated or deployed.
 
 ## Reproduce
 
@@ -14,7 +14,7 @@ Install Python 3.11+, PyTorch, `transformers==4.56.2`, `accelerate==1.10.1`, `pe
 
 ## Repository map
 
-- `protocols/`: executable R20–R21 protocols through the R21c-r1 evaluator audit; adapters are deliberately excluded.
+- `protocols/`: executable R20–R21 protocols through the R21d-r1 frozen-output evaluator audit; adapters are deliberately excluded.
 - `profiles/`: editable research constitution and retrieval cards.
 - `evidence/`: exact summaries and per-item records, including negative results. R21b-r2 is explicitly marked as transcript-reconstructed because its original result ZIP was unavailable.
 - `docs/`: evidence ledger, boundaries, and roadmap.
