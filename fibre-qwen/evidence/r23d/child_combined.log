@@ -1,0 +1,321 @@
+2026-09-02 21:34:22.458356: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-02 21:34:22.541981: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+protocol=FIBRE_QWEN_GENERAL_MOVING_RESPONSE_KERNEL_R23D_CONFIRMATORY model=Qwen/Qwen3-0.6B device=cuda
+[freeze] seeds=[64007, 64013, 64019, 64033, 64037] budgets=[0.002660127151245491, 0.005320254302490982] trainable=40960 rank=6
+[eval 1/5] seed=64007
+[seed=64007 moving_current_kernel B=2.660e-03] 1/24 loss=5.13795 drift=9.920047e-05
+[seed=64007 moving_current_kernel B=2.660e-03] 6/24 loss=3.89523 drift=1.213080e-04
+[seed=64007 moving_current_kernel B=2.660e-03] 12/24 loss=4.08846 drift=1.339904e-04
+[seed=64007 moving_current_kernel B=2.660e-03] 18/24 loss=5.26472 drift=1.581375e-04
+[seed=64007 moving_current_kernel B=2.660e-03] 24/24 loss=1.15835 drift=1.776703e-04
+[seed=64007 source_frozen_kernel B=2.660e-03] 1/24 loss=5.13795 drift=9.920047e-05
+[seed=64007 source_frozen_kernel B=2.660e-03] 6/24 loss=3.89520 drift=2.956821e-04
+[seed=64007 source_frozen_kernel B=2.660e-03] 12/24 loss=4.08829 drift=1.045121e-03
+[seed=64007 source_frozen_kernel B=2.660e-03] 18/24 loss=5.27031 drift=2.658429e-03
+[seed=64007 source_frozen_kernel B=2.660e-03] 24/24 loss=1.16807 drift=2.656348e-03
+[seed=64007 budgeted_lora_adamw B=2.660e-03] 1/24 loss=5.13795 drift=7.266172e-04
+[seed=64007 budgeted_lora_adamw B=2.660e-03] 6/24 loss=3.89499 drift=2.609322e-03
+[seed=64007 budgeted_lora_adamw B=2.660e-03] 12/24 loss=4.11405 drift=2.658617e-03
+[seed=64007 budgeted_lora_adamw B=2.660e-03] 18/24 loss=5.37536 drift=2.660133e-03
+[seed=64007 budgeted_lora_adamw B=2.660e-03] 24/24 loss=1.18458 drift=2.660133e-03
+[seed=64007 moving_current_kernel B=5.320e-03] 1/24 loss=5.13795 drift=9.920047e-05
+[seed=64007 moving_current_kernel B=5.320e-03] 6/24 loss=3.89523 drift=1.213080e-04
+[seed=64007 moving_current_kernel B=5.320e-03] 12/24 loss=4.08846 drift=1.339904e-04
+[seed=64007 moving_current_kernel B=5.320e-03] 18/24 loss=5.26472 drift=1.581375e-04
+[seed=64007 moving_current_kernel B=5.320e-03] 24/24 loss=1.15835 drift=1.776703e-04
+[seed=64007 source_frozen_kernel B=5.320e-03] 1/24 loss=5.13795 drift=9.920047e-05
+[seed=64007 source_frozen_kernel B=5.320e-03] 6/24 loss=3.89520 drift=2.956821e-04
+[seed=64007 source_frozen_kernel B=5.320e-03] 12/24 loss=4.08829 drift=1.045121e-03
+[seed=64007 source_frozen_kernel B=5.320e-03] 18/24 loss=5.26374 drift=3.442775e-03
+[seed=64007 source_frozen_kernel B=5.320e-03] 24/24 loss=1.16207 drift=5.310592e-03
+[seed=64007 budgeted_lora_adamw B=5.320e-03] 1/24 loss=5.13795 drift=7.266172e-04
+[seed=64007 budgeted_lora_adamw B=5.320e-03] 6/24 loss=3.89499 drift=3.543860e-03
+[seed=64007 budgeted_lora_adamw B=5.320e-03] 12/24 loss=4.10727 drift=5.319365e-03
+[seed=64007 budgeted_lora_adamw B=5.320e-03] 18/24 loss=5.36717 drift=5.315553e-03
+[seed=64007 budgeted_lora_adamw B=5.320e-03] 24/24 loss=1.18186 drift=5.316067e-03
+[eval 2/5] seed=64013
+[seed=64013 moving_current_kernel B=2.660e-03] 1/24 loss=3.20854 drift=5.414989e-05
+[seed=64013 moving_current_kernel B=2.660e-03] 6/24 loss=3.28708 drift=9.452447e-05
+[seed=64013 moving_current_kernel B=2.660e-03] 12/24 loss=4.70117 drift=1.065728e-04
+[seed=64013 moving_current_kernel B=2.660e-03] 18/24 loss=4.29162 drift=1.578958e-04
+[seed=64013 moving_current_kernel B=2.660e-03] 24/24 loss=1.16952 drift=1.482588e-04
+[seed=64013 source_frozen_kernel B=2.660e-03] 1/24 loss=3.20854 drift=5.414989e-05
+[seed=64013 source_frozen_kernel B=2.660e-03] 6/24 loss=3.28708 drift=1.796455e-04
+[seed=64013 source_frozen_kernel B=2.660e-03] 12/24 loss=4.70099 drift=1.224678e-03
+[seed=64013 source_frozen_kernel B=2.660e-03] 18/24 loss=4.30435 drift=2.656070e-03
+[seed=64013 source_frozen_kernel B=2.660e-03] 24/24 loss=1.18545 drift=2.658483e-03
+[seed=64013 budgeted_lora_adamw B=2.660e-03] 1/24 loss=3.20854 drift=2.557768e-04
+[seed=64013 budgeted_lora_adamw B=2.660e-03] 6/24 loss=3.29145 drift=2.634214e-03
+[seed=64013 budgeted_lora_adamw B=2.660e-03] 12/24 loss=4.73986 drift=2.657977e-03
+[seed=64013 budgeted_lora_adamw B=2.660e-03] 18/24 loss=4.36184 drift=2.656580e-03
+[seed=64013 budgeted_lora_adamw B=2.660e-03] 24/24 loss=1.19490 drift=2.656580e-03
+[seed=64013 moving_current_kernel B=5.320e-03] 1/24 loss=3.20854 drift=5.414989e-05
+[seed=64013 moving_current_kernel B=5.320e-03] 6/24 loss=3.28708 drift=9.452447e-05
+[seed=64013 moving_current_kernel B=5.320e-03] 12/24 loss=4.70117 drift=1.065728e-04
+[seed=64013 moving_current_kernel B=5.320e-03] 18/24 loss=4.29162 drift=1.578958e-04
+[seed=64013 moving_current_kernel B=5.320e-03] 24/24 loss=1.16952 drift=1.482588e-04
+[seed=64013 source_frozen_kernel B=5.320e-03] 1/24 loss=3.20854 drift=5.414989e-05
+[seed=64013 source_frozen_kernel B=5.320e-03] 6/24 loss=3.28708 drift=1.796455e-04
+[seed=64013 source_frozen_kernel B=5.320e-03] 12/24 loss=4.70099 drift=1.224678e-03
+[seed=64013 source_frozen_kernel B=5.320e-03] 18/24 loss=4.29087 drift=4.012295e-03
+[seed=64013 source_frozen_kernel B=5.320e-03] 24/24 loss=1.17536 drift=5.312869e-03
+[seed=64013 budgeted_lora_adamw B=5.320e-03] 1/24 loss=3.20854 drift=2.557768e-04
+[seed=64013 budgeted_lora_adamw B=5.320e-03] 6/24 loss=3.28879 drift=5.257057e-03
+[seed=64013 budgeted_lora_adamw B=5.320e-03] 12/24 loss=4.73516 drift=5.318874e-03
+[seed=64013 budgeted_lora_adamw B=5.320e-03] 18/24 loss=4.35803 drift=5.317821e-03
+[seed=64013 budgeted_lora_adamw B=5.320e-03] 24/24 loss=1.19441 drift=5.316423e-03
+[eval 3/5] seed=64019
+[seed=64019 moving_current_kernel B=2.660e-03] 1/24 loss=4.12998 drift=7.523759e-05
+[seed=64019 moving_current_kernel B=2.660e-03] 6/24 loss=3.89299 drift=9.633527e-05
+[seed=64019 moving_current_kernel B=2.660e-03] 12/24 loss=3.96990 drift=1.198143e-04
+[seed=64019 moving_current_kernel B=2.660e-03] 18/24 loss=3.24147 drift=1.124042e-04
+[seed=64019 moving_current_kernel B=2.660e-03] 24/24 loss=4.59194 drift=1.420815e-04
+[seed=64019 source_frozen_kernel B=2.660e-03] 1/24 loss=4.12998 drift=7.523759e-05
+[seed=64019 source_frozen_kernel B=2.660e-03] 6/24 loss=3.89296 drift=2.483951e-04
+[seed=64019 source_frozen_kernel B=2.660e-03] 12/24 loss=3.96968 drift=1.689379e-03
+[seed=64019 source_frozen_kernel B=2.660e-03] 18/24 loss=3.25189 drift=2.658854e-03
+[seed=64019 source_frozen_kernel B=2.660e-03] 24/24 loss=4.67920 drift=2.659015e-03
+[seed=64019 budgeted_lora_adamw B=2.660e-03] 1/24 loss=4.12998 drift=2.200547e-03
+[seed=64019 budgeted_lora_adamw B=2.660e-03] 6/24 loss=3.90077 drift=2.651607e-03
+[seed=64019 budgeted_lora_adamw B=2.660e-03] 12/24 loss=4.00491 drift=2.657258e-03
+[seed=64019 budgeted_lora_adamw B=2.660e-03] 18/24 loss=3.29289 drift=2.659504e-03
+[seed=64019 budgeted_lora_adamw B=2.660e-03] 24/24 loss=4.74336 drift=2.659504e-03
+[seed=64019 moving_current_kernel B=5.320e-03] 1/24 loss=4.12998 drift=7.523759e-05
+[seed=64019 moving_current_kernel B=5.320e-03] 6/24 loss=3.89299 drift=9.633527e-05
+[seed=64019 moving_current_kernel B=5.320e-03] 12/24 loss=3.96990 drift=1.198143e-04
+[seed=64019 moving_current_kernel B=5.320e-03] 18/24 loss=3.24147 drift=1.124042e-04
+[seed=64019 moving_current_kernel B=5.320e-03] 24/24 loss=4.59194 drift=1.420815e-04
+[seed=64019 source_frozen_kernel B=5.320e-03] 1/24 loss=4.12998 drift=7.523759e-05
+[seed=64019 source_frozen_kernel B=5.320e-03] 6/24 loss=3.89296 drift=2.483951e-04
+[seed=64019 source_frozen_kernel B=5.320e-03] 12/24 loss=3.96968 drift=1.689379e-03
+[seed=64019 source_frozen_kernel B=5.320e-03] 18/24 loss=3.24090 drift=4.194484e-03
+[seed=64019 source_frozen_kernel B=5.320e-03] 24/24 loss=4.62739 drift=5.310341e-03
+[seed=64019 budgeted_lora_adamw B=5.320e-03] 1/24 loss=4.12998 drift=2.200547e-03
+[seed=64019 budgeted_lora_adamw B=5.320e-03] 6/24 loss=3.89903 drift=5.316059e-03
+[seed=64019 budgeted_lora_adamw B=5.320e-03] 12/24 loss=4.00268 drift=5.317376e-03
+[seed=64019 budgeted_lora_adamw B=5.320e-03] 18/24 loss=3.29128 drift=5.317433e-03
+[seed=64019 budgeted_lora_adamw B=5.320e-03] 24/24 loss=4.74081 drift=5.317433e-03
+[eval 4/5] seed=64033
+[seed=64033 moving_current_kernel B=2.660e-03] 1/24 loss=4.00823 drift=8.966567e-05
+[seed=64033 moving_current_kernel B=2.660e-03] 6/24 loss=1.19453 drift=1.006928e-04
+[seed=64033 moving_current_kernel B=2.660e-03] 12/24 loss=5.29614 drift=1.165201e-04
+[seed=64033 moving_current_kernel B=2.660e-03] 18/24 loss=3.82380 drift=1.648285e-04
+[seed=64033 moving_current_kernel B=2.660e-03] 24/24 loss=3.94835 drift=1.893758e-04
+[seed=64033 source_frozen_kernel B=2.660e-03] 1/24 loss=4.00823 drift=8.966567e-05
+[seed=64033 source_frozen_kernel B=2.660e-03] 6/24 loss=1.19453 drift=3.440796e-04
+[seed=64033 source_frozen_kernel B=2.660e-03] 12/24 loss=5.29564 drift=1.856088e-03
+[seed=64033 source_frozen_kernel B=2.660e-03] 18/24 loss=3.84276 drift=2.644563e-03
+[seed=64033 source_frozen_kernel B=2.660e-03] 24/24 loss=4.05188 drift=2.660203e-03
+[seed=64033 budgeted_lora_adamw B=2.660e-03] 1/24 loss=4.00823 drift=2.339128e-03
+[seed=64033 budgeted_lora_adamw B=2.660e-03] 6/24 loss=1.19580 drift=2.655407e-03
+[seed=64033 budgeted_lora_adamw B=2.660e-03] 12/24 loss=5.38810 drift=2.656053e-03
+[seed=64033 budgeted_lora_adamw B=2.660e-03] 18/24 loss=3.90052 drift=2.657769e-03
+[seed=64033 budgeted_lora_adamw B=2.660e-03] 24/24 loss=4.12587 drift=2.657769e-03
+[seed=64033 moving_current_kernel B=5.320e-03] 1/24 loss=4.00823 drift=8.966567e-05
+[seed=64033 moving_current_kernel B=5.320e-03] 6/24 loss=1.19453 drift=1.006928e-04
+[seed=64033 moving_current_kernel B=5.320e-03] 12/24 loss=5.29614 drift=1.165201e-04
+[seed=64033 moving_current_kernel B=5.320e-03] 18/24 loss=3.82380 drift=1.648285e-04
+[seed=64033 moving_current_kernel B=5.320e-03] 24/24 loss=3.94835 drift=1.893758e-04
+[seed=64033 source_frozen_kernel B=5.320e-03] 1/24 loss=4.00823 drift=8.966567e-05
+[seed=64033 source_frozen_kernel B=5.320e-03] 6/24 loss=1.19453 drift=3.440796e-04
+[seed=64033 source_frozen_kernel B=5.320e-03] 12/24 loss=5.29564 drift=1.856088e-03
+[seed=64033 source_frozen_kernel B=5.320e-03] 18/24 loss=3.82283 drift=4.934334e-03
+[seed=64033 source_frozen_kernel B=5.320e-03] 24/24 loss=4.00623 drift=5.315404e-03
+[seed=64033 budgeted_lora_adamw B=5.320e-03] 1/24 loss=4.00823 drift=2.339128e-03
+[seed=64033 budgeted_lora_adamw B=5.320e-03] 6/24 loss=1.19573 drift=5.316285e-03
+[seed=64033 budgeted_lora_adamw B=5.320e-03] 12/24 loss=5.37806 drift=5.315226e-03
+[seed=64033 budgeted_lora_adamw B=5.320e-03] 18/24 loss=3.89870 drift=5.320177e-03
+[seed=64033 budgeted_lora_adamw B=5.320e-03] 24/24 loss=4.12262 drift=5.320177e-03
+[eval 5/5] seed=64037
+[seed=64037 moving_current_kernel B=2.660e-03] 1/24 loss=3.90280 drift=5.661324e-05
+[seed=64037 moving_current_kernel B=2.660e-03] 6/24 loss=4.93216 drift=1.042606e-04
+[seed=64037 moving_current_kernel B=2.660e-03] 12/24 loss=4.07997 drift=1.425416e-04
+[seed=64037 moving_current_kernel B=2.660e-03] 18/24 loss=3.80325 drift=1.534201e-04
+[seed=64037 moving_current_kernel B=2.660e-03] 24/24 loss=4.81867 drift=1.824486e-04
+[seed=64037 source_frozen_kernel B=2.660e-03] 1/24 loss=3.90280 drift=5.661324e-05
+[seed=64037 source_frozen_kernel B=2.660e-03] 6/24 loss=4.93215 drift=4.857714e-04
+[seed=64037 source_frozen_kernel B=2.660e-03] 12/24 loss=4.07974 drift=2.409640e-03
+[seed=64037 source_frozen_kernel B=2.660e-03] 18/24 loss=3.82572 drift=2.656599e-03
+[seed=64037 source_frozen_kernel B=2.660e-03] 24/24 loss=4.91398 drift=2.656750e-03
+[seed=64037 budgeted_lora_adamw B=2.660e-03] 1/24 loss=3.90280 drift=1.489960e-03
+[seed=64037 budgeted_lora_adamw B=2.660e-03] 6/24 loss=4.94082 drift=2.658030e-03
+[seed=64037 budgeted_lora_adamw B=2.660e-03] 12/24 loss=4.12411 drift=2.652397e-03
+[seed=64037 budgeted_lora_adamw B=2.660e-03] 18/24 loss=3.88330 drift=2.652397e-03
+[seed=64037 budgeted_lora_adamw B=2.660e-03] 24/24 loss=4.98326 drift=2.652397e-03
+[seed=64037 moving_current_kernel B=5.320e-03] 1/24 loss=3.90280 drift=5.661324e-05
+[seed=64037 moving_current_kernel B=5.320e-03] 6/24 loss=4.93216 drift=1.042606e-04
+[seed=64037 moving_current_kernel B=5.320e-03] 12/24 loss=4.07997 drift=1.425416e-04
+[seed=64037 moving_current_kernel B=5.320e-03] 18/24 loss=3.80325 drift=1.534201e-04
+[seed=64037 moving_current_kernel B=5.320e-03] 24/24 loss=4.81867 drift=1.824486e-04
+[seed=64037 source_frozen_kernel B=5.320e-03] 1/24 loss=3.90280 drift=5.661324e-05
+[seed=64037 source_frozen_kernel B=5.320e-03] 6/24 loss=4.93215 drift=4.857714e-04
+[seed=64037 source_frozen_kernel B=5.320e-03] 12/24 loss=4.07974 drift=2.409640e-03
+[seed=64037 source_frozen_kernel B=5.320e-03] 18/24 loss=3.80223 drift=5.146191e-03
+[seed=64037 source_frozen_kernel B=5.320e-03] 24/24 loss=4.87303 drift=5.317363e-03
+[seed=64037 budgeted_lora_adamw B=5.320e-03] 1/24 loss=3.90280 drift=1.489960e-03
+[seed=64037 budgeted_lora_adamw B=5.320e-03] 6/24 loss=4.93851 drift=5.305740e-03
+[seed=64037 budgeted_lora_adamw B=5.320e-03] 12/24 loss=4.12257 drift=5.318295e-03
+[seed=64037 budgeted_lora_adamw B=5.320e-03] 18/24 loss=3.87816 drift=5.320253e-03
+[seed=64037 budgeted_lora_adamw B=5.320e-03] 24/24 loss=4.97839 drift=5.319961e-03
+{
+  "protocol": "FIBRE_QWEN_GENERAL_MOVING_RESPONSE_KERNEL_R23D_CONFIRMATORY",
+  "mode": "untouched_seed_confirmatory",
+  "development_reference": "FIBRE_QWEN_GENERAL_MOVING_RESPONSE_KERNEL_R23C_R2_PRECISION_AUDIT",
+  "model": "Qwen/Qwen3-0.6B",
+  "seeds": [
+    64007,
+    64013,
+    64019,
+    64033,
+    64037
+  ],
+  "frozen_configuration": {
+    "budgets": [
+      0.002660127151245491,
+      0.005320254302490982
+    ],
+    "steps": 24,
+    "step_norm": 0.018,
+    "rank_tolerance": 1e-08,
+    "precision_floor": 1e-07,
+    "max_backtracks": 12,
+    "lora_rank": 4,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "last_layers": 2,
+    "learning_records": 12,
+    "validation_records": 4,
+    "response_coordinates": 6
+  },
+  "trainable_lora_parameters": 40960,
+  "response_rank": 6,
+  "pairs": [
+    {
+      "seed": 64007,
+      "comparisons": [
+        {
+          "budget": 0.002660127151245491,
+          "source_minus_moving_validation_loss": 0.061165809631347656,
+          "adamw_minus_moving_validation_loss": 0.11890983581542969,
+          "supports_budget": true
+        },
+        {
+          "budget": 0.005320254302490982,
+          "source_minus_moving_validation_loss": 0.027856826782226562,
+          "adamw_minus_moving_validation_loss": 0.11295604705810547,
+          "supports_budget": true
+        }
+      ],
+      "supports_both_budgets": true
+    },
+    {
+      "seed": 64013,
+      "comparisons": [
+        {
+          "budget": 0.002660127151245491,
+          "source_minus_moving_validation_loss": 0.06823396682739258,
+          "adamw_minus_moving_validation_loss": 0.1277446746826172,
+          "supports_budget": true
+        },
+        {
+          "budget": 0.005320254302490982,
+          "source_minus_moving_validation_loss": 0.03403425216674805,
+          "adamw_minus_moving_validation_loss": 0.12380409240722656,
+          "supports_budget": true
+        }
+      ],
+      "supports_both_budgets": true
+    },
+    {
+      "seed": 64019,
+      "comparisons": [
+        {
+          "budget": 0.002660127151245491,
+          "source_minus_moving_validation_loss": 0.07148361206054688,
+          "adamw_minus_moving_validation_loss": 0.12630748748779297,
+          "supports_budget": true
+        },
+        {
+          "budget": 0.005320254302490982,
+          "source_minus_moving_validation_loss": 0.03455400466918945,
+          "adamw_minus_moving_validation_loss": 0.12413549423217773,
+          "supports_budget": true
+        }
+      ],
+      "supports_both_budgets": true
+    },
+    {
+      "seed": 64033,
+      "comparisons": [
+        {
+          "budget": 0.002660127151245491,
+          "source_minus_moving_validation_loss": 0.08083772659301758,
+          "adamw_minus_moving_validation_loss": 0.13557195663452148,
+          "supports_budget": true
+        },
+        {
+          "budget": 0.005320254302490982,
+          "source_minus_moving_validation_loss": 0.05088376998901367,
+          "adamw_minus_moving_validation_loss": 0.1331944465637207,
+          "supports_budget": true
+        }
+      ],
+      "supports_both_budgets": true
+    },
+    {
+      "seed": 64037,
+      "comparisons": [
+        {
+          "budget": 0.002660127151245491,
+          "source_minus_moving_validation_loss": 0.08322715759277344,
+          "adamw_minus_moving_validation_loss": 0.12371492385864258,
+          "supports_budget": true
+        },
+        {
+          "budget": 0.005320254302490982,
+          "source_minus_moving_validation_loss": 0.05323505401611328,
+          "adamw_minus_moving_validation_loss": 0.12241649627685547,
+          "supports_budget": true
+        }
+      ],
+      "supports_both_budgets": true
+    }
+  ],
+  "supporting_seed_count": 5,
+  "median_deltas": {
+    "0.002660127151245491": {
+      "source_minus_moving_validation_loss": 0.07148361206054688,
+      "adamw_minus_moving_validation_loss": 0.12630748748779297
+    },
+    "0.005320254302490982": {
+      "source_minus_moving_validation_loss": 0.03455400466918945,
+      "adamw_minus_moving_validation_loss": 0.12380409240722656
+    }
+  },
+  "moving_budget_utilization": {
+    "median": 0.04450339390845866,
+    "maximum": 0.07119050822515373
+  },
+  "numerical_gates": {
+    "all_finite": true,
+    "all_budgets_respected": true,
+    "response_rank_six": true,
+    "measured_drifts_not_all_zero": true,
+    "current_rowspace_moves": true,
+    "projected_direction_residual_at_most_1e-5": true
+  },
+  "gates": {
+    "five_untouched_confirmation_seeds": true,
+    "frozen_two_budgets_exact": true,
+    "all_worker_numerical_gates": true,
+    "at_least_four_of_five_seeds_support_both_budgets": true,
+    "median_source_minus_moving_positive_at_both_budgets": true,
+    "median_adamw_minus_moving_positive_at_both_budgets": true
+  },
+  "wall_seconds": 1147.875854730606,
+  "scientific_status": "R23D_MOVING_RESPONSE_KERNEL_CONFIRMED",
+  "claim_boundary": "Frozen five-seed confirmation within Qwen3-0.6B, 12 tiny authored learning records, four validation records, six disjoint response coordinates and one restricted 40960-parameter LoRA chart. It tests the R23c-r2 moving-current-kernel ordering at two frozen global response budgets only; it is not broad capability, personalization, continual learning, safety, deployment readiness, universal optimizer superiority or a theorem about response fibres."
+}

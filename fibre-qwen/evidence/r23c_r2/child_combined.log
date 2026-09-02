@@ -1,0 +1,97 @@
+2026-09-02 21:26:48.857928: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-02 21:26:48.929712: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+protocol=FIBRE_QWEN_GENERAL_MOVING_RESPONSE_KERNEL_R23C_R2_PRECISION_AUDIT model=Qwen/Qwen3-0.6B device=cuda
+[preflight] dtype=float32 trainable=40960 response_dim=6 rank=6 one_step=3.546836202e-03 budgets=[0.002660127151245491, 0.005320254302490982]
+[moving_current_kernel B=2.660e-03] 1/24 loss=1.19577 drift=4.537726e-05
+[moving_current_kernel B=2.660e-03] 6/24 loss=4.11160 drift=8.497875e-05
+[moving_current_kernel B=2.660e-03] 12/24 loss=4.90933 drift=1.199812e-04
+[moving_current_kernel B=2.660e-03] 18/24 loss=4.26365 drift=1.455721e-04
+[moving_current_kernel B=2.660e-03] 24/24 loss=3.87608 drift=1.510663e-04
+[source_frozen_kernel B=2.660e-03] 1/24 loss=1.19577 drift=4.537726e-05
+[source_frozen_kernel B=2.660e-03] 6/24 loss=4.11158 drift=1.762002e-04
+[source_frozen_kernel B=2.660e-03] 12/24 loss=4.90931 drift=9.975123e-04
+[source_frozen_kernel B=2.660e-03] 18/24 loss=4.26304 drift=2.634080e-03
+[source_frozen_kernel B=2.660e-03] 24/24 loss=3.92844 drift=2.650108e-03
+[budgeted_lora_adamw B=2.660e-03] 1/24 loss=1.19577 drift=1.742313e-03
+[budgeted_lora_adamw B=2.660e-03] 6/24 loss=4.11199 drift=2.284084e-03
+[budgeted_lora_adamw B=2.660e-03] 12/24 loss=4.93378 drift=2.658448e-03
+[budgeted_lora_adamw B=2.660e-03] 18/24 loss=4.34174 drift=2.660221e-03
+[budgeted_lora_adamw B=2.660e-03] 24/24 loss=3.99703 drift=2.660221e-03
+[moving_current_kernel B=5.320e-03] 1/24 loss=1.19577 drift=4.537726e-05
+[moving_current_kernel B=5.320e-03] 6/24 loss=4.11160 drift=8.497875e-05
+[moving_current_kernel B=5.320e-03] 12/24 loss=4.90933 drift=1.199812e-04
+[moving_current_kernel B=5.320e-03] 18/24 loss=4.26365 drift=1.455721e-04
+[moving_current_kernel B=5.320e-03] 24/24 loss=3.87608 drift=1.510663e-04
+[source_frozen_kernel B=5.320e-03] 1/24 loss=1.19577 drift=4.537726e-05
+[source_frozen_kernel B=5.320e-03] 6/24 loss=4.11158 drift=1.762002e-04
+[source_frozen_kernel B=5.320e-03] 12/24 loss=4.90931 drift=9.975123e-04
+[source_frozen_kernel B=5.320e-03] 18/24 loss=4.26304 drift=3.031522e-03
+[source_frozen_kernel B=5.320e-03] 24/24 loss=3.88460 drift=5.311557e-03
+[budgeted_lora_adamw B=5.320e-03] 1/24 loss=1.19577 drift=3.477828e-03
+[budgeted_lora_adamw B=5.320e-03] 6/24 loss=4.11121 drift=2.505055e-03
+[budgeted_lora_adamw B=5.320e-03] 12/24 loss=4.92664 drift=5.310184e-03
+[budgeted_lora_adamw B=5.320e-03] 18/24 loss=4.32852 drift=5.319434e-03
+[budgeted_lora_adamw B=5.320e-03] 24/24 loss=3.98781 drift=5.315204e-03
+{
+  "protocol": "FIBRE_QWEN_GENERAL_MOVING_RESPONSE_KERNEL_R23C_R2_PRECISION_AUDIT",
+  "mode": "one_seed_general_compute_core_precision_audit",
+  "model": "Qwen/Qwen3-0.6B",
+  "seed": 63017,
+  "design": {
+    "learning_target_L": "12 authored general instruction pairs",
+    "response_map_R": "6 disjoint frozen A/B logit-margin probes",
+    "dynamic_current_kernel": true,
+    "three_arms": true,
+    "global_response_backtracking": true,
+    "model_dtype": "float32",
+    "response_aggregation": "float64"
+  },
+  "trainable_lora_parameters": 40960,
+  "response_rank": 6,
+  "budgets": [
+    0.002660127151245491,
+    0.005320254302490982
+  ],
+  "pairs": [
+    {
+      "budget": 0.002660127151245491,
+      "source_minus_moving_validation_loss": 0.054564476013183594,
+      "adamw_minus_moving_validation_loss": 0.1182394027709961
+    },
+    {
+      "budget": 0.005320254302490982,
+      "source_minus_moving_validation_loss": 0.016363143920898438,
+      "adamw_minus_moving_validation_loss": 0.10988140106201172
+    }
+  ],
+  "precision_audit": {
+    "precision_floor": 1e-07,
+    "calibration_one_step_drift": 0.0035468362016606546,
+    "nonzero_drift_observation_count": 144,
+    "current_rowspace_distances": [
+      1.1800693290406667,
+      1.1800693290406667
+    ],
+    "projected_max_residuals": [
+      1.423687743800516e-09,
+      1.272417750270716e-09,
+      1.423687743800516e-09,
+      1.272417750270716e-09
+    ]
+  },
+  "gates": {
+    "all_finite": true,
+    "all_budgets_respected": true,
+    "jacobian_nonzero": true,
+    "one_step_drift_above_precision_floor": true,
+    "measured_drifts_not_all_zero": true,
+    "two_budgets_empirically_distinguishable": true,
+    "current_rowspace_moves": true,
+    "projected_direction_residual_at_most_1e-5": true,
+    "moving_kernel_exercised": true
+  },
+  "wall_seconds": 191.4803216457367,
+  "scientific_status": "R23C_R2_PRECISION_AUDIT_COMPLETE",
+  "claim_boundary": "One seed, Qwen3-0.6B, tiny authored data and a restricted LoRA chart. This audits numerical execution of DR, moving/source row spaces, projection and finite response budgets only; it does not establish general capability, personalization, continual learning, safety, or moving-fibre superiority."
+}
