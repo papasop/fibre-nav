@@ -1,0 +1,28 @@
+{
+  "protocol": "FIBRE_QWEN3_STABLE_BOOTSTRAP_DUAL_GATE_R20D_R1",
+  "mode": "post_collapse_stability_development_audit",
+  "margin_deltas": [
+    -0.08699464797973633,
+    -0.06739044189453125,
+    -0.22172832489013672
+  ],
+  "median_margin_delta": -0.08699464797973633,
+  "base_declared_count": 2,
+  "adapter_declared_count": 2,
+  "base_healthy_count": 3,
+  "adapter_healthy_count": 1,
+  "base_semantic_count": 1,
+  "adapter_semantic_count": 1,
+  "gates": {
+    "three_frozen_records_exact": true,
+    "all_numeric_finite": true,
+    "adapter_margin_improves_at_least_2_of_3": false,
+    "median_margin_delta_positive": false,
+    "adapter_prefers_declared_at_least_2_of_3": true,
+    "all_adapter_generations_healthy": false,
+    "adapter_semantic_pass_at_least_2_of_3": false,
+    "no_adapter_generation_health_regression": true
+  },
+  "scientific_status": "R20D_R1_STABLE_BOOTSTRAP_INCONCLUSIVE_FAIL_CLOSED",
+  "claim_boundary": "Post-collapse development audit on the same three held-out conversation-derived records, with a rubric added after R20d. Not independent confirmation, broad personalization, moving-fibre evidence, safety certification, or deployment readiness."
+}

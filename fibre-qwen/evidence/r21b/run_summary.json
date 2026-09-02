@@ -1,0 +1,35 @@
+{
+  "protocol": "FIBRE_QWEN_TARGETED_RULE_RETRIEVAL_R21B_DIAGNOSTIC",
+  "mode": "same_item_post_r21a_mechanism_diagnostic",
+  "median_target_margin_delta": 2.005433201789856,
+  "improved_items": 7,
+  "counts": {
+    "bare": {
+      "declared": 5,
+      "semantic": 1,
+      "healthy": 9
+    },
+    "long_constitution": {
+      "declared": 5,
+      "semantic": 2,
+      "healthy": 10
+    },
+    "targeted_cards": {
+      "declared": 8,
+      "semantic": 5,
+      "healthy": 7
+    }
+  },
+  "gates": {
+    "ten_items": true,
+    "all_finite": true,
+    "target_margin_improves_7_of_10": true,
+    "median_delta_positive": true,
+    "target_prefers_declared_8_of_10": true,
+    "target_health_9_of_10": false,
+    "target_semantic_7_of_10": false,
+    "target_semantic_beats_long": true
+  },
+  "scientific_status": "R21B_TARGETED_PROFILE_INCONCLUSIVE_FAIL_CLOSED",
+  "claim_boundary": "Same authored items reused after R21a to diagnose targeted versus full-context prompting. Development only; not untouched confirmation, weight learning, moving-fibre evidence, or broad personalization."
+}

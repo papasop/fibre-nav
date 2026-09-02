@@ -1,0 +1,32 @@
+{
+  "protocol": "FIBRE_QWEN_RESEARCH_CONSTITUTION_R21A_DEVELOPMENT",
+  "margin_deltas": [
+    0.40235471725463867,
+    0.05846452713012695,
+    0.22387027740478516,
+    -0.45856142044067383,
+    -0.06789875030517578,
+    -0.014626502990722656,
+    1.1190061569213867,
+    0.43634557723999023,
+    -0.25014209747314453,
+    0.8948497772216797
+  ],
+  "median_margin_delta": 0.14116740226745605,
+  "bare_declared": 5,
+  "profile_declared": 5,
+  "bare_semantic": 1,
+  "profile_semantic": 2,
+  "profile_healthy": 10,
+  "gates": {
+    "ten_new_development_items": true,
+    "all_finite": true,
+    "margin_improves_at_least_7_of_10": false,
+    "median_margin_delta_positive": true,
+    "profile_prefers_declared_at_least_8_of_10": false,
+    "profile_health_at_least_9_of_10": true,
+    "profile_semantic_at_least_7_of_10": false
+  },
+  "scientific_status": "R21A_RESEARCH_PROFILE_INCONCLUSIVE_FAIL_CLOSED",
+  "claim_boundary": "Development comparison of bare versus constitution-conditioned Qwen3-0.6B on ten authored items. The profile contains domain knowledge; this is not weight learning, independent confirmation, moving-fibre superiority, or broad personal-model validation."
+}

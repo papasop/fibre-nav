@@ -1,0 +1,322 @@
+[
+  {
+    "id": "e01",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": -0.8164181709289551,
+    "prefers_declared": false,
+    "generation": "不能简单地将一个新优化器“普遍优于 AdamW”来判断。在机器学习和深度学习领域中，**“普遍优于”** 通常意味着该优化器在多个任务、模型或数据集上表现优于其他方法，但并不意味着它在所有情况下都优于所有方法。\n\n### 关键点分析：\n\n1. **“普遍优于”** 的含义是：\n   - 在多个任务、模型或数据集上表现优于其他方法。\n   - 不一定意味着在所有情况下都优于所有方法。\n\n2. **AdamW** 是一个广泛使用的优化器（如 `AdamW`），它结合了 Adam 和 Wightened Adam 的优点，具有更小的学习率调整范围，适合不同类型的模型。\n\n3. **新优化",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e02",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": -1.1317682266235352,
+    "prefers_declared": false,
+    "generation": "Ker DR（Kerberos Distributed Authentication and Authorization）并不是一个完整的、统一的“学习算法”或“机器学习模型”，而是**基于密码学和身份验证机制的分布式系统**，其核心思想是通过**密钥交换**来实现用户身份的认证。它并不属于机器学习领域，而是一种**密码学与网络协议**的结合。\n\n### 为什么 Ker DR 不是一个完整的“学习算法”？\n1. **不涉及机器学习**：  \n   Ker DR 是一种基于密码学的认证机制，而不是通过训练模型来完成任务。它依赖于密钥交换、加密算法等技术，而不是数据驱动的学习过程。\n\n2. **不使用机器学习模型**：  \n   它不涉及任何机器学习算法（",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e03",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": 1.0158648490905762,
+    "prefers_declared": true,
+    "generation": "当系统提示 `SystemExit: 2` 但同时还有完整的 `run_summary` 输出时，这通常意味着以下情况：\n\n### 1. **程序正常退出，但没有运行完整**\n   - 这可能是由于程序在执行过程中因某些原因（如输入错误、资源耗尽、异常等）提前终止。\n   - 此时，**`run_summary` 仍然包含完整的运行信息**，可以继续使用。\n\n### 2. **程序未完成，但 `run_summary` 存在**\n   - 如果程序没有完全运行，但 `run_summary` 仍然存在，说明你可能需要重新运行程序以获取完整结果。\n\n### 3. **程序运行正常，但 `run_summary` 未被正确生成**",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e04",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": 0.4565114974975586,
+    "prefers_declared": true,
+    "generation": "在同一分类标签（即同一个类别）下同时定义**学习损失**和**响应保持坐标**，可能会带来以下问题：\n\n---\n\n### 1. **混淆与冲突**\n- **学习损失**通常用于优化模型的参数，以最小化预测误差。\n- **响应保持坐标**可能指的是在训练过程中对某些特征或数据进行“保留”或“保持不变”的操作，这可能导致模型在训练时无法正确区分不同类别。\n\n如果这两个目标（学习损失和响应保持）在同一个标签下同时存在，可能会导致：\n- 模型在训练过程中对同一类别的预测出现偏差（如误判）；\n- 学习损失计算不准确，因为响应保持可能干扰了损失函数的计算。\n\n---\n\n### 2. **",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e05",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": -1.4814872741699219,
+    "prefers_declared": false,
+    "generation": "在开发过程中，如果动态核（Dynamic Kernel）在开发种子（Seed）上出现失败，通常意味着该种子的某些关键部分未能正确运行或配置。在这种情况下，**是否需要不断换种子取决于具体情况和问题的严重程度**。\n\n### 1. **是否需要换种子？**\n- **如果问题持续且影响系统稳定性**：  \n  如果动态核在种子上失败后，问题反复出现，且无法通过现有种子修复，那么**应更换种子**。更换种子可以排除潜在的配置错误或依赖问题。\n  \n- **如果问题暂时性且不影响系统**：  \n  可能可以通过优化代码、调试日志或调整参数来解决，而不是频繁更换种子。\n\n### 2. **如何判断是否需要",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e06",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": 0.2254624366760254,
+    "prefers_declared": true,
+    "generation": "半正定退化度规 **不等同于** 洛伦兹度规。它们是两个完全不同的物理概念，属于不同范畴的度规类型。\n\n---\n\n### 1. **退化度规（Degenerate Metric）**\n退化度规是指在几何中，度规矩阵在某些点上变为 **非正定**（即存在负项），但整体上仍保持 **半正定** 的性质。这种度规通常出现在 **非线性力学** 或 **广义相对论** 中，用于描述局部的时空结构。\n\n例如，在广义相对论中，当时空曲率在某些区域变得非常大时，度规退化为退化形式。\n\n---\n\n### 2. **洛伦兹度",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e07",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": -0.2729945182800293,
+    "prefers_declared": false,
+    "generation": "在神经网络中，**“零方向”（Zero Direction）** 并不是一个标准的术语或概念，因此它可能是一个误解或拼写错误。不过，如果你是在讨论 **Principle R**（例如，RNN中的某些原理或方法），我们可以从以下几个角度来理解：\n\n---\n\n### 1. **Principle R 的背景**\n- **Principle R** 可能是指 **Recurrent Neural Networks (RNN)** 中的某些原理或方法，比如：\n  - **Recurrent Layer**：用于处理序列数据。\n  - **Long Short-Term Memory (LSTM)** 或 **Transformer** 中的机制。\n  - **Attention Mechanism**：用于捕捉长距离依赖关系。\n\n- 如果是 **Principle R**，",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e08",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": 1.8180365562438965,
+    "prefers_declared": true,
+    "generation": "你的想法是合理的，但需要更深入地理解“吸睛”和“强几何证据”的具体含义，以及如何在论文中平衡这些元素。以下是对你问题的详细分析和建议：\n\n---\n\n### 1. **“吸睛”指的是什么？**\n“吸睛”通常指吸引读者注意，尤其是让读者对研究有兴趣或产生好奇心。这可能包括：\n- 引人注目的数据或结果；\n- 突出研究的独特性或创新点；\n- 使用生动的语言或图表；\n- 强调研究的现实意义或应用价值。\n\n因此，**保留两个最吸引人的小边际实验**，而不是删除所有强几何证据，是符合“吸睛”的要求的。\n\n---\n\n### 2. **“强几何",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e09",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": -0.09826135635375977,
+    "prefers_declared": false,
+    "generation": "在 Google Colab 中，如果一个任务卡住了（即长时间无法执行），可以通过以下几种方法来判断和解决：\n\n---\n\n### ✅ **1. 查看任务状态**\n在 Colab 中，你可以通过以下方式查看任务的状态：\n\n- 打开 Colab 的终端或命令行。\n- 输入以下命令查看当前任务的运行状态：\n  ```bash\n  colab --status\n  ```\n\n- 或者使用 `colab status` 命令。\n\n---\n\n### ✅ **2. 检查日志文件**\nColab 会生成日志文件记录任务的执行情况。你可以查看这些日志文件：\n\n- 日志文件通常位于：`~/.colab/colab.log`\n- 日志内容可能包含",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e10",
+    "arm": "bare",
+    "routed_cards": [],
+    "margin": 0.3562288284301758,
+    "prefers_declared": true,
+    "generation": "在研究助手回答问题时，通常遵循以下优先顺序：\n\n1. **明确问题**：首先确认用户的问题是否清晰、具体和完整。\n2. **信息完整性**：确保问题中包含所有必要的信息，以便助手能够提供准确的回答。\n3. **逻辑性**：按照问题的逻辑顺序进行回答，避免遗漏关键点。\n4. **准确性**：确保回答基于可靠的信息来源和正确的知识。\n5. **简洁性**：保持回答简洁明了，避免冗长或复杂的内容。\n6. **礼貌与专业性**：使用正式但友好的语气，尊重用户的表达方式。\n\n这些优先顺序有助于确保回答既准确又高效。",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e01",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": -0.4140634536743164,
+    "prefers_declared": false,
+    "generation": "**结论：**  \n无法称普遍优于 AdamW，因为该新优化器在五个种子上的表现均未达到AdamW在相同任务下的普遍最优水平。\n\n**证据：**  \n- 新优化器在五个种子上的表现均未达到AdamW在相同任务下的普遍最优水平。  \n- 新优化器的性能未被证明具有普遍性，且未提供足够的证据支持其在多个任务中的优越性。  \n\n**适用范围：**  \n此结论适用于当前任务的特定种子组合，且仅限于该任务的五个种子。  \n\n**下一步动作：**  \n1. 检查新优化器在其他任务上的表现以验证其普遍性。  \n2. 如果新优化器在多个任务上均优于AdamW，则",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e02",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": -1.0733036994934082,
+    "prefers_declared": false,
+    "generation": "结论：ker DR 不是一个完整的学习算法，因为它无法在所有情况下都提供有效的学习策略。\n\n证据：  \n- 当输出度规 G_O 正定时，g_R = DR^T G_O DR 是半正定的，并且 ker g_R = ker DR。  \n- DR 随状态变化时，核通常移动，但局部核通常不会自动保证有限步保持、全局可积或学习价值。  \n- 动态核实验必须与 source-frozen、identity、random metric 和预算匹配基线公平比较，开发配置冻结后才可用新种子确认。\n\n下一项最小动作：  \n冻结模型、数据、图表、预算和指标。",
+    "health": true,
+    "semantic": true
+  },
+  {
+    "id": "e03",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": 1.2397351264953613,
+    "prefers_declared": true,
+    "generation": "结论：系统退出（SystemExit: 2）表明实验在运行过程中出现了问题，但存在完整的运行日志摘要。\n\n决定结论的证据：  \n- 运行日志摘要（run_summary）提供了完整的实验过程信息，包括输入数据、处理步骤、输出结果等，可以用于验证实验的完整性与有效性。\n\n适用范围：  \n- 该判断适用于实验的运行日志摘要，可用于后续分析和进一步验证。\n\n下一项最小动作：  \n- 分析运行日志摘要中的关键问题，并根据日志内容提出改进措施。",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e04",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": -0.0020499229431152344,
+    "prefers_declared": false,
+    "generation": "结论：同一分类标签同时定义学习损失和响应保持坐标会导致信息冗余，影响模型性能和实验的有效性。\n\n证据：  \n- 学习损失（如 $ L_{\\theta} $）和响应保持坐标（如 $ R_{\\theta} $）在同一个分类标签下定义，可能导致模型对同一标签的处理方式不一致，从而影响学习效果和预测准确性。  \n- 若两个指标在同一个标签下被同时定义，可能会导致实验设计的不严谨，增加模型复杂度，降低实验的可重复性和可信度。\n\n适用范围：  \n该问题仅适用于在同一个分类标签下同时定义学习损失和响应保持坐标的场景，且需确保两个指标在实验设计中独立且不干扰彼此。\n\n下一项",
+    "health": true,
+    "semantic": true
+  },
+  {
+    "id": "e05",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": -1.5493860244750977,
+    "prefers_declared": false,
+    "generation": "结论：在开发种子失败后，不应持续更换种子，应根据实际问题和系统状态进行调整，而非简单地不断换种子。\n\n证据：  \n- 当开发种子失败时，系统状态可能发生变化，导致核参数无法正确反映当前需求。  \n- 动态核实验需要与源冻结、身份、随机度量和预算基线进行公平比较，开发配置冻结后才能使用新种子进行确认。  \n- 移动响应纤维的核心对象是 $ \\theta = \\text{ker}(\\theta) $，其核通常随状态变化，但局部核需保持有限步、可积或具有学习价值。  \n\n适用范围：  \n- 在开发阶段，当开发种子失败时，应根据实际问题和系统状态进行",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e06",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": 0.21083593368530273,
+    "prefers_declared": true,
+    "generation": "结论：半正定退化度规不等同于洛伦兹度规。\n\n证据：半正定退化度规是指在某些特定条件下（如退化时空结构）下的度规保持半正定性，而洛伦兹度规是广义相对论中描述时空的规范度规，具有全正定性。两者在物理意义和数学性质上存在本质区别。\n\n适用范围：仅适用于退化时空结构下的度规分析，而非一般时空度规。\n\n下一步动作：确保在后续分析中明确区分半正定退化度规与洛伦兹度规的定义和应用边界。",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e07",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": 0.8460116386413574,
+    "prefers_declared": true,
+    "generation": "结论：神经网络中利用零方向并不直接验证 Principle R，而是作为其响应图的一部分参与了动态核实验。\n\n证据：  \n- Principle R 是关于声明域中非恒定零成本过程达到零下界的候选物理选择准则。  \n- 神经网络零方向实验是响应图的一部分，用于验证其在特定条件下的性能，而非直接验证物理普遍性。\n\n适用范围：  \n- 该结论适用于动态核实验中的响应图部分，不涉及整体物理普遍性验证。\n\n下一步动作：  \n- 确认零方向实验的结果是否符合 Principle R 的预期，若发现偏差需进一步调整模型或数据。",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e08",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": 2.2543821334838867,
+    "prefers_declared": true,
+    "generation": "结论：论文保留两个最吸睛的小边际实验是合理的，删除强几何证据不符合论文的严谨性要求。\n\n证据：  \n- 小边际实验（如 R13）提供了动态核损失—响应权衡的关键证据，有效验证了模型在特定条件下的性能表现。  \n- R17d 提供了受限步级变分桥梁的实验结果，为模型的收敛性和稳定性提供了重要支持。  \n\n适用范围：  \n- 这些实验适用于模型在特定场景下的性能评估，且与论文的科学目标一致。  \n- 它们并未涉及普遍性或跨域的物理规律，因此不构成对模型性能的全面证明。\n\n下一步最小动作：  \n- 保留 R13 和 R17d 的",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e09",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": -0.3484034538269043,
+    "prefers_declared": false,
+    "generation": "**结论：**  \nColab 任务卡住通常意味着在运行过程中出现延迟或无法完成预期的操作。这可能由以下原因导致：\n\n- **资源耗尽**：GPU内存、CPU核心或存储空间不足。\n- **代码执行缓慢**：代码逻辑复杂或计算量大。\n- **依赖项未正确安装或更新**。\n- **环境变量设置错误**。\n\n**证据：**  \n- 如果任务卡住，检查日志文件（如 `colab.log`）以查看具体错误信息。\n- 使用 `colab.status` 查看当前任务的状态。\n- 如果任务被标记为 `failed-closed`，说明科学门未通过，需重新尝试。\n\n**适用范围：**  \n该判断适用于运行中卡住的任务",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e10",
+    "arm": "long_constitution",
+    "routed_cards": [],
+    "margin": 1.2510786056518555,
+    "prefers_declared": true,
+    "generation": "1. **结论**：  \n   - 当动态核实验成功验证响应图 R 的有效性时，可以得出该实验的结论。\n\n2. **证据**：  \n   - 使用动态核损失—响应权衡（R13）作为核心证据，证明在特定条件下响应图 R 的有效性。\n\n3. **适用范围**：  \n   - 该结论适用于动态核实验中的响应图 R 的验证，且需与源冻结、身份、随机度量和预算基线进行公平比较。\n\n4. **下一步动作**：  \n   - 若需要进一步验证响应图 R 的有效性，应执行开发配置冻结，并使用新的种子进行确认。",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e01",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "evidence"
+    ],
+    "margin": -1.8342761993408203,
+    "prefers_declared": false,
+    "generation": "第一个句子：不能称普遍优于 AdamW。\n\n第二个句子：该优化器在五个种子上的表现表明其在特定任务上具有优势，但无法证明其在所有任务上普遍优于 AdamW。\n\n第三个句子：由于局部实验仅支持冻结模型、任务、预算和指标内的结论，且未涉及反向结果，因此无法得出普遍优于 AdamW 的结论。\n\n第四个句子：五种子全胜仍不是普遍优化器定理。",
+    "health": true,
+    "semantic": true
+  },
+  {
+    "id": "e02",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "kernel"
+    ],
+    "margin": 1.2809991836547852,
+    "prefers_declared": true,
+    "generation": "因为 ker DR 不是一个完整的学习算法，因为它只给出了一阶不变的局部切向机会，而无法保证有限步保持、全局可积、学习价值或优化器选择；这些需要回缩、预算和实验。",
+    "health": true,
+    "semantic": true
+  },
+  {
+    "id": "e03",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "runtime"
+    ],
+    "margin": 1.8557319641113281,
+    "prefers_declared": true,
+    "generation": "SystemExit: 2 表示正常运行，但 run_summary 中的完整信息表明科学失败。因此，应查看 gates 与 traceback 来进一步分析问题。不能推出 SystemExit: 2 是工程崩溃的结论。",
+    "health": true,
+    "semantic": true
+  },
+  {
+    "id": "e04",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "lr_separation"
+    ],
+    "margin": 1.8451402187347412,
+    "prefers_declared": true,
+    "generation": "第一句：同一分类标签同时定义学习损失和响应保持坐标会导致混淆，因为它们在数据、提示、标签或功能坐标上可能重叠，从而影响模型对学习目标和响应目标的区分。\n\n第二句：这种设计可能导致模型在学习过程中无法准确区分不同的学习目标，从而影响学习效果和模型性能。\n\n第三句：因此，需要确保学习目标和响应目标在数据、提示、标签或功能坐标上进行有效分离，以避免混淆。\n\n第四句：不能推出该分类标签在学习过程中是否具有实际意义或有效性。",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e05",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "evidence"
+    ],
+    "margin": -1.2799267768859863,
+    "prefers_declared": false,
+    "generation": "动态核在开发种子上失败后，不应不断换种子。开发配置冻结后才用新种子确认，以确保实验的可重复性和可靠性。不能推出五种子全胜仍不是普遍优化器定理的结论。",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e06",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "metric"
+    ],
+    "margin": 2.855156898498535,
+    "prefers_declared": true,
+    "generation": "半正定退化度规不等同于洛伦兹度规。非负退化核与不定非退化的差别在于，前者允许非零核，而后者则要求非退化。因此，不能推出洛伦兹度规的定义。",
+    "health": true,
+    "semantic": true
+  },
+  {
+    "id": "e07",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "principle_r"
+    ],
+    "margin": 2.0930848121643066,
+    "prefers_declared": true,
+    "generation": "神经网络零方向是否直接验证 Principle R？  \n第一句直接回答：**神经网络零方向不直接验证 Principle R**。  \n\n第二句解释理由：**神经网络零方向的机制依赖于局部可利用性，而非恒定零成本过程，因此无法直接验证 Principle R**。  \n\n第三句说明不能推出什么：**不能推出神经网络机制与物理支持之间的直接关联**。",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e08",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "evidence"
+    ],
+    "margin": 1.6920509338378906,
+    "prefers_declared": true,
+    "generation": "论文只保留两个最吸睛的小边际实验、删除强几何证据，是符合局部实验限制的合理做法。这些小边际实验能够有效支持冻结模型、任务、预算和指标内的结论，同时保留了关键的实验设计，有助于进一步验证模型的有效性。不能推出五种子全胜仍不是普遍优化器定理这一结论。",
+    "health": true,
+    "semantic": false
+  },
+  {
+    "id": "e09",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "runtime"
+    ],
+    "margin": 1.5114398002624512,
+    "prefers_declared": true,
+    "generation": "查看 gates 与 traceback 后判断。如果 gates 为 0，且 run_summary 中没有 fail-closed，则可能表示任务是静默卡住；若 gates 为 1，且 run_summary 中有 fail-closed，则可能表示科学失败；若 gates 为 2，且 run_summary 中有 fail-closed，则可能表示工程崩溃。不能推出任务是否真的卡住。",
+    "health": false,
+    "semantic": false
+  },
+  {
+    "id": "e10",
+    "arm": "targeted_cards",
+    "routed_cards": [
+      "assistant"
+    ],
+    "margin": 5.170661449432373,
+    "prefers_declared": true,
+    "generation": "结论：可核验结论  \n证据等级与适用边界：证据等级较高，适用于一般性研究  \n行动：继续深入研究相关领域。  \n\n（共60字） ✅ 优先顺序符合要求。需要进一步调整，请告知。",
+    "health": true,
+    "semantic": true
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "protocol": "FIBRE_QWEN3_0P6B_BOOTSTRAP_FROZEN_EVAL_R20D",
+  "mode": "three_record_frozen_development_audit",
+  "records": 3,
+  "margin_deltas_adapter_minus_base": [
+    0.06272411346435547,
+    0.5307431221008301,
+    -0.6006202697753906
+  ],
+  "median_margin_delta": 0.06272411346435547,
+  "base_declared_preference_count": 2,
+  "adapter_declared_preference_count": 2,
+  "gates": {
+    "three_frozen_records_exact": true,
+    "all_finite": true,
+    "adapter_margin_improves_at_least_2_of_3": true,
+    "median_margin_delta_positive": true,
+    "adapter_prefers_declared_at_least_2_of_3": true
+  },
+  "scientific_status": "R20D_BOOTSTRAP_FROZEN_SIGNAL_SUPPORTED",
+  "claim_boundary": "Three held-out conversation-derived records only. This audits preference likelihood and exports free generations; it is not independent human evaluation, broad generalization, moving-fibre superiority, safety, continual learning, or deployment readiness."
+}

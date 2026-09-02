@@ -1,0 +1,35 @@
+{
+  "protocol": "FIBRE_QWEN_SINGLE_CARD_STRUCTURED_R21B_R1_DIAGNOSTIC",
+  "mode": "same_item_post_r21b_stability_repair",
+  "median_target_margin_delta": 1.4991649389266968,
+  "improved_items": 8,
+  "counts": {
+    "bare": {
+      "declared": 5,
+      "semantic": 0,
+      "healthy": 10
+    },
+    "long_constitution": {
+      "declared": 5,
+      "semantic": 2,
+      "healthy": 10
+    },
+    "targeted_cards": {
+      "declared": 8,
+      "semantic": 5,
+      "healthy": 9
+    }
+  },
+  "gates": {
+    "ten_items": true,
+    "all_finite": true,
+    "target_margin_improves_7_of_10": true,
+    "median_delta_positive": true,
+    "target_prefers_declared_8_of_10": true,
+    "target_health_9_of_10": true,
+    "target_semantic_7_of_10": false,
+    "target_semantic_beats_long": true
+  },
+  "scientific_status": "R21B_TARGETED_PROFILE_INCONCLUSIVE_FAIL_CLOSED",
+  "claim_boundary": "Same authored items reused after R21a to diagnose targeted versus full-context prompting. Development only; not untouched confirmation, weight learning, moving-fibre evidence, or broad personalization."
+}
