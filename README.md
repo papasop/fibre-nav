@@ -3,8 +3,12 @@
 ## Response-preserving memory, concept geometry and transport
 
 `fibre-nav` is an evidence-first research repository for a geometric view of
-behaviour and learning. A prospectively declared finite response map
-\(R(\theta)\) defines the local response-preserving space
+behaviour and learning.
+
+Moving Fibre Intelligence studies whether memories and concept structures can
+be written, read, and transported through parameter-space directions that
+preserve a declared external response. A prospectively declared finite response
+map \(R(\theta)\) defines the local response-preserving space
 
 \[
 V_\theta=\ker DR(\theta).
@@ -16,6 +20,8 @@ within frozen finite budgets.
 
 The current programme is organized as four experimentally gated layers:
 
+**Exact memory -> semantic access -> concept geometry -> cross-fibre transport**
+
 | Layer | Question | Current evidence status |
 | --- | --- | --- |
 | **L1 — exact memory** | Can a token-level memory be written to and read from a response-preserving fibre position? | **Single-seed mechanism supported** |
@@ -25,6 +31,25 @@ The current programme is organized as four experimentally gated layers:
 
 These labels describe the evidence ladder, not four proven mathematical
 theorems. Multi-seed confirmation and model-family replication remain required.
+
+## Geometry Resource Status
+
+This table states what each geometric term is currently allowed to mean in the
+archive. It is a claim-boundary table, not a list of mathematical theorems.
+
+| Resource | Observable | Status | Current interpretation |
+| --- | --- | --- | --- |
+| Position writing on response fibres | Write/read/overwrite accuracy | Single-seed support | Memories can be anchored to repeatably readable fibre positions within declared response budgets. |
+| Addressable slot structure | Independent `amber`/`cedar` slot access | Single-seed support | Two declared slots can independently carry and retrieve written memory content. |
+| Compositional coding | Two-bit codes, mixed-slot margins and cyclic reassignment | Single-seed support | The same slot-code rule can be composed and reused across written concepts. |
+| Expression-level access | Held-out phrasings for written concepts | Single-seed support | Different expressions can access the same previously written concept position; this does not prove identical internal coordinates for all semantic equivalents. |
+| Category-level generalization | Unseen whole-concept routing and positive margins | Partial development | v1.8.1 reached 7/8 unseen concepts, but the full category gate did not pass. |
+| Category geometry | Within/between distance ratio plus shuffled, pair-only and no-graph controls | Not established | Shuffled and no-graph controls were beaten, but distance-ratio and pair-only gates did not jointly pass. |
+| Geodesic semantic distance | Path distance predicts semantic relations | Untested | Current Euclidean or projected distances are not certified semantic geodesics. |
+| Curvature | Local density, relation complexity or path deviation | Untested | No curvature estimator or curvature control has passed. |
+| Parallel transport | Relation preservation after moving concept structures across base points | L4 pending | No frozen parallel-transport protocol has passed. |
+| Fibre connection | Cross-fibre direction choice, path dependence and holonomy controls | L4 pending | No experimentally certified connection is available. |
+| Section | Consistent concept-position choices across base points | L4+ pending | No local or global section has been tested. |
 
 ## Current frontier
 
