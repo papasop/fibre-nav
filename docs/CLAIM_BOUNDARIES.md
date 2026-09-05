@@ -212,6 +212,11 @@ counterfactual frontier result unchanged.
   for untouched R21d confirmation. The overlay contains no model weights,
   adapter checkpoints, private raw dialogue, credentials, caches or
   `__pycache__`.
+- Moving Fibre Intelligence L3 writer v1.7.8 is a single-seed development
+  milestone in GPT-2. It supports exact memory access, held-out linguistic
+  access for previously written concepts, two-slot compositional codes, cyclic
+  concept-code reassignment, response compliance and endpoint-KL compliance in
+  seed 81902 only.
 
 ## Not established
 
@@ -234,5 +239,8 @@ counterfactual frontier result unchanged.
   audit, or moving-response-fibre optimizer evidence from `fibre-qwen/`;
 - continuous low-response Pareto optimality beyond the frozen finite response
   budgets and alpha grids;
+- MFI whole-concept category generalization, geodesic semantic distance,
+  curvature, parallel transport, certified fibre connection, global section or
+  multi-seed confirmation from the single-seed L3 writer v1.7.8 archive;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

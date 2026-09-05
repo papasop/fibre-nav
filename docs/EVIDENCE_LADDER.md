@@ -207,6 +207,20 @@ and does not establish universal optimizer superiority or global Picard flow.
 
 `fibre-qwen/` is a v0.0.1-development side overlay, not a rung of the moving-response-fibre evidence ladder. R21b-r2 achieved exact 10/10 deterministic routing. R21c-r1 mechanically invalidated the original lexical evaluator; transparently post-hoc v2 contracts score Qwen3-8B free generation at 7/10 versus 2/10 for 0.6B. This nominates an 8B candidate for untouched R21d confirmation, but does not support personalization, safety certification, continual learning, trained-adapter or response-fibre optimizer claims.
 
+## Moving Fibre Intelligence L3 writer development
+
+`evidence/l3_writer_v1_7_8/` is a single-seed GPT-2 development milestone, not
+a confirmation rung. In frozen seed 81902, v1.7.8 supports exact memory access,
+held-out linguistic access for previously written concepts, two-slot
+compositional codes, cyclic concept-code reassignment, response compliance and
+endpoint-KL compliance.
+
+This does not support whole-concept category generalization, geodesic semantic
+distance, curvature, parallel transport, a certified fibre connection, a
+global section, model-family generality or multi-seed confirmation. It is
+therefore archived as mechanism evidence that should remain separable from
+future v1.8.x category-writer development.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
@@ -221,7 +235,10 @@ classifier protocol or the GPT-2 LoRA task protocol to end-to-end fine-tuning,
 semantic transfer, a universal optimizer comparison or global Picard-flow
 convergence. The Fibre-Qwen overlay has not crossed from post-hoc
 developmental prompting and bootstrap records to Qwen personalization, safety,
-continual-learning, trained-adapter or response-fibre optimizer evidence.
+continual-learning, trained-adapter or response-fibre optimizer evidence. The
+MFI L3 writer archive has not crossed from a single-seed compositional writer
+mechanism milestone to category generalization, semantic geometry, a fibre
+connection, a global section or multi-seed confirmation.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry
