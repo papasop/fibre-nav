@@ -221,6 +221,15 @@ global section, model-family generality or multi-seed confirmation. It is
 therefore archived as mechanism evidence that should remain separable from
 future v1.8.x category-writer development.
 
+`evidence/l3_category_v1_8_1/` archives the follow-up shared-category writer
+attempt as another single-seed development record. In seed 82001, v1.8.1
+reached 16/16 shared-router training accuracy, 7/8 whole-concept held-out
+routing, 24/24 eligible category moves, and passed the shuffled-category and
+no-graph control comparisons. It did not pass the full gate: held-out positive
+margin, within/between distance ratio, pair-only-control improvement and
+universal held-out writer access remained unsupported. It is a partial
+category-writer result, not confirmed category geometry.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
@@ -238,7 +247,11 @@ developmental prompting and bootstrap records to Qwen personalization, safety,
 continual-learning, trained-adapter or response-fibre optimizer evidence. The
 MFI L3 writer archive has not crossed from a single-seed compositional writer
 mechanism milestone to category generalization, semantic geometry, a fibre
-connection, a global section or multi-seed confirmation.
+connection, a global section or multi-seed confirmation. The v1.8.1
+category-writer archive has not crossed from partial single-seed routing and
+control success to positive-margin category geometry, distance contraction,
+pair-only-control improvement, universal held-out access or model-family
+generality.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry
