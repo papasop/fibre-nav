@@ -223,6 +223,15 @@ counterfactual frontier result unchanged.
   improvement over shuffled-category and no-graph controls, 24/24 eligible
   category moves, and exact/training-expression access for the declared
   concepts in seed 82001 only.
+- Moving Fibre Intelligence L3 v1.9.0 is a single-seed GPT-2 development
+  result in seed 82001. It passed all declared L3 development gates, including
+  8/8 held-out whole-concept routes, minimum held-out distance margin +1.9900,
+  within/between category-coordinate ratio 0.0301, and the declared
+  shuffled-category, pair-only and no-graph controls. Because the development
+  split influenced mechanism design, this is mechanism support rather than
+  independent confirmation. v1.9.1 freezes a fresh seed 82101 and a new
+  balanced held-out split as `PROSPECTIVE_CONFIRMATION_PENDING`; no v1.9.1
+  result is claimed here.
 
 ## Not established
 
@@ -245,13 +254,9 @@ counterfactual frontier result unchanged.
   audit, or moving-response-fibre optimizer evidence from `fibre-qwen/`;
 - continuous low-response Pareto optimality beyond the frozen finite response
   budgets and alpha grids;
-- MFI whole-concept category generalization, geodesic semantic distance,
-  curvature, parallel transport, certified fibre connection, global section or
-  multi-seed confirmation from the single-seed L3 writer v1.7.8 archive;
-- MFI confirmed category geometry, positive margin for every held-out concept,
-  within-category distances smaller than between-category distances,
-  improvement over the pair-only control, universal held-out linguistic access
-  after category movement, or multi-seed/model-family generality from the
-  partial v1.8.1 category-writer archive;
+- MFI independent or multi-seed category-geometry confirmation,
+  model-family generality, geodesic semantic distance, curvature, parallel
+  transport, certified fibre connection or global section from the single-seed
+  L3 archives;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

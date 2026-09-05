@@ -500,3 +500,29 @@ for every concept, within-category distances smaller than between-category
 distances, improvement over the pair-only control, universal held-out
 linguistic access after category movement, category-geometry confirmation,
 model-family generality and multi-seed confirmation.
+
+## Moving Fibre Intelligence L3 v1.9.0/v1.9.1 category geometry
+
+This import adds `moving_fibre_intelligence_l3_v1_9_1_github.zip` under
+`evidence/l3_category_v1_9_1/`. The expected and observed ZIP SHA-256 was
+`acbf0c688e36abab047236b7c2497797540fd775784f5c4273d31b7dade66bbf`.
+The package `SHA256SUMS.txt` was verified before import, and the in-repository
+`evidence/l3_category_v1_9_1/SHA256SUMS.txt` records the final imported layout.
+
+The archive contains two distinct states. v1.9.0 is a single-seed GPT-2
+development result in seed `82001` for protocol
+`MOVING_FIBRE_INTELLIGENCE_L3_PROTOTYPE_METRIC_REPAIR_V1_9_0`. It reports
+`all_seeds_pass: true`, `all_seeds_tertiary_pass: true`, configuration
+SHA-256 `d81e7006a39d7c0e47898e2260423f97e4e5517a5ae56bda788789a226e4e90a`,
+PyTorch `2.11.0+cu128`, Transformers `4.57.6`, and elapsed time
+4498.721615552902 seconds. The README records the headline v1.9.0 category
+gates: 8/8 held-out whole-concept routes, minimum held-out distance margin
+`+1.9900`, within/between category-coordinate ratio `0.0301`, and failed
+control gates for shuffled-category, pair-only and no-graph alternatives.
+
+v1.9.1 is not a result import. It freezes source, configuration, Colab
+launcher and release assets for a prospective confirmation on fresh seed
+`82101` and a new balanced held-out split. Its status is
+`PROSPECTIVE_CONFIRMATION_PENDING`; no v1.9.1 positive or negative scientific
+decision is repository-backed by this import. L4 cross-fibre transport remains
+untested.

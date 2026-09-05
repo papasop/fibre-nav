@@ -230,6 +230,17 @@ margin, within/between distance ratio, pair-only-control improvement and
 universal held-out writer access remained unsupported. It is a partial
 category-writer result, not confirmed category geometry.
 
+`evidence/l3_category_v1_9_1/` archives the next L3 category stage. The
+included v1.9.0 result is a single-seed development pass in seed 82001:
+8/8 held-out whole-concept routes, minimum held-out distance margin +1.9900,
+within/between category-coordinate ratio 0.0301, and declared
+shuffled-category, pair-only and no-graph controls all satisfied their frozen
+development gates. Because the development split influenced mechanism design,
+v1.9.0 is mechanism support rather than independent confirmation. The same
+archive freezes v1.9.1 as a prospective confirmation on fresh seed 82101 and a
+new balanced held-out split; its result is pending and is not repository
+evidence yet.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
@@ -245,13 +256,10 @@ semantic transfer, a universal optimizer comparison or global Picard-flow
 convergence. The Fibre-Qwen overlay has not crossed from post-hoc
 developmental prompting and bootstrap records to Qwen personalization, safety,
 continual-learning, trained-adapter or response-fibre optimizer evidence. The
-MFI L3 writer archive has not crossed from a single-seed compositional writer
-mechanism milestone to category generalization, semantic geometry, a fibre
-connection, a global section or multi-seed confirmation. The v1.8.1
-category-writer archive has not crossed from partial single-seed routing and
-control success to positive-margin category geometry, distance contraction,
-pair-only-control improvement, universal held-out access or model-family
-generality.
+MFI L3 archives have not crossed from single-seed development support to
+independent confirmation, multi-seed/model-family generality, semantic
+geodesics, curvature, a fibre connection, a global section or L4 transport.
+The v1.9.1 prospective confirmation result remains pending.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry

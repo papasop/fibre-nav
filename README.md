@@ -14,9 +14,8 @@ map \(R(\theta)\) defines the local response-preserving space
 V_\theta=\ker DR(\theta).
 \]
 
-The central question is whether movement inside this space can carry useful
-memory and learning structure while keeping the declared external response
-within frozen finite budgets.
+We test whether such response-preserving movement can carry memory and concept
+structure within frozen finite budgets.
 
 The current programme is organized as four experimentally gated layers:
 
@@ -26,13 +25,13 @@ The current programme is organized as four experimentally gated layers:
 | --- | --- | --- |
 | **L1 — exact memory** | Can a token-level memory be written to and read from a response-preserving fibre position? | **Single-seed mechanism supported** |
 | **L2 — semantic access** | Can multiple linguistic expressions access the same written memory, including overwrite? | **Single-seed mechanism supported** |
-| **L3 — concept geometry** | Can concept identity and composition be represented geometrically and generalized to unseen expressions or concepts? | **Writer supported; category geometry remains developmental** |
+| **L3 — concept geometry** | Can concept identity and composition be represented geometrically and generalized to unseen expressions or concepts? | **Single-seed category gate supported; independent confirmation pending** |
 | **L4 — transport** | Can concept structure move across fibres through a declared connection while preserving readable relations? | **Not yet established** |
 
 These labels describe the evidence ladder, not four proven mathematical
 theorems. Multi-seed confirmation and model-family replication remain required.
 
-## Geometry Resource Status
+## Geometry resource status
 
 This table states what each geometric term is currently allowed to mean in the
 archive. It is a claim-boundary table, not a list of mathematical theorems.
@@ -43,8 +42,8 @@ archive. It is a claim-boundary table, not a list of mathematical theorems.
 | Addressable slot structure | Independent `amber`/`cedar` slot access | Single-seed support | Two declared slots can independently carry and retrieve written memory content. |
 | Compositional coding | Two-bit codes, mixed-slot margins and cyclic reassignment | Single-seed support | The same slot-code rule can be composed and reused across written concepts. |
 | Expression-level access | Held-out phrasings for written concepts | Single-seed support | Different expressions can access the same previously written memory; this does not prove that all semantic equivalents occupy identical internal coordinates. |
-| Category-level generalization | Unseen whole-concept routing and positive margins | Partial development | v1.8.1 reached 7/8 unseen concepts, but the full category gate did not pass. |
-| Category geometry | Within/between distance ratio plus shuffled, pair-only and no-graph controls | Not established | Shuffled and no-graph controls were beaten, but distance-ratio and pair-only gates did not jointly pass. |
+| Category-level generalization | Unseen whole-concept routing and positive margins | Single-seed development support; confirmation pending | v1.9.0 passed 8/8 held-out whole-concept routes in development seed `82001`; v1.9.1 freezes a fresh seed and split for independent checking. |
+| Category geometry | Within/between distance ratio plus shuffled, pair-only and no-graph controls | Single-seed development support; confirmation pending | v1.9.0 passed the declared distance-ratio and control gates in one adaptive-development seed; this is not multi-seed or independent confirmation. |
 | Geodesic semantic distance | Path distance predicts semantic relations | Untested | Current Euclidean or projected distances are not certified semantic geodesics. |
 | Curvature | Local density, relation complexity or path deviation | Untested | No curvature estimator or curvature control has passed. |
 | Parallel transport | Relation preservation after moving concept structures across base points | L4 pending | No frozen parallel-transport protocol has passed. |
@@ -65,24 +64,26 @@ generalization, geodesic semantic distance, curvature or fibre transport.
 
 [Inspect the frozen v1.7.8 writer evidence](evidence/l3_writer_v1_7_8/)
 
-### L3 shared-category writer — v1.8.1
+### L3 category geometry — v1.9.0 / v1.9.1
 
-In frozen seed `82001`, v1.8.1 reached:
+In frozen seed `82001`, v1.9.0 passed the declared single-seed L3 development
+gates:
 
-- 16/16 training-concept routes;
-- 7/8 whole-concept held-out routes;
-- 24/24 eligible category moves;
-- superiority to shuffled-category and no-graph controls.
+- 8/8 held-out whole-concept category routes;
+- minimum held-out distance margin `+1.9900`;
+- within/between category-coordinate ratio `0.0301`;
+- shuffled-category, pair-only and no-graph controls each failed at least one
+  corresponding gate.
 
-It did **not** pass the complete L3 category gate. Positive held-out margin,
-within/between distance ratio, pair-only advantage and universal held-out
-writer access remained unsupported. The correct status is a partial
-development result, not confirmed category geometry.
+The development split influenced mechanism design, so v1.9.0 is single-seed
+mechanism support rather than independent confirmation. v1.9.1 freezes a fresh
+seed `82101` and a new balanced held-out split as
+`PROSPECTIVE_CONFIRMATION_PENDING`; its outcome is not yet repository evidence.
 
-[Inspect the frozen v1.8.1 category evidence](evidence/l3_category_v1_8_1/)
+[Inspect the frozen v1.9.0/v1.9.1 category evidence](evidence/l3_category_v1_9_1/)
 
-v1.8.2 and later category-repair runs remain outside the repository until they
-are separately frozen, audited and assigned an explicit claim boundary.
+The earlier v1.8.1 partial category result is preserved as development history
+at [`evidence/l3_category_v1_8_1/`](evidence/l3_category_v1_8_1/).
 
 ## What is already established outside the L1–L4 memory ladder
 
@@ -126,6 +127,7 @@ evidence/confirmed/       frozen confirmatory evidence
 evidence/developmental/   developmental and failed stages
 evidence/l3_writer_v1_7_8/
 evidence/l3_category_v1_8_1/
+evidence/l3_category_v1_9_1/
 external_tests/           one-click external reproductions
 docs/                     claim boundaries and evidence ladder
 paper/                    current paper and archived revision
