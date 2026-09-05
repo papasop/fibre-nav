@@ -42,7 +42,7 @@ archive. It is a claim-boundary table, not a list of mathematical theorems.
 | Position writing on response fibres | Write/read/overwrite accuracy | Single-seed support | Memories can be anchored to repeatably readable fibre positions within declared response budgets. |
 | Addressable slot structure | Independent `amber`/`cedar` slot access | Single-seed support | Two declared slots can independently carry and retrieve written memory content. |
 | Compositional coding | Two-bit codes, mixed-slot margins and cyclic reassignment | Single-seed support | The same slot-code rule can be composed and reused across written concepts. |
-| Expression-level access | Held-out phrasings for written concepts | Single-seed support | Different expressions can access the same previously written concept position; this does not prove identical internal coordinates for all semantic equivalents. |
+| Expression-level access | Held-out phrasings for written concepts | Single-seed support | Different expressions can access the same previously written memory; this does not prove that all semantic equivalents occupy identical internal coordinates. |
 | Category-level generalization | Unseen whole-concept routing and positive margins | Partial development | v1.8.1 reached 7/8 unseen concepts, but the full category gate did not pass. |
 | Category geometry | Within/between distance ratio plus shuffled, pair-only and no-graph controls | Not established | Shuffled and no-graph controls were beaten, but distance-ratio and pair-only gates did not jointly pass. |
 | Geodesic semantic distance | Path distance predicts semantic relations | Untested | Current Euclidean or projected distances are not certified semantic geodesics. |
