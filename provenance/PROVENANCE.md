@@ -446,3 +446,28 @@ continual learning or a trained-model release.
 ## Fibre-Qwen R21b-r2 through R21c-r1 update
 
 The development overlay was updated from parent commit `5700a527ea60639178291f0b2b7ba2a6abb61adb` using archive SHA-256 `ac0e4d7a0017093e83ad96c618d8002d3c0583cf9991338533c569a1111baffd`. R21b-r2 achieved exact deterministic routing, but its original result ZIP was unavailable at packaging time; only a transcript-reconstructed summary is included and explicitly marked, with no fabricated per-item record. R21c preserves the exact 40-record Qwen3-0.6B/Qwen3-8B comparison. R21c-r1 mechanically invalidates the v1 evaluator and reports post-hoc v2 rescoring. The 8B 7/10 score is a development nomination only, not untouched confirmation, personalization, safety certification, weight learning or deployment readiness.
+
+## Moving Fibre Intelligence L3 writer v1.7.8
+
+This import adds `moving_fibre_intelligence_l3_writer_v1_7_8_github.zip` under
+`evidence/l3_writer_v1_7_8/`. The expected and observed ZIP SHA-256 was
+`c6568d5f5abc3e604c03529a05ac38d0efb1f503df0831270bcc12e3a75976a8`.
+The package `SHA256SUMS.txt` was verified before import, and the in-repository
+`evidence/l3_writer_v1_7_8/SHA256SUMS.txt` records the final imported layout.
+
+The archived status is `DEVELOPMENT_NOT_CONFIRMATION`. It is a single frozen
+GPT-2 seed, `81902`, for protocol
+`MOVING_FIBRE_INTELLIGENCE_L3_MIXED_SLOT_MARGIN_V1_7_8`. The run completed one
+seed and reports `all_seeds_pass: true`, `all_seeds_tertiary_pass: true`,
+configuration SHA-256
+`76619bb7ed40ee3bee14bdc0f8ae3f768431486474e7188f973909715649681b`, PyTorch
+`2.11.0+cu128`, Transformers `4.57.6`, and elapsed time 2592.3215227127075
+seconds.
+
+The supported scope is exact memory access, held-out linguistic access for
+previously written concepts, two-slot compositional codes, cyclic concept-code
+reassignment, response compliance and endpoint-KL compliance. This archive
+does not support whole-concept category generalization, geodesic semantic
+distance, curvature, parallel transport, a certified fibre connection, a
+global section, model-family generality or multi-seed confirmation. It does
+not include v1.8.0 or v1.8.1 evidence and is not a Hugging Face model release.

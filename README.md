@@ -178,6 +178,23 @@ seed. R16b is retained as the response-occupancy-only action negative boundary.
 
 [Inspect R17d evidence](evidence/confirmed/pythia160m_metric_onsager_r17d/)
 
+## Moving Fibre Intelligence L3 writer development
+
+`evidence/l3_writer_v1_7_8/` archives a single-seed GPT-2 development
+milestone for compositional concept-position writing. In frozen seed 81902,
+v1.7.8 passed exact memory access, held-out linguistic access for previously
+written concepts, independent two-slot access, all four two-bit compositions
+under cyclic concept-code reassignment, anchor-response compliance and
+endpoint-KL compliance.
+
+This is mechanism evidence, not multi-seed confirmation or category
+generalization. The archive does not support geodesic semantic distance,
+curvature, parallel transport, a certified fibre connection, a global section
+or a general-purpose memory adapter. v1.8.x remains development work until
+separately archived and gated.
+
+[Inspect L3 writer evidence](evidence/l3_writer_v1_7_8/)
+
 ## Fibre-Qwen development overlay
 
 `fibre-qwen/` archives an auditable v0.0.1-development side project for a research-oriented Qwen assistant. R21b-r2 achieved exact 10/10 deterministic routing, so retrieval is no longer the leading bottleneck. R21c compared Qwen3-0.6B with Qwen3-8B, but R21c-r1 mechanically invalidated its original lexical evaluator. Under transparently post-hoc revised contracts, Qwen3-8B free generation scored 7/10 versus 2/10 for 0.6B. This nominates an 8B candidate for future untouched R21d confirmation; it is not moving-response-fibre optimizer evidence, broad personalization, safety certification, continual learning or a trained-model release.
@@ -470,6 +487,12 @@ source-frozen response geometry. The A100 run record indicates that 8 seeds and
 results ZIP has not been imported. No positive or negative v4.4-r1 decision is
 repository-backed here.
 
+Moving Fibre Intelligence L3 writer v1.7.8 is archived under
+`evidence/l3_writer_v1_7_8/` as a single-seed development milestone. It passed
+its frozen seed-81902 gates for previously written compositional concepts, but
+it is not multi-seed confirmation, category generalization, semantic geometry,
+parallel transport, a fibre connection or a global-section result.
+
 ## Evidence map
 
 ```text
@@ -495,6 +518,8 @@ evidence/
     gpt2_lora_b_r2_strict/
   pretrained_gpt2_dynamic_kernel_r12_r13/
     R12 development chain and R13 frozen pretrained GPT-2 confirmation
+  l3_writer_v1_7_8/
+    MFI L3 writer single-seed development milestone
   fibre-qwen/
     Qwen v0.0.1-development protocols, fail-closed evidence and roadmap
   confirmed/
@@ -579,6 +604,9 @@ The archive does not establish:
 - universal optimizer superiority, end-to-end Picard fine-tuning, or global
   Picard-flow convergence;
 - a continuous Pareto optimum beyond the frozen finite budget and alpha grids;
+- MFI whole-concept category generalization, geodesic semantic distance,
+  curvature, parallel transport, fibre connection, global section or multi-seed
+  confirmation from the single-seed L3 writer v1.7.8 development archive;
 - Qwen personalization, safety certification, trained-model release or
   moving-response-fibre optimizer evidence from the fail-closed
   `fibre-qwen/` development overlay;
