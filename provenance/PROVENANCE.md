@@ -471,3 +471,32 @@ does not support whole-concept category generalization, geodesic semantic
 distance, curvature, parallel transport, a certified fibre connection, a
 global section, model-family generality or multi-seed confirmation. It does
 not include v1.8.0 or v1.8.1 evidence and is not a Hugging Face model release.
+
+## Moving Fibre Intelligence L3 shared-category writer v1.8.1
+
+This import adds `fibre_nav_mfi_l3_v1_8_1_github_overlay.zip` under
+`evidence/l3_category_v1_8_1/`. The observed local ZIP SHA-256 was
+`c7df2cfa7d8dbec62ea9d23d9165bbd44db7e235fd28369823b267ebd62d13ab`; no
+separate expected SHA-256 was supplied in the user request. The package
+`SHA256SUMS.txt` was verified before import, and the in-repository
+`evidence/l3_category_v1_8_1/SHA256SUMS.txt` records the final imported layout,
+including the archived import note and repository audit.
+
+The archived status is `DEVELOPMENT_NOT_CONFIRMATION`. It is a single frozen
+GPT-2 seed, `82001`, for protocol
+`MOVING_FIBRE_INTELLIGENCE_L3_SHARED_CATEGORY_WRITER_V1_8_1`. The run completed
+one seed and reports `all_seeds_pass: false`, `all_seeds_tertiary_pass: false`,
+configuration SHA-256
+`b91ff3abae25dd7f21dc1dcfe68474db90d5c788d2d42d9e480b9bf48a24604f`, PyTorch
+`2.11.0+cu128`, Transformers `4.57.6`, and elapsed time 3998.7832641601562
+seconds.
+
+The supported scope is a partial category-conditioned writer result: 16/16
+shared-router training accuracy, 7/8 whole-concept held-out routing, 24/24
+eligible category moves, category-current improvement over shuffled-category
+and no-graph controls, and exact/training-expression access for the declared
+concepts. The failed or unsupported gates are positive held-out category margin
+for every concept, within-category distances smaller than between-category
+distances, improvement over the pair-only control, universal held-out
+linguistic access after category movement, category-geometry confirmation,
+model-family generality and multi-seed confirmation.

@@ -1,0 +1,81 @@
+2026-09-05 09:00:19.775484: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-05 09:00:19.849078: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[seed 82001] starting
+`torch_dtype` is deprecated! Use `dtype` instead!
+/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/layer.py:2631: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+[seed 82001] tertiary={'all_writer_endpoints_eligible': True, 'all_concepts_exact': True, 'all_concepts_train_access': True, 'all_concepts_heldout_expression_access': False, 'shared_router_train_accuracy': True, 'shared_router_heldout_accuracy': True, 'all_category_moves_eligible': True, 'category_train_accuracy': True, 'heldout_whole_concept_accuracy': True, 'positive_heldout_category_margin': False, 'category_within_between_ratio': False, 'category_beats_shuffle': True, 'category_beats_pair_only': False, 'category_beats_no_graph': True}
+{
+  "protocol": "MOVING_FIBRE_INTELLIGENCE_L3_SHARED_CATEGORY_WRITER_V1_8_1",
+  "scientific_status": "DEVELOPMENT_NOT_CONFIRMATION",
+  "config": {
+    "protocol": "MOVING_FIBRE_INTELLIGENCE_L3_SHARED_CATEGORY_WRITER_V1_8_1",
+    "model_name": "openai-community/gpt2",
+    "seeds": [
+      82001
+    ],
+    "bits": 2,
+    "anchor_count": 12,
+    "response_dim": 6,
+    "write_steps": 360,
+    "rewrite_steps": 520,
+    "learning_rate": 0.03,
+    "max_backtracking": 12,
+    "min_step": 2.9296875e-05,
+    "retraction_steps": 3,
+    "response_budget": 0.002,
+    "endpoint_kl_gate": 0.005,
+    "lora_rank": 4,
+    "lora_alpha": 8,
+    "semantic_pull_weight": 2.0,
+    "semantic_consistency_weight": 1.0,
+    "worst_item_weight": 1.5,
+    "worst_item_temperature": 0.15,
+    "margin_weight": 1.25,
+    "margin_target": 0.5,
+    "slot_factorized_writer": true,
+    "slot_contrast_weight": 2.0,
+    "slot_contrast_target": 1.5,
+    "mixed_slot_train_margin_gate": 0.5,
+    "kl_barrier_onset": 0.0025,
+    "kl_barrier_weight": 5.0,
+    "kl_barrier_epsilon": 1e-06,
+    "overwrite_a_kl_reserve_gate": 0.0038,
+    "arms": [
+      "semantic_current",
+      "exact_only",
+      "random_kernel",
+      "sign_reversed",
+      "shuffled_label",
+      "no_move"
+    ],
+    "best_of_random": 4,
+    "train_accuracy_gate": 1.0,
+    "true_random_signed_margin_gate": 0.1,
+    "semantic_exact_only_margin_gate": 0.1,
+    "paraphrase_accuracy_gate": 1.0,
+    "l3_write_steps": 520,
+    "l3_code_rotations": 1,
+    "category_projection_rank": 3,
+    "category_train_accuracy_gate": 1.0,
+    "category_heldout_accuracy_gate": 0.75,
+    "category_distance_ratio_gate": 0.8,
+    "category_control_margin_gate": 0.125,
+    "category_pair_margin_gate": 0.125,
+    "category_router_ridge": 0.01,
+    "category_move_scale": 4.0,
+    "category_move_max_backtracking": 8
+  },
+  "config_sha256": "b91ff3abae25dd7f21dc1dcfe68474db90d5c788d2d42d9e480b9bf48a24604f",
+  "seeds_complete": 1,
+  "seeds_all_tertiary_gates_pass": 0,
+  "all_seeds_tertiary_pass": false,
+  "seeds_all_gates_pass": 0,
+  "all_seeds_pass": false,
+  "elapsed_seconds": 3998.7832641601562,
+  "python": "3.13.15 (main, Aug  6 2026, 11:06:23) [GCC 11.4.0]",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.57.6"
+}

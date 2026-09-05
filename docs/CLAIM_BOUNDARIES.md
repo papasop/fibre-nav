@@ -217,6 +217,12 @@ counterfactual frontier result unchanged.
   access for previously written concepts, two-slot compositional codes, cyclic
   concept-code reassignment, response compliance and endpoint-KL compliance in
   seed 81902 only.
+- Moving Fibre Intelligence L3 shared-category writer v1.8.1 is a partial
+  single-seed GPT-2 development result. It supports 16/16 shared-router
+  training accuracy, 7/8 whole-concept held-out routing, category-current
+  improvement over shuffled-category and no-graph controls, 24/24 eligible
+  category moves, and exact/training-expression access for the declared
+  concepts in seed 82001 only.
 
 ## Not established
 
@@ -242,5 +248,10 @@ counterfactual frontier result unchanged.
 - MFI whole-concept category generalization, geodesic semantic distance,
   curvature, parallel transport, certified fibre connection, global section or
   multi-seed confirmation from the single-seed L3 writer v1.7.8 archive;
+- MFI confirmed category geometry, positive margin for every held-out concept,
+  within-category distances smaller than between-category distances,
+  improvement over the pair-only control, universal held-out linguistic access
+  after category movement, or multi-seed/model-family generality from the
+  partial v1.8.1 category-writer archive;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

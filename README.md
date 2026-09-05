@@ -195,6 +195,14 @@ separately archived and gated.
 
 [Inspect L3 writer evidence](evidence/l3_writer_v1_7_8/)
 
+`evidence/l3_category_v1_8_1/` archives the next single-seed shared-category
+writer attempt. Seed 82001 reached 16/16 training routing, 7/8 whole-concept
+held-out routing, 24/24 eligible category moves and beat shuffled-category and
+no-graph controls. It did not pass the full gate: positive held-out margin,
+within/between distance ratio, pair-only control and universal held-out writer
+access remained unsupported. This is a partial development result, not
+confirmed category geometry.
+
 ## Fibre-Qwen development overlay
 
 `fibre-qwen/` archives an auditable v0.0.1-development side project for a research-oriented Qwen assistant. R21b-r2 achieved exact 10/10 deterministic routing, so retrieval is no longer the leading bottleneck. R21c compared Qwen3-0.6B with Qwen3-8B, but R21c-r1 mechanically invalidated its original lexical evaluator. Under transparently post-hoc revised contracts, Qwen3-8B free generation scored 7/10 versus 2/10 for 0.6B. This nominates an 8B candidate for future untouched R21d confirmation; it is not moving-response-fibre optimizer evidence, broad personalization, safety certification, continual learning or a trained-model release.
@@ -493,6 +501,14 @@ its frozen seed-81902 gates for previously written compositional concepts, but
 it is not multi-seed confirmation, category generalization, semantic geometry,
 parallel transport, a fibre connection or a global-section result.
 
+Moving Fibre Intelligence L3 shared-category writer v1.8.1 is archived under
+`evidence/l3_category_v1_8_1/` as a partial single-seed development result. It
+supports perfect training routing, 7/8 held-out routing and 24/24 eligible
+category moves in seed 82001, but does not support confirmed category geometry,
+positive margins for every held-out concept, within-category semantic distance,
+pair-only-control improvement, universal held-out linguistic access or
+multi-seed generality.
+
 ## Evidence map
 
 ```text
@@ -520,6 +536,8 @@ evidence/
     R12 development chain and R13 frozen pretrained GPT-2 confirmation
   l3_writer_v1_7_8/
     MFI L3 writer single-seed development milestone
+  l3_category_v1_8_1/
+    MFI L3 shared-category writer partial single-seed development result
   fibre-qwen/
     Qwen v0.0.1-development protocols, fail-closed evidence and roadmap
   confirmed/
@@ -607,6 +625,9 @@ The archive does not establish:
 - MFI whole-concept category generalization, geodesic semantic distance,
   curvature, parallel transport, fibre connection, global section or multi-seed
   confirmation from the single-seed L3 writer v1.7.8 development archive;
+- MFI confirmed category geometry, positive held-out margin for every concept,
+  within-category distance contraction, pair-only-control improvement or
+  universal held-out access from the partial v1.8.1 category-writer archive;
 - Qwen personalization, safety certification, trained-model release or
   moving-response-fibre optimizer evidence from the fail-closed
   `fibre-qwen/` development overlay;
