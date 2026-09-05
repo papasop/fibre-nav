@@ -1,21 +1,20 @@
 # Moving Fibre Intelligence
 
-## Response-preserving memory, concept geometry and transport
+## Reusable geometric addressing in neural response fibres
 
-`fibre-nav` is an evidence-first research repository for a geometric view of
-behaviour and learning.
+Moving Fibre Intelligence tests whether memories and concepts can be assigned
+to reusable geometric addresses inside a response-preserving parameter fibre.
 
-Moving Fibre Intelligence studies whether memories and concept structures can
-be written, read, and transported through parameter-space directions that
-preserve a declared external response. A prospectively declared finite response
-map \(R(\theta)\) defines the local response-preserving space
+For a prospectively declared finite response map \(R(\theta)\), the local
+response-preserving space is
 
 \[
 V_\theta=\ker DR(\theta).
 \]
 
-We test whether such response-preserving movement can carry memory and concept
-structure within frozen finite budgets.
+The programme asks whether movement in this space can support exact memory,
+semantic access, reusable concept addressing and eventually cross-fibre
+transport while remaining within frozen response and KL budgets.
 
 The current programme is organized as four experimentally gated layers:
 
@@ -25,8 +24,10 @@ The current programme is organized as four experimentally gated layers:
 | --- | --- | --- |
 | **L1 — exact memory** | Can a token-level memory be written to and read from a response-preserving fibre position? | **Single-seed mechanism supported** |
 | **L2 — semantic access** | Can multiple linguistic expressions access the same written memory, including overwrite? | **Single-seed mechanism supported** |
-| **L3 — concept geometry** | Can concept identity and composition be represented geometrically and generalized to unseen expressions or concepts? | **Single-seed category gate supported; independent confirmation pending** |
-| **L4 — transport** | Can concept structure move across fibres through a declared connection while preserving readable relations? | **Not yet established** |
+| **L3 — compositional writer** | Can reusable two-slot concept codes be written, mixed and reassigned? | **v1.7.8 single-seed all gates passed** |
+| **L3 — category geometry** | Can held-out concepts be routed by category-coordinate geometry under declared controls? | **v1.9.0 single-seed development all gates passed** |
+| **L3 — independent confirmation** | Does the L3 category result survive a fresh seed and new balanced held-out split? | **v1.9.1 prospective pending** |
+| **L4 — transport** | Can concept structure move across fibres through a declared connection while preserving readable relations? | **Not yet tested** |
 
 These labels describe the evidence ladder, not four proven mathematical
 theorems. Multi-seed confirmation and model-family replication remain required.
@@ -43,7 +44,7 @@ archive. It is a claim-boundary table, not a list of mathematical theorems.
 | Compositional coding | Two-bit codes, mixed-slot margins and cyclic reassignment | Single-seed support | The same slot-code rule can be composed and reused across written concepts. |
 | Expression-level access | Held-out phrasings for written concepts | Single-seed support | Different expressions can access the same previously written memory; this does not prove that all semantic equivalents occupy identical internal coordinates. |
 | Category-level generalization | Unseen whole-concept routing and positive margins | Single-seed development support; confirmation pending | v1.9.0 passed 8/8 held-out whole-concept routes in development seed `82001`; v1.9.1 freezes a fresh seed and split for independent checking. |
-| Category geometry | Within/between distance ratio plus shuffled, pair-only and no-graph controls | Single-seed development support; confirmation pending | v1.9.0 passed the declared distance-ratio and control gates in one adaptive-development seed; this is not multi-seed or independent confirmation. |
+| Category geometry | Within/between distance ratio plus shuffled, pair-only and no-graph controls | Single-seed development support; confirmation pending | v1.9.0 passed the declared distance-ratio and beat shuffled, pair-only and no-graph controls in one adaptive-development seed; this is not multi-seed or independent confirmation. |
 | Geodesic semantic distance | Path distance predicts semantic relations | Untested | Current Euclidean or projected distances are not certified semantic geodesics. |
 | Curvature | Local density, relation complexity or path deviation | Untested | No curvature estimator or curvature control has passed. |
 | Parallel transport | Relation preservation after moving concept structures across base points | L4 pending | No frozen parallel-transport protocol has passed. |
@@ -72,13 +73,13 @@ gates:
 - 8/8 held-out whole-concept category routes;
 - minimum held-out distance margin `+1.9900`;
 - within/between category-coordinate ratio `0.0301`;
-- shuffled-category, pair-only and no-graph controls each failed at least one
-  corresponding gate.
+- superiority to shuffled-category, pair-only and no-graph controls.
 
 The development split influenced mechanism design, so v1.9.0 is single-seed
 mechanism support rather than independent confirmation. v1.9.1 freezes a fresh
-seed `82101` and a new balanced held-out split as
-`PROSPECTIVE_CONFIRMATION_PENDING`; its outcome is not yet repository evidence.
+seed `82101`, a new balanced held-out split, and all declared structures,
+thresholds and controls as `PROSPECTIVE_CONFIRMATION_PENDING`; its outcome is
+not yet repository evidence.
 
 [Inspect the frozen v1.9.0/v1.9.1 category evidence](evidence/l3_category_v1_9_1/)
 
