@@ -1,0 +1,47 @@
+{
+  "protocol": "MOVING_FIBRE_INTELLIGENCE_L3_PROSPECTIVE_ROUTER_V1_9_6_0",
+  "scientific_status": "ROUTING_ONLY_PREFLIGHT_NOT_L3_CONFIRMATION",
+  "metrics": {
+    "concepts": 80,
+    "outer_predictions": 80,
+    "aggregate_accuracy": 0.9875,
+    "worst_fold_accuracy": 0.9375,
+    "fold_accuracies": [
+      1.0,
+      1.0,
+      0.9375,
+      1.0,
+      1.0
+    ],
+    "class_recalls": {
+      "animal": 1.0,
+      "city": 0.95,
+      "country": 1.0,
+      "fruit": 1.0
+    },
+    "minimum_class_recall": 0.95,
+    "median_signed_score_margin": 0.7952868890984048,
+    "tenth_percentile_signed_score_margin": 0.3558245810989469,
+    "pair_only_accuracy": 0.7375,
+    "median_shuffle_accuracy": 0.25,
+    "maximum_shuffle_accuracy": 0.625,
+    "chance_accuracy": 0.25
+  },
+  "gates": {
+    "aggregate_accuracy": true,
+    "worst_fold_accuracy": true,
+    "minimum_class_recall": true,
+    "positive_median_margin": true,
+    "positive_tenth_percentile_margin": true,
+    "beats_pair_only": true,
+    "beats_median_shuffle": true,
+    "beats_maximum_shuffle": true
+  },
+  "all_gates_pass": true,
+  "config_sha256": "2054a0785cfc9e2e931b68322154955560bbcf0f21787b881b4b5e8c606647d8",
+  "elapsed_seconds": 23.995633602142334,
+  "python": "3.13.15 (main, Aug  6 2026, 11:06:23) [GCC 11.4.0]",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.57.6"
+}

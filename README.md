@@ -26,7 +26,7 @@ The current programme is organized as four experimentally gated layers:
 | **L2 — semantic access** | Can multiple linguistic expressions access the same written memory, including overwrite? | **Single-seed mechanism supported** |
 | **L3 — compositional writer** | Can reusable two-slot concept codes be written, mixed and reassigned? | **v1.7.8 single-seed all gates passed** |
 | **L3 — category geometry** | Can held-out concepts be routed by category-coordinate geometry under declared controls? | **v1.9.0 single-seed development all gates passed** |
-| **L3 — independent confirmation** | Does the L3 category result survive a fresh seed and new balanced held-out split? | **v1.9.1 prospective pending** |
+| **L3 — independent confirmation** | Does the integrated router-address-writer mechanism survive a prospectively frozen fresh seed? | **v1.9.6.0 single-seed confirmation** |
 | **L4 — transport** | Can concept structure move across fibres through a declared connection while preserving readable relations? | **Not yet tested** |
 
 These labels describe the evidence ladder, not four proven mathematical
@@ -43,8 +43,8 @@ archive. It is a claim-boundary table, not a list of mathematical theorems.
 | Addressable slot structure | Independent `amber`/`cedar` slot access | Single-seed support | Two declared slots can independently carry and retrieve written memory content. |
 | Compositional coding | Two-bit codes, mixed-slot margins and cyclic reassignment | Single-seed support | The same slot-code rule can be composed and reused across written concepts. |
 | Expression-level access | Held-out phrasings for written concepts | Single-seed support | Different expressions can access the same previously written memory; this does not prove that all semantic equivalents occupy identical internal coordinates. |
-| Category-level generalization | Unseen whole-concept routing and positive margins | Single-seed development support; confirmation pending | v1.9.0 passed 8/8 held-out whole-concept routes in development seed `82001`; v1.9.1 freezes a fresh seed and split for independent checking. |
-| Category geometry | Within/between distance ratio plus shuffled, pair-only and no-graph controls | Single-seed development support; confirmation pending | v1.9.0 passed the declared distance-ratio and beat shuffled, pair-only and no-graph controls in one adaptive-development seed; this is not multi-seed or independent confirmation. |
+| Category-level generalization | Unseen whole-concept routing and positive margins | Single-seed confirmation | v1.9.6.0 routed 4/4 new bridge concepts correctly after a fresh-split 80-concept router passed 79/80 outer-held-out predictions. |
+| Category geometry | Within/between distance ratio plus shuffled, pair-only and no-graph controls | Single-seed development support | v1.9.0 passed the declared distance-ratio and beat shuffled, pair-only and no-graph controls in one adaptive-development seed; v1.9.6.0 confirms the integrated router-address-writer mechanism, not L4 transport. |
 | Geodesic semantic distance | Path distance predicts semantic relations | Untested | Current Euclidean or projected distances are not certified semantic geodesics. |
 | Curvature | Local density, relation complexity or path deviation | Untested | No curvature estimator or curvature control has passed. |
 | Parallel transport | Relation preservation after moving concept structures across base points | L4 pending | No frozen parallel-transport protocol has passed. |
@@ -65,7 +65,7 @@ generalization, geodesic semantic distance, curvature or fibre transport.
 
 [Inspect the frozen v1.7.8 writer evidence](evidence/l3_writer_v1_7_8/)
 
-### L3 category geometry — v1.9.0 / v1.9.1
+### L3 category geometry — v1.9.0 / v1.9.6.0
 
 In frozen seed `82001`, v1.9.0 passed the declared single-seed L3 development
 gates:
@@ -76,15 +76,25 @@ gates:
 - superiority to shuffled-category, pair-only and no-graph controls.
 
 The development split influenced mechanism design, so v1.9.0 is single-seed
-mechanism support rather than independent confirmation. v1.9.1 freezes a fresh
-seed `82101`, a new balanced held-out split, and all declared structures,
-thresholds and controls as `PROSPECTIVE_CONFIRMATION_PENDING`; its outcome is
-not yet repository evidence.
+mechanism support rather than independent confirmation.
 
-[Inspect the frozen v1.9.0/v1.9.1 category evidence](evidence/l3_category_v1_9_1/)
+v1.9.6.0 is the first prospectively frozen single-seed confirmation of the
+integrated L3 router-address-writer mechanism in this GPT-2 LoRA setting. It
+used writer seed `82601`, router split seed `196001`, new bridge instances
+`dog`, `Tokyo`, `Japan` and `apple`, and unchanged rank-8 writer budgets and
+decision gates. The fresh-split router reached 79/80 outer-held-out accuracy
+with 93.75% worst-fold accuracy and 95% minimum class recall; bridge routing
+was 4/4 correct with positive margins; 16/16 eligible writer endpoints passed
+exact, training-expression, held-out-expression, mixed-address, response-budget
+and endpoint-KL gates.
 
-The earlier v1.8.1 partial category result is preserved as development history
-at [`evidence/l3_category_v1_8_1/`](evidence/l3_category_v1_8_1/).
+[Inspect the frozen v1.9.6.0 category evidence](evidence/l3_category_v1_9_6_0/)
+
+This is not multi-seed confirmation, a fresh external concept cohort,
+cross-model replication or L4 cross-fibre transport. Earlier v1.8.1 partial
+and v1.9.1 prospective records are preserved at
+[`evidence/l3_category_v1_8_1/`](evidence/l3_category_v1_8_1/) and
+[`evidence/l3_category_v1_9_1/`](evidence/l3_category_v1_9_1/).
 
 ## What is already established outside the L1–L4 memory ladder
 
@@ -129,6 +139,7 @@ evidence/developmental/   developmental and failed stages
 evidence/l3_writer_v1_7_8/
 evidence/l3_category_v1_8_1/
 evidence/l3_category_v1_9_1/
+evidence/l3_category_v1_9_6_0/
 external_tests/           one-click external reproductions
 docs/                     claim boundaries and evidence ladder
 paper/                    current paper and archived revision

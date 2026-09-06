@@ -241,6 +241,17 @@ archive freezes v1.9.1 as a prospective confirmation on fresh seed 82101 and a
 new balanced held-out split; its result is pending and is not repository
 evidence yet.
 
+`evidence/l3_category_v1_9_6_0/` archives the first prospectively frozen
+single-seed confirmation of the integrated L3 router-address-writer mechanism
+in the tested GPT-2 LoRA setting. It used writer seed 82601, router split seed
+196001, four new bridge instances from the existing 80-concept cohort, and the
+rank-8 writer. The router passed every declared routing gate with 79/80
+outer-held-out accuracy, 93.75% worst-fold accuracy and 95% minimum class
+recall. The bridge routed 4/4 instances correctly with positive margins, and
+16/16 eligible writer endpoints passed the declared exact,
+training-expression, held-out-expression, mixed-address, response-budget and
+endpoint-KL gates.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
@@ -256,10 +267,9 @@ semantic transfer, a universal optimizer comparison or global Picard-flow
 convergence. The Fibre-Qwen overlay has not crossed from post-hoc
 developmental prompting and bootstrap records to Qwen personalization, safety,
 continual-learning, trained-adapter or response-fibre optimizer evidence. The
-MFI L3 archives have not crossed from single-seed development support to
-independent confirmation, multi-seed/model-family generality, semantic
+MFI L3 archives have not crossed from single-seed confirmation to multi-seed
+or model-family generality, an entirely new external concept cohort, semantic
 geodesics, curvature, a fibre connection, a global section or L4 transport.
-The v1.9.1 prospective confirmation result remains pending.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry

@@ -526,3 +526,31 @@ launcher and release assets for a prospective confirmation on fresh seed
 `PROSPECTIVE_CONFIRMATION_PENDING`; no v1.9.1 positive or negative scientific
 decision is repository-backed by this import. L4 cross-fibre transport remains
 untested.
+
+## Moving Fibre Intelligence L3 v1.9.6.0 single-seed confirmation
+
+This import adds `moving_fibre_intelligence_l3_v1_9_6_0_github_archive.zip`
+under `evidence/l3_category_v1_9_6_0/`. The expected and observed ZIP SHA-256
+was `26ba5594381a2b0591f7446df6ec59eee71f7fcce8a7d9e09ecd53c453a1e484`.
+The package `SHA256SUMS.txt` was verified before import, and the in-repository
+`evidence/l3_category_v1_9_6_0/SHA256SUMS.txt` records the final imported
+layout.
+
+The archived status is a prospectively frozen single-seed L3 confirmation in
+the tested GPT-2 LoRA setting, not multi-seed confirmation. The run used writer
+seed `82601`, router split seed `196001`, four new bridge instances from the
+existing 80-concept cohort, and protocol
+`MOVING_FIBRE_INTELLIGENCE_L3_PROSPECTIVE_CONFIRMATION_V1_9_6_0`. It reports
+`all_gates_pass: true`, configuration SHA-256
+`9f06fcf505df7b4a0ccbfea59d6e866eb3f8c29929227fcc5af55b332f1c829e`, PyTorch
+`2.11.0+cu128`, Transformers `4.57.6`, and elapsed time 3189.910411119461
+seconds.
+
+The router preflight passed every declared routing gate with 79/80
+outer-held-out accuracy, 93.75% worst-fold accuracy and 95% minimum class
+recall. The integrated bridge routed `dog`, `tokyo`, `japan` and `apple`
+correctly with positive margins, and 16/16 eligible rank-8 writer endpoints
+passed the declared exact, training-expression, held-out-expression,
+mixed-address, response-budget and endpoint-KL gates. This import does not
+support multi-seed statistical stability, an entirely new external concept
+cohort, cross-model generality or L4 cross-fibre transport.

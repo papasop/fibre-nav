@@ -1,0 +1,17 @@
+{
+  "protocol": "MOVING_FIBRE_INTELLIGENCE_L3_PROSPECTIVE_ROUTER_V1_9_6_0",
+  "model_name": "openai-community/gpt2",
+  "seed": 82601,
+  "split_seed": 196001,
+  "outer_folds": 5,
+  "feature_batch_size": 16,
+  "ridge": 0.01,
+  "ensemble_alphas": [0.25, 0.50, 0.75],
+  "shuffle_repeats": 16,
+  "aggregate_accuracy_gate": 0.80,
+  "worst_fold_accuracy_gate": 0.6875,
+  "minimum_class_recall_gate": 0.75,
+  "pair_margin_gate": 0.10,
+  "shuffle_margin_gate": 0.25,
+  "max_shuffle_margin_gate": 0.10
+}

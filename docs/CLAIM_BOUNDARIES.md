@@ -232,6 +232,16 @@ counterfactual frontier result unchanged.
   independent confirmation. v1.9.1 freezes a fresh seed 82101 and a new
   balanced held-out split as `PROSPECTIVE_CONFIRMATION_PENDING`; no v1.9.1
   result is claimed here.
+- Moving Fibre Intelligence L3 v1.9.6.0 is a prospectively frozen single-seed
+  confirmation of the integrated GPT-2 LoRA router-address-writer mechanism.
+  It used writer seed 82601, router split seed 196001, four new bridge
+  instances from the existing 80-concept cohort, and unchanged rank-8 writer
+  budgets and gates. The fresh-split router passed every declared routing gate
+  with 79/80 outer-held-out accuracy, 93.75% worst-fold accuracy and 95%
+  minimum class recall. Bridge routing was 4/4 correct with positive margins,
+  and 16/16 eligible writer endpoints passed the declared exact,
+  training-expression, held-out-expression, mixed-address, response-budget and
+  endpoint-KL gates.
 
 ## Not established
 
@@ -254,9 +264,9 @@ counterfactual frontier result unchanged.
   audit, or moving-response-fibre optimizer evidence from `fibre-qwen/`;
 - continuous low-response Pareto optimality beyond the frozen finite response
   budgets and alpha grids;
-- MFI independent or multi-seed category-geometry confirmation,
-  model-family generality, geodesic semantic distance, curvature, parallel
-  transport, certified fibre connection or global section from the single-seed
-  L3 archives;
+- MFI multi-seed category-geometry confirmation, an entirely new external
+  concept cohort, model-family generality, geodesic semantic distance,
+  curvature, parallel transport, certified fibre connection or global section
+  from the single-seed L3 archives;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.
