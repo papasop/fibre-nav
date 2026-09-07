@@ -244,12 +244,16 @@ counterfactual frontier result unchanged.
   endpoint-KL gates.
 - Moving Fibre Intelligence L4 v2.1.2 is a prospectively frozen single-seed
   local transport candidate in one GPT-2 LoRA chart. It transports an
-  eight-address source atlas from one source finite-response level set to one
-  distinct target finite-response level set at response shift 0.08 and back.
-  Exact and held-out access were preserved, all transported endpoints reached
-  the target response set within the collateral-KL budget, and the return map
-  reached the source response set. Mean relative geometry distortion was
-  1.45136e-05 versus matched-random median 7.88815e-05, ratio 0.1840. The
+  eight concept-specific endpoints assigned across four repeated two-slot
+  codes from one source finite-response level set to one distinct target
+  finite-response level set at response shift 0.08 and back. Exact and
+  held-out access were preserved, all transported endpoints reached the target
+  response set within the collateral-KL budget, and the return map reached the
+  source response set. Mean relative geometry distortion was 1.45136e-05
+  versus random-kernel-perturbed retraction control median 7.88815e-05, ratio
+  0.1840. The added kernel perturbation was scale-matched to the
+  direct-retraction displacement; the final control displacement was not
+  explicitly norm-matched. The
   28/28 pair-distance wins are descriptive because the 28 distances share
   eight endpoints; the archived sign-test value is a naive dependent-pair
   diagnostic, not an independent confirmatory p-value.

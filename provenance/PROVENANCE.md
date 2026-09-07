@@ -583,8 +583,12 @@ Within that boundary, the run reports all gates passed: source endpoints were
 eligible, transported endpoints reached the target response set within
 collateral-KL budget, exact and held-out access were preserved, pair geometry
 was preserved, and the round trip reached the source response set. Mean
-relative geometry distortion was `1.45136e-05`, matched-random median
-distortion was `7.88815e-05`, and the distortion ratio was `0.1840`. This
-archive does not support global parallel transport, path independence,
-multi-seed confirmation, cross-model transport or a certified global
-connection.
+relative geometry distortion was `1.45136e-05`, random-kernel-perturbed
+retraction control median distortion was `7.88815e-05`, and the distortion
+ratio was `0.1840`. The added kernel perturbation was scale-matched to the
+direct-retraction displacement; the final control displacement was not
+explicitly norm-matched. The transported objects were eight concept-specific
+endpoints assigned across four repeated two-slot codes, not eight unique
+addresses. This archive does not support global parallel transport, path
+independence, multi-seed confirmation, cross-model transport or a certified
+global connection.

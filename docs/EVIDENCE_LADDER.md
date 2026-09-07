@@ -253,16 +253,20 @@ training-expression, held-out-expression, mixed-address, response-budget and
 endpoint-KL gates.
 
 `evidence/l4_transport_v2_1_2/` archives the first prospectively frozen
-single-seed large-atlas local transport audit. It transports eight source
-addresses from one source finite-response level set to one distinct target
-level set at response shift 0.08 and back. All transported endpoints reached
-the target response set, preserved exact and held-out access, stayed within
-the collateral-KL budget, preserved pair geometry, and passed the round-trip
-return gates. Mean relative geometry distortion was 1.45136e-05 versus a
-matched-random median of 7.88815e-05, ratio 0.1840. The 28/28 pair-distance
-wins are descriptive because the 28 distances share eight endpoints; the
-archived sign-test value is a naive dependent-pair diagnostic rather than an
-independent confirmatory p-value.
+single-seed large-atlas local transport audit. It transports eight
+concept-specific endpoints assigned across four repeated two-slot codes from
+one source finite-response level set to one distinct target level set at
+response shift 0.08 and back. All transported endpoints reached the target
+response set, preserved exact and held-out access, stayed within the
+collateral-KL budget, preserved pair geometry, and passed the round-trip return
+gates. Mean relative geometry distortion was 1.45136e-05 versus a
+random-kernel-perturbed retraction control median of 7.88815e-05, ratio
+0.1840. The added kernel perturbation was scale-matched to the
+direct-retraction displacement; the final control displacement was not
+explicitly norm-matched. The 28/28 pair-distance wins are descriptive because
+the 28 distances share eight endpoints; the archived sign-test value is a
+naive dependent-pair diagnostic rather than an independent confirmatory
+p-value.
 
 ## Uncrossed bridges
 

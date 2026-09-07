@@ -8,17 +8,17 @@ At the declared response displacement `0.08`, all frozen gates passed:
 
 | Metric | Result |
 |---|---:|
-| Atlas addresses | 8 |
+| Concept endpoints | 8 across 4 repeated two-slot codes |
 | Pair distances | 28 |
 | Transport geometry distortion | `1.4513596e-05` |
 | Round-trip geometry distortion | `1.3128981e-07` |
-| Matched-random median distortion | `7.8881497e-05` |
+| Random-kernel-perturbed retraction control median distortion | `7.8881497e-05` |
 | Transport/random ratio | `0.1839924` |
 | Pairwise wins | `28/28` |
 | Exact access after transport/round trip | `1.0 / 1.0` |
 | Held-out access after transport/round trip | `1.0 / 1.0` |
 
-The audit supports local structure-preserving transport between two distinct finite-response level sets in one GPT-2 LoRA parameter chart.
+The audit supports local endpoint-wise response transport between two distinct finite-response level sets in one GPT-2 LoRA parameter chart. The added kernel perturbation in the control was scale-matched to the direct-retraction displacement; the final control displacement was not explicitly norm-matched.
 
 ## Layout
 
