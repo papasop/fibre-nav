@@ -23,7 +23,7 @@ The current programme is organized as four experimentally gated layers:
 | Layer | Question | Current evidence status |
 | --- | --- | --- |
 | **L1 — exact memory** | Can a token-level memory be written to and read from a response-preserving fibre position? | **Single-seed primary mechanism supported** |
-| **L2 — semantic access** | Can multiple linguistic expressions access the same written memory, including overwrite? | **Protocol archived; result archive pending** |
+| **L2 — semantic access** | Can multiple linguistic expressions access the same written memory, including overwrite? | **Standalone result unavailable; L3/L4 records carry the public held-out-expression evidence** |
 | **L3 — compositional writer** | Can reusable two-slot concept codes be written, mixed and reassigned? | **v1.7.8 single-seed all gates passed** |
 | **L3 — category geometry** | Can held-out concepts be routed by category-coordinate geometry under declared controls? | **v1.9.0 single-seed development all gates passed** |
 | **L3 — independent confirmation** | Does the integrated router-address-writer mechanism survive a prospectively frozen fresh seed? | **v1.9.6.0 single-seed confirmation** |
@@ -40,7 +40,7 @@ archive. It is a claim-boundary table, not a list of mathematical theorems.
 | Resource | Observable | Status | Current interpretation |
 | --- | --- | --- | --- |
 | Position writing on response fibres | Write/read/overwrite accuracy | Single-seed primary support | L1 v1.3.2 archives one GPT-2 LoRA development seed with primary exact anchoring and overwrite gates passed; paraphrase gates did not pass. |
-| Addressable slot structure | Independent `amber`/`cedar` slot access | Result archive pending | L2 v1.5.6 source and reproduction assets are archived, but the original result ZIP is still required before claiming a complete evidence archive. |
+| Addressable slot structure | Independent `amber`/`cedar` slot access | Standalone result not archived | L2 v1.5.6 source and reproduction assets are archived, but its standalone development result is unavailable; held-out-expression access is publicly supported by the archived L3 integration and L4 transport records. |
 | Compositional coding | Two-bit codes, mixed-slot margins and cyclic reassignment | Single-seed support | The same slot-code rule can be composed and reused across written concepts. |
 | Expression-level access | Held-out phrasings for written concepts | Single-seed support | Different expressions can access the same previously written memory; this does not prove that all semantic equivalents occupy identical internal coordinates. |
 | Category-level generalization | Unseen whole-concept routing and positive margins | Single-seed confirmation | v1.9.6.0 routed 4/4 new bridge concepts correctly after a fresh-split 80-concept router passed 79/80 outer-held-out predictions. |
@@ -63,9 +63,11 @@ evidence, not confirmation.
 [Inspect the frozen L1 v1.3.2 evidence](evidence/l1_exact_anchoring_v1_3_2/)
 
 L2 v1.5.6 archives the frozen protocol, source and reproduction assets for
-held-out-expression access. The original `fibre_memory_l2_results_v1_5_6.zip`
-has not yet been imported, so the README status is **L2 result archive
-pending** and no numerical L2 result is reconstructed from logs or prose.
+held-out-expression access. Its standalone development result archive is
+unavailable and not archived; no numerical L2 result is reconstructed from
+logs or prose. Held-out-expression access used in the public evidence chain is
+instead drawn from the archived L3 integration and L4 transport records, both
+of which include post-write held-out-expression gates.
 
 [Inspect the L2 v1.5.6 protocol archive](evidence/l2_heldout_expression_v1_5_6/)
 

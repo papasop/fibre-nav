@@ -216,10 +216,12 @@ paraphrase gates did not pass. It should be cited as mechanism evidence rather
 than confirmation.
 
 `evidence/l2_heldout_expression_v1_5_6/` archives the L2 source, frozen
-protocol and reproduction assets for held-out-expression access. The original
-result ZIP `fibre_memory_l2_results_v1_5_6.zip` is still missing, so the L2
-node remains result-archive pending. No numerical L2 result is reconstructed
-from chat logs or copied console text.
+protocol and reproduction assets for held-out-expression access. The
+standalone development result archive is unavailable and not archived, so no
+numerical L2 result is reconstructed from chat logs or copied console text.
+Held-out-expression access in the public evidence chain is instead carried by
+the archived L3 integration and L4 transport records, both of which include
+post-write held-out-expression gates.
 
 `evidence/l3_writer_v1_7_8/` is a single-seed GPT-2 development milestone, not
 a confirmation rung. In frozen seed 81902, v1.7.8 supports exact memory access,

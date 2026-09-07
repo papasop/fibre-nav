@@ -222,10 +222,11 @@ counterfactual frontier result unchanged.
   access. Its primary gates passed, while secondary paraphrase gates did not;
   it is not multi-seed confirmation or L2 semantic-access evidence.
 - Moving Fibre Intelligence L2 v1.5.6 archives source, protocol and
-  reproduction assets only. The original result ZIP
-  `fibre_memory_l2_results_v1_5_6.zip` is still required, so no repository
-  backed numerical L2 result is claimed and no result is reconstructed from
-  chat logs or copied console text.
+  reproduction assets only. The standalone development result archive is
+  unavailable and not archived, so no repository-backed numerical L2 result is
+  claimed and no result is reconstructed from chat logs or copied console
+  text. Held-out-expression access in the public evidence chain is instead
+  drawn from the archived L3 integration and L4 transport records.
 - Moving Fibre Intelligence L3 shared-category writer v1.8.1 is a partial
   single-seed GPT-2 development result. It supports 16/16 shared-router
   training accuracy, 7/8 whole-concept held-out routing, category-current
@@ -292,7 +293,6 @@ counterfactual frontier result unchanged.
   new external concept cohort, model-family generality, geodesic semantic
   distance, curvature, global/path-independent parallel transport, certified
   fibre connection or global section from the single-seed L3/L4 archives;
-- complete L2 result-archive evidence until the untouched
-  `fibre_memory_l2_results_v1_5_6.zip` and extracted run records are imported;
+- standalone L2 v1.5.6 result-archive evidence;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

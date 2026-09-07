@@ -615,8 +615,10 @@ access gates did not pass.
 
 L2 v1.5.6 imports source, frozen protocol, Colab launcher and reproduction
 assets for protocol `GPT2_FIBRE_MEMORY_L2_WORST_MARGIN_V1_5_6`, but the
-original result artifact `fibre_memory_l2_results_v1_5_6.zip` is still absent.
-No L2 numerical result, per-seed JSON, summary or console log is reconstructed
-from chat logs or copied text. The repository status is therefore
-`L2 result archive pending` until the untouched result ZIP and extracted run
-records are imported and verified.
+standalone development result artifact `fibre_memory_l2_results_v1_5_6.zip`
+is unavailable and not archived. No L2 numerical result, per-seed JSON, summary
+or console log is reconstructed from chat logs or copied text. The repository
+status is therefore: `L2 standalone development result not archived`;
+held-out-expression access in the public evidence chain is drawn from the
+archived L3 integration and L4 transport records, both of which include
+post-write held-out-expression gates.

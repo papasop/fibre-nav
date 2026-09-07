@@ -6,7 +6,8 @@ This directory contains the frozen one-seed source package and robust Colab
 launcher for exact access plus held-out-expression access, worst-held-out margin
 control and causal overwrite. Seed `81801` is declared in the configuration.
 
-Archival status: reproduction assets are complete; the original result archive
-is not included. Read `RESULT_ARCHIVE_REQUIRED.md` before citing this directory
-as independent L2 evidence.
-
+Archival status: reproduction assets are complete, but the standalone
+development result archive is unavailable and not archived. Read
+`RESULT_ARCHIVE_REQUIRED.md` before citing this directory; held-out-expression
+access in the public evidence chain is carried by the archived L3 integration
+and L4 transport records, not by a standalone v1.5.6 result archive.
