@@ -252,6 +252,18 @@ recall. The bridge routed 4/4 instances correctly with positive margins, and
 training-expression, held-out-expression, mixed-address, response-budget and
 endpoint-KL gates.
 
+`evidence/l4_transport_v2_1_2/` archives the first prospectively frozen
+single-seed large-atlas local transport audit. It transports eight source
+addresses from one source finite-response level set to one distinct target
+level set at response shift 0.08 and back. All transported endpoints reached
+the target response set, preserved exact and held-out access, stayed within
+the collateral-KL budget, preserved pair geometry, and passed the round-trip
+return gates. Mean relative geometry distortion was 1.45136e-05 versus a
+matched-random median of 7.88815e-05, ratio 0.1840. The 28/28 pair-distance
+wins are descriptive because the 28 distances share eight endpoints; the
+archived sign-test value is a naive dependent-pair diagnostic rather than an
+independent confirmatory p-value.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
@@ -267,9 +279,10 @@ semantic transfer, a universal optimizer comparison or global Picard-flow
 convergence. The Fibre-Qwen overlay has not crossed from post-hoc
 developmental prompting and bootstrap records to Qwen personalization, safety,
 continual-learning, trained-adapter or response-fibre optimizer evidence. The
-MFI L3 archives have not crossed from single-seed confirmation to multi-seed
-or model-family generality, an entirely new external concept cohort, semantic
-geodesics, curvature, a fibre connection, a global section or L4 transport.
+MFI L3/L4 archives have not crossed from single-seed local evidence to
+multi-seed or model-family generality, an entirely new external concept
+cohort, semantic geodesics, curvature, global/path-independent parallel
+transport, a certified fibre connection or a global section.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry

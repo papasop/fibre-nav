@@ -242,6 +242,17 @@ counterfactual frontier result unchanged.
   and 16/16 eligible writer endpoints passed the declared exact,
   training-expression, held-out-expression, mixed-address, response-budget and
   endpoint-KL gates.
+- Moving Fibre Intelligence L4 v2.1.2 is a prospectively frozen single-seed
+  local transport candidate in one GPT-2 LoRA chart. It transports an
+  eight-address source atlas from one source finite-response level set to one
+  distinct target finite-response level set at response shift 0.08 and back.
+  Exact and held-out access were preserved, all transported endpoints reached
+  the target response set within the collateral-KL budget, and the return map
+  reached the source response set. Mean relative geometry distortion was
+  1.45136e-05 versus matched-random median 7.88815e-05, ratio 0.1840. The
+  28/28 pair-distance wins are descriptive because the 28 distances share
+  eight endpoints; the archived sign-test value is a naive dependent-pair
+  diagnostic, not an independent confirmatory p-value.
 
 ## Not established
 
@@ -264,9 +275,9 @@ counterfactual frontier result unchanged.
   audit, or moving-response-fibre optimizer evidence from `fibre-qwen/`;
 - continuous low-response Pareto optimality beyond the frozen finite response
   budgets and alpha grids;
-- MFI multi-seed category-geometry confirmation, an entirely new external
-  concept cohort, model-family generality, geodesic semantic distance,
-  curvature, parallel transport, certified fibre connection or global section
-  from the single-seed L3 archives;
+- MFI multi-seed category-geometry or L4 transport confirmation, an entirely
+  new external concept cohort, model-family generality, geodesic semantic
+  distance, curvature, global/path-independent parallel transport, certified
+  fibre connection or global section from the single-seed L3/L4 archives;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

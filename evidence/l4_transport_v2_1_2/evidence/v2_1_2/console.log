@@ -1,0 +1,59 @@
+2026-09-07 01:55:45.061137: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-07 01:55:45.129846: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+`torch_dtype` is deprecated! Use `dtype` instead!
+/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/layer.py:2631: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+[stage 1/2] constructing frozen source-fibre atlases
+[stage 2/2] multi-scale transport, random controls and round trips
+[L4] scale 1/1: 0.08
+[L4 scale=0.08] distortion=1.45136e-05; random_median=7.88815e-05; ratio=0.1840; pair_wins=28/28; p=3.72529e-09; pass=True
+{
+  "protocol": "MOVING_FIBRE_INTELLIGENCE_L4_LARGE_ATLAS_CONFIRMATION_V2_1_2",
+  "scientific_status": "PROSPECTIVELY_FROZEN_SINGLE_SEED_L4_CONFIRMATION_CANDIDATE",
+  "claim_boundary": "Single-seed local transport discrimination across three finite-response level sets in one GPT-2 LoRA chart; not global parallel transport or cross-model transport.",
+  "seed": 82803,
+  "scale_summaries": [
+    {
+      "response_shift": 0.08,
+      "transport_distortion": 1.4513596129346012e-05,
+      "roundtrip_distortion": 1.3128980705379156e-07,
+      "median_random_distortion": 7.888149684494503e-05,
+      "transport_to_median_random_ratio": 0.18399240265274058,
+      "pairwise_wins": 28,
+      "pairwise_total": 28,
+      "pairwise_sign_test_p": 3.725290298461914e-09,
+      "gates": {
+        "source_outside_target_fibre": true,
+        "all_transports_reach_target_fibre": true,
+        "all_transports_within_collateral_kl": true,
+        "transport_preserves_exact_access": true,
+        "transport_preserves_heldout_access": true,
+        "transport_geometry_within_absolute_gate": true,
+        "transport_beats_median_random_ratio": true,
+        "transport_wins_pairwise_comparisons": true,
+        "transport_pairwise_sign_test": true,
+        "roundtrip_reaches_source_fibre": true,
+        "roundtrip_preserves_exact_access": true,
+        "roundtrip_preserves_heldout_access": true,
+        "roundtrip_preserves_pair_geometry": true
+      },
+      "all_gates_pass": true
+    }
+  ],
+  "gates": {
+    "source_endpoints_response_eligible": true,
+    "source_endpoints_kl_eligible": true,
+    "source_exact_access": true,
+    "source_heldout_access": true,
+    "declared_large_atlas_size": true,
+    "all_transport_scales_pass": true
+  },
+  "all_gates_pass": true,
+  "config_sha256": "10734c17832745ed5e4a94d44dc54c30b997efb67d1136ccddc2d6f74df99d7c",
+  "elapsed_seconds": 6400.600114107132,
+  "python": "3.13.15 (main, Aug  6 2026, 11:06:23) [GCC 11.4.0]",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.57.6"
+}

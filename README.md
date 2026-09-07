@@ -27,7 +27,7 @@ The current programme is organized as four experimentally gated layers:
 | **L3 — compositional writer** | Can reusable two-slot concept codes be written, mixed and reassigned? | **v1.7.8 single-seed all gates passed** |
 | **L3 — category geometry** | Can held-out concepts be routed by category-coordinate geometry under declared controls? | **v1.9.0 single-seed development all gates passed** |
 | **L3 — independent confirmation** | Does the integrated router-address-writer mechanism survive a prospectively frozen fresh seed? | **v1.9.6.0 single-seed confirmation** |
-| **L4 — transport** | Can concept structure move across fibres through a declared connection while preserving readable relations? | **Not yet tested** |
+| **L4 — transport** | Can concept structure move across fibres through a declared connection while preserving readable relations? | **v2.1.2 single-seed local transport candidate** |
 
 These labels describe the evidence ladder, not four proven mathematical
 theorems. Multi-seed confirmation and model-family replication remain required.
@@ -47,8 +47,8 @@ archive. It is a claim-boundary table, not a list of mathematical theorems.
 | Category geometry | Within/between distance ratio plus shuffled, pair-only and no-graph controls | Single-seed development support | v1.9.0 passed the declared distance-ratio and beat shuffled, pair-only and no-graph controls in one adaptive-development seed; v1.9.6.0 confirms the integrated router-address-writer mechanism, not L4 transport. |
 | Geodesic semantic distance | Path distance predicts semantic relations | Untested | Current Euclidean or projected distances are not certified semantic geodesics. |
 | Curvature | Local density, relation complexity or path deviation | Untested | No curvature estimator or curvature control has passed. |
-| Parallel transport | Relation preservation after moving concept structures across base points | L4 pending | No frozen parallel-transport protocol has passed. |
-| Fibre connection | Cross-fibre direction choice, path dependence and holonomy controls | L4 pending | No experimentally certified connection is available. |
+| Parallel transport | Relation preservation after moving concept structures across base points | Local single-seed candidate | v2.1.2 transported an eight-address atlas between one source and one target finite-response level set and back; this is not global or path-independent parallel transport. |
+| Fibre connection | Cross-fibre direction choice, path dependence and holonomy controls | Local protocol candidate | v2.1.2 supplies a tested local transport rule in one GPT-2 LoRA chart, not a certified global connection. |
 | Section | Consistent concept-position choices across base points | L4+ pending | No local or global section has been tested. |
 
 ## Current frontier
@@ -96,6 +96,25 @@ and v1.9.1 prospective records are preserved at
 [`evidence/l3_category_v1_8_1/`](evidence/l3_category_v1_8_1/) and
 [`evidence/l3_category_v1_9_1/`](evidence/l3_category_v1_9_1/).
 
+### L4 local cross-fibre transport — v2.1.2
+
+The prospective single-seed large-atlas audit transports an eight-address atlas
+from a source finite-response level set to a distinct target level set and
+back. At response shift `0.08`, transport preserved exact and held-out access,
+reached the target response set, satisfied the collateral-KL budget, preserved
+pair geometry and completed the round trip.
+
+Mean relative geometry distortion was `1.45136e-05`, versus a matched-random
+median of `7.88815e-05` (ratio `0.1840`). Transport won all 28 dependent
+pair-distance comparisons. The 28 distances share eight endpoints, so this is
+a descriptive win count; the archived sign-test value is retained only as a
+naive dependent-pair diagnostic.
+
+[Inspect the frozen v2.1.2 L4 transport evidence](evidence/l4_transport_v2_1_2/)
+
+This is local evidence in one GPT-2 LoRA chart, not global parallel transport,
+path-independent transport, multi-seed confirmation or cross-model transport.
+
 ## What is already established outside the L1–L4 memory ladder
 
 The repository also contains earlier evidence for moving response geometry and
@@ -140,6 +159,7 @@ evidence/l3_writer_v1_7_8/
 evidence/l3_category_v1_8_1/
 evidence/l3_category_v1_9_1/
 evidence/l3_category_v1_9_6_0/
+evidence/l4_transport_v2_1_2/
 external_tests/           one-click external reproductions
 docs/                     claim boundaries and evidence ladder
 paper/                    current paper and archived revision

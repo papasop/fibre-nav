@@ -554,3 +554,37 @@ passed the declared exact, training-expression, held-out-expression,
 mixed-address, response-budget and endpoint-KL gates. This import does not
 support multi-seed statistical stability, an entirely new external concept
 cohort, cross-model generality or L4 cross-fibre transport.
+
+## Moving Fibre Intelligence L4 v2.1.2 local transport audit
+
+This import adds `fibre_nav_l4_v2_1_2_github_ingest.zip` under
+`evidence/l4_transport_v2_1_2/`. The expected and observed ZIP SHA-256 was
+`6bbfb455067a629e447a65d27acec8117585ceea87bf429a121323d096fccaf4`.
+The package `SHA256SUMS.txt` was verified before import, and the in-repository
+`evidence/l4_transport_v2_1_2/SHA256SUMS.txt` records the final imported
+layout. The raw v2.1.2 result files are preserved unchanged.
+
+The archived status is
+`PROSPECTIVELY_FROZEN_SINGLE_SEED_L4_CONFIRMATION_CANDIDATE` in one GPT-2
+LoRA chart. The run used seed `82803`, response shift `0.08`, protocol
+`MOVING_FIBRE_INTELLIGENCE_L4_LARGE_ATLAS_CONFIRMATION_V2_1_2`, configuration
+SHA-256 `10734c17832745ed5e4a94d44dc54c30b997efb67d1136ccddc2d6f74df99d7c`,
+PyTorch `2.11.0+cu128`, Transformers `4.57.6`, and elapsed time
+6400.600114107132 seconds.
+
+The bundled `ERRATA.md` corrects the raw summary's phrase "three
+finite-response level sets": the frozen configuration has one source level set
+and one distinct target level set. The bundled `STATISTICAL_NOTE.md` records
+that the 28 pair-distance comparisons share eight endpoints; the 28/28 win
+count is descriptive and the archived sign-test value is a naive dependent-pair
+diagnostic, not an independent confirmatory p-value.
+
+Within that boundary, the run reports all gates passed: source endpoints were
+eligible, transported endpoints reached the target response set within
+collateral-KL budget, exact and held-out access were preserved, pair geometry
+was preserved, and the round trip reached the source response set. Mean
+relative geometry distortion was `1.45136e-05`, matched-random median
+distortion was `7.88815e-05`, and the distortion ratio was `0.1840`. This
+archive does not support global parallel transport, path independence,
+multi-seed confirmation, cross-model transport or a certified global
+connection.
