@@ -27,7 +27,7 @@ The current programme is organized as four experimentally gated layers:
 | **L3 — compositional writer** | Can reusable two-slot concept codes be written, mixed and reassigned? | **v1.7.8 single-seed all gates passed** |
 | **L3 — category geometry** | Can held-out concepts be routed by category-coordinate geometry under declared controls? | **v1.9.0 single-seed development all gates passed** |
 | **L3 — independent confirmation** | Does the integrated router-address-writer mechanism survive a prospectively frozen fresh seed? | **v1.9.6.0 single-seed confirmation** |
-| **L4 — transport** | Can concept structure move across fibres through a declared connection while preserving readable relations? | **v2.1.2 single-seed local transport candidate** |
+| **L4 — transport** | Can concept structure be moved between finite-response level sets by a declared local transport rule while preserving readable relations? | **v2.1.2 single-seed local transport candidate** |
 
 These labels describe the evidence ladder, not four proven mathematical
 theorems. Multi-seed confirmation and model-family replication remain required.
@@ -164,8 +164,9 @@ In this repository:
 - failed and partial stages remain visible;
 - first-order kernel membership alone is not sufficient evidence;
 - L3 does not imply geodesic distance or curvature;
-- L4 requires an explicit transport protocol, connection, controls and
-  post-transport readout gates.
+- L4 requires an explicit transport rule, source and target response sets,
+  matched controls, and post-transport readout and geometry gates;
+  certification of a fibre connection is a separate, untested step.
 
 See [`docs/CLAIM_BOUNDARIES.md`](docs/CLAIM_BOUNDARIES.md) and
 [`docs/EVIDENCE_LADDER.md`](docs/EVIDENCE_LADDER.md).
