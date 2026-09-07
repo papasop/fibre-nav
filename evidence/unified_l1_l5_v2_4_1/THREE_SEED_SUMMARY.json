@@ -1,0 +1,34 @@
+{
+  "protocol": "MOVING_FIBRE_INTELLIGENCE_UNIFIED_L1_L5_THREE_SEED_V2_4_1",
+  "scientific_status": "PROSPECTIVELY_FROZEN_THREE_SEED_UNIFIED_CONFIRMATION_CANDIDATE",
+  "claim_boundary": "Three prospectively declared seeds independently execute one continuous shared-state L1-L5 protocol. The L4 component audits MOVE/RETURN response eligibility and preservation of exact and held-out access; it does not replace the separate eight-endpoint, 28-relation geometric discrimination audit. This is not cross-model confirmation, autonomous instruction execution, arbitrary program closure, gradient-free memory operation, capacity scaling, or global transport.",
+  "seeds": [
+    83131,
+    83161,
+    83191
+  ],
+  "seeds_complete": 3,
+  "seed_pass": {
+    "83131": false,
+    "83161": false,
+    "83191": false
+  },
+  "seeds_all_gates_pass": 0,
+  "layer_pass_counts": {
+    "L1": 3,
+    "L2": 0,
+    "L3": 1,
+    "L4": 1,
+    "L5": 3
+  },
+  "worst_case_metrics": {
+    "minimum_heldout_margin": -1.020538330078125,
+    "maximum_response_drift": 1.52587890625e-05,
+    "maximum_anchor_kl": 0.004087822511792183,
+    "maximum_transport_or_return_residual": 1.52587890625e-05
+  },
+  "all_seeds_pass": false,
+  "config_sha256": "8c90b1893ee883d28b845f8f8aed55a1e9dc69baa46f29ab0fc61b9dbe2fcfb1",
+  "elapsed_seconds": 4120.72238612175,
+  "python": "3.13.15"
+}

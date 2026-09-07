@@ -30,14 +30,24 @@ parameter state—all while satisfying declared response and KL budgets.
 | **L4 — local transport** | Move eight concept-specific endpoints assigned across four repeated two-slot codes between distinct finite-response level sets and back while preserving access and pairwise geometry. | Tests whether an instantiated address geometry survives a change of response constraint. | v2.1.2 prospective single-seed confirmation candidate. |
 | **L5 — shared-state operations** | Jointly WRITE four cells, selectively OVERWRITE one, SWAP two, MOVE the resulting state and RETURN it. | Combines the preceding capabilities into an externally operated shared memory state. | **v2.2.4 prospective fresh-seed and fresh-expression single-seed confirmation candidate; all 16 declared gates passed.** |
 
-This is a **layered evidence chain**, not one unified L1–L5 run and not a
-sequence of mathematical theorems. Passing L5 does not retroactively replace
-the archived L1–L4 protocols.
+This remains a **layered evidence chain**, not a sequence of mathematical
+theorems. Later unified audits test whether representative L1–L5 capabilities
+coexist in one continuous state sequence; they supplement rather than replace
+the complete archived layer-specific protocols.
 
 The supplemental joint smoke record v2.3.2.1 later runs representative
 WRITE, REASSIGN, OVERWRITE, SWAP, MOVE and RETURN gates in one continuous
 shared-state protocol. It is a post-failure development PASS, not prospective
 or independent confirmation.
+
+The prospectively frozen v2.4.1-r1 unified audit then completed three seeds but
+passed all gates in 0/3; the failures localized to held-out-expression access,
+while exact operations, controls, budgets and L5 passed in 3/3. After expanding
+training-view coverage, v2.4.3 tested three new seeds and a new held-out family:
+2/3 seeds passed every gate, while L1, L4 and L5 passed in 3/3. Because v2.4.3
+is a post-failure repair with different coverage and held-out expressions, it
+does not establish improved expression generalization over v2.4.1 or a 3/3
+unified confirmation.
 
 ## Headline result: the L5 shared state
 
@@ -84,6 +94,13 @@ result is not gradient-free inference-time memory.
   the same seed. It demonstrates joint realizability within the tested
   configuration, but does not replace the complete L3 cyclic reassignment or
   L4 28-relation transport audits.
+- **Unified prospective audit:** v2.4.1-r1 completed seeds `83131`, `83161` and
+  `83191`. Full-protocol passes were 0/3; L1 and L5 passed 3/3, while the
+  principal failures were held-out-expression gates.
+- **Unified expression-coverage repair:** v2.4.3 completed new seeds `83221`,
+  `83251` and `83281`. Full-protocol passes were 2/3; L1, L4 and L5 passed 3/3,
+  and L2/L3 passed 2/3. This is post-failure repair evidence, not untouched
+  replication or proof of stronger expression generalization.
 
 ## What the evidence does—and does not—support
 
@@ -100,8 +117,9 @@ It does **not** establish:
 - arbitrary program composition or algebraic closure over arbitrary states;
 - semantic geodesics, curvature, a certified fibre connection or a global
   section;
-- multi-seed MFI confirmation, cross-model replication, global/path-independent
-  parallel transport or concurrent storage beyond the declared four cells.
+- an all-gates 3/3 unified confirmation, cross-model replication,
+  global/path-independent parallel transport or concurrent storage beyond the
+  declared four cells.
 
 Here, *response preservation* concerns the declared finite response map, not
 the model's complete input–output function. A passed single seed is local
@@ -135,6 +153,8 @@ claim boundary and reproduction instructions where available.
 - [L4 local transport — v2.1.2](evidence/l4_transport_v2_1_2/)
 - [L5 programmable operations — v2.2.4](evidence/l5_programmable_v2_2_4/)
 - [Joint L1-L5 development smoke — v2.3.2.1](evidence/joint_l1_l5_v2_3_2_1/)
+- [Unified L1-L5 prospective audit — v2.4.1-r1](evidence/unified_l1_l5_v2_4_1/)
+- [Unified L1-L5 expression-coverage audit — v2.4.3](evidence/unified_l1_l5_v2_4_3/)
 
 ## Repository map
 

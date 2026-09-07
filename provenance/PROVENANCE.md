@@ -686,6 +686,33 @@ and elapsed time 1266.5119502544403 seconds.
 
 This record supports joint realizability within the tested development
 configuration. It does not replace the full L3 cyclic concept-code audit, the
-full L4 eight-endpoint and 28-relation geometry audit, prospective independent
-confirmation, autonomous instruction parsing, gradient-free or inference-time
-operation, global fibre-bundle claims or global parallel transport.
+full L4 audit of eight concept-specific endpoints and 28 pair relations,
+prospective independent confirmation, autonomous instruction parsing,
+gradient-free or inference-time operation, global fibre-bundle claims or
+global parallel transport.
+
+## Moving Fibre Intelligence unified L1-L5 v2.4.1-r1 and v2.4.3 audits
+
+This import adds `fibre_nav_unified_l1_l5_v2_4_3_github_ingest.zip` evidence
+under `evidence/unified_l1_l5_v2_4_1/` and
+`evidence/unified_l1_l5_v2_4_3/`. The expected and observed ZIP SHA-256 was
+`b5334b00dddaec90a2d77eb25f41b74a92e25d2fb46d19ca166f8b5122f9b7c0`.
+The ZIP integrity test, both directory-level `SHA256SUMS.txt` manifests and
+both bundled `verify_snapshot.py` scripts passed before import. The package
+also contained a stale `GITHUB_IMPORT.md` from an older release; that file was
+reviewed but not followed.
+
+v2.4.1-r1 is a prospectively frozen three-seed unified audit with `0/3`
+all-gates passes. It completed seeds `83131`, `83161` and `83191`; exact
+operations, controls, budgets and the declared L5 criteria passed in `3/3`,
+but strict held-out-expression access failed across seeds. It is retained as a
+negative localization record rather than a unified confirmation.
+
+v2.4.3 is a post-failure expression-coverage repair with three new seeds and a
+new held-out expression family. It completed seeds `83221`, `83251` and
+`83281`, with `2/3` all-gates passes and layer pass counts L1 `3/3`, L2
+`2/3`, L3 `2/3`, L4 `3/3` and L5 `3/3`. Because training-view coverage and
+the held-out family changed after v2.4.1, this is not untouched replication,
+not improved expression-generalization proof relative to v2.4.1 and not a
+`3/3` unified confirmation. No abstract-level headline number or
+layer-specific confirmed status is changed by this import.

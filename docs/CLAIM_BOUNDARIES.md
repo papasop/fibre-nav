@@ -282,10 +282,25 @@ counterfactual frontier result unchanged.
   the same seed `83001`, one continuous shared-state protocol passed all
   declared representative L1-L5 smoke gates and all 16 aggregate gates. This
   supports joint realizability within the tested configuration only. It does
-  not replace the full L3 cyclic concept-code audit, the full L4 eight-endpoint
-  and 28-relation transport audit, prospective independent confirmation,
-  autonomous instruction parsing, gradient-free/inference-time operation,
-  global fibre-bundle claims or global parallel transport.
+  not replace the full L3 cyclic concept-code audit, the full L4 audit of
+  eight concept-specific endpoints and 28 pair relations, prospective
+  independent confirmation, autonomous instruction parsing,
+  gradient-free/inference-time operation, global fibre-bundle claims or global
+  parallel transport.
+- Moving Fibre Intelligence unified L1-L5 v2.4.1-r1 is a prospectively frozen
+  three-seed unified audit with `0/3` all-gates passes. It completed seeds
+  `83131`, `83161` and `83191`; exact operations, controls, budgets and the
+  declared L5 criteria passed in `3/3`, but strict held-out-expression access
+  failed across seeds. It is a useful negative localization record, not a
+  unified confirmation.
+- Moving Fibre Intelligence unified L1-L5 v2.4.3 is a post-failure
+  expression-coverage repair with three new seeds and a new held-out expression
+  family. It completed seeds `83221`, `83251` and `83281`, with `2/3`
+  all-gates passes and layer pass counts L1 `3/3`, L2 `2/3`, L3 `2/3`, L4
+  `3/3` and L5 `3/3`. Because the training-view coverage and held-out family
+  changed after v2.4.1, this is not untouched replication, not improved
+  expression-generalization proof relative to v2.4.1 and not a `3/3` unified
+  confirmation.
 
 ## Not established
 

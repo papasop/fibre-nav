@@ -1,0 +1,34 @@
+{
+  "protocol": "MOVING_FIBRE_INTELLIGENCE_UNIFIED_L1_L5_EXPRESSION_COVERAGE_THREE_SEED_V2_4_3",
+  "scientific_status": "POST_FAILURE_REPAIR_WITH_FRESH_THREE_SEED_CONFIRMATION_CANDIDATE",
+  "claim_boundary": "Post-v2.4.1 training-view expansion evaluated on three newly declared seeds and a new held-out expression family. A pass would show access preservation under this denser training-view coverage; it would not by itself establish improved expression generalization or comparability with the harder v2.4.1 held-out family. Each seed independently executes one continuous shared-state L1-L5 protocol. The L4 component audits MOVE/RETURN response eligibility, absolute access, and relative access preservation; it does not replace the separate eight-endpoint, 28-relation geometric discrimination audit. This is not an untouched replication of the original method, cross-model confirmation, autonomous instruction execution, arbitrary program closure, gradient-free memory operation, capacity scaling, or global transport.",
+  "seeds": [
+    83221,
+    83251,
+    83281
+  ],
+  "seeds_complete": 3,
+  "seed_pass": {
+    "83221": false,
+    "83251": true,
+    "83281": true
+  },
+  "seeds_all_gates_pass": 2,
+  "layer_pass_counts": {
+    "L1": 3,
+    "L2": 2,
+    "L3": 2,
+    "L4": 3,
+    "L5": 3
+  },
+  "worst_case_metrics": {
+    "minimum_heldout_margin": -0.2082977294921875,
+    "maximum_response_drift": 1.52587890625e-05,
+    "maximum_anchor_kl": 0.004498702939599752,
+    "maximum_transport_or_return_residual": 1.52587890625e-05
+  },
+  "all_seeds_pass": false,
+  "config_sha256": "7c1091a754e495ad0fcd163fdbf446ceb43ccfd85c205cdbeb14d8cdfdaa4487",
+  "elapsed_seconds": 4568.690670013428,
+  "python": "3.13.15"
+}

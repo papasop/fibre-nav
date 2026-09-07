@@ -90,6 +90,20 @@ def main() -> int:
     assert joint["all_gates_pass"] is True
     layers.append(("Joint L1-L5 smoke", "v2.3.2.1 development PASS; not confirmation"))
 
+    unified_241 = load_json("evidence/unified_l1_l5_v2_4_1/THREE_SEED_SUMMARY.json")
+    assert unified_241["seeds_complete"] == 3
+    assert unified_241["seeds_all_gates_pass"] == 0
+    assert unified_241["all_seeds_pass"] is False
+    assert unified_241["layer_pass_counts"] == {"L1": 3, "L2": 0, "L3": 1, "L4": 1, "L5": 3}
+    layers.append(("Unified L1-L5 v2.4.1-r1", "prospective 0/3 full passes; negative result archived"))
+
+    unified_243 = load_json("evidence/unified_l1_l5_v2_4_3/THREE_SEED_SUMMARY.json")
+    assert unified_243["seeds_complete"] == 3
+    assert unified_243["seeds_all_gates_pass"] == 2
+    assert unified_243["all_seeds_pass"] is False
+    assert unified_243["layer_pass_counts"] == {"L1": 3, "L2": 2, "L3": 2, "L4": 3, "L5": 3}
+    layers.append(("Unified L1-L5 v2.4.3", "post-failure repair: 2/3 full passes; L1/L4/L5 3/3"))
+
     for directory in [
         "evidence/l1_exact_anchoring_v1_3_2",
         "evidence/l2_heldout_expression_v1_5_6",
@@ -98,6 +112,8 @@ def main() -> int:
         "evidence/l4_transport_v2_1_2",
         "evidence/l5_programmable_v2_2_4",
         "evidence/joint_l1_l5_v2_3_2_1",
+        "evidence/unified_l1_l5_v2_4_1",
+        "evidence/unified_l1_l5_v2_4_3",
     ]:
         count = check_manifest(directory)
         print(f"[ok] {directory}: SHA256SUMS.txt verified ({count} entries)")

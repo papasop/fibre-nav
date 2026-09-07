@@ -13,23 +13,27 @@ separate from the older response-fibre foundations archived in
 | L4 local transport | [`evidence/l4_transport_v2_1_2/`](../evidence/l4_transport_v2_1_2/) | Single-seed local transport candidate | Endpoint-wise response-set transport, not a certified fibre connection or global parallel transport. |
 | L5 programmable operations | [`evidence/l5_programmable_v2_2_4/`](../evidence/l5_programmable_v2_2_4/) | Single-seed confirmation candidate | Externally specified WRITE, OVERWRITE, SWAP, MOVE and RETURN procedures; not autonomous instruction execution. |
 | Joint L1-L5 smoke | [`evidence/joint_l1_l5_v2_3_2_1/`](../evidence/joint_l1_l5_v2_3_2_1/) | Development PASS | Representative WRITE, REASSIGN, OVERWRITE, SWAP, MOVE and RETURN capabilities coexist in one tested shared-state protocol. |
+| Unified L1-L5 audit | [`evidence/unified_l1_l5_v2_4_1/`](../evidence/unified_l1_l5_v2_4_1/) | Prospectively frozen; 0/3 full passes | Exact operations, controls, budgets and L5 passed 3/3; strict held-out-expression access failed across seeds. |
+| Unified expression-coverage repair | [`evidence/unified_l1_l5_v2_4_3/`](../evidence/unified_l1_l5_v2_4_3/) | Post-failure repair; 2/3 full passes | New seeds and held-out family after denser training-view coverage; L1/L4/L5 passed 3/3, L2/L3 passed 2/3. |
 
 ## Current headline
 
 The current repository headline is an L1-L5 evidence chain for reusable
-addressing under declared finite response and KL budgets. The strongest
-archived MFI results are still single-seed and chart-local.
+addressing under declared finite response and KL budgets. The layer-complete
+L3–L5 records are single-seed and chart-local. Unified three-seed audits now
+show 3/3 replication of exact operations and the declared L4/L5 criteria in
+v2.4.3, but only 2/3 full-protocol passes because one seed failed strict
+held-out-expression gates.
 
-The joint v2.3.2.1 smoke record is useful evidence that representative L1-L5
-capabilities can coexist in one continuous state sequence. It is adaptive
-post-failure development on seed `83001`, so a newly frozen seed and
-expression family remain required for prospective joint confirmation.
+v2.4.1-r1 is retained as the first prospective unified negative result.
+v2.4.3 is retained as a transparent post-failure repair: it uses denser
+training-view coverage and a new held-out family, so it cannot establish
+improved expression generalization relative to v2.4.1.
 
 ## Not yet certified
 
 - standalone L2 v1.5.6 numerical results;
-- prospective independent joint L1-L5 confirmation;
-- multi-seed MFI confirmation;
+- an untouched all-gates multi-seed joint L1-L5 confirmation;
 - model-family replication;
 - geodesic semantic distance;
 - curvature;
