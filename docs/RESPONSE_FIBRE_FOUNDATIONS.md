@@ -1,4 +1,8 @@
-# Evidence ladder
+# Response Fibre Foundations
+
+This document preserves the earlier response-fibre evidence ladder. It is not
+the Moving Fibre Intelligence L1-L5 memory ladder used by the repository
+homepage.
 
 ## Level 1: response-fibre directions are functional
 

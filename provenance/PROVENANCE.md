@@ -653,3 +653,14 @@ support multi-seed confirmation, model-family generality, autonomous
 instruction interpretation, gradient-free inference-time memory, arbitrary
 program composition, capacity scaling or a general instruction-set
 architecture.
+
+## MFI L1-L5 navigation revision
+
+The repository homepage was refocused as an MFI L1-L5 navigation page after
+L5 v2.2.4 was imported. The older response-fibre evidence ladder was moved
+from `docs/EVIDENCE_LADDER.md` to `docs/RESPONSE_FIBRE_FOUNDATIONS.md`, and a
+new `docs/MFI_L1_L5_EVIDENCE_LADDER.md` records the current memory/addressing
+ladder. A repository-level `verify_mfi_l1_l5.py` verifier was added to report
+L1, L2, L3, L4 and L5 archive status directly. This documentation revision
+does not modify frozen evidence directories or change any numerical result,
+decision gate or archived raw output.
