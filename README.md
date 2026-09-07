@@ -16,9 +16,9 @@ The programme asks whether movement in this space can support exact memory,
 semantic access, reusable concept addressing and eventually cross-fibre
 transport while remaining within frozen response and KL budgets.
 
-The current programme is organized as four experimentally gated layers:
+The current programme is organized as experimentally gated layers:
 
-**Exact memory -> semantic access -> concept geometry -> cross-fibre transport**
+**Exact memory -> semantic access -> concept geometry -> cross-fibre transport -> programmable address operations**
 
 | Layer | Question | Current evidence status |
 | --- | --- | --- |
@@ -28,6 +28,7 @@ The current programme is organized as four experimentally gated layers:
 | **L3 — category geometry** | Can held-out concepts be routed by category-coordinate geometry under declared controls? | **v1.9.0 single-seed development all gates passed** |
 | **L3 — independent confirmation** | Does the integrated router-address-writer mechanism survive a prospectively frozen fresh seed? | **v1.9.6.0 single-seed confirmation** |
 | **L4 — transport** | Can concept structure be moved between finite-response level sets by a declared local transport rule while preserving readable relations? | **v2.1.2 single-seed local transport candidate** |
+| **L5 — programmable operations** | Can externally specified WRITE, OVERWRITE, SWAP, MOVE and RETURN procedures operate on a shared address state? | **v2.2.4 single-seed confirmation candidate** |
 
 These labels describe the evidence ladder, not four proven mathematical
 theorems. Multi-seed confirmation and model-family replication remain required.
@@ -48,6 +49,7 @@ archive. It is a claim-boundary table, not a list of mathematical theorems.
 | Geodesic semantic distance | Path distance predicts semantic relations | Untested | Current Euclidean or projected distances are not certified semantic geodesics. |
 | Curvature | Local density, relation complexity or path deviation | Untested | No curvature estimator or curvature control has passed. |
 | Local endpoint-wise response transport | Relation preservation after moving concept endpoints across response level sets | Single-seed candidate | v2.1.2 transported eight concept-specific endpoints assigned across four repeated two-slot codes between one source and one target finite-response level set and back; this is not global or path-independent parallel transport. |
+| Programmable address operations | WRITE, selective OVERWRITE, SWAP, MOVE and RETURN on a shared four-cell state | Single-seed confirmation candidate | v2.2.4 passed all 16 declared gates in fresh seed `82931`; operations are externally specified experimental procedures, not autonomous GPT-2 instruction execution. |
 | Fibre connection | Cross-fibre direction choice, path dependence and holonomy controls | Untested | v2.1.2 supplies a local endpoint-wise retraction audit, not an experimentally certified connection. |
 | Section | Consistent concept-position choices across base points | L4+ pending | No local or global section has been tested. |
 
@@ -137,6 +139,24 @@ dependent-pair diagnostic.
 This is local evidence in one GPT-2 LoRA chart, not global parallel transport,
 path-independent transport, multi-seed confirmation or cross-model transport.
 
+### L5 programmable address operations — v2.2.4
+
+In prospectively frozen fresh seed `82931`, one shared GPT-2 LoRA parameter
+state passed all 16 declared gates for a four-cell program: joint WRITE,
+selective OVERWRITE, SWAP, local MOVE and RETURN. Exact and fresh
+held-out-expression access remained correct after every operation; unselected
+cells retained their declared values; response and KL budgets passed; and
+OVERWRITE and SWAP beat wrong-operation and matched-norm random-kernel
+controls. MOVE and RETURN preserved access and a frozen positive-margin gate.
+
+[Inspect the L5 v2.2.4 evidence](evidence/l5_programmable_v2_2_4/)
+
+This is a single-seed confirmation candidate for externally specified
+programmable address operations in one restricted GPT-2 LoRA chart. It is not
+autonomous natural-language instruction following, gradient-free inference-time
+memory, arbitrary program composition, multi-seed confirmation, cross-model
+generality or a general instruction-set architecture.
+
 ## What is already established outside the L1–L4 memory ladder
 
 The repository also contains earlier evidence for moving response geometry and
@@ -185,6 +205,7 @@ evidence/l3_category_v1_8_1/
 evidence/l3_category_v1_9_1/
 evidence/l3_category_v1_9_6_0/
 evidence/l4_transport_v2_1_2/
+evidence/l5_programmable_v2_2_4/
 external_tests/           one-click external reproductions
 docs/                     claim boundaries and evidence ladder
 paper/                    current paper and archived revision

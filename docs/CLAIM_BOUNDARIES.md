@@ -253,7 +253,7 @@ counterfactual frontier result unchanged.
   training-expression, held-out-expression, mixed-address, response-budget and
   endpoint-KL gates.
 - Moving Fibre Intelligence L4 v2.1.2 is a prospectively frozen single-seed
-  local transport candidate in one GPT-2 LoRA chart. It transports an
+  local transport candidate in one GPT-2 LoRA chart. It transports
   eight concept-specific endpoints assigned across four repeated two-slot
   codes from one source finite-response level set to one distinct target
   finite-response level set at response shift 0.08 and back. Exact and
@@ -267,6 +267,16 @@ counterfactual frontier result unchanged.
   28/28 pair-distance wins are descriptive because the 28 distances share
   eight endpoints; the archived sign-test value is a naive dependent-pair
   diagnostic, not an independent confirmatory p-value.
+- Moving Fibre Intelligence L5 v2.2.4 is a prospectively frozen fresh-seed and
+  fresh-expression single-seed confirmation candidate in one GPT-2 rank-8 LoRA
+  chart. One shared four-cell parameter state passed all declared WRITE,
+  selective-OVERWRITE, SWAP, MOVE and RETURN gates in seed 82931. Exact and
+  held-out access were correct, all minimum held-out margins exceeded 0.05,
+  unselected cells retained their declared exact-read values, response/KL
+  budgets passed, and OVERWRITE/SWAP beat wrong-operation and matched-norm
+  random-kernel controls. Operations are externally specified and implemented
+  through restricted parameter updates; GPT-2 does not autonomously parse or
+  execute an instruction set.
 
 ## Not established
 
@@ -289,10 +299,13 @@ counterfactual frontier result unchanged.
   audit, or moving-response-fibre optimizer evidence from `fibre-qwen/`;
 - continuous low-response Pareto optimality beyond the frozen finite response
   budgets and alpha grids;
-- MFI multi-seed category-geometry or L4 transport confirmation, an entirely
-  new external concept cohort, model-family generality, geodesic semantic
-  distance, curvature, global/path-independent parallel transport, certified
-  fibre connection or global section from the single-seed L3/L4 archives;
+- MFI multi-seed category-geometry, L4 transport or L5 programmable-address
+  confirmation, an entirely new external concept cohort, model-family
+  generality, geodesic semantic distance, curvature, global/path-independent
+  parallel transport, certified fibre connection, global section, autonomous
+  instruction execution, gradient-free inference-time memory, arbitrary program
+  composition or general neural programmability from the single-seed L3/L4/L5
+  archives;
 - standalone L2 v1.5.6 result-archive evidence;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

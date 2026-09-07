@@ -282,6 +282,17 @@ the 28 distances share eight endpoints; the archived sign-test value is a
 naive dependent-pair diagnostic rather than an independent confirmatory
 p-value.
 
+`evidence/l5_programmable_v2_2_4/` archives a prospectively frozen fresh-seed
+and fresh-expression single-seed confirmation candidate for programmable
+address operations in one GPT-2 rank-8 LoRA chart. One shared state executed
+externally specified joint WRITE, selective OVERWRITE, SWAP, local MOVE and
+RETURN procedures. All 16 declared exact-access, held-out-access,
+positive-margin, unselected-cell, response, KL, operation-control and
+transport/return gates passed in seed 82931. This supports a finite externally
+operated address interface in the tested chart; it does not establish
+autonomous instruction interpretation, gradient-free execution, arbitrary
+programs, multi-seed confirmation or general neural programmability.
+
 ## Uncrossed bridges
 
 The evidence has not crossed from finite-radius scaling to an exact continuum
@@ -297,10 +308,11 @@ semantic transfer, a universal optimizer comparison or global Picard-flow
 convergence. The Fibre-Qwen overlay has not crossed from post-hoc
 developmental prompting and bootstrap records to Qwen personalization, safety,
 continual-learning, trained-adapter or response-fibre optimizer evidence. The
-MFI L3/L4 archives have not crossed from single-seed local evidence to
+MFI L3/L4/L5 archives have not crossed from single-seed local evidence to
 multi-seed or model-family generality, an entirely new external concept
 cohort, semantic geodesics, curvature, global/path-independent parallel
-transport, a certified fibre connection or a global section.
+transport, a certified fibre connection, a global section, autonomous
+instruction execution or arbitrary program composition.
 
 ResNet v4.4-r1 is only a developmental frozen-code/protocol staging record at
 this revision. It tests ordinary AdamW current-versus-source response-geometry

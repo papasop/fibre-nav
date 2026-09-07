@@ -622,3 +622,34 @@ status is therefore: `L2 standalone development result not archived`;
 held-out-expression access in the public evidence chain is drawn from the
 archived L3 integration and L4 transport records, both of which include
 post-write held-out-expression gates.
+
+## Moving Fibre Intelligence L5 v2.2.4 programmable address audit
+
+This import adds `fibre_nav_l5_v2_2_4_github_ingest.zip` under
+`evidence/l5_programmable_v2_2_4/`. The expected and observed ZIP SHA-256 was
+`c64ead913670870ba406ce13edb59874e9fc1f8bdc271bfbf5488b825959c4ca`.
+The package `SHA256SUMS.txt` and bundled `verify_snapshot.py` were verified
+before import, and the in-repository `evidence/l5_programmable_v2_2_4/`
+manifest records the final imported layout. The v2.2.4 result archive is
+preserved byte-for-byte, and the v2.2.3 development result is retained as the
+adaptive predecessor.
+
+The archived status is
+`PROSPECTIVELY_FROZEN_SINGLE_SEED_L5_CONFIRMATION_CANDIDATE` in one GPT-2
+rank-8 LoRA chart. The run used seed `82931`, protocol
+`MOVING_FIBRE_INTELLIGENCE_L5_FRESH_SEED_EXPRESSION_CONFIRMATION_V2_2_4`,
+configuration SHA-256
+`1165673fbe1a993ca86369b26df246baa8b3939fe0bd26caa1b49db6716a1369`, and
+elapsed time 872.1498260498047 seconds.
+
+Within that boundary, one shared four-cell parameter state passed all 16
+declared gates for externally specified WRITE, selective OVERWRITE, SWAP,
+local MOVE and RETURN procedures. Exact and fresh held-out-expression access
+remained correct after every operation; unselected cells retained their
+declared values; response and KL budgets passed; OVERWRITE and SWAP beat
+wrong-operation and matched-norm random-kernel controls; and MOVE/RETURN
+preserved access and a frozen positive-margin gate. This archive does not
+support multi-seed confirmation, model-family generality, autonomous
+instruction interpretation, gradient-free inference-time memory, arbitrary
+program composition, capacity scaling or a general instruction-set
+architecture.

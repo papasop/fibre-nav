@@ -1,0 +1,33 @@
+2026-09-07 05:56:27.237602: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-07 05:56:27.308766: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+`torch_dtype` is deprecated! Use `dtype` instead!
+/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/layer.py:2631: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+[L5] executing shared-state program
+  WRITE: bits=[0, 0, 1, 1] exact=1.000 heldout=1.000
+  OVERWRITE address=01: bits=[0, 1, 1, 1] exact=1.000 heldout=1.000
+  SWAP address=00,address=11: bits=[1, 1, 1, 0] exact=1.000 heldout=1.000
+{
+  "protocol": "MOVING_FIBRE_INTELLIGENCE_L5_FRESH_SEED_EXPRESSION_CONFIRMATION_V2_2_4",
+  "gates": {
+    "all_program_stages_exact": true,
+    "all_program_stages_heldout": true,
+    "all_program_stages_positive_heldout_margin": true,
+    "all_unselected_addresses_preserved": true,
+    "all_program_stages_within_response_budget": true,
+    "all_program_stages_within_kl_budget": true,
+    "requested_operation_beats_wrong_instruction": true,
+    "requested_operation_beats_matched_random": true,
+    "swap_beats_wrong_instruction": true,
+    "swap_beats_matched_random": true,
+    "transport_reaches_target_response": true,
+    "transport_preserves_all_addresses": true,
+    "transport_preserves_positive_heldout_margin": true,
+    "return_reaches_source_response": true,
+    "return_preserves_all_addresses": true,
+    "return_preserves_positive_heldout_margin": true
+  },
+  "all_gates_pass": true,
+  "elapsed_seconds": 872.1498260498047
+}
