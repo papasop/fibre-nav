@@ -83,6 +83,13 @@ def main() -> int:
     assert len(l5["gates"]) == 16
     layers.append(("L5", "v2.2.4 single-seed programmable-address confirmation candidate"))
 
+    joint = load_json("evidence/joint_l1_l5_v2_3_2_1/SUMMARY.json")
+    assert joint["scientific_status"] == "POST_FAILURE_DEVELOPMENT_REPAIR_NOT_CONFIRMATION"
+    assert joint["seed"] == 83001
+    assert joint["all_layer_smoke_gates_pass"] is True
+    assert joint["all_gates_pass"] is True
+    layers.append(("Joint L1-L5 smoke", "v2.3.2.1 development PASS; not confirmation"))
+
     for directory in [
         "evidence/l1_exact_anchoring_v1_3_2",
         "evidence/l2_heldout_expression_v1_5_6",
@@ -90,6 +97,7 @@ def main() -> int:
         "evidence/l3_category_v1_9_6_0",
         "evidence/l4_transport_v2_1_2",
         "evidence/l5_programmable_v2_2_4",
+        "evidence/joint_l1_l5_v2_3_2_1",
     ]:
         count = check_manifest(directory)
         print(f"[ok] {directory}: SHA256SUMS.txt verified ({count} entries)")

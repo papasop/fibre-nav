@@ -1,0 +1,57 @@
+{
+  "protocol": "MOVING_FIBRE_INTELLIGENCE_L3_REASSIGN_MARGIN_POLISH_V2_3_2_1",
+  "scientific_status": "POST_FAILURE_DEVELOPMENT_REPAIR_NOT_CONFIRMATION",
+  "claim_boundary": "Post-failure development repair after inspecting v2.3.0--v2.3.2 on seed 83001. It retains the frozen v2.3.2 expression bridges and applies a training-only L3 reassignment margin polish while keeping held-out expressions excluded from updates and checkpoint selection. It is not prospective or independent confirmation, complete L1--L5 confirmation, multi-seed confirmation, autonomous instruction execution, or global transport.",
+  "seed": 83001,
+  "layer_gates": {
+    "L1": {
+      "write_exact": true,
+      "overwrite_exact": true,
+      "overwrite_selective": true
+    },
+    "L2": {
+      "fresh_expression_access": true,
+      "fresh_expression_positive_margin": true
+    },
+    "L3": {
+      "four_compositional_addresses_readable": true,
+      "reassignment_exact": true,
+      "reassignment_heldout": true,
+      "readout_follows_reassignment": true
+    },
+    "L4": {
+      "move_reaches_target": true,
+      "move_preserves_access": true,
+      "return_reaches_source": true,
+      "return_preserves_access": true
+    },
+    "L5": {
+      "shared_state_program_exact": true,
+      "unselected_addresses_preserved": true,
+      "overwrite_beats_controls": true,
+      "swap_beats_controls": true
+    }
+  },
+  "all_layer_smoke_gates_pass": true,
+  "gates": {
+    "all_program_stages_exact": true,
+    "all_program_stages_heldout": true,
+    "all_program_stages_positive_heldout_margin": true,
+    "all_unselected_addresses_preserved": true,
+    "all_program_stages_within_response_budget": true,
+    "all_program_stages_within_kl_budget": true,
+    "requested_operation_beats_wrong_instruction": true,
+    "requested_operation_beats_matched_random": true,
+    "swap_beats_wrong_instruction": true,
+    "swap_beats_matched_random": true,
+    "transport_reaches_target_response": true,
+    "transport_preserves_all_addresses": true,
+    "transport_preserves_positive_heldout_margin": true,
+    "return_reaches_source_response": true,
+    "return_preserves_all_addresses": true,
+    "return_preserves_positive_heldout_margin": true
+  },
+  "all_gates_pass": true,
+  "config_sha256": "eb6a76903e8ed93188af87ce464bc6e82c405694342824d010e24ed629f73ef2",
+  "elapsed_seconds": 1266.5119502544403
+}

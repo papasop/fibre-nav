@@ -34,6 +34,11 @@ This is a **layered evidence chain**, not one unified L1–L5 run and not a
 sequence of mathematical theorems. Passing L5 does not retroactively replace
 the archived L1–L4 protocols.
 
+The supplemental joint smoke record v2.3.2.1 later runs representative
+WRITE, REASSIGN, OVERWRITE, SWAP, MOVE and RETURN gates in one continuous
+shared-state protocol. It is a post-failure development PASS, not prospective
+or independent confirmation.
+
 ## Headline result: the L5 shared state
 
 In seed `82931`, one restricted GPT-2 LoRA chart supported four jointly written
@@ -74,6 +79,11 @@ result is not gradient-free inference-time memory.
   distortion was `1.45136e-05`, versus a random-kernel-perturbed retraction
   control median of `7.88815e-05`; transport won all 28 dependent pairwise
   comparisons and preserved round-trip access.
+- **Joint L1-L5 smoke:** v2.3.2.1 passed all representative layer-smoke gates
+  and all 16 aggregate gates in seed `83001` after post-failure development on
+  the same seed. It demonstrates joint realizability within the tested
+  configuration, but does not replace the complete L3 cyclic reassignment or
+  L4 28-relation transport audits.
 
 ## What the evidence does—and does not—support
 
@@ -124,6 +134,7 @@ claim boundary and reproduction instructions where available.
 - [L3 integrated confirmation candidate — v1.9.6.0](evidence/l3_category_v1_9_6_0/)
 - [L4 local transport — v2.1.2](evidence/l4_transport_v2_1_2/)
 - [L5 programmable operations — v2.2.4](evidence/l5_programmable_v2_2_4/)
+- [Joint L1-L5 development smoke — v2.3.2.1](evidence/joint_l1_l5_v2_3_2_1/)
 
 ## Repository map
 

@@ -12,6 +12,7 @@ separate from the older response-fibre foundations archived in
 | L3 category geometry | [`evidence/l3_category_v1_9_6_0/`](../evidence/l3_category_v1_9_6_0/) | Single-seed confirmation candidate | Confirms the integrated router-address-writer mechanism in one GPT-2 LoRA chart; not multi-seed or cross-model evidence. |
 | L4 local transport | [`evidence/l4_transport_v2_1_2/`](../evidence/l4_transport_v2_1_2/) | Single-seed local transport candidate | Endpoint-wise response-set transport, not a certified fibre connection or global parallel transport. |
 | L5 programmable operations | [`evidence/l5_programmable_v2_2_4/`](../evidence/l5_programmable_v2_2_4/) | Single-seed confirmation candidate | Externally specified WRITE, OVERWRITE, SWAP, MOVE and RETURN procedures; not autonomous instruction execution. |
+| Joint L1-L5 smoke | [`evidence/joint_l1_l5_v2_3_2_1/`](../evidence/joint_l1_l5_v2_3_2_1/) | Development PASS | Representative WRITE, REASSIGN, OVERWRITE, SWAP, MOVE and RETURN capabilities coexist in one tested shared-state protocol. |
 
 ## Current headline
 
@@ -19,9 +20,15 @@ The current repository headline is an L1-L5 evidence chain for reusable
 addressing under declared finite response and KL budgets. The strongest
 archived MFI results are still single-seed and chart-local.
 
+The joint v2.3.2.1 smoke record is useful evidence that representative L1-L5
+capabilities can coexist in one continuous state sequence. It is adaptive
+post-failure development on seed `83001`, so a newly frozen seed and
+expression family remain required for prospective joint confirmation.
+
 ## Not yet certified
 
 - standalone L2 v1.5.6 numerical results;
+- prospective independent joint L1-L5 confirmation;
 - multi-seed MFI confirmation;
 - model-family replication;
 - geodesic semantic distance;

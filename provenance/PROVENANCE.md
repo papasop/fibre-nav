@@ -664,3 +664,28 @@ ladder. A repository-level `verify_mfi_l1_l5.py` verifier was added to report
 L1, L2, L3, L4 and L5 archive status directly. This documentation revision
 does not modify frozen evidence directories or change any numerical result,
 decision gate or archived raw output.
+
+## Moving Fibre Intelligence joint L1-L5 smoke v2.3.2.1
+
+This import adds `fibre_nav_joint_l1_l5_v2_3_2_1_github_ingest.zip` under
+`evidence/joint_l1_l5_v2_3_2_1/`. No expected SHA-256 was supplied in the user
+request; the observed ZIP SHA-256 was
+`7aea9149e6d310930ded504e23d1abb5acbf0fa73e859af04cdcac56e4a351a7`.
+The ZIP integrity test, the package `SHA256SUMS.txt` and bundled
+`verify_snapshot.py` all passed before import. The package contains source
+inside the release asset ZIP rather than as an expanded `experiments/` tree;
+no source file was reconstructed or rewritten during import.
+
+The archived status is `POST_FAILURE_DEVELOPMENT_REPAIR_NOT_CONFIRMATION`.
+After inspecting v2.3.0--v2.3.2 failures on the same seed `83001`, v2.3.2.1
+passed all declared representative L1-L5 smoke gates and all 16 aggregate
+gates in one continuous shared-state protocol. The run reports protocol
+`MOVING_FIBRE_INTELLIGENCE_L3_REASSIGN_MARGIN_POLISH_V2_3_2_1`, configuration
+SHA-256 `eb6a76903e8ed93188af87ce464bc6e82c405694342824d010e24ed629f73ef2`,
+and elapsed time 1266.5119502544403 seconds.
+
+This record supports joint realizability within the tested development
+configuration. It does not replace the full L3 cyclic concept-code audit, the
+full L4 eight-endpoint and 28-relation geometry audit, prospective independent
+confirmation, autonomous instruction parsing, gradient-free or inference-time
+operation, global fibre-bundle claims or global parallel transport.

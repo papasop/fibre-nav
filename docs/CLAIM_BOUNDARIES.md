@@ -277,6 +277,15 @@ counterfactual frontier result unchanged.
   random-kernel controls. Operations are externally specified and implemented
   through restricted parameter updates; GPT-2 does not autonomously parse or
   execute an instruction set.
+- Moving Fibre Intelligence joint L1-L5 smoke v2.3.2.1 is a post-failure
+  development repair, not confirmation. After inspecting v2.3.0--v2.3.2 on
+  the same seed `83001`, one continuous shared-state protocol passed all
+  declared representative L1-L5 smoke gates and all 16 aggregate gates. This
+  supports joint realizability within the tested configuration only. It does
+  not replace the full L3 cyclic concept-code audit, the full L4 eight-endpoint
+  and 28-relation transport audit, prospective independent confirmation,
+  autonomous instruction parsing, gradient-free/inference-time operation,
+  global fibre-bundle claims or global parallel transport.
 
 ## Not established
 
