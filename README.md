@@ -22,8 +22,8 @@ The current programme is organized as four experimentally gated layers:
 
 | Layer | Question | Current evidence status |
 | --- | --- | --- |
-| **L1 — exact memory** | Can a token-level memory be written to and read from a response-preserving fibre position? | **Single-seed mechanism supported** |
-| **L2 — semantic access** | Can multiple linguistic expressions access the same written memory, including overwrite? | **Single-seed mechanism supported** |
+| **L1 — exact memory** | Can a token-level memory be written to and read from a response-preserving fibre position? | **Single-seed primary mechanism supported** |
+| **L2 — semantic access** | Can multiple linguistic expressions access the same written memory, including overwrite? | **Protocol archived; result archive pending** |
 | **L3 — compositional writer** | Can reusable two-slot concept codes be written, mixed and reassigned? | **v1.7.8 single-seed all gates passed** |
 | **L3 — category geometry** | Can held-out concepts be routed by category-coordinate geometry under declared controls? | **v1.9.0 single-seed development all gates passed** |
 | **L3 — independent confirmation** | Does the integrated router-address-writer mechanism survive a prospectively frozen fresh seed? | **v1.9.6.0 single-seed confirmation** |
@@ -39,8 +39,8 @@ archive. It is a claim-boundary table, not a list of mathematical theorems.
 
 | Resource | Observable | Status | Current interpretation |
 | --- | --- | --- | --- |
-| Position writing on response fibres | Write/read/overwrite accuracy | Single-seed support | Memories can be anchored to repeatably readable fibre positions within declared response budgets. |
-| Addressable slot structure | Independent `amber`/`cedar` slot access | Single-seed support | Two declared slots can independently carry and retrieve written memory content. |
+| Position writing on response fibres | Write/read/overwrite accuracy | Single-seed primary support | L1 v1.3.2 archives one GPT-2 LoRA development seed with primary exact anchoring and overwrite gates passed; paraphrase gates did not pass. |
+| Addressable slot structure | Independent `amber`/`cedar` slot access | Result archive pending | L2 v1.5.6 source and reproduction assets are archived, but the original result ZIP is still required before claiming a complete evidence archive. |
 | Compositional coding | Two-bit codes, mixed-slot margins and cyclic reassignment | Single-seed support | The same slot-code rule can be composed and reused across written concepts. |
 | Expression-level access | Held-out phrasings for written concepts | Single-seed support | Different expressions can access the same previously written memory; this does not prove that all semantic equivalents occupy identical internal coordinates. |
 | Category-level generalization | Unseen whole-concept routing and positive margins | Single-seed confirmation | v1.9.6.0 routed 4/4 new bridge concepts correctly after a fresh-split 80-concept router passed 79/80 outer-held-out predictions. |
@@ -52,6 +52,22 @@ archive. It is a claim-boundary table, not a list of mathematical theorems.
 | Section | Consistent concept-position choices across base points | L4+ pending | No local or global section has been tested. |
 
 ## Current frontier
+
+### L1-L2 memory foundations
+
+L1 v1.3.2 archives a one-seed GPT-2 LoRA development demonstration of exact
+anchoring, controlled overwrite and response-constrained access. The primary
+gates passed, while secondary paraphrase gates did not; it is mechanism
+evidence, not confirmation.
+
+[Inspect the frozen L1 v1.3.2 evidence](evidence/l1_exact_anchoring_v1_3_2/)
+
+L2 v1.5.6 archives the frozen protocol, source and reproduction assets for
+held-out-expression access. The original `fibre_memory_l2_results_v1_5_6.zip`
+has not yet been imported, so the README status is **L2 result archive
+pending** and no numerical L2 result is reconstructed from logs or prose.
+
+[Inspect the L2 v1.5.6 protocol archive](evidence/l2_heldout_expression_v1_5_6/)
 
 ### L3 compositional writer — v1.7.8
 
@@ -159,6 +175,8 @@ See [`docs/CLAIM_BOUNDARIES.md`](docs/CLAIM_BOUNDARIES.md) and
 ```text
 evidence/confirmed/       frozen confirmatory evidence
 evidence/developmental/   developmental and failed stages
+evidence/l1_exact_anchoring_v1_3_2/
+evidence/l2_heldout_expression_v1_5_6/
 evidence/l3_writer_v1_7_8/
 evidence/l3_category_v1_8_1/
 evidence/l3_category_v1_9_1/

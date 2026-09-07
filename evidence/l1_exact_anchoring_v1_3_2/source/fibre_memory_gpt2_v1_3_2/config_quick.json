@@ -1,0 +1,23 @@
+{
+  "protocol": "GPT2_FIBRE_MEMORY_WRITE_READ_V1_3_2",
+  "model_name": "openai-community/gpt2",
+  "seeds": [81401, 81402, 81403],
+  "bits": 2,
+  "anchor_count": 12,
+  "response_dim": 6,
+  "write_steps": 64,
+  "rewrite_steps": 64,
+  "learning_rate": 0.12,
+  "max_backtracking": 12,
+  "min_step": 0.000029296875,
+  "retraction_steps": 3,
+  "response_budget": 0.002,
+  "endpoint_kl_gate": 0.005,
+  "lora_rank": 4,
+  "lora_alpha": 8,
+  "arms": ["true_current", "random_kernel", "sign_reversed", "shuffled_label", "no_move"],
+  "best_of_random": 4,
+  "train_accuracy_gate": 1.0,
+  "true_random_signed_margin_gate": 0.1,
+  "paraphrase_accuracy_gate": 1.0
+}

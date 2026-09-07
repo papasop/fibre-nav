@@ -1,0 +1,11 @@
+Upload `gpt2_fibre_memory_v1_3_2.zip` and `run_fibre_memory_colab_v1_3_2.py`, then run:
+
+%run /content/run_fibre_memory_colab_v1_3_2.py --mode smoke
+
+After inspecting the primary and secondary smoke gates, run:
+
+%run /content/run_fibre_memory_colab_v1_3_2.py --mode quick
+
+The launcher ignores notebook kernel arguments, accepts uploaded filenames
+containing `(1)`, streams complete output, and downloads a result or diagnostic
+ZIP.

@@ -217,6 +217,15 @@ counterfactual frontier result unchanged.
   access for previously written concepts, two-slot compositional codes, cyclic
   concept-code reassignment, response compliance and endpoint-KL compliance in
   seed 81902 only.
+- Moving Fibre Intelligence L1 v1.3.2 is a one-seed GPT-2 LoRA development
+  archive for exact anchoring, controlled overwrite and response-constrained
+  access. Its primary gates passed, while secondary paraphrase gates did not;
+  it is not multi-seed confirmation or L2 semantic-access evidence.
+- Moving Fibre Intelligence L2 v1.5.6 archives source, protocol and
+  reproduction assets only. The original result ZIP
+  `fibre_memory_l2_results_v1_5_6.zip` is still required, so no repository
+  backed numerical L2 result is claimed and no result is reconstructed from
+  chat logs or copied console text.
 - Moving Fibre Intelligence L3 shared-category writer v1.8.1 is a partial
   single-seed GPT-2 development result. It supports 16/16 shared-router
   training accuracy, 7/8 whole-concept held-out routing, category-current
@@ -283,5 +292,7 @@ counterfactual frontier result unchanged.
   new external concept cohort, model-family generality, geodesic semantic
   distance, curvature, global/path-independent parallel transport, certified
   fibre connection or global section from the single-seed L3/L4 archives;
+- complete L2 result-archive evidence until the untouched
+  `fibre_memory_l2_results_v1_5_6.zip` and extracted run records are imported;
 - universal intelligence, learning, physical realizability or time laws;
 - direct validation of K=1 chronogeometrodynamics.

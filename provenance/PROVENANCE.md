@@ -592,3 +592,31 @@ endpoints assigned across four repeated two-slot codes, not eight unique
 addresses. This archive does not support global parallel transport, path
 independence, multi-seed confirmation, cross-model transport or a certified
 global connection.
+
+## Moving Fibre Intelligence L1/L2 memory foundations
+
+This import adds `fibre_nav_l1_l2_github_ingest_ready.zip` under
+`evidence/l1_exact_anchoring_v1_3_2/` and
+`evidence/l2_heldout_expression_v1_5_6/`. The expected and observed ZIP
+SHA-256 was
+`575bc5ff71857f441bacc75d24ecfec366d49fdaaf6acaaab525434c3d05aa1f`.
+Both directory-level `SHA256SUMS.txt` manifests were verified before import
+and regenerated for the final repository layout.
+
+L1 v1.3.2 is a complete result archive for protocol
+`GPT2_FIBRE_MEMORY_WRITE_READ_V1_3_2` in GPT-2 LoRA seed `81401`. It reports
+`DEVELOPMENT_NOT_CONFIRMATION`, configuration SHA-256
+`047f935f5a145db3d1a07ce88da993a4a0c799dec9a8626afa708967a7214a81`,
+`all_seeds_primary_pass: true`, `all_seeds_secondary_pass: false`, PyTorch
+`2.11.0+cu128`, Transformers `4.56.2`, and elapsed time 134.31138610839844
+seconds. The archived claim is exact anchoring, controlled overwrite and
+response-constrained access in one development seed; paraphrase/semantic
+access gates did not pass.
+
+L2 v1.5.6 imports source, frozen protocol, Colab launcher and reproduction
+assets for protocol `GPT2_FIBRE_MEMORY_L2_WORST_MARGIN_V1_5_6`, but the
+original result artifact `fibre_memory_l2_results_v1_5_6.zip` is still absent.
+No L2 numerical result, per-seed JSON, summary or console log is reconstructed
+from chat logs or copied text. The repository status is therefore
+`L2 result archive pending` until the untouched result ZIP and extracted run
+records are imported and verified.

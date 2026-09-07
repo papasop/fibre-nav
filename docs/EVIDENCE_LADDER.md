@@ -209,6 +209,18 @@ and does not establish universal optimizer superiority or global Picard flow.
 
 ## Moving Fibre Intelligence L3 writer development
 
+`evidence/l1_exact_anchoring_v1_3_2/` archives the L1 exact-memory foundation.
+It is a one-seed GPT-2 LoRA development record for exact anchoring, controlled
+overwrite and response-constrained access. The primary gates passed; secondary
+paraphrase gates did not pass. It should be cited as mechanism evidence rather
+than confirmation.
+
+`evidence/l2_heldout_expression_v1_5_6/` archives the L2 source, frozen
+protocol and reproduction assets for held-out-expression access. The original
+result ZIP `fibre_memory_l2_results_v1_5_6.zip` is still missing, so the L2
+node remains result-archive pending. No numerical L2 result is reconstructed
+from chat logs or copied console text.
+
 `evidence/l3_writer_v1_7_8/` is a single-seed GPT-2 development milestone, not
 a confirmation rung. In frozen seed 81902, v1.7.8 supports exact memory access,
 held-out linguistic access for previously written concepts, two-slot

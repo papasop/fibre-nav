@@ -1,0 +1,12 @@
+# L2 held-out expression access — v1.5.6
+
+Protocol: `GPT2_FIBRE_MEMORY_L2_WORST_MARGIN_V1_5_6`
+
+This directory contains the frozen one-seed source package and robust Colab
+launcher for exact access plus held-out-expression access, worst-held-out margin
+control and causal overwrite. Seed `81801` is declared in the configuration.
+
+Archival status: reproduction assets are complete; the original result archive
+is not included. Read `RESULT_ARCHIVE_REQUIRED.md` before citing this directory
+as independent L2 evidence.
+

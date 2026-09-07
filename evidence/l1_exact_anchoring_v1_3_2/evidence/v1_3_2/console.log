@@ -1,0 +1,57 @@
+2026-09-04 09:10:57.007702: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-04 09:10:57.077607: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[seed 81401] starting
+`torch_dtype` is deprecated! Use `dtype` instead!
+/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/layer.py:2174: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+[seed 81401] primary={'true_response_budget': True, 'true_endpoint_kl_gate': True, 'true_exact_accuracy': True, 'true_beats_best_random_margin': True, 'all_control_arms_eligible': True, 'overwrite_exact_accuracy': True, 'overwrite_endpoint_kl_gate': True, 'overwrite_response_budget': True, 'cross_read_switch': True}
+[seed 81401] secondary={'true_paraphrase_accuracy': False, 'overwrite_paraphrase_accuracy': False}
+{
+  "protocol": "GPT2_FIBRE_MEMORY_WRITE_READ_V1_3_2",
+  "scientific_status": "DEVELOPMENT_NOT_CONFIRMATION",
+  "config": {
+    "protocol": "GPT2_FIBRE_MEMORY_WRITE_READ_V1_3_2",
+    "model_name": "openai-community/gpt2",
+    "seeds": [
+      81401
+    ],
+    "bits": 2,
+    "anchor_count": 12,
+    "response_dim": 6,
+    "write_steps": 64,
+    "rewrite_steps": 64,
+    "learning_rate": 0.12,
+    "max_backtracking": 12,
+    "min_step": 2.9296875e-05,
+    "retraction_steps": 3,
+    "response_budget": 0.002,
+    "endpoint_kl_gate": 0.005,
+    "lora_rank": 4,
+    "lora_alpha": 8,
+    "arms": [
+      "true_current",
+      "random_kernel",
+      "sign_reversed",
+      "shuffled_label",
+      "no_move"
+    ],
+    "best_of_random": 4,
+    "train_accuracy_gate": 1.0,
+    "true_random_signed_margin_gate": 0.1,
+    "paraphrase_accuracy_gate": 1.0
+  },
+  "config_sha256": "047f935f5a145db3d1a07ce88da993a4a0c799dec9a8626afa708967a7214a81",
+  "seeds_complete": 1,
+  "seeds_all_primary_gates_pass": 1,
+  "all_seeds_primary_pass": true,
+  "seeds_all_secondary_gates_pass": 0,
+  "all_seeds_secondary_pass": false,
+  "seeds_all_gates_pass": 0,
+  "all_seeds_pass": false,
+  "elapsed_seconds": 134.31138610839844,
+  "python": "3.13.15 (main, Aug  6 2026, 11:06:23) [GCC 11.4.0]",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.56.2"
+}
