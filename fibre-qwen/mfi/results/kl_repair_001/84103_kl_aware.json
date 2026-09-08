@@ -1,0 +1,829 @@
+{
+  "cohort": "heldout",
+  "seed": 84103,
+  "algorithm": "kl_aware",
+  "stages": [
+    {
+      "operation": "WRITE",
+      "result": {
+        "operation": "WRITE",
+        "target": 1,
+        "accepted": true,
+        "before": {
+          "value": 0,
+          "logit_1_minus_0": -0.8230762481689453,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "proposal_read": {
+          "value": 1,
+          "logit_1_minus_0": 1.4125890731811523,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "committed_read": {
+          "value": 1,
+          "logit_1_minus_0": 1.4125890731811523,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "proposal_audit": {
+          "response": 0.010162353515625,
+          "kl": 0.006195832132159349,
+          "margin": 1.4125890731811523
+        },
+        "rolled_back": false,
+        "trace": [
+          {
+            "step": 1,
+            "accepted_step": true,
+            "projection_residual": 7.243446516877209e-09,
+            "audit": {
+              "response": 0.0062944889068603516,
+              "kl": 0.0024362859828329026,
+              "margin": -0.3855724334716797
+            }
+          },
+          {
+            "step": 2,
+            "accepted_step": true,
+            "projection_residual": 4.269947560817934e-09,
+            "audit": {
+              "response": 0.007516622543334961,
+              "kl": 0.007419491259418443,
+              "margin": 0.49569034576416016
+            }
+          },
+          {
+            "step": 3,
+            "accepted_step": true,
+            "projection_residual": 3.6823272436588078e-09,
+            "audit": {
+              "response": 0.007916927337646484,
+              "kl": 0.005655365780725297,
+              "margin": 0.9410495758056641
+            }
+          },
+          {
+            "step": 4,
+            "accepted_step": true,
+            "projection_residual": 4.174258048200157e-09,
+            "audit": {
+              "response": 0.010162353515625,
+              "kl": 0.006195832132159349,
+              "margin": 1.4125890731811523
+            }
+          }
+        ],
+        "budget": {
+          "response": 0.02,
+          "kl": 0.01,
+          "margin": 1.0,
+          "steps": 24,
+          "step_norm": 0.5,
+          "backtracks": 8,
+          "ridge": 1e-08
+        }
+      },
+      "error": null,
+      "operation_pass": true,
+      "rollback_ok": true,
+      "items": [
+        {
+          "arm": "mfi",
+          "task_id": 0,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 1,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 0,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 1,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 1,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 1,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 1,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 1,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 2,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 1,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 2,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 1,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 1,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 1,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 0,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 1,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 0,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 1,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 1,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 1,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 1,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 1,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 2,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 1,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 2,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 1,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 1,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 1,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 0,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": null,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 0,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": null,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 1,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": null,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 1,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": null,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 2,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": null,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 2,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": null,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": null,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": null,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        }
+      ]
+    },
+    {
+      "operation": "OVERWRITE",
+      "result": {
+        "operation": "OVERWRITE",
+        "target": 0,
+        "accepted": true,
+        "before": {
+          "value": 1,
+          "logit_1_minus_0": 1.4125890731811523,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "proposal_read": {
+          "value": 0,
+          "logit_1_minus_0": -1.2073488235473633,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "committed_read": {
+          "value": 0,
+          "logit_1_minus_0": -1.2073488235473633,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "proposal_audit": {
+          "response": 0.005716800689697266,
+          "kl": 0.007508112198296143,
+          "margin": 1.2073488235473633
+        },
+        "rolled_back": false,
+        "trace": [
+          {
+            "step": 1,
+            "accepted_step": true,
+            "projection_residual": 2.4882368758908743e-09,
+            "audit": {
+              "response": 0.018433094024658203,
+              "kl": 0.008187459474156967,
+              "margin": -0.47287654876708984
+            }
+          },
+          {
+            "step": 2,
+            "accepted_step": true,
+            "projection_residual": 4.289001921713462e-09,
+            "audit": {
+              "response": 0.010405540466308594,
+              "kl": 0.006863613643975465,
+              "margin": 0.4226388931274414
+            }
+          },
+          {
+            "step": 3,
+            "accepted_step": true,
+            "projection_residual": 5.601244752243926e-09,
+            "audit": {
+              "response": 0.010452508926391602,
+              "kl": 0.007386874974527902,
+              "margin": 0.6293611526489258
+            }
+          },
+          {
+            "step": 4,
+            "accepted_step": true,
+            "projection_residual": 3.779270600327128e-09,
+            "audit": {
+              "response": 0.010208606719970703,
+              "kl": 0.005711088846472964,
+              "margin": 0.9857912063598633
+            }
+          },
+          {
+            "step": 5,
+            "accepted_step": true,
+            "projection_residual": 9.866320906015057e-09,
+            "audit": {
+              "response": 0.005716800689697266,
+              "kl": 0.007508112198296143,
+              "margin": 1.2073488235473633
+            }
+          }
+        ],
+        "budget": {
+          "response": 0.02,
+          "kl": 0.01,
+          "margin": 1.0,
+          "steps": 24,
+          "step_norm": 0.5,
+          "backtracks": 8,
+          "ridge": 1e-08
+        }
+      },
+      "error": null,
+      "operation_pass": true,
+      "rollback_ok": true,
+      "items": [
+        {
+          "arm": "mfi",
+          "task_id": 0,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 0,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 1,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 1,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 2,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 2,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 0,
+          "prediction": "A",
+          "expected": "B",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 0,
+          "prediction": "A",
+          "expected": "A",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "mfi",
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 0,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 0,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 1,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 1,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 2,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 2,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 0,
+          "prediction": "A",
+          "expected": "B",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "external",
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": 0,
+          "prediction": "B",
+          "expected": "B",
+          "correct": true,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 0,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": null,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 0,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": null,
+          "prediction": "A",
+          "expected": "B",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 1,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": null,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 1,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": null,
+          "prediction": "A",
+          "expected": "B",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 2,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": null,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 2,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": null,
+          "prediction": "A",
+          "expected": "B",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "memory_value": null,
+          "prediction": "B",
+          "expected": "A",
+          "correct": false,
+          "status": "scored"
+        },
+        {
+          "arm": "none",
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "memory_value": null,
+          "prediction": "A",
+          "expected": "B",
+          "correct": false,
+          "status": "scored"
+        }
+      ]
+    }
+  ],
+  "program_pass": true,
+  "scores": {
+    "mfi": {
+      "correct": 12,
+      "total": 16,
+      "accuracy": 0.75
+    },
+    "external": {
+      "correct": 11,
+      "total": 16,
+      "accuracy": 0.6875
+    },
+    "none": {
+      "correct": 8,
+      "total": 16,
+      "accuracy": 0.5
+    }
+  }
+}

@@ -36,3 +36,30 @@ HF_HUB_OFFLINE=1 python verify_repair.py --out results/kl_repair_NEW
 
 Offline mode requires the previously downloaded pinned Qwen model. Protocol and
 source snapshots are written before evaluation; exit 2 preserves failed gates.
+
+## Successor: response and KL correction
+
+Candidate 1 repaired the known failed WRITEs but could accumulate response drift
+near 0.02 during OVERWRITE. `repair_response.py` adds a least-squares inward
+response correction when response drift reaches half its budget. It aims to halve
+the current signed response residual in the local linear model. The KL correction
+then acts within the response tangent space. These are local approximations; only
+the existing finite gates authorize committing an operation.
+
+The successor direction is not strictly response-null: its normal component
+intentionally retracts accumulated drift. All parameters remain in the same
+restricted LoRA-B chart. No thresholds or iteration limits were relaxed. Candidate
+1 and its protocol are retained alongside the successor, rather than overwritten.
+
+`verify_repair2.py` froze new seeds 84301, 84317 and 84329 before execution. Its
+development comparison uses the archived original scores; the new seeds get fresh
+paired original/successor runs. The previously successful development seed 84031
+has an explicit no-regression gate. The report's development/original entry has
+zero new runs (accuracy null); use the archived baseline for that comparison.
+
+Frozen candidate 1 commit: a5fcb8b2aae27f5ae44166a9b8ca9857fedaf072.
+Frozen candidate 2 commit: 65f4405798094f305b1b15455da0c27c68ac0ba4.
+Candidate 2 was designed after observing development failures in candidate 1;
+its development results are not prospective evidence. Its separately selected
+three new seeds were not used for tuning. Both protocols retain raw task outputs
+and rollback checks and share the same fixed task items and scoring rule.
