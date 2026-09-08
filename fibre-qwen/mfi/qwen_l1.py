@@ -31,8 +31,8 @@ class LoRAB(torch.nn.Module):
 
 
 class QwenChart:
-    def __init__(self):
-        torch.manual_seed(SEED)
+    def __init__(self, seed=SEED):
+        torch.manual_seed(seed)
         self.tok = AutoTokenizer.from_pretrained(MODEL, revision=REVISION, trust_remote_code=False)
         self.model = AutoModelForCausalLM.from_pretrained(MODEL, revision=REVISION,
             torch_dtype=torch.float32, trust_remote_code=False).eval()
