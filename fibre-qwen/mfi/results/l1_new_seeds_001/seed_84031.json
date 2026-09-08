@@ -1,0 +1,236 @@
+{
+  "seed": 84031,
+  "initial": {
+    "value": 0,
+    "logit_1_minus_0": -0.8230762481689453,
+    "readout": "argmax restricted to the two declared bit tokens"
+  },
+  "operations": [
+    {
+      "result": {
+        "operation": "WRITE",
+        "target": 1,
+        "accepted": true,
+        "before": {
+          "value": 0,
+          "logit_1_minus_0": -0.8230762481689453,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "proposal_read": {
+          "value": 1,
+          "logit_1_minus_0": 1.121267318725586,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "committed_read": {
+          "value": 1,
+          "logit_1_minus_0": 1.121267318725586,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "proposal_audit": {
+          "response": 0.005163431167602539,
+          "kl": 0.0044481634485552994,
+          "margin": 1.121267318725586
+        },
+        "rolled_back": false,
+        "trace": [
+          {
+            "step": 1,
+            "accepted_step": true,
+            "projection_residual": 1.530144947378199e-09,
+            "audit": {
+              "response": 0.004075407981872559,
+              "kl": 0.0012606855194993842,
+              "margin": 0.4272441864013672
+            }
+          },
+          {
+            "step": 2,
+            "accepted_step": true,
+            "projection_residual": 1.76860953019028e-09,
+            "audit": {
+              "response": 0.005163431167602539,
+              "kl": 0.0044481634485552994,
+              "margin": 1.121267318725586
+            }
+          }
+        ],
+        "budget": {
+          "response": 0.02,
+          "kl": 0.01,
+          "margin": 1.0,
+          "steps": 24,
+          "step_norm": 0.5,
+          "backtracks": 8,
+          "ridge": 1e-08
+        }
+      },
+      "controls": {
+        "rng_seed": 85031,
+        "matched_endpoint_norm": 0.7372892498970032,
+        "no_move": {
+          "audit": {
+            "response": 0.0,
+            "kl": 0.0,
+            "margin": -0.8230762481689453
+          },
+          "passes": false
+        },
+        "random": [
+          {
+            "trial": 0,
+            "norm": 0.7372890710830688,
+            "norm_error": 1.7881393432617188e-07,
+            "audit": {
+              "response": 0.00010609626770019531,
+              "kl": 0.00016015903580421335,
+              "margin": -0.8165445327758789
+            },
+            "passes": false
+          },
+          {
+            "trial": 1,
+            "norm": 0.7372891306877136,
+            "norm_error": 1.1920928955078125e-07,
+            "audit": {
+              "response": 0.00032079219818115234,
+              "kl": 0.0001931843231353094,
+              "margin": -0.8277626037597656
+            },
+            "passes": false
+          },
+          {
+            "trial": 2,
+            "norm": 0.7372889518737793,
+            "norm_error": 2.980232238769531e-07,
+            "audit": {
+              "response": 0.0008720159530639648,
+              "kl": 0.00010432127204796938,
+              "margin": -0.8134584426879883
+            },
+            "passes": false
+          }
+        ]
+      },
+      "true_beats_best_random_margin": true
+    },
+    {
+      "result": {
+        "operation": "OVERWRITE",
+        "target": 0,
+        "accepted": true,
+        "before": {
+          "value": 1,
+          "logit_1_minus_0": 1.121267318725586,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "proposal_read": {
+          "value": 0,
+          "logit_1_minus_0": -1.7862253189086914,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "committed_read": {
+          "value": 0,
+          "logit_1_minus_0": -1.7862253189086914,
+          "readout": "argmax restricted to the two declared bit tokens"
+        },
+        "proposal_audit": {
+          "response": 0.01903212070465088,
+          "kl": 0.004823803398849293,
+          "margin": 1.7862253189086914
+        },
+        "rolled_back": false,
+        "trace": [
+          {
+            "step": 1,
+            "accepted_step": true,
+            "projection_residual": 2.207601496761596e-09,
+            "audit": {
+              "response": 0.015967965126037598,
+              "kl": 0.0015567706974617661,
+              "margin": 0.15128040313720703
+            }
+          },
+          {
+            "step": 2,
+            "accepted_step": true,
+            "projection_residual": 8.559055203459975e-10,
+            "audit": {
+              "response": 0.01730024814605713,
+              "kl": 0.002684578270843381,
+              "margin": 0.7099294662475586
+            }
+          },
+          {
+            "step": 3,
+            "accepted_step": true,
+            "projection_residual": 1.4477863684128503e-09,
+            "audit": {
+              "response": 0.01903212070465088,
+              "kl": 0.004823803398849293,
+              "margin": 1.7862253189086914
+            }
+          }
+        ],
+        "budget": {
+          "response": 0.02,
+          "kl": 0.01,
+          "margin": 1.0,
+          "steps": 24,
+          "step_norm": 0.5,
+          "backtracks": 8,
+          "ridge": 1e-08
+        }
+      },
+      "controls": {
+        "rng_seed": 85131,
+        "matched_endpoint_norm": 1.212377667427063,
+        "no_move": {
+          "audit": {
+            "response": 0.005163431167602539,
+            "kl": 0.0044481634485552994,
+            "margin": -1.121267318725586
+          },
+          "passes": false
+        },
+        "random": [
+          {
+            "trial": 0,
+            "norm": 1.2123780250549316,
+            "norm_error": 3.5762786865234375e-07,
+            "audit": {
+              "response": 0.005688190460205078,
+              "kl": 0.00510285881890312,
+              "margin": -1.0880374908447266
+            },
+            "passes": false
+          },
+          {
+            "trial": 1,
+            "norm": 1.2123780250549316,
+            "norm_error": 3.5762786865234375e-07,
+            "audit": {
+              "response": 0.007596731185913086,
+              "kl": 0.005411050658640189,
+              "margin": -1.1119003295898438
+            },
+            "passes": false
+          },
+          {
+            "trial": 2,
+            "norm": 1.2123775482177734,
+            "norm_error": 1.1920928955078125e-07,
+            "audit": {
+              "response": 0.005645036697387695,
+              "kl": 0.0057587980365997535,
+              "margin": -1.1570281982421875
+            },
+            "passes": false
+          }
+        ]
+      },
+      "true_beats_best_random_margin": true
+    }
+  ],
+  "error": null,
+  "program_pass": true
+}

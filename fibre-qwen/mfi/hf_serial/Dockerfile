@@ -1,0 +1,10 @@
+FROM python:3.11-slim
+ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 PORT=7860 HF_HOME=/home/user/.cache/huggingface CUDA_VISIBLE_DEVICES=""
+RUN useradd -m -u 1000 user
+WORKDIR /app
+COPY mfi_task_requirements.txt /app/mfi_task_requirements.txt
+RUN python -m pip install -r /app/mfi_task_requirements.txt
+COPY --chown=user:user . /app/
+USER user
+EXPOSE 7860
+CMD ["python", "-u", "/app/mfi_serial_app.py"]

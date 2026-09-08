@@ -1,0 +1,492 @@
+{
+  "protocol": {
+    "id": "QWEN_MFI_L1_NEW_CHART_SEEDS_001",
+    "seeds": [
+      84031,
+      84047,
+      84061
+    ],
+    "random_trials_per_operation": 3,
+    "model": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "anchors": [
+      "The capital of France is",
+      "Water freezes at",
+      "Two plus two equals"
+    ],
+    "memory_prompt": "Memory register 00 contains the bit:",
+    "budget": {
+      "response": 0.02,
+      "kl": 0.01,
+      "margin": 1.0,
+      "steps": 24,
+      "step_norm": 0.5,
+      "backtracks": 8,
+      "ridge": 1e-08
+    },
+    "target_rule": "WRITE opposite initial bit then OVERWRITE initial bit",
+    "controls": "operation-local from true operation start; random initial near-kernel direction normalized to true committed endpoint displacement norm; no retraction or backtracking",
+    "qualification": "compare only accepted true operations; missing/failed stages remain failures for full-program gate",
+    "gates": "all three true programs accepted; each accepted operation exceeds best random target margin; random displacement norm error <= 1e-5; no-move target gate fails"
+  },
+  "protocol_sha256": "5fccd9b834d488e1415fa83a3a9b34f9d41305a66ad6b56647511addab063b81",
+  "runs": [
+    {
+      "seed": 84031,
+      "initial": {
+        "value": 0,
+        "logit_1_minus_0": -0.8230762481689453,
+        "readout": "argmax restricted to the two declared bit tokens"
+      },
+      "operations": [
+        {
+          "result": {
+            "operation": "WRITE",
+            "target": 1,
+            "accepted": true,
+            "before": {
+              "value": 0,
+              "logit_1_minus_0": -0.8230762481689453,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "proposal_read": {
+              "value": 1,
+              "logit_1_minus_0": 1.121267318725586,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "committed_read": {
+              "value": 1,
+              "logit_1_minus_0": 1.121267318725586,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "proposal_audit": {
+              "response": 0.005163431167602539,
+              "kl": 0.0044481634485552994,
+              "margin": 1.121267318725586
+            },
+            "rolled_back": false,
+            "trace": [
+              {
+                "step": 1,
+                "accepted_step": true,
+                "projection_residual": 1.530144947378199e-09,
+                "audit": {
+                  "response": 0.004075407981872559,
+                  "kl": 0.0012606855194993842,
+                  "margin": 0.4272441864013672
+                }
+              },
+              {
+                "step": 2,
+                "accepted_step": true,
+                "projection_residual": 1.76860953019028e-09,
+                "audit": {
+                  "response": 0.005163431167602539,
+                  "kl": 0.0044481634485552994,
+                  "margin": 1.121267318725586
+                }
+              }
+            ],
+            "budget": {
+              "response": 0.02,
+              "kl": 0.01,
+              "margin": 1.0,
+              "steps": 24,
+              "step_norm": 0.5,
+              "backtracks": 8,
+              "ridge": 1e-08
+            }
+          },
+          "controls": {
+            "rng_seed": 85031,
+            "matched_endpoint_norm": 0.7372892498970032,
+            "no_move": {
+              "audit": {
+                "response": 0.0,
+                "kl": 0.0,
+                "margin": -0.8230762481689453
+              },
+              "passes": false
+            },
+            "random": [
+              {
+                "trial": 0,
+                "norm": 0.7372890710830688,
+                "norm_error": 1.7881393432617188e-07,
+                "audit": {
+                  "response": 0.00010609626770019531,
+                  "kl": 0.00016015903580421335,
+                  "margin": -0.8165445327758789
+                },
+                "passes": false
+              },
+              {
+                "trial": 1,
+                "norm": 0.7372891306877136,
+                "norm_error": 1.1920928955078125e-07,
+                "audit": {
+                  "response": 0.00032079219818115234,
+                  "kl": 0.0001931843231353094,
+                  "margin": -0.8277626037597656
+                },
+                "passes": false
+              },
+              {
+                "trial": 2,
+                "norm": 0.7372889518737793,
+                "norm_error": 2.980232238769531e-07,
+                "audit": {
+                  "response": 0.0008720159530639648,
+                  "kl": 0.00010432127204796938,
+                  "margin": -0.8134584426879883
+                },
+                "passes": false
+              }
+            ]
+          },
+          "true_beats_best_random_margin": true
+        },
+        {
+          "result": {
+            "operation": "OVERWRITE",
+            "target": 0,
+            "accepted": true,
+            "before": {
+              "value": 1,
+              "logit_1_minus_0": 1.121267318725586,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "proposal_read": {
+              "value": 0,
+              "logit_1_minus_0": -1.7862253189086914,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "committed_read": {
+              "value": 0,
+              "logit_1_minus_0": -1.7862253189086914,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "proposal_audit": {
+              "response": 0.01903212070465088,
+              "kl": 0.004823803398849293,
+              "margin": 1.7862253189086914
+            },
+            "rolled_back": false,
+            "trace": [
+              {
+                "step": 1,
+                "accepted_step": true,
+                "projection_residual": 2.207601496761596e-09,
+                "audit": {
+                  "response": 0.015967965126037598,
+                  "kl": 0.0015567706974617661,
+                  "margin": 0.15128040313720703
+                }
+              },
+              {
+                "step": 2,
+                "accepted_step": true,
+                "projection_residual": 8.559055203459975e-10,
+                "audit": {
+                  "response": 0.01730024814605713,
+                  "kl": 0.002684578270843381,
+                  "margin": 0.7099294662475586
+                }
+              },
+              {
+                "step": 3,
+                "accepted_step": true,
+                "projection_residual": 1.4477863684128503e-09,
+                "audit": {
+                  "response": 0.01903212070465088,
+                  "kl": 0.004823803398849293,
+                  "margin": 1.7862253189086914
+                }
+              }
+            ],
+            "budget": {
+              "response": 0.02,
+              "kl": 0.01,
+              "margin": 1.0,
+              "steps": 24,
+              "step_norm": 0.5,
+              "backtracks": 8,
+              "ridge": 1e-08
+            }
+          },
+          "controls": {
+            "rng_seed": 85131,
+            "matched_endpoint_norm": 1.212377667427063,
+            "no_move": {
+              "audit": {
+                "response": 0.005163431167602539,
+                "kl": 0.0044481634485552994,
+                "margin": -1.121267318725586
+              },
+              "passes": false
+            },
+            "random": [
+              {
+                "trial": 0,
+                "norm": 1.2123780250549316,
+                "norm_error": 3.5762786865234375e-07,
+                "audit": {
+                  "response": 0.005688190460205078,
+                  "kl": 0.00510285881890312,
+                  "margin": -1.0880374908447266
+                },
+                "passes": false
+              },
+              {
+                "trial": 1,
+                "norm": 1.2123780250549316,
+                "norm_error": 3.5762786865234375e-07,
+                "audit": {
+                  "response": 0.007596731185913086,
+                  "kl": 0.005411050658640189,
+                  "margin": -1.1119003295898438
+                },
+                "passes": false
+              },
+              {
+                "trial": 2,
+                "norm": 1.2123775482177734,
+                "norm_error": 1.1920928955078125e-07,
+                "audit": {
+                  "response": 0.005645036697387695,
+                  "kl": 0.0057587980365997535,
+                  "margin": -1.1570281982421875
+                },
+                "passes": false
+              }
+            ]
+          },
+          "true_beats_best_random_margin": true
+        }
+      ],
+      "error": null,
+      "program_pass": true
+    },
+    {
+      "seed": 84047,
+      "initial": {
+        "value": 0,
+        "logit_1_minus_0": -0.8230762481689453,
+        "readout": "argmax restricted to the two declared bit tokens"
+      },
+      "operations": [
+        {
+          "result": {
+            "operation": "WRITE",
+            "target": 1,
+            "accepted": false,
+            "before": {
+              "value": 0,
+              "logit_1_minus_0": -0.8230762481689453,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "proposal_read": {
+              "value": 1,
+              "logit_1_minus_0": 0.21834468841552734,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "committed_read": {
+              "value": 0,
+              "logit_1_minus_0": -0.8230762481689453,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "proposal_audit": {
+              "response": 0.0077972412109375,
+              "kl": 0.009959085724120976,
+              "margin": 0.21834468841552734
+            },
+            "rolled_back": true,
+            "trace": [
+              {
+                "step": 1,
+                "accepted_step": true,
+                "projection_residual": 5.139991955200684e-09,
+                "audit": {
+                  "response": 0.003968954086303711,
+                  "kl": 0.0028170656176318303,
+                  "margin": -0.5185623168945312
+                }
+              },
+              {
+                "step": 2,
+                "accepted_step": true,
+                "projection_residual": 3.168445387980937e-09,
+                "audit": {
+                  "response": 0.007784366607666016,
+                  "kl": 0.008987570076293264,
+                  "margin": 0.12798404693603516
+                }
+              },
+              {
+                "step": 3,
+                "accepted_step": true,
+                "projection_residual": 3.596382436909213e-09,
+                "audit": {
+                  "response": 0.0077972412109375,
+                  "kl": 0.009959085724120976,
+                  "margin": 0.21834468841552734
+                }
+              },
+              {
+                "step": 4,
+                "accepted_step": false,
+                "projection_residual": 3.3684823064944484e-09,
+                "audit": {
+                  "response": 0.0077972412109375,
+                  "kl": 0.009959085724120976,
+                  "margin": 0.21834468841552734
+                }
+              }
+            ],
+            "budget": {
+              "response": 0.02,
+              "kl": 0.01,
+              "margin": 1.0,
+              "steps": 24,
+              "step_norm": 0.5,
+              "backtracks": 8,
+              "ridge": 1e-08
+            }
+          },
+          "controls": null
+        }
+      ],
+      "error": null,
+      "program_pass": false
+    },
+    {
+      "seed": 84061,
+      "initial": {
+        "value": 0,
+        "logit_1_minus_0": -0.8230762481689453,
+        "readout": "argmax restricted to the two declared bit tokens"
+      },
+      "operations": [
+        {
+          "result": {
+            "operation": "WRITE",
+            "target": 1,
+            "accepted": false,
+            "before": {
+              "value": 0,
+              "logit_1_minus_0": -0.8230762481689453,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "proposal_read": {
+              "value": 1,
+              "logit_1_minus_0": 0.8106250762939453,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "committed_read": {
+              "value": 0,
+              "logit_1_minus_0": -0.8230762481689453,
+              "readout": "argmax restricted to the two declared bit tokens"
+            },
+            "proposal_audit": {
+              "response": 0.010848522186279297,
+              "kl": 0.009994597682479288,
+              "margin": 0.8106250762939453
+            },
+            "rolled_back": true,
+            "trace": [
+              {
+                "step": 1,
+                "accepted_step": true,
+                "projection_residual": 4.463364348675599e-09,
+                "audit": {
+                  "response": 0.010866641998291016,
+                  "kl": 0.008206518932046932,
+                  "margin": 0.5561161041259766
+                }
+              },
+              {
+                "step": 2,
+                "accepted_step": true,
+                "projection_residual": 4.619836958658778e-10,
+                "audit": {
+                  "response": 0.010850667953491211,
+                  "kl": 0.009430739945374009,
+                  "margin": 0.7328672409057617
+                }
+              },
+              {
+                "step": 3,
+                "accepted_step": true,
+                "projection_residual": 1.5538657526174543e-09,
+                "audit": {
+                  "response": 0.010851621627807617,
+                  "kl": 0.009750895135567239,
+                  "margin": 0.7772655487060547
+                }
+              },
+              {
+                "step": 4,
+                "accepted_step": true,
+                "projection_residual": 4.140947635922767e-09,
+                "audit": {
+                  "response": 0.010849714279174805,
+                  "kl": 0.009912970801625905,
+                  "margin": 0.7995004653930664
+                }
+              },
+              {
+                "step": 5,
+                "accepted_step": true,
+                "projection_residual": 2.4215393031880274e-09,
+                "audit": {
+                  "response": 0.010848522186279297,
+                  "kl": 0.009994597682479288,
+                  "margin": 0.8106250762939453
+                }
+              },
+              {
+                "step": 6,
+                "accepted_step": false,
+                "projection_residual": 6.598966222431791e-09,
+                "audit": {
+                  "response": 0.010848522186279297,
+                  "kl": 0.009994597682479288,
+                  "margin": 0.8106250762939453
+                }
+              }
+            ],
+            "budget": {
+              "response": 0.02,
+              "kl": 0.01,
+              "margin": 1.0,
+              "steps": 24,
+              "step_norm": 0.5,
+              "backtracks": 8,
+              "ridge": 1e-08
+            }
+          },
+          "controls": null
+        }
+      ],
+      "error": null,
+      "program_pass": false
+    }
+  ],
+  "gates": {
+    "all_three_programs": false,
+    "six_qualified_operations": false,
+    "true_beats_best_random_each_operation": false,
+    "no_move_fails_each_operation": false,
+    "random_norms_match": false
+  },
+  "passed": false,
+  "seconds": 108.96996646199841,
+  "program_pass_count": 1,
+  "random_pass_count": 0,
+  "code_sha256": {
+    "verify_seeds.py": "bd8c28ab989c2192be25f79cccc8d30ce0a8609dc7d8d731325bace05981dad3",
+    "qwen_l1.py": "4a1b07314bd130bfcf78f3c8aeea3a2f6bc3b08379618948a0baa6595c810cb9",
+    "core.py": "332d0028cc4c8c7b3897cde39f5ef357c073a674c33a2bd2126d38162af4a4d4"
+  },
+  "scope": "Same model/prompts/budgets, three new random-A charts. Operation-local endpoint controls, not matched optimizer trajectories; no significance or universal superiority claim. No L2."
+}

@@ -1,0 +1,90 @@
+{
+  "id": "MFI_KL_RESPONSE_REPAIR_002",
+  "model": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "development_seeds": [
+    84031,
+    84047,
+    84061
+  ],
+  "heldout_seeds": [
+    84301,
+    84317,
+    84329
+  ],
+  "algorithms": [
+    "original",
+    "kl_response"
+  ],
+  "budget": {
+    "response": 0.02,
+    "kl": 0.01,
+    "margin": 1.0,
+    "steps": 24,
+    "step_norm": 0.5,
+    "backtracks": 8,
+    "ridge": 1e-08
+  },
+  "repair": {
+    "activation_fraction": 0.5,
+    "inward_fraction": 0.25,
+    "response_activation_fraction": 0.5,
+    "response_reduction_fraction": 0.5
+  },
+  "program": "WRITE opposite initial bit then OVERWRITE initial bit; failed WRITE skips OVERWRITE",
+  "task_protocol": {
+    "id": "MFI_PREFERENCE_TASK_SMOKE_001",
+    "model": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "seeds": [
+      84031,
+      84047,
+      84061
+    ],
+    "budget": {
+      "response": 0.02,
+      "kl": 0.01,
+      "margin": 1.0,
+      "steps": 24,
+      "step_norm": 0.5,
+      "backtracks": 8,
+      "ridge": 1e-08
+    },
+    "tasks": [
+      "Explain why the sky looks blue.",
+      "Help me prepare for a job interview.",
+      "Explain how to organize a weekly study plan.",
+      "Give me advice on keeping a tidy desk."
+    ],
+    "label_orders": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "A"
+      ]
+    ],
+    "meaning": {
+      "0": "brief",
+      "1": "detailed"
+    },
+    "arms": [
+      "mfi",
+      "external",
+      "none"
+    ],
+    "program": "WRITE opposite initial bit; OVERWRITE initial bit only after accepted WRITE",
+    "scoring": "exact choice of desired format label, restricted two-token logits; no free-text quality claim",
+    "mfi": "committed bit read through MFI then supplied as preference text to updated Qwen",
+    "baselines": "initial frozen chart; external receives target preference text; none receives no preference",
+    "failures": "rejected or skipped MFI stages score zero for all planned items; retained denominator",
+    "evaluation": "no feedback into gradients, anchors, budget, early stopping or controller decisions",
+    "gates": "report operation gates separately; MFI workflow accuracy must exceed none and be >= external",
+    "scope": "deterministic external controller; hybrid read-to-prompt task; four task contexts and label reversals are correlated probes, not independent subjects or broad generalization evidence"
+  },
+  "gates": "all six repaired programs pass; no paired original success regresses; task scores reported separately",
+  "development_baseline": "archived task_preference_001; baseline rerun only on new heldout seeds",
+  "scope": "development hypothesis selected from prior failures; three unseen chart seeds frozen before any repair run; no universal reliability or significance claim"
+}

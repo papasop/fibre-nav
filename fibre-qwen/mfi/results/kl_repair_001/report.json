@@ -1,0 +1,193 @@
+{
+  "protocol": {
+    "id": "MFI_KL_DIRECTION_REPAIR_001",
+    "model": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "development_seeds": [
+      84031,
+      84047,
+      84061
+    ],
+    "heldout_seeds": [
+      84103,
+      84119,
+      84137
+    ],
+    "algorithms": [
+      "original",
+      "kl_aware"
+    ],
+    "budget": {
+      "response": 0.02,
+      "kl": 0.01,
+      "margin": 1.0,
+      "steps": 24,
+      "step_norm": 0.5,
+      "backtracks": 8,
+      "ridge": 1e-08
+    },
+    "repair": {
+      "activation_fraction": 0.5,
+      "inward_fraction": 0.25
+    },
+    "program": "WRITE opposite initial bit then OVERWRITE initial bit; failed WRITE skips OVERWRITE",
+    "task_protocol": {
+      "id": "MFI_PREFERENCE_TASK_SMOKE_001",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "seeds": [
+        84031,
+        84047,
+        84061
+      ],
+      "budget": {
+        "response": 0.02,
+        "kl": 0.01,
+        "margin": 1.0,
+        "steps": 24,
+        "step_norm": 0.5,
+        "backtracks": 8,
+        "ridge": 1e-08
+      },
+      "tasks": [
+        "Explain why the sky looks blue.",
+        "Help me prepare for a job interview.",
+        "Explain how to organize a weekly study plan.",
+        "Give me advice on keeping a tidy desk."
+      ],
+      "label_orders": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "A"
+        ]
+      ],
+      "meaning": {
+        "0": "brief",
+        "1": "detailed"
+      },
+      "arms": [
+        "mfi",
+        "external",
+        "none"
+      ],
+      "program": "WRITE opposite initial bit; OVERWRITE initial bit only after accepted WRITE",
+      "scoring": "exact choice of desired format label, restricted two-token logits; no free-text quality claim",
+      "mfi": "committed bit read through MFI then supplied as preference text to updated Qwen",
+      "baselines": "initial frozen chart; external receives target preference text; none receives no preference",
+      "failures": "rejected or skipped MFI stages score zero for all planned items; retained denominator",
+      "evaluation": "no feedback into gradients, anchors, budget, early stopping or controller decisions",
+      "gates": "report operation gates separately; MFI workflow accuracy must exceed none and be >= external",
+      "scope": "deterministic external controller; hybrid read-to-prompt task; four task contexts and label reversals are correlated probes, not independent subjects or broad generalization evidence"
+    },
+    "gates": "all six repaired programs pass; no paired original success regresses; task scores reported separately",
+    "scope": "development hypothesis selected from prior failures; three unseen chart seeds frozen before any repair run; no universal reliability or significance claim"
+  },
+  "summary": {
+    "development": {
+      "original": {
+        "programs_passed": 1,
+        "programs_total": 3,
+        "scores": {
+          "mfi": {
+            "correct": 11,
+            "total": 48,
+            "accuracy": 0.22916666666666666
+          },
+          "external": {
+            "correct": 33,
+            "total": 48,
+            "accuracy": 0.6875
+          },
+          "none": {
+            "correct": 24,
+            "total": 48,
+            "accuracy": 0.5
+          }
+        }
+      },
+      "kl_aware": {
+        "programs_passed": 2,
+        "programs_total": 3,
+        "scores": {
+          "mfi": {
+            "correct": 30,
+            "total": 48,
+            "accuracy": 0.625
+          },
+          "external": {
+            "correct": 33,
+            "total": 48,
+            "accuracy": 0.6875
+          },
+          "none": {
+            "correct": 24,
+            "total": 48,
+            "accuracy": 0.5
+          }
+        }
+      }
+    },
+    "heldout": {
+      "original": {
+        "programs_passed": 1,
+        "programs_total": 3,
+        "scores": {
+          "mfi": {
+            "correct": 19,
+            "total": 48,
+            "accuracy": 0.3958333333333333
+          },
+          "external": {
+            "correct": 33,
+            "total": 48,
+            "accuracy": 0.6875
+          },
+          "none": {
+            "correct": 24,
+            "total": 48,
+            "accuracy": 0.5
+          }
+        }
+      },
+      "kl_aware": {
+        "programs_passed": 2,
+        "programs_total": 3,
+        "scores": {
+          "mfi": {
+            "correct": 31,
+            "total": 48,
+            "accuracy": 0.6458333333333334
+          },
+          "external": {
+            "correct": 33,
+            "total": 48,
+            "accuracy": 0.6875
+          },
+          "none": {
+            "correct": 24,
+            "total": 48,
+            "accuracy": 0.5
+          }
+        }
+      }
+    }
+  },
+  "gates": {
+    "all_repaired_programs": false,
+    "no_paired_regressions": true,
+    "all_failed_operations_rollback": true
+  },
+  "passed": false,
+  "seconds": 905.6773853920022,
+  "source_hashes": {
+    "core.py": "332d0028cc4c8c7b3897cde39f5ef357c073a674c33a2bd2126d38162af4a4d4",
+    "qwen_l1.py": "4a1b07314bd130bfcf78f3c8aeea3a2f6bc3b08379618948a0baa6595c810cb9",
+    "repair_kl.py": "959d59f4dd4c6f8ff5fde02a54b23a61c461a312529de7594d54dedba3956c68",
+    "verify_repair.py": "b011bee332ee4d1f4f1bc90ae0a892f69dd873cf0a090162fcb61d0a736deff7",
+    "evaluate_tasks.py": "14abe417705895f7999992593eb4223f9ddcf26c4e1e6164023f1e9e77c283ab"
+  }
+}

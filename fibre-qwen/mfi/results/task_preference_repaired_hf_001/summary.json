@@ -1,0 +1,73 @@
+{
+  "space_commit": "5a2c91e04ee306bfbc85ff23a39e3921b3daa94f",
+  "writer_commit": "50d8da2d7ec775af8337c73217b2be28ae0ca711",
+  "kind": "HF CPU reproduction of two previously validated local cohorts",
+  "cohorts": {
+    "development": {
+      "seeds": [
+        84031,
+        84047,
+        84061
+      ],
+      "passed": true,
+      "operations_passed": 6,
+      "operations_total": 6,
+      "scores": {
+        "mfi": {
+          "correct": 33,
+          "total": 48,
+          "accuracy": 0.6875
+        },
+        "external": {
+          "correct": 33,
+          "total": 48,
+          "accuracy": 0.6875
+        },
+        "none": {
+          "correct": 24,
+          "total": 48,
+          "accuracy": 0.5
+        }
+      },
+      "seconds": 391.5415786670055,
+      "max_committed_response": 0.01907038688659668,
+      "max_committed_kl": 0.0080719157203318,
+      "min_committed_margin": 1.0763835906982422,
+      "download_sha256": "55237efa71efee4dc753ab800eeaf8a4bc06154da55381e9e9eb89d8a89e3188",
+      "local_item_predictions_identical": true
+    },
+    "validation": {
+      "seeds": [
+        84301,
+        84317,
+        84329
+      ],
+      "passed": true,
+      "operations_passed": 6,
+      "operations_total": 6,
+      "scores": {
+        "mfi": {
+          "correct": 33,
+          "total": 48,
+          "accuracy": 0.6875
+        },
+        "external": {
+          "correct": 33,
+          "total": 48,
+          "accuracy": 0.6875
+        },
+        "none": {
+          "correct": 24,
+          "total": 48,
+          "accuracy": 0.5
+        }
+      },
+      "seconds": 365.4394503090298,
+      "max_committed_response": 0.016382217407226562,
+      "max_committed_kl": 0.009739011832748765,
+      "min_committed_margin": 1.0259723663330078,
+      "download_sha256": "b68066ea9a2135a2ba9d06d086b03fcc5a6b515a51370c70c7563c93edf97a22",
+      "local_item_predictions_identical": true
+    }
+  }
+}

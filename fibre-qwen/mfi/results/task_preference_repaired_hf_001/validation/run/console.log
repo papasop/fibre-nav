@@ -1,0 +1,120 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+WRITE 1 {'response': 0.002261042594909668, 'kl': 0.0010261729739374623, 'margin': 0.2099599838256836}
+WRITE 2 {'response': 0.010766983032226562, 'kl': 0.009158250274141919, 'margin': 1.5263671875}
+OVERWRITE 1 {'response': 0.01096963882446289, 'kl': 0.003794693121956759, 'margin': -0.8556976318359375}
+OVERWRITE 2 {'response': 0.009562969207763672, 'kl': 0.00637909889143625, 'margin': -0.2551155090332031}
+OVERWRITE 3 {'response': 0.00927114486694336, 'kl': 0.0008754379026213347, 'margin': 0.23962116241455078}
+OVERWRITE 4 {'response': 0.010478019714355469, 'kl': 0.00029222936759320747, 'margin': 1.1443157196044922}
+WRITE 1 {'response': 0.008588850498199463, 'kl': 0.002376999836525003, 'margin': 0.28808116912841797}
+WRITE 2 {'response': 0.012841939926147461, 'kl': 0.003671141441250664, 'margin': 0.6448707580566406}
+WRITE 3 {'response': 0.016382217407226562, 'kl': 0.005656552849019098, 'margin': 1.0259723663330078}
+OVERWRITE 1 {'response': 0.018944263458251953, 'kl': 0.0025563331909026128, 'margin': -0.6566801071166992}
+OVERWRITE 2 {'response': 0.018869876861572266, 'kl': 0.0022530953191111846, 'margin': -0.47733592987060547}
+OVERWRITE 3 {'response': 0.018754005432128906, 'kl': 0.0020965525415350674, 'margin': -0.30568885803222656}
+OVERWRITE 4 {'response': 0.01994180679321289, 'kl': 0.0022154799245779682, 'margin': 0.011371612548828125}
+OVERWRITE 5 {'response': 0.019664287567138672, 'kl': 0.0028418614540250704, 'margin': 0.29354000091552734}
+OVERWRITE 6 {'response': 0.01849222183227539, 'kl': 0.005278020297601985, 'margin': 0.7824172973632812}
+OVERWRITE 7 {'response': 0.014676809310913086, 'kl': 0.003575486250638492, 'margin': 1.263143539428711}
+WRITE 1 {'response': 0.00997781753540039, 'kl': 0.004245884978120274, 'margin': -0.17410755157470703}
+WRITE 2 {'response': 0.009557247161865234, 'kl': 0.009595791750342213, 'margin': 0.5248823165893555}
+WRITE 3 {'response': 0.009885072708129883, 'kl': 0.009739011832748765, 'margin': 1.233428955078125}
+OVERWRITE 1 {'response': 0.018331527709960938, 'kl': 0.0022663478581407986, 'margin': -0.5056877136230469}
+OVERWRITE 2 {'response': 0.017928481101989746, 'kl': 0.0014630979114483476, 'margin': -0.16171646118164062}
+OVERWRITE 3 {'response': 0.018256187438964844, 'kl': 0.003313398978148634, 'margin': 0.47546863555908203}
+OVERWRITE 4 {'response': 0.014243602752685547, 'kl': 0.008024991035524927, 'margin': 1.0916404724121094}
+{
+  "protocol": {
+    "id": "MFI_REPAIRED_PREFERENCE_HF_001",
+    "model": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "writer": "ResponseKLController",
+    "writer_source_commit": "50d8da2d7ec775af8337c73217b2be28ae0ca711",
+    "seeds": [
+      84301,
+      84317,
+      84329
+    ],
+    "budget": {
+      "response": 0.02,
+      "kl": 0.01,
+      "margin": 1.0,
+      "steps": 24,
+      "step_norm": 0.5,
+      "backtracks": 8,
+      "ridge": 1e-08
+    },
+    "tasks": [
+      "Explain why the sky looks blue.",
+      "Help me prepare for a job interview.",
+      "Explain how to organize a weekly study plan.",
+      "Give me advice on keeping a tidy desk."
+    ],
+    "label_orders": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "A"
+      ]
+    ],
+    "meaning": {
+      "0": "brief",
+      "1": "detailed"
+    },
+    "arms": [
+      "mfi",
+      "external",
+      "none"
+    ],
+    "program": "WRITE opposite initial bit; OVERWRITE initial bit only after accepted WRITE",
+    "scoring": "exact choice of desired format label, restricted two-token logits; no free-text quality claim",
+    "mfi": "committed bit read through MFI then supplied as preference text to updated Qwen",
+    "baselines": "initial frozen chart; external receives target preference text; none receives no preference",
+    "failures": "rejected or skipped MFI stages score zero for all planned items; retained denominator",
+    "evaluation": "no feedback into gradients, anchors, budget, early stopping or controller decisions",
+    "gates": "report operation gates separately; MFI workflow accuracy must exceed none and be >= external",
+    "scope": "deterministic external controller; hybrid read-to-prompt task; four task contexts and label reversals are correlated probes, not independent subjects or broad generalization evidence",
+    "cohort": "previously_validated_new_seeds"
+  },
+  "scores": {
+    "mfi": {
+      "correct": 33,
+      "total": 48,
+      "accuracy": 0.6875
+    },
+    "external": {
+      "correct": 33,
+      "total": 48,
+      "accuracy": 0.6875
+    },
+    "none": {
+      "correct": 24,
+      "total": 48,
+      "accuracy": 0.5
+    }
+  },
+  "gates": {
+    "all_operations_pass": true,
+    "task_beats_no_memory": true,
+    "task_matches_external": true
+  },
+  "passed": true,
+  "operation_pass_count": 6,
+  "operation_total": 6,
+  "seconds": 365.4394503090298,
+  "code_sha256": {
+    "evaluate_repaired_tasks.py": "e59f07f325cf4ceac7ff133787c40d9289f4627b82ed7a6446d5b9ad13da045e",
+    "evaluate_tasks.py": "14abe417705895f7999992593eb4223f9ddcf26c4e1e6164023f1e9e77c283ab",
+    "qwen_l1.py": "4a1b07314bd130bfcf78f3c8aeea3a2f6bc3b08379618948a0baa6595c810cb9",
+    "core.py": "332d0028cc4c8c7b3897cde39f5ef357c073a674c33a2bd2126d38162af4a4d4",
+    "repair_kl.py": "959d59f4dd4c6f8ff5fde02a54b23a61c461a312529de7594d54dedba3956c68",
+    "repair_response.py": "1acb61ab18cd5d49858b1c79824705cf4389df1bc9a4a0cd01057dbdc3a6594f"
+  },
+  "versions": {
+    "torch": "2.8.0+cpu",
+    "transformers": "4.56.2",
+    "safetensors": "0.8.0"
+  }
+}

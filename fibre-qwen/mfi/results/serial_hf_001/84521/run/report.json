@@ -1,0 +1,73 @@
+{
+  "protocol": {
+    "id": "MFI_SERIAL_HF_001",
+    "model": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "seed": 84521,
+    "frozen_seeds": [
+      84503,
+      84521
+    ],
+    "operations": 20,
+    "budget": {
+      "response": 0.02,
+      "kl": 0.01,
+      "margin": 1.0,
+      "steps": 24,
+      "step_norm": 0.5,
+      "backtracks": 8,
+      "ridge": 1e-08
+    },
+    "writer_source_commit": "50d8da2d7ec775af8337c73217b2be28ae0ca711",
+    "tasks": [
+      "Explain how a rainbow forms.",
+      "Help me plan a weekend walk.",
+      "Explain how to back up my photos.",
+      "Suggest a simple morning routine."
+    ],
+    "program": "WRITE then 19 OVERWRITEs, alternating opposite/initial bit",
+    "reference": "One initial Qwen/LoRA state and anchor responses for all 20 operations; never rebase",
+    "failure": "Rollback failed operation; skip remaining operations; keep all planned items in denominator",
+    "evaluation": "Independent restricted two-token format choice after each operation; no scoring feedback",
+    "scope": "Single bit, hybrid read-to-prompt preference; no free-text quality, L2-L5 or long-term memory claim"
+  },
+  "scores": {
+    "mfi": {
+      "correct": 108,
+      "total": 160,
+      "accuracy": 0.675
+    },
+    "external": {
+      "correct": 110,
+      "total": 160,
+      "accuracy": 0.6875
+    },
+    "none": {
+      "correct": 80,
+      "total": 160,
+      "accuracy": 0.5
+    }
+  },
+  "gates": {
+    "all_operations_pass": true,
+    "task_beats_no_memory": true,
+    "task_matches_external": false
+  },
+  "passed": false,
+  "operation_pass_count": 20,
+  "operation_total": 20,
+  "seconds": 967.0268987760064,
+  "code_sha256": {
+    "evaluate_serial.py": "1df590565db0c176e274f898430236e53a9897b3f2352cb7bd09cb9436444503",
+    "evaluate_tasks.py": "14abe417705895f7999992593eb4223f9ddcf26c4e1e6164023f1e9e77c283ab",
+    "qwen_l1.py": "4a1b07314bd130bfcf78f3c8aeea3a2f6bc3b08379618948a0baa6595c810cb9",
+    "core.py": "332d0028cc4c8c7b3897cde39f5ef357c073a674c33a2bd2126d38162af4a4d4",
+    "repair_kl.py": "959d59f4dd4c6f8ff5fde02a54b23a61c461a312529de7594d54dedba3956c68",
+    "repair_response.py": "1acb61ab18cd5d49858b1c79824705cf4389df1bc9a4a0cd01057dbdc3a6594f"
+  },
+  "versions": {
+    "torch": "2.8.0+cpu",
+    "transformers": "4.56.2",
+    "safetensors": "0.8.0"
+  }
+}

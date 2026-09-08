@@ -1,0 +1,30 @@
+{
+  "id": "QWEN_MFI_L1_NEW_CHART_SEEDS_001",
+  "seeds": [
+    84031,
+    84047,
+    84061
+  ],
+  "random_trials_per_operation": 3,
+  "model": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "anchors": [
+    "The capital of France is",
+    "Water freezes at",
+    "Two plus two equals"
+  ],
+  "memory_prompt": "Memory register 00 contains the bit:",
+  "budget": {
+    "response": 0.02,
+    "kl": 0.01,
+    "margin": 1.0,
+    "steps": 24,
+    "step_norm": 0.5,
+    "backtracks": 8,
+    "ridge": 1e-08
+  },
+  "target_rule": "WRITE opposite initial bit then OVERWRITE initial bit",
+  "controls": "operation-local from true operation start; random initial near-kernel direction normalized to true committed endpoint displacement norm; no retraction or backtracking",
+  "qualification": "compare only accepted true operations; missing/failed stages remain failures for full-program gate",
+  "gates": "all three true programs accepted; each accepted operation exceeds best random target margin; random displacement norm error <= 1e-5; no-move target gate fails"
+}

@@ -1,0 +1,62 @@
+{
+  "protocol": {
+    "id": "QWEN_MFI_L1_RELOAD_001",
+    "model": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "checkpoint_sha256": "dadc3ff0de0e9292cad2921b096f539b27106447570479b6f05d9b6a1277f144",
+    "expected_bit": 0,
+    "budget": {
+      "response": 0.02,
+      "kl": 0.01,
+      "margin": 1.0,
+      "steps": 24,
+      "step_norm": 0.5,
+      "backtracks": 8,
+      "ridge": 1e-08
+    },
+    "comparison_tolerance": 1e-05,
+    "source_report_sha256": "ad72c05431a696b8544fb52ecef14ae4a430efc797cb4b2f068935065fab071b"
+  },
+  "initial": {
+    "value": 0,
+    "logit_1_minus_0": -0.8230762481689453,
+    "readout": "argmax restricted to the two declared bit tokens"
+  },
+  "loaded": {
+    "sha256": "dadc3ff0de0e9292cad2921b096f539b27106447570479b6f05d9b6a1277f144",
+    "read": {
+      "value": 0,
+      "logit_1_minus_0": -1.4402532577514648,
+      "readout": "argmax restricted to the two declared bit tokens"
+    },
+    "audit": {
+      "response": 0.019582152366638184,
+      "kl": 0.0014569317018244066,
+      "margin": 1.4402532577514648
+    },
+    "all_B_exact": true
+  },
+  "absolute_differences": {
+    "response": 0.0,
+    "kl": 0.0,
+    "margin": 0.0
+  },
+  "gates": {
+    "bit_matches": true,
+    "all_B_exact": true,
+    "original_metrics_reproduced": true,
+    "nonzero_parameter_change": true,
+    "wrong_content_rejected": true,
+    "rejected_load_preserves_state": true,
+    "controller_initialized": true
+  },
+  "passed": true,
+  "seconds": 6.598484635000204,
+  "code_sha256": {
+    "checkpoint.py": "2e06ddd30ae241e3bca79e65bf4f3144f0b78784ecee093f41432dc34808eed8",
+    "verify_reload.py": "b4fc9fb12ded7331ac9a6e3b99cdc21c5d07859ad78434644f8a71ceabcaf086",
+    "core.py": "332d0028cc4c8c7b3897cde39f5ef357c073a674c33a2bd2126d38162af4a4d4",
+    "qwen_l1.py": "47d4fe714f5c3f577933562551ad70b0398a623332862562b17e786703ce9f4e"
+  },
+  "scope": "Fresh-process reload of the same single-seed endpoint. Not new-seed confirmation or L2. Initial and final bits are both zero; exact tensors and logit-margin reproduction establish endpoint restoration."
+}
