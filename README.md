@@ -175,8 +175,12 @@ part of the current MFI L1–L5 headline claim. See
 
 ## Paper, citation and license
 
-The current L1–L5 manuscript is not yet archived in this repository. The
-historical manuscript snapshot is
+The current L1-L5 manuscript snapshot is
+[A Programmable Address Space for Neural Memory](paper/A_Programmable_Address_Space_for_Neural_Memory.pdf).
+It audits the L5-era repository state named in the manuscript; later unified
+v2.4.x audits are repository evidence but are not folded into that PDF.
+
+The historical response-fibre manuscript snapshot is
 [Moving Response Fibres: A Geometric View of Behaviour and Learning](paper/Moving_Response_Fibres_A_Geometric_View_of_Behaviour_and_Learning.pdf).
 
 Author: **Y. Y. N. Li**. Cite the exact repository commit and evidence protocol

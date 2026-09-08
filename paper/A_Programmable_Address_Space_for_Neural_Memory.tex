@@ -1,0 +1,593 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={A Programmable Address Space for Neural Memory},
+            pdfauthor={Y. Y. N. Li}}
+
+\sloppy
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.15}
+\setlist[enumerate]{itemsep=2pt,topsep=3pt}
+\setlist[itemize]{itemsep=2pt,topsep=3pt}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape A Programmable Address Space for Neural Memory}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newenvironment{scopebox}{\begin{quote}\small\itshape}{\end{quote}}
+
+\title{\bfseries A Programmable Address Space for Neural Memory}
+\author{Y. Y. N. Li}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\vspace{-1.2em}
+
+\begin{abstract}
+\noindent
+Neural networks store knowledge in distributed parameters but do not normally expose an operational address
+space whose contents can be selectively written, reassigned and transported while declared responses are
+preserved. We assign the restricted response kernel a new operational role: not merely as a local source of
+response-preserving directions, but as the carrier from which a finite memory-address structure can be
+instantiated. We introduce Moving Fibre Intelligence, a framework that tests this role using ridge-regularized
+near-kernel updates for operations within a response-constrained parameter set and local response retraction
+for transport between declared response sets.
+
+In separately frozen audits of pretrained GPT-2 using restricted LoRA-B parameter charts, writable endpoints
+supported exact retrieval, overwrite and access through linguistic expressions excluded from within-run
+writing updates. Two binary slots formed four compositional codes that were reused under cyclic
+concept--code assignments. An eight-endpoint atlas spanning 28 pairwise relations was subsequently transported
+to a distinct response set and returned while preserving exact and held-out-expression access. Mean relative
+transport distortion was $1.45\times10^{-5}$, compared with $7.89\times10^{-5}$ for matched-scale
+random-kernel controls, and direct retraction produced lower distortion in all 28 dependent pairwise
+comparisons.
+
+We then tested whether these resources could operate together in one shared parameter state. Four address
+cells were jointly written, one was selectively overwritten, two exchanged their contents, and the resulting
+state was moved to a second response set and returned. Every stage preserved exact and fresh
+held-out-expression access, positive read margins and the declared response and KL budgets; where applicable,
+unselected cells retained their declared values. Overwrite and swap also outperformed wrong-operation and
+matched-norm random-update controls.
+
+Within the tested GPT-2 LoRA charts, these results demonstrate an operational role for the restricted response
+kernel as the local carrier of a finite compositional address geometry, with numerically near-kernel updates
+supporting within-set operations and response retraction supporting local transport between sets. The procedures are externally
+specified and gradient-based, and the evidence comes from separate single-seed protocols. Autonomous
+instruction execution, unified multi-seed confirmation, capacity scaling, cross-model replication and global
+transport remain open.
+\end{abstract}
+
+\section{Introduction}
+
+Representation answers what internal state correlates with a concept; addressing asks whether a concept can
+be assigned to and retrieved from explicit operational locations using reusable address codes. Attention, key--value caches,
+sparse routing and external memory all implement addressing over activations or architecture. The question here concerns parameters: whether a response-constrained region of parameter space can
+carry an explicit, auditable address code, whether its instantiated structure survives local transport, and
+whether these resources can support selective operations on one shared parameter state.
+
+Four traditions bear on this problem: distributed representation [2, 4], associative and key--value memory
+[5, 12], model editing [8--10], and parameter symmetries and flat directions [1, 3, 6]. Within these traditions,
+null directions have commonly appeared as redundancy or non-identifiability, and in some learning and editing
+methods as constraints for preserving selected behaviour. What remains missing is their organization into an
+explicit address geometry whose codes can be composed, reassigned and operated on in a shared parameter state.
+
+The central mathematical shift of this paper is therefore not to discover that null directions can preserve
+behaviour, but to test whether a restricted response kernel can serve as the local carrier of an explicit and
+operable memory-address geometry. Concretely, we take
+\begin{equation}
+\mathcal{V}_\theta=\ker\bigl(DR_{A,S}(\theta)\big|_{T_\theta\mathcal{L}}\bigr)
+\end{equation}
+as that carrier in its ideal first-order form. Ridge-regularized near-kernel updates instantiate finite address
+states within a declared response-constrained set, while local response retraction transports those
+instantiated states between distinct declared sets. This kernel--retraction decomposition
+provides the geometric basis for the compositional, remappable and shared-state operations tested below.
+
+Operationally, we declare a finite response map on a fixed anchor set, take the parameters that keep that response within two
+declared budgets, and write each concept--code pair to its own endpoint in that set; Section~2 gives the
+definitions. Three construction steps then make the address atlas. Writing and overwriting
+at a controlled endpoint establishes that these locations hold memories. Access through expressions excluded
+from the writing updates establishes that a read is not a recital of a training string. Cyclic reassignment of
+two-slot codes across concept identities establishes that a code is not the name of its concept. These three
+are prerequisites, not parallel results.
+
+These construction steps establish the resources required for an address atlas, but not yet their
+transportability or shared-state operation. In a separate prospectively frozen transport audit, we therefore
+ask whether an instantiated atlas preserves its readout and relational geometry between distinct
+response-constrained parameter sets. Applying one local response-retraction rule separately to each endpoint of
+an eight-endpoint cohort carried the cohort from one finite-response set to another while preserving every read
+and, to within a declared aggregate gate, all 28 pairwise relations among the endpoints.
+
+The final test is operational. We ask whether the preceding capabilities can be realized together in one
+shared state by executing a frozen sequence of joint WRITE, selective OVERWRITE, SWAP, MOVE and RETURN.
+OVERWRITE and SWAP are additionally audited against wrong-operation and matched-norm random-update controls.
+This shared-state audit is the culminating experiment of the paper.
+
+Together, these audits form a staged mechanism chain from reusable address construction, through local
+transport, to selective shared-state operation within one restricted GPT-2 LoRA chart.
+
+\section{Operational address geometry}
+
+\subsection{Declared response map and admissible set}
+
+Let $S$ denote the prospectively fixed selector of the declared response coordinates. For an anchor set
+$A=\{x_1,\dots,x_m\}$, fixed before evaluation, the audited response map is
+\begin{equation}
+R_{A,S}(\theta)=\frac{1}{|A|}\sum_{x\in A} S f_\theta(x).
+\end{equation}
+Because the selector $S$ is fixed throughout each declared protocol, we suppress it in the notations
+$\mathcal{F}_A$, $\mathcal{Y}_A$, $\mathcal{F}_s$ and $\mathcal{F}_t$. Response distances are measured in the
+supremum norm on the selected coordinates, $d_R(y,y')=\lVert y-y'\rVert_\infty$, so a response budget bounds the
+largest single-coordinate deviation rather than an aggregate.
+For a declared target response $r$ and reference state $\theta_{\mathrm{ref}}$, the finite admissible set under
+the response and collateral-KL budgets is
+\begin{equation}
+\mathcal{F}_A(r,\varepsilon)=\bigl\{\theta:\ d_R\bigl(R_{A,S}(\theta),r\bigr)\le\varepsilon_R,\quad
+\overline{D}_{\mathrm{KL},A}(\theta_{\mathrm{ref}},\theta)\le\varepsilon_{\mathrm{KL}}\bigr\},
+\end{equation}
+where the collateral budget is the anchor-averaged divergence
+\begin{equation}
+\overline{D}_{\mathrm{KL},A}(\theta_{\mathrm{ref}},\theta)=\frac{1}{|A|}\sum_{x\in A}
+D_{\mathrm{KL}}\bigl(p_{\theta_{\mathrm{ref}}}(\cdot\mid x)\,\Vert\,p_{\theta}(\cdot\mid x)\bigr).
+\end{equation}
+The KL reference is fixed prospectively within each protocol. In the staged shared-state audits it is the
+initial pre-program state $\theta_{\mathrm{base}}$ and is not reset between operations; in the endpoint-wise
+transport audit it is the corresponding pre-transport endpoint $\theta^{(s)}_{c,a}$.
+The source chart is recovered by taking $r_s=R_{A,S}(\theta_{\mathrm{ref}})$; a target chart uses a separately
+declared $r_t$, so that
+\begin{equation}
+\mathcal{F}_s:=\mathcal{F}_A(r_s,\varepsilon),\qquad \mathcal{F}_t:=\mathcal{F}_A(r_t,\varepsilon).
+\end{equation}
+These are finite budgeted response sets, not assumed to form a smooth global fibre bundle.
+
+Let $\mathcal{L}\subset\mathbb{R}^p$ denote the restricted LoRA-B parameter chart, the only coordinates
+updated in this work, and let $\mathcal{Y}_A$ denote the finite-dimensional response-coordinate space of the
+declared anchor map. At $\theta\in\mathcal{L}$ the response differential is
+$DR_{A,S}(\theta):T_\theta\mathcal{L}\to\mathcal{Y}_A$, and the local response kernel is
+\begin{equation}
+\mathcal{V}_\theta:=\ker\bigl(DR_{A,S}(\theta)\big|_{T_\theta\mathcal{L}}\bigr)
+=\bigl\{v\in T_\theta\mathcal{L}: DR_{A,S}(\theta)v=0\bigr\},
+\end{equation}
+so that $R_{A,S}(\theta+\eta v)=R_{A,S}(\theta)+o(\eta)$ as $\eta\to0$ for $v\in\mathcal{V}_\theta$; no claim is made
+about the kernel of the full GPT-2 parameter space.
+
+In practice the kernel is realized numerically. With $J_\theta=DR_{A,S}(\theta)\big|_{T_\theta\mathcal{L}}$, the
+ridge-regularized near-kernel operator used throughout is
+\begin{equation}
+P_{\theta,\lambda}=I-J_\theta^{\mathsf{T}}\bigl(J_\theta J_\theta^{\mathsf{T}}+\lambda I\bigr)^{-1}J_\theta,
+\qquad \lambda=10^{-8}.
+\end{equation}
+We call $P_{\theta,\lambda}$ a numerical near-kernel operator rather than an exact projector, because
+$\lambda>0$ generally implies $P_{\theta,\lambda}^2\neq P_{\theta,\lambda}$. Candidate tangent updates take the
+form $v=P_{\theta,\lambda}u$ and lie near, rather than exactly in, $\mathcal{V}_\theta$; they are accepted only
+after the declared finite response and KL gates are evaluated.
+
+\subsection{Concept, code, endpoint, readout}
+
+Let $\mathcal{C}$ denote the finite concept cohort and let
+\begin{equation}
+\mathsf{A}:=\{0,1\}^2
+\end{equation}
+be the four-element address-code set. An assignment is a declared map $\pi:\mathcal{C}\to\mathsf{A}$. Writing
+concept $c$ under assignment $\pi$ produces an endpoint $\theta_{c,\pi(c)}$ with auditable readout
+$\sigma(c,\pi(c))$, and the endpoint atlas instantiated by $\pi$ is
+\begin{equation}
+\mathcal{E}_\pi:=\bigl\{\theta_{c,\pi(c)}:c\in\mathcal{C}\bigr\}\subset\mathcal{F}_s .
+\end{equation}
+The load-bearing relation is therefore
+\begin{equation}
+(c,\pi(c))\ \longmapsto\ \theta_{c,\pi(c)}\ \longmapsto\ \sigma(c,\pi(c)).
+\end{equation}
+The same code may occur at several concept-specific endpoints, so an address code does not identify a unique
+global parameter point. A slot is one coordinate of the code, and slots are audited separately.
+
+\paragraph{Response kernel as a local carrier.}
+Three levels should be kept apart: $\mathcal{V}_\theta$ is the ideal first-order local carrier,
+$P_{\theta,\lambda}u$ is the numerically projected near-kernel candidate direction, and
+$\operatorname{Retract}(\theta+\eta P_{\theta,\lambda}u)\in\mathcal{F}_A(r,\varepsilon)$ is the finite state
+that the declared budgets actually admit. Accordingly, $\mathcal{V}_\theta$ is the local carrier of the tested
+address operations; it is neither the discrete code set $\mathsf{A}$ nor the instantiated endpoint atlas
+$\mathcal{E}_\pi$.
+
+\subsection{Shared state and operation family}
+
+A shared memory state $\Theta_m\in\mathcal{F}_s$ realizes a content map
+\begin{equation}
+m:\mathsf{A}\to\{0,1\}
+\end{equation}
+simultaneously within one parameter state. This object is distinct from the endpoint atlas $\mathcal{E}_\pi$,
+whose elements are separately written concept--code endpoints. With $a,b\in\mathsf{A}$, the target state
+relations audited in Section~5 are
+\begin{align}
+\operatorname{WRITE}(\Theta,m) &\mapsto \Theta_m, &
+\operatorname{OVERWRITE}_a(\Theta_m,v) &\mapsto \Theta_{m[a\leftarrow v]},\\
+\operatorname{SWAP}_{a,b}(\Theta_m) &\mapsto \Theta_{m^{a\leftrightarrow b}}, &
+\operatorname{MOVE}_{s\to t}\bigl(\Theta^{(s)}_m\bigr) &\mapsto \Theta^{(t)}_m,\\
+\operatorname{RETURN}_{t\to s}\bigl(\Theta^{(t)}_m\bigr) &\mapsto \widehat{\Theta}^{(s)}_m. & &
+\end{align}
+Here $m^{a\leftrightarrow b}$ exchanges the values assigned to cells $a$ and $b$ and leaves every other cell
+unchanged, and $m[a\leftarrow v]$ sets cell $a$ to $v$ with the other cells untouched, while
+$\Theta^{(s)}_m\in\mathcal{F}_s$ and $\Theta^{(t)}_m\in\mathcal{F}_t$ realize the same declared content map $m$
+in different response-constrained sets. These are the target state relations of the experimental procedures,
+not an algebra proved closed over arbitrary states, and not an instruction language parsed by the model.
+Whether any of them can be executed while the declared budgets hold is the question of Section~5.
+
+\subsection{Local response retraction and transport}
+
+Candidate within-set updates are selected by backtracking and followed by ridge-regularized response
+correction; a proposal with no admissible step is a zero step. The correction iterates the following
+ridge-regularized minimum-norm update for the linearized response equation:
+\begin{equation}
+\delta\theta=-J_\theta^{\mathsf{T}}\bigl(J_\theta J_\theta^{\mathsf{T}}+\lambda I\bigr)^{-1}
+\bigl(R_{A,S}(\theta)-r\bigr),\qquad \lambda=10^{-8},
+\end{equation}
+applied for a declared number of iterations and stopped early once the response residual falls below
+$10^{-7}$. It is the regularized response-correcting counterpart associated with the same Jacobian: the
+near-kernel operator suppresses first-order response change, whereas this update removes the remaining
+linearized response residual. MOVE and RETURN apply these declared iterations directly and are
+accepted only when their post hoc gates hold. Applied endpoint
+by endpoint, that retraction carries endpoints between finite-response sets,
+\begin{equation}
+\mathcal{T}_{s\to t}:\mathcal{E}^{(s)}_\pi\longrightarrow\mathcal{E}^{(t)}_\pi,\qquad
+\mathcal{T}_{s\to t}\bigl(\theta^{(s)}_{c,a}\bigr)=\theta^{(t)}_{c,a},
+\end{equation}
+where $\mathcal{E}^{(s)}_\pi\subset\mathcal{F}_s$ and $\mathcal{E}^{(t)}_\pi\subset\mathcal{F}_t$. The
+notation names an experimentally specified endpoint-wise retraction map on a finite audited cohort, not a
+global connection or parallel transport.
+
+\subsection{Protocol provenance}
+
+The evidence comes from separately frozen protocols rather than one continuous
+or joint multi-seed experiment, and no statistic is pooled across stages. L1 is
+a single-seed development record; the archived standalone L2 protocol lacks
+its original numerical result; and the L3, L4 and L5 records are separate
+prospective single-seed confirmation candidates. Held-out-expression claims
+are drawn from the archived L3--L5 records, not reconstructed from the missing
+L2 result. Protocol identifiers, seeds, hashes, complete gate definitions and
+evidence locations are reported in the corresponding evidence directories and repository manifests. A
+subsequent post-failure development smoke combined representative capabilities from all stages in one
+continuous shared-state sequence and passed all declared smoke gates; because its configuration was adapted
+after earlier failures on the same seed, it is reported only as joint-realizability development evidence and
+does not replace the separately frozen stage-specific records.
+
+\section{Constructing an address atlas}
+
+\subsection{Writable, readable and overwritable endpoints}
+
+A declared value was written at a controlled endpoint and read back exactly; a second value was then written at
+the same location and read in place of the first; both endpoints satisfied the declared budgets. Random-kernel,
+sign-reversed and no-move arms bound the alternative that any sufficiently small parameter change would produce
+the same reads. Only endpoints meeting both budgets enter any positive claim.
+
+\subsection{Access through excluded expressions}
+
+Expressions excluded from the within-run gradient updates and from the checkpoint-selection rule read the same
+written values. The positive held-out-expression claim reported here is supported by the archived
+compositional-addressing and transport records, both of which prospectively evaluate expressions excluded from
+their within-run writing updates; the standalone expression-access development protocol is retained as
+historical provenance but is not used as an independently archived numerical result. Because the protocols were
+produced through adaptive development on the same experimental family, this remains single-seed evidence rather
+than an independently replicated generalization test.
+
+\subsection{Assignment reuse and current-assignment readout}
+
+The address-code set is $\mathsf{A}=\{0,1\}^2$, represented as $\{00,01,10,11\}$ and formed from two
+separately audited slots, with a mixed-slot
+minimum-margin gate so that a code using both slots must be read with positive margin rather than on average.
+Let $\pi_j:c\mapsto a$ be the $j$-th cyclic assignment. Each assignment is written independently,
+$(c,\pi_j(c))\mapsto\theta^{(j)}_{c,\pi_j(c)}$, so the four assignments occupy sixteen separately initialized
+endpoints, and the audited property is
+\begin{equation}
+\operatorname{Read}\bigl(\theta^{(j)}_{c,\pi_j(c)}\bigr)=\pi_j(c) .
+\end{equation}
+The code rule is reused across concept identities and readout follows the current assignment.
+
+\begin{center}\small
+\begin{tabular}{clccc}
+\toprule
+$j$ & $\pi_j$ & Exact & Held-out & Mixed-slot minimum margin \\
+\midrule
+0 & dog 00; Tokyo 01; Japan 10; apple 11 & 8/8 & 32/32 & 1.9989 \\
+1 & dog 01; Tokyo 10; Japan 11; apple 00 & 8/8 & 32/32 & 2.3205 \\
+2 & dog 10; Tokyo 11; Japan 00; apple 01 & 8/8 & 32/32 & 1.6406 \\
+3 & dog 11; Tokyo 00; Japan 01; apple 10 & 8/8 & 32/32 & 1.8391 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Across the sixteen endpoints every exact and held-out read was correct, the minimum mixed-slot training margin
+was 1.6406 against a gate of 0.5, and every endpoint stayed inside the declared response and KL budgets. The
+result constructs a reusable address atlas, but each concept--code pair still occupies a separately initialized
+endpoint. A training-only semantic router, correct on 79 of 80 outer-held-out concepts, assigned all four
+bridge instances to their categories and hence, through a fixed category-to-address map, to their codes.
+Per-view counts, the individual routing margins and the pair-only and shuffled-label control values are in the
+archived records.
+
+\begin{scopebox}
+This is assignment reuse on independently initialized endpoints, not in-place rebinding of a single endpoint
+and not rejection of a former binding. Shared-state storage of four cells, and selective operations on them,
+are audited separately in Section~5. The archived record labels this run a prospective single-seed confirmation
+candidate requiring multi-seed confirmation.
+\end{scopebox}
+
+\section{Transport across response fibres}
+
+\subsection{Cohort and operation}
+
+With $\mathcal{F}_s$ and $\mathcal{F}_t$ as declared in Section~2.1, the source cohort is the endpoint atlas
+\begin{equation}
+\mathcal{E}^{(s)}_\pi=\bigl\{\theta^{(s)}_{c,\pi(c)}:\ c\in\mathcal{C},\ \pi(c)\in\mathsf{A}\bigr\}\subset
+\mathcal{F}_s,\qquad |\mathcal{C}|=8 .
+\end{equation}
+The cohort holds eight concept-specific endpoints over four repeated two-slot codes, two concepts per code: the
+eight endpoints are not eight distinct addresses, and the code set is $\mathsf{A}$, not a three-slot cube. The
+retraction map of Section~2.4 is applied endpoint by endpoint, so the operation is endpoint-level while the
+audit is cohort-level.
+
+\subsection{Declared audited quantities}
+
+Three quantities are audited: the readout $I_{\mathrm{read}}=\operatorname{Read}(\theta_{c,a})$,
+target-response eligibility
+\begin{equation}
+I_{\mathrm{elig}}(\theta;r)=\mathbf{1}\bigl[d_R\bigl(R_{A,S}(\theta),r\bigr)\le\varepsilon_R\ \wedge\
+\overline{D}_{\mathrm{KL},A}\bigl(\theta^{(s)}_{c,a},\theta\bigr)\le\varepsilon_{\mathrm{KL}}\bigr],
+\end{equation}
+where the collateral budget of the transport stage is recorded relative to that endpoint's own pre-transport
+state rather than to a global base state, and the
+pairwise geometry $I_{\mathrm{pair}}=\{d(\theta_{c,a},\theta_{c',a'})\}$. The response value itself is
+not an invariant: the target set is displaced from the source by a declared shift of 0.08, so what is preserved
+is eligibility for the set the endpoints are carried to, not $R_{A,S}(\theta_{c,a})$. Geometric preservation is measured by the mean relative
+distortion over the $|\mathcal{P}|=28$ unordered endpoint pairs,
+\begin{equation}
+D_{\mathrm{geom}}=\frac{1}{|\mathcal{P}|}\sum_{(u,v)\in\mathcal{P}}
+\frac{\bigl|d_t(\theta^{(t)}_u,\theta^{(t)}_v)-d_s(\theta^{(s)}_u,\theta^{(s)}_v)\bigr|}
+{d_s(\theta^{(s)}_u,\theta^{(s)}_v)+\epsilon},
+\qquad u=(c,a),\quad v=(c',a').
+\end{equation}
+
+\subsection{Random-kernel perturbation control}
+
+For each endpoint the control first adds a numerically projected response-kernel direction,
+\begin{equation}
+\theta^{\mathrm{ctrl}}=\operatorname{Retract}_{r_t}\bigl(\theta^{(s)}+z\bigr),\qquad
+z=P_{\theta,\lambda}\xi,\qquad
+\lVert z\rVert=\bigl\lVert\theta^{(t)}-\theta^{(s)}\bigr\rVert,
+\end{equation}
+and then applies the same retraction rule to reach the target response set. The control matches the norm of the
+added kernel perturbation, not the final displacement, so the comparison asks whether direct retraction
+preserves cohort geometry better than retraction preceded by a matched-scale random tangent perturbation.
+
+\subsection{Result}
+
+\begin{center}\small
+\begin{tabular}{lc@{\qquad}lc}
+\toprule
+Cohort & Value & Geometry & Value \\
+\midrule
+Concept-specific endpoints & 8 & Transport distortion $D_{\mathrm{geom}}$ & $1.451\times10^{-5}$ \\
+Unique two-slot codes & 4 & Control median distortion & $7.888\times10^{-5}$ \\
+Endpoint-pair relations & 28 & Distortion ratio & 0.184 \\
+Response displacement & 0.08 & Descriptive pairwise wins & 28/28 \\
+Exact access after transport & preserved & Largest single-pair error & $3.97\times10^{-5}$ \\
+Held-out access after transport & preserved & Round-trip distortion & $1.313\times10^{-7}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Every exact and held-out read survived transport; the mean distortion over the 28 endpoint-pair relations met
+the declared aggregate gate, with a largest single-pair relative error of $3.97\times10^{-5}$; and composing
+transport with its reverse returned each endpoint to itself,
+$\mathcal{T}_{t\to s}\circ\mathcal{T}_{s\to t}(\theta_{c,a})\approx\theta_{c,a}$, at a round-trip distortion of
+$1.313\times10^{-7}$. Direct retraction produced lower distortion than the control on all 28 pairs. Transport
+shows that an instantiated atlas can move without losing its declared structure; it does not yet show that
+several address cells can coexist and be selectively manipulated in one state.
+
+\begin{scopebox}
+Two qualifications travel with these numbers. The declared gate is aggregate, not per-pair: it applies to
+$D_{\mathrm{geom}}$ rather than to each of the 28 relations separately. And the 28 comparisons share the eight endpoints, so they are not independent
+Bernoulli trials: the exact sign-test value of $p=3.73\times10^{-9}$ that they would imply under independence
+was a declared gate of the frozen protocol but is reported here as a protocol diagnostic only, never as a
+significance result, in line with the statistical note archived with the run. The symbol $\approx$ above is
+defined by the declared response, read and pair-geometry gates, and closure over one source--target pair does
+not imply path independence.
+\end{scopebox}
+
+\subsection{Alternative explanations and transport controls}
+
+The result is not explained by independent endpoint refitting alone, because
+the audit requires preservation of all pairwise relations in addition to
+per-endpoint eligibility and readout. Nor is it explained by step size: a
+matched-scale random kernel perturbation followed by the same retraction
+produced approximately five times greater mean distortion. Round-trip recovery
+to $1.313\times10^{-7}$ further excludes a strongly lossy projection on the
+tested cohort. These controls distinguish local structure-preserving transport
+from ordinary reassignment or unconstrained small movement, while remaining
+limited to one source--target pair. The remaining question is operational: can
+write, overwrite, rearrangement and transport be composed on one shared
+address state?
+
+\section{Programmable operations on a shared address state}
+
+The preceding sections establish writable locations, expression-level access, reusable compositional codes and
+locally transportable geometry. We now audit whether the target state relations defined in Section~2.3 can be
+realized as selective operations within one shared parameter state while satisfying the declared response and
+KL budgets. The audit is a prospectively frozen single-seed confirmation candidate at seed 82931, run with a
+fresh seed and fresh held-out expressions after adaptive development of the protocol family.
+
+\subsection{Program stages}
+
+Four binary cells are written jointly into a single shared state, one cell is then selectively overwritten, and
+two cells exchange their contents. WRITE, OVERWRITE and SWAP are response-constrained projected-gradient
+updates on the restricted LoRA coordinates; the base model stays frozen. Every stage is scored on exact reads and on fresh held-out
+expressions, and must leave the declared values of unselected cells unchanged.
+
+\begin{center}\small
+\begin{tabular}{lccccc}
+\toprule
+Stage & Declared bits & Cells changed & Unselected preserved & Response drift & Anchor KL \\
+\midrule
+WRITE & 0011 & --- & --- & $1.53\times10^{-5}$ & 0.00374 \\
+OVERWRITE at 01 & 0111 & \{1\} & yes & 0 & 0.00351 \\
+SWAP of 00 and 11 & 1110 & \{0,3\} & yes & $7.63\times10^{-6}$ & 0.00399 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The observed bits matched the declared bits at every stage, exact and held-out accuracy were 1.0 throughout,
+and the smallest held-out margin over the three stages was 0.6154, at the initial write.
+
+\subsection{Operation controls}
+
+OVERWRITE and SWAP are each accompanied by two controls: a wrong operation, which executes a different declared
+state transition, and a matched-norm random-kernel update of the same update magnitude. On the requested-cell evaluation the
+overwrite reached exact and held-out accuracy 1.0, against 0.5 for the wrong instruction and 0.75 for the
+matched-norm random update at an update norm of 10.0006. The swap likewise reached 1.0, against 0.5 for both
+its wrong-instruction and matched-random controls at an update norm of 13.2654. The requested operation is
+therefore not reproduced by executing some other declared operation, nor by a displacement of the same size in
+the response kernel.
+
+\subsection{Moving the shared state}
+
+The shared four-cell state was then carried to a second response set and returned. The parameter displacement
+was 0.0978, the target-response residual $1.53\times10^{-5}$ and the return residual $1.53\times10^{-5}$. Exact
+and held-out accuracy were 1.0 both after transport and after return, and the positive held-out margin gate
+held at both ends. Thus all five externally specified operations were successfully executed in the declared
+sequence on the shared four-cell state under the frozen access, selectivity, response and KL gates, and all
+sixteen declared gates of the audit passed.
+
+\begin{scopebox}
+The operation names label externally executed experimental procedures, not instructions parsed by the model.
+WRITE, OVERWRITE and SWAP are response-constrained projected-gradient updates; MOVE and RETURN are local
+response retractions. The audit is a single-seed confirmation candidate: it does not establish multi-seed or
+model-family confirmation, autonomous instruction execution, gradient-free or inference-time memory operations,
+a general instruction-set architecture, arbitrary program composition, long-horizon error bounds, concept-level
+capacity scaling, in-place semantic rebinding beyond the declared binary content operations, or global parallel
+transport.
+\end{scopebox}
+
+\section{Discussion}
+
+\subsection{A discrete address system inside a continuous chart}
+
+The experiments identify the response kernel not only as a set of response-preserving null directions, but as a
+local carrier on which addressable memory operations can be realized. They therefore distinguish the carrier
+$\mathcal{V}_\theta$, the finite admissible set $\mathcal{F}_A(r,\varepsilon)$, the endpoint atlas
+$\mathcal{E}_\pi$ and the shared state $\Theta_m$: these objects play related but non-interchangeable roles. The first structural result is that a
+continuous constrained parameter chart supports a finite discrete code system whose slots can be audited
+separately and recombined. Concepts are instantiated at endpoints
+$\theta_{c,a}$, the code is read from separately audited slots, and every positive claim is an audit of
+declared finite quantities rather than an inferred capacity of the model at large.
+
+\subsection{From concept binding to code reuse}
+
+The second result is separation: the same compositional codes can serve different concept identities, so the
+tested code is not merely another name for one concept. Readout follows the declared assignment at each
+separately written endpoint, and the mixed-slot margin gate rules out a writer that resolves one slot and
+guesses the other.
+
+\subsection{From geometric object to operational object}
+
+The shared-state result changes the role of the geometry. In the construction stages the address structure is
+built and read; under transport it is moved; in the shared state it becomes the state space of selective
+operations. The progression is from location, to code, to transport, and finally to programmability, and each
+stage consumes what the previous one produced.
+
+This is also what separates the study from model editing. The object is not a single factual modification but
+the selective execution and composition of several operations on one finite address state, and neither control
+reproduced the requested state transition: the effect is tied to operation identity rather than displacement
+magnitude alone.
+
+\section{Limitations}
+
+\begin{itemize}
+\item Every stage uses one pretrained GPT-2 model, one restricted LoRA-B chart
+and single-seed evidence; multi-seed and cross-model confirmation are absent.
+\item L1--L4 use separately initialized concept--code endpoints. Shared-state
+storage is tested only for four binary cells in Section~5, not for scaled
+concept-level capacity or in-place semantic rebinding.
+\item The operations are externally executed gradient-based procedures, not
+model-parsed or inference-time instructions. Arbitrary programs, long-horizon
+error bounds and a general instruction-set architecture are untested.
+\item L4 uses four repeated two-slot codes over eight endpoints and applies
+transport endpoint by endpoint between one source--target pair at one response
+displacement; it does not define a global connection or parallel transport.
+\item The random control matches the added kernel perturbation rather than the
+final displacement, and the 28 pairwise comparisons share eight endpoints;
+the declared geometry gate is aggregate rather than inferential.
+\item Router bridge instances come from its fitting cohort, the
+category-to-address map is hand-declared, and address information enters via a
+controlled prompt interface rather than emerging autonomously.
+\item The standalone L2 result archive is unavailable. No numerical result is
+reconstructed from prose; held-out-expression claims rely on the publicly
+archived later-stage records.
+\end{itemize}
+
+\section{Conclusion}
+
+We have traced a staged path from writable parameter-space locations to a finite programmable address space.
+Exact anchoring and held-out-expression access establish readable locations; compositional reassignment
+separates address code from concept identity; local transport preserves the instantiated atlas across
+response-constrained sets; and a shared-state audit combines these resources into selective WRITE, OVERWRITE,
+SWAP, MOVE and RETURN operations. Within one prospectively evaluated GPT-2 LoRA seed, all declared access,
+selectivity, response, KL and control gates of that audit passed. The result is a mechanism candidate for
+programmable neural memory, not an autonomous instruction set or a general neural computer. Multi-seed
+replication, cross-model validation, capacity scaling, longer programs and instruction-conditioned execution
+remain open.
+
+\section*{Data and code availability}
+\addcontentsline{toc}{section}{Data and code availability}
+
+\begingroup\sloppy
+Code, frozen configurations, result records and claim boundaries are available
+at \url{https://github.com/papasop/fibre-nav} under the archived L1--L5
+evidence directories. This manuscript audits repository commit
+\texttt{c243b0da8b8a05a2ebaffa6d310f8ca33b0416d7}.
+\endgroup
+
+\needspace{4\baselineskip}
+\section*{References}
+\addcontentsline{toc}{section}{References}
+
+\small\begin{enumerate}[leftmargin=1.8em,itemsep=1pt,parsep=0pt]
+\item S. Ainsworth, J. Hayase, and S. Srinivasa. Git Re-Basin: merging models modulo permutation symmetries.
+\emph{International Conference on Learning Representations}, 2023.
+\item T. Bricken et al. Towards monosemanticity: decomposing language models with dictionary learning.
+\emph{Transformer Circuits Thread}, 2023.
+\item L. Dinh, R. Pascanu, S. Bengio, and Y. Bengio. Sharp minima can generalize for deep nets.
+\emph{International Conference on Machine Learning}, PMLR 70:1019--1028, 2017.
+\item N. Elhage et al. Toy models of superposition. \emph{Transformer Circuits Thread}, 2022.
+\item M. Geva, R. Schuster, J. Berant, and O. Levy. Transformer feed-forward layers are key-value memories.
+\emph{Conference on Empirical Methods in Natural Language Processing}, 2021.
+\item R. Hecht-Nielsen. On the algebraic structure of feedforward network weight spaces. In \emph{Advanced
+Neural Computers}, pages 129--135. Elsevier, 1990.
+\item E. J. Hu, Y. Shen, P. Wallis, Z. Allen-Zhu, Y. Li, S. Wang, L. Wang, and W. Chen. LoRA: low-rank
+adaptation of large language models. \emph{International Conference on Learning Representations}, 2022.
+\item K. Meng, D. Bau, A. Andonian, and Y. Belinkov. Locating and editing factual associations in GPT.
+\emph{Advances in Neural Information Processing Systems}, 2022.
+\item K. Meng, A. Sharma, A. Andonian, Y. Belinkov, and D. Bau. Mass editing memory in a transformer.
+\emph{International Conference on Learning Representations}, 2023.
+\item E. Mitchell, C. Lin, A. Bosselut, C. Finn, and C. D. Manning. Fast model editing at scale.
+\emph{International Conference on Learning Representations}, 2022.
+\item C. Olah et al. Zoom in: an introduction to circuits. \emph{Distill}, 2020.
+\item S. Sukhbaatar, A. Szlam, J. Weston, and R. Fergus. End-to-end memory networks. \emph{Advances in Neural
+Information Processing Systems}, 2015.
+\end{enumerate}
+
+\end{document}

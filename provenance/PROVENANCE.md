@@ -716,3 +716,27 @@ the held-out family changed after v2.4.1, this is not untouched replication,
 not improved expression-generalization proof relative to v2.4.1 and not a
 `3/3` unified confirmation. No abstract-level headline number or
 layer-specific confirmed status is changed by this import.
+
+## Programmable Address Space manuscript snapshot
+
+This import adds `A_Programmable_Address_Space_paper.zip` under `paper/`.
+No expected SHA-256 was supplied in the user request; the observed ZIP SHA-256
+was `9bbb262e0452dd5c71b1f32637f925b29544620ccc2a4aa13dbd9ab4147605c5`.
+The ZIP integrity test and bundled `SHA256SUMS.txt` passed before import.
+
+The imported files are:
+
+- `paper/A_Programmable_Address_Space_for_Neural_Memory.pdf`
+- `paper/A_Programmable_Address_Space_for_Neural_Memory.tex`
+- `paper/A_Programmable_Address_Space_README.txt`
+- `paper/A_Programmable_Address_Space_COMPRESSED_REVISION_NOTES.md`
+- `paper/A_Programmable_Address_Space_SHA256SUMS.txt`
+
+`pdfinfo` reports title `A Programmable Address Space for Neural Memory`,
+author `Y. Y. N. Li`, PDF version 1.5, A4 page size and 9 pages. The package
+revision notes say the source compiles with `pdflatex`, but this local host
+does not have `pdflatex` installed, so the manuscript was not recompiled
+during import. The manuscript's Data and Code section audits repository commit
+`c243b0da8b8a05a2ebaffa6d310f8ca33b0416d7`; later repository evidence,
+including unified v2.4.1-r1 and v2.4.3, remains repository evidence outside
+this PDF snapshot.
