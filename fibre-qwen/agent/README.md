@@ -1,9 +1,10 @@
 # Personal research agent: continuity foundation
 
-Development milestone A0. This runnable standard-library component supplies
+Development milestone A1 (includes the A0 continuity foundation). This runnable standard-library component supplies
 persistent, project-scoped memory and task continuation for a future personal
-agent. It does not yet call an LLM, interpret natural-language commands, execute
-experiments, or change model weights. It requires no GPU or API credentials.
+agent. The original memory CLI does not call an LLM. The optional `assistant.py`
+loop now connects a configured model to read-only tools; it does not execute
+experiments or change model weights. It requires no GPU or API credentials.
 It supplements the existing Fibre-Qwen experiments without changing their gates.
 
 ## Run (Python 3.11+)
@@ -49,3 +50,46 @@ MFI remains an experimental backend candidate. This SQLite memory is not neural
 memory, L1–L5 confirmation, autonomous learning, or evidence of personalization.
 Keep the historical R20–R23 roadmap and review prerequisites intact. Any later
 MFI comparison must hold model, tools and task set fixed and report failures.
+
+## A1: model and read-only tools
+
+`assistant.py` sends the question and requested tool results to an explicitly
+configured chat-completions-compatible endpoint. It supports local Qwen-serving
+endpoints or a compatible remote service; no provider/model is selected implicitly.
+Set `FIBRE_AGENT_API_KEY` in the process environment if the service requires it.
+Never commit credentials. With a remote endpoint, the question, selected project
+memory and read file contents are transmitted to that provider and may incur
+inference costs. Expose only a curated evidence directory, not your home directory.
+
+Example with an already-running local server (replace MODEL_ID with its model ID):
+
+```bash
+python fibre-qwen/agent/assistant.py --root ./evidence_excerpt --project demo --endpoint http://127.0.0.1:8000/v1/chat/completions --model MODEL_ID "Read the result files, distinguish reported results from hypotheses, and propose the next validation."
+```
+
+Create `evidence_excerpt` and place selected small text results there first.
+This command does not install/start a model server. Use `--db` to select the same
+persistent database used by the A0 CLI. No GPU or endpoint is started by this code.
+
+The model chooses JSON actions: `list_files`, `read_file`, `recall`, `resume`, or
+an `answer`. Files carry a relative source path and SHA-256. Hidden paths,
+symlinks, paths outside the selected directory, unsupported formats and files
+larger than 16 KiB are rejected. Lists and memory output are bounded. There is no
+shell/write tool. The loop stops after 8 model turns by default (maximum 20),
+returns `step_limit` rather than fabricated success, and never marks tasks done.
+Do not run against a directory being concurrently modified by untrusted actors;
+this is a local development tool, not an OS sandbox or multi-user security boundary.
+
+The JSON output includes the answer and actual tool trace. An answer remains
+model-generated: citations are not automatically validated, and prompt-injection
+resistance is not established by these tests. The model can answer without a tool;
+inspect its trace before treating claims as grounded. Model output must be exact
+JSON; invalid output fails explicitly, with no silent fallback model or retries.
+No conversation transcript is saved automatically.
+
+Validation: 8 tests pass, including a local HTTP server exercising the real client,
+file read and answer loop; project persistence; task continuity; path restrictions;
+invalid actions; and step exhaustion. The HTTP model is scripted, not a real LLM.
+Real-model instruction following, held-out task success, source accuracy, latency
+and cost remain unmeasured. Next gate: run the same frozen research questions with
+and without memory on a configured model before enabling any writing tools.
