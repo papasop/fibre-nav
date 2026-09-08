@@ -20,7 +20,7 @@ CASES = [
     {'id': 'continue_task', 'question': 'Use resume and answer exactly the next pending task next_action, or UNKNOWN if none.',
      'expected': 'CHECK_FROZEN_RESULTS', 'tool': 'resume'},
 ]
-PROTOCOL = {'version': 'A2-repair-2', 'cases': CASES, 'max_steps': 6,
+PROTOCOL = {'version': 'A2-repair-1', 'cases': CASES, 'max_steps': 6,
             'arms': ['without_memory', 'with_memory'], 'result_file': {'passed': False},
             'revisions': ['READY_TO_RELEASE', 'HOLD_FOR_REPLICATION'],
             'task': 'CHECK_FROZEN_RESULTS', 'decoding': 'greedy/temperature-zero'}

@@ -83,8 +83,9 @@ this is a local development tool, not an OS sandbox or multi-user security bound
 The JSON output includes the answer and actual tool trace. An answer remains
 model-generated: citations are not automatically validated, and prompt-injection
 resistance is not established by these tests. The model can answer without a tool;
-inspect its trace before treating claims as grounded. Model output must be exact
-JSON; invalid output fails explicitly, with no silent fallback model or retries.
+inspect its trace before treating claims as grounded. Model output must be a JSON object; one complete JSON Markdown fence is accepted.
+JSON syntax errors receive correction feedback within the existing turn budget.
+There is no fallback model. Schema errors still fail explicitly.
 No conversation transcript is saved automatically.
 
 Validation: 8 tests pass, including a local HTTP server exercising the real client,
@@ -137,3 +138,19 @@ Scripted fixture scores are test expectations, not Qwen results. The development
 benchmark is public and must not later be relabeled as untouched confirmation.
 A successful CLI exit means the evaluation ran without backend errors; it does
 not mean every task passed. Read the per-arm counts and original traces.
+
+
+## A2 adaptive repairs: still blocked on model execution
+
+[Repair 1](results/a2_qwen_cpu_repair_001/README.md) and
+[repair 2](results/a2_qwen_cpu_repair_002/README.md) each scored 0/3 in both arms.
+The first retrieved memory but emitted malformed final answers; the second
+emitted valid final answers while skipping tools. Complete raw calls and exact
+source snapshots are archived for both attempts. Thirteen engineering tests pass;
+they are not model performance evidence. These are same-task development repairs.
+
+The current free tool-selection loop remains experimental and can produce
+ungrounded answers; passing JSON syntax does not imply evidence-backed content.
+Next proposed approach: a separately labeled controlled workflow that retrieves
+requested evidence before model synthesis, compared with this autonomous baseline.
+Do not claim autonomous tool selection for that future controlled workflow.
