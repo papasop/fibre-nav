@@ -79,3 +79,25 @@ Before scaling: freeze unused seeds, add no-move and matched-norm controls, veri
 checkpoint reload, and test excluded expressions. Keep this result separate from
 any later repair or expanded protocol. SQL memory may store audit metadata but
 must never stand in for the neural READ operation.
+
+
+## Checkpoint reload verified
+
+[Fresh-process verification](results/l1_reload_001/README.md) passed all 7 gates:
+exact B restoration, original margin/response/KL reproduction, nonzero difference
+from initial parameters, correct bit, initialized controller, and rejection of an
+incorrect declared bit without changing committed state. Six engineering tests pass.
+
+```bash
+python fibre-qwen/mfi/verify_reload.py --source fibre-qwen/mfi/results/l1_development_001 --out /path/to/new-reload-report
+```
+
+`checkpoint.restore` verifies caller-supplied SHA-256, exact metadata, tensor keys,
+shapes, dtypes and finiteness; fixed A must match the constructed chart. It applies B
+transactionally and returns an initialized MFIController only after read/margin and
+finite response/KL gates pass. References come from the freshly constructed original
+model, not from the loaded endpoint. This supports the exact declared fixed-A chart;
+it is not a generic PEFT loader or a proof that source reports are authentic.
+
+The original final checkpoint has now been reloaded, but WRITE-1 intermediate
+persistence, independent seeds, matched controls and L2 remain open.
