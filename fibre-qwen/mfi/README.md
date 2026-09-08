@@ -101,3 +101,21 @@ it is not a generic PEFT loader or a proof that source reports are authentic.
 
 The original final checkpoint has now been reloaded, but WRITE-1 intermediate
 persistence, independent seeds, matched controls and L2 remain open.
+
+
+## New-chart seed audit: 1/3, stability not established
+
+[Three-seed audit](results/l1_new_seeds_001/README.md) completed seeds 84031,
+84047 and 84061 under a protocol committed before inference. Only 84031 passed
+both WRITE and OVERWRITE. The other writes hit the finite search's KL boundary
+before reaching the target margin and were rolled back. For the two qualified
+operations, true margins beat all six norm-matched random endpoint controls;
+no-move failed both. This is not a full three-seed confirmation or L2 result.
+Eight engineering tests pass; they do not override the failed empirical gate.
+
+```bash
+python fibre-qwen/mfi/verify_seeds.py --out /path/to/new-seed-audit
+```
+
+Changing seeds, budgets, search or directions after this result is a new
+protocol. Investigate the active KL constraint before proceeding to L2.
