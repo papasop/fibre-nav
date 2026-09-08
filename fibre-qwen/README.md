@@ -41,3 +41,11 @@ Machine-readable status: `R23D_MOVING_RESPONSE_KERNEL_CONFIRMED`.
 [Continuity foundation A0](agent/README.md) adds a CPU-only, model-independent
 CLI for versioned evidence memory and project task continuation. It is external
 SQLite storage, not neural memory or an autonomous tool-executing agent.
+
+## MFI-native operation development
+
+[Qwen MFI L1 interface](mfi/README.md) implements an external controller, restricted
+LoRA-B parameter writes and transactional response/KL gates. The first real CPU
+single-cell run passed WRITE 1 then OVERWRITE 0. This is an L1 development preflight,
+not L2–L5 confirmation or autonomous instruction execution. It is separate from
+the external SQLite agent prototype.
