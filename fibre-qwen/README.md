@@ -35,3 +35,9 @@ Nothing here establishes moving-response-fibre superiority, continual learning, 
 
 
 Machine-readable status: `R23D_MOVING_RESPONSE_KERNEL_CONFIRMED`.
+
+## Personal agent development
+
+[Continuity foundation A0](agent/README.md) adds a CPU-only, model-independent
+CLI for versioned evidence memory and project task continuation. It is external
+SQLite storage, not neural memory or an autonomous tool-executing agent.
