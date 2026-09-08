@@ -131,7 +131,7 @@ For a configured compatible inference server:
 python fibre-qwen/agent/evaluate.py --backend http --model YOUR_MODEL --revision SERVER_MODEL_VERSION --endpoint http://127.0.0.1:8000/v1/chat/completions --output /persistent/private/a2-run-001.json
 ```
 
-Status at implementation: **REAL_MODEL_NOT_RUN**. Eleven unit/integration tests
+Initial implementation status was **REAL_MODEL_NOT_RUN**. The first real CPU run is now archived in [A2 results](results/a2_qwen_cpu_001/README.md): both arms passed 0/3, with failures in action formatting and tool selection. Eleven unit/integration tests
 passed, including a scripted paired fixture and retention of all backend failures.
 Scripted fixture scores are test expectations, not Qwen results. The development
 benchmark is public and must not later be relabeled as untouched confirmation.
