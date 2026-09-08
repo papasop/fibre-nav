@@ -1,0 +1,282 @@
+{
+  "space_commit": "d9bacd961ae23b80aebb03c004cb6e40d260210b",
+  "protocol_commit": "de8f275b1eb9163976cf7cb98000dbca2c7b3736",
+  "results": [
+    {
+      "seed": 84503,
+      "operations_passed": 20,
+      "operations_total": 20,
+      "scores": {
+        "mfi": {
+          "correct": 108,
+          "total": 160,
+          "accuracy": 0.675
+        },
+        "external": {
+          "correct": 110,
+          "total": 160,
+          "accuracy": 0.6875
+        },
+        "none": {
+          "correct": 80,
+          "total": 160,
+          "accuracy": 0.5
+        }
+      },
+      "gates": {
+        "all_operations_pass": true,
+        "task_beats_no_memory": true,
+        "task_matches_external": false
+      },
+      "seconds": 1089.7338654969935,
+      "max_response": 0.015412330627441406,
+      "max_kl": 0.00981206066262988,
+      "min_margin": 1.0021419525146484,
+      "prediction_differences": [
+        {
+          "index": 2,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": true,
+          "external_correct": false
+        },
+        {
+          "index": 2,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        },
+        {
+          "index": 4,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": true,
+          "external_correct": false
+        },
+        {
+          "index": 8,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        },
+        {
+          "index": 10,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        },
+        {
+          "index": 12,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        },
+        {
+          "index": 14,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": true,
+          "external_correct": false
+        },
+        {
+          "index": 14,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        },
+        {
+          "index": 16,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": true,
+          "external_correct": false
+        },
+        {
+          "index": 16,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        },
+        {
+          "index": 18,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": true,
+          "external_correct": false
+        },
+        {
+          "index": 18,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        },
+        {
+          "index": 20,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "A",
+            "B"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": true,
+          "external_correct": false
+        },
+        {
+          "index": 20,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        }
+      ],
+      "original_zip_sha256": "5862294f8212b8801012695d6348e1a4bffd49ffb09742623d99c24d7cdd1f2b"
+    },
+    {
+      "seed": 84521,
+      "operations_passed": 20,
+      "operations_total": 20,
+      "scores": {
+        "mfi": {
+          "correct": 108,
+          "total": 160,
+          "accuracy": 0.675
+        },
+        "external": {
+          "correct": 110,
+          "total": 160,
+          "accuracy": 0.6875
+        },
+        "none": {
+          "correct": 80,
+          "total": 160,
+          "accuracy": 0.5
+        }
+      },
+      "gates": {
+        "all_operations_pass": true,
+        "task_beats_no_memory": true,
+        "task_matches_external": false
+      },
+      "seconds": 967.0268987760064,
+      "max_response": 0.01938343048095703,
+      "max_kl": 0.009040515899742264,
+      "min_margin": 1.038564682006836,
+      "prediction_differences": [
+        {
+          "index": 10,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        },
+        {
+          "index": 18,
+          "target": 0,
+          "task_id": 3,
+          "labels": [
+            "B",
+            "A"
+          ],
+          "mfi": "A",
+          "external": "B",
+          "mfi_correct": false,
+          "external_correct": true
+        }
+      ],
+      "original_zip_sha256": "67db8bc1c9e05bea2aa61c92d240a0d3a27d81831dc87363b8ffcc96650172c3"
+    }
+  ]
+}
