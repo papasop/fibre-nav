@@ -1,0 +1,21 @@
+{
+  "status": "OFFLINE_RECORD_AUDIT_PASS",
+  "independent_model_rerun": false,
+  "rows": 30,
+  "replay_rows": 18,
+  "known_raw_success": 4,
+  "known_raw_total": 4,
+  "single_text_flip_success": 8,
+  "single_text_flip_total": 8,
+  "double_text_flip_success": 4,
+  "double_text_flip_total": 4,
+  "no_intermediate_strict_success": 0,
+  "no_intermediate_total": 4,
+  "known_two_stage_gate": true,
+  "known_text_control_gate": true,
+  "formal_l6_pass": false,
+  "single_pass_l6_pass": false,
+  "limitation": "Checks recorded data, provenance links and logged budgets. Does not independently observe execution or recompute model logits/KL.",
+  "source_zip_sha256": "d354abca180e1ce4fae21908277147d5a7beaaff2425122bb6bebe9f9f762b77",
+  "result_zip_sha256": "b70ccc12a949d8e2fa3846c82a5758f07c15e7f7018901b422c37d383576ff93"
+}

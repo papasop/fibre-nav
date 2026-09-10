@@ -155,6 +155,7 @@ claim boundary and reproduction instructions where available.
 - [Joint L1-L5 development smoke — v2.3.2.1](evidence/joint_l1_l5_v2_3_2_1/)
 - [Unified L1-L5 prospective audit — v2.4.1-r1](evidence/unified_l1_l5_v2_4_1/)
 - [Unified L1-L5 expression-coverage audit — v2.4.3](evidence/unified_l1_l5_v2_4_3/)
+- [Known-state, text-mediated Qwen memory computation — v1](evidence/qwen_mfi_two_stage_v1/)
 
 ## Repository map
 
