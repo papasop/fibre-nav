@@ -1,0 +1,45 @@
+{
+  "supported": [
+    {
+      "id": "TS1",
+      "claim": "Known10/11 model-generated reads used by same frozen model in second call",
+      "cases": "4/4",
+      "scope": "fixed prompts; externally carried text"
+    },
+    {
+      "id": "TS2",
+      "claim": "Single intermediate-text bit flip yields prescribed computation",
+      "cases": "8/8",
+      "scope": "text intervention, not parameter intervention"
+    },
+    {
+      "id": "TS3",
+      "claim": "Both intermediate-text bits flipped gives predicted XOR/equality invariance",
+      "cases": "4/4",
+      "scope": "reported values must change correctly"
+    },
+    {
+      "id": "TS4",
+      "claim": "Supplied records satisfy finite CPU gates and before/after equality",
+      "scope": "record audit, not independent numerical model replay"
+    }
+  ],
+  "not_supported": [
+    "Single-pass implicit L6 success",
+    "Two parameter cells independently causally used",
+    "Fresh memory-write transfer",
+    "Unseen-state or blind generalization",
+    "General reasoning improvement",
+    "Zero-memory cannot compute",
+    "Historical priority or first-ever discovery",
+    "Independent replication of model execution",
+    "Complete L1-L5 or physical-realizability certification"
+  ],
+  "failures_preserved": {
+    "known_direct_implicit_strict": "0/4"
+  },
+  "formal_l6_pass": false,
+  "single_pass_l6_pass": false,
+  "known_two_stage_gate": true,
+  "known_text_control_gate": true
+}

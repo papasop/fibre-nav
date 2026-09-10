@@ -1,0 +1,372 @@
+{
+  "id": "QWEN_SELF_READ_COMPUTE_CPU_V1",
+  "model": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "source": {
+    "parent_sha256": "7d544ec54520f3c6c08a2f98e6e7a6f378b0951f7a3a5918c6cce40a5e72e009",
+    "files": {
+      "memory_zero.safetensors": "cbf005dc3b5f2c647c6cc0d27bb751775684a29ece86a3a70479a6ca6e83f168",
+      "memory_10.safetensors": "7016252031f4a9ef39a2039c57a49e2240bdeacd6c3da759e5336547c9b3ce23",
+      "memory_11.safetensors": "d919dd604a65d934edaa96bc42cebe87609cd78fd3f462e8eb34914628f7b049",
+      "rule_adapter_final.safetensors": "7e06ec81053be1d1aa4804d6ab00dd0f14d8369358e6d076f028f7a8c73f2694",
+      "manifest.json": "cc4a016158d3c88c52d0530bcc9741c072697d5ab7df8fa1adf45e4ac302cd32",
+      "source_reference.json": "56309ff74f06685ea329efcab0e236f42becb2daf561a074bcd7c5987b353948",
+      "source_zero_reference.json": "ac9f52cf60b00ab7e9cd64976f92c8b4a3b6593bc654f5e61df835eb0db61a91",
+      "source_protection_reference.json": "5405c1c42e024bd3f7a093d1a28b0dea15b040676daca2903274bf9d5efc0c0e",
+      "protection_cases.json": "15cd6b3481682bbfa547c7eba686dde99351d67de8da71bcb4e69f2975b9e508",
+      "reader_endpoint.safetensors": "7a6a520f69fe94154ef5ec2f71513c24b58f1e87a48fb0c04198a638d7f146c4",
+      "endpoint_manifest.json": "d182c36391d56a270c236d6b95a25b94646823d8e86e33416b271ffbec0270dd",
+      "endpoint_rows.json": "aa58d6912ca87f092d8fecfd2cd64b36f59c708cdebf5a8d6622fa3490d19f2b",
+      "endpoint_summary.json": "5438cd9c914d62198e967dde969fd5449702bc15272084d39ff5f1d11461ebe7",
+      "endpoint_audits.json": "8f314ee45c8f5cd901b0de19855093ce191ca63732319c163a85bba56ec754ba",
+      "endpoint_joint.json": "8e5626fab03fc511bdf10c3622a2992658bdc8ae49f73c7b1610d0314856ab0c",
+      "parent_protected_rows.json": "dccfb291ae8d934bd2df05e44233cd981c6ba952a6c611bc53827c08b663fc91",
+      "parent_implicit_rows.json": "90eeccd9bf5ef412b2d62ac476da7e967de1ed5397ae8eb38300a9b4ef9a83d5"
+    },
+    "interface_parent_result_zip_sha256": "5695378b0c85ba75bdb5218b7a43677fc634acaa2d64945cffb82bb72794f97c",
+    "bridge_parent_result_zip_sha256": "2d1b199c53531358d9d8096e7ddd8dfc6b7d0dab6539c9dd36db9780b63263eb"
+  },
+  "cases": [
+    {
+      "id": "zero-raw-xor",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "raw",
+      "task": "xor"
+    },
+    {
+      "id": "zero-raw-equal",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "raw",
+      "task": "equal"
+    },
+    {
+      "id": "zero-flip0-xor",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "flip0",
+      "task": "xor"
+    },
+    {
+      "id": "zero-flip0-equal",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "flip0",
+      "task": "equal"
+    },
+    {
+      "id": "zero-flip1-xor",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "flip1",
+      "task": "xor"
+    },
+    {
+      "id": "zero-flip1-equal",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "flip1",
+      "task": "equal"
+    },
+    {
+      "id": "zero-flip_both-xor",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "flip_both",
+      "task": "xor"
+    },
+    {
+      "id": "zero-flip_both-equal",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "flip_both",
+      "task": "equal"
+    },
+    {
+      "id": "zero-no_intermediate-xor",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "no_intermediate",
+      "task": "xor"
+    },
+    {
+      "id": "zero-no_intermediate-equal",
+      "snapshot": "zero",
+      "arm": "on",
+      "condition": "no_intermediate",
+      "task": "equal"
+    },
+    {
+      "id": "10-raw-xor",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "raw",
+      "task": "xor"
+    },
+    {
+      "id": "10-raw-equal",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "raw",
+      "task": "equal"
+    },
+    {
+      "id": "10-flip0-xor",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "flip0",
+      "task": "xor"
+    },
+    {
+      "id": "10-flip0-equal",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "flip0",
+      "task": "equal"
+    },
+    {
+      "id": "10-flip1-xor",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "flip1",
+      "task": "xor"
+    },
+    {
+      "id": "10-flip1-equal",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "flip1",
+      "task": "equal"
+    },
+    {
+      "id": "10-flip_both-xor",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "flip_both",
+      "task": "xor"
+    },
+    {
+      "id": "10-flip_both-equal",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "flip_both",
+      "task": "equal"
+    },
+    {
+      "id": "10-no_intermediate-xor",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "no_intermediate",
+      "task": "xor"
+    },
+    {
+      "id": "10-no_intermediate-equal",
+      "snapshot": "10",
+      "arm": "on",
+      "condition": "no_intermediate",
+      "task": "equal"
+    },
+    {
+      "id": "11-raw-xor",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "raw",
+      "task": "xor"
+    },
+    {
+      "id": "11-raw-equal",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "raw",
+      "task": "equal"
+    },
+    {
+      "id": "11-flip0-xor",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "flip0",
+      "task": "xor"
+    },
+    {
+      "id": "11-flip0-equal",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "flip0",
+      "task": "equal"
+    },
+    {
+      "id": "11-flip1-xor",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "flip1",
+      "task": "xor"
+    },
+    {
+      "id": "11-flip1-equal",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "flip1",
+      "task": "equal"
+    },
+    {
+      "id": "11-flip_both-xor",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "flip_both",
+      "task": "xor"
+    },
+    {
+      "id": "11-flip_both-equal",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "flip_both",
+      "task": "equal"
+    },
+    {
+      "id": "11-no_intermediate-xor",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "no_intermediate",
+      "task": "xor"
+    },
+    {
+      "id": "11-no_intermediate-equal",
+      "snapshot": "11",
+      "arm": "on",
+      "condition": "no_intermediate",
+      "task": "equal"
+    }
+  ],
+  "read_cases": [
+    {
+      "id": "zero-joint-0",
+      "snapshot": "zero",
+      "kind": "joint",
+      "form": 0,
+      "mode": "implicit",
+      "state": null,
+      "prompt": "Read both register values. Output exactly two lines, replacing each <bit> with 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nDo not add any other text.\nResponse:"
+    },
+    {
+      "id": "zero-copy-0",
+      "snapshot": "zero",
+      "kind": "copy",
+      "cell": 0,
+      "form": 0,
+      "mode": "implicit",
+      "state": null,
+      "prompt": "Read register_00.\nOutput one digit only.\nResult:"
+    },
+    {
+      "id": "zero-copy-1",
+      "snapshot": "zero",
+      "kind": "copy",
+      "cell": 1,
+      "form": 0,
+      "mode": "implicit",
+      "state": null,
+      "prompt": "Read register_01.\nOutput one digit only.\nResult:"
+    },
+    {
+      "id": "10-joint-0",
+      "snapshot": "10",
+      "kind": "joint",
+      "form": 0,
+      "mode": "implicit",
+      "state": "10",
+      "prompt": "Read both register values. Output exactly two lines, replacing each <bit> with 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nDo not add any other text.\nResponse:"
+    },
+    {
+      "id": "10-copy-0",
+      "snapshot": "10",
+      "kind": "copy",
+      "cell": 0,
+      "form": 0,
+      "mode": "implicit",
+      "state": "10",
+      "prompt": "Read register_00.\nOutput one digit only.\nResult:"
+    },
+    {
+      "id": "10-copy-1",
+      "snapshot": "10",
+      "kind": "copy",
+      "cell": 1,
+      "form": 0,
+      "mode": "implicit",
+      "state": "10",
+      "prompt": "Read register_01.\nOutput one digit only.\nResult:"
+    },
+    {
+      "id": "11-joint-0",
+      "snapshot": "11",
+      "kind": "joint",
+      "form": 0,
+      "mode": "implicit",
+      "state": "11",
+      "prompt": "Read both register values. Output exactly two lines, replacing each <bit> with 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nDo not add any other text.\nResponse:"
+    },
+    {
+      "id": "11-copy-0",
+      "snapshot": "11",
+      "kind": "copy",
+      "cell": 0,
+      "form": 0,
+      "mode": "implicit",
+      "state": "11",
+      "prompt": "Read register_00.\nOutput one digit only.\nResult:"
+    },
+    {
+      "id": "11-copy-1",
+      "snapshot": "11",
+      "kind": "copy",
+      "cell": 1,
+      "form": 0,
+      "mode": "implicit",
+      "state": "11",
+      "prompt": "Read register_01.\nOutput one digit only.\nResult:"
+    }
+  ],
+  "reader_arms": [
+    "on"
+  ],
+  "memory_snapshots": [
+    "zero",
+    "10",
+    "11"
+  ],
+  "precision": "float32, no quantization",
+  "time_limit_seconds": null,
+  "max_new_tokens": 128,
+  "training": false,
+  "output_repair": false,
+  "rule_adapter": "always active",
+  "primary_condition": "raw model-produced intermediate",
+  "control_conditions": [
+    "flip0",
+    "flip1",
+    "flip_both",
+    "no_intermediate"
+  ],
+  "prompt_provenance": "Stage1 uses fixed canonical read prompt. Stage2 receives the original decoded stage1 text plus newline plus frozen protected task body. Only control arms alter intermediate text.",
+  "generation_input": "Only prompt text enters tokenizer/model; state/expected metadata used solely for scoring after generation.",
+  "reference": "CPU recomputation from original zero-memory no-reader state; never recentered at trained reader.",
+  "code_hashes": {
+    "run_cpu_audit.py": "5082c7db3ccd202f1000c9e49a13308281ebec92c622c344dcffb40d18c934b0",
+    "memory_backend.py": "baa09baadb3425cfadb9f9721983f2dc072aaf5cb1828c8cdf7b90973b18debc",
+    "bridge_protocol.py": "da140b6e8d6baee469f8ee570ffe6a5a5ca852cd5d6c154e61e99a1ca2f53a8d",
+    "rescue_protocol.py": "5b3feb1e749fe71db246ddea329db425e8d66b09adf9ca200c56a134fe88fe0d",
+    "two_stage_protocol.py": "01210f3a576207c386fbdb52a4687114a44e3f425b75313d5c084dda5bccb00e",
+    "io_utils.py": "5bf3ea4ef4b01ce990456cbba6af12e7b7f781a770fd345286ad2f5c9a2a942c",
+    "reader_protocol.py": "13110677f7492e72eac7aa63a0eb96fd625bd03406c8999863d4e324be462dfd",
+    "test_generation.py": "16b1722dbfed2a0299b406a5ac0a34d69d6762d0d23d4217d2fe101463cde840",
+    "test_two_stage.py": "9f0bf641dcde1283b645bc6e07654aec658ba1b9114df3bc1bff640fd93f973d",
+    "reader_backend.py": "ba733d2c1103143a4ce80b1879d9068db5bdf0fd15d0ab7bf1145f40ca7de6ea",
+    "logic_prompt.py": "282529d1b951d84b62806c4148339b8f5f561fd3abe1fde6423583b8d23bf52a",
+    "readonly_backend.py": "0fe8f6be4feb959306cf7a0fc3185328d5c6f773fc456b5f5b472a9d26e0cc85",
+    "generation_audit.py": "48a95f45dd3a2edb36fc4cd4a4abec81c016b7dccb197651965d5d28c0e91206",
+    "qwen_l1.py": "15280b8b27248c5338d24cdcf2336626c3edf2e3fb47b3fcfb1b52e85747d466",
+    "snapshot_io.py": "ac582ea0c994c41de892256cf4f0defd648009c1a8117ca5bb35b71aee2330c2",
+    "adapter_io.py": "39f627b34e6471273ecb30b70687eeb27b6440467d43c4898de28f8cfa16c317"
+  }
+}

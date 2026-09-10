@@ -1,0 +1,90 @@
+[
+  {
+    "id": "protection-00-xor-1-staged",
+    "state": "00",
+    "task": "xor",
+    "form": 1,
+    "kind": "staged",
+    "split": "protection",
+    "prompt": "register_00: 0\nregister_01: 0\nRead both register values, then apply the rule.\nCompare the two registers: unequal values mean 1 and equal values mean 0.\nOutput exactly three lines, with each <bit> replaced by one digit, 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nRESULT: <bit>\nDo not add any other text.\nResponse:",
+    "target": "register_00: 0\nregister_01: 0\nRESULT: 0",
+    "expected": 0
+  },
+  {
+    "id": "protection-00-equal-1-staged",
+    "state": "00",
+    "task": "equal",
+    "form": 1,
+    "kind": "staged",
+    "split": "protection",
+    "prompt": "register_00: 0\nregister_01: 0\nRead both register values, then apply the rule.\nCompare the two registers: equal values mean 1 and unequal values mean 0.\nOutput exactly three lines, with each <bit> replaced by one digit, 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nRESULT: <bit>\nDo not add any other text.\nResponse:",
+    "target": "register_00: 0\nregister_01: 0\nRESULT: 1",
+    "expected": 1
+  },
+  {
+    "id": "protection-10-xor-1-staged",
+    "state": "10",
+    "task": "xor",
+    "form": 1,
+    "kind": "staged",
+    "split": "protection",
+    "prompt": "register_00: 1\nregister_01: 0\nRead both register values, then apply the rule.\nCompare the two registers: unequal values mean 1 and equal values mean 0.\nOutput exactly three lines, with each <bit> replaced by one digit, 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nRESULT: <bit>\nDo not add any other text.\nResponse:",
+    "target": "register_00: 1\nregister_01: 0\nRESULT: 1",
+    "expected": 1
+  },
+  {
+    "id": "protection-10-equal-1-staged",
+    "state": "10",
+    "task": "equal",
+    "form": 1,
+    "kind": "staged",
+    "split": "protection",
+    "prompt": "register_00: 1\nregister_01: 0\nRead both register values, then apply the rule.\nCompare the two registers: equal values mean 1 and unequal values mean 0.\nOutput exactly three lines, with each <bit> replaced by one digit, 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nRESULT: <bit>\nDo not add any other text.\nResponse:",
+    "target": "register_00: 1\nregister_01: 0\nRESULT: 0",
+    "expected": 0
+  },
+  {
+    "id": "protection-11-xor-1-staged",
+    "state": "11",
+    "task": "xor",
+    "form": 1,
+    "kind": "staged",
+    "split": "protection",
+    "prompt": "register_00: 1\nregister_01: 1\nRead both register values, then apply the rule.\nCompare the two registers: unequal values mean 1 and equal values mean 0.\nOutput exactly three lines, with each <bit> replaced by one digit, 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nRESULT: <bit>\nDo not add any other text.\nResponse:",
+    "target": "register_00: 1\nregister_01: 1\nRESULT: 0",
+    "expected": 0
+  },
+  {
+    "id": "protection-11-equal-1-staged",
+    "state": "11",
+    "task": "equal",
+    "form": 1,
+    "kind": "staged",
+    "split": "protection",
+    "prompt": "register_00: 1\nregister_01: 1\nRead both register values, then apply the rule.\nCompare the two registers: equal values mean 1 and unequal values mean 0.\nOutput exactly three lines, with each <bit> replaced by one digit, 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nRESULT: <bit>\nDo not add any other text.\nResponse:",
+    "target": "register_00: 1\nregister_01: 1\nRESULT: 1",
+    "expected": 1
+  },
+  {
+    "id": "protection-01-xor-1-staged",
+    "state": "01",
+    "task": "xor",
+    "form": 1,
+    "kind": "staged",
+    "split": "protection",
+    "prompt": "register_00: 0\nregister_01: 1\nRead both register values, then apply the rule.\nCompare the two registers: unequal values mean 1 and equal values mean 0.\nOutput exactly three lines, with each <bit> replaced by one digit, 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nRESULT: <bit>\nDo not add any other text.\nResponse:",
+    "target": "register_00: 0\nregister_01: 1\nRESULT: 1",
+    "expected": 1
+  },
+  {
+    "id": "protection-01-equal-1-staged",
+    "state": "01",
+    "task": "equal",
+    "form": 1,
+    "kind": "staged",
+    "split": "protection",
+    "prompt": "register_00: 0\nregister_01: 1\nRead both register values, then apply the rule.\nCompare the two registers: equal values mean 1 and unequal values mean 0.\nOutput exactly three lines, with each <bit> replaced by one digit, 0 or 1:\nregister_00: <bit>\nregister_01: <bit>\nRESULT: <bit>\nDo not add any other text.\nResponse:",
+    "target": "register_00: 0\nregister_01: 1\nRESULT: 0",
+    "expected": 0
+  }
+]

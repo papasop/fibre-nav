@@ -1,0 +1,221 @@
+{
+  "rows": 30,
+  "expected_rows": 30,
+  "generated_rows": 30,
+  "skipped_rows": 0,
+  "groups": {
+    "zero": {
+      "raw": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "flip0": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "flip1": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "flip_both": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "no_intermediate": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 0,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      }
+    },
+    "10": {
+      "raw": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 2,
+        "end_to_end_success": 2
+      },
+      "flip0": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "flip1": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "flip_both": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "no_intermediate": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 0,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      }
+    },
+    "11": {
+      "raw": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 2,
+        "end_to_end_success": 2
+      },
+      "flip0": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "flip1": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "flip_both": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 2,
+        "follows_intermediate": 2,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      },
+      "no_intermediate": {
+        "n": 2,
+        "generated": 2,
+        "format_pass": 0,
+        "follows_intermediate": 0,
+        "strict_memory_output": 0,
+        "end_to_end_success": 0
+      }
+    }
+  },
+  "known_raw_four_pass": true,
+  "known_single_flip_eight_pass": true,
+  "known_double_flip_four_pass": true,
+  "intermediate_effects": [
+    {
+      "id": "10-flip0-xor",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "10-flip0-equal",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "10-flip1-xor",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "10-flip1-equal",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "11-flip0-xor",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "11-flip0-equal",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "11-flip1-xor",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "11-flip1-equal",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "10-flip_both-xor",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "10-flip_both-equal",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "11-flip_both-xor",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    },
+    {
+      "id": "11-flip_both-equal",
+      "both_format_valid": true,
+      "prescribed_effect": true
+    }
+  ],
+  "formal_l6_pass": false,
+  "single_pass_l6_pass": false,
+  "training_updates": 0,
+  "memory_writes": 0,
+  "scope": "Two independent generation calls using same frozen model. Model-produced text is externally carried unchanged into stage2; text-mediated computation, not single-pass parameter-memory logic. Only known10/11; first cell fixed. Corruptions alter intermediate TEXT, not parameter addresses. Zero has no assigned memory label; no training/new-state transfer or blind claim.",
+  "status": "COMPLETE",
+  "complete": true,
+  "source_integrity": true,
+  "cpu_before_after_stable": true,
+  "frozen_verified": true,
+  "source_restored": true,
+  "replay_rows": 18,
+  "expected_replay_rows": 18,
+  "phase": "finished",
+  "elapsed_seconds": 139.7214674910001,
+  "time_limit_seconds": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "original_gpu_certification_reproduced": false,
+  "reference_scope": "Same original zero-memory / no-reader reference STATE recomputed on CPU before reader attachment; not original GPU numerical reference. Original budgets .02/.01 unchanged, scored separately from ablation completion.",
+  "known_two_stage_gate": true,
+  "known_text_control_gate": true
+}

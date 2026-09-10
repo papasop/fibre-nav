@@ -1,0 +1,20 @@
+{"event": "stage_start", "stage": "create_env", "elapsed_seconds": 0.001134522000029392}
+{"event": "heartbeat", "stage": "create_env", "elapsed_seconds": 0.003423903999646427, "pid": 18580, "log_bytes": 0}
+{"event": "stage_end", "stage": "create_env", "elapsed_seconds": 2.00384999400012, "returncode": 0}
+{"event": "stage_start", "stage": "install_cpu_torch", "elapsed_seconds": 2.0051264060002723}
+{"event": "heartbeat", "stage": "install_cpu_torch", "elapsed_seconds": 2.0073793159999695, "pid": 18589, "log_bytes": 0}
+{"event": "heartbeat", "stage": "install_cpu_torch", "elapsed_seconds": 32.01231426400045, "pid": 18589, "log_bytes": 2334}
+{"event": "stage_end", "stage": "install_cpu_torch", "elapsed_seconds": 34.01293931300006, "returncode": 0}
+{"event": "stage_start", "stage": "install", "elapsed_seconds": 34.013975283000036}
+{"event": "heartbeat", "stage": "install", "elapsed_seconds": 34.0160048810003, "pid": 18735, "log_bytes": 0}
+{"event": "stage_end", "stage": "install", "elapsed_seconds": 56.01817362200018, "returncode": 0}
+{"event": "stage_start", "stage": "tests", "elapsed_seconds": 56.01920658000017}
+{"event": "heartbeat", "stage": "tests", "elapsed_seconds": 56.021026573999734, "pid": 18841, "log_bytes": 0}
+{"event": "stage_end", "stage": "tests", "elapsed_seconds": 58.02146679500038, "returncode": 0}
+{"event": "stage_start", "stage": "audit", "elapsed_seconds": 58.02242544500041}
+{"event": "heartbeat", "stage": "audit", "elapsed_seconds": 58.024101142999825, "pid": 18853, "log_bytes": 0}
+{"event": "heartbeat", "stage": "audit", "elapsed_seconds": 88.02842049999981, "pid": 18853, "log_bytes": 559}
+{"event": "heartbeat", "stage": "audit", "elapsed_seconds": 118.03211026999998, "pid": 18853, "log_bytes": 1823}
+{"event": "heartbeat", "stage": "audit", "elapsed_seconds": 148.03848161400037, "pid": 18853, "log_bytes": 3224}
+{"event": "heartbeat", "stage": "audit", "elapsed_seconds": 178.04243510800006, "pid": 18853, "log_bytes": 4506}
+{"event": "stage_end", "stage": "audit", "elapsed_seconds": 204.04503821100025, "returncode": 0}

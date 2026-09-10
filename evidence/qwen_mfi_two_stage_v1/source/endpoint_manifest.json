@@ -1,0 +1,40 @@
+{
+  "sha256": "7a6a520f69fe94154ef5ec2f71513c24b58f1e87a48fb0c04198a638d7f146c4",
+  "path_config": {
+    "max_attempts": 30,
+    "backtracks": 6,
+    "stall_limit": 3,
+    "initial_radius": 0.01,
+    "max_radius": 0.01,
+    "min_radius": 1e-05,
+    "radius_growth": 1.5,
+    "min_objective_improvement": 1e-06,
+    "negative_derivative_threshold": -1e-08
+  },
+  "geometry_config": {
+    "rule_slack_window": 0.05,
+    "competitor_tie_tolerance": 0.0001,
+    "max_constraint_rows": 64,
+    "relative_svd_cutoff": 1e-10,
+    "projection_residual_tolerance": 1e-06,
+    "minimum_direction_norm": 1e-12,
+    "random_seed": 95919,
+    "objective_decrease": 1e-06,
+    "fd_step": 0.0001
+  },
+  "attempts": 4,
+  "accepted_updates": 4,
+  "stop_reason": "POSITION_FIT_REACHED",
+  "initial_objective": 0.07060394762083888,
+  "initializer_sha256": "459845e05cf4e8929121839481afd3f78f9919347d3433f18e2f0eb525d20bec",
+  "endpoint_verified": true,
+  "final_objective": 0.014620766043663025,
+  "displacement_from_initializer": 0.03992008510100699,
+  "total_reader_displacement": 0.03992008510100699,
+  "source_endpoint_sha256": "459845e05cf4e8929121839481afd3f78f9919347d3433f18e2f0eb525d20bec",
+  "prior_segment_rounds": 77,
+  "additional_rounds": 4,
+  "repair_applied": false,
+  "selection": "Final accepted endpoint at declared stop; no probe-based selection",
+  "mfi_geometry_revalidated": false
+}
