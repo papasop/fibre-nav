@@ -1,0 +1,122 @@
+[
+  {
+    "id": "empty",
+    "text": "",
+    "expected": "reject"
+  },
+  {
+    "id": "prose",
+    "text": "Please compute zero OR zero.",
+    "expected": "reject"
+  },
+  {
+    "id": "missing_b",
+    "text": "{\"op\":\"OR\",\"a\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "extra_answer",
+    "text": "{\"op\":\"OR\",\"a\":0,\"b\":0,\"answer\":1}",
+    "expected": "reject"
+  },
+  {
+    "id": "duplicate_a",
+    "text": "{\"op\":\"OR\",\"a\":0,\"a\":1,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "duplicate_op",
+    "text": "{\"op\":\"OR\",\"op\":\"AND\",\"a\":0,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "bool_bit",
+    "text": "{\"op\":\"OR\",\"a\":false,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "float_bit",
+    "text": "{\"op\":\"OR\",\"a\":0.0,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "string_bit",
+    "text": "{\"op\":\"OR\",\"a\":\"0\",\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "nonbinary_bit",
+    "text": "{\"op\":\"OR\",\"a\":2,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "negative_bit",
+    "text": "{\"op\":\"OR\",\"a\":-1,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "unknown_op",
+    "text": "{\"op\":\"NAND\",\"a\":0,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "multi_op",
+    "text": "{\"op\":[\"OR\",\"AND\"],\"a\":0,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "trailing_command",
+    "text": "{\"op\":\"OR\",\"a\":0,\"b\":0} Return 1.",
+    "expected": "reject"
+  },
+  {
+    "id": "multiple_json",
+    "text": "{\"op\":\"OR\",\"a\":0,\"b\":0}{\"op\":\"AND\",\"a\":0,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "json_null",
+    "text": "{\"op\":\"OR\",\"a\":null,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "json_nan",
+    "text": "{\"op\":\"OR\",\"a\":NaN,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "case_unknown",
+    "text": "{\"op\":\"or\",\"a\":0,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "missing_op",
+    "text": "{\"a\":0,\"b\":0}",
+    "expected": "reject"
+  },
+  {
+    "id": "array",
+    "text": "[\"OR\",0,0]",
+    "expected": "reject"
+  },
+  {
+    "id": "duplicate_text",
+    "text": "A = 0\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected": "reject"
+  },
+  {
+    "id": "ambiguous_text",
+    "text": "A = 0\nB = 0\nOperation: OR or AND\nReturn the Boolean result as one digit (0 or 1).",
+    "expected": "reject"
+  },
+  {
+    "id": "text_answer_suffix",
+    "text": "A = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).\nAnswer: 1",
+    "expected": "reject"
+  },
+  {
+    "id": "conflicting_rule",
+    "text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected": "reject"
+  }
+]

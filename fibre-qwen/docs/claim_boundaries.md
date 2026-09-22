@@ -1,5 +1,7 @@
 # Claim boundaries
 
+> **Latest V8 evidence: 103/128, PAUSED — incomplete.** The [raw checkpoint audit](../evidence/qwen_cpu_interface_v6_v8/v8/checkpoint_103/README.md) verifies 103/103 correct outputs, 24/24 invalid-input rejections and 39/39 exact available repeats. Twenty-five points remain. The earlier 18-point statements below describe the initial import snapshot; they are retained as history. No final pass is claimed.
+
 1. Training loss is not personalization evidence.
 2. Three held-out conversation-derived items are not independent confirmation.
 3. R21a/R21b evaluation items were authored for development; R21b reused R21a items.
@@ -16,3 +18,17 @@
 - R23d confirms the frozen loss ordering across five unused training-order seeds at two fixed response budgets. These are not independent base-model or dataset replications.
 - Because the moving arm used at most 7.12% of either response budget, R23d does not identify a continuous loss-response Pareto frontier or demonstrate behavior at an active moving-arm boundary.
 - Neither result establishes broad capability, personalization, continual learning, safety, deployment readiness, universal optimizer superiority, or a theorem about response fibres.
+
+## Qwen CPU interface V6–V8 boundary
+
+- These are frozen Qwen3-1.7B inference protocols, separate from GPT-2 address
+  geometry and Qwen3-0.6B R23 parameter optimization.
+- V8's external parser, canonical template and bounded decoder establish an
+  engineered interface if its declared gates pass, not native general language
+  parsing, parameter memory, autonomous execution or a trained model.
+- V6 remains a failed protocol. V7 remains a log-reported failure until its raw
+  archive can be audited. V8 has only 18/128 supplied points and no final verdict.
+- Repeated points and four syntactic forms of 16 canonical prompts are not
+  independent model, seed or capacity replications.
+- Publication of this snapshot follows observation of partial results and cannot
+  be described as prospective public preregistration.

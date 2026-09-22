@@ -1,5 +1,7 @@
 # Provenance and methodological history
 
+> **Latest V8 evidence: 103/128, PAUSED — incomplete.** The [raw checkpoint audit](../fibre-qwen/evidence/qwen_cpu_interface_v6_v8/v8/checkpoint_103/README.md) verifies 103/103 correct outputs, 24/24 invalid-input rejections and 39/39 exact available repeats. Twenty-five points remain. The earlier 18-point statements below describe the initial import snapshot; they are retained as history. No final pass is claimed.
+
 This archive is assembled from frozen executable packages and their original
 result ZIPs. Extracted result directories are convenience renderings; the raw
 ZIPs remain the authoritative byte-preserved outputs.
@@ -740,3 +742,23 @@ during import. The manuscript's Data and Code section audits repository commit
 `c243b0da8b8a05a2ebaffa6d310f8ca33b0416d7`; later repository evidence,
 including unified v2.4.1-r1 and v2.4.3, remains repository evidence outside
 this PDF snapshot.
+
+## Qwen CPU interface V6–V8 development import
+
+The import adds the byte-preserved V8 launcher, source ZIP and manifest-listed
+source under `fibre-qwen/protocols/qwen_compiler_cpu_v8/`. The source ZIP SHA-256 is
+`2cadfe7200470e85200aed1195e400cbbe600a193167fd761238f70143797470`.
+
+`fibre-qwen/evidence/qwen_cpu_interface_v6_v8/` preserves the original complete V6
+results ZIP and session output, a complete V7 text log, and a partial V8 text log.
+V6's original failed verdict is unchanged; V7 is log-reported failure with no raw
+archive supplied; V8 has 18/128 observed checkpoints and no final result.
+`STATUS.json` is derived, and the local verifier documents exactly what can be
+rechecked without model weights. This is retrospective archival, not prospective
+public preregistration or a new confirmed scientific claim.
+
+The dedicated `MANIFEST.sha256` indexes imported payloads. The historical
+`fibre-qwen/MANIFEST.sha256` retains its original development-import semantics and
+is not rewritten. The repository-level `provenance/SHA256SUMS` covers all files
+added or modified by this import except itself. No model weights, adapters or
+credentials are included.

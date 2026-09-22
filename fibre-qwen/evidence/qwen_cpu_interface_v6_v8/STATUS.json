@@ -1,0 +1,49 @@
+{
+  "scope": "retrospective_development_archive",
+  "model_family": "Qwen3-1.7B",
+  "v6": {
+    "status": "FAILED_ORIGINAL_GATES",
+    "evidence": "raw_results_zip",
+    "completed": 64,
+    "expected": 64,
+    "overall_pass": false,
+    "payload_hashes_verified": 86,
+    "selected_rule_original_summary": {
+      "primary_correct": 16,
+      "strict_free_correct": 11,
+      "bounded_correct": 16,
+      "constraint_audit_pass": false,
+      "decision": "REPLAY_ENVIRONMENT_OR_CONSTRAINT_MISMATCH"
+    }
+  },
+  "v7": {
+    "status": "FAILED_REPORTED_LOG_ONLY",
+    "evidence": "session_log_only",
+    "completed_reported": 96,
+    "overall_pass_reported": false,
+    "raw_results_audited": false,
+    "visible_first_pass_bounded_correct": {
+      "historical": 16,
+      "fresh_a": 15,
+      "fresh_b": 16
+    },
+    "visible_first_pass_errors": [
+      "fresh_a-00-OR"
+    ],
+    "repeated_visible_fields_equal": true,
+    "score_and_full_numerical_audit": null
+  },
+  "v8": {
+    "status": "PARTIAL_LOG_NO_FINAL_VERDICT",
+    "evidence": "session_log_only",
+    "observed_points": 18,
+    "expected_points": 128,
+    "visible_bounded_correct": 18,
+    "overall_pass": null,
+    "raw_results_audited": false,
+    "live_runtime_status": "unknown"
+  },
+  "pretrained_model_rerun_by_archive_verifier": false,
+  "training_or_parameter_memory_write": false,
+  "deployment_ready": false
+}

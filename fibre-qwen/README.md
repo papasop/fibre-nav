@@ -1,5 +1,7 @@
 # Fibre-Qwen
 
+> **Latest V8 evidence: 103/128, PAUSED — incomplete.** The [raw checkpoint audit](evidence/qwen_cpu_interface_v6_v8/v8/checkpoint_103/README.md) verifies 103/103 correct outputs, 24/24 invalid-input rejections and 39/39 exact available repeats. Twenty-five points remain. The earlier 18-point statements below describe the initial import snapshot; they are retained as history. No final pass is claimed.
+
 Auditable development of a research-oriented Qwen assistant using conversation-derived preference bootstraps, frozen evaluation, and targeted rule retrieval.
 
 **Status: v0.0.1-development. This repository does not contain a validated personal model.**
@@ -41,3 +43,12 @@ Machine-readable status: `R23D_MOVING_RESPONSE_KERNEL_CONFIRMED`.
 [Continuity foundation A0](agent/README.md) adds a CPU-only, model-independent
 CLI for versioned evidence memory and project task continuation. It is external
 SQLite storage, not neural memory or an autonomous tool-executing agent.
+
+## Separate Qwen3-1.7B CPU interface series
+
+See [V8 source and launcher](protocols/qwen_compiler_cpu_v8/README.md) and the
+[V6–V8 evidence snapshot](evidence/qwen_cpu_interface_v6_v8/README.md).
+V6's complete result failed its original gates; V7's complete log reports failure;
+V8 is partial at 18/128 observed points. This series uses frozen weights and no
+adapter or parameter-memory writes. It is distinct from R23's Qwen3-0.6B optimizer
+experiments and does not constitute a personal-model release.

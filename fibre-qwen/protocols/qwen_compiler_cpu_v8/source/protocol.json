@@ -1,0 +1,50 @@
+{
+  "protocol_id": "QWEN_COMPILER_CPU_V8",
+  "config": {
+    "id": "QWEN_COMPILER_CPU_V8",
+    "model": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "device": "cpu",
+    "dtype": "float32",
+    "threads": 4,
+    "attention": "sdpa",
+    "seed": 84917,
+    "primary_interface": "declared_grammar_compiled_interface",
+    "blocks": [
+      "canonical",
+      "sentence",
+      "record",
+      "json"
+    ],
+    "cases_per_block": 16,
+    "checkpoints": 128,
+    "free_generations": 0,
+    "constrained_generations": 128,
+    "total_generations": 128,
+    "candidate_forward_calls": 384,
+    "numerical_diagnostic_forward_calls": 256,
+    "negative_parser_cases": 24,
+    "unique_model_prompts": 16,
+    "tie_tolerance_nats": 1e-05,
+    "replay_score_atol": 1e-05,
+    "aligned_projection_logit_atol": 1e-05,
+    "legacy_cross_path_gap_atol": 1e-05,
+    "full_repetition_per_block": 16,
+    "constraint_policy": {
+      "decoder": "bit_then_eos",
+      "allowed_token_ids": [
+        15,
+        16
+      ],
+      "forced_eos_token_id": 151645,
+      "max_output_tokens": 2
+    },
+    "training_steps": 0,
+    "memory_write_operations": 0,
+    "adapter_count": 0,
+    "scope": "External deterministic parsing of3 declared textual forms and JSON into(op,a,b), canonical compilation to exact V6 prompts, then frozen Qwen constrained generation. All64 accepted inputs independently evaluated and repeated;16 unique model prompts.24 invalid inputs must be rejected. No answer computation in parser/compiler, no per-case repair or result cache. This is software normalization, not native language generalization or parameter-memory computation. V7 raw archive is not audited; only its failure log motivated this test. No model updates, free-generation evaluation or deployment claim."
+  },
+  "query_count": 64,
+  "external_preregistration": false,
+  "v7_raw_results_audited": false
+}

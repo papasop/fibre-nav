@@ -1,5 +1,7 @@
 # Evidence ledger
 
+> **Latest V8 evidence: 103/128, PAUSED — incomplete.** The [raw checkpoint audit](../evidence/qwen_cpu_interface_v6_v8/v8/checkpoint_103/README.md) verifies 103/103 correct outputs, 24/24 invalid-input rejections and 39/39 exact available repeats. Twenty-five points remain. The earlier 18-point statements below describe the initial import snapshot; they are retained as history. No final pass is claimed.
+
 | Stage | Question | Result | Status |
 |---|---|---|---|
 | R20c | Can 14 conversation-derived preferences train a LoRA? | Loss 6.2768 → 3.3214 | Training completed; nonconfirmatory |
@@ -16,3 +18,13 @@
 | R21d-r1 | Why did R21d score every arm 0/20? | Frozen hashes reproduced; lexical evaluator saturation and four router-coverage misses per routed model localized; 40 blinded pairs prepared | Measurement failure localized; human review pending |
 | R23c-r2 | Does the Qwen compute core numerically execute current `DR(theta)`, kernel projection and finite response budgets above the precision floor? | All 9 execution gates passed; one-seed moving loss below both controls at both calibrated budgets | Precision audit complete; developmental nomination only |
 | R23d | Does the frozen R23c-r2 ordering reproduce on five unused training-order seeds? | 5/5 support at both budgets; median moving advantages 0.07148/0.03455 vs source and 0.12631/0.12380 vs AdamW | **Frozen confirmation passed within the declared restricted scope** |
+
+## Frozen Qwen3-1.7B CPU interface series
+
+| Stage | Question | Result | Status |
+|---|---|---|---|
+| V6 operation rule | Does a selected operation rule satisfy original score, free-output and numerical gates? | 64/64; selected primary 16/16, bounded 16/16, strict free 11/16; numerical gate fails | Failed; original raw ZIP preserved |
+| V7 expression confirmation | Does the bounded interface survive two new expression groups? | 96/96 reported; fresh_a bounded 15/16 | Failed per complete log; raw results unavailable |
+| V8 compiled interface | Can declared syntax compile to frozen prompts with bounded inference? | 18/128 observed; canonical 16/16 and first two sentence outputs correct | In progress in supplied snapshot; no final pass |
+
+See [payloads, scope and verification](../evidence/qwen_cpu_interface_v6_v8/README.md).

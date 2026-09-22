@@ -1,5 +1,7 @@
 # Moving Fibre Intelligence
 
+> **Latest V8 evidence: 103/128, PAUSED — incomplete.** The [raw checkpoint audit](fibre-qwen/evidence/qwen_cpu_interface_v6_v8/v8/checkpoint_103/README.md) verifies 103/103 correct outputs, 24/24 invalid-input rejections and 39/39 exact available repeats. Twenty-five points remain. The earlier 18-point statements below describe the initial import snapshot; they are retained as history. No final pass is claimed.
+
 ## From addressable memory to programmable operations in neural parameter space
 
 Moving Fibre Intelligence (MFI) asks whether a neural network can support an
@@ -186,3 +188,11 @@ The historical response-fibre manuscript snapshot is
 Author: **Y. Y. N. Li**. Cite the exact repository commit and evidence protocol
 used. The repository license and the licenses of upstream models and datasets
 apply independently.
+
+## Qwen CPU interface development snapshot
+
+The [V8 executable archive](fibre-qwen/protocols/qwen_compiler_cpu_v8/README.md)
+and [V6–V8 evidence record](fibre-qwen/evidence/qwen_cpu_interface_v6_v8/README.md)
+preserve a separate frozen Qwen3-1.7B inference series: V6 failed, V7 reports a
+failure in its log, and V8 has only 18/128 observed points. These externally
+compiled interface tests do not change the parameter-geometry evidence above.

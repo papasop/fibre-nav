@@ -1,0 +1,142 @@
+Loading pinned Qwen3-1.7B: CPU float32; no Adapter or training.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:12<00:12, 12.32s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:14<00:00,  6.17s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:14<00:00,  7.09s/it]
+The following generation flags are not valid and may be ignored: ['top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+QWEN_OPERATION_V6_POINT {"n": 1, "id": "historical-00-OR", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 2, "id": "historical-00-AND", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 3, "id": "historical-00-XOR", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 4, "id": "historical-00-EQUAL", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 5, "id": "historical-01-OR", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 6, "id": "historical-01-AND", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 7, "id": "historical-01-XOR", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 8, "id": "historical-01-EQUAL", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 9, "id": "historical-10-OR", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 10, "id": "historical-10-AND", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 11, "id": "historical-10-XOR", "raw": "1\n\nExplanation:  \n- A = 1  \n- B = 0  \n- XOR operation: 1 XOR 0 = 1  \n- Result: 1 (as a single digit)"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 12, "id": "historical-10-EQUAL", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 13, "id": "historical-11-OR", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 14, "id": "historical-11-AND", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 15, "id": "historical-11-XOR", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 16, "id": "historical-11-EQUAL", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+STAGE_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_016_results.zip
+QWEN_OPERATION_V6_POINT {"n": 17, "id": "selected_rule-00-OR", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 18, "id": "selected_rule-00-AND", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 19, "id": "selected_rule-00-XOR", "raw": "0\n\nExplanation:  \nSince both inputs `A` and `B` are 0, they are the same. According to the XOR operation, the result is 0."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 20, "id": "selected_rule-00-EQUAL", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 21, "id": "selected_rule-01-OR", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 22, "id": "selected_rule-01-AND", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 23, "id": "selected_rule-01-XOR", "raw": "1\n\nExplanation:  \n- A = 0  \n- B = 1  \n- XOR of 0 and 1 is 1 (since the bits are different).  \n- So the result is **1**."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 24, "id": "selected_rule-01-EQUAL", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 25, "id": "selected_rule-10-OR", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 26, "id": "selected_rule-10-AND", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 27, "id": "selected_rule-10-XOR", "raw": "1\n\nExplanation:  \n- A = 1  \n- B = 0  \n- XOR of 1 and 0 is 1 (since the bits are different).  \n- So the result is **1**."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 28, "id": "selected_rule-10-EQUAL", "raw": "0\n\nExplanation:  \nGiven:\n- A = 1  \n- B = 0  \n\nThe operation `A == B` checks if the two bits are equal. Since 1 ≠ 0, the result is **0**."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 29, "id": "selected_rule-11-OR", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 30, "id": "selected_rule-11-AND", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 31, "id": "selected_rule-11-XOR", "raw": "0\n\nExplanation:  \nSince both inputs A and B are 1, they are the same. According to the XOR operation, the output is 0 when the inputs are the same."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 32, "id": "selected_rule-11-EQUAL", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+STAGE_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_032_results.zip
+QWEN_OPERATION_V6_POINT {"n": 33, "id": "historical-00-OR-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 34, "id": "historical-00-AND-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 35, "id": "historical-00-XOR-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 36, "id": "historical-00-EQUAL-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 37, "id": "historical-01-OR-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 38, "id": "historical-01-AND-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 39, "id": "historical-01-XOR-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 40, "id": "historical-01-EQUAL-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 41, "id": "historical-10-OR-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 42, "id": "historical-10-AND-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 43, "id": "historical-10-XOR-repeat", "raw": "1\n\nExplanation:  \n- A = 1  \n- B = 0  \n- XOR operation: 1 XOR 0 = 1  \n- Result: 1 (as a single digit)"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 44, "id": "historical-10-EQUAL-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 45, "id": "historical-11-OR-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 46, "id": "historical-11-AND-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 47, "id": "historical-11-XOR-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 48, "id": "historical-11-EQUAL-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+STAGE_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_048_results.zip
+QWEN_OPERATION_V6_POINT {"n": 49, "id": "selected_rule-00-OR-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 50, "id": "selected_rule-00-AND-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 51, "id": "selected_rule-00-XOR-repeat", "raw": "0\n\nExplanation:  \nSince both inputs `A` and `B` are 0, they are the same. According to the XOR operation, the result is 0."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 52, "id": "selected_rule-00-EQUAL-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 53, "id": "selected_rule-01-OR-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 54, "id": "selected_rule-01-AND-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 55, "id": "selected_rule-01-XOR-repeat", "raw": "1\n\nExplanation:  \n- A = 0  \n- B = 1  \n- XOR of 0 and 1 is 1 (since the bits are different).  \n- So the result is **1**."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 56, "id": "selected_rule-01-EQUAL-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 57, "id": "selected_rule-10-OR-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 58, "id": "selected_rule-10-AND-repeat", "raw": "0"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 59, "id": "selected_rule-10-XOR-repeat", "raw": "1\n\nExplanation:  \n- A = 1  \n- B = 0  \n- XOR of 1 and 0 is 1 (since the bits are different).  \n- So the result is **1**."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 60, "id": "selected_rule-10-EQUAL-repeat", "raw": "0\n\nExplanation:  \nGiven:\n- A = 1  \n- B = 0  \n\nThe operation `A == B` checks if the two bits are equal. Since 1 ≠ 0, the result is **0**."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 61, "id": "selected_rule-11-OR-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 62, "id": "selected_rule-11-AND-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 63, "id": "selected_rule-11-XOR-repeat", "raw": "0\n\nExplanation:  \nSince both inputs A and B are 1, they are the same. According to the XOR operation, the output is 0 when the inputs are the same."}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+QWEN_OPERATION_V6_POINT {"n": 64, "id": "selected_rule-11-EQUAL-repeat", "raw": "1"}
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+STAGE_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_064_results.zip
+RESULT_ARCHIVE=/content/qwen_operation_cpu_v6/run/cpu_operation_rule_results.zip
+SUMMARY {"complete": true, "completed": 64, "decision": "REPLAY_ENVIRONMENT_OR_CONSTRAINT_MISMATCH", "overall_pass": false, "formal_l6_pass": false}

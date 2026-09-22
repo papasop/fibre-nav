@@ -1,0 +1,228 @@
+Loading pinned Qwen3-1.7B: CPU float32; no Adapter or training.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+Fetching 2 files:  50%|█████     | 1/2 [00:07<00:07,  7.39s/it]
+Fetching 2 files: 100%|██████████| 2/2 [17:23<00:00, 521.63s/it]
+Fetching 2 files: 100%|██████████| 2/2 [17:23<00:00, 521.63s/it]
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:14<00:14, 14.87s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  8.36s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  9.33s/it]
+The following generation flags are not valid and may be ignored: ['top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+QWEN_COMPILER_V8_POINT {"n": 1, "id": "canonical-00-OR", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 1}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 2, "id": "canonical-00-AND", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 2}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 3, "id": "canonical-00-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 3}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 4, "id": "canonical-00-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 0}, "bounded": "1", "compiler_matches": 4}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 5, "id": "canonical-01-OR", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 5}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 6, "id": "canonical-01-AND", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 6}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 7, "id": "canonical-01-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 7}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 8, "id": "canonical-01-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 8}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 9, "id": "canonical-10-OR", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 9}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 10, "id": "canonical-10-AND", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 10}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 11, "id": "canonical-10-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 11}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 12, "id": "canonical-10-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 12}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 13, "id": "canonical-11-OR", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 13}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 14, "id": "canonical-11-AND", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 14}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 15, "id": "canonical-11-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 1}, "bounded": "0", "compiler_matches": 15}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 16, "id": "canonical-11-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 16}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+STAGE_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_016_results.zip
+QWEN_COMPILER_V8_POINT {"n": 17, "id": "sentence-00-OR", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 17}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 18, "id": "sentence-00-AND", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 18}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 19, "id": "sentence-00-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 19}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 20, "id": "sentence-00-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 0}, "bounded": "1", "compiler_matches": 20}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 21, "id": "sentence-01-OR", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 21}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 22, "id": "sentence-01-AND", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 22}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 23, "id": "sentence-01-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 23}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 24, "id": "sentence-01-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 24}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 25, "id": "sentence-10-OR", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 25}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 26, "id": "sentence-10-AND", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 26}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 27, "id": "sentence-10-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 27}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 28, "id": "sentence-10-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 28}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 29, "id": "sentence-11-OR", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 29}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 30, "id": "sentence-11-AND", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 30}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 31, "id": "sentence-11-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 1}, "bounded": "0", "compiler_matches": 31}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 32, "id": "sentence-11-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 32}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+STAGE_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_032_results.zip
+QWEN_COMPILER_V8_POINT {"n": 33, "id": "record-00-OR", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 33}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 34, "id": "record-00-AND", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 34}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 35, "id": "record-00-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 35}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 36, "id": "record-00-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 0}, "bounded": "1", "compiler_matches": 36}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 37, "id": "record-01-OR", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 37}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 38, "id": "record-01-AND", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 38}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 39, "id": "record-01-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 39}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 40, "id": "record-01-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 40}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 41, "id": "record-10-OR", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 41}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 42, "id": "record-10-AND", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 42}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 43, "id": "record-10-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 43}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 44, "id": "record-10-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 44}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 45, "id": "record-11-OR", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 45}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 46, "id": "record-11-AND", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 46}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 47, "id": "record-11-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 1}, "bounded": "0", "compiler_matches": 47}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 48, "id": "record-11-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 48}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+STAGE_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_048_results.zip
+QWEN_COMPILER_V8_POINT {"n": 49, "id": "json-00-OR", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 49}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 50, "id": "json-00-AND", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 50}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 51, "id": "json-00-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 51}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 52, "id": "json-00-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 0}, "bounded": "1", "compiler_matches": 52}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 53, "id": "json-01-OR", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 53}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 54, "id": "json-01-AND", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 54}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 55, "id": "json-01-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 55}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 56, "id": "json-01-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 56}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 57, "id": "json-10-OR", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 57}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 58, "id": "json-10-AND", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 58}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 59, "id": "json-10-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 59}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 60, "id": "json-10-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 60}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 61, "id": "json-11-OR", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 61}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 62, "id": "json-11-AND", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 62}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 63, "id": "json-11-XOR", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 1}, "bounded": "0", "compiler_matches": 63}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 64, "id": "json-11-EQUAL", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 64}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+STAGE_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_064_results.zip
+QWEN_COMPILER_V8_POINT {"n": 65, "id": "canonical-00-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 65}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 66, "id": "canonical-00-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 66}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 67, "id": "canonical-00-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 67}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 68, "id": "canonical-00-EQUAL-repeat", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 0}, "bounded": "1", "compiler_matches": 68}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 69, "id": "canonical-01-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 69}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 70, "id": "canonical-01-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 70}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 71, "id": "canonical-01-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 71}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 72, "id": "canonical-01-EQUAL-repeat", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 72}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 73, "id": "canonical-10-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 73}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 74, "id": "canonical-10-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 74}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 75, "id": "canonical-10-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 75}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 76, "id": "canonical-10-EQUAL-repeat", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 76}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 77, "id": "canonical-11-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 77}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 78, "id": "canonical-11-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 78}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 79, "id": "canonical-11-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 1}, "bounded": "0", "compiler_matches": 79}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 80, "id": "canonical-11-EQUAL-repeat", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 80}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+STAGE_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_080_results.zip
+QWEN_COMPILER_V8_POINT {"n": 81, "id": "sentence-00-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 81}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 82, "id": "sentence-00-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 82}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 83, "id": "sentence-00-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 83}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 84, "id": "sentence-00-EQUAL-repeat", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 0}, "bounded": "1", "compiler_matches": 84}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 85, "id": "sentence-01-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 85}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 86, "id": "sentence-01-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 86}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 87, "id": "sentence-01-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 87}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 88, "id": "sentence-01-EQUAL-repeat", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 88}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 89, "id": "sentence-10-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 89}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 90, "id": "sentence-10-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 90}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 91, "id": "sentence-10-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 0}, "bounded": "1", "compiler_matches": 91}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 92, "id": "sentence-10-EQUAL-repeat", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 0}, "bounded": "0", "compiler_matches": 92}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 93, "id": "sentence-11-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 93}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 94, "id": "sentence-11-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 94}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 95, "id": "sentence-11-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 1, "b": 1}, "bounded": "0", "compiler_matches": 95}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 96, "id": "sentence-11-EQUAL-repeat", "accepted": true, "parsed": {"op": "EQUAL", "a": 1, "b": 1}, "bounded": "1", "compiler_matches": 96}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+STAGE_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_096_results.zip
+QWEN_COMPILER_V8_POINT {"n": 97, "id": "record-00-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 97}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 98, "id": "record-00-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 98}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 99, "id": "record-00-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 0}, "bounded": "0", "compiler_matches": 99}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 100, "id": "record-00-EQUAL-repeat", "accepted": true, "parsed": {"op": "EQUAL", "a": 0, "b": 0}, "bounded": "1", "compiler_matches": 100}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 101, "id": "record-01-OR-repeat", "accepted": true, "parsed": {"op": "OR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 101}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 102, "id": "record-01-AND-repeat", "accepted": true, "parsed": {"op": "AND", "a": 0, "b": 1}, "bounded": "0", "compiler_matches": 102}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+QWEN_COMPILER_V8_POINT {"n": 103, "id": "record-01-XOR-repeat", "accepted": true, "parsed": {"op": "XOR", "a": 0, "b": 1}, "bounded": "1", "compiler_matches": 103}
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+PAUSED_RESUMABLE
+RESULT_ARCHIVE=/content/qwen_compiler_cpu_v8/run/cpu_compiled_interface_results.zip
+SUMMARY {"complete": false, "completed": 103, "decision": "PAUSED", "overall_pass": false, "formal_l6_pass": false}
