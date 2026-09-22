@@ -1,0 +1,82 @@
+{
+  "status": "PAUSED_INCOMPLETE",
+  "completed": 103,
+  "expected": 128,
+  "remaining": 25,
+  "original_overall_pass": false,
+  "original_decision": "PAUSED",
+  "all_original_summary_fields_reproduced": true,
+  "independent_primary_and_bounded_correct": 103,
+  "same_forward_masks_exact": 103,
+  "aligned_max_abs_logit_delta": 0.0,
+  "first_pass": {
+    "canonical": {
+      "primary_correct": 16,
+      "bounded_correct": 16,
+      "gate": true
+    },
+    "sentence": {
+      "primary_correct": 16,
+      "bounded_correct": 16,
+      "gate": true
+    },
+    "record": {
+      "primary_correct": 16,
+      "bounded_correct": 16,
+      "gate": true
+    },
+    "json": {
+      "primary_correct": 16,
+      "bounded_correct": 16,
+      "gate": true
+    }
+  },
+  "negative_inputs_rejected": 24,
+  "available_repeats": 39,
+  "repeats_all_score_output_numeric_fields_equal": 39,
+  "legacy_cross_path_failures": 6,
+  "environment_matches_v6": true,
+  "session_seconds": 5426.953809877999,
+  "stage_record_counts": {
+    "cpu_compiled_interface_016_results.zip": 16,
+    "cpu_compiled_interface_032_results.zip": 32,
+    "cpu_compiled_interface_048_results.zip": 48,
+    "cpu_compiled_interface_064_results.zip": 64,
+    "cpu_compiled_interface_080_results.zip": 80,
+    "cpu_compiled_interface_096_results.zip": 96,
+    "cpu_compiled_interface_results.zip": 103
+  },
+  "archive_hashes": {
+    "cpu_compiled_interface_016_results.zip": {
+      "sha256": "e779c4a4310bad416c56e546596558d12167f0aed0526a4ee3b981a30c705fa1",
+      "verified_payload_hashes": 42
+    },
+    "cpu_compiled_interface_032_results.zip": {
+      "sha256": "e09135788846a244d9e20f45a910656592a21023c820c8e33384699767e756d7",
+      "verified_payload_hashes": 58
+    },
+    "cpu_compiled_interface_048_results.zip": {
+      "sha256": "3980171df9d2f255b37131b9b624ac276bb1b486de4cf514bf154554d7c841f4",
+      "verified_payload_hashes": 74
+    },
+    "cpu_compiled_interface_064_results.zip": {
+      "sha256": "3b6a85b095ad7e20a836b6f97af3b054c948cd797b31aaa743c474e4f2f8b94a",
+      "verified_payload_hashes": 90
+    },
+    "cpu_compiled_interface_080_results.zip": {
+      "sha256": "ae7246fec256b957b566e1a5f989864842054e3b28843972bddad09b874e7375",
+      "verified_payload_hashes": 106
+    },
+    "cpu_compiled_interface_096_results.zip": {
+      "sha256": "58604abb314e170051db277870cfce0abcc87a1b02f8100be5b5b9cfecba55ae",
+      "verified_payload_hashes": 122
+    },
+    "cpu_compiled_interface_results.zip": {
+      "sha256": "ecd4356cfcbf7260197db5ff8abca94030a2d479349393675fb0aab967975a62",
+      "verified_payload_hashes": 129
+    }
+  },
+  "pretrained_model_rerun": false,
+  "next_run_id": "record-01-EQUAL-repeat",
+  "scope": "Frozen external compiler interface only; no parameter-memory or native generalization claim"
+}

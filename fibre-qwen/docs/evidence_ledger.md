@@ -1,5 +1,7 @@
 # Evidence ledger
 
+> **Latest V8 evidence: 103/128, PAUSED — incomplete.** The [raw checkpoint audit](../evidence/qwen_cpu_interface_v6_v8/v8/checkpoint_103/README.md) verifies 103/103 correct outputs, 24/24 invalid-input rejections and 39/39 exact available repeats. Twenty-five points remain. The earlier 18-point statements below describe the initial import snapshot; they are retained as history. No final pass is claimed.
+
 | Stage | Question | Result | Status |
 |---|---|---|---|
 | R20c | Can 14 conversation-derived preferences train a LoRA? | Loss 6.2768 → 3.3214 | Training completed; nonconfirmatory |
