@@ -1,0 +1,898 @@
+[
+  {
+    "id": "canonical-00-OR",
+    "block": "canonical",
+    "pair": "00",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-00-AND",
+    "block": "canonical",
+    "pair": "00",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-00-XOR",
+    "block": "canonical",
+    "pair": "00",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-00-EQUAL",
+    "block": "canonical",
+    "pair": "00",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-01-OR",
+    "block": "canonical",
+    "pair": "01",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-01-AND",
+    "block": "canonical",
+    "pair": "01",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-01-XOR",
+    "block": "canonical",
+    "pair": "01",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-01-EQUAL",
+    "block": "canonical",
+    "pair": "01",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-10-OR",
+    "block": "canonical",
+    "pair": "10",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-10-AND",
+    "block": "canonical",
+    "pair": "10",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-10-XOR",
+    "block": "canonical",
+    "pair": "10",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-10-EQUAL",
+    "block": "canonical",
+    "pair": "10",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-11-OR",
+    "block": "canonical",
+    "pair": "11",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-11-AND",
+    "block": "canonical",
+    "pair": "11",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-11-XOR",
+    "block": "canonical",
+    "pair": "11",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "canonical-11-EQUAL",
+    "block": "canonical",
+    "pair": "11",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-00-OR",
+    "block": "sentence",
+    "pair": "00",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nThe input bits are A: 0; B: 0.\nApply OR to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-00-AND",
+    "block": "sentence",
+    "pair": "00",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nThe input bits are A: 0; B: 0.\nApply AND to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-00-XOR",
+    "block": "sentence",
+    "pair": "00",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nThe input bits are A: 0; B: 0.\nApply XOR to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-00-EQUAL",
+    "block": "sentence",
+    "pair": "00",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nThe input bits are A: 0; B: 0.\nApply A == B to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-01-OR",
+    "block": "sentence",
+    "pair": "01",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nThe input bits are A: 0; B: 1.\nApply OR to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-01-AND",
+    "block": "sentence",
+    "pair": "01",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nThe input bits are A: 0; B: 1.\nApply AND to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-01-XOR",
+    "block": "sentence",
+    "pair": "01",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nThe input bits are A: 0; B: 1.\nApply XOR to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-01-EQUAL",
+    "block": "sentence",
+    "pair": "01",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nThe input bits are A: 0; B: 1.\nApply A == B to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-10-OR",
+    "block": "sentence",
+    "pair": "10",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nThe input bits are A: 1; B: 0.\nApply OR to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-10-AND",
+    "block": "sentence",
+    "pair": "10",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nThe input bits are A: 1; B: 0.\nApply AND to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-10-XOR",
+    "block": "sentence",
+    "pair": "10",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nThe input bits are A: 1; B: 0.\nApply XOR to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-10-EQUAL",
+    "block": "sentence",
+    "pair": "10",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nThe input bits are A: 1; B: 0.\nApply A == B to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-11-OR",
+    "block": "sentence",
+    "pair": "11",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nThe input bits are A: 1; B: 1.\nApply OR to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-11-AND",
+    "block": "sentence",
+    "pair": "11",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nThe input bits are A: 1; B: 1.\nApply AND to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-11-XOR",
+    "block": "sentence",
+    "pair": "11",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nThe input bits are A: 1; B: 1.\nApply XOR to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "sentence-11-EQUAL",
+    "block": "sentence",
+    "pair": "11",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nThe input bits are A: 1; B: 1.\nApply A == B to these two bits.\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-00-OR",
+    "block": "record",
+    "pair": "00",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nEvaluate OR on this record:\nB = 0\nA = 0\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-00-AND",
+    "block": "record",
+    "pair": "00",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nEvaluate AND on this record:\nB = 0\nA = 0\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-00-XOR",
+    "block": "record",
+    "pair": "00",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nEvaluate XOR on this record:\nB = 0\nA = 0\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-00-EQUAL",
+    "block": "record",
+    "pair": "00",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nEvaluate A == B on this record:\nB = 0\nA = 0\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-01-OR",
+    "block": "record",
+    "pair": "01",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nEvaluate OR on this record:\nB = 1\nA = 0\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-01-AND",
+    "block": "record",
+    "pair": "01",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nEvaluate AND on this record:\nB = 1\nA = 0\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-01-XOR",
+    "block": "record",
+    "pair": "01",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nEvaluate XOR on this record:\nB = 1\nA = 0\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-01-EQUAL",
+    "block": "record",
+    "pair": "01",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nEvaluate A == B on this record:\nB = 1\nA = 0\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-10-OR",
+    "block": "record",
+    "pair": "10",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nEvaluate OR on this record:\nB = 0\nA = 1\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-10-AND",
+    "block": "record",
+    "pair": "10",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nEvaluate AND on this record:\nB = 0\nA = 1\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-10-XOR",
+    "block": "record",
+    "pair": "10",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nEvaluate XOR on this record:\nB = 0\nA = 1\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-10-EQUAL",
+    "block": "record",
+    "pair": "10",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nEvaluate A == B on this record:\nB = 0\nA = 1\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-11-OR",
+    "block": "record",
+    "pair": "11",
+    "task": "OR",
+    "source_text": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nEvaluate OR on this record:\nB = 1\nA = 1\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-11-AND",
+    "block": "record",
+    "pair": "11",
+    "task": "AND",
+    "source_text": "For AND, output 1 when both input bits are 1, otherwise output 0.\nEvaluate AND on this record:\nB = 1\nA = 1\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-11-XOR",
+    "block": "record",
+    "pair": "11",
+    "task": "XOR",
+    "source_text": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nEvaluate XOR on this record:\nB = 1\nA = 1\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "record-11-EQUAL",
+    "block": "record",
+    "pair": "11",
+    "task": "EQUAL",
+    "source_text": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nEvaluate A == B on this record:\nB = 1\nA = 1\nReturn the Boolean result as one digit (0 or 1).",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-00-OR",
+    "block": "json",
+    "pair": "00",
+    "task": "OR",
+    "source_text": "{\"b\":0,\"op\":\"OR\",\"a\":0}",
+    "expected_fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-00-AND",
+    "block": "json",
+    "pair": "00",
+    "task": "AND",
+    "source_text": "{\"b\":0,\"op\":\"AND\",\"a\":0}",
+    "expected_fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-00-XOR",
+    "block": "json",
+    "pair": "00",
+    "task": "XOR",
+    "source_text": "{\"b\":0,\"op\":\"XOR\",\"a\":0}",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-00-EQUAL",
+    "block": "json",
+    "pair": "00",
+    "task": "EQUAL",
+    "source_text": "{\"b\":0,\"op\":\"EQUAL\",\"a\":0}",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 0
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-01-OR",
+    "block": "json",
+    "pair": "01",
+    "task": "OR",
+    "source_text": "{\"b\":1,\"op\":\"OR\",\"a\":0}",
+    "expected_fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-01-AND",
+    "block": "json",
+    "pair": "01",
+    "task": "AND",
+    "source_text": "{\"b\":1,\"op\":\"AND\",\"a\":0}",
+    "expected_fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-01-XOR",
+    "block": "json",
+    "pair": "01",
+    "task": "XOR",
+    "source_text": "{\"b\":1,\"op\":\"XOR\",\"a\":0}",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-01-EQUAL",
+    "block": "json",
+    "pair": "01",
+    "task": "EQUAL",
+    "source_text": "{\"b\":1,\"op\":\"EQUAL\",\"a\":0}",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 1
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-10-OR",
+    "block": "json",
+    "pair": "10",
+    "task": "OR",
+    "source_text": "{\"b\":0,\"op\":\"OR\",\"a\":1}",
+    "expected_fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-10-AND",
+    "block": "json",
+    "pair": "10",
+    "task": "AND",
+    "source_text": "{\"b\":0,\"op\":\"AND\",\"a\":1}",
+    "expected_fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-10-XOR",
+    "block": "json",
+    "pair": "10",
+    "task": "XOR",
+    "source_text": "{\"b\":0,\"op\":\"XOR\",\"a\":1}",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-10-EQUAL",
+    "block": "json",
+    "pair": "10",
+    "task": "EQUAL",
+    "source_text": "{\"b\":0,\"op\":\"EQUAL\",\"a\":1}",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 0
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-11-OR",
+    "block": "json",
+    "pair": "11",
+    "task": "OR",
+    "source_text": "{\"b\":1,\"op\":\"OR\",\"a\":1}",
+    "expected_fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-11-AND",
+    "block": "json",
+    "pair": "11",
+    "task": "AND",
+    "source_text": "{\"b\":1,\"op\":\"AND\",\"a\":1}",
+    "expected_fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-11-XOR",
+    "block": "json",
+    "pair": "11",
+    "task": "XOR",
+    "source_text": "{\"b\":1,\"op\":\"XOR\",\"a\":1}",
+    "expected_fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  },
+  {
+    "id": "json-11-EQUAL",
+    "block": "json",
+    "pair": "11",
+    "task": "EQUAL",
+    "source_text": "{\"b\":1,\"op\":\"EQUAL\",\"a\":1}",
+    "expected_fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 1
+    },
+    "compiled_content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+    "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+  }
+]

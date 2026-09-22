@@ -186,3 +186,11 @@ The historical response-fibre manuscript snapshot is
 Author: **Y. Y. N. Li**. Cite the exact repository commit and evidence protocol
 used. The repository license and the licenses of upstream models and datasets
 apply independently.
+
+## Qwen CPU interface development snapshot
+
+The [V8 executable archive](fibre-qwen/protocols/qwen_compiler_cpu_v8/README.md)
+and [V6–V8 evidence record](fibre-qwen/evidence/qwen_cpu_interface_v6_v8/README.md)
+preserve a separate frozen Qwen3-1.7B inference series: V6 failed, V7 reports a
+failure in its log, and V8 has only 18/128 observed points. These externally
+compiled interface tests do not change the parameter-geometry evidence above.

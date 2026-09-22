@@ -41,3 +41,12 @@ Machine-readable status: `R23D_MOVING_RESPONSE_KERNEL_CONFIRMED`.
 [Continuity foundation A0](agent/README.md) adds a CPU-only, model-independent
 CLI for versioned evidence memory and project task continuation. It is external
 SQLite storage, not neural memory or an autonomous tool-executing agent.
+
+## Separate Qwen3-1.7B CPU interface series
+
+See [V8 source and launcher](protocols/qwen_compiler_cpu_v8/README.md) and the
+[V6–V8 evidence snapshot](evidence/qwen_cpu_interface_v6_v8/README.md).
+V6's complete result failed its original gates; V7's complete log reports failure;
+V8 is partial at 18/128 observed points. This series uses frozen weights and no
+adapter or parameter-memory writes. It is distinct from R23's Qwen3-0.6B optimizer
+experiments and does not constitute a personal-model release.
