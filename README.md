@@ -196,3 +196,12 @@ and [V6–V8 evidence record](fibre-qwen/evidence/qwen_cpu_interface_v6_v8/READM
 preserve a separate frozen Qwen3-1.7B inference series: V6 failed, V7 reports a
 failure in its log, and V8 has only 18/128 observed points. These externally
 compiled interface tests do not change the parameter-geometry evidence above.
+
+## Qwen V9 external two-step interface
+
+The [V9 audited result](fibre-qwen/evidence/qwen_cpu_chain_v9/README.md) passes its
+frozen CPU gates: 112/112 call outputs and 32/32 two-step program endpoints,
+with 24 expected flip effects and eight expected invariances. The
+[original executable protocol](fibre-qwen/protocols/qwen_chain_cpu_v9/README.md)
+is preserved. This is externally wired frozen Qwen3-1.7B inference, not a
+parameter-memory or native-planning result; V8's final audit remains pending.

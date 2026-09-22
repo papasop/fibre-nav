@@ -762,3 +762,23 @@ The dedicated `MANIFEST.sha256` indexes imported payloads. The historical
 is not rewritten. The repository-level `provenance/SHA256SUMS` covers all files
 added or modified by this import except itself. No model weights, adapters or
 credentials are included.
+
+## Qwen CPU V9 external two-step interface import
+
+The V9 import preserves the original launcher, source ZIP and 20 manifest-listed
+source files under `fibre-qwen/protocols/qwen_chain_cpu_v9/`. Source ZIP SHA-256:
+`d983ecf996f9ef537c47418354758924e891c205f39f742644af9d496e0af8fc`.
+
+`fibre-qwen/evidence/qwen_cpu_chain_v9/` preserves the main results ZIP, all seven
+stage ZIPs and session output. All payload hashes and unchanged embedded source
+files were verified, stage records match the main archive, and original stage/final
+summaries reproduce with the frozen evaluator. Independent checks confirm 112/112
+correct outputs, 32/32 endpoints, 64 actual-output dependency links, 96 exact
+fresh-direct replays, 24 expected intervention effects and eight invariances.
+Runtime was 4468.1599782700005 seconds. See AUDIT.json and audit_v9.py for derivation.
+
+The declared aligned numerical gates passed; seven old cross-path diagnostic
+exceedances remain recorded. No first-step errors occurred, so natural error
+propagation was not observed. This is externally controlled frozen-weight
+inference, not parameter-memory or native-planning evidence. V8's final audit is
+still pending. Import is retrospective; no preregistration timestamp is implied.

@@ -52,3 +52,13 @@ V6's complete result failed its original gates; V7's complete log reports failur
 V8 is partial at 18/128 observed points. This series uses frozen weights and no
 adapter or parameter-memory writes. It is distinct from R23's Qwen3-0.6B optimizer
 experiments and does not constitute a personal-model release.
+
+## V9 external two-step interface — audited pass
+
+[Raw results and audit](evidence/qwen_cpu_chain_v9/README.md) verify 112/112 correct
+call outputs, 32/32 correct program endpoints, 64 actual-output dependency links
+and 96 exact direct-call replays. The [frozen source](protocols/qwen_chain_cpu_v9/README.md)
+remains unchanged. No first-step errors occurred; natural error propagation was
+not observed. Seven legacy numerical diagnostic exceedances are retained while
+all frozen aligned numerical gates pass. This is distinct from R23 optimization
+and GPT-2 address geometry, with no trained-model or deployment release.

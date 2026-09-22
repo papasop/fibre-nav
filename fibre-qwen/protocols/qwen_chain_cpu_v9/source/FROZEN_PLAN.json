@@ -1,0 +1,1394 @@
+[
+  {
+    "id": "direct-00-OR",
+    "kind": "direct",
+    "fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 0
+    }
+  },
+  {
+    "id": "direct-00-AND",
+    "kind": "direct",
+    "fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 0
+    }
+  },
+  {
+    "id": "direct-00-XOR",
+    "kind": "direct",
+    "fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 0
+    }
+  },
+  {
+    "id": "direct-00-EQUAL",
+    "kind": "direct",
+    "fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 0
+    }
+  },
+  {
+    "id": "direct-01-OR",
+    "kind": "direct",
+    "fields": {
+      "op": "OR",
+      "a": 0,
+      "b": 1
+    }
+  },
+  {
+    "id": "direct-01-AND",
+    "kind": "direct",
+    "fields": {
+      "op": "AND",
+      "a": 0,
+      "b": 1
+    }
+  },
+  {
+    "id": "direct-01-XOR",
+    "kind": "direct",
+    "fields": {
+      "op": "XOR",
+      "a": 0,
+      "b": 1
+    }
+  },
+  {
+    "id": "direct-01-EQUAL",
+    "kind": "direct",
+    "fields": {
+      "op": "EQUAL",
+      "a": 0,
+      "b": 1
+    }
+  },
+  {
+    "id": "direct-10-OR",
+    "kind": "direct",
+    "fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 0
+    }
+  },
+  {
+    "id": "direct-10-AND",
+    "kind": "direct",
+    "fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 0
+    }
+  },
+  {
+    "id": "direct-10-XOR",
+    "kind": "direct",
+    "fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 0
+    }
+  },
+  {
+    "id": "direct-10-EQUAL",
+    "kind": "direct",
+    "fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 0
+    }
+  },
+  {
+    "id": "direct-11-OR",
+    "kind": "direct",
+    "fields": {
+      "op": "OR",
+      "a": 1,
+      "b": 1
+    }
+  },
+  {
+    "id": "direct-11-AND",
+    "kind": "direct",
+    "fields": {
+      "op": "AND",
+      "a": 1,
+      "b": 1
+    }
+  },
+  {
+    "id": "direct-11-XOR",
+    "kind": "direct",
+    "fields": {
+      "op": "XOR",
+      "a": 1,
+      "b": 1
+    }
+  },
+  {
+    "id": "direct-11-EQUAL",
+    "kind": "direct",
+    "fields": {
+      "op": "EQUAL",
+      "a": 1,
+      "b": 1
+    }
+  },
+  {
+    "id": "p00_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p00_0",
+      "op1": "OR",
+      "op2": "OR",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 16
+  },
+  {
+    "id": "p00_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p00_0",
+      "op1": "OR",
+      "op2": "OR",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 16
+  },
+  {
+    "id": "p00_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p00_0",
+      "op1": "OR",
+      "op2": "OR",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 16
+  },
+  {
+    "id": "p00_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p00_1",
+      "op1": "OR",
+      "op2": "OR",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 19
+  },
+  {
+    "id": "p00_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p00_1",
+      "op1": "OR",
+      "op2": "OR",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 19
+  },
+  {
+    "id": "p00_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p00_1",
+      "op1": "OR",
+      "op2": "OR",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 19
+  },
+  {
+    "id": "p01_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p01_0",
+      "op1": "OR",
+      "op2": "AND",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 22
+  },
+  {
+    "id": "p01_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p01_0",
+      "op1": "OR",
+      "op2": "AND",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 22
+  },
+  {
+    "id": "p01_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p01_0",
+      "op1": "OR",
+      "op2": "AND",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 22
+  },
+  {
+    "id": "p01_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p01_1",
+      "op1": "OR",
+      "op2": "AND",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 25
+  },
+  {
+    "id": "p01_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p01_1",
+      "op1": "OR",
+      "op2": "AND",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 25
+  },
+  {
+    "id": "p01_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p01_1",
+      "op1": "OR",
+      "op2": "AND",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 25
+  },
+  {
+    "id": "p02_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p02_0",
+      "op1": "OR",
+      "op2": "XOR",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 28
+  },
+  {
+    "id": "p02_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p02_0",
+      "op1": "OR",
+      "op2": "XOR",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 28
+  },
+  {
+    "id": "p02_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p02_0",
+      "op1": "OR",
+      "op2": "XOR",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 28
+  },
+  {
+    "id": "p02_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p02_1",
+      "op1": "OR",
+      "op2": "XOR",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 31
+  },
+  {
+    "id": "p02_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p02_1",
+      "op1": "OR",
+      "op2": "XOR",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 31
+  },
+  {
+    "id": "p02_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p02_1",
+      "op1": "OR",
+      "op2": "XOR",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 31
+  },
+  {
+    "id": "p03_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p03_0",
+      "op1": "OR",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 34
+  },
+  {
+    "id": "p03_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p03_0",
+      "op1": "OR",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 34
+  },
+  {
+    "id": "p03_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p03_0",
+      "op1": "OR",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 34
+  },
+  {
+    "id": "p03_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p03_1",
+      "op1": "OR",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 37
+  },
+  {
+    "id": "p03_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p03_1",
+      "op1": "OR",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 37
+  },
+  {
+    "id": "p03_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p03_1",
+      "op1": "OR",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 37
+  },
+  {
+    "id": "p04_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p04_0",
+      "op1": "AND",
+      "op2": "OR",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 40
+  },
+  {
+    "id": "p04_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p04_0",
+      "op1": "AND",
+      "op2": "OR",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 40
+  },
+  {
+    "id": "p04_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p04_0",
+      "op1": "AND",
+      "op2": "OR",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 40
+  },
+  {
+    "id": "p04_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p04_1",
+      "op1": "AND",
+      "op2": "OR",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 43
+  },
+  {
+    "id": "p04_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p04_1",
+      "op1": "AND",
+      "op2": "OR",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 43
+  },
+  {
+    "id": "p04_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p04_1",
+      "op1": "AND",
+      "op2": "OR",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 43
+  },
+  {
+    "id": "p05_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p05_0",
+      "op1": "AND",
+      "op2": "AND",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 46
+  },
+  {
+    "id": "p05_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p05_0",
+      "op1": "AND",
+      "op2": "AND",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 46
+  },
+  {
+    "id": "p05_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p05_0",
+      "op1": "AND",
+      "op2": "AND",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 46
+  },
+  {
+    "id": "p05_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p05_1",
+      "op1": "AND",
+      "op2": "AND",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 49
+  },
+  {
+    "id": "p05_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p05_1",
+      "op1": "AND",
+      "op2": "AND",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 49
+  },
+  {
+    "id": "p05_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p05_1",
+      "op1": "AND",
+      "op2": "AND",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 49
+  },
+  {
+    "id": "p06_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p06_0",
+      "op1": "AND",
+      "op2": "XOR",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 52
+  },
+  {
+    "id": "p06_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p06_0",
+      "op1": "AND",
+      "op2": "XOR",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 52
+  },
+  {
+    "id": "p06_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p06_0",
+      "op1": "AND",
+      "op2": "XOR",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 52
+  },
+  {
+    "id": "p06_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p06_1",
+      "op1": "AND",
+      "op2": "XOR",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 55
+  },
+  {
+    "id": "p06_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p06_1",
+      "op1": "AND",
+      "op2": "XOR",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 55
+  },
+  {
+    "id": "p06_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p06_1",
+      "op1": "AND",
+      "op2": "XOR",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 55
+  },
+  {
+    "id": "p07_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p07_0",
+      "op1": "AND",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 58
+  },
+  {
+    "id": "p07_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p07_0",
+      "op1": "AND",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 58
+  },
+  {
+    "id": "p07_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p07_0",
+      "op1": "AND",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 58
+  },
+  {
+    "id": "p07_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p07_1",
+      "op1": "AND",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 61
+  },
+  {
+    "id": "p07_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p07_1",
+      "op1": "AND",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 61
+  },
+  {
+    "id": "p07_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p07_1",
+      "op1": "AND",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 61
+  },
+  {
+    "id": "p08_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p08_0",
+      "op1": "XOR",
+      "op2": "OR",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 64
+  },
+  {
+    "id": "p08_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p08_0",
+      "op1": "XOR",
+      "op2": "OR",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 64
+  },
+  {
+    "id": "p08_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p08_0",
+      "op1": "XOR",
+      "op2": "OR",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 64
+  },
+  {
+    "id": "p08_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p08_1",
+      "op1": "XOR",
+      "op2": "OR",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 67
+  },
+  {
+    "id": "p08_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p08_1",
+      "op1": "XOR",
+      "op2": "OR",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 67
+  },
+  {
+    "id": "p08_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p08_1",
+      "op1": "XOR",
+      "op2": "OR",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 67
+  },
+  {
+    "id": "p09_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p09_0",
+      "op1": "XOR",
+      "op2": "AND",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 70
+  },
+  {
+    "id": "p09_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p09_0",
+      "op1": "XOR",
+      "op2": "AND",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 70
+  },
+  {
+    "id": "p09_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p09_0",
+      "op1": "XOR",
+      "op2": "AND",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 70
+  },
+  {
+    "id": "p09_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p09_1",
+      "op1": "XOR",
+      "op2": "AND",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 73
+  },
+  {
+    "id": "p09_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p09_1",
+      "op1": "XOR",
+      "op2": "AND",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 73
+  },
+  {
+    "id": "p09_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p09_1",
+      "op1": "XOR",
+      "op2": "AND",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 73
+  },
+  {
+    "id": "p10_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p10_0",
+      "op1": "XOR",
+      "op2": "XOR",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 76
+  },
+  {
+    "id": "p10_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p10_0",
+      "op1": "XOR",
+      "op2": "XOR",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 76
+  },
+  {
+    "id": "p10_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p10_0",
+      "op1": "XOR",
+      "op2": "XOR",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 76
+  },
+  {
+    "id": "p10_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p10_1",
+      "op1": "XOR",
+      "op2": "XOR",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 79
+  },
+  {
+    "id": "p10_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p10_1",
+      "op1": "XOR",
+      "op2": "XOR",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 79
+  },
+  {
+    "id": "p10_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p10_1",
+      "op1": "XOR",
+      "op2": "XOR",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 79
+  },
+  {
+    "id": "p11_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p11_0",
+      "op1": "XOR",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 82
+  },
+  {
+    "id": "p11_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p11_0",
+      "op1": "XOR",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 82
+  },
+  {
+    "id": "p11_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p11_0",
+      "op1": "XOR",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 82
+  },
+  {
+    "id": "p11_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p11_1",
+      "op1": "XOR",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 85
+  },
+  {
+    "id": "p11_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p11_1",
+      "op1": "XOR",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 85
+  },
+  {
+    "id": "p11_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p11_1",
+      "op1": "XOR",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 85
+  },
+  {
+    "id": "p12_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p12_0",
+      "op1": "EQUAL",
+      "op2": "OR",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 88
+  },
+  {
+    "id": "p12_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p12_0",
+      "op1": "EQUAL",
+      "op2": "OR",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 88
+  },
+  {
+    "id": "p12_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p12_0",
+      "op1": "EQUAL",
+      "op2": "OR",
+      "a": 1,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 88
+  },
+  {
+    "id": "p12_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p12_1",
+      "op1": "EQUAL",
+      "op2": "OR",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 91
+  },
+  {
+    "id": "p12_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p12_1",
+      "op1": "EQUAL",
+      "op2": "OR",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 91
+  },
+  {
+    "id": "p12_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p12_1",
+      "op1": "EQUAL",
+      "op2": "OR",
+      "a": 0,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 91
+  },
+  {
+    "id": "p13_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p13_0",
+      "op1": "EQUAL",
+      "op2": "AND",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 94
+  },
+  {
+    "id": "p13_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p13_0",
+      "op1": "EQUAL",
+      "op2": "AND",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 94
+  },
+  {
+    "id": "p13_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p13_0",
+      "op1": "EQUAL",
+      "op2": "AND",
+      "a": 1,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 94
+  },
+  {
+    "id": "p13_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p13_1",
+      "op1": "EQUAL",
+      "op2": "AND",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 97
+  },
+  {
+    "id": "p13_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p13_1",
+      "op1": "EQUAL",
+      "op2": "AND",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 97
+  },
+  {
+    "id": "p13_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p13_1",
+      "op1": "EQUAL",
+      "op2": "AND",
+      "a": 0,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 97
+  },
+  {
+    "id": "p14_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p14_0",
+      "op1": "EQUAL",
+      "op2": "XOR",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 100
+  },
+  {
+    "id": "p14_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p14_0",
+      "op1": "EQUAL",
+      "op2": "XOR",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 100
+  },
+  {
+    "id": "p14_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p14_0",
+      "op1": "EQUAL",
+      "op2": "XOR",
+      "a": 1,
+      "b": 1,
+      "c": 0
+    },
+    "first_index": 100
+  },
+  {
+    "id": "p14_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p14_1",
+      "op1": "EQUAL",
+      "op2": "XOR",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 103
+  },
+  {
+    "id": "p14_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p14_1",
+      "op1": "EQUAL",
+      "op2": "XOR",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 103
+  },
+  {
+    "id": "p14_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p14_1",
+      "op1": "EQUAL",
+      "op2": "XOR",
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "first_index": 103
+  },
+  {
+    "id": "p15_0-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p15_0",
+      "op1": "EQUAL",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 106
+  },
+  {
+    "id": "p15_0-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p15_0",
+      "op1": "EQUAL",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 106
+  },
+  {
+    "id": "p15_0-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p15_0",
+      "op1": "EQUAL",
+      "op2": "EQUAL",
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "first_index": 106
+  },
+  {
+    "id": "p15_1-step1",
+    "kind": "step1",
+    "program": {
+      "id": "p15_1",
+      "op1": "EQUAL",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 109
+  },
+  {
+    "id": "p15_1-step2",
+    "kind": "step2",
+    "program": {
+      "id": "p15_1",
+      "op1": "EQUAL",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 109
+  },
+  {
+    "id": "p15_1-flip_step2",
+    "kind": "flip_step2",
+    "program": {
+      "id": "p15_1",
+      "op1": "EQUAL",
+      "op2": "EQUAL",
+      "a": 0,
+      "b": 0,
+      "c": 0
+    },
+    "first_index": 109
+  }
+]
