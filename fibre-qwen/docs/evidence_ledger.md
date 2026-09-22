@@ -28,3 +28,14 @@
 | V8 compiled interface | Can declared syntax compile to frozen prompts with bounded inference? | 18/128 observed; canonical 16/16 and first two sentence outputs correct | In progress in supplied snapshot; no final pass |
 
 See [payloads, scope and verification](../evidence/qwen_cpu_interface_v6_v8/README.md).
+
+## V9 completed raw-result audit
+
+| Stage | Question | Result | Status |
+|---|---|---|---|
+| V9 two-step chain | Can actual model outputs be externally wired into subsequent Boolean calls under frozen numerical and replay gates? | 112/112 outputs; 32/32 endpoints; 24 expected changes and 8 invariances; 96 exact direct replays | **Audited external interface pass within declared finite scope** |
+
+[Source, raw data and independent audit](../evidence/qwen_cpu_chain_v9/README.md).
+The run has zero first-step errors and only 16 unique canonical model prompts.
+It does not confirm V8 completion, parameter memory, native planning or independent
+multi-seed generalization.

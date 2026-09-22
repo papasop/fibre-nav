@@ -1,0 +1,4183 @@
+{
+  "model": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "chat_template": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0].role == 'system' %}\n        {{- messages[0].content + '\\n\\n' }}\n    {%- endif %}\n    {{- \"# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0].role == 'system' %}\n        {{- '<|im_start|>system\\n' + messages[0].content + '<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- set ns = namespace(multi_step_tool=true, last_query_index=messages|length - 1) %}\n{%- for message in messages[::-1] %}\n    {%- set index = (messages|length - 1) - loop.index0 %}\n    {%- if ns.multi_step_tool and message.role == \"user\" and message.content is string and not(message.content.startswith('<tool_response>') and message.content.endswith('</tool_response>')) %}\n        {%- set ns.multi_step_tool = false %}\n        {%- set ns.last_query_index = index %}\n    {%- endif %}\n{%- endfor %}\n{%- for message in messages %}\n    {%- if message.content is string %}\n        {%- set content = message.content %}\n    {%- else %}\n        {%- set content = '' %}\n    {%- endif %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) %}\n        {{- '<|im_start|>' + message.role + '\\n' + content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {%- set reasoning_content = '' %}\n        {%- if message.reasoning_content is string %}\n            {%- set reasoning_content = message.reasoning_content %}\n        {%- else %}\n            {%- if '</think>' in content %}\n                {%- set reasoning_content = content.split('</think>')[0].rstrip('\\n').split('<think>')[-1].lstrip('\\n') %}\n                {%- set content = content.split('</think>')[-1].lstrip('\\n') %}\n            {%- endif %}\n        {%- endif %}\n        {%- if loop.index0 > ns.last_query_index %}\n            {%- if loop.last or (not loop.last and reasoning_content) %}\n                {{- '<|im_start|>' + message.role + '\\n<think>\\n' + reasoning_content.strip('\\n') + '\\n</think>\\n\\n' + content.lstrip('\\n') }}\n            {%- else %}\n                {{- '<|im_start|>' + message.role + '\\n' + content }}\n            {%- endif %}\n        {%- else %}\n            {{- '<|im_start|>' + message.role + '\\n' + content }}\n        {%- endif %}\n        {%- if message.tool_calls %}\n            {%- for tool_call in message.tool_calls %}\n                {%- if (loop.first and content) or (not loop.first) %}\n                    {{- '\\n' }}\n                {%- endif %}\n                {%- if tool_call.function %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n                {{- '<tool_call>\\n{\"name\": \"' }}\n                {{- tool_call.name }}\n                {{- '\", \"arguments\": ' }}\n                {%- if tool_call.arguments is string %}\n                    {{- tool_call.arguments }}\n                {%- else %}\n                    {{- tool_call.arguments | tojson }}\n                {%- endif %}\n                {{- '}\\n</tool_call>' }}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if loop.first or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n    {%- if enable_thinking is defined and enable_thinking is false %}\n        {{- '<think>\\n\\n</think>\\n\\n' }}\n    {%- endif %}\n{%- endif %}",
+  "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "candidate_token_ids": [
+    [
+      15
+    ],
+    [
+      16
+    ]
+  ],
+  "eos_token_id": 151645,
+  "queries": [
+    {
+      "id": "selected_rule-00-OR",
+      "block": "selected_rule",
+      "pair": "00",
+      "task": "OR",
+      "content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-00-AND",
+      "block": "selected_rule",
+      "pair": "00",
+      "task": "AND",
+      "content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-00-XOR",
+      "block": "selected_rule",
+      "pair": "00",
+      "task": "XOR",
+      "content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-00-EQUAL",
+      "block": "selected_rule",
+      "pair": "00",
+      "task": "EQUAL",
+      "content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-01-OR",
+      "block": "selected_rule",
+      "pair": "01",
+      "task": "OR",
+      "content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-01-AND",
+      "block": "selected_rule",
+      "pair": "01",
+      "task": "AND",
+      "content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-01-XOR",
+      "block": "selected_rule",
+      "pair": "01",
+      "task": "XOR",
+      "content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-01-EQUAL",
+      "block": "selected_rule",
+      "pair": "01",
+      "task": "EQUAL",
+      "content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-10-OR",
+      "block": "selected_rule",
+      "pair": "10",
+      "task": "OR",
+      "content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-10-AND",
+      "block": "selected_rule",
+      "pair": "10",
+      "task": "AND",
+      "content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-10-XOR",
+      "block": "selected_rule",
+      "pair": "10",
+      "task": "XOR",
+      "content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-10-EQUAL",
+      "block": "selected_rule",
+      "pair": "10",
+      "task": "EQUAL",
+      "content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-11-OR",
+      "block": "selected_rule",
+      "pair": "11",
+      "task": "OR",
+      "content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-11-AND",
+      "block": "selected_rule",
+      "pair": "11",
+      "task": "AND",
+      "content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-11-XOR",
+      "block": "selected_rule",
+      "pair": "11",
+      "task": "XOR",
+      "content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    },
+    {
+      "id": "selected_rule-11-EQUAL",
+      "block": "selected_rule",
+      "pair": "11",
+      "task": "EQUAL",
+      "content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+      "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+    }
+  ],
+  "records": [
+    {
+      "run_id": "selected_rule-00-OR",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-00-OR",
+        "block": "selected_rule",
+        "pair": "00",
+        "task": "OR",
+        "content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 191,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          48.505001068115234,
+          28.64696502685547
+        ],
+        "bit_logp": [
+          -2.44046449417747e-09,
+          -19.85803604370023
+        ],
+        "eos_given_bit_logp": [
+          -0.17758068540793204,
+          -17.621277710425257
+        ]
+      },
+      "constrained": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 191,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            48.505001068115234,
+            28.646961212158203
+          ],
+          "masked_bit_logits": [
+            48.505001068115234,
+            28.646961212158203
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            48.505001068115234,
+            28.646961212158203
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            48.505001068115234,
+            28.646961212158203
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-00-AND",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-00-AND",
+        "block": "selected_rule",
+        "pair": "00",
+        "task": "AND",
+        "content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 189,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          45.99831771850586,
+          30.257226943969727
+        ],
+        "bit_logp": [
+          -1.4594066134235675e-07,
+          -15.741090920476795
+        ],
+        "eos_given_bit_logp": [
+          -0.3172670587847644,
+          -13.921101540934663
+        ]
+      },
+      "constrained": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 189,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            45.998313903808594,
+            30.25722312927246
+          ],
+          "masked_bit_logits": [
+            45.998313903808594,
+            30.25722312927246
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            45.998313903808594,
+            30.25722312927246
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            45.998313903808594,
+            30.25722312927246
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-00-XOR",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-00-XOR",
+        "block": "selected_rule",
+        "pair": "00",
+        "task": "XOR",
+        "content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "0\n\nExplanation:  \nSince both inputs `A` and `B` are 0, they are the same. According to the XOR operation, the result is 0.",
+        "output_ids": [
+          15,
+          271,
+          69769,
+          25,
+          2303,
+          12549,
+          2176,
+          11127,
+          1565,
+          32,
+          63,
+          323,
+          1565,
+          33,
+          63,
+          525,
+          220,
+          15,
+          11,
+          807,
+          525,
+          279,
+          1852,
+          13,
+          10548,
+          311,
+          279,
+          69887,
+          5666,
+          11,
+          279,
+          1102,
+          374,
+          220,
+          15,
+          13,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 190,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          44.4271125793457,
+          28.099809646606445
+        ],
+        "bit_logp": [
+          -8.133771702889267e-08,
+          -16.327303014076975
+        ],
+        "eos_given_bit_logp": [
+          -1.0708201620330744,
+          -16.84794736785066
+        ]
+      },
+      "constrained": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 190,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            44.42711639404297,
+            28.099811553955078
+          ],
+          "masked_bit_logits": [
+            44.42711639404297,
+            28.099811553955078
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            44.42711639404297,
+            28.099811553955078
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            44.42711639404297,
+            28.099811553955078
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-00-EQUAL",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-00-EQUAL",
+        "block": "selected_rule",
+        "pair": "00",
+        "task": "EQUAL",
+        "content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 195,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          28.328569412231445,
+          46.166629791259766
+        ],
+        "bit_logp": [
+          -17.83806039701138,
+          -1.7983058214052682e-08
+        ],
+        "eos_given_bit_logp": [
+          -3.990097297779686,
+          -0.5567910105622278
+        ]
+      },
+      "constrained": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 195,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            28.328571319580078,
+            46.16663360595703
+          ],
+          "masked_bit_logits": [
+            28.328571319580078,
+            46.16663360595703
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            28.328571319580078,
+            46.16663360595703
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            28.328571319580078,
+            46.16663360595703
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-01-OR",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-01-OR",
+        "block": "selected_rule",
+        "pair": "01",
+        "task": "OR",
+        "content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 0\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 191,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          24.173192977905273,
+          43.57475662231445
+        ],
+        "bit_logp": [
+          -19.40156364890291,
+          -4.4937327091716334e-09
+        ],
+        "eos_given_bit_logp": [
+          -22.009157456625662,
+          -0.0045297320006804235
+        ]
+      },
+      "constrained": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 191,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            24.173194885253906,
+            43.57475280761719
+          ],
+          "masked_bit_logits": [
+            24.173194885253906,
+            43.57475280761719
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            24.173194885253906,
+            43.57475280761719
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            24.173194885253906,
+            43.57475280761719
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-01-AND",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-01-AND",
+        "block": "selected_rule",
+        "pair": "01",
+        "task": "AND",
+        "content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 0\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 189,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          44.38187789916992,
+          27.767086029052734
+        ],
+        "bit_logp": [
+          -6.128297037458428e-08,
+          -16.61479193140016
+        ],
+        "eos_given_bit_logp": [
+          -0.3302152647905776,
+          -9.755812962519283
+        ]
+      },
+      "constrained": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 189,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            44.381866455078125,
+            27.7670841217041
+          ],
+          "masked_bit_logits": [
+            44.381866455078125,
+            27.7670841217041
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            44.381866455078125,
+            27.7670841217041
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            44.381866455078125,
+            27.7670841217041
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-01-XOR",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-01-XOR",
+        "block": "selected_rule",
+        "pair": "01",
+        "task": "XOR",
+        "content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 0\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "1\n\nExplanation:  \n- A = 0  \n- B = 1  \n- XOR of 0 and 1 is 1 (since the bits are different).  \n- So the result is **1**.",
+        "output_ids": [
+          16,
+          271,
+          69769,
+          25,
+          2303,
+          12,
+          362,
+          284,
+          220,
+          15,
+          2303,
+          12,
+          425,
+          284,
+          220,
+          16,
+          2303,
+          12,
+          69887,
+          315,
+          220,
+          15,
+          323,
+          220,
+          16,
+          374,
+          220,
+          16,
+          320,
+          11284,
+          279,
+          9472,
+          525,
+          2155,
+          568,
+          2303,
+          12,
+          2055,
+          279,
+          1102,
+          374,
+          3070,
+          16,
+          334,
+          13,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 190,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          26.016233444213867,
+          42.68667221069336
+        ],
+        "bit_logp": [
+          -16.67043882431316,
+          -5.783366840280252e-08
+        ],
+        "eos_given_bit_logp": [
+          -14.457847216927641,
+          -2.000985786962007
+        ]
+      },
+      "constrained": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 190,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            26.016231536865234,
+            42.686676025390625
+          ],
+          "masked_bit_logits": [
+            26.016231536865234,
+            42.686676025390625
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            26.016231536865234,
+            42.686676025390625
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            26.016231536865234,
+            42.686676025390625
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-01-EQUAL",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-01-EQUAL",
+        "block": "selected_rule",
+        "pair": "01",
+        "task": "EQUAL",
+        "content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 0\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 195,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          43.34381866455078,
+          24.25528335571289
+        ],
+        "bit_logp": [
+          -6.23100058496041e-09,
+          -19.088535315068892
+        ],
+        "eos_given_bit_logp": [
+          -0.535400398913055,
+          -21.699579819115485
+        ]
+      },
+      "constrained": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 195,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            43.343814849853516,
+            24.255285263061523
+          ],
+          "masked_bit_logits": [
+            43.343814849853516,
+            24.255285263061523
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            43.343814849853516,
+            24.255285263061523
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            43.343814849853516,
+            24.255285263061523
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-10-OR",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-10-OR",
+        "block": "selected_rule",
+        "pair": "10",
+        "task": "OR",
+        "content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 0\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 191,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          23.081531524658203,
+          42.227169036865234
+        ],
+        "bit_logp": [
+          -19.14563752051657,
+          -8.309537023913197e-09
+        ],
+        "eos_given_bit_logp": [
+          -9.073021176422367,
+          -0.02269189925240436
+        ]
+      },
+      "constrained": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 191,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            23.08153533935547,
+            42.2271728515625
+          ],
+          "masked_bit_logits": [
+            23.08153533935547,
+            42.2271728515625
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            23.08153533935547,
+            42.2271728515625
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            23.08153533935547,
+            42.2271728515625
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-10-AND",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-10-AND",
+        "block": "selected_rule",
+        "pair": "10",
+        "task": "AND",
+        "content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 0\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 189,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          43.90813064575195,
+          26.792760848999023
+        ],
+        "bit_logp": [
+          -3.8275403224896336e-08,
+          -17.115369835028332
+        ],
+        "eos_given_bit_logp": [
+          -0.11925093712146327,
+          -21.422030751047433
+        ]
+      },
+      "constrained": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 189,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            43.90813064575195,
+            26.79275894165039
+          ],
+          "masked_bit_logits": [
+            43.90813064575195,
+            26.79275894165039
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            43.90813064575195,
+            26.79275894165039
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            43.90813064575195,
+            26.79275894165039
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-10-XOR",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-10-XOR",
+        "block": "selected_rule",
+        "pair": "10",
+        "task": "XOR",
+        "content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 0\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "1\n\nExplanation:  \n- A = 1  \n- B = 0  \n- XOR of 1 and 0 is 1 (since the bits are different).  \n- So the result is **1**.",
+        "output_ids": [
+          16,
+          271,
+          69769,
+          25,
+          2303,
+          12,
+          362,
+          284,
+          220,
+          16,
+          2303,
+          12,
+          425,
+          284,
+          220,
+          15,
+          2303,
+          12,
+          69887,
+          315,
+          220,
+          16,
+          323,
+          220,
+          15,
+          374,
+          220,
+          16,
+          320,
+          11284,
+          279,
+          9472,
+          525,
+          2155,
+          568,
+          2303,
+          12,
+          2055,
+          279,
+          1102,
+          374,
+          3070,
+          16,
+          334,
+          13,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 190,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          23.07427215576172,
+          42.235076904296875
+        ],
+        "bit_logp": [
+          -19.160804755360285,
+          -6.825127995015073e-09
+        ],
+        "eos_given_bit_logp": [
+          -12.185675795721906,
+          -2.1885703082414674
+        ]
+      },
+      "constrained": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 190,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            23.074268341064453,
+            42.235084533691406
+          ],
+          "masked_bit_logits": [
+            23.074268341064453,
+            42.235084533691406
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            23.074268341064453,
+            42.235084533691406
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            23.074268341064453,
+            42.235084533691406
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-10-EQUAL",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-10-EQUAL",
+        "block": "selected_rule",
+        "pair": "10",
+        "task": "EQUAL",
+        "content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 0\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "0\n\nExplanation:  \nGiven:\n- A = 1  \n- B = 0  \n\nThe operation `A == B` checks if the two bits are equal. Since 1 ≠ 0, the result is **0**.",
+        "output_ids": [
+          15,
+          271,
+          69769,
+          25,
+          2303,
+          22043,
+          510,
+          12,
+          362,
+          284,
+          220,
+          16,
+          2303,
+          12,
+          425,
+          284,
+          220,
+          15,
+          18611,
+          785,
+          5666,
+          1565,
+          32,
+          621,
+          425,
+          63,
+          12341,
+          421,
+          279,
+          1378,
+          9472,
+          525,
+          6144,
+          13,
+          8704,
+          220,
+          16,
+          94304,
+          220,
+          15,
+          11,
+          279,
+          1102,
+          374,
+          3070,
+          15,
+          334,
+          13,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 195,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          42.934669494628906,
+          26.16948127746582
+        ],
+        "bit_logp": [
+          -5.342746902053937e-08,
+          -16.765188270590556
+        ],
+        "eos_given_bit_logp": [
+          -0.8566727532458455,
+          -17.987855438852097
+        ]
+      },
+      "constrained": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 195,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            42.934669494628906,
+            26.169483184814453
+          ],
+          "masked_bit_logits": [
+            42.934669494628906,
+            26.169483184814453
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            42.934669494628906,
+            26.169483184814453
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            42.934669494628906,
+            26.169483184814453
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-11-OR",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-11-OR",
+        "block": "selected_rule",
+        "pair": "11",
+        "task": "OR",
+        "content": "For OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor OR, output 1 when at least one input bit is 1, otherwise output 0.\nA = 1\nB = 1\nOperation: OR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 191,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          21.90209197998047,
+          43.00093078613281
+        ],
+        "bit_logp": [
+          -21.098838809805972,
+          -3.6536285041723286e-09
+        ],
+        "eos_given_bit_logp": [
+          -10.956245924714542,
+          -0.0009683729883405827
+        ]
+      },
+      "constrained": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 191,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            21.902088165283203,
+            43.00093078613281
+          ],
+          "masked_bit_logits": [
+            21.902088165283203,
+            43.00093078613281
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            21.902088165283203,
+            43.00093078613281
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            21.902088165283203,
+            43.00093078613281
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-11-AND",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-11-AND",
+        "block": "selected_rule",
+        "pair": "11",
+        "task": "AND",
+        "content": "For AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor AND, output 1 when both input bits are 1, otherwise output 0.\nA = 1\nB = 1\nOperation: AND\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 189,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          23.986881256103516,
+          45.2777099609375
+        ],
+        "bit_logp": [
+          -21.290828705881996,
+          -1.048012787114145e-09
+        ],
+        "eos_given_bit_logp": [
+          -9.687650257105824,
+          -0.012373220191487011
+        ]
+      },
+      "constrained": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 189,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            23.986873626708984,
+            45.277706146240234
+          ],
+          "masked_bit_logits": [
+            23.986873626708984,
+            45.277706146240234
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            23.986873626708984,
+            45.277706146240234
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            23.986873626708984,
+            45.277706146240234
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-11-XOR",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-11-XOR",
+        "block": "selected_rule",
+        "pair": "11",
+        "task": "XOR",
+        "content": "For XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor XOR, output 1 when the two input bits have different values, otherwise output 0.\nA = 1\nB = 1\nOperation: XOR\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "0\n\nExplanation:  \nSince both inputs A and B are 1, they are the same. According to the XOR operation, the output is 0 when the inputs are the same.",
+        "output_ids": [
+          15,
+          271,
+          69769,
+          25,
+          2303,
+          12549,
+          2176,
+          11127,
+          362,
+          323,
+          425,
+          525,
+          220,
+          16,
+          11,
+          807,
+          525,
+          279,
+          1852,
+          13,
+          10548,
+          311,
+          279,
+          69887,
+          5666,
+          11,
+          279,
+          2550,
+          374,
+          220,
+          15,
+          979,
+          279,
+          11127,
+          525,
+          279,
+          1852,
+          13,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 190,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          46.410255432128906,
+          26.4713077545166
+        ],
+        "bit_logp": [
+          -2.278806918344698e-09,
+          -19.93894767989111
+        ],
+        "eos_given_bit_logp": [
+          -3.182446069733397,
+          -25.414875196664628
+        ]
+      },
+      "constrained": {
+        "raw": "0",
+        "output_ids": [
+          15,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 190,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            46.410247802734375,
+            26.47130584716797
+          ],
+          "masked_bit_logits": [
+            46.410247802734375,
+            26.47130584716797
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            46.410247802734375,
+            26.47130584716797
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            46.410247802734375,
+            26.47130584716797
+          ]
+        }
+      }
+    },
+    {
+      "run_id": "selected_rule-11-EQUAL",
+      "repeat": false,
+      "query": {
+        "id": "selected_rule-11-EQUAL",
+        "block": "selected_rule",
+        "pair": "11",
+        "task": "EQUAL",
+        "content": "For A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).",
+        "prompt": "<|im_start|>user\nFor A == B, output 1 when the two input bits have the same value, otherwise output 0.\nA = 1\nB = 1\nOperation: A == B\nReturn the Boolean result as one digit (0 or 1).<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nAnswer: "
+      },
+      "free": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 195,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        }
+      },
+      "scores": {
+        "bit_logits": [
+          26.473133087158203,
+          45.513248443603516
+        ],
+        "bit_logp": [
+          -19.04011536198331,
+          -5.53799982115656e-09
+        ],
+        "eos_given_bit_logp": [
+          -11.082065334216715,
+          -0.2640978887208277
+        ]
+      },
+      "constrained": {
+        "raw": "1",
+        "output_ids": [
+          16,
+          151645
+        ],
+        "truncated": false,
+        "effective_config": {
+          "max_length": 195,
+          "max_new_tokens": 128,
+          "min_length": 0,
+          "min_new_tokens": null,
+          "early_stopping": false,
+          "max_time": null,
+          "stop_strings": null,
+          "do_sample": false,
+          "num_beams": 1,
+          "num_beam_groups": 1,
+          "use_cache": true,
+          "cache_implementation": null,
+          "cache_config": null,
+          "return_legacy_cache": null,
+          "prefill_chunk_size": null,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "min_p": null,
+          "typical_p": 1.0,
+          "epsilon_cutoff": 0.0,
+          "eta_cutoff": 0.0,
+          "diversity_penalty": 0.0,
+          "repetition_penalty": 1.0,
+          "encoder_repetition_penalty": 1.0,
+          "length_penalty": 1.0,
+          "no_repeat_ngram_size": 0,
+          "bad_words_ids": null,
+          "force_words_ids": null,
+          "renormalize_logits": false,
+          "constraints": null,
+          "forced_bos_token_id": null,
+          "forced_eos_token_id": null,
+          "remove_invalid_values": false,
+          "exponential_decay_length_penalty": null,
+          "suppress_tokens": null,
+          "begin_suppress_tokens": null,
+          "sequence_bias": null,
+          "token_healing": false,
+          "guidance_scale": null,
+          "watermarking_config": null,
+          "num_return_sequences": 1,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "output_scores": false,
+          "output_logits": null,
+          "return_dict_in_generate": false,
+          "pad_token_id": 151645,
+          "bos_token_id": null,
+          "eos_token_id": 151645,
+          "encoder_no_repeat_ngram_size": 0,
+          "decoder_start_token_id": null,
+          "is_assistant": false,
+          "num_assistant_tokens": 20,
+          "num_assistant_tokens_schedule": "constant",
+          "assistant_confidence_threshold": 0.4,
+          "prompt_lookup_num_tokens": null,
+          "max_matching_ngram_size": null,
+          "assistant_early_exit": null,
+          "assistant_lookbehind": 10,
+          "target_lookbehind": 10,
+          "disable_compile": false,
+          "low_memory": null,
+          "penalty_alpha": null,
+          "dola_layers": null,
+          "_from_model_config": false,
+          "transformers_version": "4.56.2",
+          "_bos_token_tensor": null,
+          "_eos_token_tensor": [
+            151645
+          ],
+          "_pad_token_tensor": 151645,
+          "_decoder_start_token_tensor": null
+        },
+        "policy": {
+          "decoder": "bit_then_eos",
+          "allowed_token_ids": [
+            15,
+            16
+          ],
+          "forced_eos_token_id": 151645,
+          "max_output_tokens": 2
+        },
+        "trace": {
+          "steps": [
+            0,
+            1
+          ],
+          "first_bit_logits": [
+            26.47313117980957,
+            45.51325225830078
+          ],
+          "masked_bit_logits": [
+            26.47313117980957,
+            45.51325225830078
+          ],
+          "finite_bit_count": 2
+        }
+      },
+      "numeric": {
+        "last_no_cache": {
+          "settings": {
+            "use_cache": false,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            26.47313117980957,
+            45.51325225830078
+          ]
+        },
+        "last_cache": {
+          "settings": {
+            "use_cache": true,
+            "logits_to_keep": 1
+          },
+          "bit_logits": [
+            26.47313117980957,
+            45.51325225830078
+          ]
+        }
+      }
+    }
+  ],
+  "torch_version": "2.8.0+cpu",
+  "python_version": "3.13.15",
+  "source_archive_sha256": "6eccba430865f22fe452e5c2de1a59f979801b378d8cbce4ccc17f8377b9bc1a",
+  "source_protocol_id": "QWEN_OPERATION_CPU_V6",
+  "source_manifest_sha256": "0edf06cb7bcfe0c2d3224965caa5db493e6f233d44dbc1426b83bf302142c313",
+  "scope": "Actual V6 selected_rule16: primary16/16, strict free11/16, bounded16/16. V6 overall_pass remains false. No model updates.",
+  "environment": {
+    "packages": {
+      "torch": "2.8.0+cpu",
+      "transformers": "4.56.2",
+      "numpy": "2.3.5",
+      "tokenizers": "0.22.2",
+      "huggingface_hub": "0.36.2",
+      "safetensors": "0.6.2"
+    },
+    "python": "3.13.15",
+    "cpu": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "threads": 4,
+    "device": "cpu",
+    "dtype": "float32"
+  }
+}

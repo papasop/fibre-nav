@@ -1,0 +1,241 @@
+Loading pinned Qwen3-1.7B: CPU float32; V9 external two-step controller; no training.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:29<00:29, 29.89s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 14.97s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.21s/it]
+The following generation flags are not valid and may be ignored: ['top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+QWEN_CHAIN_V9_POINT {"n": 1, "id": "direct-00-OR", "kind": "direct", "fields": {"op": "OR", "a": 0, "b": 0}, "link": null, "raw": "0", "primary_correct": 1, "bounded_correct": 1}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 2, "id": "direct-00-AND", "kind": "direct", "fields": {"op": "AND", "a": 0, "b": 0}, "link": null, "raw": "0", "primary_correct": 2, "bounded_correct": 2}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 3, "id": "direct-00-XOR", "kind": "direct", "fields": {"op": "XOR", "a": 0, "b": 0}, "link": null, "raw": "0", "primary_correct": 3, "bounded_correct": 3}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 4, "id": "direct-00-EQUAL", "kind": "direct", "fields": {"op": "EQUAL", "a": 0, "b": 0}, "link": null, "raw": "1", "primary_correct": 4, "bounded_correct": 4}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 5, "id": "direct-01-OR", "kind": "direct", "fields": {"op": "OR", "a": 0, "b": 1}, "link": null, "raw": "1", "primary_correct": 5, "bounded_correct": 5}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 6, "id": "direct-01-AND", "kind": "direct", "fields": {"op": "AND", "a": 0, "b": 1}, "link": null, "raw": "0", "primary_correct": 6, "bounded_correct": 6}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 7, "id": "direct-01-XOR", "kind": "direct", "fields": {"op": "XOR", "a": 0, "b": 1}, "link": null, "raw": "1", "primary_correct": 7, "bounded_correct": 7}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 8, "id": "direct-01-EQUAL", "kind": "direct", "fields": {"op": "EQUAL", "a": 0, "b": 1}, "link": null, "raw": "0", "primary_correct": 8, "bounded_correct": 8}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 9, "id": "direct-10-OR", "kind": "direct", "fields": {"op": "OR", "a": 1, "b": 0}, "link": null, "raw": "1", "primary_correct": 9, "bounded_correct": 9}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 10, "id": "direct-10-AND", "kind": "direct", "fields": {"op": "AND", "a": 1, "b": 0}, "link": null, "raw": "0", "primary_correct": 10, "bounded_correct": 10}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 11, "id": "direct-10-XOR", "kind": "direct", "fields": {"op": "XOR", "a": 1, "b": 0}, "link": null, "raw": "1", "primary_correct": 11, "bounded_correct": 11}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 12, "id": "direct-10-EQUAL", "kind": "direct", "fields": {"op": "EQUAL", "a": 1, "b": 0}, "link": null, "raw": "0", "primary_correct": 12, "bounded_correct": 12}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 13, "id": "direct-11-OR", "kind": "direct", "fields": {"op": "OR", "a": 1, "b": 1}, "link": null, "raw": "1", "primary_correct": 13, "bounded_correct": 13}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 14, "id": "direct-11-AND", "kind": "direct", "fields": {"op": "AND", "a": 1, "b": 1}, "link": null, "raw": "1", "primary_correct": 14, "bounded_correct": 14}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 15, "id": "direct-11-XOR", "kind": "direct", "fields": {"op": "XOR", "a": 1, "b": 1}, "link": null, "raw": "0", "primary_correct": 15, "bounded_correct": 15}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 16, "id": "direct-11-EQUAL", "kind": "direct", "fields": {"op": "EQUAL", "a": 1, "b": 1}, "link": null, "raw": "1", "primary_correct": 16, "bounded_correct": 16}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+STAGE_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_016_results.zip
+QWEN_CHAIN_V9_POINT {"n": 17, "id": "p00_0-step1", "kind": "step1", "fields": {"op": "OR", "a": 0, "b": 0}, "link": null, "raw": "0", "primary_correct": 17, "bounded_correct": 17}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 18, "id": "p00_0-step2", "kind": "step2", "fields": {"op": "OR", "a": 0, "b": 0}, "link": {"first_index": 16, "first_id": "p00_0-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 18, "bounded_correct": 18}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 19, "id": "p00_0-flip_step2", "kind": "flip_step2", "fields": {"op": "OR", "a": 1, "b": 0}, "link": {"first_index": 16, "first_id": "p00_0-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 19, "bounded_correct": 19}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 20, "id": "p00_1-step1", "kind": "step1", "fields": {"op": "OR", "a": 1, "b": 1}, "link": null, "raw": "1", "primary_correct": 20, "bounded_correct": 20}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 21, "id": "p00_1-step2", "kind": "step2", "fields": {"op": "OR", "a": 1, "b": 1}, "link": {"first_index": 19, "first_id": "p00_1-step1", "observed_bit": 1, "intervention": "none"}, "raw": "1", "primary_correct": 21, "bounded_correct": 21}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 22, "id": "p00_1-flip_step2", "kind": "flip_step2", "fields": {"op": "OR", "a": 0, "b": 1}, "link": {"first_index": 19, "first_id": "p00_1-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "1", "primary_correct": 22, "bounded_correct": 22}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 23, "id": "p01_0-step1", "kind": "step1", "fields": {"op": "OR", "a": 0, "b": 0}, "link": null, "raw": "0", "primary_correct": 23, "bounded_correct": 23}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 24, "id": "p01_0-step2", "kind": "step2", "fields": {"op": "AND", "a": 0, "b": 1}, "link": {"first_index": 22, "first_id": "p01_0-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 24, "bounded_correct": 24}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 25, "id": "p01_0-flip_step2", "kind": "flip_step2", "fields": {"op": "AND", "a": 1, "b": 1}, "link": {"first_index": 22, "first_id": "p01_0-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 25, "bounded_correct": 25}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 26, "id": "p01_1-step1", "kind": "step1", "fields": {"op": "OR", "a": 1, "b": 1}, "link": null, "raw": "1", "primary_correct": 26, "bounded_correct": 26}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 27, "id": "p01_1-step2", "kind": "step2", "fields": {"op": "AND", "a": 1, "b": 0}, "link": {"first_index": 25, "first_id": "p01_1-step1", "observed_bit": 1, "intervention": "none"}, "raw": "0", "primary_correct": 27, "bounded_correct": 27}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 28, "id": "p01_1-flip_step2", "kind": "flip_step2", "fields": {"op": "AND", "a": 0, "b": 0}, "link": {"first_index": 25, "first_id": "p01_1-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "0", "primary_correct": 28, "bounded_correct": 28}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 29, "id": "p02_0-step1", "kind": "step1", "fields": {"op": "OR", "a": 0, "b": 1}, "link": null, "raw": "1", "primary_correct": 29, "bounded_correct": 29}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 30, "id": "p02_0-step2", "kind": "step2", "fields": {"op": "XOR", "a": 1, "b": 0}, "link": {"first_index": 28, "first_id": "p02_0-step1", "observed_bit": 1, "intervention": "none"}, "raw": "1", "primary_correct": 30, "bounded_correct": 30}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 31, "id": "p02_0-flip_step2", "kind": "flip_step2", "fields": {"op": "XOR", "a": 0, "b": 0}, "link": {"first_index": 28, "first_id": "p02_0-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "0", "primary_correct": 31, "bounded_correct": 31}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 32, "id": "p02_1-step1", "kind": "step1", "fields": {"op": "OR", "a": 1, "b": 0}, "link": null, "raw": "1", "primary_correct": 32, "bounded_correct": 32}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+STAGE_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_032_results.zip
+QWEN_CHAIN_V9_POINT {"n": 33, "id": "p02_1-step2", "kind": "step2", "fields": {"op": "XOR", "a": 1, "b": 1}, "link": {"first_index": 31, "first_id": "p02_1-step1", "observed_bit": 1, "intervention": "none"}, "raw": "0", "primary_correct": 33, "bounded_correct": 33}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 34, "id": "p02_1-flip_step2", "kind": "flip_step2", "fields": {"op": "XOR", "a": 0, "b": 1}, "link": {"first_index": 31, "first_id": "p02_1-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "1", "primary_correct": 34, "bounded_correct": 34}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 35, "id": "p03_0-step1", "kind": "step1", "fields": {"op": "OR", "a": 0, "b": 1}, "link": null, "raw": "1", "primary_correct": 35, "bounded_correct": 35}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 36, "id": "p03_0-step2", "kind": "step2", "fields": {"op": "EQUAL", "a": 1, "b": 1}, "link": {"first_index": 34, "first_id": "p03_0-step1", "observed_bit": 1, "intervention": "none"}, "raw": "1", "primary_correct": 36, "bounded_correct": 36}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 37, "id": "p03_0-flip_step2", "kind": "flip_step2", "fields": {"op": "EQUAL", "a": 0, "b": 1}, "link": {"first_index": 34, "first_id": "p03_0-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "0", "primary_correct": 37, "bounded_correct": 37}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 38, "id": "p03_1-step1", "kind": "step1", "fields": {"op": "OR", "a": 1, "b": 0}, "link": null, "raw": "1", "primary_correct": 38, "bounded_correct": 38}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 39, "id": "p03_1-step2", "kind": "step2", "fields": {"op": "EQUAL", "a": 1, "b": 0}, "link": {"first_index": 37, "first_id": "p03_1-step1", "observed_bit": 1, "intervention": "none"}, "raw": "0", "primary_correct": 39, "bounded_correct": 39}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 40, "id": "p03_1-flip_step2", "kind": "flip_step2", "fields": {"op": "EQUAL", "a": 0, "b": 0}, "link": {"first_index": 37, "first_id": "p03_1-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "1", "primary_correct": 40, "bounded_correct": 40}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 41, "id": "p04_0-step1", "kind": "step1", "fields": {"op": "AND", "a": 1, "b": 0}, "link": null, "raw": "0", "primary_correct": 41, "bounded_correct": 41}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 42, "id": "p04_0-step2", "kind": "step2", "fields": {"op": "OR", "a": 0, "b": 0}, "link": {"first_index": 40, "first_id": "p04_0-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 42, "bounded_correct": 42}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 43, "id": "p04_0-flip_step2", "kind": "flip_step2", "fields": {"op": "OR", "a": 1, "b": 0}, "link": {"first_index": 40, "first_id": "p04_0-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 43, "bounded_correct": 43}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 44, "id": "p04_1-step1", "kind": "step1", "fields": {"op": "AND", "a": 0, "b": 1}, "link": null, "raw": "0", "primary_correct": 44, "bounded_correct": 44}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 45, "id": "p04_1-step2", "kind": "step2", "fields": {"op": "OR", "a": 0, "b": 1}, "link": {"first_index": 43, "first_id": "p04_1-step1", "observed_bit": 0, "intervention": "none"}, "raw": "1", "primary_correct": 45, "bounded_correct": 45}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 46, "id": "p04_1-flip_step2", "kind": "flip_step2", "fields": {"op": "OR", "a": 1, "b": 1}, "link": {"first_index": 43, "first_id": "p04_1-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 46, "bounded_correct": 46}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 47, "id": "p05_0-step1", "kind": "step1", "fields": {"op": "AND", "a": 1, "b": 0}, "link": null, "raw": "0", "primary_correct": 47, "bounded_correct": 47}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 48, "id": "p05_0-step2", "kind": "step2", "fields": {"op": "AND", "a": 0, "b": 1}, "link": {"first_index": 46, "first_id": "p05_0-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 48, "bounded_correct": 48}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+STAGE_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_048_results.zip
+QWEN_CHAIN_V9_POINT {"n": 49, "id": "p05_0-flip_step2", "kind": "flip_step2", "fields": {"op": "AND", "a": 1, "b": 1}, "link": {"first_index": 46, "first_id": "p05_0-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 49, "bounded_correct": 49}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 50, "id": "p05_1-step1", "kind": "step1", "fields": {"op": "AND", "a": 0, "b": 1}, "link": null, "raw": "0", "primary_correct": 50, "bounded_correct": 50}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 51, "id": "p05_1-step2", "kind": "step2", "fields": {"op": "AND", "a": 0, "b": 0}, "link": {"first_index": 49, "first_id": "p05_1-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 51, "bounded_correct": 51}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 52, "id": "p05_1-flip_step2", "kind": "flip_step2", "fields": {"op": "AND", "a": 1, "b": 0}, "link": {"first_index": 49, "first_id": "p05_1-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "0", "primary_correct": 52, "bounded_correct": 52}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 53, "id": "p06_0-step1", "kind": "step1", "fields": {"op": "AND", "a": 1, "b": 1}, "link": null, "raw": "1", "primary_correct": 53, "bounded_correct": 53}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 54, "id": "p06_0-step2", "kind": "step2", "fields": {"op": "XOR", "a": 1, "b": 0}, "link": {"first_index": 52, "first_id": "p06_0-step1", "observed_bit": 1, "intervention": "none"}, "raw": "1", "primary_correct": 54, "bounded_correct": 54}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 55, "id": "p06_0-flip_step2", "kind": "flip_step2", "fields": {"op": "XOR", "a": 0, "b": 0}, "link": {"first_index": 52, "first_id": "p06_0-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "0", "primary_correct": 55, "bounded_correct": 55}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 56, "id": "p06_1-step1", "kind": "step1", "fields": {"op": "AND", "a": 0, "b": 0}, "link": null, "raw": "0", "primary_correct": 56, "bounded_correct": 56}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 57, "id": "p06_1-step2", "kind": "step2", "fields": {"op": "XOR", "a": 0, "b": 1}, "link": {"first_index": 55, "first_id": "p06_1-step1", "observed_bit": 0, "intervention": "none"}, "raw": "1", "primary_correct": 57, "bounded_correct": 57}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 58, "id": "p06_1-flip_step2", "kind": "flip_step2", "fields": {"op": "XOR", "a": 1, "b": 1}, "link": {"first_index": 55, "first_id": "p06_1-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "0", "primary_correct": 58, "bounded_correct": 58}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 59, "id": "p07_0-step1", "kind": "step1", "fields": {"op": "AND", "a": 1, "b": 1}, "link": null, "raw": "1", "primary_correct": 59, "bounded_correct": 59}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 60, "id": "p07_0-step2", "kind": "step2", "fields": {"op": "EQUAL", "a": 1, "b": 1}, "link": {"first_index": 58, "first_id": "p07_0-step1", "observed_bit": 1, "intervention": "none"}, "raw": "1", "primary_correct": 60, "bounded_correct": 60}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 61, "id": "p07_0-flip_step2", "kind": "flip_step2", "fields": {"op": "EQUAL", "a": 0, "b": 1}, "link": {"first_index": 58, "first_id": "p07_0-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "0", "primary_correct": 61, "bounded_correct": 61}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 62, "id": "p07_1-step1", "kind": "step1", "fields": {"op": "AND", "a": 0, "b": 0}, "link": null, "raw": "0", "primary_correct": 62, "bounded_correct": 62}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 63, "id": "p07_1-step2", "kind": "step2", "fields": {"op": "EQUAL", "a": 0, "b": 0}, "link": {"first_index": 61, "first_id": "p07_1-step1", "observed_bit": 0, "intervention": "none"}, "raw": "1", "primary_correct": 63, "bounded_correct": 63}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 64, "id": "p07_1-flip_step2", "kind": "flip_step2", "fields": {"op": "EQUAL", "a": 1, "b": 0}, "link": {"first_index": 61, "first_id": "p07_1-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "0", "primary_correct": 64, "bounded_correct": 64}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+STAGE_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_064_results.zip
+QWEN_CHAIN_V9_POINT {"n": 65, "id": "p08_0-step1", "kind": "step1", "fields": {"op": "XOR", "a": 0, "b": 0}, "link": null, "raw": "0", "primary_correct": 65, "bounded_correct": 65}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 66, "id": "p08_0-step2", "kind": "step2", "fields": {"op": "OR", "a": 0, "b": 0}, "link": {"first_index": 64, "first_id": "p08_0-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 66, "bounded_correct": 66}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 67, "id": "p08_0-flip_step2", "kind": "flip_step2", "fields": {"op": "OR", "a": 1, "b": 0}, "link": {"first_index": 64, "first_id": "p08_0-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 67, "bounded_correct": 67}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 68, "id": "p08_1-step1", "kind": "step1", "fields": {"op": "XOR", "a": 1, "b": 1}, "link": null, "raw": "0", "primary_correct": 68, "bounded_correct": 68}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 69, "id": "p08_1-step2", "kind": "step2", "fields": {"op": "OR", "a": 0, "b": 1}, "link": {"first_index": 67, "first_id": "p08_1-step1", "observed_bit": 0, "intervention": "none"}, "raw": "1", "primary_correct": 69, "bounded_correct": 69}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 70, "id": "p08_1-flip_step2", "kind": "flip_step2", "fields": {"op": "OR", "a": 1, "b": 1}, "link": {"first_index": 67, "first_id": "p08_1-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 70, "bounded_correct": 70}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 71, "id": "p09_0-step1", "kind": "step1", "fields": {"op": "XOR", "a": 0, "b": 0}, "link": null, "raw": "0", "primary_correct": 71, "bounded_correct": 71}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 72, "id": "p09_0-step2", "kind": "step2", "fields": {"op": "AND", "a": 0, "b": 1}, "link": {"first_index": 70, "first_id": "p09_0-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 72, "bounded_correct": 72}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 73, "id": "p09_0-flip_step2", "kind": "flip_step2", "fields": {"op": "AND", "a": 1, "b": 1}, "link": {"first_index": 70, "first_id": "p09_0-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 73, "bounded_correct": 73}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 74, "id": "p09_1-step1", "kind": "step1", "fields": {"op": "XOR", "a": 1, "b": 1}, "link": null, "raw": "0", "primary_correct": 74, "bounded_correct": 74}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 75, "id": "p09_1-step2", "kind": "step2", "fields": {"op": "AND", "a": 0, "b": 0}, "link": {"first_index": 73, "first_id": "p09_1-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 75, "bounded_correct": 75}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 76, "id": "p09_1-flip_step2", "kind": "flip_step2", "fields": {"op": "AND", "a": 1, "b": 0}, "link": {"first_index": 73, "first_id": "p09_1-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "0", "primary_correct": 76, "bounded_correct": 76}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 77, "id": "p10_0-step1", "kind": "step1", "fields": {"op": "XOR", "a": 0, "b": 1}, "link": null, "raw": "1", "primary_correct": 77, "bounded_correct": 77}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 78, "id": "p10_0-step2", "kind": "step2", "fields": {"op": "XOR", "a": 1, "b": 0}, "link": {"first_index": 76, "first_id": "p10_0-step1", "observed_bit": 1, "intervention": "none"}, "raw": "1", "primary_correct": 78, "bounded_correct": 78}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 79, "id": "p10_0-flip_step2", "kind": "flip_step2", "fields": {"op": "XOR", "a": 0, "b": 0}, "link": {"first_index": 76, "first_id": "p10_0-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "0", "primary_correct": 79, "bounded_correct": 79}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 80, "id": "p10_1-step1", "kind": "step1", "fields": {"op": "XOR", "a": 1, "b": 0}, "link": null, "raw": "1", "primary_correct": 80, "bounded_correct": 80}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+STAGE_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_080_results.zip
+QWEN_CHAIN_V9_POINT {"n": 81, "id": "p10_1-step2", "kind": "step2", "fields": {"op": "XOR", "a": 1, "b": 1}, "link": {"first_index": 79, "first_id": "p10_1-step1", "observed_bit": 1, "intervention": "none"}, "raw": "0", "primary_correct": 81, "bounded_correct": 81}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 82, "id": "p10_1-flip_step2", "kind": "flip_step2", "fields": {"op": "XOR", "a": 0, "b": 1}, "link": {"first_index": 79, "first_id": "p10_1-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "1", "primary_correct": 82, "bounded_correct": 82}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 83, "id": "p11_0-step1", "kind": "step1", "fields": {"op": "XOR", "a": 0, "b": 1}, "link": null, "raw": "1", "primary_correct": 83, "bounded_correct": 83}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 84, "id": "p11_0-step2", "kind": "step2", "fields": {"op": "EQUAL", "a": 1, "b": 1}, "link": {"first_index": 82, "first_id": "p11_0-step1", "observed_bit": 1, "intervention": "none"}, "raw": "1", "primary_correct": 84, "bounded_correct": 84}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 85, "id": "p11_0-flip_step2", "kind": "flip_step2", "fields": {"op": "EQUAL", "a": 0, "b": 1}, "link": {"first_index": 82, "first_id": "p11_0-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "0", "primary_correct": 85, "bounded_correct": 85}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 86, "id": "p11_1-step1", "kind": "step1", "fields": {"op": "XOR", "a": 1, "b": 0}, "link": null, "raw": "1", "primary_correct": 86, "bounded_correct": 86}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 87, "id": "p11_1-step2", "kind": "step2", "fields": {"op": "EQUAL", "a": 1, "b": 0}, "link": {"first_index": 85, "first_id": "p11_1-step1", "observed_bit": 1, "intervention": "none"}, "raw": "0", "primary_correct": 87, "bounded_correct": 87}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 88, "id": "p11_1-flip_step2", "kind": "flip_step2", "fields": {"op": "EQUAL", "a": 0, "b": 0}, "link": {"first_index": 85, "first_id": "p11_1-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "1", "primary_correct": 88, "bounded_correct": 88}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 89, "id": "p12_0-step1", "kind": "step1", "fields": {"op": "EQUAL", "a": 1, "b": 0}, "link": null, "raw": "0", "primary_correct": 89, "bounded_correct": 89}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 90, "id": "p12_0-step2", "kind": "step2", "fields": {"op": "OR", "a": 0, "b": 0}, "link": {"first_index": 88, "first_id": "p12_0-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 90, "bounded_correct": 90}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 91, "id": "p12_0-flip_step2", "kind": "flip_step2", "fields": {"op": "OR", "a": 1, "b": 0}, "link": {"first_index": 88, "first_id": "p12_0-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 91, "bounded_correct": 91}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 92, "id": "p12_1-step1", "kind": "step1", "fields": {"op": "EQUAL", "a": 0, "b": 1}, "link": null, "raw": "0", "primary_correct": 92, "bounded_correct": 92}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 93, "id": "p12_1-step2", "kind": "step2", "fields": {"op": "OR", "a": 0, "b": 1}, "link": {"first_index": 91, "first_id": "p12_1-step1", "observed_bit": 0, "intervention": "none"}, "raw": "1", "primary_correct": 93, "bounded_correct": 93}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 94, "id": "p12_1-flip_step2", "kind": "flip_step2", "fields": {"op": "OR", "a": 1, "b": 1}, "link": {"first_index": 91, "first_id": "p12_1-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 94, "bounded_correct": 94}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 95, "id": "p13_0-step1", "kind": "step1", "fields": {"op": "EQUAL", "a": 1, "b": 0}, "link": null, "raw": "0", "primary_correct": 95, "bounded_correct": 95}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 96, "id": "p13_0-step2", "kind": "step2", "fields": {"op": "AND", "a": 0, "b": 1}, "link": {"first_index": 94, "first_id": "p13_0-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 96, "bounded_correct": 96}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+STAGE_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_096_results.zip
+QWEN_CHAIN_V9_POINT {"n": 97, "id": "p13_0-flip_step2", "kind": "flip_step2", "fields": {"op": "AND", "a": 1, "b": 1}, "link": {"first_index": 94, "first_id": "p13_0-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "1", "primary_correct": 97, "bounded_correct": 97}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 98, "id": "p13_1-step1", "kind": "step1", "fields": {"op": "EQUAL", "a": 0, "b": 1}, "link": null, "raw": "0", "primary_correct": 98, "bounded_correct": 98}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 99, "id": "p13_1-step2", "kind": "step2", "fields": {"op": "AND", "a": 0, "b": 0}, "link": {"first_index": 97, "first_id": "p13_1-step1", "observed_bit": 0, "intervention": "none"}, "raw": "0", "primary_correct": 99, "bounded_correct": 99}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 100, "id": "p13_1-flip_step2", "kind": "flip_step2", "fields": {"op": "AND", "a": 1, "b": 0}, "link": {"first_index": 97, "first_id": "p13_1-step1", "observed_bit": 0, "intervention": "flip"}, "raw": "0", "primary_correct": 100, "bounded_correct": 100}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 101, "id": "p14_0-step1", "kind": "step1", "fields": {"op": "EQUAL", "a": 1, "b": 1}, "link": null, "raw": "1", "primary_correct": 101, "bounded_correct": 101}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 102, "id": "p14_0-step2", "kind": "step2", "fields": {"op": "XOR", "a": 1, "b": 0}, "link": {"first_index": 100, "first_id": "p14_0-step1", "observed_bit": 1, "intervention": "none"}, "raw": "1", "primary_correct": 102, "bounded_correct": 102}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 103, "id": "p14_0-flip_step2", "kind": "flip_step2", "fields": {"op": "XOR", "a": 0, "b": 0}, "link": {"first_index": 100, "first_id": "p14_0-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "0", "primary_correct": 103, "bounded_correct": 103}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 104, "id": "p14_1-step1", "kind": "step1", "fields": {"op": "EQUAL", "a": 0, "b": 0}, "link": null, "raw": "1", "primary_correct": 104, "bounded_correct": 104}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 105, "id": "p14_1-step2", "kind": "step2", "fields": {"op": "XOR", "a": 1, "b": 1}, "link": {"first_index": 103, "first_id": "p14_1-step1", "observed_bit": 1, "intervention": "none"}, "raw": "0", "primary_correct": 105, "bounded_correct": 105}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 106, "id": "p14_1-flip_step2", "kind": "flip_step2", "fields": {"op": "XOR", "a": 0, "b": 1}, "link": {"first_index": 103, "first_id": "p14_1-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "1", "primary_correct": 106, "bounded_correct": 106}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 107, "id": "p15_0-step1", "kind": "step1", "fields": {"op": "EQUAL", "a": 1, "b": 1}, "link": null, "raw": "1", "primary_correct": 107, "bounded_correct": 107}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 108, "id": "p15_0-step2", "kind": "step2", "fields": {"op": "EQUAL", "a": 1, "b": 1}, "link": {"first_index": 106, "first_id": "p15_0-step1", "observed_bit": 1, "intervention": "none"}, "raw": "1", "primary_correct": 108, "bounded_correct": 108}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 109, "id": "p15_0-flip_step2", "kind": "flip_step2", "fields": {"op": "EQUAL", "a": 0, "b": 1}, "link": {"first_index": 106, "first_id": "p15_0-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "0", "primary_correct": 109, "bounded_correct": 109}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 110, "id": "p15_1-step1", "kind": "step1", "fields": {"op": "EQUAL", "a": 0, "b": 0}, "link": null, "raw": "1", "primary_correct": 110, "bounded_correct": 110}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 111, "id": "p15_1-step2", "kind": "step2", "fields": {"op": "EQUAL", "a": 1, "b": 0}, "link": {"first_index": 109, "first_id": "p15_1-step1", "observed_bit": 1, "intervention": "none"}, "raw": "0", "primary_correct": 111, "bounded_correct": 111}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+QWEN_CHAIN_V9_POINT {"n": 112, "id": "p15_1-flip_step2", "kind": "flip_step2", "fields": {"op": "EQUAL", "a": 0, "b": 0}, "link": {"first_index": 109, "first_id": "p15_1-step1", "observed_bit": 1, "intervention": "flip"}, "raw": "1", "primary_correct": 112, "bounded_correct": 112}
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+STAGE_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_112_results.zip
+RESULT_ARCHIVE=/content/qwen_chain_cpu_v9/session_y8y6u3mm/run/cpu_two_step_chain_results.zip
+SUMMARY {"complete": true, "completed": 112, "expected": 112, "decision": "EXTERNAL_TWO_STEP_INTERFACE_PASS", "overall_pass": true}

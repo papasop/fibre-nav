@@ -32,3 +32,14 @@
   independent model, seed or capacity replications.
 - Publication of this snapshot follows observation of partial results and cannot
   be described as prospective public preregistration.
+
+## V9 audited two-step interface boundary
+
+- V9 passed all frozen gates in one supplied Qwen3-1.7B CPU run: 112 calls,
+  32 programs, 16 canonical prompts. The controller supplies sequencing and dataflow.
+- Bit-flip interventions produced 24 expected changes and eight expected invariances.
+  Zero first-step errors means natural error propagation was not empirically observed.
+- Seven retained legacy gap diagnostics exceed 1e-5; same-forward masks and the
+  prospectively frozen aligned-logit gate pass. Neither V6 nor V7 is relabeled.
+- The result does not establish model-native program execution, parameter memory,
+  generalization, deployment readiness, or completion of V8's separate protocol.

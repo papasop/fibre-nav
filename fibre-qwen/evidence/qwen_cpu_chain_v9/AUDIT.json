@@ -1,0 +1,76 @@
+{
+  "status": "AUDITED_EXTERNAL_TWO_STEP_INTERFACE_PASS",
+  "completed": 112,
+  "expected": 112,
+  "frozen_source_manifest_sha256": "9fdfc82381f988451d3b84695a4f3703191deb44f95d9faadd7834ac5c37a038",
+  "original_summary_reproduced": true,
+  "primary_correct": 112,
+  "bounded_correct": 112,
+  "minimum_primary_margin_nats": 15.741090774536133,
+  "actual_dependency_links_verified": 64,
+  "end_to_end_correct": 32,
+  "intervention_changed": 24,
+  "intervention_unchanged": 8,
+  "upstream_errors": 0,
+  "natural_error_propagation_observed": false,
+  "same_forward_masks_exact": 112,
+  "maximum_aligned_logit_delta": 0.0,
+  "legacy_diagnostic_failures": 7,
+  "maximum_legacy_gap_delta": 1.1444091796875e-05,
+  "fresh_direct_replays_exact": 96,
+  "runtime_seconds": 4468.1599782700005,
+  "archives": {
+    "cpu_two_step_chain_016_results.zip": {
+      "records": 16,
+      "sha256": "d5f737af5898d72d708f02b95409439c8b83aff121609fecf7355bfb5e3aa12a",
+      "payload_hashes": 42,
+      "summary_reproduced": true
+    },
+    "cpu_two_step_chain_032_results.zip": {
+      "records": 32,
+      "sha256": "806505ef826b5752753f19bb8fc8e36451cf7990245926e8efcc76318f1933db",
+      "payload_hashes": 58,
+      "summary_reproduced": true
+    },
+    "cpu_two_step_chain_048_results.zip": {
+      "records": 48,
+      "sha256": "a07d772eab0ccbf422fb23e99fba69409f398c96d217425a5803c23eff95ff83",
+      "payload_hashes": 74,
+      "summary_reproduced": true
+    },
+    "cpu_two_step_chain_064_results.zip": {
+      "records": 64,
+      "sha256": "e981a563b95bb8fd218fae7ae635dca0c2e9043e68e7e07f5885d7b31ba23b62",
+      "payload_hashes": 90,
+      "summary_reproduced": true
+    },
+    "cpu_two_step_chain_080_results.zip": {
+      "records": 80,
+      "sha256": "c01afb3c9a5d00ae395e73bfbfd875add723cfe3911f8075dafc54b51a98ea95",
+      "payload_hashes": 106,
+      "summary_reproduced": true
+    },
+    "cpu_two_step_chain_096_results.zip": {
+      "records": 96,
+      "sha256": "b8fc01401987952264558b4d73e196562d026454e43dbb739e4f13e84b7e5d60",
+      "payload_hashes": 122,
+      "summary_reproduced": true
+    },
+    "cpu_two_step_chain_112_results.zip": {
+      "records": 112,
+      "sha256": "781d44c77976b1ab48b763306fe91a45749f5171bff98e3b8d678f6e68644c53",
+      "payload_hashes": 138,
+      "summary_reproduced": true
+    },
+    "cpu_two_step_chain_results.zip": {
+      "records": 112,
+      "sha256": "bced5e026e503ed2f6d396bee0435b64ccf5a2204156eb4c334b93669944937d",
+      "payload_hashes": 139,
+      "summary_reproduced": true
+    }
+  },
+  "source_files_verified": 20,
+  "v8_final_pass_confirmed": false,
+  "pretrained_model_rerun_for_audit": false,
+  "scope": "32 authored programs,16 canonical model prompts,one recorded CPU environment; external controller, no native planning or parameter-memory evidence"
+}
