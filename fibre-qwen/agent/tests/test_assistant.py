@@ -81,6 +81,26 @@ class AgentTests(unittest.TestCase):
         result = run('Check', Scripted([{'tool': 'delete', 'arguments': {}}, {'answer': 'Unavailable'}]), self.tools)
         self.assertIn('error', result['trace'][0]['result'])
 
+    def test_single_json_fence_is_accepted_but_extra_text_is_not(self):
+        class Fenced:
+            def reply(self, messages):
+                return '```json\n{"answer":"UNKNOWN"}\n```'
+        self.assertEqual(run('Check', Fenced(), self.tools)['answer'], 'UNKNOWN')
+        class Extra:
+            def reply(self, messages):
+                return 'Here is the result: ```json\n{"answer":"UNKNOWN"}\n```'
+        self.assertEqual(run('Check', Extra(), self.tools, max_steps=1)['status'], 'step_limit')
+
+    def test_invalid_json_repair_is_bounded_and_preserves_raw(self):
+        class Repair:
+            def __init__(self): self.calls = 0
+            def reply(self, messages):
+                self.calls += 1
+                return 'answer: UNKNOWN' if self.calls == 1 else '{"answer":"UNKNOWN"}'
+        result = run('Check', Repair(), self.tools, max_steps=2)
+        self.assertEqual(result['answer'], 'UNKNOWN')
+        self.assertEqual(result['trace'][0]['result']['raw_reply'], 'answer: UNKNOWN')
+
     def test_endpoint_validation(self):
         for endpoint in ['http://remote.example/v1', 'https://user:pass@example.com', 'https://example.com/?key=x']:
             with self.assertRaises(ValueError): ChatModel(endpoint, 'model')

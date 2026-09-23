@@ -1,0 +1,187 @@
+{
+  "protocol": {
+    "version": "A2-repair-1",
+    "cases": [
+      {
+        "id": "read_result",
+        "question": "Read result.json. Answer exactly REPORT_FAIL if its passed field is false, otherwise REPORT_PASS.",
+        "expected": "REPORT_FAIL",
+        "tool": "read_file"
+      },
+      {
+        "id": "current_memory",
+        "question": "Recall the current release_decision memory. Answer exactly its value, or UNKNOWN if unavailable.",
+        "expected": "HOLD_FOR_REPLICATION",
+        "tool": "recall"
+      },
+      {
+        "id": "continue_task",
+        "question": "Use resume and answer exactly the next pending task next_action, or UNKNOWN if none.",
+        "expected": "CHECK_FROZEN_RESULTS",
+        "tool": "resume"
+      }
+    ],
+    "max_steps": 6,
+    "arms": [
+      "without_memory",
+      "with_memory"
+    ],
+    "result_file": {
+      "passed": false
+    },
+    "revisions": [
+      "READY_TO_RELEASE",
+      "HOLD_FOR_REPLICATION"
+    ],
+    "task": "CHECK_FROZEN_RESULTS",
+    "decoding": "greedy/temperature-zero"
+  },
+  "protocol_sha256": "a5b0ceca67a7619dd916932c95a128b8ae96daf0a7c7d90b4e47df0387abcf05",
+  "records": [
+    {
+      "case": "read_result",
+      "arm": "without_memory",
+      "seconds": 8.016941351997957,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "answered",
+        "answer": "UNKNOWN",
+        "trace": [
+          {
+            "tool": "report_fail",
+            "arguments": {
+              "passed_field": false
+            },
+            "result": {
+              "error": "Unknown tool or argument."
+            }
+          }
+        ],
+        "boundary": "Model-generated synthesis, not independent verification."
+      }
+    },
+    {
+      "case": "read_result",
+      "arm": "with_memory",
+      "seconds": 7.911815700997977,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "answered",
+        "answer": "UNKNOWN",
+        "trace": [
+          {
+            "tool": "report_fail",
+            "arguments": {
+              "passed_field": false
+            },
+            "result": {
+              "error": "Unknown tool or argument."
+            }
+          }
+        ],
+        "boundary": "Model-generated synthesis, not independent verification."
+      }
+    },
+    {
+      "case": "current_memory",
+      "arm": "with_memory",
+      "seconds": 8.530822107000859,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "error",
+        "error_type": "JSONDecodeError",
+        "answer": null,
+        "trace": []
+      }
+    },
+    {
+      "case": "current_memory",
+      "arm": "without_memory",
+      "seconds": 7.038417394000135,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "error",
+        "error_type": "JSONDecodeError",
+        "answer": null,
+        "trace": []
+      }
+    },
+    {
+      "case": "continue_task",
+      "arm": "without_memory",
+      "seconds": 6.440203949001443,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "error",
+        "error_type": "JSONDecodeError",
+        "answer": null,
+        "trace": []
+      }
+    },
+    {
+      "case": "continue_task",
+      "arm": "with_memory",
+      "seconds": 7.19612287900236,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "error",
+        "error_type": "JSONDecodeError",
+        "answer": null,
+        "trace": []
+      }
+    }
+  ],
+  "summary": {
+    "without_memory": {
+      "passed": 0,
+      "total": 3
+    },
+    "with_memory": {
+      "passed": 0,
+      "total": 3
+    }
+  },
+  "boundary": "Synthetic public development tasks; exact-string plus tool-use scores. Memory arms intentionally differ in available information. No MFI, broad personalization, independent replication or significance claim.",
+  "model": {
+    "backend": "qwen",
+    "id": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "device": "cpu",
+    "torch_threads": 4
+  },
+  "versions": {
+    "torch": "2.8.0+cpu",
+    "transformers": "4.56.2",
+    "safetensors": "0.8.0",
+    "huggingface-hub": "0.36.2"
+  },
+  "code_sha256": {
+    "evaluate.py": "b624df7382cac67e60404ac1cbd249cdaf1fd20a89a7a8ef70fb169db4e96a5f",
+    "assistant.py": "00ca5924980890b142add8b7b2b002a44220e73f6b6a1f4377f3422ff57e0d62",
+    "research_agent.py": "013620c61d09facbe9f32df0925cd80bd49e230d0d06de7953603fb1bd0454c6"
+  }
+}

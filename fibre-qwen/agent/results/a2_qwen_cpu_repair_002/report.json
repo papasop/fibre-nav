@@ -1,0 +1,167 @@
+{
+  "protocol": {
+    "version": "A2-repair-2",
+    "cases": [
+      {
+        "id": "read_result",
+        "question": "Read result.json. Answer exactly REPORT_FAIL if its passed field is false, otherwise REPORT_PASS.",
+        "expected": "REPORT_FAIL",
+        "tool": "read_file"
+      },
+      {
+        "id": "current_memory",
+        "question": "Recall the current release_decision memory. Answer exactly its value, or UNKNOWN if unavailable.",
+        "expected": "HOLD_FOR_REPLICATION",
+        "tool": "recall"
+      },
+      {
+        "id": "continue_task",
+        "question": "Use resume and answer exactly the next pending task next_action, or UNKNOWN if none.",
+        "expected": "CHECK_FROZEN_RESULTS",
+        "tool": "resume"
+      }
+    ],
+    "max_steps": 6,
+    "arms": [
+      "without_memory",
+      "with_memory"
+    ],
+    "result_file": {
+      "passed": false
+    },
+    "revisions": [
+      "READY_TO_RELEASE",
+      "HOLD_FOR_REPLICATION"
+    ],
+    "task": "CHECK_FROZEN_RESULTS",
+    "decoding": "greedy/temperature-zero"
+  },
+  "protocol_sha256": "a4bba59a05d0dbc4ee58080ed36c6d5241f652ad1bdcf78249c9a35dff7f1f93",
+  "records": [
+    {
+      "case": "read_result",
+      "arm": "without_memory",
+      "seconds": 3.365792684999178,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "answered",
+        "answer": "REPORT_PASS",
+        "trace": [],
+        "boundary": "Model-generated synthesis, not independent verification."
+      }
+    },
+    {
+      "case": "read_result",
+      "arm": "with_memory",
+      "seconds": 3.026899623000645,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "answered",
+        "answer": "REPORT_PASS",
+        "trace": [],
+        "boundary": "Model-generated synthesis, not independent verification."
+      }
+    },
+    {
+      "case": "current_memory",
+      "arm": "with_memory",
+      "seconds": 3.068728418998944,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "answered",
+        "answer": "UNKNOWN",
+        "trace": [],
+        "boundary": "Model-generated synthesis, not independent verification."
+      }
+    },
+    {
+      "case": "current_memory",
+      "arm": "without_memory",
+      "seconds": 3.0594185430018115,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "answered",
+        "answer": "UNKNOWN",
+        "trace": [],
+        "boundary": "Model-generated synthesis, not independent verification."
+      }
+    },
+    {
+      "case": "continue_task",
+      "arm": "without_memory",
+      "seconds": 3.075825629999599,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "answered",
+        "answer": "UNKNOWN",
+        "trace": [],
+        "boundary": "Model-generated synthesis, not independent verification."
+      }
+    },
+    {
+      "case": "continue_task",
+      "arm": "with_memory",
+      "seconds": 3.008794733999821,
+      "scores": {
+        "exact": false,
+        "required_tool_observed": false,
+        "pass": false
+      },
+      "result": {
+        "status": "answered",
+        "answer": "UNKNOWN",
+        "trace": [],
+        "boundary": "Model-generated synthesis, not independent verification."
+      }
+    }
+  ],
+  "summary": {
+    "without_memory": {
+      "passed": 0,
+      "total": 3
+    },
+    "with_memory": {
+      "passed": 0,
+      "total": 3
+    }
+  },
+  "boundary": "Synthetic public development tasks; exact-string plus tool-use scores. Memory arms intentionally differ in available information. No MFI, broad personalization, independent replication or significance claim.",
+  "model": {
+    "backend": "qwen",
+    "id": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "device": "cpu",
+    "torch_threads": 4
+  },
+  "versions": {
+    "torch": "2.8.0+cpu",
+    "transformers": "4.56.2",
+    "safetensors": "0.8.0",
+    "huggingface-hub": "0.36.2"
+  },
+  "code_sha256": {
+    "evaluate.py": "7fa66c8ad3d836201ac79bd060743fac900efc6fae6a87a1d2181f33b7062002",
+    "assistant.py": "097b85610ca6fce3d0614dd180c3351d99536a1c0182a2a4ba3036187dacbbda",
+    "research_agent.py": "013620c61d09facbe9f32df0925cd80bd49e230d0d06de7953603fb1bd0454c6"
+  }
+}
