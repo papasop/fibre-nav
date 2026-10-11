@@ -1,0 +1,56 @@
+{
+  "normal": {
+    "read_bits": [
+      0,
+      0
+    ],
+    "operation": "XOR",
+    "destination": 3,
+    "value": 0,
+    "executor": "external deterministic controller",
+    "read_blocked": false
+  },
+  "substituted": {
+    "read_bits": [
+      1,
+      0
+    ],
+    "operation": "XOR",
+    "destination": 3,
+    "value": 1,
+    "executor": "external deterministic controller",
+    "read_blocked": false
+  },
+  "blocked": {
+    "read_bits": [
+      0,
+      0
+    ],
+    "operation": "XOR",
+    "destination": 3,
+    "value": 0,
+    "executor": "external deterministic controller",
+    "read_blocked": true
+  },
+  "reset": {
+    "read_bits": [
+      0,
+      0
+    ],
+    "operation": "XOR",
+    "destination": 3,
+    "value": 0,
+    "executor": "external deterministic controller",
+    "read_blocked": false
+  },
+  "reset_bits": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "reload_checks": {
+    "normal_writeback": true,
+    "substituted_writeback": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "protocol": "GPT2_B4_CAUSAL_XOR_A100_DEVELOPMENT_V1",
+  "decision": "B4_MINIMAL_DEVELOPMENT_PASS",
+  "b4_pass": true,
+  "checks": {
+    "all_endpoint_gates": true,
+    "normal_task": true,
+    "substituted_task": true,
+    "normal_unselected": true,
+    "substituted_unselected": true,
+    "causal_input_substitution": true,
+    "no_write_control_detected": true,
+    "reset_task_sensitivity": true,
+    "baseline_reset": true,
+    "endpoint_reload": true
+  },
+  "development_only": true,
+  "independent_confirmation": false,
+  "executor": "external XOR controller",
+  "b5_claim": false,
+  "heldout_scope": "previously inspected B3 expressions, development checks",
+  "scope": "Two XOR input states; four fixed-access shared LoRA-B cells; declared averaged response and KL budgets"
+}

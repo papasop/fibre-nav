@@ -1,0 +1,36 @@
+{
+  "protocol": "GPT2_B4_CAUSAL_XOR_A100_DEVELOPMENT_V1",
+  "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "lora_A_sha256": "45d43a4d6a092046cfe44090dff4aef2caa84c9f86de1e8968e831ee9ca0e122",
+  "symbols": [
+    [
+      " red",
+      2266
+    ],
+    [
+      " blue",
+      4171
+    ]
+  ],
+  "source_sha256": "7a9db87a6a4c2207394d0441503edf24b316718bcf19a3fbb0efaf70946efb1d",
+  "worker_sha256": "6b1640baa531460c1e0d46fe20a68de146618f9adcc47fe311291d1ddbfd7cce",
+  "protocol_sha256": "b81a6c465fd37bd7a96262f31adff59312c9560692796b49c46fb9b524320e43",
+  "runtime_sha256": "5807c4e2c828c2db6296afece2f408bf25179648cbc3d286f7b5d22f70a2210b",
+  "chart_shapes": [
+    [
+      2304,
+      8
+    ],
+    [
+      2304,
+      8
+    ]
+  ],
+  "device": "cuda:0",
+  "gpu_name": "NVIDIA A100-SXM4-40GB",
+  "cuda": "13.0",
+  "precision": "float32; autocast disabled; TF32 disabled; eager attention",
+  "torch": "2.11.0+cu130",
+  "transformers": "4.56.2",
+  "peft": "0.17.1"
+}

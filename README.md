@@ -145,7 +145,21 @@ its `PC2 remains blocked` message records an expected boundary in that branch.
 Each evidence directory also contains its own source, results, provenance,
 claim boundary and reproduction instructions where available.
 
+## GPT-2 B4 minimal causal read–compute–write development
+
+The [A100 B4 XOR archive](evidence/gpt2_b4_causal_xor_a100_v1/README.md) records
+`B4_MINIMAL_DEVELOPMENT_PASS` for seed 82931: actual parameter-memory reads,
+an external XOR controller, selective output writeback, endpoint reload and
+declared averaged response/KL gates. This is two-input-state development
+evidence, not full B4 independent confirmation or B5. The archive documents
+control limitations, including an already-correct substituted output and a
+weak reset-sensitivity Boolean. Previously inspected B3 expressions remain
+development data. Full truth-table tests, required output flips, stronger
+causal controls and independent seeds remain open.
+
 ## Evidence index
+
+- [B4 minimal causal XOR development — A100 v1](evidence/gpt2_b4_causal_xor_a100_v1/)
 
 - [L1 exact anchoring — v1.3.2](evidence/l1_exact_anchoring_v1_3_2/)
 - [L2 held-out-expression protocol — v1.5.6](evidence/l2_heldout_expression_v1_5_6/)
