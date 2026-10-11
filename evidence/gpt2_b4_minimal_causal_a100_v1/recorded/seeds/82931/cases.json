@@ -1,0 +1,108 @@
+{
+  "01": {
+    "input_bits": [
+      0,
+      1
+    ],
+    "traces": {
+      "normal": {
+        "read_bits": [
+          0,
+          1
+        ],
+        "operation": "XOR",
+        "destination": 3,
+        "value": 1,
+        "executor": "external deterministic XOR controller",
+        "read_blocked": false,
+        "replacement_bits": null
+      },
+      "blocked": {
+        "read_bits": [
+          1,
+          1
+        ],
+        "operation": "XOR",
+        "destination": 3,
+        "value": 0,
+        "executor": "external deterministic XOR controller",
+        "read_blocked": true,
+        "replacement_bits": [
+          1,
+          1
+        ]
+      },
+      "substituted": {
+        "read_bits": [
+          1,
+          1
+        ],
+        "operation": "XOR",
+        "destination": 3,
+        "value": 0,
+        "executor": "external deterministic XOR controller",
+        "read_blocked": false,
+        "replacement_bits": null
+      },
+      "reset": {
+        "read_bits": [
+          0,
+          0
+        ],
+        "operation": "XOR",
+        "destination": 3,
+        "value": 0,
+        "executor": "external deterministic XOR controller",
+        "read_blocked": false,
+        "replacement_bits": null
+      },
+      "restored": {
+        "read_bits": [
+          0,
+          1
+        ],
+        "operation": "XOR",
+        "destination": 3,
+        "value": 1,
+        "executor": "external deterministic XOR controller",
+        "read_blocked": false,
+        "replacement_bits": null
+      }
+    },
+    "reset_bits": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checks": {
+      "all_development_endpoint_gates": true,
+      "initial_state": true,
+      "actual_input_reads": true,
+      "normal_xor_task": true,
+      "normal_required_output_flip": true,
+      "normal_unselected_retention": true,
+      "executed_blocked_read_wrong_result": true,
+      "blocked_write_required_flip": true,
+      "input_substitution_only_a": true,
+      "substitution_changes_computed_value": true,
+      "substituted_xor_task": true,
+      "substituted_required_output_flip": true,
+      "substituted_unselected_retention": true,
+      "no_write_counterfactual_wrong": true,
+      "baseline_reset_budget": true,
+      "reset_changes_stored_contents": true,
+      "endpoint_reload": true,
+      "reset_changes_computed_result": true,
+      "restore_recovers_contents_and_computation": true
+    },
+    "pass": true,
+    "reload_checks": {
+      "prepare": true,
+      "normal_writeback": true,
+      "blocked_writeback": true,
+      "input_substitution": true,
+      "substituted_writeback": true
+    }
+  }
+}

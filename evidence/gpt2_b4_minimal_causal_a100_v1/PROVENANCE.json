@@ -1,0 +1,79 @@
+{
+  "protocol": "GPT2_B4_MINIMAL_CAUSAL_A100_V1",
+  "decision": "B4_MINIMAL_CAUSAL_DEVELOPMENT_PASS",
+  "evidence_date": "2026-10-11",
+  "repository": "https://github.com/papasop/fibre-nav",
+  "base_commit": "2f0ac56decc94190f6d65225e5b211ad4617bd22",
+  "original_result_sha256": "690d17ac0e65a0a111a65d037c4114a2e2bd562e93b8f0f8314a4305472944d5",
+  "original_result_bytes": 1153817,
+  "archive_members_hash_verified": 34,
+  "case_checks_passed": 19,
+  "seed": 82931,
+  "inputs_tested": [
+    [
+      0,
+      1
+    ]
+  ],
+  "endpoint_states": {
+    "01_prepare": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "01_normal_writeback": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "01_blocked_writeback": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "01_input_substitution": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "01_substituted_writeback": [
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  "max_response_drift": 1.52587890625e-05,
+  "max_mean_anchor_kl": 0.004150287713855505,
+  "min_exact_margin": 0.41201019287109375,
+  "min_original_development_margin": 0.3478851318359375,
+  "full_b4_confirmation": false,
+  "b5_claim": false,
+  "development_only": true,
+  "runtime": {
+    "protocol": "GPT2_B4_MINIMAL_CAUSAL_A100_V1",
+    "seeds": [
+      82931
+    ],
+    "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "transformers": "4.56.2",
+    "peft": "0.17.1",
+    "engine_sha256": {
+      "worker_b4.py": "da9af017c89c63ac7355899ef916b5359d1aa7dd31b0321dd042c0d2f1be4279",
+      "writer_core.py": "7a9db87a6a4c2207394d0441503edf24b316718bcf19a3fbb0efaf70946efb1d",
+      "protocol.py": "6a8173d432d91890c71d1cdf5f176663a9fe0a17087fdf91298ef55fc1874354",
+      "runtime_a100.py": "5807c4e2c828c2db6296afece2f408bf25179648cbc3d286f7b5d22f70a2210b",
+      "config_audit.json": "1cb246cec31f999f96e87c9c4e21c8577129b15e3a3752f4db104cdb6bd79cf0",
+      "run_l5_audit.py": "abc8e1b9f61188715b43c208d4aa3c5ef032c68a4027b4ce10e50de7f58c9e13",
+      "per_address_repair.py": "58c20d4c001faa14428e577c13ecd60e315b7c6ec3f0c3f4cb4b2974c4fcb8b7"
+    }
+  },
+  "verification_boundary": "Archive integrity and internal recorded-gate consistency checked; GPU forward passes not rerun by the handoff verifier."
+}

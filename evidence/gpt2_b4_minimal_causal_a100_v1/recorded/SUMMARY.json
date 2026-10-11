@@ -1,0 +1,31 @@
+{
+  "protocol": "GPT2_B4_MINIMAL_CAUSAL_A100_V1",
+  "decision": "B4_MINIMAL_CAUSAL_DEVELOPMENT_PASS",
+  "complete": true,
+  "all_gates_pass": true,
+  "seeds": [
+    {
+      "seed": 82931,
+      "development_seed": true,
+      "gates": {
+        "single_case_all_causal_and_endpoint_checks": true,
+        "reset_task_accuracy_below_intact": true
+      },
+      "pass": true,
+      "reset_task_correct": 0,
+      "reset_task_total": 1,
+      "auxiliary_expression_gates_pass": true
+    }
+  ],
+  "n_passed": 1,
+  "n_planned": 1,
+  "new_seed_passed": 0,
+  "new_seed_total": 0,
+  "scope": "One development seed82931 and fixed XOR input01; external deterministic XOR; actual parameter reads and writes; required output flips; executed wrong-read branch; actual input substitution; reset and restore; averaged response/KL gates. Not complete B4, four-case coverage, independent confirmation or B5.",
+  "b5_claim": false,
+  "external_independent_replication": false,
+  "prior_b4_zip_used": false,
+  "full_b4_confirmation": false,
+  "development_only": true,
+  "evaluation_boundary": "Reused V2 expression family is reported only as auxiliary diagnostic. It is not untouched evaluation and does not determine acceptance."
+}

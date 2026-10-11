@@ -162,7 +162,25 @@ is ready for A100 execution: all four inputs, required output flips, executed
 wrong-read controls, and two new seeds alongside the development seed.
 **V2 real-model results are pending**; source self-checks are not B4 evidence.
 
+## GPT-2 B4 stronger minimal causal development — 11 October2026
+
+The [minimal causal A100 V1 evidence](evidence/gpt2_b4_minimal_causal_a100_v1/README.md)
+records `B4_MINIMAL_CAUSAL_DEVELOPMENT_PASS` for development seed82931 and
+fixed input01. All five endpoints pass the declared development read-margin
+and averaged response/KL gates. Normal and substituted writebacks actually
+flip the output; an executed wrong-read branch changes the written result;
+actual LoRA-B reset changes the computed result and restoration recovers it.
+Nineteen recorded causal and endpoint checks pass.
+
+This supplements the earlier minimal V1 with stronger controls. XOR and
+sequencing remain external. It is single-input, single-development-seed
+evidence, not complete B4 or B5 confirmation. The reused V2 expression family
+is auxiliary development data. Full truth-table coverage, new seeds and
+independent replication remain open; full XOR V2 results remain pending.
+
 ## Evidence index
+
+- [B4 stronger minimal causal development — A100 V1](evidence/gpt2_b4_minimal_causal_a100_v1/)
 
 - [B4 minimal causal XOR development — A100 v1](evidence/gpt2_b4_causal_xor_a100_v1/)
 
