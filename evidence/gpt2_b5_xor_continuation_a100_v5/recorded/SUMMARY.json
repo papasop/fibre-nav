@@ -1,0 +1,111 @@
+{
+  "protocol": "GPT2_B5_XOR_CONTINUATION_A100_V5",
+  "complete": true,
+  "decision": "B5_XOR_CONTINUATION_DEVELOPMENT_PASS",
+  "cases": {
+    "xor_00": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    "xor_01": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    "xor_10": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true,
+        "accepted_candidate_gate": true,
+        "controller_parameters_unchanged": true
+      },
+      "final_bits": [
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    "xor_11": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true,
+        "accepted_candidate_gate": true,
+        "controller_parameters_unchanged": true
+      },
+      "final_bits": [
+        1,
+        1,
+        1,
+        0
+      ]
+    }
+  },
+  "n_planned": 4,
+  "n_completed": 4,
+  "n_passed": 4,
+  "controller_new_training_steps": 0,
+  "full_b5_confirmation": false,
+  "development_only": true,
+  "internal_parameter_update": false,
+  "single_backbone": true,
+  "shared_update_chart": false,
+  "case_origins": {
+    "xor_00": "INHERITED_V4_PASS_NOT_RERUN",
+    "xor_01": "INHERITED_V4_PASS_NOT_RERUN",
+    "xor_10": "RESUME_REAL_V4_PREPARATION_CHECKPOINT_600",
+    "xor_11": "RESTART_WRITE_FROM_V4_PREPARED_STATE; rejected candidate checkpoint absent"
+  },
+  "scope": "V5 development continuation; inherited V4 passes xor_00/xor_01, xor_10 resumes real preparation checkpoint to 1200 steps, xor_11 write restarts from saved preparation because rejected V4 candidate/optimizer was deleted, maximum 1080 write steps. Original thresholds and writer unchanged. Actual XOR four-input development coverage with frozen V3 controller seed82933 and reused memory chart seed82931. Each case prepared from zero B with deliberately wrong output. Original B4 writer and dev gates; external routing/XOR/gradients. No independent memory seeds or fresh evaluation; prior V3 causal controls retained in parent archive, not rerun here."
+}

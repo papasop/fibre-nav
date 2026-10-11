@@ -1,0 +1,18 @@
+{
+  "protocol": "GPT2_B5_XOR_CONTINUATION_A100_V5",
+  "parent_v4_sha256": "3e9ba8a1f4f37adf9458d1443d59e3ac19b0763c3b1cd80b2ce8af1ee298c301",
+  "preparation_total": 1200,
+  "write_total": 1080,
+  "thresholds_changed": false,
+  "writer_changed": false,
+  "controller_retrained": false,
+  "fresh_evaluation": false,
+  "independent_memory_seed": false,
+  "case_origins": {
+    "xor_00": "INHERITED_V4_PASS_NOT_RERUN",
+    "xor_01": "INHERITED_V4_PASS_NOT_RERUN",
+    "xor_10": "RESUME_REAL_V4_PREPARATION_CHECKPOINT_600",
+    "xor_11": "RESTART_WRITE_FROM_V4_PREPARED_STATE; rejected candidate checkpoint absent"
+  },
+  "candidate_checkpoint_retention": "All V5 attempts retain optimizer and selected candidate, including rejected writes"
+}

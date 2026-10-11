@@ -1,0 +1,92 @@
+{
+  "protocol": "GPT2_B5_XOR_TRUTH_TABLE_A100_V4",
+  "complete": true,
+  "decision": "B5_ACTUAL_XOR_TRUTH_TABLE_DEVELOPMENT_FAIL",
+  "cases": {
+    "xor_00": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    "xor_01": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    "xor_10": {
+      "pass": false,
+      "checks": {
+        "preparation_gate": false
+      },
+      "final_bits": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    "xor_11": {
+      "pass": false,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": false,
+        "correct_final_contents": false,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": false,
+        "no_runtime_errors": false,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "n_planned": 4,
+  "n_completed": 4,
+  "n_passed": 2,
+  "controller_new_training_steps": 0,
+  "full_b5_confirmation": false,
+  "development_only": true,
+  "internal_parameter_update": false,
+  "single_backbone": true,
+  "shared_update_chart": false,
+  "scope": "Actual XOR four-input development coverage with frozen V3 controller seed82933 and reused memory chart seed82931. Each case prepared from zero B with deliberately wrong output. Original B4 writer and dev gates; external routing/XOR/gradients. No independent memory seeds or fresh evaluation; prior V3 causal controls retained in parent archive, not rerun here."
+}

@@ -2,7 +2,7 @@
 
 A research framework for fixed-access parametric memory, with selective updates, declared response-preservation budgets, and causal read–compute–write tests.
 
-[Repository overview](../README.md) · [B5 V3 archive](../evidence/gpt2_b5_single_backbone_a100_v3/) · [B5 V2 archive](../evidence/gpt2_b5_trained_dispatch_a100_v2/) · [B4 causal archive](../evidence/gpt2_b4_minimal_causal_a100_v1/)
+[Repository overview](../README.md) · [B5 V5 complete XOR](../evidence/gpt2_b5_xor_continuation_a100_v5/) · [B5 V3 archive](../evidence/gpt2_b5_single_backbone_a100_v3/) · [B5 V2 archive](../evidence/gpt2_b5_trained_dispatch_a100_v2/) · [B4 causal archive](../evidence/gpt2_b4_minimal_causal_a100_v1/)
 
 ## Research question and contributions
 
@@ -122,6 +122,48 @@ instruction-preservation guarantee or interference-free shared-chart
 self-modification. Independent B5 confirmation and Line C update internalisation
 remain open.
 
+### B5 V4–V5 complete XOR truth-table development coverage
+
+The [V5 archive](../evidence/gpt2_b5_xor_continuation_a100_v5/) records
+`B5_XOR_CONTINUATION_DEVELOPMENT_PASS`, with **4/4 actual XOR inputs** covered
+across V4 and V5. Each independently prepared input state has an initially
+incorrect output, so every accepted episode requires a physical parameter-memory
+writeback and output flip. This is a minimal operational XOR test, not a claim
+of Boolean completeness or universal program execution.
+
+The [unchanged V4 parent](../evidence/gpt2_b5_xor_truth_table_a100_v4/)
+records **2/4 passes**. Case 10 failed preparation on development paraphrases;
+case 11's writeback candidate failed exact/paraphrase margin gates and was rolled
+back. V5 inherits V4's passing 00/01 records unchanged. It resumes the actual 10
+preparation checkpoint from step 600 to 1200, then writes for 1080 steps; for 11
+it restarts writing from the saved passed preparation because the rejected V4
+candidate and optimizer had not been retained. V5 retains both candidate and
+optimizer checkpoints, including rejected attempts.
+
+| Input | Start → final state | V5 origin | Minimum exact margin | Minimum development-paraphrase margin | Mean anchor KL |
+| --- | --- | --- | ---: | ---: | ---: |
+| 00 | `[0,0,1,1] → [0,0,1,0]` | Inherited V4 pass | 3.6542 | 3.5944 | 0.003497 |
+| 01 | `[0,1,1,0] → [0,1,1,1]` | Inherited V4 pass | 5.0898 | 5.3922 | 0.003140 |
+| 10 | `[1,0,1,0] → [1,0,1,1]` | Actual-checkpoint continuation | 12.3999 | 12.6711 | 0.002507 |
+| 11 | `[1,1,1,1] → [1,1,1,0]` | Write restart from preparation | 3.3393 | 4.5527 | 0.003643 |
+
+Original thresholds and writer bytes remain unchanged. Final writeback drift is
+`1.52587890625e-05` for every case; the averaged response budget is `0.002`, mean
+anchor KL budget `0.005`, and minimum exact/paraphrase margin `0.05`.
+The raw `heldout` fields refer to previously inspected development paraphrases,
+not new evaluation data. [Recorded origin declarations](../evidence/gpt2_b5_xor_continuation_a100_v5/recorded/CONTINUATION_PLAN.json)
+and [summary](../evidence/gpt2_b5_xor_continuation_a100_v5/recorded/SUMMARY.json)
+make the continuation scope explicit.
+
+The fixed V3 controller (seed 82933) selects the action sequence without additional
+training; memory seed 82931 is reused. The external runtime routes separate
+adapters, computes XOR and performs numerical updates. The action template was
+provided during controller training. Exactly zero controller-probe drift is an
+adapter-isolation/routing check, not a shared-chart self-modification result.
+Earlier causal controls are retained in the V3 parent and were not rerun for
+each truth-table input. Independent seeds, fresh read prompts and expanded causal
+controls are the next validation targets.
+
 ## Current status
 
 | Stage / line | Archive-supported status | Boundary |
@@ -132,13 +174,16 @@ remain open.
 | Full XOR B4 V2 | `PROTOCOL_READY_RESULTS_PENDING` — [status file](../external_tests/gpt2_b4_full_xor_a100_v2/STATUS.json) | Protocol/source available; no real GPT-2 result claimed. |
 | B5 V2 | Two-model learned-dispatch development pass | Symbolic readiness and actual memory runs are different evidence units. |
 | B5 V3 | Single-backbone, partitioned-adapter development pass | One backbone; separate runtime-routed adapters; reused memory seed and previously inspected tasks. |
+| B5 V4 historical parent | Four-input development failure, 2/4 | Failures are retained; this record is not relabeled as passing. |
+| B5 V5 complete XOR | Four-input development coverage passes, 4/4 | Inherits 00/01; continues 10/11; frozen controller and original thresholds; external numerical execution. |
 | B5 independent confirmation | Pending | Neither a new controller seed nor adapter isolation establishes independent memory replication. |
 | Qwen | Separate lines, detailed below | Do not transfer a Qwen result to GPT-2 memory or vice versa. |
 | Line C | Open research objective | Internalization of numerical updates is not demonstrated. |
 
-This documentation was checked against repository revision
-`63db4d9e96ac33ab6e4276edeb7341c09d6fb8bc` plus the hash-verified V3 incremental archive; statuses refer to available archives,
-not filenames or the number of software tests.
+The V4/V5 update was prepared against repository revision
+`7c19a571e7c17c41ddc0c5ea817cafae8f73de56` and the hash-verified V5 total archive
+(SHA-256 `30ac85d7208ba1525b7cc8934ffc94e4d42bb8b593a17bba715db2f652dd66dd`).
+Statuses refer to available archives, not filenames or the number of software tests.
 
 ### Qwen status and missing version evidence
 
@@ -164,11 +209,18 @@ Run from the repository root using Python 3; these scripts use the standard
 library and do not load model weights or launch training:
 
 ```bash
+python3 evidence/gpt2_b5_xor_continuation_a100_v5/verify_archive.py
+python3 evidence/gpt2_b5_xor_truth_table_a100_v4/verify_archive.py
 python3 evidence/gpt2_b5_single_backbone_a100_v3/verify_archive.py
 python3 evidence/gpt2_b5_trained_dispatch_a100_v2/verify_archive.py
 python3 evidence/gpt2_b4_minimal_causal_a100_v1/verify_archive.py
 python3 evidence/gpt2_b4_causal_xor_a100_v1/verify_archive.py
 ```
+
+The [V5 verifier](../evidence/gpt2_b5_xor_continuation_a100_v5/verify_archive.py)
+checks original hashes, all three embedded parents, development gates, traces,
+unchanged controller weights, inherited cases and saved candidate storage.
+The adjacent V4 verifier preserves and validates the historical 2/4 failure.
 
 The [V3 verifier](../evidence/gpt2_b5_single_backbone_a100_v3/verify_archive.py)
 also checks architecture declarations and recorded controller-probe preservation.
@@ -208,10 +260,17 @@ one cell. Do not run it during documentation or archive verification.
 
 | Experiment / protocol | One-cell launcher | Input |
 | --- | --- | --- |
+| `GPT2_B5_XOR_CONTINUATION_A100_V5` | [B5 V5 PY](../evidence/gpt2_b5_xor_continuation_a100_v5/GPT2_B5_XOR_CONTINUATION_A100_V5.py) | Complete failed V4 result for replaying this development continuation, or a matching V5 result for resume. Completed-result resume is not a fresh replication. |
 | `GPT2_B5_SINGLE_BACKBONE_A100_V3` | [B5 V3 PY](../evidence/gpt2_b5_single_backbone_a100_v3/GPT2_B5_SINGLE_BACKBONE_A100_V3.py) | Passed minimal-causal B4 result or B5 V2 result to extract its B4 parent and train a new V3 controller; matching V3 results for resume. |
 | `GPT2_B5_TRAINED_DISPATCH_A100_V2` | [B5 V2 PY](../evidence/gpt2_b5_trained_dispatch_a100_v2/GPT2_B5_TRAINED_DISPATCH_A100_V2.py) | A passed minimal-causal B4 result ZIP for new controller training, or a compatible B5 V2 result ZIP for resume. |
 | `GPT2_B4_MINIMAL_CAUSAL_A100_V1` | [B4 minimal-causal PY](../evidence/gpt2_b4_minimal_causal_a100_v1/GPT2_B4_MINIMAL_CAUSAL_A100_V1.py) | Fresh run starts from zero B; continuation accepts compatible results of this same protocol. |
 | `GPT2_B4_FULL_XOR_A100_V2` | [B4 full-XOR V2 PY](../external_tests/gpt2_b4_full_xor_a100_v2/GPT2_B4_FULL_XOR_A100_V2.py) | Fresh run starts from zero B; only compatible full-XOR V2 results resume. Results remain pending. |
+
+For V5, the [input and resume guide](../evidence/gpt2_b5_xor_continuation_a100_v5/)
+links the V4 parent and V5 result. Drive backups use the separate folder
+`GPT2_B5_XOR_CONTINUATION_A100_V5_RECOVERY`. The source/launcher ZIP is not
+a result input. The wrapper repairs a missing dependency-parent directory
+without changing the archived worker or resume identity.
 
 For B5 V2, download the actual input artifact:
 
@@ -276,7 +335,7 @@ bundle, zero-forgetting theorem or new projection theorem is claimed.
 | B0–B2 foundations | Restricted writable memory, reusable addressing and local transport | Consult the original L1–L4 archives and paper; legacy labels are preserved rather than silently relabeled as new experiments. Standalone L2 results are unavailable. |
 | B3 | Selective operations in one shared parameter state | Legacy L5 v2.2.4: WRITE, selective OVERWRITE, SWAP, MOVE and RETURN in the declared chart; separate single-seed scope. |
 | B4 | Causal read–compute–write with externally selected operations | Minimal causal development passes; complete truth-table, new-seed and independent validation remain open. |
-| B5 | Learned model selection of runtime operations | V2 development passes in two models; V3 development passes with one backbone and separate adapters. Broader programs and independent confirmation remain open. |
+| B5 | Learned model selection of runtime operations | V2/V3 establish bounded dispatch integration; V4/V5 cover all four actual XOR inputs in development. Broader programs and independent confirmation remain open. |
 | Line C | Internalize the update mechanism | Open goal; current XOR and gradient-based writing are external runtime services. |
 
 The unified legacy audits are not a shortcut to full B4/B5 confirmation:
@@ -289,7 +348,9 @@ replication or a unified 3/3 confirmation.
 
 | Archive | Interpretation |
 | --- | --- |
-| [B5 single-backbone V3](../evidence/gpt2_b5_single_backbone_a100_v3/) | Latest partitioned-adapter development evidence; external routing and updates. |
+| [B5 complete XOR V5](../evidence/gpt2_b5_xor_continuation_a100_v5/) | Latest four-input development coverage, 4/4 across inherited V4 records and V5 continuation; original gates. |
+| [B5 full XOR V4](../evidence/gpt2_b5_xor_truth_table_a100_v4/) | Historical parent failure, 2/4; negative cases retained. |
+| [B5 single-backbone V3](../evidence/gpt2_b5_single_backbone_a100_v3/) | Earlier partitioned-adapter development evidence; external routing and updates. |
 | [B5 trained dispatch V2](../evidence/gpt2_b5_trained_dispatch_a100_v2/) | Two-model learned-dispatch development evidence; preserved launcher and result ZIP. |
 | [B4 minimal causal V1](../evidence/gpt2_b4_minimal_causal_a100_v1/) | Central causal demonstration, fixed input `01`, development seed `82931`. |
 | [Earlier B4 XOR V1](../evidence/gpt2_b4_causal_xor_a100_v1/) | Historical limitations retained; the substituted branch did not require an output flip and reset sensitivity was weak. |

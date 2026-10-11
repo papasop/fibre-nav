@@ -1,0 +1,11 @@
+{
+  "repair": "Create the dependency directory with parents=True before invoking the unchanged launcher.",
+  "original_wrapper_sha256": "e109c6b72e00bdac82ae481a78e99d3c25ff1dd644dac2b8ede5cd37323b07fb",
+  "repaired_wrapper_sha256": "59b82d0cadd9005c0e1c7f22ece9ea7810a2dd42538db312d3fc8ce3497d83bf",
+  "payload_sha256": "a61756739cf6ff2b42ed7cce08831ad9f40a2bf1c47132c6cfdc5f085d24aa65",
+  "archived_source_changed": false,
+  "worker_or_protocol_changed": false,
+  "resume_identity_changed": false,
+  "known_original_issue": "source/launch_b5.py used deps.mkdir(exist_ok=True), which fails if the V4 parent directory is absent.",
+  "validation_scope": "Local static checks and temporary-directory behavior; no new A100 model run."
+}

@@ -1,0 +1,30 @@
+{
+  "protocol": "GPT2_B5_XOR_TRUTH_TABLE_A100_V4",
+  "parent_sha256": "690d17ac0e65a0a111a65d037c4114a2e2bd562e93b8f0f8314a4305472944d5",
+  "parent_v3_sha256": "4e8d1ef415a604a5d3c057b274d60306a233794c1803a0215aec2a18023cabcf",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "torch": "2.11.0+cu130",
+  "transformers": "4.56.2",
+  "peft": "0.17.1",
+  "source_hashes": {
+    "config_audit.json": "1cb246cec31f999f96e87c9c4e21c8577129b15e3a3752f4db104cdb6bd79cf0",
+    "per_address_repair.py": "58c20d4c001faa14428e577c13ecd60e315b7c6ec3f0c3f4cb4b2974c4fcb8b7",
+    "launch_b5.py": "9469bb2c4f078867e083e72f47dde7ea8cc3e4c34d1bc4fc1d088ab0f89d0e8c",
+    "worker_b5.py": "904e54632c7148b31aca4d19037bbffad590da338a3d9b41de34e06aa37a715e",
+    "controller_data.py": "1611cb64fea186e57f53fcc4cc375ecba32cacad1067c951fb65248fbd558c17",
+    "process_io.py": "23571079c1bc921750df76e1c0e653d2e4584e86505b8629aa4db94d411a9716",
+    "runtime_a100.py": "5807c4e2c828c2db6296afece2f408bf25179648cbc3d286f7b5d22f70a2210b",
+    "SOURCE_MANIFEST.json": "a8e4591e7d53f722b21b92c9e9503c96d77d82fd835a9629edcb7ae8c2f0c724",
+    "run_l5_audit.py": "abc8e1b9f61188715b43c208d4aa3c5ef032c68a4027b4ce10e50de7f58c9e13",
+    "adapter_runtime.py": "96f2801cbd2c2dc6b57499eabbaac981fa040de331080ec6d42db742689627c9",
+    "b5_protocol.py": "e3dd11da2c7bfbb969b82dbf09185bfca2d6a0149fc1a097c560b206894b9d27",
+    "truth_protocol.py": "a542b74bd94aa6308d5ed3e906ceb7c65413ef8aad90f6a38d75e235a6198d31",
+    "writer_core.py": "7a9db87a6a4c2207394d0441503edf24b316718bcf19a3fbb0efaf70946efb1d",
+    "test_dispatch.py": "d33ec373f953dcfd6b8e7ebdad150392dac92c811bc2dc70d5765bd82a9adfdf",
+    "controller_train.py": "6439da406b54cfef323d1e48b7cd3e8a704d506e5b51430f3d4d6e6557aa63f5",
+    "protocol.py": "6a8173d432d91890c71d1cdf5f176663a9fe0a17087fdf91298ef55fc1874354"
+  },
+  "policy": "single GPT-2 backbone; two exclusive adapters routed by runtime; controller trained on other task tuples",
+  "max_actions": 12,
+  "seed": 82931
+}
