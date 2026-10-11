@@ -157,6 +157,11 @@ weak reset-sensitivity Boolean. Previously inspected B3 expressions remain
 development data. Full truth-table tests, required output flips, stronger
 causal controls and independent seeds remain open.
 
+The [full XOR V2 follow-up protocol](external_tests/gpt2_b4_full_xor_a100_v2/README.md)
+is ready for A100 execution: all four inputs, required output flips, executed
+wrong-read controls, and two new seeds alongside the development seed.
+**V2 real-model results are pending**; source self-checks are not B4 evidence.
+
 ## Evidence index
 
 - [B4 minimal causal XOR development — A100 v1](evidence/gpt2_b4_causal_xor_a100_v1/)
