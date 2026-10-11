@@ -1,0 +1,96 @@
+{
+  "protocol": "GPT2_B5_TRAINED_DISPATCH_A100_V2",
+  "complete": true,
+  "decision": "B5_MODEL_DISPATCH_DEVELOPMENT_PASS",
+  "cases": {
+    "normal": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true
+      },
+      "final_bits": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    "stored_substitution": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true
+      },
+      "final_bits": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    "reset": {
+      "pass": false,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": false,
+        "no_runtime_errors": true
+      },
+      "final_bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "restored": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true
+      },
+      "final_bits": [
+        0,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "controls": {
+    "reset_changes_read": true,
+    "restore_recovers_read": true,
+    "stored_substitution_changes_read": true
+  },
+  "full_b5_confirmation": false,
+  "development_only": true,
+  "internal_parameter_update": false,
+  "scope": "Reused GPT-2 seed82931 and B4 states. Separate GPT-2 controller trained only on other address tuples. Held-out symbolic readiness and actual forward memory checks. Two-model system; original B4 memory access rules unchanged. External runtime computes XOR and performs gradients. Not independent B5 confirmation or C-line internal updates."
+}

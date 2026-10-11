@@ -1,0 +1,3962 @@
+[
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "00",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "00",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 10 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 01, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 00 R0"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "00",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 11 into cell 10, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "01",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 00 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "01",
+      "10",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 10 into cell 11, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 00, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 01 R0"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "01",
+      "11",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 01 and 11 into cell 10, preserve other cells.\nAction: READ 01 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "10",
+      "00",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 00 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 11 R2"
+  },
+  {
+    "task": [
+      "10",
+      "01",
+      "11"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 01 into cell 11, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 00, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=0\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 10 R0"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 11 R1"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "10",
+      "11",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 10 and 11 into cell 01, preserve other cells.\nAction: READ 10 R0\nFeedback: R0=1\nAction: READ 11 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 00 R1"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "11",
+      "00",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 00 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 00 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 01 R1"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 10 R2"
+  },
+  {
+    "task": [
+      "11",
+      "01",
+      "10"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 01 into cell 10, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 01 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 10 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 00 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "00"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 00, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 00 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=0\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=1\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction:",
+    "action": "READ 11 R0"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction:",
+    "action": "READ 10 R1"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction:",
+    "action": "XOR R0 R1 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+    "action": "WRITE 01 R2"
+  },
+  {
+    "task": [
+      "11",
+      "10",
+      "01"
+    ],
+    "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 11 and 10 into cell 01, preserve other cells.\nAction: READ 11 R0\nFeedback: R0=1\nAction: READ 10 R1\nFeedback: R1=1\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 01 R2\nFeedback: WRITE accepted\nAction:",
+    "action": "HALT"
+  }
+]

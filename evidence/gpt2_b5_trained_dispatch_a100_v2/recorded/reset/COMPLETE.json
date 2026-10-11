@@ -1,0 +1,200 @@
+{
+  "case": "reset",
+  "checks": {
+    "halted": true,
+    "input_reads": true,
+    "xor_executed": true,
+    "output_write_executed": true,
+    "correct_final_contents": true,
+    "unselected_retained": true,
+    "endpoint_gates": true,
+    "required_output_flip": false,
+    "no_runtime_errors": true
+  },
+  "pass": false,
+  "final_bits": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "final_gate": {
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        9.031044006347656,
+        8.866302490234375,
+        8.892372131347656,
+        8.698326110839844
+      ],
+      "heldout_margins": [
+        10.575691223144531,
+        10.935035705566406,
+        11.044059753417969,
+        10.931816101074219,
+        12.199356079101562,
+        12.533180236816406,
+        12.508926391601562,
+        12.460548400878906,
+        12.336067199707031,
+        12.639427185058594,
+        12.721580505371094,
+        12.482261657714844
+      ],
+      "minimum_exact_margin": 8.698326110839844,
+      "minimum_heldout_margin": 10.575691223144531
+    },
+    "drift": 0.0,
+    "kl": 0.0025305314920842648,
+    "pass": true,
+    "observed_bits": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "trace": [
+    {
+      "action": "READ 00 R0",
+      "scores": {
+        "READ 00 R0": -0.001205260632559657,
+        "READ 00 R1": -1.2924696207046509,
+        "READ 01 R0": -1.3965407609939575,
+        "READ 01 R1": -3.2279884815216064,
+        "READ 10 R0": -2.7402756214141846,
+        "READ 10 R1": -4.176124095916748,
+        "READ 11 R0": -2.172224760055542,
+        "READ 11 R1": -3.956880569458008,
+        "XOR R0 R1 R2": -1.9935147762298584,
+        "WRITE 00 R2": -4.46770715713501,
+        "WRITE 01 R2": -4.960988998413086,
+        "WRITE 10 R2": -6.6788811683654785,
+        "WRITE 11 R2": -5.947020053863525,
+        "HALT": -5.050117492675781
+      },
+      "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 11, preserve other cells.\nAction:",
+      "step": 1,
+      "feedback": "R0=0",
+      "actual_bits_after": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action": "READ 01 R1",
+      "scores": {
+        "READ 00 R0": -4.149119853973389,
+        "READ 00 R1": -1.6336185932159424,
+        "READ 01 R0": -1.8162424564361572,
+        "READ 01 R1": -0.0007001096964813769,
+        "READ 10 R0": -4.302921295166016,
+        "READ 10 R1": -2.7277936935424805,
+        "READ 11 R0": -2.5833652019500732,
+        "READ 11 R1": -1.192414402961731,
+        "XOR R0 R1 R2": -1.5724773406982422,
+        "WRITE 00 R2": -4.570796012878418,
+        "WRITE 01 R2": -3.6206910610198975,
+        "WRITE 10 R2": -5.563503265380859,
+        "WRITE 11 R2": -2.8651185035705566,
+        "HALT": -4.007177352905273
+      },
+      "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction:",
+      "step": 2,
+      "feedback": "R1=0",
+      "actual_bits_after": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action": "XOR R0 R1 R2",
+      "scores": {
+        "READ 00 R0": -6.31863260269165,
+        "READ 00 R1": -5.892690181732178,
+        "READ 01 R0": -6.285298824310303,
+        "READ 01 R1": -5.700521469116211,
+        "READ 10 R0": -5.7097883224487305,
+        "READ 10 R1": -4.720869541168213,
+        "READ 11 R0": -4.601560115814209,
+        "READ 11 R1": -4.73654317855835,
+        "XOR R0 R1 R2": -0.00022519778576679528,
+        "WRITE 00 R2": -3.5101661682128906,
+        "WRITE 01 R2": -3.221689224243164,
+        "WRITE 10 R2": -4.185297966003418,
+        "WRITE 11 R2": -2.587555170059204,
+        "HALT": -3.8621301651000977
+      },
+      "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction:",
+      "step": 3,
+      "feedback": "R2=0",
+      "actual_bits_after": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action": "WRITE 11 R2",
+      "scores": {
+        "READ 00 R0": -4.411327362060547,
+        "READ 00 R1": -3.4886913299560547,
+        "READ 01 R0": -6.127563953399658,
+        "READ 01 R1": -4.817577362060547,
+        "READ 10 R0": -4.7416605949401855,
+        "READ 10 R1": -3.6600632667541504,
+        "READ 11 R0": -3.756486654281616,
+        "READ 11 R1": -3.340144395828247,
+        "XOR R0 R1 R2": -2.5597822666168213,
+        "WRITE 00 R2": -1.3947538137435913,
+        "WRITE 01 R2": -1.5536705255508423,
+        "WRITE 10 R2": -1.7332229614257812,
+        "WRITE 11 R2": -0.0006368340109474957,
+        "HALT": -4.101440906524658
+      },
+      "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction:",
+      "step": 4,
+      "feedback": "WRITE accepted",
+      "actual_bits_after": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action": "HALT",
+      "scores": {
+        "READ 00 R0": -4.514049530029297,
+        "READ 00 R1": -3.552255392074585,
+        "READ 01 R0": -6.350078105926514,
+        "READ 01 R1": -5.2366204261779785,
+        "READ 10 R0": -5.853209972381592,
+        "READ 10 R1": -4.924402713775635,
+        "READ 11 R0": -5.237403869628906,
+        "READ 11 R1": -4.249230861663818,
+        "XOR R0 R1 R2": -1.3046941757202148,
+        "WRITE 00 R2": -2.263184070587158,
+        "WRITE 01 R2": -2.961876153945923,
+        "WRITE 10 R2": -2.871717929840088,
+        "WRITE 11 R2": -2.0144267082214355,
+        "HALT": -0.00011359938071109354
+      },
+      "prompt": "Memory VM. READ address register; XOR R0 R1 R2; WRITE address R2; HALT. Read both inputs before XOR. Write the result then halt.\nTask: XOR cells 00 and 01 into cell 11, preserve other cells.\nAction: READ 00 R0\nFeedback: R0=0\nAction: READ 01 R1\nFeedback: R1=0\nAction: XOR R0 R1 R2\nFeedback: R2=0\nAction: WRITE 11 R2\nFeedback: WRITE accepted\nAction:",
+      "step": 5,
+      "feedback": "done",
+      "actual_bits_after": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

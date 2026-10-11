@@ -178,7 +178,15 @@ evidence, not complete B4 or B5 confirmation. The reused V2 expression family
 is auxiliary development data. Full truth-table coverage, new seeds and
 independent replication remain open; full XOR V2 results remain pending.
 
+## GPT-2 learned operation dispatch: B5 development evidence
+
+The [A100 V2 archive](evidence/gpt2_b5_trained_dispatch_a100_v2/) reports a passing learned-dispatch development test. A separately trained GPT-2 controller selects READ, XOR, WRITE and HALT operations for the existing B4 parameter-memory runtime. Held-out address-combination readiness passes 8/8 symbolic episodes. Actual normal, stored-substitution and restored runs pass declared read/retention/response/KL checks, with reset and restoration controls supporting dependence on stored contents.
+
+This is a two-model system using reused GPT-2 B4 development states. XOR and numerical parameter updates remain external runtime services. Independent multi-seed B5 confirmation and Line C update internalisation remain open.
+
 ## Evidence index
+
+- [B5 trained model-dispatch development — A100 V2](evidence/gpt2_b5_trained_dispatch_a100_v2/)
 
 - [B4 stronger minimal causal development — A100 V1](evidence/gpt2_b4_minimal_causal_a100_v1/)
 
