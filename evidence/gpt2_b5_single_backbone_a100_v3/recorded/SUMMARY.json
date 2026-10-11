@@ -1,0 +1,102 @@
+{
+  "protocol": "GPT2_B5_SINGLE_BACKBONE_A100_V3",
+  "complete": true,
+  "decision": "B5_SINGLE_BACKBONE_DEVELOPMENT_PASS",
+  "cases": {
+    "normal": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    "stored_substitution": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    "reset": {
+      "pass": false,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": false,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "restored": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "controls": {
+    "reset_changes_read": true,
+    "restore_recovers_read": true,
+    "stored_substitution_changes_read": true
+  },
+  "full_b5_confirmation": false,
+  "development_only": true,
+  "internal_parameter_update": false,
+  "single_backbone": true,
+  "shared_update_chart": false,
+  "scope": "Reused GPT-2 seed82931 and B4 states. One GPT-2 backbone, exclusive memory/controller adapters routed by external runtime. Newly trained controller seed82933; held-out task tuples reused from V2 development. Original B4 chart and writer preserved. No shared-chart controllability or native attention-to-weight updates. External runtime computes XOR and performs gradients. Not independent B5 confirmation or C-line internal updates."
+}

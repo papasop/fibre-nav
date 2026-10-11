@@ -1,0 +1,1720 @@
+ START B5 runtime self-tests
+test_adapter_routing_freezes_all_but_selected_B (__main__.Tests.test_adapter_routing_freezes_all_but_selected_B) ... ok
+test_correct_sequence (__main__.Tests.test_correct_sequence) ... ok
+test_initial_prompt_has_no_values_or_plan (__main__.Tests.test_initial_prompt_has_no_values_or_plan) ... ok
+test_no_hidden_value_in_task (__main__.Tests.test_no_hidden_value_in_task) ... ok
+test_one_backbone_loader (__main__.Tests.test_one_backbone_loader) ... ok
+test_runtime_never_supplies_sequence (__main__.Tests.test_runtime_never_supplies_sequence) ... ok
+test_split_disjoint (__main__.Tests.test_split_disjoint) ... ok
+test_teacher_feedback_matches_runtime (__main__.Tests.test_teacher_feedback_matches_runtime) ... ok
+test_trivial_halt_rejected (__main__.Tests.test_trivial_halt_rejected) ... ok
+test_wrong_address_rejected (__main__.Tests.test_wrong_address_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.017s
+
+OK
+END B5 runtime self-tests exit= 0
+START A100 device
+NVIDIA A100-SXM4-40GB 2.11.0+cu130
+END A100 device exit= 0
+Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
+请上传已通过的 gpt2_b4_minimal_causal_a100_results.zip；也可上传V1结果提取父包，或本版V3结果续跑。不要上传启动器ZIP。
+
+     
+     gpt2_b5_trained_dispatch_a100_results.zip(application/zip) - 3349194 bytes, last modified: 2026/10/11 - 100% done
+      // Copyright 2017 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ * @fileoverview Helpers for google.colab Python module.
+ */
+(function(scope) {
+function span(text, styleAttributes = {}) {
+  const element = document.createElement('span');
+  element.textContent = text;
+  for (const key of Object.keys(styleAttributes)) {
+    element.style[key] = styleAttributes[key];
+  }
+  return element;
+}
+
+// Max number of bytes which will be uploaded at a time.
+const MAX_PAYLOAD_SIZE = 100 * 1024;
+
+function _uploadFiles(inputId, outputId) {
+  const steps = uploadFilesStep(inputId, outputId);
+  const outputElement = document.getElementById(outputId);
+  // Cache steps on the outputElement to make it available for the next call
+  // to uploadFilesContinue from Python.
+  outputElement.steps = steps;
+
+  return _uploadFilesContinue(outputId);
+}
+
+// This is roughly an async generator (not supported in the browser yet),
+// where there are multiple asynchronous steps and the Python side is going
+// to poll for completion of each step.
+// This uses a Promise to block the python side on completion of each step,
+// then passes the result of the previous step as the input to the next step.
+function _uploadFilesContinue(outputId) {
+  const outputElement = document.getElementById(outputId);
+  const steps = outputElement.steps;
+
+  const next = steps.next(outputElement.lastPromiseValue);
+  return Promise.resolve(next.value.promise).then((value) => {
+    // Cache the last promise value to make it available to the next
+    // step of the generator.
+    outputElement.lastPromiseValue = value;
+    return next.value.response;
+  });
+}
+
+/**
+ * Generator function which is called between each async step of the upload
+ * process.
+ * @param {string} inputId Element ID of the input file picker element.
+ * @param {string} outputId Element ID of the output display.
+ * @return {!Iterable<!Object>} Iterable of next steps.
+ */
+function* uploadFilesStep(inputId, outputId) {
+  const inputElement = document.getElementById(inputId);
+  inputElement.disabled = false;
+
+  const outputElement = document.getElementById(outputId);
+  outputElement.innerHTML = '';
+
+  const pickedPromise = new Promise((resolve) => {
+    inputElement.addEventListener('change', (e) => {
+      resolve(e.target.files);
+    });
+  });
+
+  const cancel = document.createElement('button');
+  inputElement.parentElement.appendChild(cancel);
+  cancel.textContent = 'Cancel upload';
+  const cancelPromise = new Promise((resolve) => {
+    cancel.onclick = () => {
+      resolve(null);
+    };
+  });
+
+  // Wait for the user to pick the files.
+  const files = yield {
+    promise: Promise.race([pickedPromise, cancelPromise]),
+    response: {
+      action: 'starting',
+    }
+  };
+
+  cancel.remove();
+
+  // Disable the input element since further picks are not allowed.
+  inputElement.disabled = true;
+
+  if (!files) {
+    return {
+      response: {
+        action: 'complete',
+      }
+    };
+  }
+
+  for (const file of files) {
+    const li = document.createElement('li');
+    li.append(span(file.name, {fontWeight: 'bold'}));
+    li.append(span(
+        `(${file.type || 'n/a'}) - ${file.size} bytes, ` +
+        `last modified: ${
+            file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() :
+                                    'n/a'} - `));
+    const percent = span('0% done');
+    li.appendChild(percent);
+
+    outputElement.appendChild(li);
+
+    const fileDataPromise = new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve(e.target.result);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    // Wait for the data to be ready.
+    let fileData = yield {
+      promise: fileDataPromise,
+      response: {
+        action: 'continue',
+      }
+    };
+
+    // Use a chunked sending to avoid message size limits. See b/62115660.
+    let position = 0;
+    do {
+      const length = Math.min(fileData.byteLength - position, MAX_PAYLOAD_SIZE);
+      const chunk = new Uint8Array(fileData, position, length);
+      position += length;
+
+      const base64 = btoa(String.fromCharCode.apply(null, chunk));
+      yield {
+        response: {
+          action: 'append',
+          file: file.name,
+          data: base64,
+        },
+      };
+
+      let percentDone = fileData.byteLength === 0 ?
+          100 :
+          Math.round((position / fileData.byteLength) * 100);
+      percent.textContent = `${percentDone}% done`;
+
+    } while (position < fileData.byteLength);
+  }
+
+  // All done.
+  yield {
+    response: {
+      action: 'complete',
+    }
+  };
+}
+
+scope.google = scope.google || {};
+scope.google.colab = scope.google.colab || {};
+scope.google.colab._files = {
+  _uploadFiles,
+  _uploadFilesContinue,
+};
+})(self);
+ Saving gpt2_b5_trained_dispatch_a100_results.zip to gpt2_b5_trained_dispatch_a100_results.zip
+从已有B5结果提取B4父包；新训单主干控制器（seed82933），不继承旧版控制器或动作进度。
+START 依赖检查
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import sys;sys.path.insert(0,sys.argv[1]);import torch,transformers,peft,tokenizers,huggingface_hub,accelerate,safetensors;assert transformers.__version__=='4.56.2';assert peft.__version__=='0.17.1';print('DEPENDENCIES_OK',flush=True)
+                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+END 依赖检查 exit= 1
+START 隔离HF依赖；保留CUDA PyTorch
+Collecting transformers==4.56.2
+  Using cached transformers-4.56.2-py3-none-any.whl.metadata (40 kB)
+Collecting peft==0.17.1
+  Using cached peft-0.17.1-py3-none-any.whl.metadata (14 kB)
+Collecting tokenizers==0.22.0
+  Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting huggingface_hub==0.34.4
+  Using cached huggingface_hub-0.34.4-py3-none-any.whl.metadata (14 kB)
+Collecting accelerate==1.10.1
+  Using cached accelerate-1.10.1-py3-none-any.whl.metadata (19 kB)
+Collecting safetensors==0.6.2
+  Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Using cached transformers-4.56.2-py3-none-any.whl (11.6 MB)
+Using cached peft-0.17.1-py3-none-any.whl (504 kB)
+Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+Using cached huggingface_hub-0.34.4-py3-none-any.whl (561 kB)
+Using cached accelerate-1.10.1-py3-none-any.whl (374 kB)
+Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (485 kB)
+Installing collected packages: transformers, tokenizers, safetensors, peft, huggingface_hub, accelerate
+Successfully installed accelerate-1.10.1 huggingface_hub-0.34.4 peft-0.17.1 safetensors-0.6.2 tokenizers-0.22.0 transformers-4.56.2
+END 隔离HF依赖；保留CUDA PyTorch exit= 0
+START 安装后检查
+DEPENDENCIES_OK
+END 安装后检查 exit= 0
+B5 V3：单GPT-2主干、分区adapter；独立控制器SFT 600步；未训练地址组合8例检查；通过后才实际写回。无限会话时长。
+4种状态：normal/stored_substitution/reset/restored；每例最多12指令、2次写入，每次最多480步。不是完整B5或内部参数更新。
+START B5运行
+B5 loading pinned GPT-2; existing B4 chart; memory chart frozen except original B4 writer
+`torch_dtype` is deprecated! Use `dtype` instead!
+/content/gpt2_b5_single_backbone_a100_v3/deps/peft/tuners/lora/layer.py:2174: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717590095011671.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_ADAPTER: same GPT-2 backbone; separate rank16 B chart
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+V3 CONTROLLER_TRAIN 20 / 600 loss 1.3237055540084839
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717591563954595.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 40 / 600 loss 0.9571122527122498
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717592568088378.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 60 / 600 loss 0.7814321517944336
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717593569708543.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 80 / 600 loss 0.3049629032611847
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717594590408510.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 100 / 600 loss 0.2666536271572113
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717595589474051.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 120 / 600 loss 0.09069236367940903
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717596583315589.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 140 / 600 loss 0.022547611966729164
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717597581604030.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 160 / 600 loss 0.030226338654756546
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717598575036436.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 180 / 600 loss 0.010298382490873337
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717599569263618.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 200 / 600 loss 0.010796478018164635
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717600562663968.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 220 / 600 loss 0.0027429847978055477
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717601546541109.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 240 / 600 loss 0.005854122806340456
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717602539288223.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 260 / 600 loss 0.004233564715832472
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717603545209634.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 280 / 600 loss 0.00269873533397913
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717604571509964.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 300 / 600 loss 0.0036300583742558956
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717605561300966.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 320 / 600 loss 0.0011130693601444364
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717606559320116.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 340 / 600 loss 0.0016383215552195907
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717607551992094.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 360 / 600 loss 0.0016599647933617234
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717608562343660.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 380 / 600 loss 0.0020530158653855324
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717609562504140.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 400 / 600 loss 0.0021740784868597984
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717610548063586.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 420 / 600 loss 0.0017727286322042346
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717611538447885.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 440 / 600 loss 0.0014247618382796645
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717612536128580.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 460 / 600 loss 0.002254755701869726
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717613528169442.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 480 / 600 loss 0.0009728862205520272
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717614528159182.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 500 / 600 loss 0.000794398074503988
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717615531145583.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 520 / 600 loss 0.0013009262038394809
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717616531885367.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 540 / 600 loss 0.0008646795758977532
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717617538200583.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 560 / 600 loss 0.000534910592250526
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717618532813155.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 580 / 600 loss 0.0006623423541896045
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717619525583704.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_TRAIN 600 / 600 loss 0.0006010925280861557
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717620526609816.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V3 CONTROLLER_HELDOUT ('00', '01', '11') 0 0 True
+V3 CONTROLLER_HELDOUT ('00', '01', '11') 0 1 True
+V3 CONTROLLER_HELDOUT ('00', '01', '11') 1 0 True
+V3 CONTROLLER_HELDOUT ('00', '01', '11') 1 1 True
+V3 CONTROLLER_HELDOUT ('01', '00', '11') 0 0 True
+V3 CONTROLLER_HELDOUT ('01', '00', '11') 0 1 True
+V3 CONTROLLER_HELDOUT ('01', '00', '11') 1 0 True
+V3 CONTROLLER_HELDOUT ('01', '00', '11') 1 1 True
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717637376920935.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+V2 CONTROLLER_READY: begin actual B4 memory evaluation
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717637603387327.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717638220781666.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION normal 1 READ 00 R0 => R0=0
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717638466865815.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717639075040340.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION normal 2 READ 01 R1 => R1=1
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717639320723973.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717639931225916.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION normal 3 XOR R0 R1 R2 => R2=1
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717640149301901.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717640762095747.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 5
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717644319533357.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 10
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717647146435535.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 15
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717650006887236.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 20
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717652869073221.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 25
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717655758439513.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 30
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717658599576037.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 35
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717661486123490.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 40
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717664370076220.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 45
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717667298720404.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 50
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717670142347036.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 55
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717672968011493.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 60
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717675846304148.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 65
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717678656764466.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 70
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717681505993116.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 75
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717684350913177.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 80
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717687183362942.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 85
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717690030793774.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 90
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717692938910027.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 95
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717695774572506.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 100
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717698622432264.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 105
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717701478476275.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 110
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717704344666517.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 115
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717707229291167.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 120
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717710069020083.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 125
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717712921775541.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 130
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717715767540193.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 135
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717718624006607.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 140
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717721303952842.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 145
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717724156630637.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 150
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717727030399782.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 155
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717729937251699.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 160
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717732765633026.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 165
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717735619183990.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 170
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717738483568615.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 175
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717741351783411.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 180
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717744273264766.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 185
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717747115035208.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 190
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717749983173374.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 195
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717752840428051.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 200
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717755778195813.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 205
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717758607990162.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 210
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717761484360991.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 215
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717764354296633.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 220
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717767255924909.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 225
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717770121155181.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 230
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717772939185806.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 235
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717775808297007.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 240
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717778681610178.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 245
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717781491377024.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 250
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717784327782464.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 255
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717787195551067.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 260
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717790063303045.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 265
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717792954993824.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 270
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717795783952049.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 275
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717798615506029.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 280
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717801471900394.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 285
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717804324081865.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 290
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717807209128162.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 295
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717810075908952.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 300
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717812896275963.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 305
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717815778794733.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 310
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717818595276044.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 315
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717821467887345.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 320
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717824180550718.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 325
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717827043810314.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 330
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717829971107939.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 335
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717832828240786.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 340
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717835706120511.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 345
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717838598050074.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 350
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717841483086007.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 355
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717844382624123.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 360
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717847251471785.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 365
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717850128031792.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 370
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717852997601185.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 375
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717855909564293.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 380
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717858782323622.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 385
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717861652606342.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 390
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717864546965490.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 395
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717867438371329.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 400
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717870275593358.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 405
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717873148257162.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 410
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717876075404293.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 415
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717878981609170.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 420
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717881882480341.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 425
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717884730395279.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 430
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717887582134197.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 435
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717890455275137.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 440
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717893340534895.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 445
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717896268091468.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 450
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717899155844067.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 455
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717902247202547.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 460
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717905082033915.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 465
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717907977265435.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 470
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717910823592962.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 475
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717913696851091.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE normal 11 step 480
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717916561213032.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION normal 4 WRITE 11 R2 => WRITE accepted
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717918150932339.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717918790464595.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION normal 5 HALT => done
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717919053689299.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717919475487886.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717919731307944.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717920384429228.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION stored_substitution 1 READ 00 R0 => R0=1
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717920686717741.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717921341381909.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION stored_substitution 2 READ 01 R1 => R1=1
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717921628253217.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717922278116105.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION stored_substitution 3 XOR R0 R1 R2 => R2=0
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717922534186225.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717923178851465.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 5
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717926619025706.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 10
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717929458775798.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 15
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717932379323093.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 20
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717935265363489.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 25
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717938160908649.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 30
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717941036889855.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 35
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717943951257024.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 40
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717946834305791.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 45
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717949729476138.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 50
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717952526722431.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 55
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717955446641035.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 60
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717958334669308.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 65
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717961206554011.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 70
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717964092166508.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 75
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717966990882152.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 80
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717969877265002.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 85
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717972764172353.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 90
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717975658274570.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 95
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717978565684224.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 100
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717981487881566.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 105
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717984353686006.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 110
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717987241744774.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 115
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717990105029788.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 120
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717992940296288.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 125
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717995829131786.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 130
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791717998718733154.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 135
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718001621642977.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 140
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718004514788536.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 145
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718007342297199.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 150
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718010237342917.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 155
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718013131847216.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 160
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718015960896475.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 165
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718018856717926.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 170
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718021730789978.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 175
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718024629636728.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 180
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718027496285525.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 185
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718030422072791.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 190
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718033363693474.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 195
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718036257134301.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 200
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718039187251830.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 205
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718042123685229.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 210
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718045071813970.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 215
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718047976315069.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 220
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718050876394600.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 225
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718053767789078.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 230
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718056745963309.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 235
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718059633286419.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 240
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718062511840525.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 245
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718065417754469.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 250
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718068355048922.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 255
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718071230158987.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 260
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718074115120718.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 265
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718077014248094.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 270
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718079924490017.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 275
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718082852689803.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 280
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718085756047392.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 285
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718088652445173.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 290
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718091569137665.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 295
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718094499650301.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 300
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718097399306654.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 305
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718100302363724.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 310
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718103184899550.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 315
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718106143475949.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 320
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718109065603344.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 325
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718111976694269.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 330
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718114913571388.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 335
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718117720494957.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 340
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718120656356715.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 345
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718123571022212.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 350
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718126471890058.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 355
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718129354413253.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 360
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718132267050036.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 365
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718135153885154.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 370
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718138045284147.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 375
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718140864082853.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 380
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718143684910530.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 385
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718146593544739.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 390
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718149513271159.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 395
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718152441137283.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 400
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718155355250110.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 405
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718158267943822.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 410
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718161167785457.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 415
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718164087360093.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 420
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718166995359259.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 425
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718169889966544.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 430
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718172779152071.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 435
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718175701906868.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 440
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718178620911360.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 445
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718181491713414.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 450
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718184360834250.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 455
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718187251341361.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 460
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718190150896519.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 465
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718193023215497.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 470
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718195944370852.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 475
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718198823095552.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE stored_substitution 11 step 480
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718201714760681.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION stored_substitution 4 WRITE 11 R2 => WRITE accepted
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718203350959293.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718204039888481.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION stored_substitution 5 HALT => done
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718204354725678.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718204826346414.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718205122871942.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718205806466516.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION reset 1 READ 00 R0 => R0=0
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718206133825416.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718206824805368.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION reset 2 READ 01 R1 => R1=0
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718207147864332.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718207827170940.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION reset 3 XOR R0 R1 R2 => R2=0
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718208134439039.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718208816793426.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 5
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718212251133396.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 10
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718215177832693.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 15
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718218140352780.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 20
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718221116702308.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 25
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718224052234608.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 30
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718227215307151.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 35
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718230117504064.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 40
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718233070542705.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 45
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718235970526793.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 50
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718238910438778.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 55
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718241826156571.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 60
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718244790265780.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 65
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718247722480304.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 70
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718250658586534.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 75
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718253560786530.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 80
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718256411975511.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 85
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718259329960315.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 90
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718262213358389.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 95
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718265129813434.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 100
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718268075227783.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 105
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718270992922108.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 110
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718273912133741.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 115
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718276762150795.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 120
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718279718474566.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 125
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718282635498443.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 130
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718285606850271.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 135
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718288513980598.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 140
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718291457334458.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 145
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718294469859697.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 150
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718297347164240.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 155
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718300286818724.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 160
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718303210008634.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 165
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718306216932405.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 170
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718309188086037.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 175
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718312068699943.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 180
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718315001398681.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 185
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718317934496894.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 190
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718320861162467.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 195
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718323681201596.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 200
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718326604978180.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 205
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718329512833407.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 210
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718332315284934.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 215
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718335218278871.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 220
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718338112180130.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 225
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718340934585061.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 230
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718343859460350.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 235
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718346773559779.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 240
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718349697303834.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 245
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718352621307574.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 250
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718355542378874.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 255
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718358468810094.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 260
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718361365922791.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 265
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718364266164114.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 270
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718367197465438.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 275
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718370099173874.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 280
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718373008211755.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 285
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718375909573544.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 290
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718378866736882.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 295
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718381817556220.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 300
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718384761849762.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 305
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718387610941245.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 310
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718390538303096.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 315
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718393450341659.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 320
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718396452378097.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 325
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718399374932453.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 330
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718402325573497.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 335
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718405275737437.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 340
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718408269103644.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 345
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718411192571874.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 350
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718414124366145.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 355
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718417052132750.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 360
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718420025618312.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 365
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718422949398459.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 370
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718425888003137.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 375
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718428860732165.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 380
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718431778965467.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 385
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718434761456726.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 390
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718437702749578.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 395
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718440656043737.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 400
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718443601062213.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 405
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718446596078358.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 410
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718449468596577.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 415
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718452426202388.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 420
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718455338983069.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 425
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718458341944791.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 430
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718461289351039.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 435
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718464235988932.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 440
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718467177605471.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 445
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718470166458722.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 450
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718473086590857.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 455
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718476008780826.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 460
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718478928330947.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 465
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718481879579605.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 470
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718484830144064.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 475
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718487765557172.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE reset 11 step 480
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718490611985791.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION reset 4 WRITE 11 R2 => WRITE accepted
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718492261343310.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718492984974604.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION reset 5 HALT => done
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718493341053934.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718493862823220.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718494222280533.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718494970739006.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION restored 1 READ 00 R0 => R0=0
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718495347829735.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718496074503184.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION restored 2 READ 01 R1 => R1=1
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718496442105737.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718497170767723.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION restored 3 XOR R0 R1 R2 => R2=1
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718497508160823.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718498243377870.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 5
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718501763522988.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 10
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718504742929342.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 15
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718507813615720.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 20
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718510823068516.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 25
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718513821426479.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 30
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718516816245460.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 35
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718519820990493.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 40
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718522825706196.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 45
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718525807844380.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 50
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718528816462871.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 55
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718531806176518.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 60
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718534856249304.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 65
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718537821670365.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 70
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718540835848293.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 75
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718543834184882.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 80
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718546876966618.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 85
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718549867235798.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 90
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718552830678613.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 95
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718556035620893.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 100
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718559006651640.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 105
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718561964643099.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 110
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718564908811749.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 115
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718567861737465.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 120
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718570879970412.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 125
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718573835269812.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 130
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718576827684896.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 135
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718579816426051.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 140
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718582639539578.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 145
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718585638347238.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 150
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718588592915895.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 155
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718591566085408.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 160
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718594517336117.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 165
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718597498392018.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 170
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718600482069836.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 175
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718603459450975.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 180
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718606410949135.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 185
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718609383543463.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 190
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718612356218187.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 195
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718615337723451.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 200
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718618325410306.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 205
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718621382144164.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 210
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718624363107339.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 215
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718627334545047.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 220
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718630302374086.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 225
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718633295379831.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 230
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718636239825792.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 235
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718639203430219.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 240
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718642182529324.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 245
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718645097703888.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 250
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718648085830097.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 255
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718651064852502.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 260
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718654061475469.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 265
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718657041096072.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 270
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718660043180713.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 275
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718663034177426.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 280
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718666015231285.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 285
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718668945089024.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 290
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718671991284361.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 295
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718674994939773.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 300
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718677889689235.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 305
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718680869181496.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 310
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718683814207618.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 315
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718686796587200.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 320
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718689602452909.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 325
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718692581308698.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 330
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718695576218723.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 335
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718698561886623.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 340
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718701550573560.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 345
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718704531216654.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 350
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718707534703140.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 355
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718710585831761.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 360
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718713588425465.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 365
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718716593539679.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 370
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718719548632305.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 375
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718722530549687.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 380
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718725507219172.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 385
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718728492714641.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 390
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718731492110721.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 395
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718734548404948.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 400
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718737498224445.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 405
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718740531362686.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 410
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718743528447536.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 415
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718746551301823.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 420
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718749569348990.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 425
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718752557597807.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 430
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718755548032021.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 435
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718758567466032.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 440
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718761578132639.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 445
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718764578002977.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 450
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718767594771846.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 455
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718770627703540.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 460
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718773637982913.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 465
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718776678271222.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 470
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718779712909791.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 475
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718782707007399.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 WRITE restored 11 step 480
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718785711597966.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION restored 4 WRITE 11 R2 => WRITE accepted
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718787418103890.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718788189079351.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+B5 ACTION restored 5 HALT => done
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718788579188968.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718789129398619.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_B5_SINGLE_BACKBONE_A100_V3_RECOVERY/gpt2_b5_single_backbone_a100_results_1791718789466240304.zip
+RESULT_ARCHIVE=/content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip
+{
+  "protocol": "GPT2_B5_SINGLE_BACKBONE_A100_V3",
+  "complete": true,
+  "decision": "B5_SINGLE_BACKBONE_DEVELOPMENT_PASS",
+  "cases": {
+    "normal": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    "stored_substitution": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    "reset": {
+      "pass": false,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": false,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "restored": {
+      "pass": true,
+      "checks": {
+        "halted": true,
+        "input_reads": true,
+        "xor_executed": true,
+        "output_write_executed": true,
+        "correct_final_contents": true,
+        "unselected_retained": true,
+        "endpoint_gates": true,
+        "required_output_flip": true,
+        "no_runtime_errors": true,
+        "controller_probe_preserved": true
+      },
+      "final_bits": [
+        0,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "controls": {
+    "reset_changes_read": true,
+    "restore_recovers_read": true,
+    "stored_substitution_changes_read": true
+  },
+  "full_b5_confirmation": false,
+  "development_only": true,
+  "internal_parameter_update": false,
+  "single_backbone": true,
+  "shared_update_chart": false,
+  "scope": "Reused GPT-2 seed82931 and B4 states. One GPT-2 backbone, exclusive memory/controller adapters routed by external runtime. Newly trained controller seed82933; held-out task tuples reused from V2 development. Original B4 chart and writer preserved. No shared-chart controllability or native attention-to-weight updates. External runtime computes XOR and performs gradients. Not independent B5 confirmation or C-line internal updates."
+}
+END B5运行 exit= 0
+唯一结果总包： /content/gpt2_b5_single_backbone_a100_v3/session_1791717556739702187/gpt2_b5_single_backbone_a100_results.zip

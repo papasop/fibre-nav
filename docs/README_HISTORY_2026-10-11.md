@@ -1,0 +1,258 @@
+# README snapshot before the parametric-memory reorganization
+
+Historical text from commit `63db4d9e96ac33ab6e4276edeb7341c09d6fb8bc`; relative links have been rebased. This is a record of earlier positioning, not the current status page. See [Programmable Parametric Memory](PROGRAMMABLE_PARAMETRIC_MEMORY.md) for current B4–B5 scope and verification limitations. In particular, the old L1–L5 headline and Qwen 18-point snapshot below are historical; the later 103-point V8 audit remains incomplete.
+
+---
+
+# Moving Fibre Intelligence
+
+> **Latest V8 evidence: 103/128, PAUSED — incomplete.** The [raw checkpoint audit](../fibre-qwen/evidence/qwen_cpu_interface_v6_v8/v8/checkpoint_103/README.md) verifies 103/103 correct outputs, 24/24 invalid-input rejections and 39/39 exact available repeats. Twenty-five points remain. The earlier 18-point statements below describe the initial import snapshot; they are retained as history. No final pass is claimed.
+
+## From addressable memory to programmable operations in neural parameter space
+
+Moving Fibre Intelligence (MFI) asks whether a neural network can support an
+explicit memory-address structure inside a constrained parameter chart. For a
+prospectively declared finite response map \(R(\theta)\), the local
+response-preserving directions are
+
+\[
+V_\theta=\ker DR(\theta).
+\]
+
+The experiments test whether movement in this restricted space can support
+memory addresses that are exact, accessible from held-out expressions,
+compositionally reusable, locally transportable and operable in a shared
+parameter state—all while satisfying declared response and KL budgets.
+
+> **Evidence arc:** L1–L4 construct and validate the address geometry. L5 is
+> the culmination: WRITE, selective OVERWRITE, SWAP, MOVE and RETURN are
+> audited together on one shared four-cell state.
+
+## The L1–L5 evidence chain
+
+| Layer | Capability established | Role in the argument | Archived status |
+| --- | --- | --- | --- |
+| **L1 — exact anchoring** | Write, read and overwrite a token-level memory at a controlled fibre endpoint. | Establishes that memory can be associated with position. | v1.3.2 single-seed development evidence; exact gates passed, paraphrase gates did not. |
+| **L2 — held-out expression access** | Retrieve a written memory through expressions excluded from within-run writing updates. | Separates access from exact prompt repetition. | Standalone v1.5.6 protocol archived; public positive gates are contained in later L3–L5 audits. |
+| **L3 — reusable compositional addressing** | Compose two independently readable binary slots into four codes and cyclically reassign them across concepts; route held-out concepts to addresses. | Separates concept identity from a reusable address code. | v1.7.8 development pass; v1.9.6.0 prospective single-seed integration candidate. |
+| **L4 — local transport** | Move eight concept-specific endpoints assigned across four repeated two-slot codes between distinct finite-response level sets and back while preserving access and pairwise geometry. | Tests whether an instantiated address geometry survives a change of response constraint. | v2.1.2 prospective single-seed confirmation candidate. |
+| **L5 — shared-state operations** | Jointly WRITE four cells, selectively OVERWRITE one, SWAP two, MOVE the resulting state and RETURN it. | Combines the preceding capabilities into an externally operated shared memory state. | **v2.2.4 prospective fresh-seed and fresh-expression single-seed confirmation candidate; all 16 declared gates passed.** |
+
+This remains a **layered evidence chain**, not a sequence of mathematical
+theorems. Later unified audits test whether representative L1–L5 capabilities
+coexist in one continuous state sequence; they supplement rather than replace
+the complete archived layer-specific protocols.
+
+The supplemental joint smoke record v2.3.2.1 later runs representative
+WRITE, REASSIGN, OVERWRITE, SWAP, MOVE and RETURN gates in one continuous
+shared-state protocol. It is a post-failure development PASS, not prospective
+or independent confirmation.
+
+The prospectively frozen v2.4.1-r1 unified audit then completed three seeds but
+passed all gates in 0/3; the failures localized to held-out-expression access,
+while exact operations, controls, budgets and L5 passed in 3/3. After expanding
+training-view coverage, v2.4.3 tested three new seeds and a new held-out family:
+2/3 seeds passed every gate, while L1, L4 and L5 passed in 3/3. Because v2.4.3
+is a post-failure repair with different coverage and held-out expressions, it
+does not establish improved expression generalization over v2.4.1 or a 3/3
+unified confirmation.
+
+## Headline result: the L5 shared state
+
+In seed `82931`, one restricted GPT-2 LoRA chart supported four jointly written
+binary address cells. The audit then:
+
+1. selectively overwrote address `01` while preserving unselected cells;
+2. swapped the contents of addresses `00` and `11`;
+3. moved the final shared state to a distinct finite-response level set; and
+4. returned it to the source set.
+
+Every program stage preserved exact and fresh held-out-expression access,
+positive held-out margins, declared response and KL budgets, and all required
+unselected addresses. OVERWRITE and SWAP beat wrong-operation and matched-norm
+random-kernel controls. MOVE and RETURN preserved all four addresses.
+
+The operation names denote **externally specified experimental procedures**.
+WRITE, OVERWRITE and SWAP use response-constrained projected-gradient updates
+to restricted LoRA coordinates; MOVE and RETURN use local response retraction.
+GPT-2 does not parse or autonomously execute an instruction language, and the
+result is not gradient-free inference-time memory.
+
+## Supporting results
+
+- **L1:** v1.3.2 passed the primary exact anchoring, overwrite and switching
+  gates in one GPT-2 LoRA development seed.
+- **L2 access:** held-out-expression retrieval is directly audited inside the
+  archived L3 writer, L4 transport and L5 shared-state results. The standalone
+  v1.5.6 result archive is unavailable, so the repository does not present it
+  as an independent confirmation.
+- **L3 writer:** v1.7.8 passed exact, train-expression, held-out-expression,
+  mixed-slot, cyclic-reassignment, response and endpoint-KL gates in seed
+  `81902`.
+- **L3 integration:** v1.9.6.0 recorded 79/80 outer-held-out router predictions,
+  4/4 bridge routes and 16/16 eligible writer endpoints using writer seed
+  `82601` and router split seed `196001`.
+- **L4:** v2.1.2 transported eight concept-specific endpoints assigned across
+  four repeated two-slot codes, spanning 28 pairwise relations. Mean relative
+  distortion was `1.45136e-05`, versus a random-kernel-perturbed retraction
+  control median of `7.88815e-05`; transport won all 28 dependent pairwise
+  comparisons and preserved round-trip access.
+- **Joint L1-L5 smoke:** v2.3.2.1 passed all representative layer-smoke gates
+  and all 16 aggregate gates in seed `83001` after post-failure development on
+  the same seed. It demonstrates joint realizability within the tested
+  configuration, but does not replace the complete L3 cyclic reassignment or
+  L4 28-relation transport audits.
+- **Unified prospective audit:** v2.4.1-r1 completed seeds `83131`, `83161` and
+  `83191`. Full-protocol passes were 0/3; L1 and L5 passed 3/3, while the
+  principal failures were held-out-expression gates.
+- **Unified expression-coverage repair:** v2.4.3 completed new seeds `83221`,
+  `83251` and `83281`. Full-protocol passes were 2/3; L1, L4 and L5 passed 3/3,
+  and L2/L3 passed 2/3. This is post-failure repair evidence, not untouched
+  replication or proof of stronger expression generalization.
+
+## What the evidence does—and does not—support
+
+Within the tested GPT-2 LoRA charts, the archive supports a finite,
+compositional and remappable address structure; held-out-expression access to
+written values; local endpoint-wise transport; and externally executed shared
+state operations.
+
+It does **not** establish:
+
+- autonomous instruction parsing or a general neural instruction-set
+  architecture;
+- gradient-free or ordinary inference-time memory operations;
+- arbitrary program composition or algebraic closure over arbitrary states;
+- semantic geodesics, curvature, a certified fibre connection or a global
+  section;
+- an all-gates 3/3 unified confirmation, cross-model replication,
+  global/path-independent parallel transport or concurrent storage beyond the
+  declared four cells.
+
+Here, *response preservation* concerns the declared finite response map, not
+the model's complete input–output function. A passed single seed is local
+mechanism evidence, not model-family confirmation.
+
+See [Claim Boundaries](../docs/CLAIM_BOUNDARIES.md) and the
+[MFI L1–L5 Evidence Ladder](../docs/MFI_L1_L5_EVIDENCE_LADDER.md).
+
+## Reproduce and verify
+
+Run the repository-level archive checks:
+
+```bash
+python verify_mfi_l1_l5.py
+python verify_evidence.py
+```
+
+`verify_mfi_l1_l5.py` checks the archived MFI ladder. The older
+`verify_evidence.py` covers the separate response-fibre and Pareto branches;
+its `PC2 remains blocked` message records an expected boundary in that branch.
+Each evidence directory also contains its own source, results, provenance,
+claim boundary and reproduction instructions where available.
+
+## GPT-2 B4 minimal causal read–compute–write development
+
+The [A100 B4 XOR archive](../evidence/gpt2_b4_causal_xor_a100_v1/README.md) records
+`B4_MINIMAL_DEVELOPMENT_PASS` for seed 82931: actual parameter-memory reads,
+an external XOR controller, selective output writeback, endpoint reload and
+declared averaged response/KL gates. This is two-input-state development
+evidence, not full B4 independent confirmation or B5. The archive documents
+control limitations, including an already-correct substituted output and a
+weak reset-sensitivity Boolean. Previously inspected B3 expressions remain
+development data. Full truth-table tests, required output flips, stronger
+causal controls and independent seeds remain open.
+
+The [full XOR V2 follow-up protocol](../external_tests/gpt2_b4_full_xor_a100_v2/README.md)
+is ready for A100 execution: all four inputs, required output flips, executed
+wrong-read controls, and two new seeds alongside the development seed.
+**V2 real-model results are pending**; source self-checks are not B4 evidence.
+
+## GPT-2 B4 stronger minimal causal development — 11 October2026
+
+The [minimal causal A100 V1 evidence](../evidence/gpt2_b4_minimal_causal_a100_v1/README.md)
+records `B4_MINIMAL_CAUSAL_DEVELOPMENT_PASS` for development seed82931 and
+fixed input01. All five endpoints pass the declared development read-margin
+and averaged response/KL gates. Normal and substituted writebacks actually
+flip the output; an executed wrong-read branch changes the written result;
+actual LoRA-B reset changes the computed result and restoration recovers it.
+Nineteen recorded causal and endpoint checks pass.
+
+This supplements the earlier minimal V1 with stronger controls. XOR and
+sequencing remain external. It is single-input, single-development-seed
+evidence, not complete B4 or B5 confirmation. The reused V2 expression family
+is auxiliary development data. Full truth-table coverage, new seeds and
+independent replication remain open; full XOR V2 results remain pending.
+
+## GPT-2 learned operation dispatch: B5 development evidence
+
+The [A100 V2 archive](../evidence/gpt2_b5_trained_dispatch_a100_v2/) reports a passing learned-dispatch development test. A separately trained GPT-2 controller selects READ, XOR, WRITE and HALT operations for the existing B4 parameter-memory runtime. Held-out address-combination readiness passes 8/8 symbolic episodes. Actual normal, stored-substitution and restored runs pass declared read/retention/response/KL checks, with reset and restoration controls supporting dependence on stored contents.
+
+This is a two-model system using reused GPT-2 B4 development states. XOR and numerical parameter updates remain external runtime services. Independent multi-seed B5 confirmation and Line C update internalisation remain open.
+
+## Evidence index
+
+- [B5 trained model-dispatch development — A100 V2](../evidence/gpt2_b5_trained_dispatch_a100_v2/)
+
+- [B4 stronger minimal causal development — A100 V1](../evidence/gpt2_b4_minimal_causal_a100_v1/)
+
+- [B4 minimal causal XOR development — A100 v1](../evidence/gpt2_b4_causal_xor_a100_v1/)
+
+- [L1 exact anchoring — v1.3.2](../evidence/l1_exact_anchoring_v1_3_2/)
+- [L2 held-out-expression protocol — v1.5.6](../evidence/l2_heldout_expression_v1_5_6/)
+- [L3 compositional writer — v1.7.8](../evidence/l3_writer_v1_7_8/)
+- [L3 category development archive — v1.9.1](../evidence/l3_category_v1_9_1/)
+- [L3 integrated confirmation candidate — v1.9.6.0](../evidence/l3_category_v1_9_6_0/)
+- [L4 local transport — v2.1.2](../evidence/l4_transport_v2_1_2/)
+- [L5 programmable operations — v2.2.4](../evidence/l5_programmable_v2_2_4/)
+- [Joint L1-L5 development smoke — v2.3.2.1](../evidence/joint_l1_l5_v2_3_2_1/)
+- [Unified L1-L5 prospective audit — v2.4.1-r1](../evidence/unified_l1_l5_v2_4_1/)
+- [Unified L1-L5 expression-coverage audit — v2.4.3](../evidence/unified_l1_l5_v2_4_3/)
+
+## Repository map
+
+```text
+evidence/                 frozen, developmental and audit records
+external_tests/           one-click external reproductions
+docs/                     claim boundaries, evidence ladders and history
+paper/                    manuscript snapshots
+provenance/               hashes and provenance records
+fibre-qwen/               separate developmental assistant overlay
+```
+
+Earlier response-fibre, Pareto, Picard, GPTW, Pythia, ResNet and Fibre-Qwen
+branches are retained as foundations and historical evidence, but they are not
+part of the current MFI L1–L5 headline claim. See
+[Response Fibre Foundations](../docs/RESPONSE_FIBRE_FOUNDATIONS.md) and the
+[Historical README](../docs/HISTORICAL_README_2026-09-05.md).
+
+## Paper, citation and license
+
+The current L1-L5 manuscript snapshot is
+[A Programmable Address Space for Neural Memory](../paper/A_Programmable_Address_Space_for_Neural_Memory.pdf).
+It audits the L5-era repository state named in the manuscript; later unified
+v2.4.x audits are repository evidence but are not folded into that PDF.
+
+The historical response-fibre manuscript snapshot is
+[Moving Response Fibres: A Geometric View of Behaviour and Learning](../paper/Moving_Response_Fibres_A_Geometric_View_of_Behaviour_and_Learning.pdf).
+
+Author: **Y. Y. N. Li**. Cite the exact repository commit and evidence protocol
+used. The repository license and the licenses of upstream models and datasets
+apply independently.
+
+## Qwen CPU interface development snapshot
+
+The [V8 executable archive](../fibre-qwen/protocols/qwen_compiler_cpu_v8/README.md)
+and [V6–V8 evidence record](../fibre-qwen/evidence/qwen_cpu_interface_v6_v8/README.md)
+preserve a separate frozen Qwen3-1.7B inference series: V6 failed, V7 reports a
+failure in its log, and V8 has only 18/128 observed points. These externally
+compiled interface tests do not change the parameter-geometry evidence above.
+
+## Qwen V9 external two-step interface
+
+The [V9 audited result](../fibre-qwen/evidence/qwen_cpu_chain_v9/README.md) passes its
+frozen CPU gates: 112/112 call outputs and 32/32 two-step program endpoints,
+with 24 expected flip effects and eight expected invariances. The
+[original executable protocol](../fibre-qwen/protocols/qwen_chain_cpu_v9/README.md)
+is preserved. This is externally wired frozen Qwen3-1.7B inference, not a
+parameter-memory or native-planning result; V8's final audit remains pending.

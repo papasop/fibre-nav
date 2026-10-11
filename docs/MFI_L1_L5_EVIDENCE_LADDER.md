@@ -1,6 +1,7 @@
 # MFI L1-L5 Evidence Ladder
 
-This is the repository-facing ladder for Moving Fibre Intelligence. It is
+This is the legacy L1–L5 evidence ladder for Moving Fibre Intelligence. For
+the current B4–B5 empirical focus, see [Programmable Parametric Memory](PROGRAMMABLE_PARAMETRIC_MEMORY.md). This foundational ladder is
 separate from the older response-fibre foundations archived in
 [`RESPONSE_FIBRE_FOUNDATIONS.md`](RESPONSE_FIBRE_FOUNDATIONS.md).
 
@@ -16,9 +17,9 @@ separate from the older response-fibre foundations archived in
 | Unified L1-L5 audit | [`evidence/unified_l1_l5_v2_4_1/`](../evidence/unified_l1_l5_v2_4_1/) | Prospectively frozen; 0/3 full passes | Exact operations, controls, budgets and L5 passed 3/3; strict held-out-expression access failed across seeds. |
 | Unified expression-coverage repair | [`evidence/unified_l1_l5_v2_4_3/`](../evidence/unified_l1_l5_v2_4_3/) | Post-failure repair; 2/3 full passes | New seeds and held-out family after denser training-view coverage; L1/L4/L5 passed 3/3, L2/L3 passed 2/3. |
 
-## Current headline
+## Legacy L1–L5 scope
 
-The current repository headline is an L1-L5 evidence chain for reusable
+The L1–L5 evidence chain concerns reusable
 addressing under declared finite response and KL budgets. The layer-complete
 L3–L5 records are single-seed and chart-local. Unified three-seed audits now
 show 3/3 replication of exact operations and the declared L4/L5 criteria in
