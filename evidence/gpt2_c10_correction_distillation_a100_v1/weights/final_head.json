@@ -1,0 +1,43 @@
+{
+  "format": "numpy_npz_allow_pickle_false",
+  "head_sha256": "4d16b3f06e7010748574172a37dec85d309fe8b033b98e2670b3ee9bf9627148",
+  "original_archive_sha256": "234228d37cf3d5e6ab1d2813b4610a5c14b03bf88b33c3a8ec8e8faaefa3ce53",
+  "original_checkpoint_member": "heads/functional/checkpoint_000360.pt",
+  "original_checkpoint_sha256": "e783fecfedf0e31e2aed1fafc3f5026cc9684dd88c87eec5a9e278d04d218b3f",
+  "steps": 360,
+  "stage": "functional",
+  "start_head_sha256": "148e4bc5133a4f189fef5f890754fdb119c729d661cb85d7be42e205cb91d215",
+  "train_ids": [
+    "xor_00__v0",
+    "xor_00__v1",
+    "xor_00__v2",
+    "xor_01__v0",
+    "xor_01__v1",
+    "xor_01__v2",
+    "xor_10__v0",
+    "xor_10__v1",
+    "xor_10__v2",
+    "xor_11__v0",
+    "xor_11__v1",
+    "xor_11__v2"
+  ],
+  "label": "Fixed final C10 writer; official training-function failure.",
+  "not_a_resume_checkpoint": true,
+  "tensor_shapes": {
+    "net.0.weight": [
+      32,
+      3077
+    ],
+    "net.0.bias": [
+      32
+    ],
+    "net.2.weight": [
+      36864,
+      32
+    ],
+    "net.2.bias": [
+      36864
+    ]
+  },
+  "tensor_dtype": "float32"
+}

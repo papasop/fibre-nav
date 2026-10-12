@@ -1,0 +1,57 @@
+{
+  "protocol": "GPT2_C9_STATE_GENERALISATION_A100_V1",
+  "complete": true,
+  "decision": "C9_LOCAL_STATE_GENERALISATION_PASS",
+  "training": {
+    "n_requested": 12,
+    "valid_state_references": 12,
+    "raw_passed": 0,
+    "corrected_passed": 12
+  },
+  "new_state_development": {
+    "n_requested": 8,
+    "valid_state_references": 8,
+    "raw_passed": 0,
+    "corrected_passed": 8
+  },
+  "new_states_by_case": {
+    "xor_00": {
+      "n_requested": 2,
+      "valid_state_references": 2,
+      "raw_passed": 0,
+      "corrected_passed": 2
+    },
+    "xor_01": {
+      "n_requested": 2,
+      "valid_state_references": 2,
+      "raw_passed": 0,
+      "corrected_passed": 2
+    },
+    "xor_10": {
+      "n_requested": 2,
+      "valid_state_references": 2,
+      "raw_passed": 0,
+      "corrected_passed": 2
+    },
+    "xor_11": {
+      "n_requested": 2,
+      "valid_state_references": 2,
+      "raw_passed": 0,
+      "corrected_passed": 2
+    }
+  },
+  "writer_head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab",
+  "persisted_committed_head_steps": 2240,
+  "new_model_memory_loss_optimiser_steps": 0,
+  "new_state_preparation_and_teacher_response_correction": true,
+  "teacher_fallback_used": false,
+  "fresh_state_seeds": true,
+  "fresh_evaluation": false,
+  "same_four_XOR_input_classes_seen_in_training": true,
+  "same_access_prompts_and_model_seed": true,
+  "new_state_generation_retries": 0,
+  "internal_parameter_update": false,
+  "controller_dispatch_tested": false,
+  "scope": "Development-only robustness on eight predeclared local perturbations around four known preparations; original inspected inputs promoted to training. Requested output bit supplied. External autograd/SVD/correction, no native update or unseen-XOR-combination claim.",
+  "C8_parent_decision_unchanged": "C8_DEVELOPMENT_EXTRAPOLATION_DIAGNOSIS_COMPLETE"
+}

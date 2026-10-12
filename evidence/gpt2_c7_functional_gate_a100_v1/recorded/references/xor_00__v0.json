@@ -1,0 +1,95 @@
+{
+  "preparation": {
+    "bits": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        1.3271408081054688,
+        0.5764083862304688,
+        0.9392166137695312,
+        0.5878677368164062
+      ],
+      "heldout_margins": [
+        1.640838623046875,
+        0.7109603881835938,
+        1.6039962768554688,
+        1.2583694458007812,
+        2.0261154174804688,
+        1.2069625854492188,
+        1.0193328857421875,
+        0.6084136962890625,
+        2.5799102783203125,
+        1.4888076782226562,
+        1.3956222534179688,
+        1.1375350952148438
+      ],
+      "minimum_exact_margin": 0.5764083862304688,
+      "minimum_heldout_margin": 0.6084136962890625
+    },
+    "drift": 7.62939453125e-06,
+    "kl": 0.003734990954399109,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true
+    }
+  },
+  "teacher": {
+    "bits": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        4.926307678222656,
+        4.371940612792969,
+        3.7501220703125,
+        3.6541671752929688
+      ],
+      "heldout_margins": [
+        5.848579406738281,
+        5.405082702636719,
+        4.188667297363281,
+        4.69866943359375,
+        6.748321533203125,
+        6.227088928222656,
+        3.594390869140625,
+        5.697975158691406,
+        7.586647033691406,
+        6.790252685546875,
+        4.699699401855469,
+        6.16009521484375
+      ],
+      "minimum_exact_margin": 3.6541671752929688,
+      "minimum_heldout_margin": 3.594390869140625
+    },
+    "drift": 1.52587890625e-05,
+    "kl": 0.0034965479280799627,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": true
+  },
+  "feature_max_abs_difference": 0.0,
+  "usable": true
+}

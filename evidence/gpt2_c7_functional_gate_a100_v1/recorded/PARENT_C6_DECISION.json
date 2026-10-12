@@ -1,0 +1,134 @@
+{
+  "protocol": "GPT2_C6_STAGED_WRITER_A100_V1",
+  "complete": true,
+  "decision": "C6_WARM_FIT_INCOMPLETE",
+  "n_completed": 0,
+  "eligible_folds": 0,
+  "requested_folds": 4,
+  "warm_fit": {
+    "xor_00": {
+      "passed": false,
+      "mse": 0.05136323720216751,
+      "steps": 1200,
+      "training_passed": 9,
+      "training_evaluated": 9,
+      "training_only_selection": true,
+      "no_excluded_input_used": true,
+      "start_head_sha256": "6674a228ad5f87a37035ca84437ba2dbfebc40186acd21e218335bf777495432"
+    },
+    "xor_01": {
+      "passed": false,
+      "mse": 0.021601127460598946,
+      "steps": 1200,
+      "training_passed": 9,
+      "training_evaluated": 9,
+      "training_only_selection": true,
+      "no_excluded_input_used": true,
+      "start_head_sha256": "dbb4da240fb0ca5d76c3a0cce430b2bb5cc613465297fd6a7d319453f45deb59"
+    },
+    "xor_10": {
+      "passed": false,
+      "mse": 0.3026769161224365,
+      "steps": 1200,
+      "training_passed": 0,
+      "training_evaluated": 9,
+      "training_only_selection": true,
+      "no_excluded_input_used": true,
+      "start_head_sha256": "4759e2e2c84b2bc4ead20b4ebbdb021e85aa75e997e67fc68c1e587af1da966e"
+    },
+    "xor_11": {
+      "passed": false,
+      "mse": 0.1538528949022293,
+      "steps": 1200,
+      "training_passed": 9,
+      "training_evaluated": 9,
+      "training_only_selection": true,
+      "no_excluded_input_used": true,
+      "start_head_sha256": "e2578aec34ac14ac0aff0392a373e3c67e2c20b28cbd698febadc801b24cc591"
+    }
+  },
+  "cohorts": {
+    "training": {
+      "n": 0,
+      "parameter_mse_passed": 0,
+      "functional_passed": 0,
+      "both_passed": 0,
+      "mse_only": 0,
+      "functional_only": 0,
+      "both_failed": 0
+    },
+    "excluded_development": {
+      "n": 0,
+      "parameter_mse_passed": 0,
+      "functional_passed": 0,
+      "both_passed": 0,
+      "mse_only": 0,
+      "functional_only": 0,
+      "both_failed": 0
+    }
+  },
+  "original_excluded_four_inputs": {
+    "n": 0,
+    "parameter_mse_passed": 0,
+    "functional_passed": 0,
+    "both_passed": 0,
+    "mse_only": 0,
+    "functional_only": 0,
+    "both_failed": 0
+  },
+  "excluded_inputs_not_evaluated_due_to_fit_failure": 4,
+  "positive_references_all_pass": true,
+  "persisted_committed_head_steps": 4800,
+  "counters": {
+    "jacobian_builds": 36,
+    "response_autograd_calls": 216,
+    "head_training_steps": 4800,
+    "memory_loss_optimiser_steps": 0
+  },
+  "settings": {
+    "margin_gate": 0.05,
+    "response_budget": 0.002,
+    "kl_budget": 0.005,
+    "correction_ridge": 1e-06,
+    "correction_max_steps": 8,
+    "correction_backtracking": 6,
+    "correction_checkpoint_every": 2,
+    "warm_max_steps": 1200,
+    "warm_check_every": 200,
+    "warm_lr": 0.001,
+    "warm_mse_gate": 0.02,
+    "warm_acceptance": "normalised full-batch MSE <= 0.02 AND all nine training episodes pass after identical direct correction",
+    "head_steps": 200,
+    "head_width": 32,
+    "head_lr": 0.0001,
+    "head_weight_decay": 0.0,
+    "gradient_clip": 5.0,
+    "head_checkpoint_every": 25,
+    "archive_training_every": 200,
+    "loss_weights": {
+      "parameter_mse": 1.0,
+      "read": 0.1,
+      "response": 0.01,
+      "KL": 0.01
+    },
+    "response_surrogate_scale": 0.1,
+    "read_surrogate_margin": 1.0,
+    "functional_response_loss": "mean smooth-L1(mean-anchor response displacement / 0.1, 0), beta=1",
+    "functional_KL_loss": "relu(mean-anchor KL / 0.005 - 1), linear excess",
+    "feature": "unchanged C5 hidden states, binary logit margins and requested output bit",
+    "warm_start": "actual C5 parameter_mse head at step 300; new warm optimiser",
+    "paired_start": "identical accepted warm head and normalisation; identical fresh AdamW state in both arms",
+    "sample_schedule": "every step full-batch MSE on nine states; functional arm additionally evaluates state step modulo nine",
+    "fresh_evaluation": false,
+    "internal_parameter_update": false,
+    "controller_dispatch_tested": false
+  },
+  "source_parent_c5_sha256": "bd75ee8f00d520f618c73a4630ddfb4817eb90afa041d751022d86004a4736c6",
+  "development_only": true,
+  "fresh_evaluation": false,
+  "independent_seeds_tested": false,
+  "full_line_c_confirmation": false,
+  "internal_parameter_update": false,
+  "controller_dispatch_tested": false,
+  "scope": "Previously inspected XOR inputs and C5 augmentation; teacher/preparation states and training-only normalisation reused exactly. A fold enters comparison only after full-batch MSE and nine training endpoints pass. Both refinement arms start from the same warm head with fresh identical optimisers. Only objective differs. No oracle fallback, no relaxed endpoint threshold, and no complete-original-parent revalidation claim on capsule-only resume."
+}

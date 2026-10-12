@@ -1,0 +1,96 @@
+{
+  "state": "xor_11__v0",
+  "preparation": {
+    "bits": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        7.363059997558594,
+        7.4840240478515625,
+        7.285919189453125,
+        7.122611999511719
+      ],
+      "heldout_margins": [
+        10.0645751953125,
+        10.460861206054688,
+        10.002601623535156,
+        9.661247253417969,
+        9.604942321777344,
+        10.221412658691406,
+        9.943595886230469,
+        9.537010192871094,
+        10.704109191894531,
+        11.144577026367188,
+        10.86627197265625,
+        10.331619262695312
+      ],
+      "minimum_exact_margin": 7.122611999511719,
+      "minimum_heldout_margin": 9.537010192871094
+    },
+    "drift": 0.0,
+    "kl": 0.002675496507436037,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true
+    }
+  },
+  "teacher": {
+    "bits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        4.691070556640625,
+        5.516937255859375,
+        4.5893402099609375,
+        3.3393402099609375
+      ],
+      "heldout_margins": [
+        6.7491455078125,
+        7.376548767089844,
+        5.4833831787109375,
+        4.552734375,
+        5.879844665527344,
+        7.0404205322265625,
+        5.1806488037109375,
+        5.468772888183594,
+        7.5411224365234375,
+        7.883857727050781,
+        6.54412841796875,
+        5.358184814453125
+      ],
+      "minimum_exact_margin": 3.3393402099609375,
+      "minimum_heldout_margin": 4.552734375
+    },
+    "drift": 7.62939453125e-06,
+    "kl": 0.003642560914158821,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": true
+  },
+  "feature_max_abs_difference": 0.0,
+  "usable": true
+}

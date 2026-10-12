@@ -303,6 +303,19 @@ to resume protocol `GPT2_B5_SINGLE_BACKBONE_A100_V3`.
 The published completed V3 result can restore a completed run; doing so does
 not constitute a new independent experiment.
 
+## Line C learned-writer development (12 October 2026)
+
+[C7–C10 code, exported weights and recorded evidence](LINE_C_LEARNED_WRITER.md)
+extend this page's operational roadmap. C9 yields 8/8 new local-state passes
+after external response correction, with raw 0/8. C10 distils corrections
+offline and yields 2/8 raw new-state passes without online Jacobian/SVD/repair,
+but fails the complete protocol (C10_RAW_TRAINING_FUNCTION_FAILURE).
+These experiments use one model/chart/prompt family; they do not evaluate
+B5 dispatch or establish internally executed updates.
+The [read-only verifier](../scripts/verify_line_c_evidence.py) recounts gates
+and replays exported heads without GPT-2. Full parent results remain separate
+artifact prerequisites for A100 reproduction.
+
 ## Mathematical mechanism
 
 Let \(R(\theta)\) be the declared protected response map in the permitted

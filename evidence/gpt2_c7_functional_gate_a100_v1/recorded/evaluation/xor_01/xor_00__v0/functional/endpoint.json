@@ -1,0 +1,47 @@
+{
+  "bits": [
+    0,
+    0,
+    1,
+    0
+  ],
+  "evaluation": {
+    "exact_accuracy": 1.0,
+    "heldout_accuracy": 1.0,
+    "exact_margins": [
+      4.1966400146484375,
+      3.5571670532226562,
+      3.029815673828125,
+      2.8856582641601562
+    ],
+    "heldout_margins": [
+      4.967750549316406,
+      4.394195556640625,
+      3.4739456176757812,
+      3.6489334106445312,
+      5.8243255615234375,
+      5.1981658935546875,
+      2.7976226806640625,
+      4.632148742675781,
+      6.552650451660156,
+      5.63409423828125,
+      3.9027557373046875,
+      5.002464294433594
+    ],
+    "minimum_exact_margin": 2.8856582641601562,
+    "minimum_heldout_margin": 2.7976226806640625
+  },
+  "drift": 4.57763671875e-05,
+  "kl": 0.0033857938833534718,
+  "pass": true,
+  "gates": {
+    "exact_read_margin": true,
+    "development_read_margin": true,
+    "bits_match": true,
+    "response": true,
+    "KL": true,
+    "output_flip": true,
+    "unselected_preserved": true
+  },
+  "episode_pass": true
+}

@@ -1,0 +1,96 @@
+{
+  "preparation": {
+    "bits": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        7.363059997558594,
+        7.4840240478515625,
+        7.285919189453125,
+        7.122611999511719
+      ],
+      "heldout_margins": [
+        10.0645751953125,
+        10.460861206054688,
+        10.002601623535156,
+        9.661247253417969,
+        9.604942321777344,
+        10.221412658691406,
+        9.943595886230469,
+        9.537010192871094,
+        10.704109191894531,
+        11.144577026367188,
+        10.86627197265625,
+        10.331619262695312
+      ],
+      "minimum_exact_margin": 7.122611999511719,
+      "minimum_heldout_margin": 9.537010192871094
+    },
+    "drift": 0.0,
+    "kl": 0.002675496507436037,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true
+    }
+  },
+  "supervised_corrected_endpoint": {
+    "bits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        4.662712097167969,
+        5.485137939453125,
+        4.5443572998046875,
+        3.3100967407226562
+      ],
+      "heldout_margins": [
+        6.674766540527344,
+        7.297630310058594,
+        5.387794494628906,
+        4.521697998046875,
+        5.8158721923828125,
+        6.965522766113281,
+        5.096580505371094,
+        5.435844421386719,
+        7.4683074951171875,
+        7.804374694824219,
+        6.441139221191406,
+        5.3209228515625
+      ],
+      "minimum_exact_margin": 3.3100967407226562,
+      "minimum_heldout_margin": 4.521697998046875
+    },
+    "drift": 3.0517578125e-05,
+    "kl": 0.00359144015237689,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": true
+  },
+  "feature_error": 0.0,
+  "target_member": "evaluation/training/xor_11__v0/endpoint.pt",
+  "C9_new_state_used": false
+}

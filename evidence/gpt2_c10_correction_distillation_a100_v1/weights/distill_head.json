@@ -1,0 +1,43 @@
+{
+  "format": "numpy_npz_allow_pickle_false",
+  "head_sha256": "148e4bc5133a4f189fef5f890754fdb119c729d661cb85d7be42e205cb91d215",
+  "original_archive_sha256": "234228d37cf3d5e6ab1d2813b4610a5c14b03bf88b33c3a8ec8e8faaefa3ce53",
+  "original_checkpoint_member": "heads/distill/checkpoint_001000.pt",
+  "original_checkpoint_sha256": "0cbad566c596c0afc15012f999bc0634152cbc4aac6b300a2ef60a29ccac3278",
+  "steps": 1000,
+  "stage": "distill",
+  "start_head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab",
+  "train_ids": [
+    "xor_00__v0",
+    "xor_00__v1",
+    "xor_00__v2",
+    "xor_01__v0",
+    "xor_01__v1",
+    "xor_01__v2",
+    "xor_10__v0",
+    "xor_10__v1",
+    "xor_10__v2",
+    "xor_11__v0",
+    "xor_11__v1",
+    "xor_11__v2"
+  ],
+  "label": "Intermediate MSE-distillation head; no archived standalone endpoint evaluation.",
+  "not_a_resume_checkpoint": true,
+  "tensor_shapes": {
+    "net.0.weight": [
+      32,
+      3077
+    ],
+    "net.0.bias": [
+      32
+    ],
+    "net.2.weight": [
+      36864,
+      32
+    ],
+    "net.2.bias": [
+      36864
+    ]
+  },
+  "tensor_dtype": "float32"
+}

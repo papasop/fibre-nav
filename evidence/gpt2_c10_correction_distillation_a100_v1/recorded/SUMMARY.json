@@ -1,0 +1,111 @@
+{
+  "protocol": "GPT2_C10_CORRECTION_DISTILLATION_A100_V1",
+  "complete": true,
+  "decision": "C10_RAW_TRAINING_FUNCTION_FAILURE",
+  "training_raw": {
+    "n_requested": 12,
+    "valid_state_references": 12,
+    "frozen_c9": 0,
+    "distilled": 9,
+    "distilled_gate_counts": {
+      "bits_match": 12,
+      "exact_read_margin": 12,
+      "development_read_margin": 12,
+      "output_flip": 12,
+      "unselected_preserved": 12,
+      "response": 9,
+      "KL": 12
+    }
+  },
+  "new_state_development_raw": {
+    "n_requested": 8,
+    "valid_state_references": 8,
+    "frozen_c9": 0,
+    "distilled": 2,
+    "distilled_gate_counts": {
+      "bits_match": 8,
+      "exact_read_margin": 8,
+      "development_read_margin": 8,
+      "output_flip": 8,
+      "unselected_preserved": 8,
+      "response": 2,
+      "KL": 8
+    }
+  },
+  "new_states_by_case": {
+    "xor_00": {
+      "n_requested": 2,
+      "valid_state_references": 2,
+      "frozen_c9": 0,
+      "distilled": 0,
+      "distilled_gate_counts": {
+        "bits_match": 2,
+        "exact_read_margin": 2,
+        "development_read_margin": 2,
+        "output_flip": 2,
+        "unselected_preserved": 2,
+        "response": 0,
+        "KL": 2
+      }
+    },
+    "xor_01": {
+      "n_requested": 2,
+      "valid_state_references": 2,
+      "frozen_c9": 0,
+      "distilled": 0,
+      "distilled_gate_counts": {
+        "bits_match": 2,
+        "exact_read_margin": 2,
+        "development_read_margin": 2,
+        "output_flip": 2,
+        "unselected_preserved": 2,
+        "response": 0,
+        "KL": 2
+      }
+    },
+    "xor_10": {
+      "n_requested": 2,
+      "valid_state_references": 2,
+      "frozen_c9": 0,
+      "distilled": 0,
+      "distilled_gate_counts": {
+        "bits_match": 2,
+        "exact_read_margin": 2,
+        "development_read_margin": 2,
+        "output_flip": 2,
+        "unselected_preserved": 2,
+        "response": 0,
+        "KL": 2
+      }
+    },
+    "xor_11": {
+      "n_requested": 2,
+      "valid_state_references": 2,
+      "frozen_c9": 0,
+      "distilled": 2,
+      "distilled_gate_counts": {
+        "bits_match": 2,
+        "exact_read_margin": 2,
+        "development_read_margin": 2,
+        "output_flip": 2,
+        "unselected_preserved": 2,
+        "response": 2,
+        "KL": 2
+      }
+    }
+  },
+  "writer_head_sha256": "4d16b3f06e7010748574172a37dec85d309fe8b033b98e2670b3ee9bf9627148",
+  "baseline_head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab",
+  "persisted_committed_new_head_steps": 1360,
+  "online_write_Jacobian_builds": 0,
+  "online_write_SVD_calls": 0,
+  "online_write_correction_steps": 0,
+  "offline_dataset_preparation_uses_geometry": true,
+  "teacher_fallback_used": false,
+  "fresh_state_seeds": true,
+  "fresh_evaluation": false,
+  "internal_parameter_update": false,
+  "controller_dispatch_tested": false,
+  "scope": "Development-only raw-write acceptance on eight predeclared local perturbations of four trained input classes. Requested output bit supplied. C9 training corrections distilled offline; evaluation makes one proposal per arm and commits it without Jacobian/SVD/repair. Dataset preparation and offline training still use external geometry/autograd.",
+  "C9_parent_decision_unchanged": "C9_LOCAL_STATE_GENERALISATION_PASS"
+}

@@ -1,0 +1,119 @@
+{
+  "training_ids": [
+    "xor_00__v0",
+    "xor_00__v1",
+    "xor_00__v2",
+    "xor_01__v0",
+    "xor_01__v1",
+    "xor_01__v2",
+    "xor_10__v0",
+    "xor_10__v1",
+    "xor_10__v2",
+    "xor_11__v0",
+    "xor_11__v1",
+    "xor_11__v2"
+  ],
+  "new_state_specs": [
+    {
+      "id": "xor_00__c9_new0",
+      "case": "xor_00",
+      "seed": 109031,
+      "norm": 0.375,
+      "cohort": "new_state_development"
+    },
+    {
+      "id": "xor_00__c9_new1",
+      "case": "xor_00",
+      "seed": 109032,
+      "norm": 0.75,
+      "cohort": "new_state_development"
+    },
+    {
+      "id": "xor_01__c9_new0",
+      "case": "xor_01",
+      "seed": 109131,
+      "norm": 0.375,
+      "cohort": "new_state_development"
+    },
+    {
+      "id": "xor_01__c9_new1",
+      "case": "xor_01",
+      "seed": 109132,
+      "norm": 0.75,
+      "cohort": "new_state_development"
+    },
+    {
+      "id": "xor_10__c9_new0",
+      "case": "xor_10",
+      "seed": 109231,
+      "norm": 0.375,
+      "cohort": "new_state_development"
+    },
+    {
+      "id": "xor_10__c9_new1",
+      "case": "xor_10",
+      "seed": 109232,
+      "norm": 0.75,
+      "cohort": "new_state_development"
+    },
+    {
+      "id": "xor_11__c9_new0",
+      "case": "xor_11",
+      "seed": 109331,
+      "norm": 0.375,
+      "cohort": "new_state_development"
+    },
+    {
+      "id": "xor_11__c9_new1",
+      "case": "xor_11",
+      "seed": 109332,
+      "norm": 0.75,
+      "cohort": "new_state_development"
+    }
+  ],
+  "settings": {
+    "response_budget": 0.002,
+    "kl_budget": 0.005,
+    "margin_gate": 0.05,
+    "warm_steps": 2000,
+    "warm_lr": 0.001,
+    "functional_steps": 240,
+    "functional_lr": 0.0001,
+    "head_width": 32,
+    "head_seed": 99109,
+    "head_weight_decay": 0.0,
+    "gradient_clip": 5.0,
+    "checkpoint_every": 25,
+    "warm_archive_every": 500,
+    "functional_archive_every": 120,
+    "loss_weights": {
+      "parameter_mse": 1.0,
+      "read": 0.1,
+      "response": 0.01,
+      "KL": 0.01
+    },
+    "correction_ridge": 1e-06,
+    "correction_max_steps": 8,
+    "correction_backtracking": 6,
+    "correction_checkpoint_every": 2,
+    "test_norms": [
+      0.375,
+      0.75
+    ],
+    "test_seed_base": 109031,
+    "feature_identity_tolerance": 0.0001,
+    "training_states": "all twelve previously inspected C5 states; all four XOR cases",
+    "test_generation": "fixed random directions projected using original preparation response Jacobian saved in C8; no resampling",
+    "teacher_reference": "same fixed perturbation applied to original teacher, then response correction; diagnostic positive control only",
+    "selection": "fixed final functional checkpoint, no test-based checkpoint selection",
+    "normalisation": "training twelve states only",
+    "requested_output_bit_in_features": true,
+    "fresh_state_seeds": true,
+    "fresh_evaluation": false,
+    "independent_model_seed": false,
+    "internal_parameter_update": false,
+    "controller_dispatch_tested": false
+  },
+  "old_excluded_inputs_promoted_to_training": true,
+  "new_states_not_generated_until_writer_frozen": true
+}

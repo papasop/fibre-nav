@@ -1,0 +1,409 @@
+{
+  "fold": "xor_11",
+  "train_ids": [
+    "xor_00__v0",
+    "xor_00__v1",
+    "xor_00__v2",
+    "xor_01__v0",
+    "xor_01__v1",
+    "xor_01__v2",
+    "xor_10__v0",
+    "xor_10__v1",
+    "xor_10__v2"
+  ],
+  "standardisation": "saved C6 training-only mean/scale; diagnostic arithmetic float64",
+  "feature_coverage": {
+    "xor_00__v0": {
+      "affine_span": {
+        "norm": 41.160852616317506,
+        "residual_norm": 1.7584583014486185e-14,
+        "relative_residual": 4.2721619929503313e-16
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 0,
+      "nearest_training_distance": 0.0,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_00__v0"
+    },
+    "xor_00__v1": {
+      "affine_span": {
+        "norm": 41.15241885774836,
+        "residual_norm": 2.8398702238907268e-14,
+        "relative_residual": 6.900858570931909e-16
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 1,
+      "nearest_training_distance": 0.0,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_00__v1"
+    },
+    "xor_00__v2": {
+      "affine_span": {
+        "norm": 41.151030984136185,
+        "residual_norm": 4.6637370170633344e-14,
+        "relative_residual": 1.133322034838256e-15
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 2,
+      "nearest_training_distance": 0.0,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_00__v2"
+    },
+    "xor_01__v0": {
+      "affine_span": {
+        "norm": 41.03223094458315,
+        "residual_norm": 2.193577992810478e-14,
+        "relative_residual": 5.345987635361714e-16
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 3,
+      "nearest_training_distance": 0.0,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_01__v0"
+    },
+    "xor_01__v1": {
+      "affine_span": {
+        "norm": 41.01838327323158,
+        "residual_norm": 1.6556989494605387e-14,
+        "relative_residual": 4.036480273811866e-16
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 4,
+      "nearest_training_distance": 0.0,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_01__v1"
+    },
+    "xor_01__v2": {
+      "affine_span": {
+        "norm": 41.007064950391054,
+        "residual_norm": 1.6591522969806357e-14,
+        "relative_residual": 4.0460157267725e-16
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 5,
+      "nearest_training_distance": 0.0,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_01__v2"
+    },
+    "xor_10__v0": {
+      "affine_span": {
+        "norm": 59.64787271337591,
+        "residual_norm": 2.5014417532577742e-14,
+        "relative_residual": 4.193681416398327e-16
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 6,
+      "nearest_training_distance": 0.0,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_10__v0"
+    },
+    "xor_10__v1": {
+      "affine_span": {
+        "norm": 59.65799426124836,
+        "residual_norm": 6.418184578689831e-14,
+        "relative_residual": 1.0758297623255576e-15
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 7,
+      "nearest_training_distance": 0.0,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_10__v1"
+    },
+    "xor_10__v2": {
+      "affine_span": {
+        "norm": 59.624225277815114,
+        "residual_norm": 1.1808974044092988e-13,
+        "relative_residual": 1.9805664541668856e-15
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 8,
+      "nearest_training_distance": 0.0,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_10__v2"
+    },
+    "xor_11__v0": {
+      "affine_span": {
+        "norm": 103.28037120316512,
+        "residual_norm": 99.87468047027872,
+        "relative_residual": 0.9670248015841559
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 1,
+      "nearest_training_distance": 105.42438161956417,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_00__v1"
+    },
+    "xor_11__v1": {
+      "affine_span": {
+        "norm": 103.30845277721569,
+        "residual_norm": 99.90323877100332,
+        "relative_residual": 0.9670383795839465
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 1,
+      "nearest_training_distance": 105.44745418281974,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_00__v1"
+    },
+    "xor_11__v2": {
+      "affine_span": {
+        "norm": 103.24027071593822,
+        "residual_norm": 99.83885559300445,
+        "relative_residual": 0.9670534075574769
+      },
+      "svd": {
+        "rank_at_declared_cutoff": 8,
+        "singular_values": [
+          126.52142159706305,
+          69.22925861098341,
+          0.47533837492350856,
+          0.348612741109963,
+          0.310268611186344,
+          0.18811595598661876,
+          0.12743771540750728,
+          0.11546080071374766,
+          4.1385309910508684e-14
+        ],
+        "cutoff": 1.2652142159706305e-06,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "certificate": false
+      },
+      "nearest_training_index": 1,
+      "nearest_training_distance": 105.3786785664922,
+      "training_leave_self_out_nearest_median": 0.2865228838375066,
+      "training_leave_self_out_nearest_max": 0.5509433378423202,
+      "span_inclusion_is_not_generalisation_certificate": true,
+      "nearest_training_state": "xor_00__v1"
+    }
+  },
+  "training_teacher_delta_span": {
+    "rank_at_declared_cutoff": 8,
+    "singular_values": [
+      31.15585660207609,
+      17.045802931657928,
+      14.187266544638012,
+      0.0012396607139483749,
+      0.0006884073783143851,
+      0.00039820848656128507,
+      3.8932450439793605e-07,
+      3.187421590419642e-07,
+      2.8210697867628887e-07
+    ],
+    "cutoff": 3.115585660207609e-07,
+    "rtol": 1e-08,
+    "atol": 1e-10,
+    "certificate": false
+  },
+  "no_head_training": true,
+  "coverage_or_numerical_rank_is_not_feasibility_certificate": true
+}
