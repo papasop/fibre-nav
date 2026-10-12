@@ -1,0 +1,102 @@
+{
+  "case": "xor_10",
+  "raw": {
+    "bits": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        12.295562744140625,
+        12.495559692382812,
+        14.196319580078125,
+        12.513015747070312
+      ],
+      "heldout_margins": [
+        13.545120239257812,
+        12.864334106445312,
+        13.920440673828125,
+        12.682205200195312,
+        12.953445434570312,
+        14.077407836914062,
+        13.999526977539062,
+        12.5482177734375,
+        14.530029296875,
+        14.751327514648438,
+        15.585296630859375,
+        13.326934814453125
+      ],
+      "minimum_exact_margin": 12.295562744140625,
+      "minimum_heldout_margin": 12.5482177734375
+    },
+    "drift": 0.0416717529296875,
+    "kl": 0.0025137439370155334,
+    "pass": false,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": false,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": false
+  },
+  "corrected": {
+    "bits": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        12.293441772460938,
+        12.499588012695312,
+        14.195968627929688,
+        12.510772705078125
+      ],
+      "heldout_margins": [
+        13.543930053710938,
+        12.86944580078125,
+        13.919845581054688,
+        12.6800537109375,
+        12.95098876953125,
+        14.083099365234375,
+        13.999481201171875,
+        12.5474853515625,
+        14.527008056640625,
+        14.75555419921875,
+        15.584365844726562,
+        13.321731567382812
+      ],
+      "minimum_exact_margin": 12.293441772460938,
+      "minimum_heldout_margin": 12.5474853515625
+    },
+    "drift": 3.814697265625e-05,
+    "kl": 0.0025141388177871704,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": true
+  },
+  "state_usable": true,
+  "writer_head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab",
+  "raw_is_one_head_forward": true,
+  "external_response_correction": true,
+  "teacher_fallback_used": false
+}

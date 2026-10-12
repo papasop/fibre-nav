@@ -302,6 +302,22 @@ counterfactual frontier result unchanged.
   expression-generalization proof relative to v2.4.1 and not a `3/3` unified
   confirmation.
 
+## Line C learned-writer development: C7–C10
+
+The [Line C evidence page](LINE_C_LEARNED_WRITER.md) and original recorded
+summaries report C9's correction-assisted local-state pass and C10's failed
+raw-write protocol. C9 raw 0/8 and corrected 8/8 must be reported separately.
+C10 raw 2/8 new-state passes and 9/12 training passes do not turn its recorded
+training-function failure into a complete pass. C9/C10 new-state sets differ.
+
+The writer receives the requested output bit. State preparation, offline
+training and parameter submission remain external. These experiments do not
+test B5 dispatch, unseen XOR classes, independent memory/model seeds, broader
+prompts, native updates or lifelong learning. Response/KL constraints are
+anchor averages, not per-anchor or global guarantees. NPZ replay verifies
+saved proposals, not independent model responses. Full PT resume state and
+parent ZIPs are separate artifact requirements.
+
 ## Not established
 
 - an exact continuum limit or horizontal-lift theorem;

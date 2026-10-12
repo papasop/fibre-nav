@@ -1,0 +1,34 @@
+{
+  "training_ids": [
+    "xor_00__v0",
+    "xor_00__v1",
+    "xor_00__v2",
+    "xor_01__v0",
+    "xor_01__v1",
+    "xor_01__v2",
+    "xor_10__v0",
+    "xor_10__v1",
+    "xor_10__v2",
+    "xor_11__v0",
+    "xor_11__v1",
+    "xor_11__v2"
+  ],
+  "target_members": [
+    "evaluation/training/xor_00__v0/endpoint.pt",
+    "evaluation/training/xor_00__v1/endpoint.pt",
+    "evaluation/training/xor_00__v2/endpoint.pt",
+    "evaluation/training/xor_01__v0/endpoint.pt",
+    "evaluation/training/xor_01__v1/endpoint.pt",
+    "evaluation/training/xor_01__v2/endpoint.pt",
+    "evaluation/training/xor_10__v0/endpoint.pt",
+    "evaluation/training/xor_10__v1/endpoint.pt",
+    "evaluation/training/xor_10__v2/endpoint.pt",
+    "evaluation/training/xor_11__v0/endpoint.pt",
+    "evaluation/training/xor_11__v1/endpoint.pt",
+    "evaluation/training/xor_11__v2/endpoint.pt"
+  ],
+  "reuse_parent_normalisation": true,
+  "test_features_used": false,
+  "test_targets_used": false,
+  "baseline_head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab"
+}

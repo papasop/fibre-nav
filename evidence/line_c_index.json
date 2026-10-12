@@ -1,0 +1,44 @@
+{
+  "snapshot": "2026-10-12",
+  "scope": "Single-model-seed development; same chart/access prompts; no native parameter update.",
+  "base_repository": "papasop/fibre-nav",
+  "base_commit": "9f09f7a03837a1c272068a8ef0d0057358fa81da",
+  "versions": {
+    "C7": {
+      "directory": "evidence/gpt2_c7_functional_gate_a100_v1",
+      "protocol": "GPT2_C7_FUNCTIONAL_GATE_A100_V1",
+      "decision": "C7_DEVELOPMENT_FUNCTIONAL_GATE_COMPARISON_COMPLETE",
+      "original_archive_sha256": "d3b7413bd1a16d051b15a26d3fb419ccec0e97abbfdbcc0af72ec0b141122e86",
+      "original_archive_bytes": 228065172,
+      "original_manifest_members": 1048,
+      "original_result_filename": "gpt2_c7_functional_gate_results.zip"
+    },
+    "C8": {
+      "directory": "evidence/gpt2_c8_extrapolation_diagnosis_a100_v1",
+      "protocol": "GPT2_C8_EXTRAPOLATION_DIAGNOSIS_A100_V1",
+      "decision": "C8_DEVELOPMENT_EXTRAPOLATION_DIAGNOSIS_COMPLETE",
+      "original_archive_sha256": "92ce08de294a53a591920f8f52f15d2a1146c6d97b04e57e689221145fe40997",
+      "original_archive_bytes": 245245390,
+      "original_manifest_members": 171,
+      "original_result_filename": "gpt2_c8_extrapolation_diagnosis_results.zip"
+    },
+    "C9": {
+      "directory": "evidence/gpt2_c9_state_generalisation_a100_v1",
+      "protocol": "GPT2_C9_STATE_GENERALISATION_A100_V1",
+      "decision": "C9_LOCAL_STATE_GENERALISATION_PASS",
+      "original_archive_sha256": "f0f5abd2197311438bf23588dbcb1bedef1649380873b04f86b5e7b1340fce3b",
+      "original_archive_bytes": 284981674,
+      "original_manifest_members": 290,
+      "original_result_filename": "gpt2_c9_state_generalisation_results.zip"
+    },
+    "C10": {
+      "directory": "evidence/gpt2_c10_correction_distillation_a100_v1",
+      "protocol": "GPT2_C10_CORRECTION_DISTILLATION_A100_V1",
+      "decision": "C10_RAW_TRAINING_FUNCTION_FAILURE",
+      "original_archive_sha256": "234228d37cf3d5e6ab1d2813b4610a5c14b03bf88b33c3a8ec8e8faaefa3ce53",
+      "original_archive_bytes": 318008911,
+      "original_manifest_members": 220,
+      "original_result_filename": "gpt2_c10_correction_distillation_results.zip"
+    }
+  }
+}

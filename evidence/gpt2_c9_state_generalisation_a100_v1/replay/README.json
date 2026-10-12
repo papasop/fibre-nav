@@ -1,0 +1,42 @@
+{
+  "scope": "Original saved model features and parameter endpoints converted to dense NPZ. Replay of external writer only; not independent GPT-2 response/read evaluation.",
+  "original_archive_sha256": "f0f5abd2197311438bf23588dbcb1bedef1649380873b04f86b5e7b1340fce3b",
+  "training_inputs_source_capsule_sha256": "f843594d076ba369e9992ad384ebcebaeb13d042f04392f0c0441ed5bf2fe792",
+  "states": [
+    "new/xor_00__c9_new0",
+    "new/xor_00__c9_new1",
+    "new/xor_01__c9_new0",
+    "new/xor_01__c9_new1",
+    "new/xor_10__c9_new0",
+    "new/xor_10__c9_new1",
+    "new/xor_11__c9_new0",
+    "new/xor_11__c9_new1",
+    "training/xor_00__v0",
+    "training/xor_00__v1",
+    "training/xor_00__v2",
+    "training/xor_01__v0",
+    "training/xor_01__v1",
+    "training/xor_01__v2",
+    "training/xor_10__v0",
+    "training/xor_10__v1",
+    "training/xor_10__v2",
+    "training/xor_11__v0",
+    "training/xor_11__v1",
+    "training/xor_11__v2"
+  ],
+  "expected_shape": {
+    "features": [
+      20,
+      3077
+    ],
+    "prepared": [
+      20,
+      36864
+    ],
+    "recorded_raw": [
+      20,
+      36864
+    ]
+  },
+  "CPU_CUDA_replay_absolute_tolerance": 0.0001
+}

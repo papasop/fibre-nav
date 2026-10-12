@@ -1,0 +1,104 @@
+{
+  "case": "xor_10",
+  "state_usable": true,
+  "frozen_c9": {
+    "bits": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        12.288070678710938,
+        12.504058837890625,
+        14.194625854492188,
+        12.507125854492188
+      ],
+      "heldout_margins": [
+        13.543365478515625,
+        12.89056396484375,
+        13.924026489257812,
+        12.679840087890625,
+        12.952606201171875,
+        14.0966796875,
+        14.003677368164062,
+        12.550491333007812,
+        14.525711059570312,
+        14.763107299804688,
+        15.585708618164062,
+        13.31884765625
+      ],
+      "minimum_exact_margin": 12.288070678710938,
+      "minimum_heldout_margin": 12.550491333007812
+    },
+    "drift": 0.03692626953125,
+    "kl": 0.002514704130589962,
+    "pass": false,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": false,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": false
+  },
+  "distilled": {
+    "bits": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        12.28607177734375,
+        12.508285522460938,
+        14.194381713867188,
+        12.505096435546875
+      ],
+      "heldout_margins": [
+        13.541915893554688,
+        12.895843505859375,
+        13.92376708984375,
+        12.677642822265625,
+        12.950149536132812,
+        14.102401733398438,
+        14.00384521484375,
+        12.549880981445312,
+        14.522613525390625,
+        14.767501831054688,
+        15.585311889648438,
+        13.312149047851562
+      ],
+      "minimum_exact_margin": 12.28607177734375,
+      "minimum_heldout_margin": 12.549880981445312
+    },
+    "drift": 0.0037078857421875,
+    "kl": 0.0025150200817734003,
+    "pass": false,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": false,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": false
+  },
+  "raw_one_head_forward_per_arm": true,
+  "online_write_correction_steps": 0,
+  "online_write_Jacobian_builds": 0,
+  "teacher_fallback_used": false,
+  "writer_head_sha256": "4d16b3f06e7010748574172a37dec85d309fe8b033b98e2670b3ee9bf9627148",
+  "baseline_head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab"
+}

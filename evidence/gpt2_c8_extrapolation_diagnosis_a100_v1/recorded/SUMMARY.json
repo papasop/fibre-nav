@@ -1,0 +1,134 @@
+{
+  "protocol": "GPT2_C8_EXTRAPOLATION_DIAGNOSIS_A100_V1",
+  "complete": true,
+  "decision": "C8_DEVELOPMENT_EXTRAPOLATION_DIAGNOSIS_COMPLETE",
+  "n_prepared_states": 12,
+  "n_saved_candidates": 120,
+  "n_endpoint_forwards": 240,
+  "eligible_paired_folds": [
+    "xor_00",
+    "xor_01",
+    "xor_11"
+  ],
+  "aggregate": {
+    "frozen_baseline": {
+      "baseline": {
+        "training": {
+          "n": 36,
+          "raw_passed": 0,
+          "corrected_passed": 27,
+          "corrected_gate_counts": {
+            "bits_match": 33,
+            "exact_read_margin": 33,
+            "development_read_margin": 27,
+            "response": 36,
+            "KL": 36,
+            "output_flip": 33,
+            "unselected_preserved": 36
+          },
+          "median_delta_cosine_with_teacher": 0.9588059234661799,
+          "median_relative_teacher_delta_error": 0.3127941540870335
+        },
+        "excluded_development": {
+          "n": 12,
+          "raw_passed": 0,
+          "corrected_passed": 0,
+          "corrected_gate_counts": {
+            "bits_match": 0,
+            "exact_read_margin": 0,
+            "development_read_margin": 0,
+            "response": 12,
+            "KL": 3,
+            "output_flip": 0,
+            "unselected_preserved": 3
+          },
+          "median_delta_cosine_with_teacher": 0.15655853925477603,
+          "median_relative_teacher_delta_error": 1.1580395512521025
+        }
+      }
+    },
+    "paired": {
+      "parameter_mse": {
+        "training": {
+          "n": 27,
+          "raw_passed": 3,
+          "corrected_passed": 27,
+          "corrected_gate_counts": {
+            "bits_match": 27,
+            "exact_read_margin": 27,
+            "development_read_margin": 27,
+            "response": 27,
+            "KL": 27,
+            "output_flip": 27,
+            "unselected_preserved": 27
+          },
+          "median_delta_cosine_with_teacher": 0.9732488438266883,
+          "median_relative_teacher_delta_error": 0.2553238544786316
+        },
+        "excluded_development": {
+          "n": 9,
+          "raw_passed": 0,
+          "corrected_passed": 0,
+          "corrected_gate_counts": {
+            "bits_match": 0,
+            "exact_read_margin": 0,
+            "development_read_margin": 0,
+            "response": 9,
+            "KL": 3,
+            "output_flip": 0,
+            "unselected_preserved": 3
+          },
+          "median_delta_cosine_with_teacher": 0.2094344259528076,
+          "median_relative_teacher_delta_error": 1.206846312368422
+        }
+      },
+      "functional": {
+        "training": {
+          "n": 27,
+          "raw_passed": 0,
+          "corrected_passed": 27,
+          "corrected_gate_counts": {
+            "bits_match": 27,
+            "exact_read_margin": 27,
+            "development_read_margin": 27,
+            "response": 27,
+            "KL": 27,
+            "output_flip": 27,
+            "unselected_preserved": 27
+          },
+          "median_delta_cosine_with_teacher": 0.9727980020280036,
+          "median_relative_teacher_delta_error": 0.2572992779978688
+        },
+        "excluded_development": {
+          "n": 9,
+          "raw_passed": 0,
+          "corrected_passed": 0,
+          "corrected_gate_counts": {
+            "bits_match": 0,
+            "exact_read_margin": 0,
+            "development_read_margin": 0,
+            "response": 9,
+            "KL": 3,
+            "output_flip": 0,
+            "unselected_preserved": 3
+          },
+          "median_delta_cosine_with_teacher": 0.20991749172891216,
+          "median_relative_teacher_delta_error": 1.2066701649304208
+        }
+      }
+    }
+  },
+  "archived_gate_disagreement_candidates": 0,
+  "actual_jacobian_rows_saved": 120,
+  "positive_references_all_pass": true,
+  "new_training_steps": 0,
+  "new_correction_steps": 0,
+  "candidate_regeneration": false,
+  "teacher_fallback_used": false,
+  "fresh_evaluation": false,
+  "internal_parameter_update": false,
+  "controller_dispatch_tested": false,
+  "certified_curvature_bounds": false,
+  "C7_parent_decision_unchanged": "C7_DEVELOPMENT_FUNCTIONAL_GATE_COMPARISON_COMPLETE",
+  "interpretation": "Coverage, teacher-alignment, local linear changes and actual finite effects are post hoc diagnostics. No generalisation, causality, full Line C or native-write certificate is inferred."
+}

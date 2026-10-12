@@ -1,0 +1,100 @@
+{
+  "C9_sha256": "f0f5abd2197311438bf23588dbcb1bedef1649380873b04f86b5e7b1340fce3b",
+  "C9_source_hashes": {
+    "config_audit.json": "1cb246cec31f999f96e87c9c4e21c8577129b15e3a3752f4db104cdb6bd79cf0",
+    "c5_protocol.py": "67897542c6776fe4efdd943f62dc64bf1c37bac773126db484dfdac716dd5521",
+    "proposer.py": "b217be10e3714720cca629baeb761748e57f5a1158197d37306e1b322a3e4031",
+    "test_c9.py": "50b4321d37d492cf057a26279ead0590a32ca7100c384b267517c0305d951ed0",
+    "SOURCE_PROVENANCE.json": "51efe28d5cbcadf93d75e8df72ac8ebec807026de9e064587d443904c247222c",
+    "process_io.py": "23571079c1bc921750df76e1c0e653d2e4584e86505b8629aa4db94d411a9716",
+    "runtime_a100.py": "5807c4e2c828c2db6296afece2f408bf25179648cbc3d286f7b5d22f70a2210b",
+    "worker_c9.py": "a85041b656b11da2dbfddab0f91ed692dbe1caab97cba8a33889fbfb440a0420",
+    "c6_protocol.py": "36c8d05f197ac20024c66ef58a498afa42afcdfb0321119e6ba36c338930b371",
+    "c9_protocol.py": "07281537a34c230530629026dffb9c76580f20151ca35f33af5b299931c17ab6",
+    "SOURCE_MANIFEST.json": "bcd295ed9890c86a43013c1da380789c17f9298d9bf8bf01a8c961c824637a9b",
+    "run_l5_audit.py": "abc8e1b9f61188715b43c208d4aa3c5ef032c68a4027b4ce10e50de7f58c9e13",
+    "test_c9_torch.py": "0f15cb12b8f24fbb718011dfba4e7202c5c6a1a1f8e751d8db8c74bbabea6a86",
+    "PARENT_IDENTITY_PINS.json": "9545c05352a3fc40e07c4f18985c9edfcb071c929d9d2a1f74e8381c12f33648",
+    "writer_core.py": "7a9db87a6a4c2207394d0441503edf24b316718bcf19a3fbb0efaf70946efb1d",
+    "parent_c4_protocol.py": "62714e0d933262723f22401291883ed27d9567d214a89d8a8f5ef8f7b4717ffe",
+    "README_C9_ZH.md": "85ea787923dd3cd880e0485c4c0a7658d6fe6ff72e7a90ba0efb265d8d4a10cb",
+    "geometry.py": "50ddc4bc0c5485688b1c60d9dcbba027a8169507640d5e56d0f57542ebbe9012",
+    "functional_writer.py": "18b16ec7a1f8d7900f632dc0601f39d4d51bec434139e2e3d80944cc2063d710",
+    "launch_c9.py": "ebe869deee8ad8dc8c78f5c247c597e4e63546b60ed7f32afefb38b4afc40f9e",
+    "c7_protocol.py": "fd9068d1c77d14c28e653c56cec6dd030639a1eeec502aef4c6e6d9a67bcf49e"
+  },
+  "head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab",
+  "selected_checkpoint": "heads/functional/checkpoint_000240.pt",
+  "training_ids": [
+    "xor_00__v0",
+    "xor_00__v1",
+    "xor_00__v2",
+    "xor_01__v0",
+    "xor_01__v1",
+    "xor_01__v2",
+    "xor_10__v0",
+    "xor_10__v1",
+    "xor_10__v2",
+    "xor_11__v0",
+    "xor_11__v1",
+    "xor_11__v2"
+  ],
+  "C9_summary": {
+    "protocol": "GPT2_C9_STATE_GENERALISATION_A100_V1",
+    "complete": true,
+    "decision": "C9_LOCAL_STATE_GENERALISATION_PASS",
+    "training": {
+      "n_requested": 12,
+      "valid_state_references": 12,
+      "raw_passed": 0,
+      "corrected_passed": 12
+    },
+    "new_state_development": {
+      "n_requested": 8,
+      "valid_state_references": 8,
+      "raw_passed": 0,
+      "corrected_passed": 8
+    },
+    "new_states_by_case": {
+      "xor_00": {
+        "n_requested": 2,
+        "valid_state_references": 2,
+        "raw_passed": 0,
+        "corrected_passed": 2
+      },
+      "xor_01": {
+        "n_requested": 2,
+        "valid_state_references": 2,
+        "raw_passed": 0,
+        "corrected_passed": 2
+      },
+      "xor_10": {
+        "n_requested": 2,
+        "valid_state_references": 2,
+        "raw_passed": 0,
+        "corrected_passed": 2
+      },
+      "xor_11": {
+        "n_requested": 2,
+        "valid_state_references": 2,
+        "raw_passed": 0,
+        "corrected_passed": 2
+      }
+    },
+    "writer_head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab",
+    "persisted_committed_head_steps": 2240,
+    "new_model_memory_loss_optimiser_steps": 0,
+    "new_state_preparation_and_teacher_response_correction": true,
+    "teacher_fallback_used": false,
+    "fresh_state_seeds": true,
+    "fresh_evaluation": false,
+    "same_four_XOR_input_classes_seen_in_training": true,
+    "same_access_prompts_and_model_seed": true,
+    "new_state_generation_retries": 0,
+    "internal_parameter_update": false,
+    "controller_dispatch_tested": false,
+    "scope": "Development-only robustness on eight predeclared local perturbations around four known preparations; original inspected inputs promoted to training. Requested output bit supplied. External autograd/SVD/correction, no native update or unseen-XOR-combination claim.",
+    "C8_parent_decision_unchanged": "C8_DEVELOPMENT_EXTRAPOLATION_DIAGNOSIS_COMPLETE"
+  },
+  "parent_c8_sha256": "92ce08de294a53a591920f8f52f15d2a1146c6d97b04e57e689221145fe40997"
+}

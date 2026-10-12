@@ -1,0 +1,104 @@
+{
+  "case": "xor_11",
+  "state_usable": true,
+  "frozen_c9": {
+    "bits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        4.6638946533203125,
+        5.4855804443359375,
+        4.543914794921875,
+        3.3117446899414062
+      ],
+      "heldout_margins": [
+        6.671844482421875,
+        7.291603088378906,
+        5.3868865966796875,
+        4.5229034423828125,
+        5.8130645751953125,
+        6.9612579345703125,
+        5.0981597900390625,
+        5.436744689941406,
+        7.463417053222656,
+        7.7960968017578125,
+        6.4390411376953125,
+        5.323616027832031
+      ],
+      "minimum_exact_margin": 3.3117446899414062,
+      "minimum_heldout_margin": 4.5229034423828125
+    },
+    "drift": 0.05499267578125,
+    "kl": 0.00358991208486259,
+    "pass": false,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": false,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": false
+  },
+  "distilled": {
+    "bits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        4.663330078125,
+        5.484855651855469,
+        4.5427398681640625,
+        3.3121185302734375
+      ],
+      "heldout_margins": [
+        6.6715087890625,
+        7.291313171386719,
+        5.3863525390625,
+        4.523460388183594,
+        5.812835693359375,
+        6.960777282714844,
+        5.097236633300781,
+        5.437278747558594,
+        7.462882995605469,
+        7.795494079589844,
+        6.438026428222656,
+        5.3242034912109375
+      ],
+      "minimum_exact_margin": 3.3121185302734375,
+      "minimum_heldout_margin": 4.523460388183594
+    },
+    "drift": 0.00110626220703125,
+    "kl": 0.0035905567929148674,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": true
+  },
+  "raw_one_head_forward_per_arm": true,
+  "online_write_correction_steps": 0,
+  "online_write_Jacobian_builds": 0,
+  "teacher_fallback_used": false,
+  "writer_head_sha256": "4d16b3f06e7010748574172a37dec85d309fe8b033b98e2670b3ee9bf9627148",
+  "baseline_head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab"
+}

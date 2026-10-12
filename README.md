@@ -12,6 +12,9 @@ experiments. Their acceptance criteria and evidence statuses are not interchange
 > **Empirical center:** B4 minimal causal read–compute–write.
 > **Latest development:** B5 V5 complete XOR truth-table coverage, **4/4** across V4/V5.
 > One frozen backbone with partitioned adapters; model-selected operations and external runtime execution.
+> **Latest writer development:** [Line C C9–C10](docs/LINE_C_LEARNED_WRITER.md).
+> C9: 8/8 new local states after external correction (raw 0/8).
+> C10: 2/8 raw passes without online repair; the complete protocol fails.
 > [B5 V5 results and read-only verifier](evidence/gpt2_b5_xor_continuation_a100_v5/)
 > · [V4 negative parent: 2/4](evidence/gpt2_b5_xor_truth_table_a100_v4/)
 > · [B5 V3 archive](evidence/gpt2_b5_single_backbone_a100_v3/)
@@ -40,7 +43,9 @@ it is not presented as a new mathematical discovery.
 | B5 full XOR V4 (historical parent) | [Development failure: 2/4](evidence/gpt2_b5_xor_truth_table_a100_v4/) | 10 preparation failed; 11 candidate writeback rejected. Original failures retained. |
 | B5 independent confirmation | Pending | New controller seed does not establish independent memory-seed confirmation. |
 | Qwen | [Separate evidence lines](docs/PROGRAMMABLE_PARAMETRIC_MEMORY.md#qwen-status-and-missing-version-evidence) | V8 incomplete, V9 frozen-interface audit, R23 optimizer experiments; V23/fresh-evaluation claims are not verified in this checkout. |
-| Line C | Open research objective | Internalizing parameter updates is not established by B5's external numerical writer. |
+| **Line C C9** | **Correction-assisted local-state development pass** — [summary](evidence/gpt2_c9_state_generalisation_a100_v1/recorded/SUMMARY.json) | New local states: raw 0/8, externally corrected 8/8; same four trained input classes, model and prompts. |
+| **Line C C10** | **C10_RAW_TRAINING_FUNCTION_FAILURE** — [summary](evidence/gpt2_c10_correction_distillation_a100_v1/recorded/SUMMARY.json) | No online write repair: 9/12 training and 2/8 new local states; frozen C9 passes 0/8 on these same new states. |
+| Line C internalisation and scaling | Open research objectives | External writer proposals and parameter commits do not establish native updates, capacity scaling or lifelong learning. |
 
 The latest [V5 archive](evidence/gpt2_b5_xor_continuation_a100_v5/) covers all four
 actual XOR input preparations with initially incorrect outputs. It combines
@@ -72,15 +77,18 @@ forgetting. XOR and numerical parameter updates remain external runtime services
 
 ## Verify without a GPU
 
-From the repository root, with Python 3 and no model download:
+From the repository root, with Python 3 (Line C requires Python 3.11+ and NumPy) and no model download:
 
 ```bash
+python3 scripts/verify_line_c_evidence.py --protocol-tests
 python3 evidence/gpt2_b5_xor_continuation_a100_v5/verify_archive.py
 python3 evidence/gpt2_b5_xor_truth_table_a100_v4/verify_archive.py
 python3 evidence/gpt2_b5_single_backbone_a100_v3/verify_archive.py
 python3 evidence/gpt2_b5_trained_dispatch_a100_v2/verify_archive.py
 python3 evidence/gpt2_b4_minimal_causal_a100_v1/verify_archive.py
 ```
+
+The Line C verifier also checks exported frozen head identities and NumPy replay against saved raw parameter states. Full original results are required for A100 execution; [artifact availability and scope](docs/LINE_C_LEARNED_WRITER.md#a100-execution-and-full-result-artifacts).
 
 These read-only checks verify archive hashes and recorded consistency. They do
 not re-execute GPT-2 or independently reproduce model readouts. See the

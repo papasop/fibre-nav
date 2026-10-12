@@ -1,0 +1,115 @@
+{
+  "training_ids": [
+    "xor_00__v0",
+    "xor_00__v1",
+    "xor_00__v2",
+    "xor_01__v0",
+    "xor_01__v1",
+    "xor_01__v2",
+    "xor_10__v0",
+    "xor_10__v1",
+    "xor_10__v2",
+    "xor_11__v0",
+    "xor_11__v1",
+    "xor_11__v2"
+  ],
+  "new_state_specs": [
+    {
+      "id": "xor_00__c10_new0",
+      "case": "xor_00",
+      "seed": 120031,
+      "norm": 0.375
+    },
+    {
+      "id": "xor_00__c10_new1",
+      "case": "xor_00",
+      "seed": 120032,
+      "norm": 0.75
+    },
+    {
+      "id": "xor_01__c10_new0",
+      "case": "xor_01",
+      "seed": 120131,
+      "norm": 0.375
+    },
+    {
+      "id": "xor_01__c10_new1",
+      "case": "xor_01",
+      "seed": 120132,
+      "norm": 0.75
+    },
+    {
+      "id": "xor_10__c10_new0",
+      "case": "xor_10",
+      "seed": 120231,
+      "norm": 0.375
+    },
+    {
+      "id": "xor_10__c10_new1",
+      "case": "xor_10",
+      "seed": 120232,
+      "norm": 0.75
+    },
+    {
+      "id": "xor_11__c10_new0",
+      "case": "xor_11",
+      "seed": 120331,
+      "norm": 0.375
+    },
+    {
+      "id": "xor_11__c10_new1",
+      "case": "xor_11",
+      "seed": 120332,
+      "norm": 0.75
+    }
+  ],
+  "settings": {
+    "response_budget": 0.002,
+    "kl_budget": 0.005,
+    "margin_gate": 0.05,
+    "distill_steps": 1000,
+    "distill_lr": 0.0001,
+    "functional_steps": 360,
+    "functional_lr": 1e-05,
+    "head_width": 32,
+    "head_weight_decay": 0.0,
+    "gradient_clip": 1.0,
+    "checkpoint_every": 25,
+    "distill_archive_every": 500,
+    "functional_archive_every": 120,
+    "loss_weights": {
+      "parameter_mse": 1.0,
+      "read": 0.1,
+      "response": 1.0,
+      "KL": 0.1
+    },
+    "response_loss_scale": 0.002,
+    "response_loss": "mean smooth-L1 of response displacement divided by response budget, beta=1",
+    "functional_schedule": "four training states per optimiser step, one from each input class; variants cycle step modulo three",
+    "normalisation": "reuse C9 training-only normalisation unchanged",
+    "supervision": "C9 corrected endpoints of twelve training states only; no C9 new-state endpoints",
+    "selection": "fixed final functional checkpoint; no test-based checkpoint selection",
+    "test_norms": [
+      0.375,
+      0.75
+    ],
+    "test_seed_base": 120031,
+    "correction_ridge": 1e-06,
+    "correction_max_steps": 8,
+    "correction_backtracking": 6,
+    "correction_checkpoint_every": 2,
+    "dataset_preparation_geometry": "original saved C8 preparation J, SVD perturbation, bounded response correction before writing",
+    "writer_evaluation_online_Jacobian": false,
+    "writer_evaluation_online_SVD": false,
+    "writer_evaluation_response_correction": false,
+    "feature_identity_tolerance": 0.0001,
+    "requested_output_bit_in_features": true,
+    "fresh_evaluation": false,
+    "fresh_state_seeds": true,
+    "independent_model_seed": false,
+    "internal_parameter_update": false,
+    "controller_dispatch_tested": false
+  },
+  "supervision_from_C9_training_endpoints_only": true,
+  "new_states_not_generated_until_writer_frozen": true
+}

@@ -1,0 +1,102 @@
+{
+  "case": "xor_11",
+  "raw": {
+    "bits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        4.666168212890625,
+        5.487823486328125,
+        4.5473480224609375,
+        3.3084640502929688
+      ],
+      "heldout_margins": [
+        6.673789978027344,
+        7.295188903808594,
+        5.387763977050781,
+        4.5187225341796875,
+        5.8154449462890625,
+        6.9647979736328125,
+        5.0990142822265625,
+        5.4332733154296875,
+        7.4678192138671875,
+        7.8028717041015625,
+        6.4417877197265625,
+        5.319007873535156
+      ],
+      "minimum_exact_margin": 3.3084640502929688,
+      "minimum_heldout_margin": 4.5187225341796875
+    },
+    "drift": 0.05321502685546875,
+    "kl": 0.003589717671275139,
+    "pass": false,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": false,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": false
+  },
+  "corrected": {
+    "bits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        4.665687561035156,
+        5.4871978759765625,
+        4.546234130859375,
+        3.308837890625
+      ],
+      "heldout_margins": [
+        6.6735382080078125,
+        7.294952392578125,
+        5.387298583984375,
+        4.519325256347656,
+        5.815162658691406,
+        6.9644317626953125,
+        5.0981292724609375,
+        5.433799743652344,
+        7.467124938964844,
+        7.8023223876953125,
+        6.440704345703125,
+        5.3194427490234375
+      ],
+      "minimum_exact_margin": 3.308837890625,
+      "minimum_heldout_margin": 4.519325256347656
+    },
+    "drift": 3.0517578125e-05,
+    "kl": 0.0035906685516238213,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": true
+  },
+  "state_usable": true,
+  "writer_head_sha256": "835793a66ec435a8cae6c879b65351e808152919af1a000607426404f6c955ab",
+  "raw_is_one_head_forward": true,
+  "external_response_correction": true,
+  "teacher_fallback_used": false
+}

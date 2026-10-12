@@ -1,0 +1,156 @@
+{
+  "protocol": "GPT2_C7_FUNCTIONAL_GATE_A100_V1",
+  "complete": true,
+  "decision": "C7_DEVELOPMENT_FUNCTIONAL_GATE_COMPARISON_COMPLETE",
+  "frozen_baseline": {
+    "training": {
+      "n": 36,
+      "passed": 27
+    },
+    "excluded_development": {
+      "n": 12,
+      "passed": 0
+    }
+  },
+  "frozen_baseline_original_four_inputs": {
+    "n": 4,
+    "passed": 0
+  },
+  "training_gates": {
+    "xor_00": {
+      "eligible": true,
+      "training_passed": 9,
+      "n_training": 9,
+      "mse_diagnostic": 0.05136323720216751,
+      "mse_not_used_for_eligibility": true,
+      "excluded_input_used_for_eligibility": false,
+      "head_sha256": "ab021c6b56c5c9897b22289441c5243bbd0854f44393bb4f9d209f30b3df2128"
+    },
+    "xor_01": {
+      "eligible": true,
+      "training_passed": 9,
+      "n_training": 9,
+      "mse_diagnostic": 0.021601127460598946,
+      "mse_not_used_for_eligibility": true,
+      "excluded_input_used_for_eligibility": false,
+      "head_sha256": "a142ea3edee83211e014795babd44683be999f27734b3a0bba97ffe33201b505"
+    },
+    "xor_10": {
+      "eligible": false,
+      "training_passed": 0,
+      "n_training": 9,
+      "mse_diagnostic": 0.3026769161224365,
+      "mse_not_used_for_eligibility": true,
+      "excluded_input_used_for_eligibility": false,
+      "head_sha256": "6db9bb3f38034a40524f1fcfef1273beea88b8271fc438837622468e534c520b"
+    },
+    "xor_11": {
+      "eligible": true,
+      "training_passed": 9,
+      "n_training": 9,
+      "mse_diagnostic": 0.1538528949022293,
+      "mse_not_used_for_eligibility": true,
+      "excluded_input_used_for_eligibility": false,
+      "head_sha256": "7bd0093d8358232b3ed038a7791b36073f064fb0e58a987ac23c376a99547007"
+    }
+  },
+  "eligible_folds": [
+    "xor_00",
+    "xor_01",
+    "xor_11"
+  ],
+  "requested_folds": [
+    "xor_00",
+    "xor_01",
+    "xor_10",
+    "xor_11"
+  ],
+  "paired_cohorts": {
+    "training": {
+      "n": 27,
+      "parameter_mse_passed": 27,
+      "functional_passed": 27,
+      "both_passed": 27,
+      "mse_only": 0,
+      "functional_only": 0,
+      "both_failed": 0
+    },
+    "excluded_development": {
+      "n": 9,
+      "parameter_mse_passed": 0,
+      "functional_passed": 0,
+      "both_passed": 0,
+      "mse_only": 0,
+      "functional_only": 0,
+      "both_failed": 9
+    }
+  },
+  "paired_original_excluded_inputs": {
+    "n": 3,
+    "parameter_mse_passed": 0,
+    "functional_passed": 0,
+    "both_passed": 0,
+    "mse_only": 0,
+    "functional_only": 0,
+    "both_failed": 3
+  },
+  "paired_original_denominator": 3,
+  "paired_refinement_not_run_on_folds": [
+    "xor_10"
+  ],
+  "n_completed": 36,
+  "persisted_committed_new_head_steps": 1200,
+  "new_warm_training_steps": 0,
+  "new_controller_training_steps": 0,
+  "counters": {
+    "jacobian_builds": 117,
+    "response_autograd_calls": 702,
+    "head_training_steps": 1200,
+    "memory_loss_optimiser_steps": 0,
+    "functional_head_steps": 600
+  },
+  "settings": {
+    "margin_gate": 0.05,
+    "response_budget": 0.002,
+    "kl_budget": 0.005,
+    "correction_ridge": 1e-06,
+    "correction_max_steps": 8,
+    "correction_backtracking": 6,
+    "correction_checkpoint_every": 2,
+    "head_steps": 200,
+    "head_width": 32,
+    "head_lr": 0.0001,
+    "head_weight_decay": 0.0,
+    "gradient_clip": 5.0,
+    "head_checkpoint_every": 25,
+    "archive_training_every": 200,
+    "loss_weights": {
+      "parameter_mse": 1.0,
+      "read": 0.1,
+      "response": 0.01,
+      "KL": 0.01
+    },
+    "response_surrogate_scale": 0.1,
+    "read_surrogate_margin": 1.0,
+    "training_eligibility": "all nine actually evaluated training episodes pass unchanged endpoint gates; MSE diagnostic only",
+    "eligibility_decided_before_excluded_input_evaluation": true,
+    "baseline": "all four saved C6 1200-step heads, training and excluded inputs, no additional training",
+    "initial_state": "actual fixed C6 warm head checkpoint at step 1200; no warm retraining",
+    "paired_start": "same saved head and normalisation; fresh identical AdamW state",
+    "sample_schedule": "full-batch nine-state MSE every step; functional state cycles by step modulo nine",
+    "development_gate_revision_after_C6_observation": true,
+    "C6_decision_relabelled": false,
+    "fresh_evaluation": false,
+    "internal_parameter_update": false,
+    "controller_dispatch_tested": false
+  },
+  "parent_C6_decision_unchanged": "C6_WARM_FIT_INCOMPLETE",
+  "scope": "New development protocol after observing C6. All four frozen heads have an excluded-input baseline. Only training-function-qualified heads enter paired 200-step refinement; subset denominators explicit. MSE remains a loss/diagnostic, not an eligibility threshold. Fixed C6 weights, training-only normalisation and unchanged read/response/KL acceptance. No full-parent-C5 revalidation claim from capsule alone.",
+  "positive_references_all_pass": true,
+  "development_only": true,
+  "fresh_evaluation": false,
+  "independent_seeds_tested": false,
+  "full_line_c_confirmation": false,
+  "internal_parameter_update": false,
+  "controller_dispatch_tested": false
+}

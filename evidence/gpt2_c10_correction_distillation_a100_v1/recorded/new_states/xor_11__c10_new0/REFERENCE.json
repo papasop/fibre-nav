@@ -1,0 +1,124 @@
+{
+  "spec": {
+    "id": "xor_11__c10_new0",
+    "case": "xor_11",
+    "seed": 120331,
+    "norm": 0.375
+  },
+  "preparation": {
+    "bits": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        7.3640594482421875,
+        7.484649658203125,
+        7.2868804931640625,
+        7.123222351074219
+      ],
+      "heldout_margins": [
+        10.063285827636719,
+        10.45904541015625,
+        10.002532958984375,
+        9.660621643066406,
+        9.601730346679688,
+        10.217727661132812,
+        9.941680908203125,
+        9.534347534179688,
+        10.702537536621094,
+        11.141860961914062,
+        10.865547180175781,
+        10.32989501953125
+      ],
+      "minimum_exact_margin": 7.123222351074219,
+      "minimum_heldout_margin": 9.534347534179688
+    },
+    "drift": 4.57763671875e-05,
+    "kl": 0.0026754997670650482,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true
+    }
+  },
+  "teacher": {
+    "bits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "evaluation": {
+      "exact_accuracy": 1.0,
+      "heldout_accuracy": 1.0,
+      "exact_margins": [
+        4.663360595703125,
+        5.484893798828125,
+        4.542762756347656,
+        3.3121109008789062
+      ],
+      "heldout_margins": [
+        6.671539306640625,
+        7.29132080078125,
+        5.386253356933594,
+        4.523597717285156,
+        5.812767028808594,
+        6.96075439453125,
+        5.097160339355469,
+        5.4372100830078125,
+        7.462852478027344,
+        7.795463562011719,
+        6.437957763671875,
+        5.3241729736328125
+      ],
+      "minimum_exact_margin": 3.3121109008789062,
+      "minimum_heldout_margin": 4.523597717285156
+    },
+    "drift": 2.288818359375e-05,
+    "kl": 0.0035905945114791393,
+    "pass": true,
+    "gates": {
+      "exact_read_margin": true,
+      "development_read_margin": true,
+      "bits_match": true,
+      "response": true,
+      "KL": true,
+      "output_flip": true,
+      "unselected_preserved": true
+    },
+    "episode_pass": true
+  },
+  "usable": true,
+  "actual_preparation_delta_norm": 0.3750000298023224,
+  "perturbation_geometry": {
+    "singular_values": [
+      16.086931820889426,
+      1.0927803419834805,
+      0.9254943468555721,
+      0.8145715123177472,
+      0.7615732466057126,
+      0.6676411621633693
+    ],
+    "numerical_rank": 6,
+    "rank_cutoff": 1.6086931820889426e-07,
+    "linear_leak_before": 22.262436314623386,
+    "linear_leak_after_float64": 2.7797288656701414e-14,
+    "input_norm": 191.33094962957938,
+    "projected_norm": 191.31741928977758,
+    "rank_certified": false,
+    "finite_response_preservation_certified": false
+  },
+  "teacher_from_transported_C9_training_endpoint": true,
+  "generated_after_writer_freeze": true,
+  "generation_retries": 0,
+  "state_replacement_used": false,
+  "geometry_used_for_dataset_preparation_only": true
+}

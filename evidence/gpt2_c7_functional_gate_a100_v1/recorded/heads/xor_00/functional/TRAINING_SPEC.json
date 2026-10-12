@@ -1,0 +1,52 @@
+{
+  "fold": "xor_00",
+  "training_ids": [
+    "xor_01__v0",
+    "xor_01__v1",
+    "xor_01__v2",
+    "xor_10__v0",
+    "xor_10__v1",
+    "xor_10__v2",
+    "xor_11__v0",
+    "xor_11__v1",
+    "xor_11__v2"
+  ],
+  "warm_head_sha256": "ab021c6b56c5c9897b22289441c5243bbd0854f44393bb4f9d209f30b3df2128",
+  "normalisation_from_training_fold_only": true,
+  "optimiser_reset_at_stage_boundary": true,
+  "settings": {
+    "margin_gate": 0.05,
+    "response_budget": 0.002,
+    "kl_budget": 0.005,
+    "correction_ridge": 1e-06,
+    "correction_max_steps": 8,
+    "correction_backtracking": 6,
+    "correction_checkpoint_every": 2,
+    "head_steps": 200,
+    "head_width": 32,
+    "head_lr": 0.0001,
+    "head_weight_decay": 0.0,
+    "gradient_clip": 5.0,
+    "head_checkpoint_every": 25,
+    "archive_training_every": 200,
+    "loss_weights": {
+      "parameter_mse": 1.0,
+      "read": 0.1,
+      "response": 0.01,
+      "KL": 0.01
+    },
+    "response_surrogate_scale": 0.1,
+    "read_surrogate_margin": 1.0,
+    "training_eligibility": "all nine actually evaluated training episodes pass unchanged endpoint gates; MSE diagnostic only",
+    "eligibility_decided_before_excluded_input_evaluation": true,
+    "baseline": "all four saved C6 1200-step heads, training and excluded inputs, no additional training",
+    "initial_state": "actual fixed C6 warm head checkpoint at step 1200; no warm retraining",
+    "paired_start": "same saved head and normalisation; fresh identical AdamW state",
+    "sample_schedule": "full-batch nine-state MSE every step; functional state cycles by step modulo nine",
+    "development_gate_revision_after_C6_observation": true,
+    "C6_decision_relabelled": false,
+    "fresh_evaluation": false,
+    "internal_parameter_update": false,
+    "controller_dispatch_tested": false
+  }
+}

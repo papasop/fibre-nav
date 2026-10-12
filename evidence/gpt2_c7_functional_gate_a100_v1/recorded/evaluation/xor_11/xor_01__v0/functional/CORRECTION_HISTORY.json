@@ -1,0 +1,45 @@
+[
+  {
+    "iteration": 1,
+    "measured_pre_step_residual": [
+      -0.05403900146484375,
+      -0.05048370361328125,
+      -0.047332763671875,
+      -0.04498291015625,
+      -0.0462493896484375,
+      -0.0341949462890625
+    ],
+    "pre_step_drift": 0.05403900146484375,
+    "correction": {
+      "ridge": 1e-06,
+      "singular_values": [
+        16.866025946649792,
+        1.1143613586676617,
+        0.940241720506222,
+        0.8296075369458326,
+        0.7763745037546097,
+        0.6824610270025021
+      ],
+      "delta_norm": 0.015996262724078555,
+      "universal_delta_norm_bound": 57.09853572408557,
+      "linear_residual_norm": 1.543139010918142e-08,
+      "actual_nonlinear_improvement_guaranteed": false
+    },
+    "trials": [
+      {
+        "alpha": 1.0,
+        "drift": 3.0517578125e-05,
+        "kl": 0.0032470421865582466,
+        "accepted_for_response_only": true,
+        "candidate_file": "correction_trial_00_00.pt"
+      }
+    ],
+    "accepted": true
+  },
+  {
+    "iteration": 1,
+    "stop": "RESPONSE_WITHIN_BUDGET",
+    "drift": 3.0517578125e-05,
+    "kl": 0.0032470421865582466
+  }
+]
