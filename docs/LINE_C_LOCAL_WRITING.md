@@ -1,12 +1,55 @@
-# Frozen single-proposal parametric writing: C35–C37
+# Line C: learnable, transferable parameter writing
 
 Evidence snapshot: 16 October 2026. This page records local development progress
 in the existing GPT-2 restricted LoRA-B chart. It does not change the scope of
 earlier B0–B5 or response-fibre experiments.
 
+## Research frontier and subsequent local records
+
+The question is whether a frozen, single-proposal writer can change requested
+contents within declared response budgets and transfer beyond its fitting states
+and requests. B4 supplies the causal foundation; C35–C37 support local feasibility.
+Residual prediction is one mechanism under investigation, not the capability goal.
+
+On 17 October 2026, the following local result ZIP summaries were inspected.
+They are **not yet published as repository evidence**; exact source identities
+are recorded below. These are recorded outcomes, not independently reproduced
+model measurements. The C35–C37 public evidence tier remains unchanged.
+
+| Experiment | Recorded outcome | Interpretation |
+| --- | --- | --- |
+| C38 excluded input | `C38_SINGLE_FOLD_EXCLUDED_INPUT_FAILURE`; all three arms 0/8 on excluded `xor_10` | Single fold; exclusion from this fit, not historically unseen to the programme. |
+| C39 training-only attribution | `C39_RESIDUAL_PREDICTOR_FAILURE_SUPPORTED_TRAINING_ONLY`; raw 12/12, original composite 0/12, measured-residual oracle 12/12 | Supports residual-prediction failure in the training diagnostic; the oracle uses postwrite response and is not a one-shot candidate. |
+| C40 finite residual calibration | `C40_SEEN_CLASS_DEVELOPMENT_FAILURE`; raw and new compensation both 10/12, old compensation 0/12, oracle 12/12 | New preparation seeds in fitted classes; no pass-count gain, no excluded-class evaluation. |
+| C41 expanded residual fit | `C41_FRESH_SEEN_CLASS_MODULE_FAILURE`; raw and frozen C40 compensation both 21/24, expanded C41 compensation 18/24, oracle 24/24 | Completed result, not pending. Expanded compensation rescues one failure but destroys four passes against either baseline. |
+
+C41 fits on 84 states (12 original plus 72 expanded) before its 24 confirmation
+states. Its maximum residual-prediction error decreases relative to the C40 head
+on those same states, but endpoint acceptance worsens. All three fitted classes
+remain in scope; no excluded-class states are evaluated. These are same-model/chart
+experiments. C39–C41 do not close LC2 or reclassify C38. Oracle success is diagnostic,
+not evidence of frozen one-shot generalisation or native parameter updates.
+
+### Local archive provenance (publication pending)
+
+The ZIPs below were read from the supplied workspace's Downloads directory.
+No public download link is available here. C39/C40/C41 top-level manifest hashes
+were checked (94/151/567 members); C38 entries below identify its recovered
+diagnostic summary only, without claiming a full recovered-package audit.
+No tensors were deserialised and no model was executed. Full public evidence
+import, endpoint-level audit and reproducible launchers for these stages remain
+separate work; the runnable repository entry points below still cover C35–C37.
+
+| Stage | Local result filename | ZIP SHA-256 | Summary member | Summary SHA-256 |
+| --- | --- | --- | --- | --- |
+| C38 | `gpt2_lc2_c38_readonly_diagnosis_recovered_results.zip` | `1845488533855f8a002d7a2da2f02a7a3197a9fc3a16ef321944bc7b67ed6ead` | `original_diagnostics/PARENT_SUMMARY.json` | `5ad020aead9ff5b82f6086eb5894b2e2932e74c566c8b5d1b832d9ada9ca8a59` |
+| C39 | `gpt2_lc2_c39_training_residual_attribution_results.zip` | `e2b6970100e7e8fd9a2e2afa8adac59f7c075105d4872b3ce549ace4b310eb54` | `SUMMARY.json` | `d7251be00856c325147679326e2cac56df4ecf6d9d2e65aa908d6eb74dcfebcb` |
+| C40 | `gpt2_lc2_c40_finite_residual_calibration_results.zip` | `8ee850247e58b86e37b8ca474d35adf39170747cb18d1ce75dcca9718981fb75` | `SUMMARY.json` | `00c9b140610b07082d59cdfff8d396d72327fe7b65c62e12b8fde5de5c14449c` |
+| C41 | `gpt2_lc2_c41_expanded_residual_results.zip` | `649a5f71818615298af44820626df914e072de11d7deb75ee325e064c5678fda` | `SUMMARY.json` | `bfc3341f25672d3d36d2e124434077a053d82ca02c5161f2fb883f6c7c473ee0` |
+
 ## Frozen local writing: C35–C37 development evidence
 
-**Latest Line C result:** two frozen composite writers pass all declared gates
+**C35–C37 local result:** two frozen composite writers pass all declared gates
 on C35's 16 new local states, C36's 32 new local states and C37's 32 states
 around changed preparation centres. These are same-model, same-chart development
 cohorts. C37 uses previously inspected C36 preparation states as centres; the

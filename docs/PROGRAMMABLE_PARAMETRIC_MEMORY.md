@@ -4,48 +4,36 @@ A research framework for fixed-access parametric memory, with selective updates,
 
 [Repository overview](../README.md) · [B5 V5 complete XOR](../evidence/gpt2_b5_xor_continuation_a100_v5/) · [B5 V3 archive](../evidence/gpt2_b5_single_backbone_a100_v3/) · [B5 V2 archive](../evidence/gpt2_b5_trained_dispatch_a100_v2/) · [B4 causal archive](../evidence/gpt2_b4_minimal_causal_a100_v1/)
 
-## Frozen local writing: C35–C37 development evidence
+## Current frontier: learnable, transferable parameter writing
 
-**Latest Line C result:** two frozen composite writers pass all declared gates
-on C35's 16 new local states, C36's 32 new local states and C37's 32 states
-around changed preparation centres. These are same-model, same-chart development
-cohorts. C37 uses previously inspected C36 preparation states as centres; the
-cohorts are related and are not independent replications.
+B4 is the causal foundation; Line C is the current research frontier. The
+question is whether a frozen writer can propose a single parameter update that
+changes requested contents within declared response budgets and transfers beyond
+its fitting states and requests. Local feasibility and transfer are separate claims.
 
-| New-state cohort | Raw core | Fixed geometry (`geometry6`) | Learned calibration (`selected6`) |
-| --- | --- | --- | --- |
-| C35: original local centres | 3/16 | 16/16 | 16/16 |
-| C36: frozen local replication | 5/32 | 32/32 | 32/32 |
-| C37: changed preparation centres | 7/32 | 32/32 | 32/32 |
+[The Line C results page](LINE_C_LOCAL_WRITING.md) holds the full C35–C37 tables,
+gates, provenance and limitations. Both fixed-geometry and learned-calibration
+composites pass the reported local cohorts; this does not establish a benefit
+from learned calibration. Evidence is log-derived; full result/weight audit and
+independent confirmation remain pending. [LC2 excluded-request generalisation
+and the other validation targets](LINE_C_VALIDATION_TARGETS.md) remain open.
 
-Each composite writer produces one final proposal from prewrite information,
-followed by external parameter commitment and forward verification. Online
-writing uses no Jacobian construction, SVD, postwrite response correction,
-backtracking or teacher fallback. Fixed compensation operators are constructed
-offline; the learned branch additionally uses an affine calibration. The
-uncompensated learned core does not attain complete acceptance. Since the fixed
-geometry branch also passes, these results do not establish that learned
-calibration is necessary or superior.
+The [subsequent local C38–C41 summaries](LINE_C_LOCAL_WRITING.md#research-frontier-and-subsequent-local-records)
+retain excluded-input and residual-module failures, including the completed C41
+result; public archive import remains pending.
 
-**LC1 status:** the declared local development acceptance target is met by these
-composite writers; independent confirmation remains pending. LC2 excluded-input
-generalisation remains open. Native parameter updates, scaling and continual
-learning are not established.
-
-**Evidence tier:** the new records here are extracted from user-supplied execution
-logs and accompanied by source code. Full C35–C37 result ZIPs and actual frozen
-weight tensors have not been independently inspected in this update. Log
-consistency checks are not a rerun of GPT-2 or a weight-identity audit.
-
-[Results, gates and provenance](LINE_C_LOCAL_WRITING.md) ·
-[LC1–LC6 validation targets](LINE_C_VALIDATION_TARGETS.md)
+The sections below retain the archived selective-write and causal-operation
+foundations and their version history. For current frozen-writer reproduction,
+see the [Line C launchers and required parent results](../external_tests/gpt2_line_c_c35_c37/).
 
 ## Research question and contributions
 
 Can fixed read rules expose selectively writable cells in a shared neural
 parameter state, preserve declared responses within budgets, and support causal
 read–compute–write operations? B0–B3 supply the selective-write and addressing
-foundations; B4 is the empirical center; B5 adds learned operation selection.
+foundations; B4 supplies causal evidence; B5 adds learned operation selection.
+Line C asks whether the writing mechanism itself can be learned, frozen and
+transferred, with each step assessed against separate acceptance targets.
 
 The contributions are the operational interface, protocol-specific acceptance
 criteria, causal tests and combination of evidence. A memory read is a model
