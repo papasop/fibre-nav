@@ -9,14 +9,51 @@ experiments. Their acceptance criteria and evidence statuses are not interchange
 > A research framework for fixed-access parametric memory, with selective updates,
 > declared response-preservation budgets, and causal read–compute–write tests.
 >
-> **Empirical center:** B4 minimal causal read–compute–write.
-> **Latest development:** B5 V5 complete XOR truth-table coverage, **4/4** across V4/V5.
-> One frozen backbone with partitioned adapters; model-selected operations and external runtime execution.
+> **Current development focus:** frozen single-proposal parametric writing, C35–C37.
+> Both composite branches pass 16/16, 32/32 and 32/32 new local states, respectively.
+> [Line C results and limits](docs/LINE_C_LOCAL_WRITING.md). Same-model/chart development; independent confirmation pending.
+> **Operational foundation:** B4 causal read–compute–write and B5 V5 four-input XOR coverage; external runtime execution remains.
 > [B5 V5 results and read-only verifier](evidence/gpt2_b5_xor_continuation_a100_v5/)
 > · [V4 negative parent: 2/4](evidence/gpt2_b5_xor_truth_table_a100_v4/)
 > · [B5 V3 archive](evidence/gpt2_b5_single_backbone_a100_v3/)
 > · [B5 V2 archive and reproduction assets](evidence/gpt2_b5_trained_dispatch_a100_v2/)
 > · [B4 causal evidence](evidence/gpt2_b4_minimal_causal_a100_v1/)
+
+## Frozen local writing: C35–C37 development evidence
+
+**Latest Line C result:** two frozen composite writers pass all declared gates
+on C35's 16 new local states, C36's 32 new local states and C37's 32 states
+around changed preparation centres. These are same-model, same-chart development
+cohorts. C37 uses previously inspected C36 preparation states as centres; the
+cohorts are related and are not independent replications.
+
+| New-state cohort | Raw core | Fixed geometry (`geometry6`) | Learned calibration (`selected6`) |
+| --- | --- | --- | --- |
+| C35: original local centres | 3/16 | 16/16 | 16/16 |
+| C36: frozen local replication | 5/32 | 32/32 | 32/32 |
+| C37: changed preparation centres | 7/32 | 32/32 | 32/32 |
+
+Each composite writer produces one final proposal from prewrite information,
+followed by external parameter commitment and forward verification. Online
+writing uses no Jacobian construction, SVD, postwrite response correction,
+backtracking or teacher fallback. Fixed compensation operators are constructed
+offline; the learned branch additionally uses an affine calibration. The
+uncompensated learned core does not attain complete acceptance. Since the fixed
+geometry branch also passes, these results do not establish that learned
+calibration is necessary or superior.
+
+**LC1 status:** the declared local development acceptance target is met by these
+composite writers; independent confirmation remains pending. LC2 excluded-input
+generalisation remains open. Native parameter updates, scaling and continual
+learning are not established.
+
+**Evidence tier:** the new records here are extracted from user-supplied execution
+logs and accompanied by source code. Full C35–C37 result ZIPs and actual frozen
+weight tensors have not been independently inspected in this update. Log
+consistency checks are not a rerun of GPT-2 or a weight-identity audit.
+
+[Results, gates and provenance](docs/LINE_C_LOCAL_WRITING.md) ·
+[LC1–LC6 validation targets](docs/LINE_C_VALIDATION_TARGETS.md)
 
 ## Research question and contribution
 
@@ -27,7 +64,7 @@ interface, explicit acceptance protocols, causal interventions and a traceable
 chain of experiments. Standard null-space projection supplies a local mechanism;
 it is not presented as a new mathematical discovery.
 
-## Strongest evidence and current status
+## Earlier archive-supported evidence and current status
 
 | Research line | Current archive-supported status | Scope |
 | --- | --- | --- |
@@ -40,7 +77,7 @@ it is not presented as a new mathematical discovery.
 | B5 full XOR V4 (historical parent) | [Development failure: 2/4](evidence/gpt2_b5_xor_truth_table_a100_v4/) | 10 preparation failed; 11 candidate writeback rejected. Original failures retained. |
 | B5 independent confirmation | Pending | New controller seed does not establish independent memory-seed confirmation. |
 | Qwen | [Separate evidence lines](docs/PROGRAMMABLE_PARAMETRIC_MEMORY.md#qwen-status-and-missing-version-evidence) | V8 incomplete, V9 frozen-interface audit, R23 optimizer experiments; V23/fresh-evaluation claims are not verified in this checkout. |
-| Line C | Open research objective | Internalizing parameter updates is not established by B5's external numerical writer. |
+| Line C | C35–C37 local composite-writer passes are reported in execution logs | See the new results above; independent result-ZIP audit and update internalisation remain open. |
 
 The latest [V5 archive](evidence/gpt2_b5_xor_continuation_a100_v5/) covers all four
 actual XOR input preparations with initially incorrect outputs. It combines
@@ -51,7 +88,7 @@ margins exceed `0.05`, averaged response drift is approximately `1.53e-5`
 no new training. This is development coverage, not independent confirmation
 or Boolean completeness. XOR and numerical writes remain runtime services.
 
-B4 is the causal demonstration at the center of this research line. B5 adds
+B4 supplies the earlier causal demonstration for this research line. B5 adds
 learned selection of READ, XOR, WRITE and HALT in a bounded runtime. Its 8/8
 readiness result is **two training-excluded address tuples × four symbolic XOR
 inputs**, not eight actual parameter-memory experiments. The physical cases are
@@ -75,6 +112,7 @@ forgetting. XOR and numerical parameter updates remain external runtime services
 From the repository root, with Python 3 and no model download:
 
 ```bash
+python3 evidence/gpt2_line_c_c35_c37/verify_reported_evidence.py
 python3 evidence/gpt2_b5_xor_continuation_a100_v5/verify_archive.py
 python3 evidence/gpt2_b5_xor_truth_table_a100_v4/verify_archive.py
 python3 evidence/gpt2_b5_single_backbone_a100_v3/verify_archive.py

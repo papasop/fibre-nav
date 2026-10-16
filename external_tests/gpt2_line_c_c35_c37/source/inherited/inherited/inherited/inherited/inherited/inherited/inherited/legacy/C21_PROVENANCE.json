@@ -1,0 +1,39 @@
+{
+  "protocol": "GPT2_C21_RADIUS_COMPARISON_A100_V1",
+  "delivered_C20_source_zip_sha256": "593942e7b1704a0b3e982b48258890f9c88e9640da9b7fe5bd0562862a72e5fa",
+  "delivered_C20_source_member_count": 73,
+  "reported_C20_result_zip_sha256": "7e99af464a6167f59b6121a674c34d9fddd5368f5a7a83a9faebb52aef33360f",
+  "reported_C20_result_zip_bytes": 2283713405,
+  "result_sha_origin": "supplied read-only diagnostic; full result ZIP not available locally; runtime validates input",
+  "start_checkpoint_member": "heads/calibrated/checkpoint_000016.pt",
+  "start_checkpoint_sha256": "a64691a9428a28a7da6a7bc0be1c68880f280584493850a302330eca8f1d15f8",
+  "start_head_sha256": "03f995055d3d21655fcc7d78f473744f56d16adeee2827705c1d363d8492de1e",
+  "change": "same C20 60 training states, nine increment-radius/ridge pairs, first accepted backtracking per pair, training-only selection, prospective 16 local states",
+  "new_training_states": 0,
+  "radius_grid": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "ridge_grid": [
+    1e-06,
+    1e-08,
+    1e-10
+  ],
+  "unchanged_gates": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05
+  },
+  "parent_storage": "byte-preserving verified capsule; complete historical ZIPs external; original unchanged",
+  "direction_storage": "90 float64 coefficients plus original cached J/H; exact reconstruction",
+  "local_test_counts": {
+    "protocol_archive": 61,
+    "algebra": 26,
+    "torch": 24,
+    "total": 111
+  },
+  "local_real_GPT2_A100_execution": false,
+  "fresh_confirmatory_evaluation": false,
+  "internal_parameter_update": false
+}

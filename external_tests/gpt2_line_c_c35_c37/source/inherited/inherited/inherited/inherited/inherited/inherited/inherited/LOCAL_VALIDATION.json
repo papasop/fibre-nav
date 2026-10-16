@@ -1,0 +1,13 @@
+{
+  "protocol": "GPT2_C27_STATE_RESIDUAL_COMPARISON_A100_V1",
+  "unit_tests_passed": 38,
+  "nested_compact_preparation_test": "passed",
+  "full_size_synthetic_worker_and_resume": "passed",
+  "synthetic_model_loader_and_A100_boundary_mocked": true,
+  "pretrained_GPT2_execution_performed": false,
+  "actual_A100_execution_performed": false,
+  "synthetic_results_are_scientific_evidence": false,
+  "patch": "FIX1_INPUT_SCHEMA",
+  "mixed_historical_input_schema_end_to_end": "passed",
+  "missing_extras_regression_tests": 10
+}

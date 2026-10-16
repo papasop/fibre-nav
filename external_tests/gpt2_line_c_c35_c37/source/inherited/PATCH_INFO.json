@@ -1,0 +1,18 @@
+{
+  "revision": "FIX1",
+  "prior_source_zip_sha256": "deeb82a61e0e280acf07b836ab60291c768fd52ea6c421243a0b8d46b6059983",
+  "cause": "Launcher killed the synthetic self-test after 300s, before real GPT-2 worker launch. Synthetic tests redundantly compressed full result archives and repeated parent imports.",
+  "changes": [
+    "Remove heavy self-test timeout; preserve experiment acceptance criteria",
+    "Show setup and per-test progress",
+    "Mock repeated full-archive snapshots in synthetic tests only; real archive/backup tests still run",
+    "Import synthetic parent once, make independent per-test copies"
+  ],
+  "unchanged_scientific_source_sha256": {
+    "worker_c36.py": "d68c2a5209031a805b7a1933eb37953e774b9426a93e38ebdce726f7375e4873",
+    "c36_audit.py": "0dfbc51c8955c362b15c5420df7944f67e3ab0aa45e02614f0d132a3f46ceac8",
+    "c36_parent.py": "f058cf39d32b10381a3431b8f10ccd1ff498d18a26a047d35652ee0b9de85479",
+    "c36_protocol.py": "45eda0e5c7898fa51d2356d679a4f4f3308dabb17ab104e1382fedc4e90d7797"
+  },
+  "old_preworker_result_policy": "Old different-source C36 archives are not silently migrated. Reuse unchanged C35 frozen weights; no real experiment progress existed at the reported failure."
+}

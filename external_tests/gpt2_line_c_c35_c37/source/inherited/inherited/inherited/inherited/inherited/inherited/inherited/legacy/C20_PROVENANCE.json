@@ -1,0 +1,15 @@
+{
+  "parent_source_zip_sha256": "9a3c4d131b2f54f36ffd5748ec60e63f49a51d2de2cdc20d04e8b420e967eff8",
+  "parent_checkpoint_member": "heads/calibrated/checkpoint_000016.pt",
+  "parent_checkpoint_sha256": "f78d533a39870996457cfc231598991479ea1a8bee38711bac195f24fbc73648",
+  "parent_head_sha256": "351fe0d1327e7441202c319fdb839f9f9ef358dc54e7c86d9cab4d8d212677f7",
+  "parent_result_origin": "User-provided read-only checkpoint verification; full C19 result ZIP not locally materialized. Runtime verifies archived source/checkpoint/head and exact C15/C9 lineage.",
+  "local_real_model_execution": false,
+  "local_test_count": 85,
+  "old_inspected_states_promoted": false,
+  "original_training": 36,
+  "new_training": 24,
+  "final_evaluation": 16,
+  "offline_updates": "output layers, all-ridge joint calibration",
+  "online_update": "one frozen proposal and external commit, no repair"
+}

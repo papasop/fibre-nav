@@ -1,0 +1,42 @@
+{
+  "protocol": "GPT2_C24_RELINEARISED_CALIBRATION_A100_V1",
+  "parent_protocol": "GPT2_C23_FROZEN_STEP_DIAGNOSIS_A100_V1",
+  "delivered_c23_source_zip_sha256": "a9b7814f28f6b7122a2804f2fa919ba4895936a998ff2f9dbd48089c36354268",
+  "c23_source_members": 119,
+  "observed_parent_result_from_user_read_only_output": {
+    "archive_sha256": "2c97520ffb4c7afe6290c4ef48708facb66d592b9b31faccf8c5e87db8347a55",
+    "archive_bytes": 202781615,
+    "manifest_members": 1359,
+    "candidate_id": "candidate_022",
+    "candidate_head_sha256": "86b71471cd25e76ea518f1f5b411e8a8cdf365c35acd40afc72f7fead3fe9522",
+    "training_passed": 54,
+    "training_n": 60,
+    "maximum_response_drift": 0.00365447998046875,
+    "diagnostic_only_not_committed": true
+  },
+  "parent_result_locally_materialised": false,
+  "runtime_full_parent_and_tensor_verification_required": true,
+  "same60_training": true,
+  "same16_inspected_evaluation_member_bytes": true,
+  "new_state_generation": false,
+  "fresh_evaluation": false,
+  "evaluation_influenced_protocol_design": true,
+  "new_Adam_steps": 0,
+  "offline_relinearisation": true,
+  "every_round_fixed90_grid": true,
+  "full60_actual_guard_required_before_commit": true,
+  "online_proposals_per_arm": 1,
+  "online_Jacobian_builds": 0,
+  "online_SVD_calls": 0,
+  "online_correction_steps": 0,
+  "online_backward_calls": 0,
+  "internal_parameter_update": false,
+  "controller_dispatch_tested": false,
+  "real_GPT2_A100_run_locally": false,
+  "local_checks": {
+    "protocol_archive": 38,
+    "interval_solver_algebra": 32,
+    "torch_isolation_actual_blocks": 29
+  },
+  "scope": "Development-only recalibration from verified C23 candidate and frozen-writer evaluation on previously inspected C22 states; no independent/native claim."
+}

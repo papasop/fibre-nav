@@ -1,0 +1,9 @@
+{
+  "patch": "FIX1_INPUT_SCHEMA",
+  "previous_source_zip_sha256": "91823ee5312e20bdf422194f5082cc1bbd981674e0f21aebbf611cdd04a77131",
+  "reason": "Historical INPUT.pt records do not all serialize raw extras. Preserve authoritative cached normalized input; replay only available raw fields and record the limitation.",
+  "thresholds_changed": false,
+  "original_C25_head_changed": false,
+  "data_split_changed": false,
+  "old_failed_C27_resume_policy": "Strict source mismatch: skip previous C27 snapshot and initialize from immutable completed C25; no C27 candidate progress existed at reported failure."
+}

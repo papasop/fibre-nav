@@ -1,8 +1,44 @@
-# Programmable Parametric Memory: From Selective Writes to Model-Selected Execution
+# Programmability of Parametric Memory
 
 A research framework for fixed-access parametric memory, with selective updates, declared response-preservation budgets, and causal read–compute–write tests.
 
 [Repository overview](../README.md) · [B5 V5 complete XOR](../evidence/gpt2_b5_xor_continuation_a100_v5/) · [B5 V3 archive](../evidence/gpt2_b5_single_backbone_a100_v3/) · [B5 V2 archive](../evidence/gpt2_b5_trained_dispatch_a100_v2/) · [B4 causal archive](../evidence/gpt2_b4_minimal_causal_a100_v1/)
+
+## Frozen local writing: C35–C37 development evidence
+
+**Latest Line C result:** two frozen composite writers pass all declared gates
+on C35's 16 new local states, C36's 32 new local states and C37's 32 states
+around changed preparation centres. These are same-model, same-chart development
+cohorts. C37 uses previously inspected C36 preparation states as centres; the
+cohorts are related and are not independent replications.
+
+| New-state cohort | Raw core | Fixed geometry (`geometry6`) | Learned calibration (`selected6`) |
+| --- | --- | --- | --- |
+| C35: original local centres | 3/16 | 16/16 | 16/16 |
+| C36: frozen local replication | 5/32 | 32/32 | 32/32 |
+| C37: changed preparation centres | 7/32 | 32/32 | 32/32 |
+
+Each composite writer produces one final proposal from prewrite information,
+followed by external parameter commitment and forward verification. Online
+writing uses no Jacobian construction, SVD, postwrite response correction,
+backtracking or teacher fallback. Fixed compensation operators are constructed
+offline; the learned branch additionally uses an affine calibration. The
+uncompensated learned core does not attain complete acceptance. Since the fixed
+geometry branch also passes, these results do not establish that learned
+calibration is necessary or superior.
+
+**LC1 status:** the declared local development acceptance target is met by these
+composite writers; independent confirmation remains pending. LC2 excluded-input
+generalisation remains open. Native parameter updates, scaling and continual
+learning are not established.
+
+**Evidence tier:** the new records here are extracted from user-supplied execution
+logs and accompanied by source code. Full C35–C37 result ZIPs and actual frozen
+weight tensors have not been independently inspected in this update. Log
+consistency checks are not a rerun of GPT-2 or a weight-identity audit.
+
+[Results, gates and provenance](LINE_C_LOCAL_WRITING.md) ·
+[LC1–LC6 validation targets](LINE_C_VALIDATION_TARGETS.md)
 
 ## Research question and contributions
 
@@ -178,7 +214,7 @@ controls are the next validation targets.
 | B5 V5 complete XOR | Four-input development coverage passes, 4/4 | Inherits 00/01; continues 10/11; frozen controller and original thresholds; external numerical execution. |
 | B5 independent confirmation | Pending | Neither a new controller seed nor adapter isolation establishes independent memory replication. |
 | Qwen | Separate lines, detailed below | Do not transfer a Qwen result to GPT-2 memory or vice versa. |
-| Line C | Open research objective | Internalization of numerical updates is not demonstrated. |
+| Line C | Local composite-writer development acceptance reported in C35–C37 | Independent confirmation and native parameter updates remain open. |
 
 The V4/V5 update was prepared against repository revision
 `7c19a571e7c17c41ddc0c5ea817cafae8f73de56` and the hash-verified V5 total archive
@@ -336,7 +372,7 @@ bundle, zero-forgetting theorem or new projection theorem is claimed.
 | B3 | Selective operations in one shared parameter state | Legacy L5 v2.2.4: WRITE, selective OVERWRITE, SWAP, MOVE and RETURN in the declared chart; separate single-seed scope. |
 | B4 | Causal read–compute–write with externally selected operations | Minimal causal development passes; complete truth-table, new-seed and independent validation remain open. |
 | B5 | Learned model selection of runtime operations | V2/V3 establish bounded dispatch integration; V4/V5 cover all four actual XOR inputs in development. Broader programs and independent confirmation remain open. |
-| Line C | Internalize the update mechanism | Open goal; current XOR and gradient-based writing are external runtime services. |
+| Line C | LC1–LC6 validation targets | Local LC1 development acceptance is reported; LC2–LC6 and independent confirmation remain open. See [targets](LINE_C_VALIDATION_TARGETS.md). |
 
 The unified legacy audits are not a shortcut to full B4/B5 confirmation:
 [v2.4.1](../evidence/unified_l1_l5_v2_4_1/THREE_SEED_SUMMARY.json) recorded 0/3

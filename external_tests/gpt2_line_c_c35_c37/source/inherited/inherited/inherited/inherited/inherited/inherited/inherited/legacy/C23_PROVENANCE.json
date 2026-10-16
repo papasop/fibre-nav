@@ -1,0 +1,39 @@
+{
+  "protocol": "GPT2_C23_FROZEN_STEP_DIAGNOSIS_A100_V1",
+  "parent_protocol": "GPT2_C22_BUDGET_CALIBRATION_A100_V1",
+  "parent_result_identity_from_supplied_records": {
+    "archive_sha256": "f84809e52718ebb129b41578dc6546708e19dafcbe3b3b37c01aa1056cf2d166",
+    "archive_bytes": 672630562,
+    "checkpoint": "heads/calibrated/checkpoint_000015.pt",
+    "checkpoint_sha256": "7c202d680eeee294c21c456d0561135fbd2e98d18025c236f492b90fe8f7b7f9",
+    "head_sha256": "3909cd5126c5995dba5ae170980260294f55c0295096ff2390f03ba2083c318c",
+    "training_passed": 54,
+    "training_n": 60,
+    "original36_passed": 32,
+    "new_inspected_states_passed": 8,
+    "new_inspected_states_n": 16
+  },
+  "delivered_c22_source_zip_sha256": "925d801609fd7febbbd5c26a6f4a7029d07a34b0e78ef992f72eb032dc711096",
+  "c22_source_members": 104,
+  "cached_geometry_round": 14,
+  "fixed_candidate_specs": 90,
+  "new_training_steps": 0,
+  "new_Jacobian_builds": 0,
+  "new_backward_calls": 0,
+  "new_linear_solver_calls": 0,
+  "no_head_committed": true,
+  "full_model_float64_forward": false,
+  "primary_gates_unchanged": true,
+  "new_evaluation_states": 0,
+  "fresh_evaluation": false,
+  "internal_parameter_update": false,
+  "runtime_parent_full_verification_required": true,
+  "parent_real_result_locally_materialised": false,
+  "real_GPT2_A100_run_locally": false,
+  "local_checks": {
+    "protocol_archive": 50,
+    "cached_direction_precision": 10,
+    "torch_isolation_scan_audit": 19
+  },
+  "scope": "Fixed-origin development diagnosis on inspected C22 training states; route-eligible and full60-audited candidates reported separately; zero-displacement repeated forwards and same-float32-logits float64 reduction diagnostics."
+}

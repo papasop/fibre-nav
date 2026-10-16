@@ -1,5 +1,18 @@
 # Claim boundaries
 
+## C35–C37 frozen local writing (log-supported development)
+
+Both fixed-geometry and learned-calibration composite writers report complete
+new-state acceptance: C35 16/16, C36 32/32 and C37 32/32. LC1's declared local
+development target is met within this scope; independent result-ZIP/weight audit
+and confirmation remain pending. These are related same-model/chart cohorts.
+The raw learned core alone fails many response gates; fixed offline geometric
+compensation is part of the successful writer. Its success does not establish
+the necessity or superiority of learned calibration. Offline geometry and
+external parameter commitment remain. No excluded-input, native-update,
+capacity-scaling, continual-learning or unaudited-behaviour guarantee follows.
+See [results and provenance](LINE_C_LOCAL_WRITING.md).
+
 ## Prospectively confirmed
 
 0. **ResNet-18/CIFAR-10 v4.2d:** transverse response amplification in an

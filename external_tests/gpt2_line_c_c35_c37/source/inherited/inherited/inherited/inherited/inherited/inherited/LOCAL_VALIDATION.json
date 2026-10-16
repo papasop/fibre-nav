@@ -1,0 +1,14 @@
+{
+  "protocol": "GPT2_C28_RESPONSE_AWARE_FOUR_ROUTE_A100_V1",
+  "unit_tests_passed": 30,
+  "compact_C27_prepare_archive_source_and_provenance_test": "passed",
+  "full_size_synthetic_worker_and_resume": "passed",
+  "synthetic_workflow_includes_new_autograd_Jacobians": 76,
+  "synthetic_committed_backward_rows": 456,
+  "both_arms_freeze_before_inspected_input_read_test": "passed",
+  "frozen_matrix_identity_preserved_on_resume": "passed",
+  "pretrained_model_loader_and_A100_hardware_boundary_mocked": true,
+  "pretrained_GPT2_execution_performed": false,
+  "actual_A100_execution_performed": false,
+  "synthetic_results_are_scientific_evidence": false
+}

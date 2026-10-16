@@ -1,0 +1,47 @@
+{
+  "evidence_tier": "user_supplied_execution_logs_with_exact_extracted_summary_objects",
+  "result_archives_independently_inspected_here": false,
+  "real_model_rerun_here": false,
+  "actual_writer_tensors_independently_loaded_here": false,
+  "source_repository": "https://github.com/papasop/fibre-nav",
+  "reviewed_commit": "9f09f7a03837a1c272068a8ef0d0057358fa81da",
+  "date": "2026-10-16",
+  "sources": {
+    "GPT2_C35_PREWRITE_COEFFICIENT_A100_V1": {
+      "launcher_sha256": "f2c88656b3085421cf483e75637604ff37fcec738071d8476f5b4c5fddadde0b",
+      "embedded_source_zip_sha256": "6b1115a138be28ee26bb836c6aa05add5ba214cc351288dc178a9fd21a79fee7"
+    },
+    "GPT2_C36_FROZEN_LOCAL_REPLICATION_A100_V1": {
+      "launcher_sha256": "22d672d5b8cee48600c7c431f54e7da664cc47ced60329637b3f56aa50da291a",
+      "embedded_source_zip_sha256": "0c948f475e2e3c4a5080c748ed86aba146a1aa9d9eb9de166a567edd8b7715eb"
+    },
+    "GPT2_C37_CENTRE_TRANSFER_A100_V1": {
+      "launcher_sha256": "05a3ef1fdf0be9b82a6cb191a568fe532d46207b5eb98c13d4e76c281814d8e1",
+      "embedded_source_zip_sha256": "dac513876af4e38d859e8e00092d97334e6abd0100ff2557289c521423a5436c"
+    }
+  },
+  "logs": {
+    "c35": {
+      "path": "reported/c35_execution_log.md",
+      "sha256": "c93b04b27dae194eb3427fdb77a0ed24e2a8efccdef3c16c4f64854ae32c3fd9"
+    },
+    "c36": {
+      "path": "reported/c36_execution_log.md",
+      "sha256": "bcf6e1460f5123d2705d26bfc6aa7ea671cd83f45ff69face4f358f2500b9c98"
+    },
+    "c37": {
+      "path": "reported/c37_execution_log.md",
+      "sha256": "d3ff6231dc119339634f582ed0839bdc0488952f3e19ba17532fa79101bb32a3"
+    }
+  },
+  "coefficient_sha256": "d95a6d84f312261d355bf2d584c878eff2caeb2b7d19d38d92e0bc8f1c1faec8",
+  "LC1_status": "local_development_acceptance_reported_independent_confirmation_pending",
+  "LC2_LC6": "open",
+  "cohorts_are_independent_replications": false,
+  "missing_artifacts": [
+    "C35 complete result ZIP",
+    "C36 complete result ZIP",
+    "C37 complete result ZIP",
+    "actual frozen writer checkpoints"
+  ]
+}
