@@ -35,3 +35,11 @@ pilot if necessary, then prospectively freeze a confirmation protocol.
 
 These targets are separable: LC1 does not establish LC2–LC6. A successful LC2
 experiment also does not establish native parameter updates.
+
+## Subsequent local records
+
+[Locally inspected C38–C41 summaries](LINE_C_LOCAL_WRITING.md#research-frontier-and-subsequent-local-records)
+do not change these targets: C38 fails its single excluded-input fold;
+C39 is a training-only diagnostic; C40 and completed C41 fail their seen-class
+residual-module development tests. LC2 remains open. Public archive import and
+independent model reproduction remain pending.
