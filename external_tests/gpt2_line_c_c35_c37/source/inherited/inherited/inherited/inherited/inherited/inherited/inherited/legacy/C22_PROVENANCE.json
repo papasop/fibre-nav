@@ -1,0 +1,56 @@
+{
+  "protocol": "GPT2_C22_BUDGET_CALIBRATION_A100_V1",
+  "delivered_C21_source_zip_sha256": "a9f3b5c8b7c086e887508e8a033e395f55417102e7ef2d5c03026da7e56ebd8e",
+  "delivered_C21_source_member_count": 88,
+  "source_zip_materialized_and_verified": true,
+  "C21_result_full_zip_available_locally": false,
+  "C21_result_pointer_and_metrics_origin": "supplied execution log and truncated read-only diagnostic; runtime fully verifies result ZIP",
+  "start_checkpoint_member": "heads/calibrated/checkpoint_000016.pt",
+  "start_checkpoint_sha256": "407e463e255ae7f31937b57b7df9b71800ff298282402f722348379177044ce8",
+  "start_head_sha256": "09e4815ef29322665ce363ac7fe4f38a0906bcc05f6412a3037f2f53cb4c539a",
+  "current_training_passes": 50,
+  "original36_passes": 30,
+  "training_count": 60,
+  "new_training_states": 0,
+  "change": "numerical norm-regularised response-interval dual fitting; physical guard improvement uses squared response-budget excess",
+  "target_response_interval": 0.0018,
+  "unchanged_gates": {
+    "response": 0.002,
+    "KL": 0.005,
+    "margin": 0.05
+  },
+  "unchanged_radius_grid": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "unchanged_layer_radius": 0.5,
+  "ridge_grid": [
+    1e-06,
+    1e-08,
+    1e-10
+  ],
+  "dual_solver": "monotone restarted FISTA and orthant working-set quadratic refinement",
+  "max_iterations": 8192,
+  "max_polish_iterations": 128,
+  "solver_feasibility_certificate": false,
+  "norm_constraints_inside_dual_solver": false,
+  "actual_nonlinear_acceptance_required": true,
+  "new_state_seed_base": 2215031,
+  "new_state_count": 16,
+  "independent_model_seed": false,
+  "fresh_evaluation": false,
+  "local_test_counts": {
+    "protocol_archive_diagnostic": 75,
+    "math": 32,
+    "torch": 24,
+    "total": 131
+  },
+  "local_real_GPT2_A100_execution": false,
+  "online_Jacobian": 0,
+  "online_SVD": 0,
+  "online_backward": 0,
+  "online_correction": 0,
+  "teacher_fallback": false,
+  "internal_parameter_update": false
+}

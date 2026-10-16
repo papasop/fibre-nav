@@ -1,0 +1,6 @@
+{
+  "tests_passed": 35,
+  "scope": "25 algebra/archive/bootstrap tests plus10 Torch tests. Added fresh isolated process with only root on sys.path; original delivered launcher is executed without preparatory paths up to expected CPU A100 device gate. Synthetic64-state pipeline and resume tested; no real GPT-2/A100 experiment executed here.",
+  "real_model_or_parent_experiment_executed_here": false,
+  "patch": "Bootstrap inherited search paths before importing c34_protocol/c30_core; no experimental settings or thresholds changed."
+}
