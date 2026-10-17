@@ -1,0 +1,577 @@
+{
+  "protocol": "GPT2_LC2_C54_CUMULATIVE_RESPONSE_DISTILLATION_A100_V1",
+  "config": {
+    "states": 36,
+    "steps": 16,
+    "features": 3211,
+    "ridge": 0.0001,
+    "response_weight": 1.0,
+    "loss": "sum_i,t ||f_i,t-y_i,t||^2 + rho sum_i,k=1..15 ||J_i,k sum_t=1..k(f_i,t-y_i,t)||^2 + ridge sum_t trace(C_t.T Kc C_t)",
+    "cumulative_proxy": "sum of intended correction-label errors, before float32 rounding and clipping; not exact rolled-out parameter error",
+    "geometry_points": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "terminal_point_Jacobian_available": false,
+    "point0_has_zero_cumulative_error": true,
+    "last_intended_correction": "segment16 equals original C50 parameter-loss prediction; cumulative penalty has no derivative at point16",
+    "kernel": "unchanged C50 equal-six-block g+g^2, preprocessing, ridge and fixed training label-mean intercept",
+    "folds": "same six whole-norm folds, train30 test6, both slots and all three classes at heldout norm excluded",
+    "response_metric_units": "raw parameter L2 plus raw six-response L2, rho=1 fixed",
+    "new_fits": 7,
+    "new_linear_solves": 7,
+    "normal_equation": "I + rho G; G_(i,k),(j,l)=min(k,l) P_ij J_i,k J_j,l.T",
+    "solver": "one fixed Jacobi-diagonal-preconditioned dense solve per fit; no retries, jitter, SVD or search",
+    "reference": "C52 frozen response-sensitive OOF paths, freshly replayed; C50 scores are archived context only",
+    "primary": "all36 complete endpoint gates and all17 sampled response points <= .002",
+    "step_correction_L2_cap": 0.125,
+    "total_correction_L2_path_cap": 2.0,
+    "candidate_online_Jacobians": 0,
+    "candidate_online_SVD_calls": 0,
+    "candidate_feedback": false,
+    "new_Jacobians": 0,
+    "new_SVD_calls": 0,
+    "hyperparameter_searches": 0,
+    "full36_head_is_in_sample_only": true,
+    "independent_states": 36,
+    "trajectory_points_are_not_independent_examples": true,
+    "audit_timeout_seconds": 1200,
+    "compile_timeout_seconds": 1800,
+    "evaluation_timeout_seconds": 1800,
+    "new_confirmation_states": 0,
+    "excluded_class_states": 0,
+    "scope": "Historical36-state seen-class development only. The cumulative first-order proxy is not a nonlinear gate certificate or LC2 closure."
+  },
+  "specs": [
+    {
+      "id": "xor_00__c41_training_n00_d00",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100001,
+      "norm": 0.125
+    },
+    {
+      "id": "xor_00__c41_training_n01_d00",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100101,
+      "norm": 0.25
+    },
+    {
+      "id": "xor_00__c41_training_n02_d00",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100201,
+      "norm": 0.5
+    },
+    {
+      "id": "xor_00__c41_training_n03_d00",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100301,
+      "norm": 0.625
+    },
+    {
+      "id": "xor_00__c41_training_n04_d00",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100401,
+      "norm": 0.875
+    },
+    {
+      "id": "xor_00__c41_training_n05_d00",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100501,
+      "norm": 1.0
+    },
+    {
+      "id": "xor_01__c41_training_n00_d00",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110001,
+      "norm": 0.125
+    },
+    {
+      "id": "xor_01__c41_training_n01_d00",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110101,
+      "norm": 0.25
+    },
+    {
+      "id": "xor_01__c41_training_n02_d00",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110201,
+      "norm": 0.5
+    },
+    {
+      "id": "xor_01__c41_training_n03_d00",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110301,
+      "norm": 0.625
+    },
+    {
+      "id": "xor_01__c41_training_n04_d00",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110401,
+      "norm": 0.875
+    },
+    {
+      "id": "xor_01__c41_training_n05_d00",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110501,
+      "norm": 1.0
+    },
+    {
+      "id": "xor_11__c41_training_n00_d00",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120001,
+      "norm": 0.125
+    },
+    {
+      "id": "xor_11__c41_training_n01_d00",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120101,
+      "norm": 0.25
+    },
+    {
+      "id": "xor_11__c41_training_n02_d00",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120201,
+      "norm": 0.5
+    },
+    {
+      "id": "xor_11__c41_training_n03_d00",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120301,
+      "norm": 0.625
+    },
+    {
+      "id": "xor_11__c41_training_n04_d00",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120401,
+      "norm": 0.875
+    },
+    {
+      "id": "xor_11__c41_training_n05_d00",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120501,
+      "norm": 1.0
+    },
+    {
+      "id": "xor_00__c41_training_n00_d01",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100002,
+      "norm": 0.125
+    },
+    {
+      "id": "xor_00__c41_training_n01_d01",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100102,
+      "norm": 0.25
+    },
+    {
+      "id": "xor_00__c41_training_n02_d01",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100202,
+      "norm": 0.5
+    },
+    {
+      "id": "xor_00__c41_training_n03_d01",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100302,
+      "norm": 0.625
+    },
+    {
+      "id": "xor_00__c41_training_n04_d01",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100402,
+      "norm": 0.875
+    },
+    {
+      "id": "xor_00__c41_training_n05_d01",
+      "case": "xor_00",
+      "cohort": "residual_training",
+      "seed": 114100502,
+      "norm": 1.0
+    },
+    {
+      "id": "xor_01__c41_training_n00_d01",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110002,
+      "norm": 0.125
+    },
+    {
+      "id": "xor_01__c41_training_n01_d01",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110102,
+      "norm": 0.25
+    },
+    {
+      "id": "xor_01__c41_training_n02_d01",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110202,
+      "norm": 0.5
+    },
+    {
+      "id": "xor_01__c41_training_n03_d01",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110302,
+      "norm": 0.625
+    },
+    {
+      "id": "xor_01__c41_training_n04_d01",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110402,
+      "norm": 0.875
+    },
+    {
+      "id": "xor_01__c41_training_n05_d01",
+      "case": "xor_01",
+      "cohort": "residual_training",
+      "seed": 114110502,
+      "norm": 1.0
+    },
+    {
+      "id": "xor_11__c41_training_n00_d01",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120002,
+      "norm": 0.125
+    },
+    {
+      "id": "xor_11__c41_training_n01_d01",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120102,
+      "norm": 0.25
+    },
+    {
+      "id": "xor_11__c41_training_n02_d01",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120202,
+      "norm": 0.5
+    },
+    {
+      "id": "xor_11__c41_training_n03_d01",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120302,
+      "norm": 0.625
+    },
+    {
+      "id": "xor_11__c41_training_n04_d01",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120402,
+      "norm": 0.875
+    },
+    {
+      "id": "xor_11__c41_training_n05_d01",
+      "case": "xor_11",
+      "cohort": "residual_training",
+      "seed": 114120502,
+      "norm": 1.0
+    }
+  ],
+  "folds": [
+    {
+      "norm": 0.125,
+      "train": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        27,
+        28,
+        29,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "test": [
+        0,
+        6,
+        12,
+        18,
+        24,
+        30
+      ]
+    },
+    {
+      "norm": 0.25,
+      "train": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24,
+        26,
+        27,
+        28,
+        29,
+        30,
+        32,
+        33,
+        34,
+        35
+      ],
+      "test": [
+        1,
+        7,
+        13,
+        19,
+        25,
+        31
+      ]
+    },
+    {
+      "norm": 0.5,
+      "train": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25,
+        27,
+        28,
+        29,
+        30,
+        31,
+        33,
+        34,
+        35
+      ],
+      "test": [
+        2,
+        8,
+        14,
+        20,
+        26,
+        32
+      ]
+    },
+    {
+      "norm": 0.625,
+      "train": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22,
+        23,
+        24,
+        25,
+        26,
+        28,
+        29,
+        30,
+        31,
+        32,
+        34,
+        35
+      ],
+      "test": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33
+      ]
+    },
+    {
+      "norm": 0.875,
+      "train": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31,
+        32,
+        33,
+        35
+      ],
+      "test": [
+        4,
+        10,
+        16,
+        22,
+        28,
+        34
+      ]
+    },
+    {
+      "norm": 1.0,
+      "train": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "test": [
+        5,
+        11,
+        17,
+        23,
+        29,
+        35
+      ]
+    }
+  ],
+  "C52_sha256": "dcb4e6aaf9381637ba8f04fa87e539793ad62a3b4054acf2d98e414ceabc4426",
+  "training_geometry_source": "/content/gpt2_lc2_c54_cumulative_response_distillation_a100_v1/session_1792226630336973366/readonly_cache/C52.zip",
+  "reference_arm": "C52_sensitive",
+  "C50_is_archived_context_only": true,
+  "all36_retained": true
+}

@@ -1,0 +1,219 @@
+{
+  "protocol": "GPT2_LC2_C55_CUMULATIVE_TRANSFER_AUDIT_CPU_V1",
+  "complete": true,
+  "decision": "C55_READONLY_TRANSFER_AUDIT_COMPLETE_C54_DECISION_RETAINED",
+  "parent_decision": "C54_DEVELOPMENT_FAILURE",
+  "parent_decision_reclassified": false,
+  "inputs": {
+    "C54": {
+      "path": "/content/gpt2_lc2_c55_cumulative_transfer_audit_cpu_v1/session_1792228110843840559/readonly_cache/C54.zip",
+      "sha256": "5fb6339e825980a81d5de34f637d78f1af1a94fb15a150cd6aedd4a8b9851f7b",
+      "external_hash_preprovided": false
+    },
+    "C52": {
+      "path": "/content/gpt2_lc2_c55_cumulative_transfer_audit_cpu_v1/session_1792228110843840559/readonly_cache/C52.zip",
+      "sha256": "dcb4e6aaf9381637ba8f04fa87e539793ad62a3b4054acf2d98e414ceabc4426",
+      "external_hash_preprovided": true
+    }
+  },
+  "C54_members_hashed": 458,
+  "C52_members_hashed": 1128,
+  "source_pins_passed": true,
+  "recomputed_scores": {
+    "reference": {
+      "n_requested": 36,
+      "n_evaluated": 36,
+      "passed": 32,
+      "sampled_paths_passed": 32,
+      "maximum_endpoint_response": 0.00414276123046875,
+      "maximum_sampled_response": 0.00414276123046875,
+      "qualified": false
+    },
+    "cumulative": {
+      "n_requested": 36,
+      "n_evaluated": 36,
+      "passed": 32,
+      "sampled_paths_passed": 32,
+      "maximum_endpoint_response": 0.004150390625,
+      "maximum_sampled_response": 0.004150390625,
+      "qualified": false
+    }
+  },
+  "paired": {
+    "n": 36,
+    "rescued": 0,
+    "destroyed": 0
+  },
+  "OOF_covered_point_statistics": {
+    "reference": {
+      "n_points": 540,
+      "n_states": 36,
+      "intended_cumulative_proxy_squared_error": 0.001734173005758143,
+      "actual_bounded_linear_action_squared_error": 0.0017342029558270293,
+      "observed_gap_squared_error": 0.0017364276573061943,
+      "remainder_squared_error": 4.543171492922415e-07,
+      "linear_remainder_cross_term": 1.7703843298728508e-06,
+      "maximum_remainder_Linf": 4.858650388372054e-05,
+      "linear_and_observed_response_budget_agree": 539,
+      "actual_minus_intended_squared_error": 2.4848477867019664e-12,
+      "proxy_transport_cross_term": 2.99475840385405e-08
+    },
+    "cumulative": {
+      "n_points": 540,
+      "n_states": 36,
+      "intended_cumulative_proxy_squared_error": 0.0017348500216466999,
+      "actual_bounded_linear_action_squared_error": 0.0017348116683962114,
+      "observed_gap_squared_error": 0.001737352053169161,
+      "remainder_squared_error": 4.420042198037554e-07,
+      "linear_remainder_cross_term": 2.0983805531460274e-06,
+      "maximum_remainder_Linf": 5.813856080230835e-05,
+      "linear_and_observed_response_budget_agree": 540,
+      "actual_minus_intended_squared_error": 2.282061643061793e-12,
+      "proxy_transport_cross_term": -3.8355532550172595e-08
+    }
+  },
+  "descriptive_comparison": {
+    "code": "OOF_PROXY_NOT_REDUCED",
+    "relative_changes": {
+      "intended_cumulative_proxy_squared_error": 0.00039039697095325984,
+      "actual_bounded_linear_action_squared_error": 0.0003510042276982434,
+      "observed_gap_squared_error": 0.000532354952466512
+    },
+    "descriptive_improvement_tolerance_relative": 1e-06,
+    "descriptive_only": true,
+    "causal_explanation_established": false,
+    "does_not_select_or_qualify_a_candidate": true
+  },
+  "training_proxy_comparison": {
+    "before": {
+      "intended_cumulative_proxy_squared_error": 1.0767510614225847e-05,
+      "actual_bounded_linear_action_squared_error": 1.0736373596291146e-05
+    },
+    "after": {
+      "intended_cumulative_proxy_squared_error": 5.177714479994993e-09,
+      "actual_bounded_linear_action_squared_error": 5.189973810486963e-09
+    },
+    "before_is_C50_parameter_loss_prediction": true,
+    "after_is_C54_cumulative_prediction": true,
+    "training_folds_overlap_and_are_not_independent_trials": true
+  },
+  "failure_states": [
+    {
+      "id": "xor_00__c41_training_n04_d00",
+      "case": "xor_00",
+      "norm": 0.875,
+      "slot": "d00",
+      "reference_endpoint_pass": false,
+      "cumulative_endpoint_pass": false,
+      "reference_endpoint_response": 0.00336456298828125,
+      "cumulative_endpoint_response": 0.00336456298828125,
+      "reference_first_breach": 9,
+      "cumulative_first_breach": 9,
+      "description": {
+        "code": "OOF_PROXY_NOT_REDUCED",
+        "relative_changes": {
+          "intended_cumulative_proxy_squared_error": 0.0008168418635643317,
+          "actual_bounded_linear_action_squared_error": 0.0007603155606249934,
+          "observed_gap_squared_error": 0.00039522403704752294
+        },
+        "descriptive_improvement_tolerance_relative": 1e-06,
+        "descriptive_only": true,
+        "causal_explanation_established": false,
+        "does_not_select_or_qualify_a_candidate": true
+      }
+    },
+    {
+      "id": "xor_00__c41_training_n05_d00",
+      "case": "xor_00",
+      "norm": 1.0,
+      "slot": "d00",
+      "reference_endpoint_pass": false,
+      "cumulative_endpoint_pass": false,
+      "reference_endpoint_response": 0.00414276123046875,
+      "cumulative_endpoint_response": 0.004150390625,
+      "reference_first_breach": 7,
+      "cumulative_first_breach": 7,
+      "description": {
+        "code": "BOUNDED_ACTION_REDUCED_OBSERVED_GAP_NOT_REDUCED",
+        "relative_changes": {
+          "intended_cumulative_proxy_squared_error": -5.1439740710179756e-05,
+          "actual_bounded_linear_action_squared_error": -8.959158341815231e-05,
+          "observed_gap_squared_error": 0.0006399845549444894
+        },
+        "descriptive_improvement_tolerance_relative": 1e-06,
+        "descriptive_only": true,
+        "causal_explanation_established": false,
+        "does_not_select_or_qualify_a_candidate": true
+      }
+    },
+    {
+      "id": "xor_01__c41_training_n05_d00",
+      "case": "xor_01",
+      "norm": 1.0,
+      "slot": "d00",
+      "reference_endpoint_pass": false,
+      "cumulative_endpoint_pass": false,
+      "reference_endpoint_response": 0.0026397705078125,
+      "cumulative_endpoint_response": 0.0026092529296875,
+      "reference_first_breach": 11,
+      "cumulative_first_breach": 11,
+      "description": {
+        "code": "OOF_PROXY_NOT_REDUCED",
+        "relative_changes": {
+          "intended_cumulative_proxy_squared_error": 0.00024318138792916796,
+          "actual_bounded_linear_action_squared_error": 0.00018509076679229408,
+          "observed_gap_squared_error": 0.0016595655228417018
+        },
+        "descriptive_improvement_tolerance_relative": 1e-06,
+        "descriptive_only": true,
+        "causal_explanation_established": false,
+        "does_not_select_or_qualify_a_candidate": true
+      }
+    },
+    {
+      "id": "xor_11__c41_training_n04_d00",
+      "case": "xor_11",
+      "norm": 0.875,
+      "slot": "d00",
+      "reference_endpoint_pass": false,
+      "cumulative_endpoint_pass": false,
+      "reference_endpoint_response": 0.0022430419921875,
+      "cumulative_endpoint_response": 0.00225067138671875,
+      "reference_first_breach": 13,
+      "cumulative_first_breach": 13,
+      "description": {
+        "code": "OOF_PROXY_NOT_REDUCED",
+        "relative_changes": {
+          "intended_cumulative_proxy_squared_error": 0.0024964657303367566,
+          "actual_bounded_linear_action_squared_error": 0.0026233637163032165,
+          "observed_gap_squared_error": 0.002805338145587205
+        },
+        "descriptive_improvement_tolerance_relative": 1e-06,
+        "descriptive_only": true,
+        "causal_explanation_established": false,
+        "does_not_select_or_qualify_a_candidate": true
+      }
+    }
+  ],
+  "all72_paths_reconstructed": true,
+  "all7_coupled_equations_checked": true,
+  "all_C54_posthoc_rows_recomputed": true,
+  "n_covered_point_rows": 1080,
+  "n_uncovered_endpoint_rows": 72,
+  "new_model_loads": 0,
+  "new_model_forwards": 0,
+  "new_fits": 0,
+  "new_training_steps": 0,
+  "linear_systems_solved": 0,
+  "new_inverse_calls": 0,
+  "new_SVD_calls": 0,
+  "new_Jacobians": 0,
+  "archived_source_executed": false,
+  "independent_model_replay": false,
+  "new_confirmation_states": 0,
+  "excluded_class_states_evaluated": 0,
+  "LC2_closed": false,
+  "prior_decisions_reclassified": false,
+  "causal_explanation_established": false,
+  "scope": "Read-only arithmetic on historical36 states; no new candidate, confirmation or causal closure."
+}

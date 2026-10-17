@@ -4,9 +4,11 @@ A research framework for fixed-access parametric memory, with selective updates,
 
 [Repository overview](../README.md) · [B5 V5 complete XOR](../evidence/gpt2_b5_xor_continuation_a100_v5/) · [B5 V3 archive](../evidence/gpt2_b5_single_backbone_a100_v3/) · [B5 V2 archive](../evidence/gpt2_b5_trained_dispatch_a100_v2/) · [B4 causal archive](../evidence/gpt2_b4_minimal_causal_a100_v1/)
 
-## Current frontier: learnable, transferable parameter writing
+## Research framework and current focus
 
-B4 is the causal foundation; Line C is the current research frontier. The
+Programmable parametric memory is the theme. B4 is the causal foundation and
+B5 supplies model-selected operation evidence. LC1–LC6 define separate acceptance criteria for six
+long-term capabilities, not achieved consecutive levels; LC2 is the near-term focus. The
 question is whether a frozen writer can propose a single parameter update that
 changes requested contents within declared response budgets and transfers beyond
 its fitting states and requests. Local feasibility and transfer are separate claims.
@@ -21,6 +23,12 @@ and the other validation targets](LINE_C_VALIDATION_TARGETS.md) remain open.
 The [subsequent local C38–C41 summaries](LINE_C_LOCAL_WRITING.md#research-frontier-and-subsequent-local-records)
 retain excluded-input and residual-module failures, including the completed C41
 result; public archive import remains pending.
+
+[The unified evidence matrix](PARAMETRIC_MEMORY_EVIDENCE_MATRIX.md) lists definitions,
+sources, verification tiers, failures, costs and missing evidence, including the
+C52/C54 historical seen-class failures and the completed C55 read-only audit.
+[B5/frozen-writer integration](B5_FROZEN_WRITER_INTEGRATION.md) remains a separate
+proposed test: C36/C37 did not test controller dispatch.
 
 The sections below retain the archived selective-write and causal-operation
 foundations and their version history. For current frozen-writer reproduction,
@@ -162,7 +170,9 @@ back. V5 inherits V4's passing 00/01 records unchanged. It resumes the actual 10
 preparation checkpoint from step 600 to 1200, then writes for 1080 steps; for 11
 it restarts writing from the saved passed preparation because the rejected V4
 candidate and optimizer had not been retained. V5 retains both candidate and
-optimizer checkpoints, including rejected attempts.
+optimizer checkpoints, including rejected attempts. Compute caps increased from
+V4 preparation/writeback 600/480 to V5 1200/1080; the endpoint acceptance
+budgets were not relaxed. The lost rejected 480-step candidate was not recovered.
 
 | Input | Start → final state | V5 origin | Minimum exact margin | Minimum development-paraphrase margin | Mean anchor KL |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -233,6 +243,8 @@ Run from the repository root using Python 3; these scripts use the standard
 library and do not load model weights or launch training:
 
 ```bash
+python3 evidence/gpt2_line_c_c35_c37/verify_reported_evidence.py
+python3 evidence/gpt2_lc2_c52_c54_c55/verify_records.py
 python3 evidence/gpt2_b5_xor_continuation_a100_v5/verify_archive.py
 python3 evidence/gpt2_b5_xor_truth_table_a100_v4/verify_archive.py
 python3 evidence/gpt2_b5_single_backbone_a100_v3/verify_archive.py

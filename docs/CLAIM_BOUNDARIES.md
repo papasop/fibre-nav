@@ -1,5 +1,16 @@
 # Claim boundaries
 
+## Parametric-memory capability framework
+
+[LC1–LC6](LINE_C_VALIDATION_TARGETS.md) are separately validated targets, not six
+achieved levels. B4/B5 remain causal/operational foundations; LC1 is local,
+log-supported frozen writing; LC2 is the current open generalisation target.
+C52/C54 historical seen-class 32/36 results remain development failures. C55's
+completed read-only audit retains C54's failure and supplies no model replay or
+LC2 pass. See the [evidence matrix](PARAMETRIC_MEMORY_EVIDENCE_MATRIX.md).
+B5 action selection and LC1 success have not been tested as one integrated system;
+[the integration contract](B5_FROZEN_WRITER_INTEGRATION.md) is proposed only.
+
 ## C35–C37 frozen local writing (log-supported development)
 
 Both fixed-geometry and learned-calibration composite writers report complete

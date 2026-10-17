@@ -4,6 +4,12 @@ Evidence snapshot: 16 October 2026. This page records local development progress
 in the existing GPT-2 restricted LoRA-B chart. It does not change the scope of
 earlier B0–B5 or response-fibre experiments.
 
+For the current capability status, use the [unified evidence matrix](PARAMETRIC_MEMORY_EVIDENCE_MATRIX.md).
+[C52/C54/C55 records](../evidence/gpt2_lc2_c52_c54_c55/) extend the development
+index: historical seen-class failures and a completed read-only audit, not LC2
+acceptance. The [B5/frozen-writer integration](B5_FROZEN_WRITER_INTEGRATION.md)
+is separately proposed and has not run.
+
 ## Research frontier and subsequent local records
 
 The question is whether a frozen, single-proposal writer can change requested
@@ -118,6 +124,12 @@ replacement states or generation retries are reported. Both composite branches
 pass every gate on every new state. The raw core passes all non-response gates
 but fails the response gate on many states. The numerical margins above are
 finite-state measurements, not certified bounds over a neighbourhood.
+
+The reported completed C36 decision is
+[`C36_BOTH_FROZEN_WRITERS_LOCAL_REPLICATION_PASS`](../evidence/gpt2_line_c_c35_c37/reported/c36_summary_from_log.json).
+Execution is not pending in this log-supported status; full archive/weight audit
+remains pending. C35 and C37 original log-extracted summaries are available in
+the [reported record directory](../evidence/gpt2_line_c_c35_c37/reported/).
 
 ## Cohorts, dependence and historical context
 

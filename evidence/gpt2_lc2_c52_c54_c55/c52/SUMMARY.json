@@ -1,0 +1,163 @@
+{
+  "protocol": "GPT2_LC2_C52_RESPONSE_SENSITIVE_DISTILLATION_A100_V1",
+  "config": {
+    "states": 36,
+    "steps": 16,
+    "features": 3211,
+    "ridge": 0.0001,
+    "response_weight": 1.0,
+    "response_coordinates": 6,
+    "loss": "sum_i ||f_i-y_i||_2^2 + rho sum_i ||J_i(f_i-y_i)||_2^2 + ridge trace(C.T Kc C)",
+    "loss_units": "raw parameter L2 and raw six-response L2; rho=1 fixed, no response rescaling",
+    "output": "actual teacher float32 correction labels at each of16 segments",
+    "kernel": "unchanged equal-six-block g+g^2; frozen C50 fold preprocessing and ridge",
+    "intercept": "fixed training-label mean, identical to baseline; response metric does not refit intercept",
+    "geometry": "six-row response Jacobian at saved teacher point k-1 for correction k; offline only",
+    "folds": "same six whole-norm folds, train30 test6, d00/d01 held out together",
+    "independent_states": 36,
+    "trajectory_steps_are_not_independent_examples": true,
+    "new_fits": 7,
+    "linear_solves": 112,
+    "new_offline_Jacobians": 576,
+    "new_offline_SVD_calls": 0,
+    "primary": "all36 OOF full endpoint gates and all17 sampled responses <=.002",
+    "candidate_online_Jacobians": 0,
+    "candidate_online_SVD_calls": 0,
+    "candidate_feedback": false,
+    "step_correction_L2_cap": 0.125,
+    "total_correction_L2_path_cap": 2.0,
+    "hyperparameter_searches": 0,
+    "geometry_timeout_seconds": 1800,
+    "compile_timeout_seconds": 900,
+    "evaluation_timeout_seconds": 1800,
+    "new_confirmation_states": 0,
+    "excluded_class_states": 0,
+    "scope": "Same-model/chart,36 historical seen-class development states; d00/d01 are development, no LC2 closure."
+  },
+  "complete": true,
+  "decision": "C52_DEVELOPMENT_FAILURE",
+  "baseline36_OOF": {
+    "n_requested": 36,
+    "n_evaluated": 36,
+    "passed": 32,
+    "sampled_paths_passed": 32,
+    "maximum_endpoint_response": 0.00421905517578125,
+    "maximum_sampled_response": 0.00421905517578125,
+    "qualified": false
+  },
+  "response_sensitive36_OOF": {
+    "n_requested": 36,
+    "n_evaluated": 36,
+    "passed": 32,
+    "sampled_paths_passed": 32,
+    "maximum_endpoint_response": 0.00414276123046875,
+    "maximum_sampled_response": 0.00414276123046875,
+    "qualified": false
+  },
+  "paired": {
+    "n": 36,
+    "rescued": 0,
+    "destroyed": 0
+  },
+  "by_slot": {
+    "d00": {
+      "baseline": {
+        "n_requested": 18,
+        "n_evaluated": 18,
+        "passed": 14,
+        "sampled_paths_passed": 14,
+        "maximum_endpoint_response": 0.00421905517578125,
+        "maximum_sampled_response": 0.00421905517578125,
+        "qualified": false
+      },
+      "sensitive": {
+        "n_requested": 18,
+        "n_evaluated": 18,
+        "passed": 14,
+        "sampled_paths_passed": 14,
+        "maximum_endpoint_response": 0.00414276123046875,
+        "maximum_sampled_response": 0.00414276123046875,
+        "qualified": false
+      }
+    },
+    "d01": {
+      "baseline": {
+        "n_requested": 18,
+        "n_evaluated": 18,
+        "passed": 18,
+        "sampled_paths_passed": 18,
+        "maximum_endpoint_response": 0.00189971923828125,
+        "maximum_sampled_response": 0.00189971923828125,
+        "qualified": true
+      },
+      "sensitive": {
+        "n_requested": 18,
+        "n_evaluated": 18,
+        "passed": 18,
+        "sampled_paths_passed": 18,
+        "maximum_endpoint_response": 0.00193023681640625,
+        "maximum_sampled_response": 0.00193023681640625,
+        "qualified": true
+      }
+    }
+  },
+  "geometry_runtime_calls": {
+    "model_forward_invocations": 1873,
+    "metric_evaluations": 648,
+    "chart_parameter_assignments": 1224,
+    "local_response_Jacobians_attempted": 576,
+    "local_response_Jacobians_completed": 576,
+    "autograd_reverse_evaluations": 3456
+  },
+  "candidate_runtime_calls": {
+    "model_forward_invocations": 2449,
+    "metric_evaluations": 1224,
+    "chart_parameter_assignments": 1224,
+    "local_response_Jacobians_attempted": 0,
+    "local_response_Jacobians_completed": 0,
+    "autograd_reverse_evaluations": 0
+  },
+  "candidate_model_load_attempted": true,
+  "candidate_model_loaded": true,
+  "new_offline_Jacobians": 576,
+  "new_offline_SVD_calls": 0,
+  "new_fits": 7,
+  "new_linear_solves": 112,
+  "candidate_online_Jacobians": 0,
+  "candidate_online_SVD_calls": 0,
+  "candidate_feedback": false,
+  "candidate_postwrite_correction_steps": 0,
+  "backbone_training_steps": 0,
+  "writer_refits": 0,
+  "new_confirmation_states": 0,
+  "excluded_class_states_evaluated": 0,
+  "LC2_closed": false,
+  "prior_decisions_reclassified": false,
+  "causal_explanation_established": false,
+  "scope": "Same-model/chart,36 historical seen-class development states; d00/d01 are development, no LC2 closure.",
+  "compile_progress": {
+    "fits_started": 7,
+    "fits_completed": 7,
+    "linear_solves_started": 112,
+    "linear_solves_completed": 112,
+    "paths_sealed": 36,
+    "phase": "complete",
+    "current_fit": "full36"
+  },
+  "geometry_runtime_progress": {
+    "model_forward_invocations": 1873,
+    "metric_evaluations": 648,
+    "chart_parameter_assignments": 1224,
+    "local_response_Jacobians_attempted": 576,
+    "local_response_Jacobians_completed": 576,
+    "autograd_reverse_evaluations": 3456
+  },
+  "candidate_runtime_progress": {
+    "model_forward_invocations": 2449,
+    "metric_evaluations": 1224,
+    "chart_parameter_assignments": 1224,
+    "local_response_Jacobians_attempted": 0,
+    "local_response_Jacobians_completed": 0,
+    "autograd_reverse_evaluations": 0
+  }
+}
