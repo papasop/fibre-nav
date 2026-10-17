@@ -1,6 +1,10 @@
 # Line C validation targets
 
-LC1–LC6 identify capabilities; C35–C37 identify experimental runs.
+LC1–LC6 identify six capabilities requiring separate acceptance, not a consecutive ladder
+or a renumbering of historical L1–L5 or B4/B5. C numbers identify experiments.
+Programmable parametric memory is the theme; LC2 is the near-term focus.
+See the [unified evidence matrix](PARAMETRIC_MEMORY_EVIDENCE_MATRIX.md) for sources,
+verification tiers, costs and missing evidence.
 
 | Target | Status and next evidence |
 | --- | --- |
@@ -43,3 +47,18 @@ do not change these targets: C38 fails its single excluded-input fold;
 C39 is a training-only diagnostic; C40 and completed C41 fail their seen-class
 residual-module development tests. LC2 remains open. Public archive import and
 independent model reproduction remain pending.
+
+## Current LC2 records and integration boundary
+
+[C52/C54/C55 compact records](../evidence/gpt2_lc2_c52_c54_c55/) retain the historical
+36-state seen-class development outcomes. C54 remains a development failure at
+32/36; its four failures and unchanged gates are listed. C55 has a completed
+read-only audit result, beyond implementation/self-test evidence, but no new model
+execution, candidate or excluded-class evaluation. Its parent failure is unchanged.
+Full original local ZIP member hashes were checked; full public archives and
+independent replay remain pending. LC2 is open.
+
+[Integrating the B5 controller with a frozen writer](B5_FROZEN_WRITER_INTEGRATION.md)
+is a separate proposed acceptance test. C36/C37 do not establish controller
+integration. This round specifies real reads, required output flip, unselected
+retention, all endpoint gates and causal controls without running the experiment.
