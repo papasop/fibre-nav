@@ -1,0 +1,30 @@
+{
+  "protocol": "GPT2_LC2_C142_READONLY_CONFIRMATION_AUDIT_CPU_V1",
+  "parent_protocol": "GPT2_LC2_C141_FROZEN_KERNEL_CONFIRMATION_CPU_V1",
+  "input_archives": [
+    "C141",
+    "C140"
+  ],
+  "states": 48,
+  "preparation_records": 96,
+  "endpoint_records": 288,
+  "rounds": 2,
+  "arms": [
+    "raw_control",
+    "C137_frozen_step24",
+    "C140_frozen_step12"
+  ],
+  "norms": [
+    0.125,
+    0.375
+  ],
+  "acceptance_budgets": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05,
+    "proposal_radius": 20.0,
+    "radius_rounding_allowance": 1e-05
+  },
+  "scope": "Archive/tensor/arithmetic audit only. Same48 states in two rounds; norm strata are descriptive, cannot replace all48 confirmation. C141 failure retained. No model replay, fit, solver, derivatives, candidate/radius selection or LC2 claim.",
+  "worker_budget_seconds": 1200
+}

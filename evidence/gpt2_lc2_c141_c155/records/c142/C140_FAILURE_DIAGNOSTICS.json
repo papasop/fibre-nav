@@ -1,0 +1,806 @@
+[
+  {
+    "state_id": "xor_00__c141_confirmation_p02_n01_d01",
+    "case": "xor_00",
+    "parent_id": "xor_00__c90_training_center00",
+    "seed": 141085032,
+    "norm": 0.375,
+    "direction_index": 1,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 0,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.0010528564453125,
+      0.0009002685546875,
+      0.00069427490234375,
+      0.0009918212890625,
+      0.00112152099609375,
+      0.0008087158203125
+    ],
+    "candidate_response": [
+      0.00234222412109375,
+      0.002166748046875,
+      0.002044677734375,
+      0.002349853515625,
+      0.00200653076171875,
+      0.00194549560546875
+    ],
+    "measured_finite_response_effect": [
+      0.00128936767578125,
+      0.0012664794921875,
+      0.00135040283203125,
+      0.0013580322265625,
+      0.000885009765625,
+      0.00113677978515625
+    ],
+    "required_effect_for_zero_response": [
+      -0.0010528564453125,
+      -0.0009002685546875,
+      -0.00069427490234375,
+      -0.0009918212890625,
+      -0.00112152099609375,
+      -0.0008087158203125
+    ],
+    "remaining_response": [
+      0.00234222412109375,
+      0.002166748046875,
+      0.002044677734375,
+      0.002349853515625,
+      0.00200653076171875,
+      0.00194549560546875
+    ],
+    "raw_Linf": 0.00112152099609375,
+    "candidate_Linf": 0.002349853515625,
+    "measured_effect_Linf": 0.0013580322265625,
+    "response_budget_excess": 0.00034985351562499996,
+    "cancellation_projection_fraction": -1.263852561707365,
+    "cancellation_cosine": -0.9690262677965924,
+    "committed_correction_L2": 0.0259763360297604,
+    "committed_correction_Linf": 0.0019733645021915436,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_01__c141_confirmation_p05_n01_d00",
+    "case": "xor_01",
+    "parent_id": "xor_01__c82_training_center01",
+    "seed": 141088031,
+    "norm": 0.375,
+    "direction_index": 0,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 0,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.0024566650390625,
+      0.002532958984375,
+      0.00244140625,
+      0.0023651123046875,
+      0.00185394287109375,
+      0.00218963623046875
+    ],
+    "candidate_response": [
+      0.001861572265625,
+      0.00164031982421875,
+      0.0019683837890625,
+      0.0015411376953125,
+      0.00127410888671875,
+      0.0022735595703125
+    ],
+    "measured_finite_response_effect": [
+      -0.0005950927734375,
+      -0.00089263916015625,
+      -0.0004730224609375,
+      -0.000823974609375,
+      -0.000579833984375,
+      8.392333984375e-05
+    ],
+    "required_effect_for_zero_response": [
+      -0.0024566650390625,
+      -0.002532958984375,
+      -0.00244140625,
+      -0.0023651123046875,
+      -0.00185394287109375,
+      -0.00218963623046875
+    ],
+    "remaining_response": [
+      0.001861572265625,
+      0.00164031982421875,
+      0.0019683837890625,
+      0.0015411376953125,
+      0.00127410888671875,
+      0.0022735595703125
+    ],
+    "raw_Linf": 0.002532958984375,
+    "candidate_Linf": 0.0022735595703125,
+    "measured_effect_Linf": 0.00089263916015625,
+    "response_budget_excess": 0.00027355957031249996,
+    "cancellation_projection_fraction": 0.2394091284988426,
+    "cancellation_cosine": 0.8780004758050349,
+    "committed_correction_L2": 0.01652256020255239,
+    "committed_correction_Linf": 0.0017015635967254639,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_11__c141_confirmation_p08_n01_d00",
+    "case": "xor_11",
+    "parent_id": "xor_11__c82_training_center00",
+    "seed": 141091031,
+    "norm": 0.375,
+    "direction_index": 0,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 0,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.00099945068359375,
+      0.00079345703125,
+      0.000701904296875,
+      0.0005340576171875,
+      0.00064849853515625,
+      2.288818359375e-05
+    ],
+    "candidate_response": [
+      -0.001251220703125,
+      -0.001739501953125,
+      -0.0016632080078125,
+      -0.00160980224609375,
+      -0.00167083740234375,
+      -0.00208282470703125
+    ],
+    "measured_finite_response_effect": [
+      -0.00225067138671875,
+      -0.002532958984375,
+      -0.0023651123046875,
+      -0.00214385986328125,
+      -0.0023193359375,
+      -0.002105712890625
+    ],
+    "required_effect_for_zero_response": [
+      -0.00099945068359375,
+      -0.00079345703125,
+      -0.000701904296875,
+      -0.0005340576171875,
+      -0.00064849853515625,
+      -2.288818359375e-05
+    ],
+    "remaining_response": [
+      -0.001251220703125,
+      -0.001739501953125,
+      -0.0016632080078125,
+      -0.00160980224609375,
+      -0.00167083740234375,
+      -0.00208282470703125
+    ],
+    "raw_Linf": 0.00099945068359375,
+    "candidate_Linf": 0.00208282470703125,
+    "measured_effect_Linf": 0.002532958984375,
+    "response_budget_excess": 8.282470703124996e-05,
+    "cancellation_projection_fraction": 3.0474729799279463,
+    "cancellation_cosine": 0.9132443093370308,
+    "committed_correction_L2": 0.03681512931207912,
+    "committed_correction_Linf": 0.0034066010266542435,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_11__c141_confirmation_p08_n01_d01",
+    "case": "xor_11",
+    "parent_id": "xor_11__c82_training_center00",
+    "seed": 141091032,
+    "norm": 0.375,
+    "direction_index": 1,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 0,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.0005950927734375,
+      0.000213623046875,
+      0.0003814697265625,
+      0.000457763671875,
+      0.00020599365234375,
+      -0.000152587890625
+    ],
+    "candidate_response": [
+      -0.0016632080078125,
+      -0.0023345947265625,
+      -0.00199127197265625,
+      -0.001708984375,
+      -0.00211334228515625,
+      -0.00226593017578125
+    ],
+    "measured_finite_response_effect": [
+      -0.00225830078125,
+      -0.0025482177734375,
+      -0.00237274169921875,
+      -0.002166748046875,
+      -0.0023193359375,
+      -0.00211334228515625
+    ],
+    "required_effect_for_zero_response": [
+      -0.0005950927734375,
+      -0.000213623046875,
+      -0.0003814697265625,
+      -0.000457763671875,
+      -0.00020599365234375,
+      0.000152587890625
+    ],
+    "remaining_response": [
+      -0.0016632080078125,
+      -0.0023345947265625,
+      -0.00199127197265625,
+      -0.001708984375,
+      -0.00211334228515625,
+      -0.00226593017578125
+    ],
+    "raw_Linf": 0.0005950927734375,
+    "candidate_Linf": 0.0023345947265625,
+    "measured_effect_Linf": 0.0025482177734375,
+    "response_budget_excess": 0.00033459472656249996,
+    "cancellation_projection_fraction": 4.802298361353479,
+    "cancellation_cosine": 0.7718588700002691,
+    "committed_correction_L2": 0.036826498843922126,
+    "committed_correction_Linf": 0.0034080632030963898,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_11__c141_confirmation_p09_n01_d00",
+    "case": "xor_11",
+    "parent_id": "xor_11__c82_training_center01",
+    "seed": 141092031,
+    "norm": 0.375,
+    "direction_index": 0,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 0,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.003387451171875,
+      0.0045318603515625,
+      0.004119873046875,
+      0.00409698486328125,
+      0.00345611572265625,
+      0.00438690185546875
+    ],
+    "candidate_response": [
+      0.0010986328125,
+      0.0019378662109375,
+      0.00173187255859375,
+      0.00189208984375,
+      0.00113677978515625,
+      0.002227783203125
+    ],
+    "measured_finite_response_effect": [
+      -0.002288818359375,
+      -0.002593994140625,
+      -0.00238800048828125,
+      -0.00220489501953125,
+      -0.0023193359375,
+      -0.00215911865234375
+    ],
+    "required_effect_for_zero_response": [
+      -0.003387451171875,
+      -0.0045318603515625,
+      -0.004119873046875,
+      -0.00409698486328125,
+      -0.00345611572265625,
+      -0.00438690185546875
+    ],
+    "remaining_response": [
+      0.0010986328125,
+      0.0019378662109375,
+      0.00173187255859375,
+      0.00189208984375,
+      0.00113677978515625,
+      0.002227783203125
+    ],
+    "raw_Linf": 0.0045318603515625,
+    "candidate_Linf": 0.002227783203125,
+    "measured_effect_Linf": 0.002593994140625,
+    "response_budget_excess": 0.00022778320312499996,
+    "cancellation_projection_fraction": 0.5761942639312032,
+    "cancellation_cosine": 0.99412315114867,
+    "committed_correction_L2": 0.036856399907903965,
+    "committed_correction_Linf": 0.003410808742046356,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_11__c141_confirmation_p11_n01_d01",
+    "case": "xor_11",
+    "parent_id": "xor_11__c90_training_center01",
+    "seed": 141094032,
+    "norm": 0.375,
+    "direction_index": 1,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 0,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.00423431396484375,
+      0.0041351318359375,
+      0.0043792724609375,
+      0.003631591796875,
+      0.00360107421875,
+      0.0041656494140625
+    ],
+    "candidate_response": [
+      0.00200653076171875,
+      0.0016021728515625,
+      0.00203704833984375,
+      0.0015106201171875,
+      0.00133514404296875,
+      0.002105712890625
+    ],
+    "measured_finite_response_effect": [
+      -0.002227783203125,
+      -0.002532958984375,
+      -0.00234222412109375,
+      -0.0021209716796875,
+      -0.00226593017578125,
+      -0.0020599365234375
+    ],
+    "required_effect_for_zero_response": [
+      -0.00423431396484375,
+      -0.0041351318359375,
+      -0.0043792724609375,
+      -0.003631591796875,
+      -0.00360107421875,
+      -0.0041656494140625
+    ],
+    "remaining_response": [
+      0.00200653076171875,
+      0.0016021728515625,
+      0.00203704833984375,
+      0.0015106201171875,
+      0.00133514404296875,
+      0.002105712890625
+    ],
+    "raw_Linf": 0.0043792724609375,
+    "candidate_Linf": 0.002105712890625,
+    "measured_effect_Linf": 0.002532958984375,
+    "response_budget_excess": 0.00010571289062499996,
+    "cancellation_projection_fraction": 0.5588438002050347,
+    "cancellation_cosine": 0.9963498665205628,
+    "committed_correction_L2": 0.036631811185398204,
+    "committed_correction_Linf": 0.003387048840522766,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_00__c141_confirmation_p02_n01_d01",
+    "case": "xor_00",
+    "parent_id": "xor_00__c90_training_center00",
+    "seed": 141085032,
+    "norm": 0.375,
+    "direction_index": 1,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 1,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.0010528564453125,
+      0.0009002685546875,
+      0.00069427490234375,
+      0.0009918212890625,
+      0.00112152099609375,
+      0.0008087158203125
+    ],
+    "candidate_response": [
+      0.00234222412109375,
+      0.002166748046875,
+      0.002044677734375,
+      0.002349853515625,
+      0.00200653076171875,
+      0.00194549560546875
+    ],
+    "measured_finite_response_effect": [
+      0.00128936767578125,
+      0.0012664794921875,
+      0.00135040283203125,
+      0.0013580322265625,
+      0.000885009765625,
+      0.00113677978515625
+    ],
+    "required_effect_for_zero_response": [
+      -0.0010528564453125,
+      -0.0009002685546875,
+      -0.00069427490234375,
+      -0.0009918212890625,
+      -0.00112152099609375,
+      -0.0008087158203125
+    ],
+    "remaining_response": [
+      0.00234222412109375,
+      0.002166748046875,
+      0.002044677734375,
+      0.002349853515625,
+      0.00200653076171875,
+      0.00194549560546875
+    ],
+    "raw_Linf": 0.00112152099609375,
+    "candidate_Linf": 0.002349853515625,
+    "measured_effect_Linf": 0.0013580322265625,
+    "response_budget_excess": 0.00034985351562499996,
+    "cancellation_projection_fraction": -1.263852561707365,
+    "cancellation_cosine": -0.9690262677965924,
+    "committed_correction_L2": 0.0259763360297604,
+    "committed_correction_Linf": 0.0019733645021915436,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_01__c141_confirmation_p05_n01_d00",
+    "case": "xor_01",
+    "parent_id": "xor_01__c82_training_center01",
+    "seed": 141088031,
+    "norm": 0.375,
+    "direction_index": 0,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 1,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.0024566650390625,
+      0.002532958984375,
+      0.00244140625,
+      0.0023651123046875,
+      0.00185394287109375,
+      0.00218963623046875
+    ],
+    "candidate_response": [
+      0.001861572265625,
+      0.00164031982421875,
+      0.0019683837890625,
+      0.0015411376953125,
+      0.00127410888671875,
+      0.0022735595703125
+    ],
+    "measured_finite_response_effect": [
+      -0.0005950927734375,
+      -0.00089263916015625,
+      -0.0004730224609375,
+      -0.000823974609375,
+      -0.000579833984375,
+      8.392333984375e-05
+    ],
+    "required_effect_for_zero_response": [
+      -0.0024566650390625,
+      -0.002532958984375,
+      -0.00244140625,
+      -0.0023651123046875,
+      -0.00185394287109375,
+      -0.00218963623046875
+    ],
+    "remaining_response": [
+      0.001861572265625,
+      0.00164031982421875,
+      0.0019683837890625,
+      0.0015411376953125,
+      0.00127410888671875,
+      0.0022735595703125
+    ],
+    "raw_Linf": 0.002532958984375,
+    "candidate_Linf": 0.0022735595703125,
+    "measured_effect_Linf": 0.00089263916015625,
+    "response_budget_excess": 0.00027355957031249996,
+    "cancellation_projection_fraction": 0.2394091284988426,
+    "cancellation_cosine": 0.8780004758050349,
+    "committed_correction_L2": 0.01652256020255239,
+    "committed_correction_Linf": 0.0017015635967254639,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_11__c141_confirmation_p08_n01_d00",
+    "case": "xor_11",
+    "parent_id": "xor_11__c82_training_center00",
+    "seed": 141091031,
+    "norm": 0.375,
+    "direction_index": 0,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 1,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.00099945068359375,
+      0.00079345703125,
+      0.000701904296875,
+      0.0005340576171875,
+      0.00064849853515625,
+      2.288818359375e-05
+    ],
+    "candidate_response": [
+      -0.001251220703125,
+      -0.001739501953125,
+      -0.0016632080078125,
+      -0.00160980224609375,
+      -0.00167083740234375,
+      -0.00208282470703125
+    ],
+    "measured_finite_response_effect": [
+      -0.00225067138671875,
+      -0.002532958984375,
+      -0.0023651123046875,
+      -0.00214385986328125,
+      -0.0023193359375,
+      -0.002105712890625
+    ],
+    "required_effect_for_zero_response": [
+      -0.00099945068359375,
+      -0.00079345703125,
+      -0.000701904296875,
+      -0.0005340576171875,
+      -0.00064849853515625,
+      -2.288818359375e-05
+    ],
+    "remaining_response": [
+      -0.001251220703125,
+      -0.001739501953125,
+      -0.0016632080078125,
+      -0.00160980224609375,
+      -0.00167083740234375,
+      -0.00208282470703125
+    ],
+    "raw_Linf": 0.00099945068359375,
+    "candidate_Linf": 0.00208282470703125,
+    "measured_effect_Linf": 0.002532958984375,
+    "response_budget_excess": 8.282470703124996e-05,
+    "cancellation_projection_fraction": 3.0474729799279463,
+    "cancellation_cosine": 0.9132443093370308,
+    "committed_correction_L2": 0.03681512931207912,
+    "committed_correction_Linf": 0.0034066010266542435,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_11__c141_confirmation_p08_n01_d01",
+    "case": "xor_11",
+    "parent_id": "xor_11__c82_training_center00",
+    "seed": 141091032,
+    "norm": 0.375,
+    "direction_index": 1,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 1,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.0005950927734375,
+      0.000213623046875,
+      0.0003814697265625,
+      0.000457763671875,
+      0.00020599365234375,
+      -0.000152587890625
+    ],
+    "candidate_response": [
+      -0.0016632080078125,
+      -0.0023345947265625,
+      -0.00199127197265625,
+      -0.001708984375,
+      -0.00211334228515625,
+      -0.00226593017578125
+    ],
+    "measured_finite_response_effect": [
+      -0.00225830078125,
+      -0.0025482177734375,
+      -0.00237274169921875,
+      -0.002166748046875,
+      -0.0023193359375,
+      -0.00211334228515625
+    ],
+    "required_effect_for_zero_response": [
+      -0.0005950927734375,
+      -0.000213623046875,
+      -0.0003814697265625,
+      -0.000457763671875,
+      -0.00020599365234375,
+      0.000152587890625
+    ],
+    "remaining_response": [
+      -0.0016632080078125,
+      -0.0023345947265625,
+      -0.00199127197265625,
+      -0.001708984375,
+      -0.00211334228515625,
+      -0.00226593017578125
+    ],
+    "raw_Linf": 0.0005950927734375,
+    "candidate_Linf": 0.0023345947265625,
+    "measured_effect_Linf": 0.0025482177734375,
+    "response_budget_excess": 0.00033459472656249996,
+    "cancellation_projection_fraction": 4.802298361353479,
+    "cancellation_cosine": 0.7718588700002691,
+    "committed_correction_L2": 0.036826498843922126,
+    "committed_correction_Linf": 0.0034080632030963898,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_11__c141_confirmation_p09_n01_d00",
+    "case": "xor_11",
+    "parent_id": "xor_11__c82_training_center01",
+    "seed": 141092031,
+    "norm": 0.375,
+    "direction_index": 0,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 1,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.003387451171875,
+      0.0045318603515625,
+      0.004119873046875,
+      0.00409698486328125,
+      0.00345611572265625,
+      0.00438690185546875
+    ],
+    "candidate_response": [
+      0.0010986328125,
+      0.0019378662109375,
+      0.00173187255859375,
+      0.00189208984375,
+      0.00113677978515625,
+      0.002227783203125
+    ],
+    "measured_finite_response_effect": [
+      -0.002288818359375,
+      -0.002593994140625,
+      -0.00238800048828125,
+      -0.00220489501953125,
+      -0.0023193359375,
+      -0.00215911865234375
+    ],
+    "required_effect_for_zero_response": [
+      -0.003387451171875,
+      -0.0045318603515625,
+      -0.004119873046875,
+      -0.00409698486328125,
+      -0.00345611572265625,
+      -0.00438690185546875
+    ],
+    "remaining_response": [
+      0.0010986328125,
+      0.0019378662109375,
+      0.00173187255859375,
+      0.00189208984375,
+      0.00113677978515625,
+      0.002227783203125
+    ],
+    "raw_Linf": 0.0045318603515625,
+    "candidate_Linf": 0.002227783203125,
+    "measured_effect_Linf": 0.002593994140625,
+    "response_budget_excess": 0.00022778320312499996,
+    "cancellation_projection_fraction": 0.5761942639312032,
+    "cancellation_cosine": 0.99412315114867,
+    "committed_correction_L2": 0.036856399907903965,
+    "committed_correction_Linf": 0.003410808742046356,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  },
+  {
+    "state_id": "xor_11__c141_confirmation_p11_n01_d01",
+    "case": "xor_11",
+    "parent_id": "xor_11__c90_training_center01",
+    "seed": 141094032,
+    "norm": 0.375,
+    "direction_index": 1,
+    "cohort": "prospective_seen_class_kernel_local_confirmation",
+    "dataset_role": "confirmation",
+    "used_for_training": false,
+    "round": 1,
+    "arm": "C140_frozen_step12",
+    "complete_pass": false,
+    "failed_gates": [
+      "response"
+    ],
+    "raw_response": [
+      0.00423431396484375,
+      0.0041351318359375,
+      0.0043792724609375,
+      0.003631591796875,
+      0.00360107421875,
+      0.0041656494140625
+    ],
+    "candidate_response": [
+      0.00200653076171875,
+      0.0016021728515625,
+      0.00203704833984375,
+      0.0015106201171875,
+      0.00133514404296875,
+      0.002105712890625
+    ],
+    "measured_finite_response_effect": [
+      -0.002227783203125,
+      -0.002532958984375,
+      -0.00234222412109375,
+      -0.0021209716796875,
+      -0.00226593017578125,
+      -0.0020599365234375
+    ],
+    "required_effect_for_zero_response": [
+      -0.00423431396484375,
+      -0.0041351318359375,
+      -0.0043792724609375,
+      -0.003631591796875,
+      -0.00360107421875,
+      -0.0041656494140625
+    ],
+    "remaining_response": [
+      0.00200653076171875,
+      0.0016021728515625,
+      0.00203704833984375,
+      0.0015106201171875,
+      0.00133514404296875,
+      0.002105712890625
+    ],
+    "raw_Linf": 0.0043792724609375,
+    "candidate_Linf": 0.002105712890625,
+    "measured_effect_Linf": 0.002532958984375,
+    "response_budget_excess": 0.00010571289062499996,
+    "cancellation_projection_fraction": 0.5588438002050347,
+    "cancellation_cosine": 0.9963498665205628,
+    "committed_correction_L2": 0.036631811185398204,
+    "committed_correction_Linf": 0.003387048840522766,
+    "identity_closure_Linf": 0.0,
+    "causal_derivative_or_control_accuracy_bound_established": false
+  }
+]

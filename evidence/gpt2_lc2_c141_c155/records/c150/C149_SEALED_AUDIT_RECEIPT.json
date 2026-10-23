@@ -1,0 +1,3236 @@
+{
+  "protocol": "GPT2_LC2_C149_READONLY_ROUTING_AUDIT_CPU_V1",
+  "complete": true,
+  "decision": "C149_READONLY_ROUTING_AUDIT_COMPLETE_PARENT_DECISION_RETAINED",
+  "synthetic_fixture": false,
+  "parent_protocol": "GPT2_LC2_C148_CONTEXT_ROUTED_TRAINING_CPU_V1",
+  "parent_decision": "C148_FIXED_FINAL_COMPARISON_COMPLETE_NO_CANDIDATE_SELECTED",
+  "parent_decision_reclassified": false,
+  "original_archives_rehashed": [
+    "C148",
+    "C147",
+    "C146",
+    "C145",
+    "C143"
+  ],
+  "other_linked_original_zip_bytes_rehashed": false,
+  "members_hashed": {
+    "C143": 760,
+    "C145": 1768,
+    "C147": 246,
+    "C148": 1064
+  },
+  "delivered_source_pins_passed": true,
+  "actual_frozen_tensor_identities_passed": true,
+  "training_states_audited": 84,
+  "training_updates_audited": 24,
+  "training_records_audited": 2016,
+  "registered_router_arithmetic_iterations_replayed": 8,
+  "frozen_proposals_recomputed": 336,
+  "native_endpoint_records_recomputed": 672,
+  "training_qualified": {
+    "global_continuation": false,
+    "context_routed": false
+  },
+  "repeatable": true,
+  "controls_replay_consistent": true,
+  "final_training_summaries": {
+    "all84": {
+      "0": {
+        "raw_control": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 58,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 53,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01",
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01",
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 26
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 78,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 74,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 6
+          }
+        },
+        "global_continuation": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 75,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "context_routed": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 74,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 58,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 53,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01",
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01",
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 26
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 78,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 74,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 6
+          }
+        },
+        "global_continuation": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 75,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "context_routed": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 74,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        }
+      }
+    },
+    "historical12": {
+      "0": {
+        "raw_control": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 9,
+          "maximum_response_drift": 0.00415802001953125,
+          "within_training_response_safety": 8,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01"
+          ],
+          "failed_gates": {
+            "response": 3
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "global_continuation": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "context_routed": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 9,
+          "maximum_response_drift": 0.00415802001953125,
+          "within_training_response_safety": 8,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01"
+          ],
+          "failed_gates": {
+            "response": 3
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "global_continuation": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "context_routed": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      }
+    },
+    "C139_exposed_kernel24": {
+      "0": {
+        "raw_control": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 17,
+          "maximum_response_drift": 0.0041351318359375,
+          "within_training_response_safety": 15,
+          "failed_ids": [
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01"
+          ],
+          "failed_gates": {
+            "response": 7
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.001800537109375,
+          "within_training_response_safety": 23,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "global_continuation": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.00179290771484375,
+          "within_training_response_safety": 24,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "context_routed": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.001800537109375,
+          "within_training_response_safety": 23,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 17,
+          "maximum_response_drift": 0.0041351318359375,
+          "within_training_response_safety": 15,
+          "failed_ids": [
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01"
+          ],
+          "failed_gates": {
+            "response": 7
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.001800537109375,
+          "within_training_response_safety": 23,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "global_continuation": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.00179290771484375,
+          "within_training_response_safety": 24,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "context_routed": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.001800537109375,
+          "within_training_response_safety": 23,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      }
+    },
+    "C141_exposed_confirmation48": {
+      "0": {
+        "raw_control": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 32,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 30,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 16
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 42,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 6
+          }
+        },
+        "global_continuation": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 43,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "context_routed": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 43,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 32,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 30,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 16
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 42,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 6
+          }
+        },
+        "global_continuation": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 43,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "context_routed": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 43,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        }
+      }
+    },
+    "xor_00": {
+      "0": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 21,
+          "maximum_response_drift": 0.0027008056640625,
+          "within_training_response_safety": 21,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 7
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0020904541015625,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "global_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.002166748046875,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "context_routed": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0021514892578125,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 21,
+          "maximum_response_drift": 0.0027008056640625,
+          "within_training_response_safety": 21,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 7
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0020904541015625,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "global_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.002166748046875,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "context_routed": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0021514892578125,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        }
+      }
+    },
+    "xor_01": {
+      "0": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.002532958984375,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.00201416015625,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "global_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.001953125,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "context_routed": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.0019378662109375,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.002532958984375,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.00201416015625,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "global_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.001953125,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "context_routed": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.0019378662109375,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      }
+    },
+    "xor_11": {
+      "0": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 10,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 6,
+          "failed_ids": [
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 18
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 22,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        },
+        "global_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 23,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        },
+        "context_routed": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 22,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 10,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 6,
+          "failed_ids": [
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 18
+          }
+        },
+        "C146_frozen_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 22,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        },
+        "global_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 23,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        },
+        "context_routed": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 22,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        }
+      }
+    }
+  },
+  "paired_all_arms": {
+    "all84": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "historical12": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "C139_exposed_kernel24": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "C141_exposed_confirmation48": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "xor_00": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "xor_01": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "xor_11": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "global_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "context_routed": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C146_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "global_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "context_routed": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C146_frozen_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "global_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "context_routed": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    }
+  },
+  "routing_diagnostics": {
+    "maximum_weight_range_across_states": 0.600325398530298,
+    "per_expert_weight_ranges": [
+      0.4630225513729682,
+      0.600325398530298,
+      0.5960495649425497
+    ],
+    "all_training_weights_exactly_identical": false,
+    "minimum_entropy": 0.7983095182479659,
+    "maximum_entropy": 0.8931224388986985,
+    "mean_entropy": 0.8319317381007219,
+    "uniform_entropy": 1.0986122886681098,
+    "hard_assignment_counts": [
+      28,
+      28,
+      28
+    ],
+    "soft_effective_counts": [
+      28.818613706949115,
+      27.564033531006665,
+      27.617352762044224
+    ],
+    "maximum_pairwise_weight_L1": 1.2006507970605962,
+    "sufficiency_threshold_defined": false
+  },
+  "final_control_and_proposal_diagnostics": {
+    "expert_pairs": [
+      {
+        "i": 0,
+        "j": 1,
+        "Linf": 0.004661537545201412,
+        "L2": 0.004674681354506043,
+        "cosine": 0.9997823731891453
+      },
+      {
+        "i": 0,
+        "j": 2,
+        "Linf": 0.0003980261719164213,
+        "L2": 0.0005868988497942199,
+        "cosine": 0.9999965190873648
+      },
+      {
+        "i": 1,
+        "j": 2,
+        "Linf": 0.004263511373284991,
+        "L2": 0.004271960547161636,
+        "cosine": 0.9998182636766572
+      }
+    ],
+    "maximum_expert_coefficient_pairwise_Linf": 0.004661537545201412,
+    "all_expert_controls_exactly_identical": false,
+    "maximum_effective_control_vs_global_Linf": 0.002469706828246092,
+    "mean_effective_control_vs_global_Linf": 0.0008889737946273125,
+    "maximum_effective_control_range_across_states": 0.0025616467230713535,
+    "states_with_exactly_identical_effective_control_to_global": 0,
+    "maximum_routed_vs_global_proposal_Linf": 8.989870548248291e-05,
+    "states_with_exactly_identical_global_and_routed_proposals": 0,
+    "global_routed_native_gate_disagreement_count": 0,
+    "global_routed_observation_difference_count": 84,
+    "global_routed_failed_state_ids_identical": true
+  },
+  "maximum_gradient_arithmetic_error_Linf": 0.0,
+  "maximum_update_arithmetic_error_Linf": 0.0,
+  "total_projected_coordinates": 0,
+  "new_model_forwards": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_router_candidates": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "gradients_independently_recomputed": false,
+  "archived_source_executed": false,
+  "thresholds_changed": false,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "causal_failure_explanation_established": false,
+  "routing_superiority_established": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "scope": "Pure NumPy archival arithmetic and frozen-tensor diagnostics only. Recorded effective-control gradients are unverified derivative inputs. No model replay, new measurement, new fit/candidate, true-gradient certification, physical failure causality, routing superiority, convergence, feasibility/infeasibility, geometric atlas or excluded-input generalisation established. Archive consistency cannot prove chronology, non-access or measurement accuracy. Parameter count and optimizer geometry remain confounds.",
+  "original_inputs_unchanged": {
+    "C148": true,
+    "C147": true,
+    "C146": true,
+    "C145": true,
+    "C143": true
+  },
+  "elapsed_audit_seconds": 40.47756098800164,
+  "errors": []
+}

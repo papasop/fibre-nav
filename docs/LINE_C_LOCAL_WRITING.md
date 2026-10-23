@@ -10,6 +10,18 @@ index: historical seen-class failures and a completed read-only audit, not LC2
 acceptance. The [B5/frozen-writer integration](B5_FROZEN_WRITER_INTEGRATION.md)
 is separately proposed and has not run.
 
+## Development index through C155
+
+The [C141–C155 evidence page](LINE_C_C141_C155.md) adds four archive-backed compact
+exports and two log-level diagnostics. C141's historical seen-class local
+confirmation fails at 42/48 in each round; C142 retains that decision. C148/C150
+then study already exposed 84-state training cohorts (79/84 in both C148 arms;
+79/84 diagonal and 80/84 cyclic in C150), without full training qualification.
+C154/C155 investigate numerical behaviour, with raw-result audit still pending.
+This is a development index, not a completed capability ladder. C35–C37's local
+LC1 evidence and independent-confirmation limits below are unchanged; no later
+result establishes excluded-input generalisation or upgrades those earlier logs.
+
 ## Research frontier and subsequent local records
 
 The question is whether a frozen, single-proposal writer can change requested

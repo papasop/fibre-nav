@@ -1,0 +1,47 @@
+{
+  "protocol": "GPT2_LC2_C151_READONLY_CYCLIC_AUDIT_CPU_V1",
+  "input_archives": [
+    "C150",
+    "C149",
+    "C148",
+    "C147",
+    "C146",
+    "C145",
+    "C143"
+  ],
+  "training_states": 84,
+  "training_updates": 24,
+  "training_records": 2016,
+  "native_preflight_records": 336,
+  "functional_zero_records": 84,
+  "functional_warm_records": 168,
+  "frozen_points": 336,
+  "native_endpoint_records": 672,
+  "arms": [
+    "raw_control",
+    "C148_frozen_routed_step12",
+    "routed_diagonal_continuation",
+    "routed_cyclic_coupling"
+  ],
+  "acceptance_budgets": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05,
+    "proposal_radius": 20.0,
+    "radius_rounding_allowance": 1e-05
+  },
+  "arithmetic": "Effective-control hashes must exactly match one of two registered equivalent float64 mixing orders (explicit left sum or NumPy matmul); unknown hashes block. Independent diagonal-plus-positive-roll1 map, loss units, effective-gradient pullback, exact-max/mean aggregation and Adam updates; exact actual final tensor and frozen-point identity; reconstruct every native gate and rescue/destruction pair.",
+  "diagnostics": "All84 signed residuals/slack, final diagonal/cross coefficient and unrounded parameter-shift decomposition, float32 commit residual, recorded-gradient/update dots and next recorded loss changes; response/guard aggregate alignment and projection events. Cross-block algebra is not an ablation endpoint measurement or a causal attribution.",
+  "coverage": "Seven original ZIPs rehashed and manifests checked. Trusted C150 reader rebinds all84 origin rows and C148 actual points/gates. Original C149 is a sealed prior audit receipt; no cross-environment re-execution of the older recursive exact-equality audit is claimed.",
+  "worker_budget_seconds": 1200,
+  "scope": "CPU archive/frozen-tensor arithmetic only. Recorded scalar gradient arrays remain unverified derivative inputs. No model replay, new observation, true-gradient certification, counterfactual endpoint, causal failure explanation, optimum, feasibility/infeasibility, architecture superiority or excluded-input generalisation. Archive consistency cannot prove chronology, non-access or measurement accuracy. Parameter count/optimizer geometry remain confounds. No arm, checkpoint, new schedule or coupling pattern is selected.",
+  "new_model_forwards": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false
+}

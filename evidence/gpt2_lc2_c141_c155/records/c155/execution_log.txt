@@ -1,0 +1,636 @@
+ 请上传一份 C155_CPU_LAUNCHER_BUNDLE.zip；无需解压，不要选择原科学结果ZIP。
+
+     
+     C155_CPU_LAUNCHER_BUNDLE.zip(application/zip) - 1289015 bytes, last modified: 2026/10/23 - 100% done
+      // Copyright 2017 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ * @fileoverview Helpers for google.colab Python module.
+ */
+(function(scope) {
+function span(text, styleAttributes = {}) {
+  const element = document.createElement('span');
+  element.textContent = text;
+  for (const key of Object.keys(styleAttributes)) {
+    element.style[key] = styleAttributes[key];
+  }
+  return element;
+}
+
+// Max number of bytes which will be uploaded at a time.
+const MAX_PAYLOAD_SIZE = 100 * 1024;
+
+function _uploadFiles(inputId, outputId) {
+  const steps = uploadFilesStep(inputId, outputId);
+  const outputElement = document.getElementById(outputId);
+  // Cache steps on the outputElement to make it available for the next call
+  // to uploadFilesContinue from Python.
+  outputElement.steps = steps;
+
+  return _uploadFilesContinue(outputId);
+}
+
+// This is roughly an async generator (not supported in the browser yet),
+// where there are multiple asynchronous steps and the Python side is going
+// to poll for completion of each step.
+// This uses a Promise to block the python side on completion of each step,
+// then passes the result of the previous step as the input to the next step.
+function _uploadFilesContinue(outputId) {
+  const outputElement = document.getElementById(outputId);
+  const steps = outputElement.steps;
+
+  const next = steps.next(outputElement.lastPromiseValue);
+  return Promise.resolve(next.value.promise).then((value) => {
+    // Cache the last promise value to make it available to the next
+    // step of the generator.
+    outputElement.lastPromiseValue = value;
+    return next.value.response;
+  });
+}
+
+/**
+ * Generator function which is called between each async step of the upload
+ * process.
+ * @param {string} inputId Element ID of the input file picker element.
+ * @param {string} outputId Element ID of the output display.
+ * @return {!Iterable<!Object>} Iterable of next steps.
+ */
+function* uploadFilesStep(inputId, outputId) {
+  const inputElement = document.getElementById(inputId);
+  inputElement.disabled = false;
+
+  const outputElement = document.getElementById(outputId);
+  outputElement.innerHTML = '';
+
+  const pickedPromise = new Promise((resolve) => {
+    inputElement.addEventListener('change', (e) => {
+      resolve(e.target.files);
+    });
+  });
+
+  const cancel = document.createElement('button');
+  inputElement.parentElement.appendChild(cancel);
+  cancel.textContent = 'Cancel upload';
+  const cancelPromise = new Promise((resolve) => {
+    cancel.onclick = () => {
+      resolve(null);
+    };
+  });
+
+  // Wait for the user to pick the files.
+  const files = yield {
+    promise: Promise.race([pickedPromise, cancelPromise]),
+    response: {
+      action: 'starting',
+    }
+  };
+
+  cancel.remove();
+
+  // Disable the input element since further picks are not allowed.
+  inputElement.disabled = true;
+
+  if (!files) {
+    return {
+      response: {
+        action: 'complete',
+      }
+    };
+  }
+
+  for (const file of files) {
+    const li = document.createElement('li');
+    li.append(span(file.name, {fontWeight: 'bold'}));
+    li.append(span(
+        `(${file.type || 'n/a'}) - ${file.size} bytes, ` +
+        `last modified: ${
+            file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() :
+                                    'n/a'} - `));
+    const percent = span('0% done');
+    li.appendChild(percent);
+
+    outputElement.appendChild(li);
+
+    const fileDataPromise = new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve(e.target.result);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    // Wait for the data to be ready.
+    let fileData = yield {
+      promise: fileDataPromise,
+      response: {
+        action: 'continue',
+      }
+    };
+
+    // Use a chunked sending to avoid message size limits. See b/62115660.
+    let position = 0;
+    do {
+      const length = Math.min(fileData.byteLength - position, MAX_PAYLOAD_SIZE);
+      const chunk = new Uint8Array(fileData, position, length);
+      position += length;
+
+      const base64 = btoa(String.fromCharCode.apply(null, chunk));
+      yield {
+        response: {
+          action: 'append',
+          file: file.name,
+          data: base64,
+        },
+      };
+
+      let percentDone = fileData.byteLength === 0 ?
+          100 :
+          Math.round((position / fileData.byteLength) * 100);
+      percent.textContent = `${percentDone}% done`;
+
+    } while (position < fileData.byteLength);
+  }
+
+  // All done.
+  yield {
+    response: {
+      action: 'complete',
+    }
+  };
+}
+
+scope.google = scope.google || {};
+scope.google.colab = scope.google.colab || {};
+scope.google.colab._files = {
+  _uploadFiles,
+  _uploadFilesContinue,
+};
+})(self);
+ Saving C155_CPU_LAUNCHER_BUNDLE.zip to C155_CPU_LAUNCHER_BUNDLE.zip
+C155 CPU：配套BUNDLE已校验；真实GPT-2晚期前向/精度诊断，全84态FP32配对、两态FP64，共1530指标记录。无反传或训练；工作上限120分钟，自测另计；不计LC2通过。
+C155 原始只读输入 C154 /content/drive/MyDrive/GPT2_LC2_C154_FIXED_DIRECTION_CPU_V1_RECOVERY/c154_fixed_direction_1792741096713648254_results.zip
+C155 原始只读输入 C153 /content/drive/MyDrive/GPT2_LC2_C153_READONLY_RATE_AUDIT_CPU_V1_RECOVERY/c153_readonly_rate_audit_1792738699044433706_results.zip
+C155 原始只读输入 C152 /content/drive/MyDrive/GPT2_LC2_C152_FIXED_SMALLSTEP_COUPLING_CPU_V1_RECOVERY/c152_fixed_smallstep_coupling_1792728391669017839_results.zip
+C155 原始只读输入 C150 /content/drive/MyDrive/GPT2_LC2_C150_FIXED_CYCLIC_COUPLING_CPU_V1_RECOVERY/c150_fixed_cyclic_coupling_1792712901321067176_results.zip
+C155 原始只读输入 C149 /content/drive/MyDrive/GPT2_LC2_C149_READONLY_ROUTING_AUDIT_CPU_V1_RECOVERY/c149_readonly_routing_audit_1792711206707001003_results.zip
+C155 原始只读输入 C148 /content/drive/MyDrive/GPT2_LC2_C148_CONTEXT_ROUTED_TRAINING_CPU_V1_RECOVERY/c148_context_routed_training_1792698998188503054_results.zip
+C155 原始只读输入 C147 /content/drive/MyDrive/GPT2_LC2_C147_READONLY_WORST_RESPONSE_AUDIT_CPU_V1_RECOVERY/c147_readonly_worst_response_audit_1792696243740248722_results.zip
+C155 原始只读输入 C146 /content/drive/MyDrive/GPT2_LC2_C146_WORST_RESPONSE_TRAINING_CPU_V1_RECOVERY/c146_worst_response_training_1792662898780534854_results.zip
+C155 原始只读输入 C145 /content/drive/MyDrive/GPT2_LC2_C145_FIXED_DIRECTION_DIAGNOSTIC_CPU_V1_RECOVERY/c145_fixed_direction_diagnostic_1792656305452733480_results.zip
+C155 原始只读输入 C143 /content/drive/MyDrive/GPT2_LC2_C143_JOINT84_TRAINING_CPU_V1_RECOVERY/c143_joint84_training_1792645403197864288_results.zip
+START C155 archives/paired routes/precision/baselines/no-training tests
+test_actual_default_runtime_route_is_current_and_pinned (__main__.Checks.test_actual_default_runtime_route_is_current_and_pinned) ... ok
+test_bad_coordinate_shape_nan_or_scale_blocks (__main__.Checks.test_bad_coordinate_shape_nan_or_scale_blocks) ... ok
+test_coordinate_fd_sign_units_and_response_coordinate_switch (__main__.Checks.test_coordinate_fd_sign_units_and_response_coordinate_switch) ... ok
+test_fixed_complete84_registry_request_order_and_denominators (__main__.Checks.test_fixed_complete84_registry_request_order_and_denominators) ... ok
+test_forged_precision_offset_blocks (__main__.Checks.test_forged_precision_offset_blocks) ... ok
+C155 archives/paired routes/precision/baselines/no-training tests 运行中 30 秒
+C155 archives/paired routes/precision/baselines/no-training tests 运行中 60 秒
+C155 archives/paired routes/precision/baselines/no-training tests 运行中 90 秒
+test_full_actual_worker_1530_records_3062_forwards_and_sealed_points (__main__.Checks.test_full_actual_worker_1530_records_3062_forwards_and_sealed_points) ... ok
+test_full_head_tail_change_cannot_hide_in_same_capture (__main__.Checks.test_full_head_tail_change_cannot_hide_in_same_capture) ... ok
+test_full_ten_archive_binding_reconstructs_parent_points_and_rows (__main__.Checks.test_full_ten_archive_binding_reconstructs_parent_points_and_rows) ... ok
+test_functional_failure_retains_completed_native_record (__main__.Checks.test_functional_failure_retains_completed_native_record) ... ok
+test_mutated_future_physical_point_is_detected (__main__.Checks.test_mutated_future_physical_point_is_detected) ... ok
+test_original_gates_and_safety_remain_unchanged (__main__.Checks.test_original_gates_and_safety_remain_unchanged) ... ok
+C155 archives/paired routes/precision/baselines/no-training tests 运行中 120 秒
+test_parent_point_change_blocks_before_model (__main__.Checks.test_parent_point_change_blocks_before_model) ... ok
+test_parity_does_not_hide_reference_or_coordinate_differences (__main__.Checks.test_parity_does_not_hide_reference_or_coordinate_differences) ... ok
+test_precision_baseline_offset_kept_separate_from_state_change (__main__.Checks.test_precision_baseline_offset_kept_separate_from_state_change) ... ok
+test_precision_cannot_claim_acceptance (__main__.Checks.test_precision_cannot_claim_acceptance) ... ok
+test_two_focus_ids_are_registered_exposed_states (__main__.Checks.test_two_focus_ids_are_registered_exposed_states) ... ok
+test_unregistered_native_call_and_missing_denominator_block (__main__.Checks.test_unregistered_native_call_and_missing_denominator_block) ... ok
+test_wrong_production_hash_blocks_before_model (__main__.Checks.test_wrong_production_hash_blocks_before_model) ... ok
+test_zero_direction_blocks_before_model (__main__.Checks.test_zero_direction_blocks_before_model) ... ok
+test_zero_native_functional_drift_stops_before_signed_probes (__main__.Checks.test_zero_native_functional_drift_stops_before_signed_probes) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 124.487s
+
+OK
+END C155 archives/paired routes/precision/baselines/no-training tests exit= 0
+START C155 entrypoint and import-only checks (no tensor validation)
+test_actual_launcher_dispatches_current_worker_smoke_and_self_tests (__main__.Checks.test_actual_launcher_dispatches_current_worker_smoke_and_self_tests) ... ok
+test_actual_worker_default_runtime_resolves_without_Torch_or_HF (__main__.Checks.test_actual_worker_default_runtime_resolves_without_Torch_or_HF) ... ok
+test_six_actual_Torch_cases_are_present_and_no_training_dispatch (__main__.Checks.test_six_actual_Torch_cases_are_present_and_no_training_dispatch) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.192s
+
+OK
+END C155 entrypoint and import-only checks (no tensor validation) exit= 0
+START C155 CPU PyTorch
+CPU_TORCH_READY 2.11.0+cpu 2.1.3
+END C155 CPU PyTorch exit= 0
+C155：在隔离目录安装固定HF依赖；保留系统PyTorch与NumPy。
+START C155 isolated pinned HF dependencies
+Collecting transformers==4.56.2
+  Using cached transformers-4.56.2-py3-none-any.whl.metadata (40 kB)
+Collecting peft==0.17.1
+  Using cached peft-0.17.1-py3-none-any.whl.metadata (14 kB)
+Collecting tokenizers==0.22.0
+  Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting huggingface_hub==0.34.4
+  Using cached huggingface_hub-0.34.4-py3-none-any.whl.metadata (14 kB)
+Collecting accelerate==1.10.1
+  Using cached accelerate-1.10.1-py3-none-any.whl.metadata (19 kB)
+Collecting safetensors==0.6.2
+  Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Using cached transformers-4.56.2-py3-none-any.whl (11.6 MB)
+Using cached peft-0.17.1-py3-none-any.whl (504 kB)
+Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+Using cached huggingface_hub-0.34.4-py3-none-any.whl (561 kB)
+Using cached accelerate-1.10.1-py3-none-any.whl (374 kB)
+Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (485 kB)
+Installing collected packages: transformers, tokenizers, safetensors, peft, huggingface_hub, accelerate
+Successfully installed accelerate-1.10.1 huggingface_hub-0.34.4 peft-0.17.1 safetensors-0.6.2 tokenizers-0.22.0 transformers-4.56.2
+END C155 isolated pinned HF dependencies exit= 0
+START C155 pinned HF check
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+PINNED_HF_DEPENDENCIES_OK ['4.56.2', '0.17.1', '0.22.0', '0.34.4', '1.10.1', '0.6.2']
+END C155 pinned HF check exit= 0
+START C155 actual CPU Torch forward-only smoke
+test_actual_default_factory_chain_and_actual_pair_module (__main__.Checks.test_actual_default_factory_chain_and_actual_pair_module) ... ok
+test_exact_FP32_chart_cast64_actual_double_forward_and_restore (__main__.Checks.test_exact_FP32_chart_cast64_actual_double_forward_and_restore) ... ok
+test_functional_failure_restores_physical_tensors_and_tied_identity (__main__.Checks.test_functional_failure_restores_physical_tensors_and_tied_identity) ... ok
+test_multiple_native_commits_do_not_break_chart_snapshot_guards (__main__.Checks.test_multiple_native_commits_do_not_break_chart_snapshot_guards) ... ok
+test_native_and_functional_pair_on_same_committed_chart_with_tied_weights (__main__.Checks.test_native_and_functional_pair_on_same_committed_chart_with_tied_weights) ... ok
+test_unmatched_physical_chart_rejected_before_functional_forward (__main__.Checks.test_unmatched_physical_chart_rejected_before_functional_forward) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.128s
+
+OK
+END C155 actual CPU Torch forward-only smoke exit= 0
+C155：真实GPT-2 CPU；固定晚期step12与C154七点。全84态FP32原生/功能配对；两个固定训练态做FP64基线分离诊断。
+756原生FP32+756功能FP32+18焦点FP64指标；共1530记录、3062模型前向。无反传/训练/选点/新态/排除输入。工作上限120分钟，自测另计。
+START C155 paired forward and precision diagnostic
+C155 paired forward and precision diagnostic 运行中 30 秒
+C151_UPDATE_PAIR_AUDIT 1 /12
+C151_UPDATE_PAIR_AUDIT 2 /12
+C151_UPDATE_PAIR_AUDIT 3 /12
+C151_UPDATE_PAIR_AUDIT 4 /12
+C151_UPDATE_PAIR_AUDIT 5 /12
+C151_UPDATE_PAIR_AUDIT 6 /12
+C151_UPDATE_PAIR_AUDIT 7 /12
+C151_UPDATE_PAIR_AUDIT 8 /12
+C151_UPDATE_PAIR_AUDIT 9 /12
+C151_UPDATE_PAIR_AUDIT 10 /12
+C151_UPDATE_PAIR_AUDIT 11 /12
+C151_UPDATE_PAIR_AUDIT 12 /12
+C153_UPDATE_PAIR_AUDIT 1 /12
+C153_UPDATE_PAIR_AUDIT 2 /12
+C153_UPDATE_PAIR_AUDIT 3 /12
+C155 paired forward and precision diagnostic 运行中 60 秒
+C153_UPDATE_PAIR_AUDIT 4 /12
+C153_UPDATE_PAIR_AUDIT 5 /12
+C153_UPDATE_PAIR_AUDIT 6 /12
+C153_UPDATE_PAIR_AUDIT 7 /12
+C153_UPDATE_PAIR_AUDIT 8 /12
+C153_UPDATE_PAIR_AUDIT 9 /12
+C153_UPDATE_PAIR_AUDIT 10 /12
+C153_UPDATE_PAIR_AUDIT 11 /12
+C153_UPDATE_PAIR_AUDIT 12 /12
+C155 paired forward and precision diagnostic 运行中 90 秒
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+C123_CPU Loading pinned GPT-2 on CPU float32; fresh zero LoRA-B; no GPU requirement.
+`torch_dtype` is deprecated! Use `dtype` instead!
+/content/gpt2_lc2_c155_paired_forward_precision_cpu_v1/session_1792746742110108380/deps/peft/tuners/lora/layer.py:2174: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+C155 paired forward and precision diagnostic 运行中 120 秒
+C155 paired forward and precision diagnostic 运行中 150 秒
+C155 paired forward and precision diagnostic 运行中 180 秒
+C155 paired forward and precision diagnostic 运行中 210 秒
+C155 paired forward and precision diagnostic 运行中 240 秒
+C155 paired forward and precision diagnostic 运行中 270 秒
+C155 paired forward and precision diagnostic 运行中 300 秒
+C155 paired forward and precision diagnostic 运行中 330 秒
+C155 paired forward and precision diagnostic 运行中 360 秒
+C155 paired forward and precision diagnostic 运行中 390 秒
+C155_PANEL zero preflight native_FP32 all84 objective 0.05862967493434308
+C155_PANEL zero preflight functional_FP32 all84 objective 0.05862967493434308
+C155 paired forward and precision diagnostic 运行中 420 秒
+C155 paired forward and precision diagnostic 运行中 450 秒
+C155 paired forward and precision diagnostic 运行中 480 秒
+C155 paired forward and precision diagnostic 运行中 510 秒
+C155 paired forward and precision diagnostic 运行中 540 秒
+C155 paired forward and precision diagnostic 运行中 570 秒
+C155 paired forward and precision diagnostic 运行中 600 秒
+C155 paired forward and precision diagnostic 运行中 630 秒
+C155 paired forward and precision diagnostic 运行中 660 秒
+C155 paired forward and precision diagnostic 运行中 690 秒
+C155_PANEL minus_quarter probe native_FP32 all84 objective 0.058626607467700806
+C155_PANEL minus_quarter probe functional_FP32 all84 objective 0.058626607467700806
+C155 paired forward and precision diagnostic 运行中 720 秒
+C155 paired forward and precision diagnostic 运行中 750 秒
+C155 paired forward and precision diagnostic 运行中 780 秒
+C155 paired forward and precision diagnostic 运行中 810 秒
+C155 paired forward and precision diagnostic 运行中 840 秒
+C155 paired forward and precision diagnostic 运行中 870 秒
+C155 paired forward and precision diagnostic 运行中 900 秒
+C155 paired forward and precision diagnostic 运行中 930 秒
+C155 paired forward and precision diagnostic 运行中 960 秒
+C155 paired forward and precision diagnostic 运行中 990 秒
+C155_PANEL plus_quarter probe native_FP32 all84 objective 0.05862885624407211
+C155_PANEL plus_quarter probe functional_FP32 all84 objective 0.05862885624407211
+C155 paired forward and precision diagnostic 运行中 1020 秒
+C155 paired forward and precision diagnostic 运行中 1050 秒
+C155 paired forward and precision diagnostic 运行中 1080 秒
+C155 paired forward and precision diagnostic 运行中 1110 秒
+C155 paired forward and precision diagnostic 运行中 1140 秒
+C155 paired forward and precision diagnostic 运行中 1170 秒
+C155 paired forward and precision diagnostic 运行中 1200 秒
+C155 paired forward and precision diagnostic 运行中 1230 秒
+C155 paired forward and precision diagnostic 运行中 1260 秒
+C155_PANEL minus_half probe native_FP32 all84 objective 0.06059064261335213
+C155_PANEL minus_half probe functional_FP32 all84 objective 0.06059064261335213
+C155 paired forward and precision diagnostic 运行中 1290 秒
+C155 paired forward and precision diagnostic 运行中 1320 秒
+C155 paired forward and precision diagnostic 运行中 1350 秒
+C155 paired forward and precision diagnostic 运行中 1380 秒
+C155 paired forward and precision diagnostic 运行中 1410 秒
+C155 paired forward and precision diagnostic 运行中 1440 秒
+C155 paired forward and precision diagnostic 运行中 1470 秒
+C155 paired forward and precision diagnostic 运行中 1500 秒
+C155_PANEL plus_half probe native_FP32 all84 objective 0.05862258078241368
+C155_PANEL plus_half probe functional_FP32 all84 objective 0.05862258078241368
+C155 paired forward and precision diagnostic 运行中 1530 秒
+C155 paired forward and precision diagnostic 运行中 1560 秒
+C155 paired forward and precision diagnostic 运行中 1590 秒
+C155 paired forward and precision diagnostic 运行中 1620 秒
+C155 paired forward and precision diagnostic 运行中 1650 秒
+C155 paired forward and precision diagnostic 运行中 1680 秒
+C155 paired forward and precision diagnostic 运行中 1710 秒
+C155 paired forward and precision diagnostic 运行中 1740 秒
+C155_PANEL minus_one probe native_FP32 all84 objective 0.06059243302468472
+C155_PANEL minus_one probe functional_FP32 all84 objective 0.06059243302468472
+C155 paired forward and precision diagnostic 运行中 1770 秒
+C155 paired forward and precision diagnostic 运行中 1800 秒
+C155 paired forward and precision diagnostic 运行中 1830 秒
+C155 paired forward and precision diagnostic 运行中 1860 秒
+C155 paired forward and precision diagnostic 运行中 1890 秒
+C155 paired forward and precision diagnostic 运行中 1920 秒
+C155 paired forward and precision diagnostic 运行中 1950 秒
+C155 paired forward and precision diagnostic 运行中 1980 秒
+C155_PANEL plus_one probe native_FP32 all84 objective 0.05862285590538242
+C155_PANEL plus_one probe functional_FP32 all84 objective 0.05862285590538242
+C155 paired forward and precision diagnostic 运行中 2010 秒
+C155 paired forward and precision diagnostic 运行中 2040 秒
+C155 paired forward and precision diagnostic 运行中 2070 秒
+C155 paired forward and precision diagnostic 运行中 2100 秒
+C155 paired forward and precision diagnostic 运行中 2130 秒
+C155 paired forward and precision diagnostic 运行中 2160 秒
+C155 paired forward and precision diagnostic 运行中 2190 秒
+C155 paired forward and precision diagnostic 运行中 2220 秒
+C155_PANEL zero repeat native_FP32 all84 objective 0.05862967493434308
+C155_PANEL zero repeat functional_FP32 all84 objective 0.05862967493434308
+C155 paired forward and precision diagnostic 运行中 2250 秒
+C155 paired forward and precision diagnostic 运行中 2280 秒
+C155 paired forward and precision diagnostic 运行中 2310 秒
+C155 paired forward and precision diagnostic 运行中 2340 秒
+C155 paired forward and precision diagnostic 运行中 2370 秒
+C155 paired forward and precision diagnostic 运行中 2400 秒
+C155 paired forward and precision diagnostic 运行中 2430 秒
+C155 paired forward and precision diagnostic 运行中 2460 秒
+C155_PANEL plus_one repeat native_FP32 all84 objective 0.05862285590538242
+C155_PANEL plus_one repeat functional_FP32 all84 objective 0.05862285590538242
+C155 paired forward and precision diagnostic 运行中 2490 秒
+{
+  "protocol": "GPT2_LC2_C155_PAIRED_FORWARD_PRECISION_CPU_V1",
+  "complete": true,
+  "decision": "C155_PAIRED_FORWARD_PRECISION_DIAGNOSTIC_COMPLETE_NO_CANDIDATE_SELECTED",
+  "synthetic_fixture": false,
+  "real_model_execution_claim": true,
+  "all84_remain_exposed_training": true,
+  "training_states_requested": 84,
+  "FP64_focus_state_ids": [
+    "xor_11__c141_confirmation_p09_n01_d00",
+    "xor_11__c141_confirmation_p08_n01_d00"
+  ],
+  "requested_metric_records": 1530,
+  "requested_model_forwards": 3062,
+  "new_model_forwards": 3062,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "new_states_prepared": 0,
+  "new_model_features_acquired": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "GPT2_optimizer_updates": 0,
+  "LoRA_A_optimizer_updates": 0,
+  "base_writer_updates": 0,
+  "teacher_calls": 0,
+  "backtracking_steps": 0,
+  "online_response_repair_steps": 0,
+  "archived_source_executed": false,
+  "gradients_independently_recomputed": false,
+  "AD_accuracy_certified": false,
+  "systematic_forward_error_bound_established": false,
+  "curvature_bound_established": false,
+  "thresholds_changed": false,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "parent_decision_reclassified": false,
+  "FP64_training_qualification_evaluated": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "scope": "Training-only fixed late-direction forward diagnostics. All84 FP32 denominators retained. FP64 covers only two registered exposed states, with separate baseline provenance and coordinate trajectories, no full84 FP64 objective or qualification. No AD correctness/error certification, systematic-error bound, curvature bound, convergence or architecture-feasibility conclusion. No gradients, training, feature acquisition, router/head fitting, selection, deployment, preparation, confirmation or excluded-class evaluation. Original parent decision and FP32 acceptance remain unchanged.",
+  "stage": "complete",
+  "elapsed_worker_seconds": 2491.0817468349996,
+  "process_peak_RSS_KiB": 2805684,
+  "runtime_calls": {
+    "model_forwards": 3062,
+    "initialisation_model_forwards": 1,
+    "preflight_metric_attempts": 84,
+    "preflight_metrics": 84,
+    "path_metric_attempts": 672,
+    "path_metrics": 672,
+    "functional_FP32_forwards": 1512,
+    "functional_FP64_forwards": 37,
+    "functional_FP32_metrics": 756,
+    "FP64_focus_metrics": 18,
+    "FP64_baseline_forwards": 1
+  },
+  "metric_records": 1530,
+  "all84_zero_pairs_checked_before_probes": true,
+  "C154_all756_native_replays_consistent": true,
+  "FP32_repeats_consistent": true,
+  "all756_FP32_pairs_within_original_parity_tolerance": true,
+  "maximum_native_functional_observed_difference": 0.0,
+  "maximum_native_functional_KL_difference": 0.0,
+  "diagnostics": {
+    "all84_FP32_objectives": {
+      "native_FP32": {
+        "base_objective": 0.05862967493434308,
+        "plus_one_change": -6.8190289606584464e-06,
+        "scales": [
+          {
+            "h": 0.25,
+            "central": 4.497552742607769e-06,
+            "positive": -3.2747610838879115e-06,
+            "negative": 1.226986656910345e-05
+          },
+          {
+            "h": 0.5,
+            "central": -0.00196806183093845,
+            "positive": -1.4188303858797546e-05,
+            "negative": -0.003921935358018103
+          },
+          {
+            "h": 1.0,
+            "central": -0.0009847885596511487,
+            "positive": -6.8190289606584464e-06,
+            "negative": -0.001962758090341639
+          }
+        ],
+        "panel_maximizing_state_ids": {
+          "zero": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_quarter": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_quarter": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_half": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_half": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_one": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_one": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ]
+        }
+      },
+      "functional_FP32": {
+        "base_objective": 0.05862967493434308,
+        "plus_one_change": -6.8190289606584464e-06,
+        "scales": [
+          {
+            "h": 0.25,
+            "central": 4.497552742607769e-06,
+            "positive": -3.2747610838879115e-06,
+            "negative": 1.226986656910345e-05
+          },
+          {
+            "h": 0.5,
+            "central": -0.00196806183093845,
+            "positive": -1.4188303858797546e-05,
+            "negative": -0.003921935358018103
+          },
+          {
+            "h": 1.0,
+            "central": -0.0009847885596511487,
+            "positive": -6.8190289606584464e-06,
+            "negative": -0.001962758090341639
+          }
+        ],
+        "panel_maximizing_state_ids": {
+          "zero": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_quarter": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_quarter": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_half": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_half": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_one": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_one": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ]
+        }
+      }
+    },
+    "FP64_focus_summaries": [
+      {
+        "state_id": "xor_11__c141_confirmation_p09_n01_d00",
+        "repeats": [
+          {
+            "label": "zero",
+            "local_observed_change_Linf": 0.0,
+            "cross_observed_change_Linf": 0.0,
+            "KL_local_change": 0.0
+          },
+          {
+            "label": "plus_one",
+            "local_observed_change_Linf": 0.0,
+            "cross_observed_change_Linf": 0.0,
+            "KL_local_change": 0.0
+          }
+        ],
+        "maximum_response_reference_offset": 1.3905392165725061e-05
+      },
+      {
+        "state_id": "xor_11__c141_confirmation_p08_n01_d00",
+        "repeats": [
+          {
+            "label": "zero",
+            "local_observed_change_Linf": 0.0,
+            "cross_observed_change_Linf": 0.0,
+            "KL_local_change": 0.0
+          },
+          {
+            "label": "plus_one",
+            "local_observed_change_Linf": 0.0,
+            "cross_observed_change_Linf": 0.0,
+            "KL_local_change": 0.0
+          }
+        ],
+        "maximum_response_reference_offset": 1.3905392165725061e-05
+      }
+    ],
+    "FP64_full84_objective_available": false,
+    "FP64_is_ground_truth": false,
+    "AD_error_established": false,
+    "systematic_error_bound_established": false,
+    "causal_failure_explanation_established": false
+  },
+  "all588_point_entries_sealed_before_model": true,
+  "original_inputs_unchanged": {
+    "C154": true,
+    "C153": true,
+    "C152": true,
+    "C150": true,
+    "C149": true,
+    "C148": true,
+    "C147": true,
+    "C146": true,
+    "C145": true,
+    "C143": true
+  },
+  "errors": []
+}
+END C155 paired forward and precision diagnostic exit= 0
+唯一结果总包： /content/gpt2_lc2_c155_paired_forward_precision_cpu_v1/session_1792746742110108380/c155_paired_forward_precision_1792746742162409955_results.zip
+RESULT_SHA256 5e52577034889cc7b5d0e0d77382d52a8dc87e0e608408f72de040ef5f14eb8b
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_LC2_C155_PAIRED_FORWARD_PRECISION_CPU_V1_RECOVERY/c155_paired_forward_precision_1792746742162409955_results.zip
+Downloading "c155_paired_forward_precision_1792746742162409955_results.zip": 

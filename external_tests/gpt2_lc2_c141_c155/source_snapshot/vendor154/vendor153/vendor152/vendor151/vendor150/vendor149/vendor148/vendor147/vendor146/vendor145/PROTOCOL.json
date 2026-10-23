@@ -1,0 +1,107 @@
+{
+  "protocol": "GPT2_LC2_C145_FIXED_DIRECTION_DIAGNOSTIC_CPU_V1",
+  "input_archives": [
+    "C144",
+    "C143",
+    "C140",
+    "C141",
+    "C142"
+  ],
+  "training_states": 84,
+  "all84_remain_exposed_training": true,
+  "initial_control": "Exact C143 final step12; never updated in place.",
+  "shared_dimension": 36,
+  "direction_rules": [
+    "Negative aggregate gradient of the original C143 training objective over all84 at C143 final a.",
+    "Negative softmax32-weighted gradient of q_i=max(abs(response_i))/.002 over all84 at the same frozen a."
+  ],
+  "direction_normalization": "Negative gradient divided by its Linf norm; norm<=1e-14 gives an explicit zero direction, never an arbitrary fallback.",
+  "state_gradient_vectors": 168,
+  "scalar_backward_calls": 168,
+  "functional_endpoint_calls": 168,
+  "functional_parity": "All84 native/function comparisons before any backward; point/observations2e-6 and KL2e-7. Gradient-forward observations must agree with the fixed functional baseline.",
+  "preflight": "All84 prepared/raw/C140/C143 native points; original point/gate identity and observations2e-4, KL5e-6; drift blocks before any backward.",
+  "preflight_metric_requests": 336,
+  "configurations": [
+    {
+      "config_id": "C143_baseline",
+      "direction": null,
+      "step": 0.0,
+      "sign": 0
+    },
+    {
+      "config_id": "original_objective__h00__plus",
+      "direction": "original_objective",
+      "step": 0.0005,
+      "sign": 1
+    },
+    {
+      "config_id": "original_objective__h00__minus",
+      "direction": "original_objective",
+      "step": 0.0005,
+      "sign": -1
+    },
+    {
+      "config_id": "original_objective__h01__plus",
+      "direction": "original_objective",
+      "step": 0.0015,
+      "sign": 1
+    },
+    {
+      "config_id": "original_objective__h01__minus",
+      "direction": "original_objective",
+      "step": 0.0015,
+      "sign": -1
+    },
+    {
+      "config_id": "response_softmax32__h00__plus",
+      "direction": "response_softmax32",
+      "step": 0.0005,
+      "sign": 1
+    },
+    {
+      "config_id": "response_softmax32__h00__minus",
+      "direction": "response_softmax32",
+      "step": 0.0005,
+      "sign": -1
+    },
+    {
+      "config_id": "response_softmax32__h01__plus",
+      "direction": "response_softmax32",
+      "step": 0.0015,
+      "sign": 1
+    },
+    {
+      "config_id": "response_softmax32__h01__minus",
+      "direction": "response_softmax32",
+      "step": 0.0015,
+      "sign": -1
+    }
+  ],
+  "probe_control_rule": "a_probe=clip(a_C143+sign*h*direction,-.125,.125); every clipping event and actual coefficient displacement recorded. All8 vectors and all756 points sealed before probe measurements.",
+  "response_softmax_temperature": 32.0,
+  "baseline_and_probe_configurations": 9,
+  "frozen_points": 756,
+  "rounds": 2,
+  "native_endpoint_requests": 1512,
+  "requested_model_forwards": 4033,
+  "acceptance_budgets": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05,
+    "proposal_radius": 20.0,
+    "radius_rounding_allowance": 1e-05
+  },
+  "diagnostic_only": "All eight signed fixed probes evaluated on every84 state twice. No adaptive step, line search, optimizer, iterative fit, best point/radius/direction selection or deployment. Both signs and both steps retained, even if a direction is zero or proposals coincide.",
+  "linear_prediction": "q_i(a_probe) approximately q_i(a0)+archived-at-runtime grad(q_i) dot actual coefficient displacement; reported only as a local AD linearization diagnostic. Max/tie changes, clipping, float32 steps and nonlinear effects are retained; discrepancies do not prove AD error.",
+  "scope": "Exposed training-domain finite directional probes only. No independent derivative accuracy, feasibility/infeasibility, convergence, fresh local confirmation or excluded-input generalisation claim. All84 pass at a probe is descriptive and does not select a writer or close LC2.",
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "candidate_selected": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "worker_budget_seconds": 7200
+}

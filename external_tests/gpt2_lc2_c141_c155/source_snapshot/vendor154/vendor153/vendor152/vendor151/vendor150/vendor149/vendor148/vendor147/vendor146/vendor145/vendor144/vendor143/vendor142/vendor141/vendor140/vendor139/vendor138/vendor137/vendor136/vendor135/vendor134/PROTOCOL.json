@@ -1,0 +1,87 @@
+{
+  "protocol": "GPT2_LC2_C134_FIXED_WRITE_PATH_CPU_V1",
+  "registry": [
+    {
+      "state_id": "xor_00__c82_training_center00",
+      "case": "xor_00",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_00__c90_training_center00",
+      "case": "xor_00",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c82_training_center00",
+      "case": "xor_01",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c90_training_center00",
+      "case": "xor_01",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c82_training_center00",
+      "case": "xor_11",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c90_training_center00",
+      "case": "xor_11",
+      "origin": "C90",
+      "role": "geometry_training"
+    }
+  ],
+  "arms": [
+    "learned_raw",
+    "shared_response_projected",
+    "shared_projected_read_preserved"
+  ],
+  "alphas": [
+    0.0,
+    0.015625,
+    0.0625,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "rounds": 2,
+  "path_points_requested": 126,
+  "path_measurements_requested": 252,
+  "path": "float32(prepared + alpha * (C132_actual_endpoint - prepared)); alpha0/1 retain exact archived coordinate bytes",
+  "endpoint_source": "Actual committed C132 endpoints, not preclip or ideal projected deltas",
+  "freeze": "All126 coordinate outcomes frozen before model initialisation, preflight and path measurements",
+  "preflight": "Six preparations and all18 available full endpoints checked against C132 observations; point identity and gate identity required; observed absolute tolerance2e-4, KL5e-6",
+  "intermediate_target": "alpha0: prepared-state gates; every alpha>0: same final requested-write gates. All gate failures retained.",
+  "derivative": "Only the six archived C132 local10-row Jacobians; none recomputed or imputed to other centers",
+  "analysis": "Fresh path observable minus fresh prewrite observable minus archived_J @ actual_float32_displacement; also report nominal alpha*J@full_displacement and linear rounding effect",
+  "near_origin_slope": "(fresh_observable(alpha)-fresh_prewrite)/alpha compared to archived_J@full_displacement at the two fixed small fractions1/64 and1/16; disagreement alone is not proof of AD error",
+  "descriptive_grid_departure": "First sampled alpha whose response remainder Linf exceeds fixed response budget; descriptive only, not a selected deployment step or continuous threshold",
+  "response_budget": 0.002,
+  "KL_budget": 0.005,
+  "read_margin": 0.05,
+  "proposal_radius": 20.0,
+  "online_Jacobians": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "linear_systems_solved": 0,
+  "step_selected": false,
+  "candidate_selected": false,
+  "postwrite_response_repair": false,
+  "teacher": false,
+  "backtracking": false,
+  "excluded_input_states_evaluated": 0,
+  "LC2_closed": false,
+  "scope": "Historical training-center path diagnostic only. No fresh-state/excluded-input generalisation or finite error certificate. Archived derivative accuracy and physical numerical causes remain unproved.",
+  "worker_budget_seconds": 3000
+}

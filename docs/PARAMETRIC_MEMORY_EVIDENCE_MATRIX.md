@@ -31,6 +31,31 @@ versions retain their identities and are not renumbered into LC targets.
 | LC5: continual acquisition and retention | Open | Finite local retention or one output flip is not continual learning or zero forgetting | [LC5 target](LINE_C_VALIDATION_TARGETS.md) | No qualifying sequential result | Long sequences, interference and independent task retention measures |
 | LC6: update internalisation | Open | Proposal, XOR, geometry, optimizer and commitment must be attributed separately | [LC6 target](LINE_C_VALIDATION_TARGETS.md), [integration responsibilities](B5_FROZEN_WRITER_INTEGRATION.md) | Current execution still uses external runtime | Evidence for a specified internal update mechanism and its causal controls |
 
+## Selected later LC2 evidence
+
+[Main entry and interpretation](LINE_C_C141_C155.md). Four original ZIPs and all
+manifest members were checked **during packaging**; this import checks the
+provided compact members, actual tensors and arithmetic. The full original ZIPs
+are absent here. Six unchanged source BUNDLE identities are checked separately;
+that source check does not upgrade C154/C155 result evidence. No stage below
+closes LC2 or changes LC1/LC3–LC6 status.
+
+| Stage / capability question | Result and applicable scope | Source | Verification tier | Next missing evidence |
+| --- | --- | --- | --- | --- |
+| C141 / local confirmation of frozen C140 | 42/48 in each of two seen-class rounds; six response failures; no excluded inputs evaluated. Historical role retained; now-exposed states cannot be reused as unseen | [Original summary](../evidence/gpt2_lc2_c141_c155/records/c141/SUMMARY.json) | Archive-backed compact records and actual frozen tensors; gate/count arithmetic checked | Full public parent chain and independent model replay; new, prospectively declared capability evaluation |
+| C142 / audit of confirmation | Retains C141 failure; no new model forwards | [Original summary](../evidence/gpt2_lc2_c141_c155/records/c142/SUMMARY.json) | Archive-backed read-only audit records and C141 linkage | Independent model replay is not supplied by arithmetic audit |
+| C148 / context routing | Global and routed both 79/84 in each round; exposed training; 36/108 parameters confound comparison; no routing advantage or certified atlas | [Original summary](../evidence/gpt2_lc2_c141_c155/records/c148/SUMMARY.json) | Archive-backed records, router/features/heads/coordinates; proposal reconstruction checked | Complete training qualification and matched comparisons before new capability evaluation |
+| C150 / cyclic coupling | Diagonal 79/84, cyclic 80/84 in each round; four cyclic response failures; 108/216 parameters; training qualification fails | [Original summary](../evidence/gpt2_lc2_c141_c155/records/c150/SUMMARY.json) | Archive-backed compact tensors and endpoint arithmetic | Outstanding training failures, matched capacity comparison, new frozen evaluation |
+| C154 / fixed-direction numerical diagnostic | Completed according to supplied log; finite scale behaviour does not prove AD error | [Log-derived summary](../evidence/gpt2_lc2_c141_c155/records/c154/SUMMARY_FROM_LOG.json) | Source plus execution log only; raw result not audited | Result supplement with original hashes, all records and source identity checked |
+| C155 / forward-route precision diagnostic | Log reports 756 FP32 pairs with zero differences; FP64 covers two focus states, not all 84 or ground truth | [Log-derived summary](../evidence/gpt2_lc2_c141_c155/records/c155/SUMMARY_FROM_LOG.json) | Source plus execution log only; no independent backward verification | Verified result supplement; any broader claim requires its own test |
+
+All later 84-state cohorts are training data regardless of `confirmation` in
+IDs. Do not discard failures, relax thresholds, pick a best iterate after seeing
+outcomes, or count a retry as original-proposal success. Full replay dependencies
+remain external; [dependency identities](../evidence/gpt2_lc2_c141_c155/REPLAY_DEPENDENCIES.json)
+are not downloadable result attachments. C154/C155 supplements must be added
+separately and checked before changing evidence tier; current logs remain intact.
+
 ## B5 lineage and budget accounting
 
 V4's original failure remains: 00/01 pass, 10 preparation fails, and 11 writeback

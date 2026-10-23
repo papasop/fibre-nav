@@ -1,0 +1,119 @@
+{
+  "protocol": "GPT2_LC2_C135_NORMAL_COEFFICIENT_CPU_V1",
+  "registry": [
+    {
+      "state_id": "xor_00__c82_training_center00",
+      "case": "xor_00",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_00__c82_training_center01",
+      "case": "xor_00",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_00__c90_training_center00",
+      "case": "xor_00",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_00__c90_training_center01",
+      "case": "xor_00",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_01__c82_training_center00",
+      "case": "xor_01",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c82_training_center01",
+      "case": "xor_01",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_01__c90_training_center00",
+      "case": "xor_01",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c90_training_center01",
+      "case": "xor_01",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_11__c82_training_center00",
+      "case": "xor_11",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c82_training_center01",
+      "case": "xor_11",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_11__c90_training_center00",
+      "case": "xor_11",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c90_training_center01",
+      "case": "xor_11",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    }
+  ],
+  "betas": [
+    0.0,
+    0.875,
+    0.9375,
+    0.96875,
+    1.0,
+    1.03125,
+    1.0625
+  ],
+  "rounds": 2,
+  "coefficient_points_requested": 84,
+  "endpoint_measurements_requested": 168,
+  "parameterisation": "N=V.T@V, P=I-N for the fixed C132 shared response row space; u_beta=P*d+beta*N*d with d=archived_raw-prepared",
+  "controls": "beta0: exact C132 shared_response_projected point; beta1: exact original raw point, retained byte-for-byte and never counted as a new improvement",
+  "normal_scope": "Euclidean row-space component of the fixed C132 shared response stack, not a certified normal bundle or the local row space at all12 states",
+  "positive_beta_above_one": "33/32 and17/16 amplify rather than merely retain the row-space component",
+  "radius_and_commit": "One fixed radius20 cap on each noncontrol u_beta, then float32 commit; beta1 retains original raw bytes; report pre/post-cap and rounding diagnostics. Actual displacement radius checked with1e-5 rounding allowance.",
+  "freeze": "All84 proposals, coefficients and roles frozen before any model initialisation or C135 observations; no C134 postwrite value enters proposal formula",
+  "preflight": "All12 preparations plus raw and projected full endpoints:36 known points. Compare full22 observables and gates to C132; for geometry6 also compare raw/projected to both C134 final-point rounds. Observed tolerance2e-4, KL5e-6; any drift stops before new coefficient endpoints.",
+  "acceptance": "Original complete content, preservation, response, KL, read-margin and radius gates at every coefficient; failures and all requested states retained",
+  "historical_feasibility_rule": "List every beta!=1 passing all12 twice, repeatably and with stable known-point controls, rescuing at least one raw failure in each round. Do not choose among them or deploy. Partial improvements are descriptive only.",
+  "stop_rule": "If no registered noncontrol coefficient meets the full historical rule, stop this fixed multiplier family; do not add coefficients after observing results.",
+  "local_derivatives": "Only archived C132 Jacobians for geometry6; no local derivative or remainder imputed to the other6 states",
+  "response_budget": 0.002,
+  "KL_budget": 0.005,
+  "read_margin": 0.05,
+  "proposal_radius": 20.0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "linear_systems_solved": 0,
+  "candidate_selected": false,
+  "coefficient_selected": false,
+  "teacher": false,
+  "backtracking": false,
+  "response_repair": false,
+  "excluded_input_states_evaluated": 0,
+  "LC2_closed": false,
+  "worker_budget_seconds": 3000,
+  "scope": "One registered shared-coefficient diagnostic on12 historical training centers. These centers and prior outcomes are known development data, not fresh confirmation or excluded inputs. Even complete historical acceptance does not establish generalisation or close LC2."
+}

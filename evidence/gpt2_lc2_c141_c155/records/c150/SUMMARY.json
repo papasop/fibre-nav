@@ -1,0 +1,3211 @@
+{
+  "protocol": "GPT2_LC2_C150_FIXED_CYCLIC_COUPLING_CPU_V1",
+  "complete": true,
+  "decision": "C150_FIXED_FINAL_COMPARISON_COMPLETE_NO_CANDIDATE_SELECTED",
+  "synthetic_fixture": false,
+  "real_model_execution_claim": true,
+  "training_states": 84,
+  "all84_remain_exposed_training": true,
+  "requested_training_steps_per_arm": 12,
+  "requested_model_forwards": 6553,
+  "requested_scalar_backwards": 4032,
+  "requested_native_preflight": 336,
+  "requested_native_endpoints": 672,
+  "new_states_prepared": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "new_model_features_acquired": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "GPT2_optimizer_updates": 0,
+  "LoRA_A_optimizer_updates": 0,
+  "base_writer_updates": 0,
+  "teacher_calls": 0,
+  "backtracking_steps": 0,
+  "online_response_repair_steps": 0,
+  "archived_source_executed": false,
+  "thresholds_changed": false,
+  "parent_decision_reclassified": false,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "best_checkpoint_selected": false,
+  "AD_accuracy_independently_certified": false,
+  "router_label_access": false,
+  "router_parameters_trained": false,
+  "geometric_atlas_established": false,
+  "fixed_coupling_offset": 1,
+  "coupling_pattern_selected": false,
+  "parameter_count_confound_explicit": true,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "training_qualified": {
+    "routed_diagonal_continuation": false,
+    "routed_cyclic_coupling": false
+  },
+  "scope": "Offline two-arm exposed84 training qualification only. C149 diagnostics motivate a declared structural test, not a proven failure cause. No independent derivative certification, convergence or closure guarantee. Even all84 training passes require new prospective confirmation and strictly isolated excluded-input evaluation.",
+  "stage": "complete",
+  "elapsed_worker_seconds": 7112.653244025001,
+  "process_peak_RSS_KiB": 1383384,
+  "runtime_calls": {
+    "model_forwards": 6553,
+    "initialisation_model_forwards": 1,
+    "preflight_metric_attempts": 336,
+    "preflight_metrics": 336,
+    "path_metric_attempts": 672,
+    "path_metrics": 672
+  },
+  "gradient_stats": {
+    "functional_endpoint_calls": 2268,
+    "functional_zero_calls": 84,
+    "functional_warm_calls": 168,
+    "full84_gradient_batches": 24,
+    "scalar_backward_attempts": 4032,
+    "scalar_backward_calls": 4032,
+    "maximum_point_parity_error_Linf": 0.0,
+    "per_arm": {
+      "routed_diagonal_continuation": {
+        "graph_forwards": 1008,
+        "backwards": 2016
+      },
+      "routed_cyclic_coupling": {
+        "graph_forwards": 1008,
+        "backwards": 2016
+      }
+    },
+    "torch_optimizer_objects": 0,
+    "GPT2_optimizer_updates": 0,
+    "LoRA_A_optimizer_updates": 0,
+    "base_writer_updates": 0
+  },
+  "new_model_forwards": 6553,
+  "new_backward_calls": 4032,
+  "new_training_steps": 24,
+  "new_head_fits": 2,
+  "per_arm_training": {
+    "routed_diagonal_continuation": {
+      "steps": 12,
+      "elapsed_training_seconds": 2558.961516593001
+    },
+    "routed_cyclic_coupling": {
+      "steps": 12,
+      "elapsed_training_seconds": 2589.538731337998
+    }
+  },
+  "preflight_records": 336,
+  "zero_parity_records": 84,
+  "warm_parity_records": 168,
+  "final_endpoint_records": 672,
+  "trainable_parameters": {
+    "routed_diagonal_continuation": 108,
+    "routed_cyclic_coupling": 216
+  },
+  "both_warm_parities_complete_before_backward": true,
+  "both_step12_heads_frozen_before_evaluation": true,
+  "repeatable": true,
+  "controls_replay_consistent": true,
+  "final_training_summaries": {
+    "all84": {
+      "0": {
+        "raw_control": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 58,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 53,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01",
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01",
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 26
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 74,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "maximum_response_drift": 0.00225067138671875,
+          "within_training_response_safety": 74,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 80,
+          "maximum_response_drift": 0.0023345947265625,
+          "within_training_response_safety": 73,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 58,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 53,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01",
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01",
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 26
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 74,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "maximum_response_drift": 0.00225067138671875,
+          "within_training_response_safety": 74,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 80,
+          "maximum_response_drift": 0.0023345947265625,
+          "within_training_response_safety": 73,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        }
+      }
+    },
+    "historical12": {
+      "0": {
+        "raw_control": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 9,
+          "maximum_response_drift": 0.00415802001953125,
+          "within_training_response_safety": 8,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01"
+          ],
+          "failed_gates": {
+            "response": 3
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.0018463134765625,
+          "within_training_response_safety": 11,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 9,
+          "maximum_response_drift": 0.00415802001953125,
+          "within_training_response_safety": 8,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01"
+          ],
+          "failed_gates": {
+            "response": 3
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.00174713134765625,
+          "within_training_response_safety": 12,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 12,
+          "n_evaluated": 12,
+          "passed": 12,
+          "maximum_response_drift": 0.0018463134765625,
+          "within_training_response_safety": 11,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      }
+    },
+    "C139_exposed_kernel24": {
+      "0": {
+        "raw_control": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 17,
+          "maximum_response_drift": 0.0041351318359375,
+          "within_training_response_safety": 15,
+          "failed_ids": [
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01"
+          ],
+          "failed_gates": {
+            "response": 7
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.001800537109375,
+          "within_training_response_safety": 23,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.0018157958984375,
+          "within_training_response_safety": 23,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.0017852783203125,
+          "within_training_response_safety": 24,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 17,
+          "maximum_response_drift": 0.0041351318359375,
+          "within_training_response_safety": 15,
+          "failed_ids": [
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01"
+          ],
+          "failed_gates": {
+            "response": 7
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.001800537109375,
+          "within_training_response_safety": 23,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.0018157958984375,
+          "within_training_response_safety": 23,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "maximum_response_drift": 0.0017852783203125,
+          "within_training_response_safety": 24,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      }
+    },
+    "C141_exposed_confirmation48": {
+      "0": {
+        "raw_control": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 32,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 30,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 16
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 43,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 43,
+          "maximum_response_drift": 0.00225067138671875,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 44,
+          "maximum_response_drift": 0.0023345947265625,
+          "within_training_response_safety": 38,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 32,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 30,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 16
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 43,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 43,
+          "maximum_response_drift": 0.00225067138671875,
+          "within_training_response_safety": 39,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          }
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 44,
+          "maximum_response_drift": 0.0023345947265625,
+          "within_training_response_safety": 38,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        }
+      }
+    },
+    "xor_00": {
+      "0": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 21,
+          "maximum_response_drift": 0.0027008056640625,
+          "within_training_response_safety": 21,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 7
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0021514892578125,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0022125244140625,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0022125244140625,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 21,
+          "maximum_response_drift": 0.0027008056640625,
+          "within_training_response_safety": 21,
+          "failed_ids": [
+            "xor_00__c82_training_center01",
+            "xor_00__c139_kernel_01_n00",
+            "xor_00__c139_kernel_01_n01",
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 7
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0021514892578125,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0022125244140625,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.0022125244140625,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        }
+      }
+    },
+    "xor_01": {
+      "0": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.002532958984375,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.0019378662109375,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.00191497802734375,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.0019683837890625,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 27,
+          "maximum_response_drift": 0.002532958984375,
+          "within_training_response_safety": 26,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.0019378662109375,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.00191497802734375,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 28,
+          "maximum_response_drift": 0.0019683837890625,
+          "within_training_response_safety": 26,
+          "failed_ids": [],
+          "failed_gates": {}
+        }
+      }
+    },
+    "xor_11": {
+      "0": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 10,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 6,
+          "failed_ids": [
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 18
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 22,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225067138671875,
+          "within_training_response_safety": 22,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 25,
+          "maximum_response_drift": 0.0023345947265625,
+          "within_training_response_safety": 21,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 3
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 10,
+          "maximum_response_drift": 0.00452423095703125,
+          "within_training_response_safety": 6,
+          "failed_ids": [
+            "xor_11__c82_training_center01",
+            "xor_11__c90_training_center01",
+            "xor_11__c139_kernel_09_n00",
+            "xor_11__c139_kernel_09_n01",
+            "xor_11__c139_kernel_10_n01",
+            "xor_11__c139_kernel_11_n00",
+            "xor_11__c139_kernel_11_n01",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 18
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225830078125,
+          "within_training_response_safety": 22,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        },
+        "routed_diagonal_continuation": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 24,
+          "maximum_response_drift": 0.00225067138671875,
+          "within_training_response_safety": 22,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          }
+        },
+        "routed_cyclic_coupling": {
+          "n_requested": 28,
+          "n_evaluated": 28,
+          "passed": 25,
+          "maximum_response_drift": 0.0023345947265625,
+          "within_training_response_safety": 21,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 3
+          }
+        }
+      }
+    }
+  },
+  "paired_all_arms": {
+    "all84": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "historical12": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "C139_exposed_kernel24": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "C141_exposed_confirmation48": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_01__c141_confirmation_p05_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "xor_00": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c82_training_center01",
+              "xor_00__c139_kernel_01_n00",
+              "xor_00__c139_kernel_01_n01",
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "xor_01": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_01__c141_confirmation_p05_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "xor_11": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C148_frozen_routed_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_diagonal_continuation": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ]
+          }
+        },
+        "routed_cyclic_coupling": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c82_training_center01",
+              "xor_11__c90_training_center01",
+              "xor_11__c139_kernel_09_n00",
+              "xor_11__c139_kernel_09_n01",
+              "xor_11__c139_kernel_10_n01",
+              "xor_11__c139_kernel_11_n00",
+              "xor_11__c139_kernel_11_n01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C148_frozen_routed_step12": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_diagonal_continuation": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00"
+            ],
+            "destroyed_ids": []
+          },
+          "routed_cyclic_coupling": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    }
+  },
+  "next_branch": "RETAIN_TRAINING_FAILURE_NO_UNSEEN_EVALUATION",
+  "original_inputs_unchanged": {
+    "C149": true,
+    "C148": true,
+    "C147": true,
+    "C146": true,
+    "C145": true,
+    "C143": true
+  },
+  "errors": []
+}

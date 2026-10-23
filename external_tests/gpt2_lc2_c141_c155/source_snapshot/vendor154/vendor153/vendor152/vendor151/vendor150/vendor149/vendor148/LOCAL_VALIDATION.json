@@ -1,0 +1,30 @@
+{
+  "python_compile_validated": true,
+  "local_passing_test_count": 34,
+  "groups": [
+    {
+      "group": "protocol_and_analytic_workflows",
+      "passed": 28,
+      "log": "TESTS_FINAL.log"
+    },
+    {
+      "group": "original_archive_bindings_and_tampering",
+      "passed": 3,
+      "log": "INPUT_TESTS_FINAL.log"
+    },
+    {
+      "group": "isolated_import_bootstrap",
+      "passed": 3,
+      "log": "BOOTSTRAP_FINAL.log"
+    }
+  ],
+  "synthetic_fixture_only": true,
+  "protocol_fixture_uses_analytic_endpoints_not_GPT2": true,
+  "cached_parent_fixture_used_for_local_binding_tests": true,
+  "actual_Torch_available_locally": false,
+  "actual_Torch_tests_executed_locally": false,
+  "mandatory_actual_Torch_tests_in_Colab": 25,
+  "actual_GPT2_executed_locally": false,
+  "real_scientific_result_claim": false,
+  "LC2_closed": false
+}

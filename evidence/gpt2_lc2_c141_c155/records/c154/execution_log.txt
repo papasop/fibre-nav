@@ -1,0 +1,811 @@
+ 请上传一份 C154_CPU_LAUNCHER_BUNDLE.zip；无需解压，不要选择原科学结果ZIP。
+
+     
+     C154_CPU_LAUNCHER_BUNDLE.zip(application/zip) - 1213732 bytes, last modified: 2026/10/23 - 100% done
+      // Copyright 2017 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ * @fileoverview Helpers for google.colab Python module.
+ */
+(function(scope) {
+function span(text, styleAttributes = {}) {
+  const element = document.createElement('span');
+  element.textContent = text;
+  for (const key of Object.keys(styleAttributes)) {
+    element.style[key] = styleAttributes[key];
+  }
+  return element;
+}
+
+// Max number of bytes which will be uploaded at a time.
+const MAX_PAYLOAD_SIZE = 100 * 1024;
+
+function _uploadFiles(inputId, outputId) {
+  const steps = uploadFilesStep(inputId, outputId);
+  const outputElement = document.getElementById(outputId);
+  // Cache steps on the outputElement to make it available for the next call
+  // to uploadFilesContinue from Python.
+  outputElement.steps = steps;
+
+  return _uploadFilesContinue(outputId);
+}
+
+// This is roughly an async generator (not supported in the browser yet),
+// where there are multiple asynchronous steps and the Python side is going
+// to poll for completion of each step.
+// This uses a Promise to block the python side on completion of each step,
+// then passes the result of the previous step as the input to the next step.
+function _uploadFilesContinue(outputId) {
+  const outputElement = document.getElementById(outputId);
+  const steps = outputElement.steps;
+
+  const next = steps.next(outputElement.lastPromiseValue);
+  return Promise.resolve(next.value.promise).then((value) => {
+    // Cache the last promise value to make it available to the next
+    // step of the generator.
+    outputElement.lastPromiseValue = value;
+    return next.value.response;
+  });
+}
+
+/**
+ * Generator function which is called between each async step of the upload
+ * process.
+ * @param {string} inputId Element ID of the input file picker element.
+ * @param {string} outputId Element ID of the output display.
+ * @return {!Iterable<!Object>} Iterable of next steps.
+ */
+function* uploadFilesStep(inputId, outputId) {
+  const inputElement = document.getElementById(inputId);
+  inputElement.disabled = false;
+
+  const outputElement = document.getElementById(outputId);
+  outputElement.innerHTML = '';
+
+  const pickedPromise = new Promise((resolve) => {
+    inputElement.addEventListener('change', (e) => {
+      resolve(e.target.files);
+    });
+  });
+
+  const cancel = document.createElement('button');
+  inputElement.parentElement.appendChild(cancel);
+  cancel.textContent = 'Cancel upload';
+  const cancelPromise = new Promise((resolve) => {
+    cancel.onclick = () => {
+      resolve(null);
+    };
+  });
+
+  // Wait for the user to pick the files.
+  const files = yield {
+    promise: Promise.race([pickedPromise, cancelPromise]),
+    response: {
+      action: 'starting',
+    }
+  };
+
+  cancel.remove();
+
+  // Disable the input element since further picks are not allowed.
+  inputElement.disabled = true;
+
+  if (!files) {
+    return {
+      response: {
+        action: 'complete',
+      }
+    };
+  }
+
+  for (const file of files) {
+    const li = document.createElement('li');
+    li.append(span(file.name, {fontWeight: 'bold'}));
+    li.append(span(
+        `(${file.type || 'n/a'}) - ${file.size} bytes, ` +
+        `last modified: ${
+            file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() :
+                                    'n/a'} - `));
+    const percent = span('0% done');
+    li.appendChild(percent);
+
+    outputElement.appendChild(li);
+
+    const fileDataPromise = new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve(e.target.result);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    // Wait for the data to be ready.
+    let fileData = yield {
+      promise: fileDataPromise,
+      response: {
+        action: 'continue',
+      }
+    };
+
+    // Use a chunked sending to avoid message size limits. See b/62115660.
+    let position = 0;
+    do {
+      const length = Math.min(fileData.byteLength - position, MAX_PAYLOAD_SIZE);
+      const chunk = new Uint8Array(fileData, position, length);
+      position += length;
+
+      const base64 = btoa(String.fromCharCode.apply(null, chunk));
+      yield {
+        response: {
+          action: 'append',
+          file: file.name,
+          data: base64,
+        },
+      };
+
+      let percentDone = fileData.byteLength === 0 ?
+          100 :
+          Math.round((position / fileData.byteLength) * 100);
+      percent.textContent = `${percentDone}% done`;
+
+    } while (position < fileData.byteLength);
+  }
+
+  // All done.
+  yield {
+    response: {
+      action: 'complete',
+    }
+  };
+}
+
+scope.google = scope.google || {};
+scope.google.colab = scope.google.colab || {};
+scope.google.colab._files = {
+  _uploadFiles,
+  _uploadFilesContinue,
+};
+})(self);
+ Saving C154_CPU_LAUNCHER_BUNDLE.zip to C154_CPU_LAUNCHER_BUNDLE.zip
+C154 CPU：配套BUNDLE已校验；真实GPT-2固定方向诊断，全部84态、1512次指标测量。无反传或训练；工作上限120分钟，自测另计；不计LC2通过。
+C154 原始只读输入 C153 /content/drive/MyDrive/GPT2_LC2_C153_READONLY_RATE_AUDIT_CPU_V1_RECOVERY/c153_readonly_rate_audit_1792738699044433706_results.zip
+C154 原始只读输入 C152 /content/drive/MyDrive/GPT2_LC2_C152_FIXED_SMALLSTEP_COUPLING_CPU_V1_RECOVERY/c152_fixed_smallstep_coupling_1792728391669017839_results.zip
+C154 原始只读输入 C150 /content/drive/MyDrive/GPT2_LC2_C150_FIXED_CYCLIC_COUPLING_CPU_V1_RECOVERY/c150_fixed_cyclic_coupling_1792712901321067176_results.zip
+C154 原始只读输入 C149 /content/drive/MyDrive/GPT2_LC2_C149_READONLY_ROUTING_AUDIT_CPU_V1_RECOVERY/c149_readonly_routing_audit_1792711206707001003_results.zip
+C154 原始只读输入 C148 /content/drive/MyDrive/GPT2_LC2_C148_CONTEXT_ROUTED_TRAINING_CPU_V1_RECOVERY/c148_context_routed_training_1792698998188503054_results.zip
+C154 原始只读输入 C147 /content/drive/MyDrive/GPT2_LC2_C147_READONLY_WORST_RESPONSE_AUDIT_CPU_V1_RECOVERY/c147_readonly_worst_response_audit_1792696243740248722_results.zip
+C154 原始只读输入 C146 /content/drive/MyDrive/GPT2_LC2_C146_WORST_RESPONSE_TRAINING_CPU_V1_RECOVERY/c146_worst_response_training_1792662898780534854_results.zip
+C154 原始只读输入 C145 /content/drive/MyDrive/GPT2_LC2_C145_FIXED_DIRECTION_DIAGNOSTIC_CPU_V1_RECOVERY/c145_fixed_direction_diagnostic_1792656305452733480_results.zip
+C154 原始只读输入 C143 /content/drive/MyDrive/GPT2_LC2_C143_JOINT84_TRAINING_CPU_V1_RECOVERY/c143_joint84_training_1792645403197864288_results.zip
+START C154 archives/stencil/seals/FD/no-training synthetic tests
+test_actual_default_runtime_binding_has_current_entrypoint (__main__.MathChecks.test_actual_default_runtime_binding_has_current_entrypoint) ... ok
+test_bad_FD_values_or_scale_block (__main__.MathChecks.test_bad_FD_values_or_scale_block) ... ok
+test_central_and_one_sided_sign_scale (__main__.MathChecks.test_central_and_one_sided_sign_scale) ... ok
+test_disagreement_never_certifies_AD_error (__main__.MathChecks.test_disagreement_never_certifies_AD_error) ... ok
+test_exact_alpha_zero_and_one_restore_archived_bytes (__main__.MathChecks.test_exact_alpha_zero_and_one_restore_archived_bytes) ... ok
+test_fixed_registry_complete_order_and_all84 (__main__.MathChecks.test_fixed_registry_complete_order_and_all84) ... ok
+test_nonfinite_wrong_shape_and_float32_coefficients_block (__main__.MathChecks.test_nonfinite_wrong_shape_and_float32_coefficients_block) ... ok
+test_out_of_box_is_rejected_not_clipped (__main__.MathChecks.test_out_of_box_is_rejected_not_clipped) ... ok
+test_signed_scales_and_units_are_fixed (__main__.MathChecks.test_signed_scales_and_units_are_fixed) ... ok
+test_unregistered_alpha_and_bool_block (__main__.MathChecks.test_unregistered_alpha_and_bool_block) ... ok
+C154 archives/stencil/seals/FD/no-training synthetic tests 运行中 30 秒
+C154 archives/stencil/seals/FD/no-training synthetic tests 运行中 60 秒
+test_actual_future_point_mutation_blocks (__main__.WorkflowChecks.test_actual_future_point_mutation_blocks) ... ok
+test_default_factory_failure_blocks_before_input_or_model (__main__.WorkflowChecks.test_default_factory_failure_blocks_before_input_or_model) ... ok
+C154 archives/stencil/seals/FD/no-training synthetic tests 运行中 90 秒
+test_full_native_stencil_counts_seals_and_no_training (__main__.WorkflowChecks.test_full_native_stencil_counts_seals_and_no_training) ... ok
+test_interruption_retains_attempt_and_no_conclusion (__main__.WorkflowChecks.test_interruption_retains_attempt_and_no_conclusion) ... ok
+C154 archives/stencil/seals/FD/no-training synthetic tests 运行中 120 秒
+test_out_of_box_registry_stops_before_model (__main__.WorkflowChecks.test_out_of_box_registry_stops_before_model) ... ok
+C154 archives/stencil/seals/FD/no-training synthetic tests 运行中 150 秒
+test_repeat_drift_retained_without_derivative_conclusion (__main__.WorkflowChecks.test_repeat_drift_retained_without_derivative_conclusion) ... ok
+test_seal_change_stops_before_first_native_metric (__main__.WorkflowChecks.test_seal_change_stops_before_first_native_metric) ... ok
+test_wrong_production_pin_blocks_before_archive_or_model (__main__.WorkflowChecks.test_wrong_production_pin_blocks_before_archive_or_model) ... ok
+test_zero_direction_stops_before_model (__main__.WorkflowChecks.test_zero_direction_stops_before_model) ... ok
+C154 archives/stencil/seals/FD/no-training synthetic tests 运行中 180 秒
+test_zero_replay_drift_stops_before_probes (__main__.WorkflowChecks.test_zero_replay_drift_stops_before_probes) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 196.580s
+
+OK
+END C154 archives/stencil/seals/FD/no-training synthetic tests exit= 0
+START C154 entrypoint and import-only checks (no tensor validation)
+test_actual_worker_default_factory_can_resolve_without_model_libraries (__main__.Checks.test_actual_worker_default_factory_can_resolve_without_model_libraries) ... ok
+test_no_legacy_functional_backend_import_in_worker (__main__.Checks.test_no_legacy_functional_backend_import_in_worker) ... ok
+test_real_launch_boot_discovers_all_four_forward_Torch_checks (__main__.Checks.test_real_launch_boot_discovers_all_four_forward_Torch_checks) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.336s
+
+OK
+END C154 entrypoint and import-only checks (no tensor validation) exit= 0
+START C154 CPU PyTorch
+CPU_TORCH_READY 2.11.0+cpu 2.1.3
+END C154 CPU PyTorch exit= 0
+C154：在隔离目录安装固定HF依赖；保留系统PyTorch与NumPy。
+START C154 isolated pinned HF dependencies
+Collecting transformers==4.56.2
+  Using cached transformers-4.56.2-py3-none-any.whl.metadata (40 kB)
+Collecting peft==0.17.1
+  Using cached peft-0.17.1-py3-none-any.whl.metadata (14 kB)
+Collecting tokenizers==0.22.0
+  Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting huggingface_hub==0.34.4
+  Using cached huggingface_hub-0.34.4-py3-none-any.whl.metadata (14 kB)
+Collecting accelerate==1.10.1
+  Using cached accelerate-1.10.1-py3-none-any.whl.metadata (19 kB)
+Collecting safetensors==0.6.2
+  Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Using cached transformers-4.56.2-py3-none-any.whl (11.6 MB)
+Using cached peft-0.17.1-py3-none-any.whl (504 kB)
+Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+Using cached huggingface_hub-0.34.4-py3-none-any.whl (561 kB)
+Using cached accelerate-1.10.1-py3-none-any.whl (374 kB)
+Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (485 kB)
+Installing collected packages: transformers, tokenizers, safetensors, peft, huggingface_hub, accelerate
+Successfully installed accelerate-1.10.1 huggingface_hub-0.34.4 peft-0.17.1 safetensors-0.6.2 tokenizers-0.22.0 transformers-4.56.2
+END C154 isolated pinned HF dependencies exit= 0
+START C154 pinned HF check
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+PINNED_HF_DEPENDENCIES_OK ['4.56.2', '0.17.1', '0.22.0', '0.34.4', '1.10.1', '0.6.2']
+END C154 pinned HF check exit= 0
+START C154 actual CPU Torch forward-only smoke
+test_actual_default_factory_chain_is_C154_then_pinned_native (__main__.Checks.test_actual_default_factory_chain_is_C154_then_pinned_native) ... ok
+test_all_signed_proposals_match_Torch_float32_commit (__main__.Checks.test_all_signed_proposals_match_Torch_float32_commit) ... ok
+test_forward_only_frozen_parameters_have_no_gradients (__main__.Checks.test_forward_only_frozen_parameters_have_no_gradients) ... ok
+test_scalar_loss_units_match_original_C152 (__main__.Checks.test_scalar_loss_units_match_original_C152) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.088s
+
+OK
+END C154 actual CPU Torch forward-only smoke exit= 0
+C154：真实GPT-2 CPU；小步长臂step01与step12更新前，固定归档实际更新方向。全84态，±1/4、±1/2、±1；先封存再加载模型。
+168零点前检、1008固定探针、336复测；共1512指标测量、3025模型前向。无反传/训练/选点/新制备态/排除输入。工作上限120分钟，自测和依赖安装另计。
+START C154 fixed native direction diagnostic
+C151_UPDATE_PAIR_AUDIT 1 /12
+C151_UPDATE_PAIR_AUDIT 2 /12
+C151_UPDATE_PAIR_AUDIT 3 /12
+C151_UPDATE_PAIR_AUDIT 4 /12
+C151_UPDATE_PAIR_AUDIT 5 /12
+C151_UPDATE_PAIR_AUDIT 6 /12
+C151_UPDATE_PAIR_AUDIT 7 /12
+C154 fixed native direction diagnostic 运行中 30 秒
+C151_UPDATE_PAIR_AUDIT 8 /12
+C151_UPDATE_PAIR_AUDIT 9 /12
+C151_UPDATE_PAIR_AUDIT 10 /12
+C151_UPDATE_PAIR_AUDIT 11 /12
+C151_UPDATE_PAIR_AUDIT 12 /12
+C153_UPDATE_PAIR_AUDIT 1 /12
+C153_UPDATE_PAIR_AUDIT 2 /12
+C153_UPDATE_PAIR_AUDIT 3 /12
+C153_UPDATE_PAIR_AUDIT 4 /12
+C153_UPDATE_PAIR_AUDIT 5 /12
+C153_UPDATE_PAIR_AUDIT 6 /12
+C153_UPDATE_PAIR_AUDIT 7 /12
+C153_UPDATE_PAIR_AUDIT 8 /12
+C153_UPDATE_PAIR_AUDIT 9 /12
+C153_UPDATE_PAIR_AUDIT 10 /12
+C153_UPDATE_PAIR_AUDIT 11 /12
+C153_UPDATE_PAIR_AUDIT 12 /12
+C154 fixed native direction diagnostic 运行中 60 秒
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+C123_CPU Loading pinned GPT-2 on CPU float32; fresh zero LoRA-B; no GPU requirement.
+`torch_dtype` is deprecated! Use `dtype` instead!
+/content/gpt2_lc2_c154_fixed_direction_cpu_v1/session_1792741096669816938/deps/peft/tuners/lora/layer.py:2174: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+C154 fixed native direction diagnostic 运行中 90 秒
+C154 fixed native direction diagnostic 运行中 120 秒
+C154 fixed native direction diagnostic 运行中 150 秒
+C154 fixed native direction diagnostic 运行中 180 秒
+C154_PANEL small_step01 zero preflight all84 objective 0.07970205571522448
+C154 fixed native direction diagnostic 运行中 210 秒
+C154 fixed native direction diagnostic 运行中 240 秒
+C154 fixed native direction diagnostic 运行中 270 秒
+C154 fixed native direction diagnostic 运行中 300 秒
+C154_PANEL small_step12 zero preflight all84 objective 0.05862967493434308
+C154 fixed native direction diagnostic 运行中 330 秒
+C154 fixed native direction diagnostic 运行中 360 秒
+C154 fixed native direction diagnostic 运行中 390 秒
+C154 fixed native direction diagnostic 运行中 420 秒
+C154_PANEL small_step01 minus_quarter probe all84 objective 0.08904232095293123
+C154 fixed native direction diagnostic 运行中 450 秒
+C154 fixed native direction diagnostic 运行中 480 秒
+C154 fixed native direction diagnostic 运行中 510 秒
+C154 fixed native direction diagnostic 运行中 540 秒
+C154_PANEL small_step01 plus_quarter probe all84 objective 0.07089174283696817
+C154 fixed native direction diagnostic 运行中 570 秒
+C154 fixed native direction diagnostic 运行中 600 秒
+C154 fixed native direction diagnostic 运行中 630 秒
+C154 fixed native direction diagnostic 运行中 660 秒
+C154_PANEL small_step01 minus_half probe all84 objective 0.09890455816384096
+C154 fixed native direction diagnostic 运行中 690 秒
+C154 fixed native direction diagnostic 运行中 720 秒
+C154 fixed native direction diagnostic 运行中 750 秒
+C154 fixed native direction diagnostic 运行中 780 秒
+C154_PANEL small_step01 plus_half probe all84 objective 0.060598706796478316
+C154 fixed native direction diagnostic 运行中 810 秒
+C154 fixed native direction diagnostic 运行中 840 秒
+C154 fixed native direction diagnostic 运行中 870 秒
+C154 fixed native direction diagnostic 运行中 900 秒
+C154_PANEL small_step01 minus_one probe all84 objective 0.12584197694105093
+C154 fixed native direction diagnostic 运行中 930 秒
+C154 fixed native direction diagnostic 运行中 960 秒
+C154 fixed native direction diagnostic 运行中 990 秒
+C154 fixed native direction diagnostic 运行中 1020 秒
+C154 fixed native direction diagnostic 运行中 1050 秒
+C154_PANEL small_step01 plus_one probe all84 objective 0.058635681980588265
+C154 fixed native direction diagnostic 运行中 1080 秒
+C154 fixed native direction diagnostic 运行中 1110 秒
+C154 fixed native direction diagnostic 运行中 1140 秒
+C154 fixed native direction diagnostic 运行中 1170 秒
+C154_PANEL small_step12 minus_quarter probe all84 objective 0.058626607467700806
+C154 fixed native direction diagnostic 运行中 1200 秒
+C154 fixed native direction diagnostic 运行中 1230 秒
+C154 fixed native direction diagnostic 运行中 1260 秒
+C154_PANEL small_step12 plus_quarter probe all84 objective 0.05862885624407211
+C154 fixed native direction diagnostic 运行中 1290 秒
+C154 fixed native direction diagnostic 运行中 1320 秒
+C154 fixed native direction diagnostic 运行中 1350 秒
+C154 fixed native direction diagnostic 运行中 1380 秒
+C154_PANEL small_step12 minus_half probe all84 objective 0.06059064261335213
+C154 fixed native direction diagnostic 运行中 1410 秒
+C154 fixed native direction diagnostic 运行中 1440 秒
+C154 fixed native direction diagnostic 运行中 1470 秒
+C154 fixed native direction diagnostic 运行中 1500 秒
+C154_PANEL small_step12 plus_half probe all84 objective 0.05862258078241368
+C154 fixed native direction diagnostic 运行中 1530 秒
+C154 fixed native direction diagnostic 运行中 1560 秒
+C154 fixed native direction diagnostic 运行中 1590 秒
+C154 fixed native direction diagnostic 运行中 1620 秒
+C154_PANEL small_step12 minus_one probe all84 objective 0.06059243302468472
+C154 fixed native direction diagnostic 运行中 1650 秒
+C154 fixed native direction diagnostic 运行中 1680 秒
+C154 fixed native direction diagnostic 运行中 1710 秒
+C154 fixed native direction diagnostic 运行中 1740 秒
+C154_PANEL small_step12 plus_one probe all84 objective 0.05862285590538242
+C154 fixed native direction diagnostic 运行中 1770 秒
+C154 fixed native direction diagnostic 运行中 1800 秒
+C154 fixed native direction diagnostic 运行中 1830 秒
+C154 fixed native direction diagnostic 运行中 1860 秒
+C154_PANEL small_step01 zero repeat all84 objective 0.07970205571522448
+C154 fixed native direction diagnostic 运行中 1890 秒
+C154 fixed native direction diagnostic 运行中 1920 秒
+C154 fixed native direction diagnostic 运行中 1950 秒
+C154 fixed native direction diagnostic 运行中 1980 秒
+C154_PANEL small_step01 plus_one repeat all84 objective 0.058635681980588265
+C154 fixed native direction diagnostic 运行中 2010 秒
+C154 fixed native direction diagnostic 运行中 2040 秒
+C154 fixed native direction diagnostic 运行中 2070 秒
+C154 fixed native direction diagnostic 运行中 2100 秒
+C154_PANEL small_step12 zero repeat all84 objective 0.05862967493434308
+C154 fixed native direction diagnostic 运行中 2130 秒
+C154 fixed native direction diagnostic 运行中 2160 秒
+C154 fixed native direction diagnostic 运行中 2190 秒
+C154 fixed native direction diagnostic 运行中 2220 秒
+C154_PANEL small_step12 plus_one repeat all84 objective 0.05862285590538242
+{
+  "protocol": "GPT2_LC2_C154_FIXED_DIRECTION_CPU_V1",
+  "complete": true,
+  "decision": "C154_FIXED_DIRECTION_DIAGNOSTIC_COMPLETE_NO_CANDIDATE_SELECTED",
+  "synthetic_fixture": false,
+  "real_model_execution_claim": true,
+  "all84_remain_exposed_training": true,
+  "anchors_requested": 2,
+  "training_states": 84,
+  "requested_native_metrics": 1512,
+  "requested_model_forwards": 3025,
+  "new_model_forwards": 3025,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "new_states_prepared": 0,
+  "new_model_features_acquired": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "GPT2_optimizer_updates": 0,
+  "LoRA_A_optimizer_updates": 0,
+  "base_writer_updates": 0,
+  "teacher_calls": 0,
+  "backtracking_steps": 0,
+  "online_response_repair_steps": 0,
+  "archived_source_executed": false,
+  "gradients_independently_recomputed": false,
+  "AD_accuracy_certified": false,
+  "systematic_forward_error_bound_established": false,
+  "curvature_bound_established": false,
+  "thresholds_changed": false,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "parent_decision_reclassified": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "scope": "Training-only fixed native-forward stencil. Archived gradients remain unverified derivatives. Central and one-sided finite differences at three finite scales, maximizer/hinge switches and float32 point changes are descriptive; no AD error, curvature bound, systematic-error bound, convergence, feasibility or architecture failure is certified. No pass/fail tolerance for derivative agreement is invented. Probes are not selected, deployed or used for online repair. No new states, fitting, backward, optimizer update, Jacobian, SVD, teacher, backtracking, confirmation or excluded-input evaluation. All requested points retained. C153 remains an archive audit, not an independent model replay.",
+  "stage": "complete",
+  "elapsed_worker_seconds": 2237.9750959079975,
+  "process_peak_RSS_KiB": 1410932,
+  "runtime_calls": {
+    "model_forwards": 3025,
+    "initialisation_model_forwards": 1,
+    "preflight_metric_attempts": 168,
+    "preflight_metrics": 168,
+    "path_metric_attempts": 1344,
+    "path_metrics": 1344
+  },
+  "native_metric_records": 1512,
+  "preflight_records": 168,
+  "probe_records": 1008,
+  "repeat_records": 336,
+  "default_runtime_contract_passed": true,
+  "both_zero_panels_replayed_before_probes": true,
+  "repeatable": true,
+  "original_plus_one_replay_consistent": true,
+  "diagnostics": {
+    "small_step01": {
+      "archived_step": 1,
+      "direction_L2": 0.0014646835310628578,
+      "archived_gradient_dot_actual_update": -0.036408811979677685,
+      "archived_base_objective": 0.07970205571522448,
+      "native_minus_archived_base_objective": 0.0,
+      "archived_base_maximizing_state_ids": [
+        "xor_11__c141_confirmation_p09_n01_d00"
+      ],
+      "base_native_objective": 0.07970205571522448,
+      "plus_one_native_objective": 0.058635681980588265,
+      "observed_full_update_objective_change": -0.02106637373463622,
+      "central_slope_spread": 0.004702703887131315,
+      "FD_scales": [
+        {
+          "h": 0.25,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 0.25,
+              "central_slope": -0.03630115623192612,
+              "positive_slope": -0.03524125151302526,
+              "negative_slope": -0.037361060950826974,
+              "recorded_gradient_prediction": -0.036408811979677685,
+              "central_minus_recorded_prediction": 0.00010765574775156717,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 0.25,
+              "central_slope": -0.036301160532256155,
+              "positive_slope": -0.035241255818317,
+              "negative_slope": -0.03736106524619531,
+              "recorded_gradient_prediction": -0.03640881628000772,
+              "central_minus_recorded_prediction": 0.00010765574775156717,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 0.25,
+              "central_slope": 4.300330036139757e-09,
+              "positive_slope": 4.305291719478184e-09,
+              "negative_slope": 4.29536835280133e-09,
+              "recorded_gradient_prediction": 4.300330036139881e-09,
+              "central_minus_recorded_prediction": -1.2407709188295415e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_quarter": 84,
+            "plus_quarter": 84
+          }
+        },
+        {
+          "h": 0.5,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 0.5,
+              "central_slope": -0.03830585136736264,
+              "positive_slope": -0.03820669783749234,
+              "negative_slope": -0.03840500489723295,
+              "recorded_gradient_prediction": -0.036408811979677685,
+              "central_minus_recorded_prediction": -0.0018970393876849567,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 0.5,
+              "central_slope": -0.03830585566769268,
+              "positive_slope": -0.03820670214774574,
+              "negative_slope": -0.038405009187639616,
+              "recorded_gradient_prediction": -0.03640881628000772,
+              "central_minus_recorded_prediction": -0.0018970393876849567,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 0.5,
+              "central_slope": 4.300330036140181e-09,
+              "positive_slope": 4.310253402817458e-09,
+              "negative_slope": 4.2904066694629035e-09,
+              "recorded_gradient_prediction": 4.300330036139881e-09,
+              "central_minus_recorded_prediction": 2.99439381744196e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_half": 84,
+            "plus_half": 84
+          }
+        },
+        {
+          "h": 1.0,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 1.0,
+              "central_slope": -0.03360314748023133,
+              "positive_slope": -0.02106637373463622,
+              "negative_slope": -0.04613992122582644,
+              "recorded_gradient_prediction": -0.036408811979677685,
+              "central_minus_recorded_prediction": 0.0028056644994463587,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 1.0,
+              "central_slope": -0.03360315178056138,
+              "positive_slope": -0.02106637805481299,
+              "negative_slope": -0.046139925506309756,
+              "recorded_gradient_prediction": -0.03640881628000772,
+              "central_minus_recorded_prediction": 0.0028056644994463448,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 1.0,
+              "central_slope": 4.300330036139757e-09,
+              "positive_slope": 4.3201767694941e-09,
+              "negative_slope": 4.280483302785414e-09,
+              "recorded_gradient_prediction": 4.300330036139881e-09,
+              "central_minus_recorded_prediction": -1.2407709188295415e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_one": 84,
+            "plus_one": 84
+          }
+        }
+      ],
+      "zero_repeat_objective_change": 0.0,
+      "plus_one_repeat_objective_change": 0.0,
+      "AD_accuracy_certified": false,
+      "derivative_agreement_rule": null
+    },
+    "small_step12": {
+      "archived_step": 12,
+      "direction_L2": 0.0002482025296781218,
+      "archived_gradient_dot_actual_update": -0.00035367654638275353,
+      "archived_base_objective": 0.05862967493434308,
+      "native_minus_archived_base_objective": 0.0,
+      "archived_base_maximizing_state_ids": [
+        "xor_11__c141_confirmation_p09_n01_d00"
+      ],
+      "base_native_objective": 0.05862967493434308,
+      "plus_one_native_objective": 0.05862285590538242,
+      "observed_full_update_objective_change": -6.8190289606584464e-06,
+      "central_slope_spread": 0.001972559383681058,
+      "FD_scales": [
+        {
+          "h": 0.25,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 0.25,
+              "central_slope": 4.497552742607769e-06,
+              "positive_slope": -3.2747610838879115e-06,
+              "negative_slope": 1.226986656910345e-05,
+              "recorded_gradient_prediction": -0.00035367654638275353,
+              "central_minus_recorded_prediction": 0.0003581740991253613,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 0.25,
+              "central_slope": 4.497354522750574e-06,
+              "positive_slope": -3.274959423898993e-06,
+              "negative_slope": 1.2269668469400141e-05,
+              "recorded_gradient_prediction": -0.00035367674460261273,
+              "central_minus_recorded_prediction": 0.0003581740991253633,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 0.25,
+              "central_slope": 1.9821985917729522e-10,
+              "positive_slope": 1.983400017092351e-10,
+              "negative_slope": 1.9809971664535534e-10,
+              "recorded_gradient_prediction": 1.9821985917785804e-10,
+              "central_minus_recorded_prediction": -5.628188586599085e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_quarter": 84,
+            "plus_quarter": 84
+          }
+        },
+        {
+          "h": 0.5,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 0.5,
+              "central_slope": -0.00196806183093845,
+              "positive_slope": -1.4188303858797546e-05,
+              "negative_slope": -0.003921935358018103,
+              "recorded_gradient_prediction": -0.00035367654638275353,
+              "central_minus_recorded_prediction": -0.0016143852845556966,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 0.5,
+              "central_slope": -0.0019680620291583142,
+              "positive_slope": -1.4188502318948637e-05,
+              "negative_slope": -0.00392193555599768,
+              "recorded_gradient_prediction": -0.00035367674460261273,
+              "central_minus_recorded_prediction": -0.0016143852845557016,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 0.5,
+              "central_slope": 1.9821985917814225e-10,
+              "positive_slope": 1.9846014424202202e-10,
+              "negative_slope": 1.979795741142625e-10,
+              "recorded_gradient_prediction": 1.9821985917785804e-10,
+              "central_minus_recorded_prediction": 2.8421408859439185e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_half": 84,
+            "plus_half": 84
+          }
+        },
+        {
+          "h": 1.0,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 1.0,
+              "central_slope": -0.0009847885596511487,
+              "positive_slope": -6.8190289606584464e-06,
+              "negative_slope": -0.001962758090341639,
+              "recorded_gradient_prediction": -0.00035367654638275353,
+              "central_minus_recorded_prediction": -0.0006311120132683951,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 1.0,
+              "central_slope": -0.0009847887578710093,
+              "positive_slope": -6.819227661089555e-06,
+              "negative_slope": -0.001962758288080929,
+              "recorded_gradient_prediction": -0.00035367674460261273,
+              "central_minus_recorded_prediction": -0.0006311120132683967,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 1.0,
+              "central_slope": 1.9821985917782462e-10,
+              "positive_slope": 1.987004293052665e-10,
+              "negative_slope": 1.9773928905038272e-10,
+              "recorded_gradient_prediction": 1.9821985917785804e-10,
+              "central_minus_recorded_prediction": -3.3423266625970774e-23,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_one": 84,
+            "plus_one": 84
+          }
+        }
+      ],
+      "zero_repeat_objective_change": 0.0,
+      "plus_one_repeat_objective_change": 0.0,
+      "AD_accuracy_certified": false,
+      "derivative_agreement_rule": null
+    }
+  },
+  "all1176_points_frozen_before_model": true,
+  "original_inputs_unchanged": {
+    "C153": true,
+    "C152": true,
+    "C150": true,
+    "C149": true,
+    "C148": true,
+    "C147": true,
+    "C146": true,
+    "C145": true,
+    "C143": true
+  },
+  "errors": []
+}
+END C154 fixed native direction diagnostic exit= 0
+唯一结果总包： /content/gpt2_lc2_c154_fixed_direction_cpu_v1/session_1792741096669816938/c154_fixed_direction_1792741096713648254_results.zip
+RESULT_SHA256 25d79b8ef8e020fa91fa13fad4b220c2f6e7d471f411254db390f855a392d11e
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_LC2_C154_FIXED_DIRECTION_CPU_V1_RECOVERY/c154_fixed_direction_1792741096713648254_results.zip
