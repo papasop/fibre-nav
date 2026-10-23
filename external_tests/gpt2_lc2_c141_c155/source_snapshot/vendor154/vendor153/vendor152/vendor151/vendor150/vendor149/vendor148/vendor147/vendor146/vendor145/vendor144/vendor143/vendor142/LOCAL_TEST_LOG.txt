@@ -1,0 +1,37 @@
+test_C140_actual_step12_tamper_blocks_after_link_rebinding (__main__.Checks.test_C140_actual_step12_tamper_blocks_after_link_rebinding) ... ok
+test_all_source_imports_are_numpy_only (__main__.Checks.test_all_source_imports_are_numpy_only) ... ok
+test_duplicate_zip_names_block (__main__.Checks.test_duplicate_zip_names_block) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1625: UserWarning: Duplicate name: 'x'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+ok
+test_endpoint_gate_forgery_blocks (__main__.Checks.test_endpoint_gate_forgery_blocks) ... ok
+test_fixed_threshold_change_blocks (__main__.Checks.test_fixed_threshold_change_blocks) ... ok
+test_frozen_control_change_blocks_even_rebound (__main__.Checks.test_frozen_control_change_blocks_even_rebound) ... ok
+test_full3211_tail_change_blocks (__main__.Checks.test_full3211_tail_change_blocks) ... ok
+test_full_cpu_readonly_archive_all48_96_288_without_model_or_solve (__main__.Checks.test_full_cpu_readonly_archive_all48_96_288_without_model_or_solve) ... ok
+test_independent_gates_detect_signed_margin_change (__main__.Checks.test_independent_gates_detect_signed_margin_change) ... ok
+test_kernel_gpu_environment_not_mutated_by_launcher (__main__.Checks.test_kernel_gpu_environment_not_mutated_by_launcher) ... ok
+test_launcher_runs_C142_test_and_worker_not_parent (__main__.Checks.test_launcher_runs_C142_test_and_worker_not_parent) ... ok
+test_missing_endpoint_retains_full_denominator_and_blocks (__main__.Checks.test_missing_endpoint_retains_full_denominator_and_blocks) ... ok
+test_missing_preparation_blocks (__main__.Checks.test_missing_preparation_blocks) ... ok
+test_nonfinite_tensor_blocks (__main__.Checks.test_nonfinite_tensor_blocks) ... ok
+test_paired_destruction_forgery_blocks (__main__.Checks.test_paired_destruction_forgery_blocks) ... ok
+test_permuted_endpoint_labels_block (__main__.Checks.test_permuted_endpoint_labels_block) ... ok
+test_production_pin_rejects_synthetic_archive (__main__.Checks.test_production_pin_rejects_synthetic_archive) ... ok
+test_response_effect_not_declared_operator_error_or_bound (__main__.Checks.test_response_effect_not_declared_operator_error_or_bound) ... ok
+test_response_effect_sign_and_scale (__main__.Checks.test_response_effect_sign_and_scale) ... ok
+test_response_effect_zero_denominators_not_invented (__main__.Checks.test_response_effect_zero_denominators_not_invented) ... ok
+test_response_scalar_forgery_blocks (__main__.Checks.test_response_scalar_forgery_blocks) ... ok
+test_round2_repeat_forgery_blocks (__main__.Checks.test_round2_repeat_forgery_blocks) ... ok
+test_signed_float32_anchor_KL_rounding_is_retained (__main__.Checks.test_signed_float32_anchor_KL_rounding_is_retained) ... ok
+test_solver_guard_blocks_decompositions (__main__.Checks.test_solver_guard_blocks_decompositions) ... ok
+test_source_tamper_blocks_even_rebound_manifest (__main__.Checks.test_source_tamper_blocks_even_rebound_manifest) ... ok
+test_summary_forgery_blocks (__main__.Checks.test_summary_forgery_blocks) ... ok
+test_unsafe_archive_paths_block (__main__.Checks.test_unsafe_archive_paths_block) ... ok
+test_whole_hash_mismatch_blocks_before_payload (__main__.Checks.test_whole_hash_mismatch_blocks_before_payload) ... ok
+test_worker_packages_failure_without_model_or_closure (__main__.Checks.test_worker_packages_failure_without_model_or_closure) ... ok
+test_wrong_capture_shape_blocks (__main__.Checks.test_wrong_capture_shape_blocks) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 66.916s
+
+OK

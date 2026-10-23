@@ -1,0 +1,223 @@
+{
+  "protocol": "GPT2_LC2_C155_PAIRED_FORWARD_PRECISION_CPU_V1",
+  "complete": true,
+  "decision": "C155_PAIRED_FORWARD_PRECISION_DIAGNOSTIC_COMPLETE_NO_CANDIDATE_SELECTED",
+  "synthetic_fixture": false,
+  "real_model_execution_claim": true,
+  "all84_remain_exposed_training": true,
+  "training_states_requested": 84,
+  "FP64_focus_state_ids": [
+    "xor_11__c141_confirmation_p09_n01_d00",
+    "xor_11__c141_confirmation_p08_n01_d00"
+  ],
+  "requested_metric_records": 1530,
+  "requested_model_forwards": 3062,
+  "new_model_forwards": 3062,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "new_states_prepared": 0,
+  "new_model_features_acquired": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "GPT2_optimizer_updates": 0,
+  "LoRA_A_optimizer_updates": 0,
+  "base_writer_updates": 0,
+  "teacher_calls": 0,
+  "backtracking_steps": 0,
+  "online_response_repair_steps": 0,
+  "archived_source_executed": false,
+  "gradients_independently_recomputed": false,
+  "AD_accuracy_certified": false,
+  "systematic_forward_error_bound_established": false,
+  "curvature_bound_established": false,
+  "thresholds_changed": false,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "parent_decision_reclassified": false,
+  "FP64_training_qualification_evaluated": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "scope": "Training-only fixed late-direction forward diagnostics. All84 FP32 denominators retained. FP64 covers only two registered exposed states, with separate baseline provenance and coordinate trajectories, no full84 FP64 objective or qualification. No AD correctness/error certification, systematic-error bound, curvature bound, convergence or architecture-feasibility conclusion. No gradients, training, feature acquisition, router/head fitting, selection, deployment, preparation, confirmation or excluded-class evaluation. Original parent decision and FP32 acceptance remain unchanged.",
+  "stage": "complete",
+  "elapsed_worker_seconds": 2491.0817468349996,
+  "process_peak_RSS_KiB": 2805684,
+  "runtime_calls": {
+    "model_forwards": 3062,
+    "initialisation_model_forwards": 1,
+    "preflight_metric_attempts": 84,
+    "preflight_metrics": 84,
+    "path_metric_attempts": 672,
+    "path_metrics": 672,
+    "functional_FP32_forwards": 1512,
+    "functional_FP64_forwards": 37,
+    "functional_FP32_metrics": 756,
+    "FP64_focus_metrics": 18,
+    "FP64_baseline_forwards": 1
+  },
+  "metric_records": 1530,
+  "all84_zero_pairs_checked_before_probes": true,
+  "C154_all756_native_replays_consistent": true,
+  "FP32_repeats_consistent": true,
+  "all756_FP32_pairs_within_original_parity_tolerance": true,
+  "maximum_native_functional_observed_difference": 0.0,
+  "maximum_native_functional_KL_difference": 0.0,
+  "diagnostics": {
+    "all84_FP32_objectives": {
+      "native_FP32": {
+        "base_objective": 0.05862967493434308,
+        "plus_one_change": -6.8190289606584464e-06,
+        "scales": [
+          {
+            "h": 0.25,
+            "central": 4.497552742607769e-06,
+            "positive": -3.2747610838879115e-06,
+            "negative": 1.226986656910345e-05
+          },
+          {
+            "h": 0.5,
+            "central": -0.00196806183093845,
+            "positive": -1.4188303858797546e-05,
+            "negative": -0.003921935358018103
+          },
+          {
+            "h": 1.0,
+            "central": -0.0009847885596511487,
+            "positive": -6.8190289606584464e-06,
+            "negative": -0.001962758090341639
+          }
+        ],
+        "panel_maximizing_state_ids": {
+          "zero": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_quarter": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_quarter": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_half": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_half": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_one": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_one": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ]
+        }
+      },
+      "functional_FP32": {
+        "base_objective": 0.05862967493434308,
+        "plus_one_change": -6.8190289606584464e-06,
+        "scales": [
+          {
+            "h": 0.25,
+            "central": 4.497552742607769e-06,
+            "positive": -3.2747610838879115e-06,
+            "negative": 1.226986656910345e-05
+          },
+          {
+            "h": 0.5,
+            "central": -0.00196806183093845,
+            "positive": -1.4188303858797546e-05,
+            "negative": -0.003921935358018103
+          },
+          {
+            "h": 1.0,
+            "central": -0.0009847885596511487,
+            "positive": -6.8190289606584464e-06,
+            "negative": -0.001962758090341639
+          }
+        ],
+        "panel_maximizing_state_ids": {
+          "zero": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_quarter": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_quarter": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_half": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_half": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "minus_one": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_one": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ]
+        }
+      }
+    },
+    "FP64_focus_summaries": [
+      {
+        "state_id": "xor_11__c141_confirmation_p09_n01_d00",
+        "repeats": [
+          {
+            "label": "zero",
+            "local_observed_change_Linf": 0.0,
+            "cross_observed_change_Linf": 0.0,
+            "KL_local_change": 0.0
+          },
+          {
+            "label": "plus_one",
+            "local_observed_change_Linf": 0.0,
+            "cross_observed_change_Linf": 0.0,
+            "KL_local_change": 0.0
+          }
+        ],
+        "maximum_response_reference_offset": 1.3905392165725061e-05
+      },
+      {
+        "state_id": "xor_11__c141_confirmation_p08_n01_d00",
+        "repeats": [
+          {
+            "label": "zero",
+            "local_observed_change_Linf": 0.0,
+            "cross_observed_change_Linf": 0.0,
+            "KL_local_change": 0.0
+          },
+          {
+            "label": "plus_one",
+            "local_observed_change_Linf": 0.0,
+            "cross_observed_change_Linf": 0.0,
+            "KL_local_change": 0.0
+          }
+        ],
+        "maximum_response_reference_offset": 1.3905392165725061e-05
+      }
+    ],
+    "FP64_full84_objective_available": false,
+    "FP64_is_ground_truth": false,
+    "AD_error_established": false,
+    "systematic_error_bound_established": false,
+    "causal_failure_explanation_established": false
+  },
+  "all588_point_entries_sealed_before_model": true,
+  "original_inputs_unchanged": {
+    "C154": true,
+    "C153": true,
+    "C152": true,
+    "C150": true,
+    "C149": true,
+    "C148": true,
+    "C147": true,
+    "C146": true,
+    "C145": true,
+    "C143": true
+  },
+  "errors": []
+}

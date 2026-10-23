@@ -1,0 +1,87 @@
+"""CPU NumPy-only launcher; no model dependencies or archived-code execution."""
+from pathlib import Path
+import os,shutil,signal,subprocess,sys,threading,time,traceback,zipfile
+from core142 import *
+
+def child_environment():return dict(os.environ,CUDA_VISIBLE_DEVICES='',OPENBLAS_NUM_THREADS='2',OMP_NUM_THREADS='2',MKL_NUM_THREADS='2',PYTHONDONTWRITEBYTECODE='1')
+
+def visible(cmd,label,timeout,env,log):
+    print('START',label,flush=True);started=time.monotonic();p=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,bufsize=1,env=env,start_new_session=True)
+    def drain():
+        for line in p.stdout:print(line,end='',flush=True);log.write(line);log.flush()
+    reader=threading.Thread(target=drain,daemon=True);reader.start()
+    try:
+        while True:
+            try:code=p.wait(timeout=min(30,max(.1,timeout-(time.monotonic()-started))));break
+            except subprocess.TimeoutExpired:
+                if time.monotonic()-started>=timeout:raise TimeoutError(label+' exceeded fixed budget')
+                print(label,'运行中',int(time.monotonic()-started),'秒',flush=True)
+        reader.join(timeout=5);need(code==0,label+' exit='+str(code));print('END',label,'exit=',code,flush=True)
+    except BaseException:
+        try:os.killpg(p.pid,signal.SIGKILL)
+        except ProcessLookupError:pass
+        p.wait();reader.join(timeout=5);raise
+
+def choose(kind,explicit='',drive=Path('/content/drive/MyDrive')):
+    r=clean_json((ROOT/'INPUT_PINS.json').read_bytes())[kind]
+    if explicit:
+        p=Path(explicit).expanduser().resolve();need(p.is_file() and sha(p)==r['sha256'],'Wrong fixed original '+kind);return p
+    preferred=drive/Path(r['path']).relative_to('/content/drive/MyDrive')
+    for p in [preferred,Path('/content')/preferred.name]:
+        if p.is_file() and sha(p)==r['sha256']:return p
+    raise FileNotFoundError('未找到固定'+kind+'科学结果ZIP。请挂载原Drive或填写'+kind+'_ZIP绝对路径；内容仍须匹配原哈希。')
+
+def start(use_drive=True,inputs=None,auto_download=True,base=None):
+    manifest=clean_json((ROOT/'SOURCE_MANIFEST.json').read_bytes());actual={p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+    need(actual==set(manifest)|{'SOURCE_MANIFEST.json'},'C142 source inventory changed')
+    for n,h in manifest.items():need(sha(ROOT/n)==h,'C142 delivered source changed: '+n)
+    base=Path(base or ('/content' if Path('/content').is_dir() else Path.cwd()));session=base/'gpt2_lc2_c142_readonly_confirmation_audit_cpu_v1'/('session_'+str(time.time_ns()));out=session/'run';out.mkdir(parents=True)
+    shutil.copytree(ROOT,out/'source',ignore=shutil.ignore_patterns('__pycache__'));dump(out/'STATUS.json',dict(protocol=PROTOCOL,complete=False,stage='launcher_started'))
+    originals={};failure=None;drive=Path('/content/drive/MyDrive');pins=clean_json((ROOT/'INPUT_PINS.json').read_bytes());result=session/('c142_readonly_confirmation_audit_'+str(time.time_ns())+'_results.zip')
+    deps=session/'deps';deps.mkdir()
+    boot='import sys,runpy;d=sys.argv.pop(1);r=sys.argv.pop(1);sys.path[:0]=[d,r];p=sys.argv[1];sys.argv=sys.argv[1:];runpy.run_path(p,run_name="__main__")'
+    prefix=[sys.executable,'-u','-I','-c',boot,str(deps),str(ROOT)];env=child_environment()
+    try:
+        if use_drive and not drive.is_dir():
+            from google.colab import drive as gd
+            gd.mount('/content/drive')
+        for k in ('C141','C140'):
+            originals[k]=choose(k,(inputs or {}).get(k,''),drive);print('C142 原始只读输入',k,str(originals[k]),flush=True)
+        dump(out/'ORIGINAL_INPUTS.json',{k:dict(path=str(p),sha256=sha(p)) for k,p in originals.items()})
+        with (out/'console.log').open('w',encoding='utf-8') as log:
+            visible(prefix+[str(ROOT/'test142.py')],'C142 archives/frozen-head/gates/residuals/no-model tests',2400,env,log)
+            visible([sys.executable,'-I','-c',"import numpy;print('CPU_NUMPY_READY',numpy.__version__,flush=True)"],'C142 CPU NumPy',90,env,log)
+            print('C142：CPU纯NumPy；固定C141与C140原包。核对原候选、48写前映射、96制备、288端点、144已知重放；重算全部门槛、配对得失及两档扰动统计。',flush=True)
+            print('保留全部失败；不选小半径子集、不训练/加载模型/前向/反传/求解/Jacobian/SVD；残差分解不证明物理因果。工作进程上限20分钟，合成测试上限40分钟，分别计时。',flush=True)
+            args=[]
+            for k,p in originals.items():args+=['--'+k.lower(),str(p)]
+            visible(prefix+[str(ROOT/'worker142.py')]+args+['--out',str(out)],'C142 read-only confirmation archive audit',TIMEOUT,env,log)
+        s=clean_json((out/'SUMMARY.json').read_bytes());need(s.get('complete') is True,'C142 incomplete');dump(out/'STATUS.json',dict(protocol=PROTOCOL,complete=True,stage='readonly_audit_complete_parent_retained'))
+    except BaseException as e:
+        failure=e;dump(out/'LAUNCHER_ERROR.json',dict(type=type(e).__name__,message=str(e),traceback=traceback.format_exc()));print('C142 stopped:',type(e).__name__,str(e),flush=True)
+    finally:
+        checks={}
+        for k,p in originals.items():
+            try:checks[k]=sha(p)==pins[k]['sha256']
+            except Exception:checks[k]=False
+        dump(out/'ORIGINAL_INPUTS_UNCHANGED.json',checks)
+        if not all(checks.values()):failure=failure or ValueError('Original input changed')
+        if failure:
+            s=clean_json((out/'SUMMARY.json').read_bytes()) if (out/'SUMMARY.json').is_file() else dict(protocol=PROTOCOL,states_audited=0,preparation_records_audited=0,endpoint_records_audited=0,new_training_steps=0,new_backward_calls=0,new_model_forwards=0,new_head_fits=0,new_Jacobians=0,new_SVD_calls=0,linear_systems_solved=0,LC2_closed=False,LC2_single_fold_passed=False,candidate_selected=False,parent_decision_reclassified=False)
+            s.update(complete=False,decision='C142_INCOMPLETE_AUDIT_NOT_ACCEPTED',launcher_failure=str(failure));dump(out/'SUMMARY.json',s);dump(out/'STATUS.json',dict(protocol=PROTOCOL,complete=False,stage='stopped_and_packaged'))
+        result_manifest={p.relative_to(out).as_posix():sha(p) for p in out.rglob('*') if p.is_file() and p.name!='RESULT_MANIFEST.json'};dump(out/'RESULT_MANIFEST.json',result_manifest)
+        with zipfile.ZipFile(result,'w',zipfile.ZIP_DEFLATED) as z:
+            for p in sorted(out.rglob('*')):
+                if p.is_file():z.write(p,p.relative_to(out).as_posix())
+        print('唯一结果总包：',result,flush=True);print('RESULT_SHA256',sha(result),flush=True)
+        if use_drive and drive.is_dir():
+            try:
+                target=drive/(PROTOCOL+'_RECOVERY')/result.name;target.parent.mkdir(exist_ok=True);shutil.copy2(result,target);need(sha(target)==sha(result),'Drive backup hash differs');print('DRIVE_BACKUP_OK',target,flush=True)
+            except Exception as e:print('Drive备份失败；本地总包保留：',repr(e),flush=True)
+        if auto_download:
+            try:
+                from google.colab import files
+                files.download(str(result))
+            except Exception as e:print('请从上方路径下载总包：',repr(e),flush=True)
+    if failure:raise RuntimeError('C142未完成；已封装失败结果：'+str(result)) from failure
+    return result

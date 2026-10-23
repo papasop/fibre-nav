@@ -15,6 +15,7 @@ writer has not yet been accepted as one integrated system.
 
 > **Start here:** [Unified evidence matrix, verification tiers and gaps](docs/PARAMETRIC_MEMORY_EVIDENCE_MATRIX.md)
 > · [Parametric-memory research and historical evidence](docs/PROGRAMMABLE_PARAMETRIC_MEMORY.md)
+> · [C141–C155 development evidence and numerical diagnostics](docs/LINE_C_C141_C155.md)
 > · [LC1–LC6 validation framework](docs/LINE_C_VALIDATION_TARGETS.md)
 > · [Proposed B5/frozen-writer integration](docs/B5_FROZEN_WRITER_INTEGRATION.md)
 
@@ -40,6 +41,7 @@ mechanism; it is not presented as a new mathematical discovery.
 | Learned operation selection (B5) | [V5 four-input XOR development coverage, 4/4](evidence/gpt2_b5_xor_continuation_a100_v5/), retaining [V4's 2/4 failure](evidence/gpt2_b5_xor_truth_table_a100_v4/) | One backbone with partitioned adapters; 00/01 inherited, 10/11 continued with expanded compute caps and unchanged endpoint gates. Runtime supplies routing, XOR and numerical writes; independent B5 confirmation pending. |
 | Frozen local writing (Line C / LC1) | [C35–C37 execution logs](docs/LINE_C_LOCAL_WRITING.md): fixed-geometry and learned-calibration composites both pass 16/16, 32/32 and 32/32; raw core passes 3/16, 5/32 and 7/32 | Related same-model/chart development cohorts. Fixed geometry also succeeds, so learned calibration necessity or superiority is not established. Full result ZIP and frozen-weight audit pending. |
 | LC2 development and audit | [C52/C54 original compact records](evidence/gpt2_lc2_c52_c54_c55/): both 32/36 on historical seen-class states; C54 remains `C54_DEVELOPMENT_FAILURE`. C55 has a completed read-only audit record retaining this decision | Full local ZIP hashes and compact record consistency checked; full public attachments pending. No excluded-class evaluation or independent model replay; LC2 remains open. |
+| Later LC2 development | [C141/C142/C148/C150 compact archive-backed evidence; C154/C155 logs](docs/LINE_C_C141_C155.md): C140 42/48 in each seen-class confirmation round; C148 79/84 in both training arms; C150 diagonal/cyclic 79/84 and 80/84 | Failures retained; later 84 states are exposed training. C154/C155 are numerical diagnostics at log tier, not proof of AD error. No excluded-input acceptance; **LC2 open**. |
 | Transfer and internalisation (LC2–LC6) | [Separately declared validation targets](docs/LINE_C_VALIDATION_TARGETS.md) | Excluded-request generalisation, scale, cross-model transfer, continual writing and native updates remain open. |
 | Qwen / geometry / optimization | [Separate branches and evidence index](docs/RESPONSE_FIBRE_FOUNDATIONS.md) · [Qwen status](docs/PROGRAMMABLE_PARAMETRIC_MEMORY.md#qwen-status-and-missing-version-evidence) | GPT-2 results do not change these branches' claims. |
 
@@ -61,17 +63,24 @@ for their specific scope.
 
 ## Verify existing evidence without a GPU
 
-From the repository root, with Python 3 and no model download:
+From the repository root, with Python 3 and no model download. The C141–C155
+checker requires Python 3.10+ and NumPy and performs only archive arithmetic:
 
 ```bash
 python3 evidence/gpt2_line_c_c35_c37/verify_reported_evidence.py
 python3 evidence/gpt2_lc2_c52_c54_c55/verify_records.py
+python3 evidence/gpt2_lc2_c141_c155/verify_records.py
 python3 evidence/gpt2_b5_xor_continuation_a100_v5/verify_archive.py
 python3 evidence/gpt2_b5_xor_truth_table_a100_v4/verify_archive.py
 python3 evidence/gpt2_b5_single_backbone_a100_v3/verify_archive.py
 python3 evidence/gpt2_b5_trained_dispatch_a100_v2/verify_archive.py
 python3 evidence/gpt2_b4_minimal_causal_a100_v1/verify_archive.py
 ```
+
+C141–C155 checks the delivered compact members, included tensors, reconstructed
+proposals and gates plus two log summaries. Four full-result audits are recorded
+as performed during packaging; this checkout does not contain or rehash those
+full ZIPs. Verifier completion does not mean LC2 completion.
 
 The C35–C37 check verifies source identities and log-derived records; the
 C52/C54/C55 check verifies compact hashes, parent identities and recorded gates; the B4/B5

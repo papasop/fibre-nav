@@ -1,0 +1,52 @@
+{
+  "protocol": "GPT2_LC2_C153_READONLY_RATE_AUDIT_CPU_V1",
+  "input_archives": [
+    "C152",
+    "C150",
+    "C149",
+    "C148",
+    "C147",
+    "C146",
+    "C145",
+    "C143"
+  ],
+  "training_states": 84,
+  "training_updates": 24,
+  "training_records": 2016,
+  "native_preflight_records": 336,
+  "functional_zero_records": 84,
+  "functional_warm_records": 168,
+  "frozen_points": 336,
+  "native_endpoint_records": 672,
+  "arms": [
+    "raw_control",
+    "C150_frozen_cyclic_step12",
+    "cyclic_rate_5e4",
+    "cyclic_rate_1e4"
+  ],
+  "learning_rates": {
+    "cyclic_rate_5e4": 0.0005,
+    "cyclic_rate_1e4": 0.0001
+  },
+  "acceptance_budgets": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05,
+    "proposal_radius": 20.0,
+    "radius_rounding_allowance": 1e-05
+  },
+  "arithmetic": "Independent explicit-left float64 mixing, positive cyclic shift1 proposal, loss, pullback, exact-max aggregation and two-rate Adam; exact actual initial/final tensors and frozen points; all84 native gates and rescue/destruction pairs reconstructed.",
+  "coverage": "Eight original ZIPs rehashed, C152 trusted source matched, trusted C152 reader reruns C151 audit of C150 and rebinds all84 inputs. Original C149 remains a sealed audit receipt; older recursive audits are not rerun.",
+  "diagnostics": "All84 response-coordinate slack and all2016 recorded update/transition diagnostics; both arms diagonal/cross decomposition, response/guard alignment, box projection, baseline-to-final failures and within-run response threshold crossings. Every exposed state remains training. No checkpoint/arm or schedule selected.",
+  "worker_budget_seconds": 1200,
+  "scope": "Read-only CPU archive and frozen-tensor arithmetic. Archived gradients are unverified derivative inputs. No independent model replay, new endpoint, true-gradient/curvature certification, causal optimizer diagnosis, convergence, feasibility/infeasibility or excluded-input generalisation. Last recorded transition bridges a functional observation and a native endpoint, and includes any forward-path difference. Archive consistency cannot prove measurement accuracy, chronology or non-access. No candidate, checkpoint, schedule or deployment selected.",
+  "new_model_forwards": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false
+}

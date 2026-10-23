@@ -1,0 +1,30 @@
+test_Adam_zero_gradient_noop_and_projection (__main__.MathChecks.test_Adam_zero_gradient_noop_and_projection) ... ok
+test_common_initial_full_cyclic_head_has_nonzero_cross (__main__.MathChecks.test_common_initial_full_cyclic_head_has_nonzero_cross) ... ok
+test_cyclic_map_matches_independent_dense_operator (__main__.MathChecks.test_cyclic_map_matches_independent_dense_operator) ... ok
+test_initial_map_matches_both_arms_for_all84 (__main__.MathChecks.test_initial_map_matches_both_arms_for_all84) ... ok
+test_max_ties_and_missing_rows_are_not_selected_away (__main__.MathChecks.test_max_ties_and_missing_rows_are_not_selected_away) ... ok
+test_nonfinite_out_of_box_bad_shapes_and_weights_block (__main__.MathChecks.test_nonfinite_out_of_box_bad_shapes_and_weights_block) ... ok
+test_parameter_counts_matched_and_registered_rates (__main__.MathChecks.test_parameter_counts_matched_and_registered_rates) ... ok
+test_phase_blocks_partial_zero_warm_batches_or_final_freeze (__main__.MathChecks.test_phase_blocks_partial_zero_warm_batches_or_final_freeze) ... ok
+test_pullback_matches_independent_central_difference (__main__.MathChecks.test_pullback_matches_independent_central_difference) ... ok
+test_same_gradient_same_moments_only_update_rate_differs (__main__.MathChecks.test_same_gradient_same_moments_only_update_rate_differs) ... ok
+test_unregistered_arm_or_step_block (__main__.MathChecks.test_unregistered_arm_or_step_block) ... ok
+test_final_failure_retained_and_small_rate_not_automatically_qualified (__main__.WorkflowChecks.test_final_failure_retained_and_small_rate_not_automatically_qualified) ... ok
+test_full_two_rate_workflow_complete_counts_and_fixed_final_seals (__main__.WorkflowChecks.test_full_two_rate_workflow_complete_counts_and_fixed_final_seals) ... ok
+test_interruption_never_qualifies_either_arm (__main__.WorkflowChecks.test_interruption_never_qualifies_either_arm) ... ok
+test_missing_gradient_state_blocks (__main__.WorkflowChecks.test_missing_gradient_state_blocks) ... ok
+test_native_replay_drift_blocks_before_backward (__main__.WorkflowChecks.test_native_replay_drift_blocks_before_backward) ... ok
+test_nonfinite_gradient_blocks (__main__.WorkflowChecks.test_nonfinite_gradient_blocks) ... ok
+test_registered_rate_mutation_blocks (__main__.WorkflowChecks.test_registered_rate_mutation_blocks) ... ok
+test_repeat_drift_blocks_both_arms (__main__.WorkflowChecks.test_repeat_drift_blocks_both_arms) ... ok
+test_router_mutation_blocks (__main__.WorkflowChecks.test_router_mutation_blocks) ... ok
+test_warm_functional_drift_blocks_before_backward (__main__.WorkflowChecks.test_warm_functional_drift_blocks_before_backward) ... ok
+test_worker_default_binding_failure_stops_before_input_or_model (__main__.WorkflowChecks.test_worker_default_binding_failure_stops_before_input_or_model) ... ok
+test_worker_defaults_are_resolved_before_input_loader (__main__.WorkflowChecks.test_worker_defaults_are_resolved_before_input_loader) ... ok
+test_wrong_pullback_blocks (__main__.WorkflowChecks.test_wrong_pullback_blocks) ... ok
+test_zero_functional_drift_blocks_before_backward (__main__.WorkflowChecks.test_zero_functional_drift_blocks_before_backward) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 125.512s
+
+OK

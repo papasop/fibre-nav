@@ -1,0 +1,49 @@
+{
+  "protocol": "GPT2_LC2_C147_READONLY_WORST_RESPONSE_AUDIT_CPU_V1",
+  "input_archives": [
+    "C146",
+    "C145",
+    "C143"
+  ],
+  "training_states": 84,
+  "training_steps": 12,
+  "training_records": 1008,
+  "native_preflight_records": 336,
+  "zero_parity_records": 84,
+  "warm_parity_records": 84,
+  "sealed_final_proposals": 252,
+  "final_endpoint_records": 504,
+  "arms": [
+    "raw_control",
+    "C143_frozen_step12",
+    "C146_fixed_step12"
+  ],
+  "acceptance_budgets": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05,
+    "proposal_radius": 20.0,
+    "radius_rounding_allowance": 1e-05
+  },
+  "training_safety": {
+    "response": 0.0018,
+    "read_margin": 0.075,
+    "KL": 0.0045
+  },
+  "arithmetic": "Independently express max-hinge and guard losses, exact-max tie weights, per-state gradient contributions, clipped/projected Adam, finite proposals, native gates and paired rescue/destruction. Use recorded response/guard gradient vectors as unverified inputs.",
+  "diagnostics": "All84 state histories, exact active response coordinates, maximizer switches, response/guard contribution norms and alignments, box projection, actual update displacements, archived-gradient linear predictions versus next recorded observations; final comparison uses native endpoints and is labelled separately.",
+  "coverage": "Rehash original C146/C145/C143 bytes. Recompute C145 archival arithmetic with delivered pinned reader. Other linked original C144/C140/C141/C142 ZIP bytes are not reopened or rehashed.",
+  "parent_decision_reclassified": false,
+  "candidate_selected": false,
+  "LC2_closed": false,
+  "new_model_forwards": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "archived_source_executed": false,
+  "worker_budget_seconds": 1200,
+  "scope": "CPU frozen-tensor and archive arithmetic only; no model replay or true-gradient recomputation. Cannot prove measurement accuracy, chronology, non-access, stationary/converged behaviour, step-size causality, feature insufficiency, feasibility/infeasibility or generalisation. Predictions across max switches, float32 commits and nonlinear endpoints are descriptive, not derivative-error or curvature bounds. No new checkpoint or schedule is selected."
+}

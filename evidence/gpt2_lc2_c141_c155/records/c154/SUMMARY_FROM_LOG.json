@@ -1,0 +1,409 @@
+{
+  "protocol": "GPT2_LC2_C154_FIXED_DIRECTION_CPU_V1",
+  "complete": true,
+  "decision": "C154_FIXED_DIRECTION_DIAGNOSTIC_COMPLETE_NO_CANDIDATE_SELECTED",
+  "synthetic_fixture": false,
+  "real_model_execution_claim": true,
+  "all84_remain_exposed_training": true,
+  "anchors_requested": 2,
+  "training_states": 84,
+  "requested_native_metrics": 1512,
+  "requested_model_forwards": 3025,
+  "new_model_forwards": 3025,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "new_states_prepared": 0,
+  "new_model_features_acquired": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "GPT2_optimizer_updates": 0,
+  "LoRA_A_optimizer_updates": 0,
+  "base_writer_updates": 0,
+  "teacher_calls": 0,
+  "backtracking_steps": 0,
+  "online_response_repair_steps": 0,
+  "archived_source_executed": false,
+  "gradients_independently_recomputed": false,
+  "AD_accuracy_certified": false,
+  "systematic_forward_error_bound_established": false,
+  "curvature_bound_established": false,
+  "thresholds_changed": false,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "parent_decision_reclassified": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "scope": "Training-only fixed native-forward stencil. Archived gradients remain unverified derivatives. Central and one-sided finite differences at three finite scales, maximizer/hinge switches and float32 point changes are descriptive; no AD error, curvature bound, systematic-error bound, convergence, feasibility or architecture failure is certified. No pass/fail tolerance for derivative agreement is invented. Probes are not selected, deployed or used for online repair. No new states, fitting, backward, optimizer update, Jacobian, SVD, teacher, backtracking, confirmation or excluded-input evaluation. All requested points retained. C153 remains an archive audit, not an independent model replay.",
+  "stage": "complete",
+  "elapsed_worker_seconds": 2237.9750959079975,
+  "process_peak_RSS_KiB": 1410932,
+  "runtime_calls": {
+    "model_forwards": 3025,
+    "initialisation_model_forwards": 1,
+    "preflight_metric_attempts": 168,
+    "preflight_metrics": 168,
+    "path_metric_attempts": 1344,
+    "path_metrics": 1344
+  },
+  "native_metric_records": 1512,
+  "preflight_records": 168,
+  "probe_records": 1008,
+  "repeat_records": 336,
+  "default_runtime_contract_passed": true,
+  "both_zero_panels_replayed_before_probes": true,
+  "repeatable": true,
+  "original_plus_one_replay_consistent": true,
+  "diagnostics": {
+    "small_step01": {
+      "archived_step": 1,
+      "direction_L2": 0.0014646835310628578,
+      "archived_gradient_dot_actual_update": -0.036408811979677685,
+      "archived_base_objective": 0.07970205571522448,
+      "native_minus_archived_base_objective": 0.0,
+      "archived_base_maximizing_state_ids": [
+        "xor_11__c141_confirmation_p09_n01_d00"
+      ],
+      "base_native_objective": 0.07970205571522448,
+      "plus_one_native_objective": 0.058635681980588265,
+      "observed_full_update_objective_change": -0.02106637373463622,
+      "central_slope_spread": 0.004702703887131315,
+      "FD_scales": [
+        {
+          "h": 0.25,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 0.25,
+              "central_slope": -0.03630115623192612,
+              "positive_slope": -0.03524125151302526,
+              "negative_slope": -0.037361060950826974,
+              "recorded_gradient_prediction": -0.036408811979677685,
+              "central_minus_recorded_prediction": 0.00010765574775156717,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 0.25,
+              "central_slope": -0.036301160532256155,
+              "positive_slope": -0.035241255818317,
+              "negative_slope": -0.03736106524619531,
+              "recorded_gradient_prediction": -0.03640881628000772,
+              "central_minus_recorded_prediction": 0.00010765574775156717,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 0.25,
+              "central_slope": 4.300330036139757e-09,
+              "positive_slope": 4.305291719478184e-09,
+              "negative_slope": 4.29536835280133e-09,
+              "recorded_gradient_prediction": 4.300330036139881e-09,
+              "central_minus_recorded_prediction": -1.2407709188295415e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_quarter": 84,
+            "plus_quarter": 84
+          }
+        },
+        {
+          "h": 0.5,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 0.5,
+              "central_slope": -0.03830585136736264,
+              "positive_slope": -0.03820669783749234,
+              "negative_slope": -0.03840500489723295,
+              "recorded_gradient_prediction": -0.036408811979677685,
+              "central_minus_recorded_prediction": -0.0018970393876849567,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 0.5,
+              "central_slope": -0.03830585566769268,
+              "positive_slope": -0.03820670214774574,
+              "negative_slope": -0.038405009187639616,
+              "recorded_gradient_prediction": -0.03640881628000772,
+              "central_minus_recorded_prediction": -0.0018970393876849567,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 0.5,
+              "central_slope": 4.300330036140181e-09,
+              "positive_slope": 4.310253402817458e-09,
+              "negative_slope": 4.2904066694629035e-09,
+              "recorded_gradient_prediction": 4.300330036139881e-09,
+              "central_minus_recorded_prediction": 2.99439381744196e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_half": 84,
+            "plus_half": 84
+          }
+        },
+        {
+          "h": 1.0,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 1.0,
+              "central_slope": -0.03360314748023133,
+              "positive_slope": -0.02106637373463622,
+              "negative_slope": -0.04613992122582644,
+              "recorded_gradient_prediction": -0.036408811979677685,
+              "central_minus_recorded_prediction": 0.0028056644994463587,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 1.0,
+              "central_slope": -0.03360315178056138,
+              "positive_slope": -0.02106637805481299,
+              "negative_slope": -0.046139925506309756,
+              "recorded_gradient_prediction": -0.03640881628000772,
+              "central_minus_recorded_prediction": 0.0028056644994463448,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 1.0,
+              "central_slope": 4.300330036139757e-09,
+              "positive_slope": 4.3201767694941e-09,
+              "negative_slope": 4.280483302785414e-09,
+              "recorded_gradient_prediction": 4.300330036139881e-09,
+              "central_minus_recorded_prediction": -1.2407709188295415e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_one": 84,
+            "plus_one": 84
+          }
+        }
+      ],
+      "zero_repeat_objective_change": 0.0,
+      "plus_one_repeat_objective_change": 0.0,
+      "AD_accuracy_certified": false,
+      "derivative_agreement_rule": null
+    },
+    "small_step12": {
+      "archived_step": 12,
+      "direction_L2": 0.0002482025296781218,
+      "archived_gradient_dot_actual_update": -0.00035367654638275353,
+      "archived_base_objective": 0.05862967493434308,
+      "native_minus_archived_base_objective": 0.0,
+      "archived_base_maximizing_state_ids": [
+        "xor_11__c141_confirmation_p09_n01_d00"
+      ],
+      "base_native_objective": 0.05862967493434308,
+      "plus_one_native_objective": 0.05862285590538242,
+      "observed_full_update_objective_change": -6.8190289606584464e-06,
+      "central_slope_spread": 0.001972559383681058,
+      "FD_scales": [
+        {
+          "h": 0.25,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 0.25,
+              "central_slope": 4.497552742607769e-06,
+              "positive_slope": -3.2747610838879115e-06,
+              "negative_slope": 1.226986656910345e-05,
+              "recorded_gradient_prediction": -0.00035367654638275353,
+              "central_minus_recorded_prediction": 0.0003581740991253613,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 0.25,
+              "central_slope": 4.497354522750574e-06,
+              "positive_slope": -3.274959423898993e-06,
+              "negative_slope": 1.2269668469400141e-05,
+              "recorded_gradient_prediction": -0.00035367674460261273,
+              "central_minus_recorded_prediction": 0.0003581740991253633,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 0.25,
+              "central_slope": 1.9821985917729522e-10,
+              "positive_slope": 1.983400017092351e-10,
+              "negative_slope": 1.9809971664535534e-10,
+              "recorded_gradient_prediction": 1.9821985917785804e-10,
+              "central_minus_recorded_prediction": -5.628188586599085e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_quarter": 84,
+            "plus_quarter": 84
+          }
+        },
+        {
+          "h": 0.5,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 0.5,
+              "central_slope": -0.00196806183093845,
+              "positive_slope": -1.4188303858797546e-05,
+              "negative_slope": -0.003921935358018103,
+              "recorded_gradient_prediction": -0.00035367654638275353,
+              "central_minus_recorded_prediction": -0.0016143852845556966,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 0.5,
+              "central_slope": -0.0019680620291583142,
+              "positive_slope": -1.4188502318948637e-05,
+              "negative_slope": -0.00392193555599768,
+              "recorded_gradient_prediction": -0.00035367674460261273,
+              "central_minus_recorded_prediction": -0.0016143852845557016,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 0.5,
+              "central_slope": 1.9821985917814225e-10,
+              "positive_slope": 1.9846014424202202e-10,
+              "negative_slope": 1.979795741142625e-10,
+              "recorded_gradient_prediction": 1.9821985917785804e-10,
+              "central_minus_recorded_prediction": 2.8421408859439185e-22,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_half": 84,
+            "plus_half": 84
+          }
+        },
+        {
+          "h": 1.0,
+          "scalar_diagnostics": {
+            "objective": {
+              "h": 1.0,
+              "central_slope": -0.0009847885596511487,
+              "positive_slope": -6.8190289606584464e-06,
+              "negative_slope": -0.001962758090341639,
+              "recorded_gradient_prediction": -0.00035367654638275353,
+              "central_minus_recorded_prediction": -0.0006311120132683951,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "response_objective": {
+              "h": 1.0,
+              "central_slope": -0.0009847887578710093,
+              "positive_slope": -6.819227661089555e-06,
+              "negative_slope": -0.001962758288080929,
+              "recorded_gradient_prediction": -0.00035367674460261273,
+              "central_minus_recorded_prediction": -0.0006311120132683967,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            },
+            "mean_guard": {
+              "h": 1.0,
+              "central_slope": 1.9821985917782462e-10,
+              "positive_slope": 1.987004293052665e-10,
+              "negative_slope": 1.9773928905038272e-10,
+              "recorded_gradient_prediction": 1.9821985917785804e-10,
+              "central_minus_recorded_prediction": -3.3423266625970774e-23,
+              "AD_accuracy_certified": false,
+              "derivative_agreement_acceptance_rule": null
+            }
+          },
+          "minus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "plus_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "zero_maximizing_ids": [
+            "xor_11__c141_confirmation_p09_n01_d00"
+          ],
+          "active_sets_changed": true,
+          "changed_float32_points": {
+            "minus_one": 84,
+            "plus_one": 84
+          }
+        }
+      ],
+      "zero_repeat_objective_change": 0.0,
+      "plus_one_repeat_objective_change": 0.0,
+      "AD_accuracy_certified": false,
+      "derivative_agreement_rule": null
+    }
+  },
+  "all1176_points_frozen_before_model": true,
+  "original_inputs_unchanged": {
+    "C153": true,
+    "C152": true,
+    "C150": true,
+    "C149": true,
+    "C148": true,
+    "C147": true,
+    "C146": true,
+    "C145": true,
+    "C143": true
+  },
+  "errors": []
+}

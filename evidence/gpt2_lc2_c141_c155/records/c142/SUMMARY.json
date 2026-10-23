@@ -1,0 +1,1462 @@
+{
+  "protocol": "GPT2_LC2_C142_READONLY_CONFIRMATION_AUDIT_CPU_V1",
+  "complete": true,
+  "decision": "C142_READONLY_CONFIRMATION_AUDIT_COMPLETE_PARENT_DECISION_RETAINED",
+  "synthetic_fixture": false,
+  "parent_decision_reclassified": false,
+  "new_model_forwards": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "archived_source_executed": false,
+  "thresholds_changed": false,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "new_states_prepared": 0,
+  "excluded_input_states_evaluated": 0,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "statistical_causal_failure_explanation_established": false,
+  "measurement_accuracy_or_chronology_certified": false,
+  "external_C132_C139_original_ZIP_bytes_rehashed": false,
+  "scope": "Only frozen tensors, archived observations and arithmetic. C141/C140 original bytes rehashed; no independent model replay. Finite response-effect differences are descriptive, not derivative accuracy, curvature bounds, operator-error isolation or guaranteed remedies. Norm subgroups do not replace all48 confirmation.",
+  "parent_decision": "C141_FROZEN_KERNEL_LOCAL_CONFIRMATION_FAILURE",
+  "local_confirmation_passed": false,
+  "members_hashed": {
+    "C141": 561,
+    "C140": 466
+  },
+  "source_members_checked": 138,
+  "sealed_artifacts_checked": 12,
+  "states_audited": 48,
+  "preparation_records_audited": 96,
+  "proposal_maps_reconstructed": 144,
+  "endpoint_records_audited": 288,
+  "known_control_states_audited": 36,
+  "known_native_records_audited": 144,
+  "known_preparations_recompared_to_C140_native": true,
+  "legacy_known_preparation_comparison_scalars_independently_recomputed": false,
+  "full3211_feature_maximum_reconstruction_error": 0.0,
+  "actual_frozen_heads_rebound_to_original_C140": true,
+  "C140_step12_vector_checked": true,
+  "C140_all12_training_updates_reaudited": false,
+  "repeatable": true,
+  "preparation_states_valid_both_rounds": 48,
+  "confirmation_summaries": {
+    "all48": {
+      "0": {
+        "raw_control": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 32,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 16
+          },
+          "maximum_response_drift": 0.0045318603515625,
+          "within_C140_training_response_safety": 19
+        },
+        "C137_frozen_step24": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 40,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p10_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 8
+          },
+          "maximum_response_drift": 0.0025482177734375,
+          "within_C140_training_response_safety": 26
+        },
+        "C140_frozen_step12": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 42,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 6
+          },
+          "maximum_response_drift": 0.002349853515625,
+          "within_C140_training_response_safety": 26
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 32,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 16
+          },
+          "maximum_response_drift": 0.0045318603515625,
+          "within_C140_training_response_safety": 19
+        },
+        "C137_frozen_step24": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 40,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p10_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 8
+          },
+          "maximum_response_drift": 0.0025482177734375,
+          "within_C140_training_response_safety": 26
+        },
+        "C140_frozen_step12": {
+          "n_requested": 48,
+          "n_evaluated": 48,
+          "passed": 42,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 6
+          },
+          "maximum_response_drift": 0.002349853515625,
+          "within_C140_training_response_safety": 26
+        }
+      }
+    },
+    "xor_00": {
+      "0": {
+        "raw_control": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 12,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          },
+          "maximum_response_drift": 0.00269317626953125,
+          "within_C140_training_response_safety": 5
+        },
+        "C137_frozen_step24": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 14,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 2
+          },
+          "maximum_response_drift": 0.002410888671875,
+          "within_C140_training_response_safety": 10
+        },
+        "C140_frozen_step12": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 15,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          },
+          "maximum_response_drift": 0.002349853515625,
+          "within_C140_training_response_safety": 11
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 12,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          },
+          "maximum_response_drift": 0.00269317626953125,
+          "within_C140_training_response_safety": 5
+        },
+        "C137_frozen_step24": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 14,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 2
+          },
+          "maximum_response_drift": 0.002410888671875,
+          "within_C140_training_response_safety": 10
+        },
+        "C140_frozen_step12": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 15,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 1
+          },
+          "maximum_response_drift": 0.002349853515625,
+          "within_C140_training_response_safety": 11
+        }
+      }
+    },
+    "xor_01": {
+      "0": {
+        "raw_control": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 15,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          },
+          "maximum_response_drift": 0.002532958984375,
+          "within_C140_training_response_safety": 12
+        },
+        "C137_frozen_step24": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 15,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          },
+          "maximum_response_drift": 0.00246429443359375,
+          "within_C140_training_response_safety": 10
+        },
+        "C140_frozen_step12": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 15,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          },
+          "maximum_response_drift": 0.0022735595703125,
+          "within_C140_training_response_safety": 9
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 15,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          },
+          "maximum_response_drift": 0.002532958984375,
+          "within_C140_training_response_safety": 12
+        },
+        "C137_frozen_step24": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 15,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          },
+          "maximum_response_drift": 0.00246429443359375,
+          "within_C140_training_response_safety": 10
+        },
+        "C140_frozen_step12": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 15,
+          "failed_ids": [
+            "xor_01__c141_confirmation_p05_n01_d00"
+          ],
+          "failed_gates": {
+            "response": 1
+          },
+          "maximum_response_drift": 0.0022735595703125,
+          "within_C140_training_response_safety": 9
+        }
+      }
+    },
+    "xor_11": {
+      "0": {
+        "raw_control": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 5,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 11
+          },
+          "maximum_response_drift": 0.0045318603515625,
+          "within_C140_training_response_safety": 2
+        },
+        "C137_frozen_step24": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 11,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p10_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.0025482177734375,
+          "within_C140_training_response_safety": 6
+        },
+        "C140_frozen_step12": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 12,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          },
+          "maximum_response_drift": 0.0023345947265625,
+          "within_C140_training_response_safety": 6
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 5,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 11
+          },
+          "maximum_response_drift": 0.0045318603515625,
+          "within_C140_training_response_safety": 2
+        },
+        "C137_frozen_step24": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 11,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p10_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.0025482177734375,
+          "within_C140_training_response_safety": 6
+        },
+        "C140_frozen_step12": {
+          "n_requested": 16,
+          "n_evaluated": 16,
+          "passed": 12,
+          "failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 4
+          },
+          "maximum_response_drift": 0.0023345947265625,
+          "within_C140_training_response_safety": 6
+        }
+      }
+    },
+    "norm_0.125": {
+      "0": {
+        "raw_control": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 16,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01"
+          ],
+          "failed_gates": {
+            "response": 8
+          },
+          "maximum_response_drift": 0.0040283203125,
+          "within_C140_training_response_safety": 9
+        },
+        "C137_frozen_step24": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "failed_ids": [],
+          "failed_gates": {},
+          "maximum_response_drift": 0.001556396484375,
+          "within_C140_training_response_safety": 15
+        },
+        "C140_frozen_step12": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "failed_ids": [],
+          "failed_gates": {},
+          "maximum_response_drift": 0.00176239013671875,
+          "within_C140_training_response_safety": 18
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 16,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n00_d00",
+            "xor_00__c141_confirmation_p01_n00_d01",
+            "xor_11__c141_confirmation_p08_n00_d01",
+            "xor_11__c141_confirmation_p09_n00_d00",
+            "xor_11__c141_confirmation_p09_n00_d01",
+            "xor_11__c141_confirmation_p10_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d00",
+            "xor_11__c141_confirmation_p11_n00_d01"
+          ],
+          "failed_gates": {
+            "response": 8
+          },
+          "maximum_response_drift": 0.0040283203125,
+          "within_C140_training_response_safety": 9
+        },
+        "C137_frozen_step24": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "failed_ids": [],
+          "failed_gates": {},
+          "maximum_response_drift": 0.001556396484375,
+          "within_C140_training_response_safety": 15
+        },
+        "C140_frozen_step12": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 24,
+          "failed_ids": [],
+          "failed_gates": {},
+          "maximum_response_drift": 0.00176239013671875,
+          "within_C140_training_response_safety": 18
+        }
+      }
+    },
+    "norm_0.375": {
+      "0": {
+        "raw_control": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 16,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 8
+          },
+          "maximum_response_drift": 0.0045318603515625,
+          "within_C140_training_response_safety": 10
+        },
+        "C137_frozen_step24": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 16,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p10_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 8
+          },
+          "maximum_response_drift": 0.0025482177734375,
+          "within_C140_training_response_safety": 11
+        },
+        "C140_frozen_step12": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 18,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 6
+          },
+          "maximum_response_drift": 0.002349853515625,
+          "within_C140_training_response_safety": 8
+        }
+      },
+      "1": {
+        "raw_control": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 16,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n01_d00",
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p09_n01_d01",
+            "xor_11__c141_confirmation_p10_n01_d01",
+            "xor_11__c141_confirmation_p11_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 8
+          },
+          "maximum_response_drift": 0.0045318603515625,
+          "within_C140_training_response_safety": 10
+        },
+        "C137_frozen_step24": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 16,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p01_n01_d01",
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p10_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 8
+          },
+          "maximum_response_drift": 0.0025482177734375,
+          "within_C140_training_response_safety": 11
+        },
+        "C140_frozen_step12": {
+          "n_requested": 24,
+          "n_evaluated": 24,
+          "passed": 18,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_01__c141_confirmation_p05_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 6
+          },
+          "maximum_response_drift": 0.002349853515625,
+          "within_C140_training_response_safety": 8
+        }
+      }
+    }
+  },
+  "paired_effects": {
+    "all48": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "xor_00": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d01"
+            ],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "xor_01": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "xor_11": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "norm_0.125": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01"
+            ],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01"
+            ],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01"
+            ],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n00_d00",
+              "xor_00__c141_confirmation_p01_n00_d01",
+              "xor_11__c141_confirmation_p08_n00_d01",
+              "xor_11__c141_confirmation_p09_n00_d00",
+              "xor_11__c141_confirmation_p09_n00_d01",
+              "xor_11__c141_confirmation_p10_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d00",
+              "xor_11__c141_confirmation_p11_n00_d01"
+            ],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        }
+      }
+    },
+    "norm_0.375": {
+      "0": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": []
+          }
+        }
+      },
+      "1": {
+        "raw_control": {
+          "raw_control": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ]
+          }
+        },
+        "C137_frozen_step24": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [],
+            "destroyed_ids": []
+          }
+        },
+        "C140_frozen_step12": {
+          "raw_control": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d00",
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d01",
+              "xor_11__c141_confirmation_p11_n01_d00"
+            ],
+            "destroyed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ]
+          },
+          "C137_frozen_step24": {
+            "rescued_ids": [
+              "xor_00__c141_confirmation_p01_n01_d01",
+              "xor_11__c141_confirmation_p10_n01_d00"
+            ],
+            "destroyed_ids": []
+          }
+        }
+      }
+    }
+  },
+  "C140_failures": [
+    "xor_00__c141_confirmation_p02_n01_d01",
+    "xor_01__c141_confirmation_p05_n01_d00",
+    "xor_11__c141_confirmation_p08_n01_d00",
+    "xor_11__c141_confirmation_p08_n01_d01",
+    "xor_11__c141_confirmation_p09_n01_d00",
+    "xor_11__c141_confirmation_p11_n01_d01"
+  ],
+  "all_C141_states_remain_exposed": true,
+  "small_norm_subset_cannot_replace_full_confirmation": true,
+  "elapsed_audit_seconds": 12.718159689000458,
+  "original_inputs_unchanged": {
+    "C141": true,
+    "C140": true
+  },
+  "errors": []
+}

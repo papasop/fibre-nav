@@ -1,0 +1,638 @@
+{
+  "all48": {
+    "0": {
+      "raw_control": {
+        "n_requested": 48,
+        "n_evaluated": 48,
+        "passed": 32,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n00_d00",
+          "xor_00__c141_confirmation_p01_n00_d01",
+          "xor_00__c141_confirmation_p01_n01_d00",
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n00_d01",
+          "xor_11__c141_confirmation_p09_n00_d00",
+          "xor_11__c141_confirmation_p09_n00_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p09_n01_d01",
+          "xor_11__c141_confirmation_p10_n00_d00",
+          "xor_11__c141_confirmation_p10_n01_d01",
+          "xor_11__c141_confirmation_p11_n00_d00",
+          "xor_11__c141_confirmation_p11_n00_d01",
+          "xor_11__c141_confirmation_p11_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 16
+        },
+        "maximum_response_drift": 0.0045318603515625,
+        "within_C140_training_response_safety": 19
+      },
+      "C137_frozen_step24": {
+        "n_requested": 48,
+        "n_evaluated": 48,
+        "passed": 40,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p10_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 8
+        },
+        "maximum_response_drift": 0.0025482177734375,
+        "within_C140_training_response_safety": 26
+      },
+      "C140_frozen_step12": {
+        "n_requested": 48,
+        "n_evaluated": 48,
+        "passed": 42,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 6
+        },
+        "maximum_response_drift": 0.002349853515625,
+        "within_C140_training_response_safety": 26
+      }
+    },
+    "1": {
+      "raw_control": {
+        "n_requested": 48,
+        "n_evaluated": 48,
+        "passed": 32,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n00_d00",
+          "xor_00__c141_confirmation_p01_n00_d01",
+          "xor_00__c141_confirmation_p01_n01_d00",
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n00_d01",
+          "xor_11__c141_confirmation_p09_n00_d00",
+          "xor_11__c141_confirmation_p09_n00_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p09_n01_d01",
+          "xor_11__c141_confirmation_p10_n00_d00",
+          "xor_11__c141_confirmation_p10_n01_d01",
+          "xor_11__c141_confirmation_p11_n00_d00",
+          "xor_11__c141_confirmation_p11_n00_d01",
+          "xor_11__c141_confirmation_p11_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 16
+        },
+        "maximum_response_drift": 0.0045318603515625,
+        "within_C140_training_response_safety": 19
+      },
+      "C137_frozen_step24": {
+        "n_requested": 48,
+        "n_evaluated": 48,
+        "passed": 40,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p10_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 8
+        },
+        "maximum_response_drift": 0.0025482177734375,
+        "within_C140_training_response_safety": 26
+      },
+      "C140_frozen_step12": {
+        "n_requested": 48,
+        "n_evaluated": 48,
+        "passed": 42,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 6
+        },
+        "maximum_response_drift": 0.002349853515625,
+        "within_C140_training_response_safety": 26
+      }
+    }
+  },
+  "xor_00": {
+    "0": {
+      "raw_control": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 12,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n00_d00",
+          "xor_00__c141_confirmation_p01_n00_d01",
+          "xor_00__c141_confirmation_p01_n01_d00",
+          "xor_00__c141_confirmation_p01_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 4
+        },
+        "maximum_response_drift": 0.00269317626953125,
+        "within_C140_training_response_safety": 5
+      },
+      "C137_frozen_step24": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 14,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_00__c141_confirmation_p02_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 2
+        },
+        "maximum_response_drift": 0.002410888671875,
+        "within_C140_training_response_safety": 10
+      },
+      "C140_frozen_step12": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 15,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.002349853515625,
+        "within_C140_training_response_safety": 11
+      }
+    },
+    "1": {
+      "raw_control": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 12,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n00_d00",
+          "xor_00__c141_confirmation_p01_n00_d01",
+          "xor_00__c141_confirmation_p01_n01_d00",
+          "xor_00__c141_confirmation_p01_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 4
+        },
+        "maximum_response_drift": 0.00269317626953125,
+        "within_C140_training_response_safety": 5
+      },
+      "C137_frozen_step24": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 14,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_00__c141_confirmation_p02_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 2
+        },
+        "maximum_response_drift": 0.002410888671875,
+        "within_C140_training_response_safety": 10
+      },
+      "C140_frozen_step12": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 15,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.002349853515625,
+        "within_C140_training_response_safety": 11
+      }
+    }
+  },
+  "xor_01": {
+    "0": {
+      "raw_control": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 15,
+        "failed_ids": [
+          "xor_01__c141_confirmation_p05_n01_d00"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.002532958984375,
+        "within_C140_training_response_safety": 12
+      },
+      "C137_frozen_step24": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 15,
+        "failed_ids": [
+          "xor_01__c141_confirmation_p05_n01_d00"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.00246429443359375,
+        "within_C140_training_response_safety": 10
+      },
+      "C140_frozen_step12": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 15,
+        "failed_ids": [
+          "xor_01__c141_confirmation_p05_n01_d00"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.0022735595703125,
+        "within_C140_training_response_safety": 9
+      }
+    },
+    "1": {
+      "raw_control": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 15,
+        "failed_ids": [
+          "xor_01__c141_confirmation_p05_n01_d00"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.002532958984375,
+        "within_C140_training_response_safety": 12
+      },
+      "C137_frozen_step24": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 15,
+        "failed_ids": [
+          "xor_01__c141_confirmation_p05_n01_d00"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.00246429443359375,
+        "within_C140_training_response_safety": 10
+      },
+      "C140_frozen_step12": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 15,
+        "failed_ids": [
+          "xor_01__c141_confirmation_p05_n01_d00"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.0022735595703125,
+        "within_C140_training_response_safety": 9
+      }
+    }
+  },
+  "xor_11": {
+    "0": {
+      "raw_control": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 5,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n00_d01",
+          "xor_11__c141_confirmation_p09_n00_d00",
+          "xor_11__c141_confirmation_p09_n00_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p09_n01_d01",
+          "xor_11__c141_confirmation_p10_n00_d00",
+          "xor_11__c141_confirmation_p10_n01_d01",
+          "xor_11__c141_confirmation_p11_n00_d00",
+          "xor_11__c141_confirmation_p11_n00_d01",
+          "xor_11__c141_confirmation_p11_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 11
+        },
+        "maximum_response_drift": 0.0045318603515625,
+        "within_C140_training_response_safety": 2
+      },
+      "C137_frozen_step24": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 11,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p10_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 5
+        },
+        "maximum_response_drift": 0.0025482177734375,
+        "within_C140_training_response_safety": 6
+      },
+      "C140_frozen_step12": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 12,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 4
+        },
+        "maximum_response_drift": 0.0023345947265625,
+        "within_C140_training_response_safety": 6
+      }
+    },
+    "1": {
+      "raw_control": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 5,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n00_d01",
+          "xor_11__c141_confirmation_p09_n00_d00",
+          "xor_11__c141_confirmation_p09_n00_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p09_n01_d01",
+          "xor_11__c141_confirmation_p10_n00_d00",
+          "xor_11__c141_confirmation_p10_n01_d01",
+          "xor_11__c141_confirmation_p11_n00_d00",
+          "xor_11__c141_confirmation_p11_n00_d01",
+          "xor_11__c141_confirmation_p11_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 11
+        },
+        "maximum_response_drift": 0.0045318603515625,
+        "within_C140_training_response_safety": 2
+      },
+      "C137_frozen_step24": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 11,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p10_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 5
+        },
+        "maximum_response_drift": 0.0025482177734375,
+        "within_C140_training_response_safety": 6
+      },
+      "C140_frozen_step12": {
+        "n_requested": 16,
+        "n_evaluated": 16,
+        "passed": 12,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 4
+        },
+        "maximum_response_drift": 0.0023345947265625,
+        "within_C140_training_response_safety": 6
+      }
+    }
+  },
+  "norm_0.125": {
+    "0": {
+      "raw_control": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 16,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n00_d00",
+          "xor_00__c141_confirmation_p01_n00_d01",
+          "xor_11__c141_confirmation_p08_n00_d01",
+          "xor_11__c141_confirmation_p09_n00_d00",
+          "xor_11__c141_confirmation_p09_n00_d01",
+          "xor_11__c141_confirmation_p10_n00_d00",
+          "xor_11__c141_confirmation_p11_n00_d00",
+          "xor_11__c141_confirmation_p11_n00_d01"
+        ],
+        "failed_gates": {
+          "response": 8
+        },
+        "maximum_response_drift": 0.0040283203125,
+        "within_C140_training_response_safety": 9
+      },
+      "C137_frozen_step24": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 24,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.001556396484375,
+        "within_C140_training_response_safety": 15
+      },
+      "C140_frozen_step12": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 24,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.00176239013671875,
+        "within_C140_training_response_safety": 18
+      }
+    },
+    "1": {
+      "raw_control": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 16,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n00_d00",
+          "xor_00__c141_confirmation_p01_n00_d01",
+          "xor_11__c141_confirmation_p08_n00_d01",
+          "xor_11__c141_confirmation_p09_n00_d00",
+          "xor_11__c141_confirmation_p09_n00_d01",
+          "xor_11__c141_confirmation_p10_n00_d00",
+          "xor_11__c141_confirmation_p11_n00_d00",
+          "xor_11__c141_confirmation_p11_n00_d01"
+        ],
+        "failed_gates": {
+          "response": 8
+        },
+        "maximum_response_drift": 0.0040283203125,
+        "within_C140_training_response_safety": 9
+      },
+      "C137_frozen_step24": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 24,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.001556396484375,
+        "within_C140_training_response_safety": 15
+      },
+      "C140_frozen_step12": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 24,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.00176239013671875,
+        "within_C140_training_response_safety": 18
+      }
+    }
+  },
+  "norm_0.375": {
+    "0": {
+      "raw_control": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 16,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n01_d00",
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p09_n01_d01",
+          "xor_11__c141_confirmation_p10_n01_d01",
+          "xor_11__c141_confirmation_p11_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 8
+        },
+        "maximum_response_drift": 0.0045318603515625,
+        "within_C140_training_response_safety": 10
+      },
+      "C137_frozen_step24": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 16,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p10_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 8
+        },
+        "maximum_response_drift": 0.0025482177734375,
+        "within_C140_training_response_safety": 11
+      },
+      "C140_frozen_step12": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 18,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 6
+        },
+        "maximum_response_drift": 0.002349853515625,
+        "within_C140_training_response_safety": 8
+      }
+    },
+    "1": {
+      "raw_control": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 16,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n01_d00",
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p09_n01_d01",
+          "xor_11__c141_confirmation_p10_n01_d01",
+          "xor_11__c141_confirmation_p11_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 8
+        },
+        "maximum_response_drift": 0.0045318603515625,
+        "within_C140_training_response_safety": 10
+      },
+      "C137_frozen_step24": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 16,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p01_n01_d01",
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p10_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 8
+        },
+        "maximum_response_drift": 0.0025482177734375,
+        "within_C140_training_response_safety": 11
+      },
+      "C140_frozen_step12": {
+        "n_requested": 24,
+        "n_evaluated": 24,
+        "passed": 18,
+        "failed_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_01__c141_confirmation_p05_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 6
+        },
+        "maximum_response_drift": 0.002349853515625,
+        "within_C140_training_response_safety": 8
+      }
+    }
+  }
+}

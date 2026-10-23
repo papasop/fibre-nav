@@ -62,3 +62,24 @@ independent replay remain pending. LC2 is open.
 is a separate proposed acceptance test. C36/C37 do not establish controller
 integration. This round specifies real reads, required output flip, unselected
 retention, all endpoint gates and causal controls without running the experiment.
+
+## Later development: training, seen-class confirmation and excluded inputs
+
+[C141–C155](LINE_C_C141_C155.md) adds selected evidence without changing the six
+separate targets. C141 retains its historical new-local, **seen-class** confirmation
+role: C140 passes 42/48 in each of two rounds, with six response failures. C142
+is a read-only audit preserving that failure, not independent model replay.
+Those exposed states are no longer eligible for future unseen evaluation.
+
+C148 and later use all 84 states as exposed **training** data even when IDs contain
+`confirmation`. C148 global/routed arms both reach 79/84; C150 diagonal/cyclic
+arms reach 79/84 and 80/84. Neither meets all-state training qualification; routing
+and coupling comparisons also differ in parameter count (36/108 and 108/216).
+These outcomes do not establish an excluded-input pass or routing superiority.
+
+C154/C155 remain **log-level diagnostics**: six source BUNDLE identities do not
+upgrade two missing result archives. C155 reports 756 zero-difference FP32
+forward pairs, with only two FP64 focus states; this is not all-84 qualification,
+FP64 ground truth or proof of AD error. LC2 is open and LC3–LC6 remain open.
+Original failures, thresholds and final checkpoints are preserved; neither a
+retry nor selecting a better iterate/norm can relabel the original proposal.
