@@ -83,8 +83,9 @@ this is a local development tool, not an OS sandbox or multi-user security bound
 The JSON output includes the answer and actual tool trace. An answer remains
 model-generated: citations are not automatically validated, and prompt-injection
 resistance is not established by these tests. The model can answer without a tool;
-inspect its trace before treating claims as grounded. Model output must be exact
-JSON; invalid output fails explicitly, with no silent fallback model or retries.
+inspect its trace before treating claims as grounded. Model output must be a JSON object; one complete JSON Markdown fence is accepted.
+JSON syntax errors receive correction feedback within the existing turn budget.
+There is no fallback model. Schema errors still fail explicitly.
 No conversation transcript is saved automatically.
 
 Validation: 8 tests pass, including a local HTTP server exercising the real client,
@@ -93,3 +94,63 @@ invalid actions; and step exhaustion. The HTTP model is scripted, not a real LLM
 Real-model instruction following, held-out task success, source accuracy, latency
 and cost remain unmeasured. Next gate: run the same frozen research questions with
 and without memory on a configured model before enabling any writing tools.
+
+
+## A2: paired development evaluation and direct Qwen backend
+
+Run `evaluate.py` against either the existing HTTP adapter or directly loaded
+Qwen weights. Three fixed synthetic tasks test file-grounded reporting, a revised
+release decision, and pending-task continuation. Each is run with populated and
+empty memory, for six independent contexts. Both arms get identical file tools
+and questions; arm order alternates. The memory cases intentionally require
+information unavailable to the empty arm: this is a continuity mechanism check,
+not a fair broad-intelligence comparison or a held-out generalization study.
+
+An answer must match the declared output and show the required successful tool
+call. These limited automatic gates do not replace semantic/human review.
+Malformed outputs, backend errors and exhausted loops remain in the results.
+Reports include all tool traces, wall times, model identity, protocol and code
+hashes. Existing reports cannot be overwritten. Token usage and monetary cost
+are not measured. HTTP model revision is operator-supplied, not server-verified.
+
+For direct Qwen execution in a Python environment with PyTorch available:
+
+```bash
+pip install transformers==4.56.2 safetensors
+python fibre-qwen/agent/evaluate.py --backend qwen --model Qwen/Qwen3-0.6B --revision MODEL_COMMIT_SHA --device cpu --output /persistent/private/a2-run-001.json
+```
+
+Replace MODEL_COMMIT_SHA with the model's actual immutable 40-character revision.
+Select `--device cuda` only in an already-provisioned GPU environment. Model
+weights must be locally cached or downloadable; this command does not provision
+hardware. Loading may require substantial RAM and CPU runtime. No LoRA adapter
+is loaded: this establishes the base-model baseline before adapter comparisons.
+
+For a configured compatible inference server:
+
+```bash
+python fibre-qwen/agent/evaluate.py --backend http --model YOUR_MODEL --revision SERVER_MODEL_VERSION --endpoint http://127.0.0.1:8000/v1/chat/completions --output /persistent/private/a2-run-001.json
+```
+
+Initial implementation status was **REAL_MODEL_NOT_RUN**. The first real CPU run is now archived in [A2 results](results/a2_qwen_cpu_001/README.md): both arms passed 0/3, with failures in action formatting and tool selection. Eleven unit/integration tests
+passed, including a scripted paired fixture and retention of all backend failures.
+Scripted fixture scores are test expectations, not Qwen results. The development
+benchmark is public and must not later be relabeled as untouched confirmation.
+A successful CLI exit means the evaluation ran without backend errors; it does
+not mean every task passed. Read the per-arm counts and original traces.
+
+
+## A2 adaptive repairs: still blocked on model execution
+
+[Repair 1](results/a2_qwen_cpu_repair_001/README.md) and
+[repair 2](results/a2_qwen_cpu_repair_002/README.md) each scored 0/3 in both arms.
+The first retrieved memory but emitted malformed final answers; the second
+emitted valid final answers while skipping tools. Complete raw calls and exact
+source snapshots are archived for both attempts. Thirteen engineering tests pass;
+they are not model performance evidence. These are same-task development repairs.
+
+The current free tool-selection loop remains experimental and can produce
+ungrounded answers; passing JSON syntax does not imply evidence-backed content.
+Next proposed approach: a separately labeled controlled workflow that retrieves
+requested evidence before model synthesis, compared with this autonomous baseline.
+Do not claim autonomous tool selection for that future controlled workflow.
