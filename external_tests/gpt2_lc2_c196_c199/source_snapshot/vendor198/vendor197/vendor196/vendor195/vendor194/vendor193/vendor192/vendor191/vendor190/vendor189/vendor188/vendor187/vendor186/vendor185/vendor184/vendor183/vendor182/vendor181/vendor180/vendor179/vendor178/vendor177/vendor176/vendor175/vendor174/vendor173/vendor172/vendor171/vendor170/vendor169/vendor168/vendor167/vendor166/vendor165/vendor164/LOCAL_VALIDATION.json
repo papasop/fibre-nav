@@ -1,0 +1,17 @@
+{
+  "protocol": "C164_LOCAL_DELIVERY_VALIDATION",
+  "python_source_parsed": true,
+  "core_archive_math_tamper_tests_passed": 33,
+  "bootstrap_tests_passed": 3,
+  "launcher_packaging_tests_passed": 3,
+  "full_nine_original_synthetic_tests_passed": 2,
+  "frontend_real_bundle_checks": 3,
+  "frontend_check_scope": "Exact bundle bytes, one-upload path, matching entrypoint, prior module restoration, wrong ZIP rejection; no science run.",
+  "total_checks": 44,
+  "synthetic_fixtures_only": true,
+  "production_C163_original_locally_downloaded": false,
+  "production_C163_original_locally_audited": false,
+  "real_model_forwards_performed_for_C164_delivery": 0,
+  "real_gradient_recomputations_performed_for_C164_delivery": 0,
+  "scope": "Full nine synthetic original archives generated and reopened. Historical C159/C160 synthetic point generators use explicit NumPy-only adapters, with no physical/model/AD claim. All production audit readers and pinned vendor source bytes stay unchanged. Actual C163 original (377191469 bytes) exceeds connected download limit268435456; Colab reads the immutable original directly from mounted Drive. No real-model replay, gradient accuracy or LC2 claim."
+}

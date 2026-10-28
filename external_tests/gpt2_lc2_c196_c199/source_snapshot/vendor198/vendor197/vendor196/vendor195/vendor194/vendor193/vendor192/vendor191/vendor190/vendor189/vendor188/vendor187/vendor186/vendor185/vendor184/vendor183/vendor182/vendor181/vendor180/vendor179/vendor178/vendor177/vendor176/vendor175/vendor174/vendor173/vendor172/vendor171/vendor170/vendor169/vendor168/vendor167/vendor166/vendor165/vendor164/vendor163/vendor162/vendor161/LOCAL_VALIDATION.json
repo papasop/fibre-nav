@@ -1,0 +1,24 @@
+{
+  "validated_at_UTC": "2026-10-23T22:26:24.879378+00:00",
+  "passed": 31,
+  "suites": {
+    "protocol_tests": 10,
+    "bootstrap_tests": 3,
+    "launcher_tests": 3,
+    "torch_tests": 9,
+    "archive_tests": 3,
+    "frontend_tests": 3
+  },
+  "actual_Torch_version": "2.11.0+cpu",
+  "actual_tiny_tied_model_full_workflow": {
+    "training_updates": 8,
+    "model_forwards": 2187,
+    "scalar_backwards": 1344,
+    "records": 1092
+  },
+  "real_GPT2_executed_before_delivery": false,
+  "original_scientific_ZIPs_reopened_before_delivery": false,
+  "synthetic_six_archive_integration_passed": true,
+  "source_C160_bundle_sha256": "a0de2f4f384d5a241dcaaa04013980f6685cf06cdcf40effbba9236daa561f8d",
+  "LC2_closed": false
+}

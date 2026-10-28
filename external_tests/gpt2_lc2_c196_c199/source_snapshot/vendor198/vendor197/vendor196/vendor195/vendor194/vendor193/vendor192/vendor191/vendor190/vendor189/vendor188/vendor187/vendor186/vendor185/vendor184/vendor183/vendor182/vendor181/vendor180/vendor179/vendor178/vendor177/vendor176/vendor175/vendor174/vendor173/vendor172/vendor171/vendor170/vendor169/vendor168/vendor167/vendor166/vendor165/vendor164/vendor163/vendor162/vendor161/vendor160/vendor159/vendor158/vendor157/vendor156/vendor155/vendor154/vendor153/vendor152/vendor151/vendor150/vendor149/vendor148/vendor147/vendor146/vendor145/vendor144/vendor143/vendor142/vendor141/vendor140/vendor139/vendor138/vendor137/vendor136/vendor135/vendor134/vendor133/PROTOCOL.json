@@ -1,0 +1,114 @@
+{
+  "protocol": "GPT2_LC2_C133_FINITE_STEP_DECOMPOSITION_CPU_V1",
+  "input": "One whole-hash-pinned original C132 scientific ZIP",
+  "registry": [
+    {
+      "state_id": "xor_00__c82_training_center00",
+      "case": "xor_00",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_00__c82_training_center01",
+      "case": "xor_00",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_00__c90_training_center00",
+      "case": "xor_00",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_00__c90_training_center01",
+      "case": "xor_00",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_01__c82_training_center00",
+      "case": "xor_01",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c82_training_center01",
+      "case": "xor_01",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_01__c90_training_center00",
+      "case": "xor_01",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c90_training_center01",
+      "case": "xor_01",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_11__c82_training_center00",
+      "case": "xor_11",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c82_training_center01",
+      "case": "xor_11",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_11__c90_training_center00",
+      "case": "xor_11",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c90_training_center01",
+      "case": "xor_11",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    }
+  ],
+  "arms": [
+    "learned_raw",
+    "shared_response_projected",
+    "shared_projected_read_preserved"
+  ],
+  "rounds": 2,
+  "endpoint_records_requested": 72,
+  "local_decomposition_records_requested": 36,
+  "arm_vs_raw_contrasts_requested": 24,
+  "local_derivative_scope": "Only the six geometry-training centers have local10-row Jacobians. No derivative is imputed to the six other centers.",
+  "identity": "observed_endpoint = observed_prewrite + J_local @ actual_committed_delta + finite_step_remainder",
+  "linear_stages": "pre-cap proposal; after radius cap; actual float32 displacement; cap and rounding effects are linear diagnostics only",
+  "contrast": "endpoint_arm-endpoint_raw = J_local@(delta_arm-delta_raw) + remainder_arm-remainder_raw",
+  "cancellation": "Coordinatewise |linear|+|remainder|-|finite change|, descriptive only; not proof of a physical mechanism",
+  "response_budget": 0.002,
+  "KL_budget": 0.005,
+  "read_margin": 0.05,
+  "proposal_radius": 20.0,
+  "arithmetic_tolerance": 1e-09,
+  "operator_tolerance": 1e-08,
+  "branch_rule": "Among evaluated projected geometry endpoints: all first-order endpoints within budget but finite failures -> FIRST_ORDER_ENDPOINT_WITHIN_BUDGET_FINITE_ENDPOINT_FAILURE; none -> LINEAR_ACTION_OR_BASE_RESIDUAL_ALREADY_OUTSIDE_BUDGET; otherwise MIXED_LINEAR_AND_FINITE_STEP_FAILURE. All finite passes -> NO_PROJECTED_GEOMETRY_FAILURE_RECORDED.",
+  "finite_step_remainder_is_not_pure_curvature": true,
+  "AD_accuracy_independently_checked": false,
+  "forward_accuracy_bound_established": false,
+  "new_model_forwards": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "archived_source_executed": false,
+  "candidate_selected": false,
+  "thresholds_changed": false,
+  "LC2_closed": false,
+  "worker_budget_seconds": 1200
+}

@@ -1,0 +1,27 @@
+{
+  "validated_at_UTC": "2026-10-24T01:16:26.748446+00:00",
+  "passed": 34,
+  "suites": {
+    "protocol_tests": 12,
+    "bootstrap_tests": 3,
+    "launcher_tests": 3,
+    "torch_tests": 10,
+    "archive_tests": 3,
+    "frontend_tests": 3
+  },
+  "actual_tiny_Torch_full8_workflow": {
+    "model_forwards": 2187,
+    "scalar_backwards": 1344,
+    "actual_FP64_points_saved_and_rehashed": 756,
+    "records": 1092
+  },
+  "actual_smooth_Torch_global_gradient_matches_streamed_aggregation": true,
+  "original_C162_zip_read_before_delivery": true,
+  "original_C162_whole_zip_sha256": "51c2b8faa0de3d4c5a97574e0311ae9127f0ed5a70edec0e6f78d481a61b4637",
+  "original_C162_result_manifest_members_verified": 585,
+  "eight_original_science_ZIPs_independently_bound_before_delivery": false,
+  "eight_synthetic_originals_independently_bound": true,
+  "real_GPT2_training_run_before_delivery": false,
+  "source_C162_BUNDLE_SHA256": "51408ae1b0214e8c676c26f1d878505a3e0e843d2573b3a3d36b30c4d09a616f",
+  "LC2_closed": false
+}

@@ -1,0 +1,12 @@
+LOCAL_TORCH_VERSION 2.10.0+cpu
+test_actual_saved_point_tamper_blocks_before_forward (__main__.Checks.test_actual_saved_point_tamper_blocks_before_forward) ... ok
+test_frozen_reference_mutation_blocks (__main__.Checks.test_frozen_reference_mutation_blocks) ... ok
+test_full_real_tiny_Torch_single_LP_six_probes_and_counts (__main__.Checks.test_full_real_tiny_Torch_single_LP_six_probes_and_counts) ... ok
+test_functional_failure_restores_tied_weights_and_chart (__main__.Checks.test_functional_failure_restores_tied_weights_and_chart) ... ok
+test_native_failure_restores_tied_weights_and_chart (__main__.Checks.test_native_failure_restores_tied_weights_and_chart) ... ok
+test_probe_AD_request_rejected_before_backward (__main__.Checks.test_probe_AD_request_rejected_before_backward) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 52.212s
+
+OK

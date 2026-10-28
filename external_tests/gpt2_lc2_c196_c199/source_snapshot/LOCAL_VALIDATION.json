@@ -1,0 +1,53 @@
+{
+  "validation_complete": true,
+  "distinct_checks": 58,
+  "checks": {
+    "test_math199": {
+      "checks": 20,
+      "elapsed_seconds": 0.869,
+      "passed": true
+    },
+    "test_novelty199": {
+      "checks": 3,
+      "elapsed_seconds": 0.71,
+      "passed": true
+    },
+    "test199": {
+      "checks": 7,
+      "elapsed_seconds": 263.188,
+      "passed": true
+    },
+    "test_binding199": {
+      "checks": 8,
+      "elapsed_seconds": 41.736,
+      "passed": true
+    },
+    "torch_smoke199": {
+      "checks": 9,
+      "elapsed_seconds": 1.212,
+      "passed": true
+    },
+    "test_delivery199": {
+      "checks": 6,
+      "elapsed_seconds": 1.776,
+      "passed": true
+    },
+    "test_frontend199": {
+      "checks": 5,
+      "elapsed_seconds": 1.0,
+      "passed": true
+    }
+  },
+  "synthetic_archive_and_observable_fixtures": true,
+  "actual_NumPy_geometry_raw_writer_and_router": true,
+  "actual_tiny_CPU_Torch_test": true,
+  "tiny_Torch_version": "2.10.0+cpu",
+  "tiny_model_not_GPT2": true,
+  "scientific_original_ZIPs_opened": false,
+  "real_GPT2_executed": false,
+  "real_48_state_confirmation_performed": false,
+  "C198_source_immutable_files": 1515,
+  "python": "3.12.14",
+  "LC2_claim": false,
+  "notes": "Synthetic upstream context injected explicitly. Complete conditional workflow, stopped preflight, fixed48 failure retention and repeat drift tested. Repeated test runs are not additional distinct checks. Actual real-model data and all44 science originals are evaluated only when user runs the protocol."
+}

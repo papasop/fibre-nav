@@ -1,0 +1,868 @@
+{
+  "protocol": "GPT2_LC2_C168_CERTIFIED_DIRECTION_PROBES_CPU_V1",
+  "complete": true,
+  "decision": "C168_FIXED_CERTIFIED_DIRECTION_PROBES_COMPLETE_NO_CANDIDATE_SELECTED",
+  "synthetic_fixture": false,
+  "real_model_execution_claim": true,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_model_parameter_gradients": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "new_linear_program_calls": 0,
+  "new_direction_optimization_iterations": 0,
+  "temporary_probe_heads": 6,
+  "new_states_prepared": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "candidate_selected": false,
+  "best_checkpoint_selected": false,
+  "writer_deployed": false,
+  "thresholds_changed": false,
+  "parent_decisions_reclassified": false,
+  "archived_source_executed": false,
+  "chronology_or_nonaccess_proved": false,
+  "preparation_replay_performed": false,
+  "FP64_acceptance_evaluated": false,
+  "new_AD_evaluated": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "scope": "Training-only finite model probes of the exact C167 direction at the original C163 fixed-final anchor. All84 exposed training states and all6 registered arms retained. No new direction solve, backward, training, head fit, selection, deployment, confirmation or excluded-input evaluation. Recorded-gradient certificates do not certify actual derivatives, guards or finite writes; original native gates are measured separately. No LC2 closure, causal or global feasibility claim. C165-C167 decisions retained.",
+  "stage": "complete",
+  "new_model_forwards": 3699,
+  "functional_FP64_forwards": 1346,
+  "new_backward_calls": 0,
+  "scalar_backward_attempts": 0,
+  "records_completed": 1848,
+  "requests_consumed": 1848,
+  "elapsed_worker_seconds": 5891.259848619004,
+  "process_peak_RSS_KiB": 3355904,
+  "C165_parent_decision": "C165_FIXED_DIRECTION_PROBES_COMPLETE_NO_CANDIDATE_SELECTED",
+  "C166_parent_decision": "C166_READONLY_DIRECTION_AUDIT_COMPLETE_PARENT_DECISION_RETAINED",
+  "C167_parent_decision": "C167_RECORDED_LINEAR_PROBLEM_DIAGNOSTIC_COMPLETE_NO_MODEL_ACCEPTANCE",
+  "exact_recorded_gradient_certificate_reverified": true,
+  "all_thirteen_originals_independently_bound": true,
+  "initial_C163_fixed_final_head_digest": "68ed65467b00fa985b9ea82c1c367afbb134b29b0ca73f2bc36eb75e6702eaf9",
+  "C167_direction_digest": "ae34c2ba84353d603026edb6d79f189f59a44479a228f8fbbfffb837a379a881",
+  "positive_steps": [
+    1e-05,
+    0.0001,
+    0.001
+  ],
+  "all6_NumPy_heads_sealed_before_model": true,
+  "all_requested_states_and_arms_retained": true,
+  "all6_actual_point_batches_sealed_before_first_state": true,
+  "actual_FP64_point_tensors_saved": 672,
+  "actual_FP64_points_checked_before_model_forward": true,
+  "initial_native_and_FP64_replay_matched_C165": true,
+  "native_repeats_consistent": true,
+  "FP64_anchor_repeat_consistent": true,
+  "diagnostics": {
+    "native_summaries": {
+      "anchor": {
+        "0": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.00225067138671875
+        },
+        "1": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.00225067138671875
+        }
+      },
+      "minus_s1": {
+        "0": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.00225067138671875
+        },
+        "1": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.00225067138671875
+        }
+      },
+      "plus_s1": {
+        "0": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.00225067138671875
+        },
+        "1": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.00225067138671875
+        }
+      },
+      "minus_s2": {
+        "0": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.0022430419921875
+        },
+        "1": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.0022430419921875
+        }
+      },
+      "plus_s2": {
+        "0": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.00225067138671875
+        },
+        "1": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.00225067138671875
+        }
+      },
+      "minus_s3": {
+        "0": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.0023345947265625
+        },
+        "1": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.0023345947265625
+        }
+      },
+      "plus_s3": {
+        "0": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.0022735595703125
+        },
+        "1": {
+          "n_requested": 84,
+          "n_evaluated": 84,
+          "passed": 79,
+          "failed_ids": [
+            "xor_00__c141_confirmation_p02_n01_d01",
+            "xor_11__c141_confirmation_p08_n01_d00",
+            "xor_11__c141_confirmation_p08_n01_d01",
+            "xor_11__c141_confirmation_p09_n01_d00",
+            "xor_11__c141_confirmation_p11_n01_d01"
+          ],
+          "failed_gates": {
+            "response": 5
+          },
+          "maximum_response_drift": 0.0022735595703125
+        }
+      }
+    },
+    "paired_vs_anchor": {
+      "minus_s1": {
+        "0": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        },
+        "1": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        }
+      },
+      "plus_s1": {
+        "0": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        },
+        "1": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        }
+      },
+      "minus_s2": {
+        "0": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.0022430419921875
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        },
+        "1": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.0022430419921875
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        }
+      },
+      "plus_s2": {
+        "0": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        },
+        "1": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        }
+      },
+      "minus_s3": {
+        "0": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.0023345947265625
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        },
+        "1": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.0023345947265625
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        }
+      },
+      "plus_s3": {
+        "0": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.0022735595703125
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        },
+        "1": {
+          "initial": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.00225067138671875
+          },
+          "final": {
+            "n_requested": 84,
+            "n_evaluated": 84,
+            "passed": 79,
+            "failed_ids": [
+              "xor_00__c141_confirmation_p02_n01_d01",
+              "xor_11__c141_confirmation_p08_n01_d00",
+              "xor_11__c141_confirmation_p08_n01_d01",
+              "xor_11__c141_confirmation_p09_n01_d00",
+              "xor_11__c141_confirmation_p11_n01_d01"
+            ],
+            "failed_gates": {
+              "response": 5
+            },
+            "maximum_response_drift": 0.0022735595703125
+          },
+          "rescued": 0,
+          "destroyed": 0,
+          "rescued_ids": [],
+          "destroyed_ids": []
+        }
+      }
+    },
+    "FP64_response_statistics": {
+      "anchor": {
+        "maximum_FP64_response": 0.002252738176352409,
+        "FP64_response_only_passed": 79,
+        "FP64_full_acceptance_claim": false
+      },
+      "minus_s1": {
+        "maximum_FP64_response": 0.0022527956584070807,
+        "FP64_response_only_passed": 79,
+        "FP64_full_acceptance_claim": false
+      },
+      "plus_s1": {
+        "maximum_FP64_response": 0.0022526807291001205,
+        "FP64_response_only_passed": 79,
+        "FP64_full_acceptance_claim": false
+      },
+      "minus_s2": {
+        "maximum_FP64_response": 0.0022533145627647855,
+        "FP64_response_only_passed": 79,
+        "FP64_full_acceptance_claim": false
+      },
+      "plus_s2": {
+        "maximum_FP64_response": 0.002252165269410966,
+        "FP64_response_only_passed": 79,
+        "FP64_full_acceptance_claim": false
+      },
+      "minus_s3": {
+        "maximum_FP64_response": 0.0023357963784604863,
+        "FP64_response_only_passed": 79,
+        "FP64_full_acceptance_claim": false
+      },
+      "plus_s3": {
+        "maximum_FP64_response": 0.0022581321156422973,
+        "FP64_response_only_passed": 79,
+        "FP64_full_acceptance_claim": false
+      }
+    },
+    "original_active_state_ids": [
+      "xor_00__c141_confirmation_p01_n01_d01",
+      "xor_00__c141_confirmation_p02_n01_d01",
+      "xor_01__c141_confirmation_p04_n01_d01",
+      "xor_01__c141_confirmation_p05_n01_d00",
+      "xor_11__c141_confirmation_p08_n01_d00",
+      "xor_11__c141_confirmation_p08_n01_d01",
+      "xor_11__c141_confirmation_p09_n01_d00",
+      "xor_11__c141_confirmation_p11_n00_d01",
+      "xor_11__c141_confirmation_p11_n01_d01"
+    ],
+    "all3_positive_arms_active_loss_changes": {
+      "plus_s1": {
+        "active_requested": 9,
+        "active_measured": 9,
+        "strict_response_loss_decreases": 9,
+        "all_active_losses_strictly_decreased": true,
+        "descriptive_only_no_new_acceptance_gate": true
+      },
+      "plus_s2": {
+        "active_requested": 9,
+        "active_measured": 9,
+        "strict_response_loss_decreases": 9,
+        "all_active_losses_strictly_decreased": true,
+        "descriptive_only_no_new_acceptance_gate": true
+      },
+      "plus_s3": {
+        "active_requested": 9,
+        "active_measured": 9,
+        "strict_response_loss_decreases": 8,
+        "all_active_losses_strictly_decreased": false,
+        "descriptive_only_no_new_acceptance_gate": true
+      }
+    },
+    "all84_all6_arms_retained": true,
+    "all252_central_difference_rows_retained": true,
+    "all504_one_sided_loss_changes_retained": true,
+    "archived_gradients_from_C165": true,
+    "new_AD_evaluated": false,
+    "any_probe_pass_is_training_diagnostic_only": true,
+    "step_or_head_selected": false,
+    "LC2_closed": false
+  },
+  "original_inputs_unchanged": {
+    "C155": true,
+    "C156": true,
+    "C157": true,
+    "C158": true,
+    "C159": true,
+    "C160": true,
+    "C161": true,
+    "C162": true,
+    "C163": true,
+    "C164": true,
+    "C165": true,
+    "C166": true,
+    "C167": true
+  },
+  "errors": []
+}

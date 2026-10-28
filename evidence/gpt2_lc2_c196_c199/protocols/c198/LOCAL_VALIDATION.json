@@ -1,0 +1,47 @@
+{
+  "validation_complete": true,
+  "distinct_checks": 54,
+  "checks": {
+    "test_math198": {
+      "checks": 19,
+      "elapsed_seconds": 0.509,
+      "passed": true
+    },
+    "test198": {
+      "checks": 8,
+      "elapsed_seconds": 157.451,
+      "passed": true
+    },
+    "test_binding198": {
+      "checks": 8,
+      "elapsed_seconds": 125.481,
+      "passed": true
+    },
+    "test_delivery198": {
+      "checks": 6,
+      "elapsed_seconds": 1.871,
+      "passed": true
+    },
+    "torch_smoke198": {
+      "checks": 8,
+      "elapsed_seconds": 0.976,
+      "passed": true
+    },
+    "test_frontend198": {
+      "checks": 5,
+      "elapsed_seconds": 1.26,
+      "passed": true
+    }
+  },
+  "synthetic_observable_fixtures": true,
+  "actual_tiny_CPU_Torch_test": true,
+  "tiny_Torch_version": "2.10.0+cpu",
+  "tiny_model_not_GPT2": true,
+  "scientific_original_ZIPs_opened": false,
+  "real_GPT2_executed": false,
+  "real_84_state_replay_performed": false,
+  "C197_source_immutable_files": 1491,
+  "python": "3.12.14",
+  "LC2_claim": false,
+  "notes": "Tests inject synthetic upstream context. Full map uses actual NumPy raw writer, fresh full3211 inputs and soft router. Tiny Torch tests exercise the actual C198 wrapper with a synthetic base, not HF/GPT-2. Repeated runs are not additional distinct checks."
+}

@@ -1,0 +1,30 @@
+test_actual_coefficient_tail_change_blocks_even_rebound_seal (__main__.ArchiveChecks.test_actual_coefficient_tail_change_blocks_even_rebound_seal) ... ok
+test_actual_frozen_point_change_blocks_even_rebound_seal (__main__.ArchiveChecks.test_actual_frozen_point_change_blocks_even_rebound_seal) ... ok
+test_forged_saved_trajectory_is_recomputed (__main__.ArchiveChecks.test_forged_saved_trajectory_is_recomputed) ... ok
+test_fp64_baseline_offset_forgery_blocks (__main__.ArchiveChecks.test_fp64_baseline_offset_forgery_blocks) ... ok
+test_full_readonly_workflow_1530_records_actual_points_and_no_model (__main__.ArchiveChecks.test_full_readonly_workflow_1530_records_actual_points_and_no_model) ... ok
+test_missing_repeat_record_blocks (__main__.ArchiveChecks.test_missing_repeat_record_blocks) ... ok
+test_model_and_solver_guards_are_effective (__main__.ArchiveChecks.test_model_and_solver_guards_are_effective) ... ok
+test_parent_objective_summary_change_blocks (__main__.ArchiveChecks.test_parent_objective_summary_change_blocks) ... ok
+test_permuted_state_row_binding_blocks (__main__.ArchiveChecks.test_permuted_state_row_binding_blocks) ... ok
+test_source_change_blocks_with_rebound_manifest (__main__.ArchiveChecks.test_source_change_blocks_with_rebound_manifest) ... ok
+test_stored_fp64_zero_logits_change_blocks (__main__.ArchiveChecks.test_stored_fp64_zero_logits_change_blocks) ... ok
+test_unsafe_and_duplicate_archive_paths_block (__main__.ArchiveChecks.test_unsafe_and_duplicate_archive_paths_block) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1625: UserWarning: Duplicate name: 'same'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+ok
+test_wrong_production_whole_hash_blocks_before_payload (__main__.ArchiveChecks.test_wrong_production_whole_hash_blocks_before_payload) ... ok
+test_bad_fd_scale_bool_shape_or_nonfinite_blocks (__main__.MathChecks.test_bad_fd_scale_bool_shape_or_nonfinite_blocks) ... ok
+test_constant_reference_offset_cancels_signed_coordinate_slopes (__main__.MathChecks.test_constant_reference_offset_cancels_signed_coordinate_slopes) ... ok
+test_fd_coordinate_sign_and_scale (__main__.MathChecks.test_fd_coordinate_sign_and_scale) ... ok
+test_fd_scalar_quadratic_positive_and_negative_differ (__main__.MathChecks.test_fd_scalar_quadratic_positive_and_negative_differ) ... ok
+test_fixed1530_order_all84_and_two_focus (__main__.MathChecks.test_fixed1530_order_all84_and_two_focus) ... ok
+test_hinge_switch_and_all_scales_are_retained (__main__.MathChecks.test_hinge_switch_and_all_scales_are_retained) ... ok
+test_maximum_response_coordinate_switch_is_recorded (__main__.MathChecks.test_maximum_response_coordinate_switch_is_recorded) ... ok
+test_missing_panel_or_nonfinite_response_blocks (__main__.MathChecks.test_missing_panel_or_nonfinite_response_blocks) ... ok
+test_original_FP32_budgets_no_FP64_full_objective_or_new_threshold (__main__.MathChecks.test_original_FP32_budgets_no_FP64_full_objective_or_new_threshold) ... ok
+test_reference_offset_need_not_cancel_nonlinear_response_loss (__main__.MathChecks.test_reference_offset_need_not_cancel_nonlinear_response_loss) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 140.702s
+
+OK

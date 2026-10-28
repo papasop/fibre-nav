@@ -1,0 +1,65 @@
+{
+  "protocol": "GPT2_LC2_C158_SAME_RUN_FP64_AD_CPU_V1",
+  "input_archives": [
+    "C155",
+    "C156",
+    "C157"
+  ],
+  "all84_remain_exposed_training": true,
+  "focus_state_ids": [
+    "xor_11__c141_confirmation_p09_n01_d00",
+    "xor_11__c141_confirmation_p08_n01_d00"
+  ],
+  "new_protocol_after_C157": true,
+  "C157_decision_retained": "C157_INCOMPLETE_NO_DIRECTIONAL_CONCLUSION",
+  "path": "Same fixed physical chord as C157: exact FP64 casts of C155 zero/+1 physical endpoints; no float32 cast inside theta(alpha). Original intermediate C155 coefficient-map points may differ.",
+  "labels": {
+    "zero": 0.0,
+    "minus_quarter": -0.25,
+    "plus_quarter": 0.25,
+    "minus_half": -0.5,
+    "plus_half": 0.5,
+    "minus_one": -1.0,
+    "plus_one": 1.0
+  },
+  "scales": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "references": {
+    "current_FP64": "First current-run FP64 all-zero LoRA-B chart baseline response; NOT the nonzero chord alpha0 output.",
+    "archived_FP64": "Unchanged original C155 FP64 response reference",
+    "archived_FP32": "Unchanged original C155 cached FP32 response reference"
+  },
+  "reference_rule": "Fixed before model loading: take first current FP64 zero-chart forward mean at the original six response IDs. Repeat once, save both full logits, freeze all three references and hashes before focus-state probes. No measured focus state is used to choose or recenter a reference.",
+  "cross_run": "All FP32/FP64 baseline and four endpoint differences from original C155 are reported, including the historical 2e-9 comparison. These differences do not gate this separate same-run derivative experiment. They do not satisfy or replace C157 replay, writer acceptance or LC2 gates.",
+  "mandatory_checks": "Original archive/source/tensor bindings and model identity; frozen physical/double parameters, buffers and references; finite FP64 actual forwards; fixed within-run zero-baseline repetition, endpoint/preflight, AD/no-grad center and final zero/+1 repetitions within 2e-9.",
+  "AD": "Only scalar alpha requires grad. Six coordinate derivatives and three response-loss derivatives at alpha0 per state: nine scalar reverse calls per state. No parameter Jacobian, optimizer or fit.",
+  "response_loss": "relu(max(abs(absolute_response-fixed_reference))/.0018-1)^2, separately for each of three references. No KL/read/full84 objective or FP64 qualification.",
+  "counts": {
+    "native_initialization_forwards": 1,
+    "current_FP64_zero_chart_baseline_forwards": 2,
+    "endpoint_preflight_forwards": 4,
+    "AD_forwards": 2,
+    "finite_panel_and_repeat_forwards": 18,
+    "total_model_forwards": 27,
+    "scalar_backward_calls": 18,
+    "state_records": 24
+  },
+  "derivative_comparison": "Retain all central/positive/negative finite slopes and signed discrepancies from AD at h=.25,.5,1. No best scale, derivative-agreement gate, AD certification or precision superiority claim.",
+  "within_run_tolerance": 2e-09,
+  "historical_C157_cross_run_tolerance": 2e-09,
+  "LC2_acceptance_budgets": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05
+  },
+  "protocol_change_disclosed": true,
+  "LC2_acceptance_thresholds_changed": false,
+  "worker_budget_seconds": 7200,
+  "scope": "Separate training-only two-state numerical diagnostic in one newly initialized fixed runtime. Cross-archive drift is descriptive, not silently accepted as C157 replay. Fresh zero-chart FP64 reference is an additional condition, not replacement scoring for historical runs. No training, selection, deployment, unseen confirmation, excluded-class pass, full84 FP64 qualification, causal error explanation, accuracy/error/curvature bound or LC2 closure.",
+  "candidate_selected": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false
+}

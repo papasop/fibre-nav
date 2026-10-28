@@ -1,0 +1,57 @@
+{
+  "snapshot": "2026-10-28",
+  "runs": {
+    "C196": {
+      "evidence_tier": "LOG_SUPPORTED",
+      "summary_origin": "Extracted exact JSON from supplied execution log; not read from original result ZIP",
+      "log_path": "records/c196/EXECUTION_LOG.txt",
+      "log_sha256": "c428c9a0e84fdd0fe700c3c8f551733c531366c9645daa5cb44ad4971022ed13",
+      "summary_path": "records/c196/SUMMARY_FROM_LOG.json",
+      "summary_sha256": "38920e5e9e9315bee37409e0d18e5075364cba436334630b4a39f9f0de2f3bda",
+      "reported_result_zip_sha256": "2b96c9ac30e05d7bc65ac2b30c97de1798a943da219fcbc0e6bed58ce92400df",
+      "reported_drive_backup_path": "/content/drive/MyDrive/GPT2_LC2_C196_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c196_all_coordinate_continuation_train_1793160837357962795_results.zip",
+      "scientific_original_zip_opened_during_this_import": false,
+      "scientific_original_zip_included": false,
+      "model_run_performed_during_this_import": false,
+      "reported_decision": "C196_FIXED_FINAL_TRAINING_ALL84_PASS_NO_CONFIRMATION"
+    },
+    "C197": {
+      "evidence_tier": "LOG_SUPPORTED",
+      "summary_origin": "Extracted exact JSON from supplied execution log; not read from original result ZIP",
+      "log_path": "records/c197/EXECUTION_LOG.txt",
+      "log_sha256": "d5b58e762cc92daecff05c5acf26cc88c3a9a6c0b03a6ff24afe7ca49411b6f1",
+      "summary_path": "records/c197/SUMMARY_FROM_LOG.json",
+      "summary_sha256": "b6f46f85ebf7048696145e98ffef3a2b3692cc4f91c5f353e50cedb8e89ea2e4",
+      "reported_result_zip_sha256": "6a3cad33ca807b1564e483086d0beec6c709a85a8a2546ee35317dbd054b35b7",
+      "reported_drive_backup_path": "/content/drive/MyDrive/GPT2_LC2_C197_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c197_readonly_continuation_train_audit_1793172218988606979_results.zip",
+      "scientific_original_zip_opened_during_this_import": false,
+      "scientific_original_zip_included": false,
+      "model_run_performed_during_this_import": false,
+      "reported_decision": "C197_READONLY_CONTINUATION_TRAIN_AUDIT_COMPLETE_PARENT_DECISION_RETAINED"
+    },
+    "C198": {
+      "evidence_tier": "LOG_SUPPORTED",
+      "summary_origin": "Extracted exact JSON from supplied execution log; not read from original result ZIP",
+      "log_path": "records/c198/EXECUTION_LOG.txt",
+      "log_sha256": "6e29f7274a7d5d1ed85d56ed14ed426548bb2199a16778c4d0f7266d0d6647e1",
+      "summary_path": "records/c198/SUMMARY_FROM_LOG.json",
+      "summary_sha256": "878b7ca226d98fa27837124b20d935cf290091187769b8c251ee93fd363a8e5d",
+      "reported_result_zip_sha256": "b0b8d237d18e9005e4996a88c9b6fb54a3cdc9ea94a4cec6003b84d14fd2f7ba",
+      "reported_drive_backup_path": "/content/drive/MyDrive/GPT2_LC2_C198_FROZEN_END_TO_END_REPLAY_CPU_V1_RECOVERY/c198_frozen_end_to_end_replay_1793176150084139629_results.zip",
+      "scientific_original_zip_opened_during_this_import": false,
+      "scientific_original_zip_included": false,
+      "model_run_performed_during_this_import": false,
+      "reported_decision": "C198_FROZEN_TRAINING_REPLAY_ALL84_PASS_NO_GENERALISATION"
+    },
+    "C199": {
+      "evidence_tier": "PROTOCOL_ONLY",
+      "scientific_original_zip_opened_during_this_import": false,
+      "scientific_original_zip_included": false,
+      "model_run_performed_during_this_import": false,
+      "execution_result_available": false
+    }
+  },
+  "LC2_closed": false,
+  "C199_execution_pending": true,
+  "original_failures_reclassified": false
+}

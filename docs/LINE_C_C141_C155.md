@@ -63,3 +63,13 @@ called historically unseen merely because they are excluded from a new fit.
 Public CPU archive checks and fresh GPT-2 model execution are separate evidence
 levels. Preparation, fitting, execution, verification and failure costs must not
 be conflated. This update changes none of LC3–LC6's open status.
+
+
+## Subsequent milestone: C196–C198
+
+This historical page retains the C141–C155 decisions. Later supplied logs report
+complete84-state training qualification in C196, archival reconstruction in C197,
+and fresh-feature frozen training replay in C198. See [C196–C199](LINE_C_C196_C199.md)
+for the separate log-supported tier, source identities, remaining dependencies
+and pending C199 new-state protocol. These later results neither erase the
+original failures nor confirm excluded-input generalisation.

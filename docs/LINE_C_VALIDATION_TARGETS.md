@@ -83,3 +83,20 @@ forward pairs, with only two FP64 focus states; this is not all-84 qualification
 FP64 ground truth or proof of AD error. LC2 is open and LC3–LC6 remain open.
 Original failures, thresholds and final checkpoints are preserved; neither a
 retry nor selecting a better iterate/norm can relabel the original proposal.
+
+
+## Current frozen training milestone: C196–C199
+
+[C196–C198](LINE_C_C196_C199.md) now report complete native training qualification
+and same-programme model-level replay on the current84 exposed states. C197's
+reported archival audit and C198's reported fresh-feature replay answer different
+questions. This repository import supplies their execution logs and unchanged
+source; it does not independently rehash the absent scientific result ZIPs.
+
+C199 freezes the C196 final head and complete pipeline for48 new local directions
+around12 known centers,16 states per represented class, with both original
+perturbation norms and two repeated rounds. Its source/protocol is delivered;
+actual confirmation is pending. It does not test excluded classes. The full
+excluded-input isolation, historical-access disclosure and fold accounting above
+remain required; the C-number alone never determines LC2 closure. C35–C37's
+independent confirmation and LC3–LC6 statuses remain unchanged.

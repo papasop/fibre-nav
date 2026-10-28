@@ -1,0 +1,111 @@
+{
+  "C162_original_zip_sha256": "51c2b8faa0de3d4c5a97574e0311ae9127f0ed5a70edec0e6f78d481a61b4637",
+  "evidence_is_archival_not_new_derivative_measurement": true,
+  "steps": [
+    {
+      "step": 1,
+      "objective_before": 0.06389291562033549,
+      "objective_after": 0.06067857729863211,
+      "recorded_aggregate_gradient_dot_update": -0.003256224475643522,
+      "maximizers_before": [
+        "xor_11__c141_confirmation_p09_n01_d00"
+      ],
+      "maximizers_after": [
+        "xor_11__c141_confirmation_p09_n01_d00"
+      ],
+      "old_and_next_maximizer_response_gradients_cosine_at_current_head": 1.0
+    },
+    {
+      "step": 2,
+      "objective_before": 0.06067857729863211,
+      "objective_after": 0.05754801160067421,
+      "recorded_aggregate_gradient_dot_update": -0.003172451952883796,
+      "maximizers_before": [
+        "xor_11__c141_confirmation_p09_n01_d00"
+      ],
+      "maximizers_after": [
+        "xor_11__c141_confirmation_p09_n01_d00"
+      ],
+      "old_and_next_maximizer_response_gradients_cosine_at_current_head": 1.0
+    },
+    {
+      "step": 3,
+      "objective_before": 0.05754801160067421,
+      "objective_after": 0.057234694967516334,
+      "recorded_aggregate_gradient_dot_update": -0.0030886791021710385,
+      "maximizers_before": [
+        "xor_11__c141_confirmation_p09_n01_d00"
+      ],
+      "maximizers_after": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "old_and_next_maximizer_response_gradients_cosine_at_current_head": -0.9999959740618681
+    },
+    {
+      "step": 4,
+      "objective_before": 0.057234694967516334,
+      "objective_after": 0.058524557440039364,
+      "recorded_aggregate_gradient_dot_update": 0.0012825920506729094,
+      "maximizers_before": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "maximizers_after": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "old_and_next_maximizer_response_gradients_cosine_at_current_head": 1.0
+    },
+    {
+      "step": 5,
+      "objective_before": 0.058524557440039364,
+      "objective_after": 0.05874684686442779,
+      "recorded_aggregate_gradient_dot_update": 0.00022207631881342253,
+      "maximizers_before": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "maximizers_after": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "old_and_next_maximizer_response_gradients_cosine_at_current_head": 0.9999999999999998
+    },
+    {
+      "step": 6,
+      "objective_before": 0.05874684686442779,
+      "objective_after": 0.05825911499905026,
+      "recorded_aggregate_gradient_dot_update": -0.0004887605687255965,
+      "maximizers_before": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "maximizers_after": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "old_and_next_maximizer_response_gradients_cosine_at_current_head": 0.9999999999999998
+    },
+    {
+      "step": 7,
+      "objective_before": 0.05825911499905026,
+      "objective_after": 0.05727631919917268,
+      "recorded_aggregate_gradient_dot_update": -0.0009870257535341451,
+      "maximizers_before": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "maximizers_after": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "old_and_next_maximizer_response_gradients_cosine_at_current_head": 0.9999999999999998
+    },
+    {
+      "step": 8,
+      "objective_before": 0.05727631919917268,
+      "objective_after": 0.055938462579278224,
+      "recorded_aggregate_gradient_dot_update": -0.0013458574227265825,
+      "maximizers_before": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "maximizers_after": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "old_and_next_maximizer_response_gradients_cosine_at_current_head": 1.0
+    }
+  ],
+  "research_choice": "Fixed temperature .01 smooth log-mean-exp response aggregation, fresh zero Adam moments, eight steps. No claim that the archive proves causality or convergence."
+}

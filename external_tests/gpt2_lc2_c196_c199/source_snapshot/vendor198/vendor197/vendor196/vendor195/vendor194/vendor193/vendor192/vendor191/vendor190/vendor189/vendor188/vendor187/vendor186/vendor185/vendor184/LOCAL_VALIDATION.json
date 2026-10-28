@@ -1,0 +1,39 @@
+{
+  "protocol": "GPT2_LC2_C184_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1",
+  "local_validation": {
+    "test184.log": true,
+    "test_math184.log": true,
+    "test_endpoint184.log": true,
+    "test_binding184.log": true,
+    "test_bootstrap184.log": true,
+    "test_launcher184.log": true,
+    "torch_smoke184.log": true,
+    "test_frontend184.log": true
+  },
+  "checks_per_log": {
+    "test184.log": 14,
+    "test_math184.log": 12,
+    "test_endpoint184.log": 7,
+    "test_binding184.log": 20,
+    "test_bootstrap184.log": 4,
+    "test_launcher184.log": 4,
+    "torch_smoke184.log": 7,
+    "test_frontend184.log": 3
+  },
+  "local_checks_passed": 71,
+  "python_validated_before_delivery": true,
+  "real_GPT2_model_run_before_delivery": false,
+  "real_twenty_nine_scientific_results_ZIPs_opened_before_delivery": false,
+  "original_C183_log_read_before_delivery": true,
+  "original_C182_and_C183_whole_hashes_known_before_delivery": true,
+  "synthetic_upstream_context_explicitly_injected": true,
+  "full_worker_fixture_is_NumPy_with_prescribed_solver_direction": true,
+  "original_C183_source_BUNDLE_sha256": "2d6c4a2179b972b161ac8a05d430806ef56a175e9d52e90a5f3008afa7020aa4",
+  "original_C183_source_files_verified": 1032,
+  "actual_tiny_CPU_Torch_SciPy_test_passed": true,
+  "actual_tiny_CPU_test_is_not_GPT2": true,
+  "local_torch_version": "2.10.0+cpu",
+  "local_scipy_version": "1.17.0",
+  "local_torch_smoke_numpy_version": "2.3.5",
+  "parent_decision_reclassified": false
+}

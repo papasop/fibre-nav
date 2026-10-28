@@ -1,0 +1,27 @@
+test_FP64_replay_drift_stops_before_LP_or_probe (__main__.Checks.test_FP64_replay_drift_stops_before_LP_or_probe) ... ok
+test_active_zero_gradient_not_certified (__main__.Checks.test_active_zero_gradient_not_certified) ... ok
+test_actual_SciPy_single_primal_on_synthetic_gradient (__main__.Checks.test_actual_SciPy_single_primal_on_synthetic_gradient) ... ok
+test_complete_worker_all6_full84_no_selection_or_training (__main__.Checks.test_complete_worker_all6_full84_no_selection_or_training) ... ok
+test_direction_bound_blocks (__main__.Checks.test_direction_bound_blocks) ... ok
+test_empty_active_zero_direction_no_solver (__main__.Checks.test_empty_active_zero_direction_no_solver) ... ok
+test_full84_gradient_order_and_zero_active_rows_retained (__main__.Checks.test_full84_gradient_order_and_zero_active_rows_retained) ... ok
+test_guard_ascent_not_mislabeled_protected (__main__.Checks.test_guard_ascent_not_mislabeled_protected) ... ok
+test_native_replay_drift_stops_before_AD (__main__.Checks.test_native_replay_drift_stops_before_AD) ... ok
+test_nonfinite_gradient_blocks (__main__.Checks.test_nonfinite_gradient_blocks) ... ok
+test_nonfinite_head_direction_blocks (__main__.Checks.test_nonfinite_head_direction_blocks) ... ok
+test_nonpositive_direction_stops_without_probe_or_fallback (__main__.Checks.test_nonpositive_direction_stops_without_probe_or_fallback) ... ok
+test_opposing_rows_not_falsely_certified (__main__.Checks.test_opposing_rows_not_falsely_certified) ... ok
+test_panel_actual_binary64_formula_no_projection (__main__.Checks.test_panel_actual_binary64_formula_no_projection) ... ok
+test_panel_free_mask_reserves_largest_step (__main__.Checks.test_panel_free_mask_reserves_largest_step) ... ok
+test_partial_gradient_failure_preserves_counts (__main__.Checks.test_partial_gradient_failure_preserves_counts) ... ok
+test_probe_mutation_blocks_and_keeps_all_heads_sealed (__main__.Checks.test_probe_mutation_blocks_and_keeps_all_heads_sealed) ... ok
+test_registry_all1848_all84_and_both_signs (__main__.Checks.test_registry_all1848_all84_and_both_signs) ... ok
+test_solver_without_primal_no_fallback (__main__.Checks.test_solver_without_primal_no_fallback) ... ok
+test_wrong_dtype_and_shape_blocks (__main__.Checks.test_wrong_dtype_and_shape_blocks) ... ok
+test_wrong_input_hash_stops_before_loader_and_model (__main__.Checks.test_wrong_input_hash_stops_before_loader_and_model) ... ok
+test_wrong_parent_decision_stops_before_model (__main__.Checks.test_wrong_parent_decision_stops_before_model) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 65.583s
+
+OK

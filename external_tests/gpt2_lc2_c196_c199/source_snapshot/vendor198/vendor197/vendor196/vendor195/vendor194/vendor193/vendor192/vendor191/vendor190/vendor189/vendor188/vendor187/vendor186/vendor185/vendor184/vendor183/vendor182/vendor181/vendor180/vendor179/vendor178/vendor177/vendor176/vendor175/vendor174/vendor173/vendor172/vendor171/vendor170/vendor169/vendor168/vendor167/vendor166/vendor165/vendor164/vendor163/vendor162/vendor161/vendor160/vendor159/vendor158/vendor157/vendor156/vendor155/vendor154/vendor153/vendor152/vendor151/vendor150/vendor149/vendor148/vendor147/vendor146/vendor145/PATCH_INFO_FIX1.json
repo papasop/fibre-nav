@@ -1,0 +1,19 @@
+{
+  "release": "C145_FIX1",
+  "scientific_protocol": "GPT2_LC2_C145_FIXED_DIRECTION_DIAGNOSTIC_CPU_V1",
+  "original_bundle_sha256": "8bc6ba496dd048651f617d4c0ef82d0426be8907804a66c200e0214183084035",
+  "observed_failed_result_sha256": "f09b2d80ecbb4f29e0e5162914e54c46ccbee6443459123c6292c80707cd0a17",
+  "cause": "torch_smoke143 imported before core145 initializes the pinned vendored sys.path chain.",
+  "fix": "Import core145 before torch_smoke143; inherited test bodies and all scientific workers remain byte-identical.",
+  "changed_scientific_python_files": [],
+  "only_modified_existing_python_file": "torch_smoke145.py",
+  "added_import_regression_file": "test_bootstrap145.py",
+  "input_pins_unchanged": true,
+  "protocol_json_byte_identical": true,
+  "all_inherited_sources_byte_identical": true,
+  "old_failed_attempt_retained": true,
+  "failed_attempt_not_scientific_evaluation": true,
+  "all_acceptance_and_leakage_rules_unchanged": true,
+  "LC2_closed": false,
+  "candidate_selected": false
+}

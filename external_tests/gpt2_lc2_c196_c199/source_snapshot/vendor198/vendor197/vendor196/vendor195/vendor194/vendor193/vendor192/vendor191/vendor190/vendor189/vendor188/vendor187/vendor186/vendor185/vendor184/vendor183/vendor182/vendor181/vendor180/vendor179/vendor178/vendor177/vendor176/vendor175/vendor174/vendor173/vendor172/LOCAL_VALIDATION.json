@@ -1,0 +1,32 @@
+{
+  "local_validation": {
+    "test172.log": true,
+    "test_binding172.log": true,
+    "test_bootstrap172.log": true,
+    "test_launcher172.log": true,
+    "torch_smoke172.log": true,
+    "test_frontend172.log": true
+  },
+  "local_checks_per_log": {
+    "test172.log": 22,
+    "test_binding172.log": 8,
+    "test_bootstrap172.log": 3,
+    "test_launcher172.log": 4,
+    "torch_smoke172.log": 6,
+    "test_frontend172.log": 3
+  },
+  "local_checks_passed": 46,
+  "python_validated_before_delivery": true,
+  "real_GPT2_model_run_before_delivery": false,
+  "real_C170_result_ZIP_opened_before_delivery": false,
+  "real_C171_result_ZIP_opened_before_delivery": false,
+  "real_seventeen_originals_opened_before_delivery": false,
+  "full_NumPy_protocol_fixture_is_synthetic_only": true,
+  "upstream_context_injected_in_archive_fixture": true,
+  "NumPy_full_protocol_fixture_uses_prescribed_direction_without_solving": true,
+  "actual_SciPy_single_primal_on_synthetic_gradients_tested": true,
+  "actual_CPU_Torch_tiny_model_tested": true,
+  "local_Torch_test_version": "2.10.0+cpu",
+  "Torch_model_is_synthetic_not_GPT2": true,
+  "original_parent_decisions_reclassified": false
+}

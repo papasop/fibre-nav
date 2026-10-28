@@ -1,0 +1,309 @@
+{
+  "protocol": "GPT2_LC2_C196_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1",
+  "complete": true,
+  "decision": "C196_FIXED_FINAL_TRAINING_ALL84_PASS_NO_CONFIRMATION",
+  "synthetic_fixture": false,
+  "real_model_execution_claim": true,
+  "training_states_requested": 84,
+  "new_training_steps": 8,
+  "new_head_fits": 1,
+  "nonzero_head_updates": 8,
+  "new_linear_program_calls": 8,
+  "solver_internal_linear_system_count": null,
+  "linear_systems_solved": null,
+  "new_model_parameter_gradients": 0,
+  "new_Jacobians": 672,
+  "new_model_parameter_Jacobians": 0,
+  "new_response_coordinate_Jacobian_rows": 4032,
+  "new_SVD_calls": 0,
+  "new_states_prepared": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "candidate_selected": false,
+  "best_checkpoint_selected": false,
+  "writer_deployed": false,
+  "thresholds_changed": false,
+  "parent_decisions_reclassified": false,
+  "archived_source_executed": false,
+  "preparation_replay_performed": false,
+  "FP64_acceptance_evaluated": false,
+  "final_checkpoint_step": 8,
+  "prior_C176_C178_C180_C182_C184_C186_C188_C190_C192_C194_training_steps": 80,
+  "cumulative_C176_C178_C180_C182_C184_C186_C188_C190_C192_C194_C196_training_steps": 88,
+  "final_head_frozen": true,
+  "all_active_batch_recorded_affine_checks_verified": true,
+  "guard_preservation_certified": false,
+  "solver_optimality_or_infeasibility_certified": false,
+  "curvature_or_convergence_certified": false,
+  "causal_explanation_established": false,
+  "chronology_or_nonaccess_proved": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "scope": "Fixed eight-step offline full84 all-six-response-coordinate relinearised LP continuation from original C194 predetermined final step8 head. Reconstruct original C194 and bind full original C195 audit including every precision/activity/focus and168 native/84 FP64 cross-run replay artifact before model loading. All41 original ZIP hashes and delivered source identities fixed. Same pinned model/revision, frozen V/routes/prepared/raw states and original C155 response/logit references. Step0.001, at most8 all1008-signed-row LPs, all672 coefficient-response Jacobian blocks/4032 rows and5376 scalar backwards explicitly offline. All840 actual FP64 points sealed before measurement,1176 records, predetermined final8 only, both native full84 rounds and final FP64 repeat. Distinguish same-run training change from cross-run output differences; original replay tolerances unchanged and no reference recentering. Response-only LP does not constrain measured guards; final native full gates remain mandatory. All84 states retained, no preset failure/rescue count, monotonicity, future steps or closure time. C176/C178/C180/C182/C184/C186/C188/C190/C192/C194/C196 contribute88 offline update slots since C170 final, excluding C170 own8. No recovery or best-head selection, changed acceptance thresholds, deployment, new confirmation or excluded-input evaluation. No derivative truth, finite error bound, solver optimality/infeasibility, chronology/non-access, causal explanation, curvature/convergence, generalisation or LC2 closure claim.",
+  "stage": "complete",
+  "new_model_forwards": 2355,
+  "functional_FP64_forwards": 1682,
+  "new_backward_calls": 5376,
+  "scalar_backward_attempts": 5376,
+  "records_completed": 1176,
+  "requests_consumed": 1176,
+  "elapsed_worker_seconds": 8567.258584187002,
+  "process_peak_RSS_KiB": 3176468,
+  "C195_parent_decision": "C195_READONLY_CONTINUATION_TRAIN_AUDIT_COMPLETE_PARENT_DECISION_RETAINED",
+  "all_forty_one_originals_independently_bound": true,
+  "initial_C194_fixed_final_head_digest": "2ff29f06c399a501de74387f9f3caebadecb763c89d9c6ef9db8a84bef478aaf",
+  "native_initial_round0": {
+    "n_requested": 84,
+    "n_evaluated": 84,
+    "passed": 83,
+    "failed_ids": [
+      "xor_11__c141_confirmation_p08_n01_d01"
+    ],
+    "failed_gates": {
+      "response": 1
+    },
+    "maximum_response_drift": 0.00201416015625
+  },
+  "final_head_digest": "7b4811602621506a568c7067bad6dd317c29a2f871a1dbca3684051097df0d4c",
+  "initial_FP64_objective": {
+    "n": 84,
+    "active_response_states": 5,
+    "maximum_response_loss": 0.013920467054556003,
+    "mean_response_loss": 0.00034780115552175624,
+    "mean_guard_loss": 1.2541076528259872e-05,
+    "original_hardmax_objective": 0.012575741541180838,
+    "descriptive_objective_not_LP_objective": true
+  },
+  "final_FP64_objective": {
+    "n": 84,
+    "active_response_states": 4,
+    "maximum_response_loss": 0.011622580656065811,
+    "mean_response_loss": 0.00027371449393213113,
+    "mean_guard_loss": 1.4128460939532214e-05,
+    "original_hardmax_objective": 0.010501822500791977,
+    "descriptive_objective_not_LP_objective": true
+  },
+  "native_initial_round1": {
+    "n_requested": 84,
+    "n_evaluated": 84,
+    "passed": 83,
+    "failed_ids": [
+      "xor_11__c141_confirmation_p08_n01_d01"
+    ],
+    "failed_gates": {
+      "response": 1
+    },
+    "maximum_response_drift": 0.00201416015625
+  },
+  "native_final_round0": {
+    "n_requested": 84,
+    "n_evaluated": 84,
+    "passed": 84,
+    "failed_ids": [],
+    "failed_gates": {},
+    "maximum_response_drift": 0.0019989013671875
+  },
+  "native_final_round1": {
+    "n_requested": 84,
+    "n_evaluated": 84,
+    "passed": 84,
+    "failed_ids": [],
+    "failed_gates": {},
+    "maximum_response_drift": 0.0019989013671875
+  },
+  "paired_by_round": {
+    "0": {
+      "initial": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 83,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.00201416015625
+      },
+      "final": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 84,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.0019989013671875
+      },
+      "rescued": 1,
+      "destroyed": 0,
+      "rescued_ids": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "destroyed_ids": []
+    },
+    "1": {
+      "initial": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 83,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.00201416015625
+      },
+      "final": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 84,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.0019989013671875
+      },
+      "rescued": 1,
+      "destroyed": 0,
+      "rescued_ids": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "destroyed_ids": []
+    }
+  },
+  "endpoint_precision_margins": {
+    "rows": 336,
+    "by_head": {
+      "initial": {
+        "0": {
+          "n": 84,
+          "native_full_passed": 83,
+          "native_response_only_passed": 83,
+          "FP64_response_only_passed": 83,
+          "native_full_pass_and_FP64_response_pass": 83,
+          "response_gate_disagreements": 0,
+          "disagreement_state_ids": [],
+          "native_response_failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "FP64_response_failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "maximum_native_response": 0.00201416015625,
+          "maximum_FP64_response": 0.00201237305209645,
+          "minimum_native_response_slack": -1.4160156249999958e-05,
+          "minimum_FP64_response_slack": -1.2373052096449969e-05
+        },
+        "1": {
+          "n": 84,
+          "native_full_passed": 83,
+          "native_response_only_passed": 83,
+          "FP64_response_only_passed": 83,
+          "native_full_pass_and_FP64_response_pass": 83,
+          "response_gate_disagreements": 0,
+          "disagreement_state_ids": [],
+          "native_response_failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "FP64_response_failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "maximum_native_response": 0.00201416015625,
+          "maximum_FP64_response": 0.00201237305209645,
+          "minimum_native_response_slack": -1.4160156249999958e-05,
+          "minimum_FP64_response_slack": -1.2373052096449969e-05
+        }
+      },
+      "final": {
+        "0": {
+          "n": 84,
+          "native_full_passed": 84,
+          "native_response_only_passed": 84,
+          "FP64_response_only_passed": 84,
+          "native_full_pass_and_FP64_response_pass": 84,
+          "response_gate_disagreements": 0,
+          "disagreement_state_ids": [],
+          "native_response_failed_ids": [],
+          "FP64_response_failed_ids": [],
+          "maximum_native_response": 0.0019989013671875,
+          "maximum_FP64_response": 0.001994054531834877,
+          "minimum_native_response_slack": 1.0986328125000416e-06,
+          "minimum_FP64_response_slack": 5.945468165123244e-06
+        },
+        "1": {
+          "n": 84,
+          "native_full_passed": 84,
+          "native_response_only_passed": 84,
+          "FP64_response_only_passed": 84,
+          "native_full_pass_and_FP64_response_pass": 84,
+          "response_gate_disagreements": 0,
+          "disagreement_state_ids": [],
+          "native_response_failed_ids": [],
+          "FP64_response_failed_ids": [],
+          "maximum_native_response": 0.0019989013671875,
+          "maximum_FP64_response": 0.001994054531834877,
+          "minimum_native_response_slack": 1.0986328125000416e-06,
+          "minimum_FP64_response_slack": 5.945468165123244e-06
+        }
+      }
+    },
+    "maximum_observed_response_coordinate_gap_Linf": 2.5514022311767803e-05,
+    "response_budget": 0.002,
+    "native_full_acceptance_unchanged": true,
+    "FP64_full_acceptance_evaluated": false,
+    "FP64_response_only_not_an_added_gate": true,
+    "additional_model_forwards": 0,
+    "no_accuracy_or_error_bound_claim": true,
+    "thresholds_changed": false
+  },
+  "final_training_all84_passed_both_rounds": true,
+  "native_repeats_consistent": true,
+  "FP64_final_repeat_consistent": true,
+  "actual_FP64_point_tensors_saved": 840,
+  "actual_FP64_points_checked_before_model_forward": true,
+  "initial_native_and_FP64_replay_matched_C194": true,
+  "all_requested_states_retained": true,
+  "LP_signed_rows_per_step": 1008,
+  "original_inputs_unchanged": {
+    "C155": true,
+    "C156": true,
+    "C157": true,
+    "C158": true,
+    "C159": true,
+    "C160": true,
+    "C161": true,
+    "C162": true,
+    "C163": true,
+    "C164": true,
+    "C165": true,
+    "C166": true,
+    "C167": true,
+    "C168": true,
+    "C169": true,
+    "C170": true,
+    "C171": true,
+    "C172": true,
+    "C173": true,
+    "C174": true,
+    "C175": true,
+    "C176": true,
+    "C177": true,
+    "C178": true,
+    "C179": true,
+    "C180": true,
+    "C181": true,
+    "C182": true,
+    "C183": true,
+    "C184": true,
+    "C185": true,
+    "C186": true,
+    "C187": true,
+    "C188": true,
+    "C189": true,
+    "C190": true,
+    "C191": true,
+    "C192": true,
+    "C193": true,
+    "C194": true,
+    "C195": true
+  },
+  "errors": []
+}

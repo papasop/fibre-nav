@@ -1,0 +1,40 @@
+test_actual_FP32_point_change_blocks (__main__.Checks.test_actual_FP32_point_change_blocks) ... ok
+test_actual_FP64_point_changed_even_rebound_all_receipts (__main__.Checks.test_actual_FP64_point_changed_even_rebound_all_receipts) ... ok
+test_actual_FP64_point_wrong_dtype_blocks (__main__.Checks.test_actual_FP64_point_wrong_dtype_blocks) ... ok
+test_actual_before_head_change_rebound_seal (__main__.Checks.test_actual_before_head_change_rebound_seal) ... ok
+test_actual_point_binding_forged_blocks (__main__.Checks.test_actual_point_binding_forged_blocks) ... ok
+test_actual_point_counter_forged_blocks (__main__.Checks.test_actual_point_counter_forged_blocks) ... ok
+test_actual_point_seal_order_flag_blocks (__main__.Checks.test_actual_point_seal_order_flag_blocks) ... ok
+test_final_head_change_blocks (__main__.Checks.test_final_head_change_blocks) ... ok
+test_fixed_final_cannot_be_intermediate (__main__.Checks.test_fixed_final_cannot_be_intermediate) ... ok
+test_forged_loss_recomputed (__main__.Checks.test_forged_loss_recomputed) ... ok
+test_full1092_worker_actual756_points_no_Torch_or_training (__main__.Checks.test_full1092_worker_actual756_points_no_Torch_or_training) ... ok
+test_gradient_change_blocks (__main__.Checks.test_gradient_change_blocks) ... ok
+test_guards_no_models_or_solvers (__main__.Checks.test_guards_no_models_or_solvers) ... ok
+test_hardmax_summary_not_replaced_by_smooth (__main__.Checks.test_hardmax_summary_not_replaced_by_smooth) ... ok
+test_independent_vector_Adam_sign_projection_and_scalar_agreement (__main__.Checks.test_independent_vector_Adam_sign_projection_and_scalar_agreement) ... ok
+test_initial_moments_not_zero_blocks (__main__.Checks.test_initial_moments_not_zero_blocks) ... ok
+test_initial_restart_head_change_blocks (__main__.Checks.test_initial_restart_head_change_blocks) ... ok
+test_missing_or_permuted_rows_block (__main__.Checks.test_missing_or_permuted_rows_block) ... ok
+test_moment_change_blocks (__main__.Checks.test_moment_change_blocks) ... ok
+test_native_gate_forgery_recomputed (__main__.Checks.test_native_gate_forgery_recomputed) ... ok
+test_nonfinite_gradient_blocks (__main__.Checks.test_nonfinite_gradient_blocks) ... ok
+test_nonzero_saved_Torch_NumPy_difference_within_original_tolerance_is_accepted (__main__.Checks.test_nonzero_saved_Torch_NumPy_difference_within_original_tolerance_is_accepted) ... ok
+test_objective_weight_forgery_recomputed (__main__.Checks.test_objective_weight_forgery_recomputed) ... ok
+test_recorded_actual_point_hash_forgery_blocks (__main__.Checks.test_recorded_actual_point_hash_forgery_blocks) ... ok
+test_repeat_missing_blocks (__main__.Checks.test_repeat_missing_blocks) ... ok
+test_replay_declaration_recomputed (__main__.Checks.test_replay_declaration_recomputed) ... ok
+test_reported_map_error_independently_recomputed (__main__.Checks.test_reported_map_error_independently_recomputed) ... ok
+test_smooth_independent_aggregation_matches_parent_and_extremes (__main__.Checks.test_smooth_independent_aggregation_matches_parent_and_extremes) ... ok
+test_source_change_rebound_manifest (__main__.Checks.test_source_change_rebound_manifest) ... ok
+test_temperature_change_blocks (__main__.Checks.test_temperature_change_blocks) ... ok
+test_unsafe_and_duplicate_paths_block (__main__.Checks.test_unsafe_and_duplicate_paths_block) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1625: UserWarning: Duplicate name: 'same'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+ok
+test_update_change_blocks (__main__.Checks.test_update_change_blocks) ... ok
+test_wrong_whole_hash_before_any_payload (__main__.Checks.test_wrong_whole_hash_before_any_payload) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 47.819s
+
+OK

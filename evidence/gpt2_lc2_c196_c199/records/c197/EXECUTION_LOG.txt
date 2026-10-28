@@ -1,0 +1,2231 @@
+ 请一次上传 C197_CPU_LAUNCHER_BUNDLE.zip；不要上传科学结果ZIP，无需解压。
+
+     
+     C197_CPU_LAUNCHER_BUNDLE.zip(application/zip) - 7470536 bytes, last modified: 2026/10/28 - 100% done
+      // Copyright 2017 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ * @fileoverview Helpers for google.colab Python module.
+ */
+(function(scope) {
+function span(text, styleAttributes = {}) {
+  const element = document.createElement('span');
+  element.textContent = text;
+  for (const key of Object.keys(styleAttributes)) {
+    element.style[key] = styleAttributes[key];
+  }
+  return element;
+}
+
+// Max number of bytes which will be uploaded at a time.
+const MAX_PAYLOAD_SIZE = 100 * 1024;
+
+function _uploadFiles(inputId, outputId) {
+  const steps = uploadFilesStep(inputId, outputId);
+  const outputElement = document.getElementById(outputId);
+  // Cache steps on the outputElement to make it available for the next call
+  // to uploadFilesContinue from Python.
+  outputElement.steps = steps;
+
+  return _uploadFilesContinue(outputId);
+}
+
+// This is roughly an async generator (not supported in the browser yet),
+// where there are multiple asynchronous steps and the Python side is going
+// to poll for completion of each step.
+// This uses a Promise to block the python side on completion of each step,
+// then passes the result of the previous step as the input to the next step.
+function _uploadFilesContinue(outputId) {
+  const outputElement = document.getElementById(outputId);
+  const steps = outputElement.steps;
+
+  const next = steps.next(outputElement.lastPromiseValue);
+  return Promise.resolve(next.value.promise).then((value) => {
+    // Cache the last promise value to make it available to the next
+    // step of the generator.
+    outputElement.lastPromiseValue = value;
+    return next.value.response;
+  });
+}
+
+/**
+ * Generator function which is called between each async step of the upload
+ * process.
+ * @param {string} inputId Element ID of the input file picker element.
+ * @param {string} outputId Element ID of the output display.
+ * @return {!Iterable<!Object>} Iterable of next steps.
+ */
+function* uploadFilesStep(inputId, outputId) {
+  const inputElement = document.getElementById(inputId);
+  inputElement.disabled = false;
+
+  const outputElement = document.getElementById(outputId);
+  outputElement.innerHTML = '';
+
+  const pickedPromise = new Promise((resolve) => {
+    inputElement.addEventListener('change', (e) => {
+      resolve(e.target.files);
+    });
+  });
+
+  const cancel = document.createElement('button');
+  inputElement.parentElement.appendChild(cancel);
+  cancel.textContent = 'Cancel upload';
+  const cancelPromise = new Promise((resolve) => {
+    cancel.onclick = () => {
+      resolve(null);
+    };
+  });
+
+  // Wait for the user to pick the files.
+  const files = yield {
+    promise: Promise.race([pickedPromise, cancelPromise]),
+    response: {
+      action: 'starting',
+    }
+  };
+
+  cancel.remove();
+
+  // Disable the input element since further picks are not allowed.
+  inputElement.disabled = true;
+
+  if (!files) {
+    return {
+      response: {
+        action: 'complete',
+      }
+    };
+  }
+
+  for (const file of files) {
+    const li = document.createElement('li');
+    li.append(span(file.name, {fontWeight: 'bold'}));
+    li.append(span(
+        `(${file.type || 'n/a'}) - ${file.size} bytes, ` +
+        `last modified: ${
+            file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() :
+                                    'n/a'} - `));
+    const percent = span('0% done');
+    li.appendChild(percent);
+
+    outputElement.appendChild(li);
+
+    const fileDataPromise = new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve(e.target.result);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    // Wait for the data to be ready.
+    let fileData = yield {
+      promise: fileDataPromise,
+      response: {
+        action: 'continue',
+      }
+    };
+
+    // Use a chunked sending to avoid message size limits. See b/62115660.
+    let position = 0;
+    do {
+      const length = Math.min(fileData.byteLength - position, MAX_PAYLOAD_SIZE);
+      const chunk = new Uint8Array(fileData, position, length);
+      position += length;
+
+      const base64 = btoa(String.fromCharCode.apply(null, chunk));
+      yield {
+        response: {
+          action: 'append',
+          file: file.name,
+          data: base64,
+        },
+      };
+
+      let percentDone = fileData.byteLength === 0 ?
+          100 :
+          Math.round((position / fileData.byteLength) * 100);
+      percent.textContent = `${percentDone}% done`;
+
+    } while (position < fileData.byteLength);
+  }
+
+  // All done.
+  yield {
+    response: {
+      action: 'complete',
+    }
+  };
+}
+
+scope.google = scope.google || {};
+scope.google.colab = scope.google.colab || {};
+scope.google.colab._files = {
+  _uploadFiles,
+  _uploadFilesContinue,
+};
+})(self);
+ Saving C197_CPU_LAUNCHER_BUNDLE.zip to C197_CPU_LAUNCHER_BUNDLE.zip
+C197 CPU：配套BUNDLE已校验；固定42原包；纯NumPy只读核对C196八步、840个实际FP64点和两轮原生完整门槛。保留全部84态，重算所有正负响应余量、救回/破坏/失败轨迹及168原生、84FP64跨运行重放差异。不预设84/84或救回数；工作上限60分钟，自测另计；保留父判定，不计LC2通过。
+C197 原始只读输入 C155 /content/drive/MyDrive/GPT2_LC2_C155_PAIRED_FORWARD_PRECISION_CPU_V1_RECOVERY/c155_paired_forward_precision_1792746742162409955_results.zip
+C197 原始只读输入 C156 /content/drive/MyDrive/GPT2_LC2_C156_READONLY_PRECISION_TRAJECTORY_CPU_V1_RECOVERY/c156_readonly_precision_trajectory_1792750617753922226_results.zip
+C197 原始只读输入 C157 /content/drive/MyDrive/GPT2_LC2_C157_FP64_DIRECTIONAL_AD_CPU_V1_RECOVERY/c157_fp64_directional_ad_1792756197210011575_results.zip
+C197 原始只读输入 C158 /content/drive/MyDrive/GPT2_LC2_C158_SAME_RUN_FP64_AD_CPU_V1_RECOVERY/c158_same_run_fp64_ad_1792781147905613358_results.zip
+C197 原始只读输入 C159 /content/drive/MyDrive/GPT2_LC2_C159_COEFFICIENT_CHAIN_FP64_CPU_V1_RECOVERY/c159_coefficient_chain_fp64_1792782704960758030_results.zip
+C197 原始只读输入 C160 /content/drive/MyDrive/GPT2_LC2_C160_FULL84_FP64_BASELINE_CPU_V1_RECOVERY/c160_full84_fp64_baseline_1792785149044276638_results.zip
+C197 原始只读输入 C161 /content/drive/MyDrive/GPT2_LC2_C161_FULL84_FP64_TRAIN_CPU_V1_RECOVERY/c161_full84_fp64_train_1792794511076909638_results.zip
+C197 原始只读输入 C162 /content/drive/MyDrive/GPT2_LC2_C162_READONLY_FP64_TRAIN_AUDIT_CPU_V1_RECOVERY/c162_readonly_fp64_train_audit_1792802510128908175_results.zip
+C197 原始只读输入 C163 /content/drive/MyDrive/GPT2_LC2_C163_SMOOTH_RISK_FP64_CPU_V1_RECOVERY/c163_smooth_risk_fp64_1792804771993554131_results.zip
+C197 原始只读输入 C164 /content/drive/MyDrive/GPT2_LC2_C164_READONLY_SMOOTH_TRAIN_AUDIT_CPU_V1_RECOVERY/c164_readonly_smooth_train_audit_1792815840441279099_results.zip
+C197 原始只读输入 C165 /content/drive/MyDrive/GPT2_LC2_C165_COMMON_DESCENT_PROBES_CPU_V1_RECOVERY/c165_common_descent_probes_1792817961059997552_results.zip
+C197 原始只读输入 C166 /content/drive/MyDrive/GPT2_LC2_C166_READONLY_DIRECTION_AUDIT_CPU_V1_RECOVERY/c166_readonly_direction_audit_1792826955763268604_results.zip
+C197 原始只读输入 C167 /content/drive/MyDrive/GPT2_LC2_C167_RECORDED_GRADIENT_FEASIBILITY_CPU_V1_RECOVERY/c167_recorded_gradient_feasibility_1792831202958441083_results.zip
+C197 原始只读输入 C168 /content/drive/MyDrive/GPT2_LC2_C168_CERTIFIED_DIRECTION_PROBES_CPU_V1_RECOVERY/c168_certified_direction_probes_1792833073186588255_results.zip
+C197 原始只读输入 C169 /content/drive/MyDrive/GPT2_LC2_C169_READONLY_FINITE_PROBE_AUDIT_CPU_V1_RECOVERY/c169_readonly_finite_probe_audit_1792840501279121951_results.zip
+C197 原始只读输入 C170 /content/drive/MyDrive/GPT2_LC2_C170_RELINEARISED_LP_TRAIN_CPU_V1_RECOVERY/c170_relinearised_lp_train_1792867604222024910_results.zip
+C197 原始只读输入 C171 /content/drive/MyDrive/GPT2_LC2_C171_READONLY_LP_TRAIN_AUDIT_CPU_V1_RECOVERY/c171_readonly_lp_train_audit_1792874933612423156_results.zip
+C197 原始只读输入 C172 /content/drive/MyDrive/GPT2_LC2_C172_FINAL_HEAD_FINITE_STEPS_CPU_V1_RECOVERY/c172_final_head_finite_steps_1792878228571053236_results.zip
+C197 原始只读输入 C173 /content/drive/MyDrive/GPT2_LC2_C173_READONLY_FINITE_STEP_COORDINATE_AUDIT_CPU_V1_RECOVERY/c173_readonly_finite_step_coordinate_audit_1792892759645921618_results.zip
+C197 原始只读输入 C174 /content/drive/MyDrive/GPT2_LC2_C174_ALL_COORDINATE_DIRECTION_CPU_V1_RECOVERY/c174_all_coordinate_direction_1792895436252877896_results.zip
+C197 原始只读输入 C175 /content/drive/MyDrive/GPT2_LC2_C175_READONLY_ALL_COORDINATE_AUDIT_CPU_V1_RECOVERY/c175_readonly_all_coordinate_audit_1792907496586803362_results.zip
+C197 原始只读输入 C176 /content/drive/MyDrive/GPT2_LC2_C176_ALL_COORDINATE_RELINEARISED_TRAIN_CPU_V1_RECOVERY/c176_all_coordinate_relinearised_train_1792910117492783694_results.zip
+C197 原始只读输入 C177 /content/drive/MyDrive/GPT2_LC2_C177_READONLY_ALL_COORDINATE_TRAIN_AUDIT_CPU_V1_RECOVERY/c177_readonly_all_coordinate_train_audit_1792922955671500709_results.zip
+C197 原始只读输入 C178 /content/drive/MyDrive/GPT2_LC2_C178_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c178_all_coordinate_continuation_train_1792925241564180532_results.zip
+C197 原始只读输入 C179 /content/drive/MyDrive/GPT2_LC2_C179_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c179_readonly_continuation_train_audit_1792950011136259424_results.zip
+C197 原始只读输入 C180 /content/drive/MyDrive/GPT2_LC2_C180_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c180_all_coordinate_continuation_train_1792956669587629913_results.zip
+C197 原始只读输入 C181 /content/drive/MyDrive/GPT2_LC2_C181_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c181_readonly_continuation_train_audit_1792970927313012595_results.zip
+C197 原始只读输入 C182 /content/drive/MyDrive/GPT2_LC2_C182_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c182_all_coordinate_continuation_train_1792976493104793674_results.zip
+C197 原始只读输入 C183 /content/drive/MyDrive/GPT2_LC2_C183_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c183_readonly_continuation_train_audit_1792997655804287095_results.zip
+C197 原始只读输入 C184 /content/drive/MyDrive/GPT2_LC2_C184_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c184_all_coordinate_continuation_train_1793001675185182796_results.zip
+C197 原始只读输入 C185 /content/drive/MyDrive/GPT2_LC2_C185_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c185_readonly_continuation_train_audit_1793042213882332375_results.zip
+C197 原始只读输入 C186 /content/drive/MyDrive/GPT2_LC2_C186_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c186_all_coordinate_continuation_train_1793044725906436843_results.zip
+C197 原始只读输入 C187 /content/drive/MyDrive/GPT2_LC2_C187_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c187_readonly_continuation_train_audit_1793057443459239605_results.zip
+C197 原始只读输入 C188 /content/drive/MyDrive/GPT2_LC2_C188_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c188_all_coordinate_continuation_train_1793060106601426991_results.zip
+C197 原始只读输入 C189 /content/drive/MyDrive/GPT2_LC2_C189_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c189_readonly_continuation_train_audit_1793071249421328929_results.zip
+C197 原始只读输入 C190 /content/drive/MyDrive/GPT2_LC2_C190_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c190_all_coordinate_continuation_train_1793073731638650611_results.zip
+C197 原始只读输入 C191 /content/drive/MyDrive/GPT2_LC2_C191_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c191_readonly_continuation_train_audit_1793086800583120343_results.zip
+C197 原始只读输入 C192 /content/drive/MyDrive/GPT2_LC2_C192_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c192_all_coordinate_continuation_train_1793089733485187412_results.zip
+C197 原始只读输入 C193 /content/drive/MyDrive/GPT2_LC2_C193_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c193_readonly_continuation_train_audit_1793124987052013318_results.zip
+C197 原始只读输入 C194 /content/drive/MyDrive/GPT2_LC2_C194_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c194_all_coordinate_continuation_train_1793128851859319359_results.zip
+C197 原始只读输入 C195 /content/drive/MyDrive/GPT2_LC2_C195_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c195_readonly_continuation_train_audit_1793147292255772483_results.zip
+C197 原始只读输入 C196 /content/drive/MyDrive/GPT2_LC2_C196_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c196_all_coordinate_continuation_train_1793160837357962795_results.zip
+START C197 independent LP/sign/units/binary64 endpoint checks
+test_all1008_signed_rows_include_inactive_states (__main__.Checks.test_all1008_signed_rows_include_inactive_states) ... ok
+test_all_six_actual_heads_and_fractions_reconstruct (__main__.Checks.test_all_six_actual_heads_and_fractions_reconstruct) ... ok
+test_binary64_endpoint_difference_not_rounded_subtraction (__main__.Checks.test_binary64_endpoint_difference_not_rounded_subtraction) ... ok
+test_direction_dtype_and_bounds_rejected (__main__.Checks.test_direction_dtype_and_bounds_rejected) ... ok
+test_empty_active_has_zero_no_strict_descent (__main__.Checks.test_empty_active_has_zero_no_strict_descent) ... ok
+test_full_panel_free_mask_not_step_specific (__main__.Checks.test_full_panel_free_mask_not_step_specific) ... ok
+test_inactive_coordinate_rejects_direction_accepted_by_active_rows (__main__.Checks.test_inactive_coordinate_rejects_direction_accepted_by_active_rows) ... ok
+test_nonmax_coordinate_of_active_state_not_omitted (__main__.Checks.test_nonmax_coordinate_of_active_state_not_omitted) ... ok
+test_scalar_gradient_units_cannot_change (__main__.Checks.test_scalar_gradient_units_cannot_change) ... ok
+test_sign_scale_caps_not_native_gate (__main__.Checks.test_sign_scale_caps_not_native_gate) ... ok
+test_signed_exact_max_ties_average_both_branches (__main__.Checks.test_signed_exact_max_ties_average_both_branches) ... ok
+test_wrong_shape_nonfinite_order_missing_rejected (__main__.Checks.test_wrong_shape_nonfinite_order_missing_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.934s
+
+OK
+END C197 independent LP/sign/units/binary64 endpoint checks exit= 0
+START C197 observed-cap/guard-decomposition controls
+test_final_repeat_guard_activity_also_retained (__main__.Checks.test_final_repeat_guard_activity_also_retained) ... ok
+test_guard_nonregularizer_activity_in_intermediate_frame_retained (__main__.Checks.test_guard_nonregularizer_activity_in_intermediate_frame_retained) ... ok
+test_guard_regularizer_only_requires_zero_nonregularizer_everywhere (__main__.Checks.test_guard_regularizer_only_requires_zero_nonregularizer_everywhere) ... ok
+test_observed_cap_violation_not_hidden_by_positive_affine_margin (__main__.Checks.test_observed_cap_violation_not_hidden_by_positive_affine_margin) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.027s
+
+OK
+END C197 observed-cap/guard-decomposition controls exit= 0
+START C197 full-gate rescue/destruction/repeat controls
+test_FP64_response_pass_does_not_override_native_failure (__main__.Checks.test_FP64_response_pass_does_not_override_native_failure) ... ok
+test_all_native_pass_keeps_complete_denominator_and_no_failure_rows (__main__.Checks.test_all_native_pass_keeps_complete_denominator_and_no_failure_rows) ... ok
+test_destroyed_state_never_dropped (__main__.Checks.test_destroyed_state_never_dropped) ... ok
+test_missing_failure_trajectory_blocks (__main__.Checks.test_missing_failure_trajectory_blocks) ... ok
+test_permuted_native_identity_blocks (__main__.Checks.test_permuted_native_identity_blocks) ... ok
+test_rescue_exports_all_gates_for_both_rounds (__main__.Checks.test_rescue_exports_all_gates_for_both_rounds) ... ok
+test_response_pass_with_failed_read_margin_is_not_rescue (__main__.Checks.test_response_pass_with_failed_read_margin_is_not_rescue) ... ok
+test_round_disagreement_blocks_consistent_rescue_claim (__main__.Checks.test_round_disagreement_blocks_consistent_rescue_claim) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.050s
+
+OK
+END C197 full-gate rescue/destruction/repeat controls exit= 0
+START C197 independent precision-margin and gate-separation tests
+test_CSV_boolean_forgery_rejected (__main__.Checks.test_CSV_boolean_forgery_rejected) ... ok
+test_KL_failed_native_not_full_pass_despite_response_agreement (__main__.Checks.test_KL_failed_native_not_full_pass_despite_response_agreement) ... ok
+test_both_fail_resolution_not_counted_both_pass (__main__.Checks.test_both_fail_resolution_not_counted_both_pass) ... ok
+test_exact_budget_boundary_inclusive_without_extra_margin (__main__.Checks.test_exact_budget_boundary_inclusive_without_extra_margin) ... ok
+test_independent_matches_original_production_report_and_all336_rows (__main__.Checks.test_independent_matches_original_production_report_and_all336_rows) ... ok
+test_missing_original_CSV_record_rejected (__main__.Checks.test_missing_original_CSV_record_rejected) ... ok
+test_new_disagreement_remains_visible (__main__.Checks.test_new_disagreement_remains_visible) ... ok
+test_nonfinite_rejected (__main__.Checks.test_nonfinite_rejected) ... ok
+test_permuted_states_rejected (__main__.Checks.test_permuted_states_rejected) ... ok
+test_unchanged_disagreement_not_invented_resolved (__main__.Checks.test_unchanged_disagreement_not_invented_resolved) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.238s
+
+OK
+END C197 independent precision-margin and gate-separation tests exit= 0
+START C197 point identity/exact equality/original replay tolerance controls
+test_FP64_original_tolerance_not_silently_relaxed (__main__.Checks.test_FP64_original_tolerance_not_silently_relaxed) ... ok
+test_FP64_point_identity_report_does_not_add_a_gate (__main__.Checks.test_FP64_point_identity_report_does_not_add_a_gate) ... ok
+test_KL_above_original_tolerance_blocks (__main__.Checks.test_KL_above_original_tolerance_blocks) ... ok
+test_equal_observables_do_not_imply_same_point (__main__.Checks.test_equal_observables_do_not_imply_same_point) ... ok
+test_forged_original_replay_metadata_blocks (__main__.Checks.test_forged_original_replay_metadata_blocks) ... ok
+test_full168_native84_FP64_and_no_new_acceptance (__main__.Checks.test_full168_native84_FP64_and_no_new_acceptance) ... ok
+test_metric_gate_change_blocks_registered_replay (__main__.Checks.test_metric_gate_change_blocks_registered_replay) ... ok
+test_nonfinite_values_rejected (__main__.Checks.test_nonfinite_values_rejected) ... ok
+test_nonzero_cross_run_shift_separate_from_same_run_training (__main__.Checks.test_nonzero_cross_run_shift_separate_from_same_run_training) ... ok
+test_original_native_thresholds_kept (__main__.Checks.test_original_native_thresholds_kept) ... ok
+test_same_point_nonzero_observable_difference_can_pass_tolerance (__main__.Checks.test_same_point_nonzero_observable_difference_can_pass_tolerance) ... ok
+test_wrong_or_missing_registry_blocks (__main__.Checks.test_wrong_or_missing_registry_blocks) ... ok
+test_wrong_point_hash_blocks_whole_report (__main__.Checks.test_wrong_point_hash_blocks_whole_report) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.240s
+
+OK
+END C197 point identity/exact equality/original replay tolerance controls exit= 0
+START C197 dynamic rescue/failure/precision/crossing controls
+test_all_pass_empty_focus_does_not_close_LC2 (__main__.Checks.test_all_pass_empty_focus_does_not_close_LC2) ... ok
+test_destroyed_state_remains_failure_and_in_focus (__main__.Checks.test_destroyed_state_remains_failure_and_in_focus) ... ok
+test_native_repeat_outcome_disagreement_blocks (__main__.Checks.test_native_repeat_outcome_disagreement_blocks) ... ok
+test_native_rescue_with_FP64_failure_retained (__main__.Checks.test_native_rescue_with_FP64_failure_retained) ... ok
+test_nonfinite_observable_blocks (__main__.Checks.test_nonfinite_observable_blocks) ... ok
+test_permuted_and_missing_registry_block (__main__.Checks.test_permuted_and_missing_registry_block) ... ok
+test_rescue_full_native_both_rounds_with_FP64_crossing (__main__.Checks.test_rescue_full_native_both_rounds_with_FP64_crossing) ... ok
+test_response_entry_exit_reentry_all_steps_retained (__main__.Checks.test_response_entry_exit_reentry_all_steps_retained) ... ok
+test_safety_entry_of_already_passed_state_is_not_rescue (__main__.Checks.test_safety_entry_of_already_passed_state_is_not_rescue) ... ok
+test_still_failed_improvement_not_rescue (__main__.Checks.test_still_failed_improvement_not_rescue) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.124s
+
+OK
+END C197 dynamic rescue/failure/precision/crossing controls exit= 0
+START C197 activity exit/re-entry/safety-vs-acceptance controls
+test_changed_LP_activity_binding_rejected (__main__.Checks.test_changed_LP_activity_binding_rejected) ... ok
+test_exact_safety_boundary_inclusive (__main__.Checks.test_exact_safety_boundary_inclusive) ... ok
+test_exit_safety_is_not_new_native_rescue (__main__.Checks.test_exit_safety_is_not_new_native_rescue) ... ok
+test_first_new_entry_not_reentry (__main__.Checks.test_first_new_entry_not_reentry) ... ok
+test_negative_loss_rejected (__main__.Checks.test_negative_loss_rejected) ... ok
+test_nonfinite_observation_rejected (__main__.Checks.test_nonfinite_observation_rejected) ... ok
+test_reentry_kept_when_initial_final_counts_equal (__main__.Checks.test_reentry_kept_when_initial_final_counts_equal) ... ok
+test_registry_permutation_rejected (__main__.Checks.test_registry_permutation_rejected) ... ok
+test_response_budget_crossing_without_activity_exit (__main__.Checks.test_response_budget_crossing_without_activity_exit) ... ok
+test_still_failed_improvement_not_activity_exit (__main__.Checks.test_still_failed_improvement_not_activity_exit) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.172s
+
+OK
+END C197 activity exit/re-entry/safety-vs-acceptance controls exit= 0
+START C197 archive/fixed8/point-seal/exact-affine/gate tests
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 30 秒
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 60 秒
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 90 秒
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 120 秒
+test_actual_head_difference_certificate_forgery_blocks (__main__.Checks.test_actual_head_difference_certificate_forgery_blocks) ... ok
+test_actual_point_tamper_even_rebound_local_seal_blocks (__main__.Checks.test_actual_point_tamper_even_rebound_local_seal_blocks) ... ok
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 150 秒
+test_complete_worker_all8_updates_840_points_without_model_or_solver (__main__.Checks.test_complete_worker_all8_updates_840_points_without_model_or_solver) ... ok
+test_coordinate_Jacobian_duplicate_change_blocks (__main__.Checks.test_coordinate_Jacobian_duplicate_change_blocks) ... ok
+test_cumulative_continuation_steps_cannot_be_hidden (__main__.Checks.test_cumulative_continuation_steps_cannot_be_hidden) ... ok
+test_current_active_registry_changed_blocks (__main__.Checks.test_current_active_registry_changed_blocks) ... ok
+test_current_gradient_tail_changed_blocks (__main__.Checks.test_current_gradient_tail_changed_blocks) ... ok
+test_direction_changed_blocks (__main__.Checks.test_direction_changed_blocks) ... ok
+test_exact_fraction_forgery_blocks (__main__.Checks.test_exact_fraction_forgery_blocks) ... ok
+test_exact_raw_contraction_forgery_blocks (__main__.Checks.test_exact_raw_contraction_forgery_blocks) ... ok
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 180 秒
+test_final_FP64_repeat_record_removed_blocks (__main__.Checks.test_final_FP64_repeat_record_removed_blocks) ... ok
+test_fixed_final_head_not_step8_blocks (__main__.Checks.test_fixed_final_head_not_step8_blocks) ... ok
+test_fixed_initial_head_change_blocks (__main__.Checks.test_fixed_initial_head_change_blocks) ... ok
+test_forged_rescued_count_in_paired_summary_blocks (__main__.Checks.test_forged_rescued_count_in_paired_summary_blocks) ... ok
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 210 秒
+test_forged_training_loss_in_primary_records_blocks (__main__.Checks.test_forged_training_loss_in_primary_records_blocks) ... ok
+test_gradient_duplicate_changed_blocks (__main__.Checks.test_gradient_duplicate_changed_blocks) ... ok
+test_incomplete_parent_blocks (__main__.Checks.test_incomplete_parent_blocks) ... ok
+test_missing_training_request_blocks (__main__.Checks.test_missing_training_request_blocks) ... ok
+test_native_gate_forgery_blocks (__main__.Checks.test_native_gate_forgery_blocks) ... ok
+test_native_repeat_forgery_blocks (__main__.Checks.test_native_repeat_forgery_blocks) ... ok
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 240 秒
+test_new_LP_in_parent_count_cannot_be_hidden (__main__.Checks.test_new_LP_in_parent_count_cannot_be_hidden) ... ok
+test_nonfinite_actual_point_blocks (__main__.Checks.test_nonfinite_actual_point_blocks) ... ok
+test_older_C170_head_cannot_replace_C194_continuation_anchor (__main__.Checks.test_older_C170_head_cannot_replace_C194_continuation_anchor) ... ok
+test_original_C195_audit_decision_tamper_blocks (__main__.Checks.test_original_C195_audit_decision_tamper_blocks) ... ok
+test_original_history_update_change_blocks (__main__.Checks.test_original_history_update_change_blocks) ... ok
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 270 秒
+test_parent_decision_reclassification_blocks (__main__.Checks.test_parent_decision_reclassification_blocks) ... ok
+test_precision_CSV_tamper_blocks (__main__.Checks.test_precision_CSV_tamper_blocks) ... ok
+test_precision_JSON_row_tamper_blocks (__main__.Checks.test_precision_JSON_row_tamper_blocks) ... ok
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 300 秒
+test_precision_main_summary_duplicate_tamper_blocks (__main__.Checks.test_precision_main_summary_duplicate_tamper_blocks) ... ok
+test_precision_missing_row_blocks (__main__.Checks.test_precision_missing_row_blocks) ... ok
+test_precision_summary_tamper_blocks (__main__.Checks.test_precision_summary_tamper_blocks) ... ok
+test_proposed_head_differs_from_committed_update_blocks (__main__.Checks.test_proposed_head_differs_from_committed_update_blocks) ... ok
+test_rational_head_difference_keeps_exact_binary_endpoints (__main__.Checks.test_rational_head_difference_keeps_exact_binary_endpoints) ... ok
+test_reference_recenter_blocks (__main__.Checks.test_reference_recenter_blocks) ... ok
+C197 archive/fixed8/point-seal/exact-affine/gate tests 运行中 330 秒
+test_reordered_state_request_blocks (__main__.Checks.test_reordered_state_request_blocks) ... ok
+test_saved_actual_forward_count_changed_blocks (__main__.Checks.test_saved_actual_forward_count_changed_blocks) ... ok
+test_saved_solver_vector_mapping_change_blocks (__main__.Checks.test_saved_solver_vector_mapping_change_blocks) ... ok
+test_source_tamper_even_rebound_manifest_blocks (__main__.Checks.test_source_tamper_even_rebound_manifest_blocks) ... ok
+test_unknown_parent_internal_solve_count_retained_null (__main__.Checks.test_unknown_parent_internal_solve_count_retained_null) ... ok
+test_unsafe_archive_path_blocks (__main__.Checks.test_unsafe_archive_path_blocks) ... ok
+test_update_sign_scale_change_blocks (__main__.Checks.test_update_sign_scale_change_blocks) ... ok
+test_wrong_source_ancestry_blocks (__main__.Checks.test_wrong_source_ancestry_blocks) ... ok
+test_wrong_whole_hash_blocks_before_context_loader (__main__.Checks.test_wrong_whole_hash_blocks_before_context_loader) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 354.426s
+
+OK
+END C197 archive/fixed8/point-seal/exact-affine/gate tests exit= 0
+START C197 isolated current-entrypoint checks
+test_current_launcher_routes_current_scripts (__main__.Checks.test_current_launcher_routes_current_scripts) ... ok
+test_current_worker_help_contains_all42_input_paths (__main__.Checks.test_current_worker_help_contains_all42_input_paths) ... ok
+test_current_worker_import_without_model_or_solver (__main__.Checks.test_current_worker_import_without_model_or_solver) ... ok
+test_production_original_hashes_and_fixed_start_head (__main__.Checks.test_production_original_hashes_and_fixed_start_head) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.589s
+
+OK
+END C197 isolated current-entrypoint checks exit= 0
+START C197 failure-packaging checks (synthetic only)
+test_child_failure_still_packages_one_incomplete_result (__main__.Checks.test_child_failure_still_packages_one_incomplete_result) ... ok
+test_success_one_result_manifest_and_parent_GPU_mask (__main__.Checks.test_success_one_result_manifest_and_parent_GPU_mask) ... ok
+test_wrong_C196_hash_packages_failure (__main__.Checks.test_wrong_C196_hash_packages_failure) ... ok
+test_wrong_source_rejected_before_child (__main__.Checks.test_wrong_source_rejected_before_child) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.135s
+
+OK
+END C197 failure-packaging checks (synthetic only) exit= 0
+C197：纯NumPy；固定C155–C196四十二个原包；全84态、8步、1176记录、840实际FP64点、336原生门槛。重算救回/破坏与剩余失败轨迹及168原生/84FP64跨运行重放差异，不预设通过数、救回数或单调性。
+重算全84态活动集退出/进入/再进入，区分0.0018训练安全尺度与0.002原生预算；重算每步1008有符号约束、全部16份证书、固定更新、4032条逐坐标记录、逐步损失和guard分项。独立重建336条精度裕度JSON/CSV。不加载模型或Torch/HF/SciPy；无前向/反传/训练/求解，不选步长或头；上限60分钟。
+START C197 read-only all-coordinate training audit
+C197 read-only all-coordinate training audit 运行中 30 秒
+C197 read-only all-coordinate training audit 运行中 60 秒
+C197 read-only all-coordinate training audit 运行中 90 秒
+C197 read-only all-coordinate training audit 运行中 120 秒
+C197 read-only all-coordinate training audit 运行中 150 秒
+C197 read-only all-coordinate training audit 运行中 180 秒
+C197 read-only all-coordinate training audit 运行中 210 秒
+C197 read-only all-coordinate training audit 运行中 240 秒
+C197 read-only all-coordinate training audit 运行中 270 秒
+C197 read-only all-coordinate training audit 运行中 300 秒
+C197 read-only all-coordinate training audit 运行中 330 秒
+C197 read-only all-coordinate training audit 运行中 360 秒
+C197 read-only all-coordinate training audit 运行中 390 秒
+C197 read-only all-coordinate training audit 运行中 420 秒
+C197 read-only all-coordinate training audit 运行中 450 秒
+C197 read-only all-coordinate training audit 运行中 480 秒
+C197 read-only all-coordinate training audit 运行中 510 秒
+C197 read-only all-coordinate training audit 运行中 540 秒
+C197 read-only all-coordinate training audit 运行中 570 秒
+C197 read-only all-coordinate training audit 运行中 600 秒
+C197 read-only all-coordinate training audit 运行中 630 秒
+C157_BASELINE_REPLAY NATIVE_FP32_BASELINE_LOGITS max_abs_error 7.62939453125e-05 original_tolerance 2e-09 within_original_tolerance False
+C157_BASELINE_REPLAY NATIVE_FP32_CACHED_RESPONSE max_abs_error 1.52587890625e-05 original_tolerance 2e-09 within_original_tolerance False
+C162_UPDATE_AUDIT 1 /8
+C162_UPDATE_AUDIT 2 /8
+C162_UPDATE_AUDIT 3 /8
+C162_UPDATE_AUDIT 4 /8
+C162_UPDATE_AUDIT 5 /8
+C162_UPDATE_AUDIT 6 /8
+C162_UPDATE_AUDIT 7 /8
+C162_UPDATE_AUDIT 8 /8
+C164_UPDATE_AUDIT 1 /8
+C164_UPDATE_AUDIT 2 /8
+C164_UPDATE_AUDIT 3 /8
+C164_UPDATE_AUDIT 4 /8
+C164_UPDATE_AUDIT 5 /8
+C164_UPDATE_AUDIT 6 /8
+C164_UPDATE_AUDIT 7 /8
+C164_UPDATE_AUDIT 8 /8
+C197 read-only all-coordinate training audit 运行中 660 秒
+C197 read-only all-coordinate training audit 运行中 690 秒
+C171_STEP_AUDIT 1 /8 active 9 positive True
+C171_STEP_AUDIT 2 /8 active 9 positive True
+C171_STEP_AUDIT 3 /8 active 9 positive True
+C171_STEP_AUDIT 4 /8 active 9 positive True
+C171_STEP_AUDIT 5 /8 active 9 positive True
+C171_STEP_AUDIT 6 /8 active 9 positive True
+C171_STEP_AUDIT 7 /8 active 9 positive True
+C171_STEP_AUDIT 8 /8 active 9 positive True
+C197 read-only all-coordinate training audit 运行中 720 秒
+C197 read-only all-coordinate training audit 运行中 750 秒
+C197 read-only all-coordinate training audit 运行中 780 秒
+C177_STEP_AUDIT 1 /8 active 9 actual_margin True
+C177_STEP_AUDIT 2 /8 active 8 actual_margin True
+C177_STEP_AUDIT 3 /8 active 7 actual_margin True
+C177_STEP_AUDIT 4 /8 active 6 actual_margin True
+C177_STEP_AUDIT 5 /8 active 6 actual_margin True
+C177_STEP_AUDIT 6 /8 active 6 actual_margin True
+C177_STEP_AUDIT 7 /8 active 6 actual_margin True
+C177_STEP_AUDIT 8 /8 active 6 actual_margin True
+C197 read-only all-coordinate training audit 运行中 810 秒
+C179_STEP_AUDIT 1 /8 active 6 actual_margin True
+C197 read-only all-coordinate training audit 运行中 840 秒
+C179_STEP_AUDIT 2 /8 active 6 actual_margin True
+C179_STEP_AUDIT 3 /8 active 6 actual_margin True
+C179_STEP_AUDIT 4 /8 active 6 actual_margin True
+C179_STEP_AUDIT 5 /8 active 6 actual_margin True
+C179_STEP_AUDIT 6 /8 active 6 actual_margin True
+C179_STEP_AUDIT 7 /8 active 6 actual_margin True
+C179_STEP_AUDIT 8 /8 active 6 actual_margin True
+C197 read-only all-coordinate training audit 运行中 870 秒
+C181_STEP_AUDIT 1 /8 active 6 actual_margin True
+C181_STEP_AUDIT 2 /8 active 6 actual_margin True
+C181_STEP_AUDIT 3 /8 active 6 actual_margin True
+C181_STEP_AUDIT 4 /8 active 6 actual_margin True
+C181_STEP_AUDIT 5 /8 active 6 actual_margin True
+C181_STEP_AUDIT 6 /8 active 6 actual_margin True
+C181_STEP_AUDIT 7 /8 active 6 actual_margin True
+C197 read-only all-coordinate training audit 运行中 900 秒
+C181_STEP_AUDIT 8 /8 active 6 actual_margin True
+C197 read-only all-coordinate training audit 运行中 930 秒
+C183_STEP_AUDIT 1 /8 active 6 actual_margin True
+C183_STEP_AUDIT 2 /8 active 6 actual_margin True
+C183_STEP_AUDIT 3 /8 active 6 actual_margin True
+C183_STEP_AUDIT 4 /8 active 6 actual_margin True
+C183_STEP_AUDIT 5 /8 active 6 actual_margin True
+C183_STEP_AUDIT 6 /8 active 5 actual_margin True
+C183_STEP_AUDIT 7 /8 active 5 actual_margin True
+C183_STEP_AUDIT 8 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 960 秒
+C185_STEP_AUDIT 1 /8 active 5 actual_margin True
+C185_STEP_AUDIT 2 /8 active 5 actual_margin True
+C185_STEP_AUDIT 3 /8 active 5 actual_margin True
+C185_STEP_AUDIT 4 /8 active 5 actual_margin True
+C185_STEP_AUDIT 5 /8 active 5 actual_margin True
+C185_STEP_AUDIT 6 /8 active 5 actual_margin True
+C185_STEP_AUDIT 7 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 990 秒
+C185_STEP_AUDIT 8 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1020 秒
+C187_STEP_AUDIT 1 /8 active 5 actual_margin True
+C187_STEP_AUDIT 2 /8 active 5 actual_margin True
+C187_STEP_AUDIT 3 /8 active 5 actual_margin True
+C187_STEP_AUDIT 4 /8 active 5 actual_margin True
+C187_STEP_AUDIT 5 /8 active 5 actual_margin True
+C187_STEP_AUDIT 6 /8 active 5 actual_margin True
+C187_STEP_AUDIT 7 /8 active 5 actual_margin True
+C187_STEP_AUDIT 8 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1050 秒
+C189_STEP_AUDIT 1 /8 active 5 actual_margin True
+C189_STEP_AUDIT 2 /8 active 5 actual_margin True
+C189_STEP_AUDIT 3 /8 active 5 actual_margin True
+C189_STEP_AUDIT 4 /8 active 5 actual_margin True
+C189_STEP_AUDIT 5 /8 active 5 actual_margin True
+C189_STEP_AUDIT 6 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1080 秒
+C189_STEP_AUDIT 7 /8 active 5 actual_margin True
+C189_STEP_AUDIT 8 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1110 秒
+C191_STEP_AUDIT 1 /8 active 5 actual_margin True
+C191_STEP_AUDIT 2 /8 active 5 actual_margin True
+C191_STEP_AUDIT 3 /8 active 5 actual_margin True
+C191_STEP_AUDIT 4 /8 active 5 actual_margin True
+C191_STEP_AUDIT 5 /8 active 5 actual_margin True
+C191_STEP_AUDIT 6 /8 active 5 actual_margin True
+C191_STEP_AUDIT 7 /8 active 5 actual_margin True
+C191_STEP_AUDIT 8 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1140 秒
+C193_STEP_AUDIT 1 /8 active 5 actual_margin True
+C193_STEP_AUDIT 2 /8 active 5 actual_margin True
+C193_STEP_AUDIT 3 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1170 秒
+C193_STEP_AUDIT 4 /8 active 5 actual_margin True
+C193_STEP_AUDIT 5 /8 active 5 actual_margin True
+C193_STEP_AUDIT 6 /8 active 5 actual_margin True
+C193_STEP_AUDIT 7 /8 active 5 actual_margin True
+C193_STEP_AUDIT 8 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1200 秒
+C195_STEP_AUDIT 1 /8 active 5 actual_margin True
+C195_STEP_AUDIT 2 /8 active 5 actual_margin True
+C195_STEP_AUDIT 3 /8 active 5 actual_margin True
+C195_STEP_AUDIT 4 /8 active 5 actual_margin True
+C195_STEP_AUDIT 5 /8 active 5 actual_margin True
+C195_STEP_AUDIT 6 /8 active 5 actual_margin True
+C195_STEP_AUDIT 7 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1230 秒
+C195_STEP_AUDIT 8 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1260 秒
+C197_STEP_AUDIT 1 /8 active 5 actual_margin True
+C197_STEP_AUDIT 2 /8 active 5 actual_margin True
+C197_STEP_AUDIT 3 /8 active 5 actual_margin True
+C197_STEP_AUDIT 4 /8 active 5 actual_margin True
+C197_STEP_AUDIT 5 /8 active 5 actual_margin True
+C197_STEP_AUDIT 6 /8 active 5 actual_margin True
+C197_STEP_AUDIT 7 /8 active 5 actual_margin True
+C197_STEP_AUDIT 8 /8 active 5 actual_margin True
+C197 read-only all-coordinate training audit 运行中 1290 秒
+C197 read-only all-coordinate training audit 运行中 1320 秒
+C197 read-only all-coordinate training audit 运行中 1350 秒
+{
+  "protocol": "GPT2_LC2_C197_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1",
+  "complete": true,
+  "decision": "C197_READONLY_CONTINUATION_TRAIN_AUDIT_COMPLETE_PARENT_DECISION_RETAINED",
+  "synthetic_fixture": false,
+  "C196_zip_sha256_known_before_runtime": true,
+  "archived_source_executed": false,
+  "model_libraries_imported": false,
+  "gradients_independently_recomputed": false,
+  "model_outputs_independently_recomputed": false,
+  "KL_independently_recomputed": false,
+  "solver_optimality_or_infeasibility_certified": false,
+  "chronology_or_nonaccess_proved": false,
+  "model_consumption_of_saved_points_proved": false,
+  "causal_explanation_established": false,
+  "curvature_or_convergence_certified": false,
+  "scope": "Pure NumPy forty-two-original archival audit of C196 fixed eight-step all-coordinate offline continuation from the predetermined C194 final head. Independently bind all41 upstream originals and original C195 audit through delivered immutable source before re-auditing C196. Rebuild every1008-row LP from archived coordinate gradients using the independent C175 arithmetic checker, raw-primal mapping, exact recorded direction and actual binary64 endpoint-difference certificates, all eight fixed updates,840 saved FP64 points,1176 records, final FP64 repeat and336 native gates. Retain all84 trajectories over nine frames/eight transitions, guard-part decomposition,4032 response-coordinate affine residuals and actual cap violations. Independently reconstruct and bind every336 original precision-margin row, CSV and summary; report both precision response classifications without adding an FP64 full gate, and no assumed acceptance count or precision agreement. No model/Torch/HF/SciPy import, new forward/backward/fit/training/LP/solve/Jacobian/SVD, state preparation, confirmation or excluded input. Archived gradients, outputs and KL are not independently measured. Recorded arithmetic and precision agreement do not certify derivative truth, measurement accuracy, finite error bounds, solver optimality/infeasibility, chronology, non-access, saved-point consumption, curvature, convergence, causality or generalisation. Activity entry/exit/re-entry and1.8e-3 safety crossings reported for all84 states over all8 transitions, distinct from0.002 response gates and full native acceptance. Dynamic all84 endpoint accounting and full trajectories for the union of initial/final native failures, including rescues, destructions and remaining failures. No preset rescued count, failed count, monotonicity, crossing step or final class membership. Independently recompute168 native and84 FP64 cross-run C194-final/C196-initial replay pairs under original tolerances; distinguish point identity, exact observable equality and tolerance acceptance; retain all differences and compare training within the same run without recentring or hardware-cause claims. No head/step selection, deployment, changed thresholds or LC2 claim; original C196 decision retained.",
+  "new_model_forwards": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_direction_optimization_iterations": 0,
+  "new_linear_program_calls": 0,
+  "linear_systems_solved": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "new_states_prepared": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "candidate_selected": false,
+  "best_checkpoint_selected": false,
+  "writer_deployed": false,
+  "thresholds_changed": false,
+  "parent_decision_reclassified": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "stage": "complete",
+  "elapsed_worker_seconds": 1353.156117956998,
+  "process_peak_RSS_KiB": 1389868,
+  "parent_protocol": "GPT2_LC2_C196_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1",
+  "parent_decision": "C196_FIXED_FINAL_TRAINING_ALL84_PASS_NO_CONFIRMATION",
+  "C196_zip_sha256": "2b96c9ac30e05d7bc65ac2b30c97de1798a943da219fcbc0e6bed58ce92400df",
+  "members_hashed": 2297,
+  "all_forty_two_originals_independently_bound": true,
+  "training_states_audited": 84,
+  "training_updates_audited": 8,
+  "gradient_records_audited": 672,
+  "ordered_records_audited": 1176,
+  "recorded_LP_calls_reconstructed": 8,
+  "exact_recorded_direction_checks_reconstructed": 8,
+  "exact_actual_head_checks_reconstructed": 8,
+  "exact_signed_certificate_rows_reconstructed": 16128,
+  "LP_signed_constraint_rows_reconstructed": 8064,
+  "archived_response_Jacobian_blocks_checked": 672,
+  "archived_response_coordinate_gradient_rows_checked": 4032,
+  "scalar_gradient_chain_checks_recomputed": 672,
+  "FP64_final_repeat_pairs_audited": 84,
+  "response_coordinate_affine_rows_recomputed": 4032,
+  "original_solver_internal_linear_system_count": null,
+  "actual_FP64_point_arrays_rehashed": 840,
+  "native_FP32_point_arrays_rehashed": 168,
+  "native_endpoint_records_audited": 336,
+  "native_repeat_pairs_audited": 168,
+  "maximum_actual_FP64_vs_NumPy_map_error_Linf": 1.1102230246251565e-16,
+  "initial_head_digest": "2ff29f06c399a501de74387f9f3caebadecb763c89d9c6ef9db8a84bef478aaf",
+  "fixed_final_step8_head_digest": "7b4811602621506a568c7067bad6dd317c29a2f871a1dbca3684051097df0d4c",
+  "native_summaries": {
+    "native_initial_round0": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 83,
+      "failed_ids": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "failed_gates": {
+        "response": 1
+      },
+      "maximum_response_drift": 0.00201416015625
+    },
+    "native_initial_round1": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 83,
+      "failed_ids": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "failed_gates": {
+        "response": 1
+      },
+      "maximum_response_drift": 0.00201416015625
+    },
+    "native_final_round0": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 84,
+      "failed_ids": [],
+      "failed_gates": {},
+      "maximum_response_drift": 0.0019989013671875
+    },
+    "native_final_round1": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 84,
+      "failed_ids": [],
+      "failed_gates": {},
+      "maximum_response_drift": 0.0019989013671875
+    }
+  },
+  "paired_by_round": {
+    "0": {
+      "initial": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 83,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.00201416015625
+      },
+      "final": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 84,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.0019989013671875
+      },
+      "rescued": 1,
+      "destroyed": 0,
+      "rescued_ids": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "destroyed_ids": []
+    },
+    "1": {
+      "initial": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 83,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.00201416015625
+      },
+      "final": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 84,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.0019989013671875
+      },
+      "rescued": 1,
+      "destroyed": 0,
+      "rescued_ids": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "destroyed_ids": []
+    }
+  },
+  "initial_FP64_objective": {
+    "n": 84,
+    "active_response_states": 5,
+    "maximum_response_loss": 0.013920467054556003,
+    "mean_response_loss": 0.00034780115552175624,
+    "mean_guard_loss": 1.2541076528259872e-05,
+    "original_hardmax_objective": 0.012575741541180838,
+    "descriptive_objective_not_LP_objective": true
+  },
+  "final_FP64_objective": {
+    "n": 84,
+    "active_response_states": 4,
+    "maximum_response_loss": 0.011622580656065811,
+    "mean_response_loss": 0.00027371449393213113,
+    "mean_guard_loss": 1.4128460939532214e-05,
+    "original_hardmax_objective": 0.010501822500791977,
+    "descriptive_objective_not_LP_objective": true
+  },
+  "diagnostics": {
+    "all9_frame_statistics": [
+      {
+        "frame": 0,
+        "head_digest": "2ff29f06c399a501de74387f9f3caebadecb763c89d9c6ef9db8a84bef478aaf",
+        "n": 84,
+        "active_response_states": 5,
+        "maximum_response_loss": 0.013920467054556003,
+        "mean_response_loss": 0.00034780115552175624,
+        "mean_guard_loss": 1.2541076528259872e-05,
+        "original_hardmax_objective": 0.012575741541180838,
+        "descriptive_objective_not_LP_objective": true,
+        "maximum_FP64_response": 0.00201237305209645,
+        "FP64_response_only_passed": 83,
+        "worst_FP64_response_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "worst_response_loss_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "active_response_state_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "full_FP64_acceptance_claim": false
+      },
+      {
+        "frame": 1,
+        "head_digest": "a818a20844d529a47b739a87761a3e8c28e64f82644e7eb7a4b148887f7ac7c7",
+        "n": 84,
+        "active_response_states": 5,
+        "maximum_response_loss": 0.013616259420826412,
+        "mean_response_loss": 0.00033763985746152494,
+        "mean_guard_loss": 1.2736836876223051e-05,
+        "original_hardmax_objective": 0.012301134301366147,
+        "descriptive_objective_not_LP_objective": true,
+        "maximum_FP64_response": 0.0020100397117772673,
+        "FP64_response_only_passed": 83,
+        "worst_FP64_response_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "worst_response_loss_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "active_response_state_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "full_FP64_acceptance_claim": false
+      },
+      {
+        "frame": 2,
+        "head_digest": "804d1978d6fe02df4671a392596ce3ada6862a230ce0db88387b3247681434fa",
+        "n": 84,
+        "active_response_states": 5,
+        "maximum_response_loss": 0.013316275355985169,
+        "mean_response_loss": 0.00032771612026743417,
+        "mean_guard_loss": 1.2932657153993935e-05,
+        "original_hardmax_objective": 0.01203035208956739,
+        "descriptive_objective_not_LP_objective": true,
+        "maximum_FP64_response": 0.0020077131005820092,
+        "FP64_response_only_passed": 83,
+        "worst_FP64_response_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "worst_response_loss_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "active_response_state_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "full_FP64_acceptance_claim": false
+      },
+      {
+        "frame": 3,
+        "head_digest": "844183be8f976717cb29bd91d8fa5c29fa0a0a1cd14d79b783d714a26007b83e",
+        "n": 84,
+        "active_response_states": 5,
+        "maximum_response_loss": 0.013019728527406736,
+        "mean_response_loss": 0.0003180071167546571,
+        "mean_guard_loss": 1.313121972930786e-05,
+        "original_hardmax_objective": 0.011762687606070835,
+        "descriptive_objective_not_LP_objective": true,
+        "maximum_FP64_response": 0.0020053872450489507,
+        "FP64_response_only_passed": 83,
+        "worst_FP64_response_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "worst_response_loss_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "active_response_state_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "full_FP64_acceptance_claim": false
+      },
+      {
+        "frame": 4,
+        "head_digest": "d342fa1ba87c5787508123e46038537cb85a1166e8f22094909df2a3c5eaf420",
+        "n": 84,
+        "active_response_states": 5,
+        "maximum_response_loss": 0.01272652574861731,
+        "mean_response_loss": 0.0003085100347272001,
+        "mean_guard_loss": 1.3332580185718157e-05,
+        "original_hardmax_objective": 0.011498056757414018,
+        "descriptive_objective_not_LP_objective": true,
+        "maximum_FP64_response": 0.0020030614277146697,
+        "FP64_response_only_passed": 83,
+        "worst_FP64_response_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "worst_response_loss_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "active_response_state_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "full_FP64_acceptance_claim": false
+      },
+      {
+        "frame": 5,
+        "head_digest": "c8ec037157bea327e13f54dad4b3135ecdc6e31cd0752ad0c0a532e8da0b41e8",
+        "n": 84,
+        "active_response_states": 5,
+        "maximum_response_loss": 0.01243665608203235,
+        "mean_response_loss": 0.0002992245285833999,
+        "mean_guard_loss": 1.3536744890623898e-05,
+        "original_hardmax_objective": 0.01123644967157808,
+        "descriptive_objective_not_LP_objective": true,
+        "maximum_FP64_response": 0.002000735561637157,
+        "FP64_response_only_passed": 83,
+        "worst_FP64_response_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "worst_response_loss_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "active_response_state_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "full_FP64_acceptance_claim": false
+      },
+      {
+        "frame": 6,
+        "head_digest": "c74cb1332cc269de7b4aa45045bf1b4c23b72d9f304f9d6283832bf808b24930",
+        "n": 84,
+        "active_response_states": 5,
+        "maximum_response_loss": 0.01215011852274474,
+        "mean_response_loss": 0.000290150548573754,
+        "mean_guard_loss": 1.3743714353030761e-05,
+        "original_hardmax_objective": 0.010977865439680672,
+        "descriptive_objective_not_LP_objective": true,
+        "maximum_FP64_response": 0.001998409636897236,
+        "FP64_response_only_passed": 84,
+        "worst_FP64_response_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "worst_response_loss_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "active_response_state_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "full_FP64_acceptance_claim": false
+      },
+      {
+        "frame": 7,
+        "head_digest": "2eedab6f45f833ee403fca6a309fb505a2d53c7256ee7abb8d6670fc6e5fc3b3",
+        "n": 84,
+        "active_response_states": 5,
+        "maximum_response_loss": 0.0118838399593314,
+        "mean_response_loss": 0.00028181372029386455,
+        "mean_guard_loss": 1.3935858133019197e-05,
+        "original_hardmax_objective": 0.010737573193560666,
+        "descriptive_objective_not_LP_objective": true,
+        "maximum_FP64_response": 0.0019962234478043683,
+        "FP64_response_only_passed": 84,
+        "worst_FP64_response_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "worst_response_loss_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "active_response_state_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_11__c141_confirmation_p08_n01_d00",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "full_FP64_acceptance_claim": false
+      },
+      {
+        "frame": 8,
+        "head_digest": "7b4811602621506a568c7067bad6dd317c29a2f871a1dbca3684051097df0d4c",
+        "n": 84,
+        "active_response_states": 4,
+        "maximum_response_loss": 0.011622580656065811,
+        "mean_response_loss": 0.00027371449393213113,
+        "mean_guard_loss": 1.4128460939532214e-05,
+        "original_hardmax_objective": 0.010501822500791977,
+        "descriptive_objective_not_LP_objective": true,
+        "maximum_FP64_response": 0.001994054531834877,
+        "FP64_response_only_passed": 84,
+        "worst_FP64_response_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "worst_response_loss_state_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "active_response_state_ids": [
+          "xor_00__c141_confirmation_p02_n01_d01",
+          "xor_11__c141_confirmation_p08_n01_d01",
+          "xor_11__c141_confirmation_p09_n01_d00",
+          "xor_11__c141_confirmation_p11_n01_d01"
+        ],
+        "full_FP64_acceptance_claim": false
+      }
+    ],
+    "all8_step_statistics": [
+      {
+        "step": 1,
+        "active_count": 5,
+        "exact_recorded_affine_cap_margin_lower": {
+          "numerator": "14777311162501046847298340434716373533875662278895",
+          "denominator": "11033967894234399478179497953149339798309957584027648",
+          "approximate": 0.0013392563132454522
+        },
+        "active_losses_strictly_decreased": 5,
+        "active_losses_strictly_increased": 0,
+        "active_actual_head_difference_dots_negative": 5,
+        "all84_response_loss_increases": 0,
+        "all84_guard_loss_increases": 84,
+        "all84_active_coordinate_set_changes": 0,
+        "maximum_absolute_response_linear_residual": 1.1816756029616078e-05,
+        "maximum_absolute_guard_linear_residual": 1.4704288263245965e-09,
+        "mean_response_loss_change": -1.0161298060231327e-05,
+        "maximum_response_loss_before": 0.013920467054556003,
+        "maximum_response_loss_after": 0.013616259420826412,
+        "worst_response_state_set_changed": false,
+        "active_state_registry_changed": false,
+        "direction_cosine_with_previous": null,
+        "actual_head_update_Linf": 0.0010000000000000009,
+        "raw_solver_diagnostics": {
+          "step": 1,
+          "active_count": 5,
+          "recorded_LP_calls": 1,
+          "raw_solver_claimed_margin": 0.0013392563132454908,
+          "raw_solver_maximum_linear_violation": 3.5561831257524545e-17,
+          "exact_direction_minimum_cap_slack": {
+            "numerator": "14777311162501046847298340434716373533875662278895",
+            "denominator": "11033967894234399478179497953149339798309957584027648",
+            "approximate": 0.0013392563132454522
+          },
+          "exact_actual_head_minimum_cap_slack": {
+            "numerator": "820305554732836658264031304376277",
+            "denominator": "612508260457689217469673279189942272",
+            "approximate": 0.001339256313245267
+          },
+          "solver_optimality_or_infeasibility_certified": false,
+          "original_internal_linear_solve_count": null
+        },
+        "descriptive_only": true
+      },
+      {
+        "step": 2,
+        "active_count": 5,
+        "exact_recorded_affine_cap_margin_lower": {
+          "numerator": "921242571615995265808941419754160078538519246649",
+          "denominator": "689622993389649967386218622071833737394372349001728",
+          "approximate": 0.0013358640597058455
+        },
+        "active_losses_strictly_decreased": 5,
+        "active_losses_strictly_increased": 0,
+        "active_actual_head_difference_dots_negative": 5,
+        "all84_response_loss_increases": 0,
+        "all84_guard_loss_increases": 84,
+        "all84_active_coordinate_set_changes": 1,
+        "maximum_absolute_response_linear_residual": 1.177649301922995e-05,
+        "maximum_absolute_guard_linear_residual": 1.4725956798753785e-09,
+        "mean_response_loss_change": -9.923737194090785e-06,
+        "maximum_response_loss_before": 0.013616259420826412,
+        "maximum_response_loss_after": 0.013316275355985169,
+        "worst_response_state_set_changed": false,
+        "active_state_registry_changed": false,
+        "direction_cosine_with_previous": 0.9966349092158815,
+        "actual_head_update_Linf": 0.0010000000000000009,
+        "raw_solver_diagnostics": {
+          "step": 2,
+          "active_count": 5,
+          "recorded_LP_calls": 1,
+          "raw_solver_claimed_margin": 0.0013358640597058633,
+          "raw_solver_maximum_linear_violation": 1.973247953923618e-17,
+          "exact_direction_minimum_cap_slack": {
+            "numerator": "921242571615995265808941419754160078538519246649",
+            "denominator": "689622993389649967386218622071833737394372349001728",
+            "approximate": 0.0013358640597058455
+          },
+          "exact_actual_head_minimum_cap_slack": {
+            "numerator": "204556942854570242967897807967419",
+            "denominator": "153127065114422304367418319797485568",
+            "approximate": 0.0013358640597056935
+          },
+          "solver_optimality_or_infeasibility_certified": false,
+          "original_internal_linear_solve_count": null
+        },
+        "descriptive_only": true
+      },
+      {
+        "step": 3,
+        "active_count": 5,
+        "exact_recorded_affine_cap_margin_lower": {
+          "numerator": "14734888222191961897598115769164209940659899892613",
+          "denominator": "11033967894234399478179497953149339798309957584027648",
+          "approximate": 0.0013354115548851117
+        },
+        "active_losses_strictly_decreased": 5,
+        "active_losses_strictly_increased": 0,
+        "active_actual_head_difference_dots_negative": 5,
+        "all84_response_loss_increases": 0,
+        "all84_guard_loss_increases": 84,
+        "all84_active_coordinate_set_changes": 0,
+        "maximum_absolute_response_linear_residual": 1.1655920997503152e-05,
+        "maximum_absolute_guard_linear_residual": 1.4732020249572642e-09,
+        "mean_response_loss_change": -9.709003512777044e-06,
+        "maximum_response_loss_before": 0.013316275355985169,
+        "maximum_response_loss_after": 0.013019728527406736,
+        "worst_response_state_set_changed": false,
+        "active_state_registry_changed": false,
+        "direction_cosine_with_previous": 0.9999901156962736,
+        "actual_head_update_Linf": 0.0010000000000000009,
+        "raw_solver_diagnostics": {
+          "step": 3,
+          "active_count": 5,
+          "recorded_LP_calls": 1,
+          "raw_solver_claimed_margin": 0.001335411554885229,
+          "raw_solver_maximum_linear_violation": 1.0603497246908233e-16,
+          "exact_direction_minimum_cap_slack": {
+            "numerator": "14734888222191961897598115769164209940659899892613",
+            "denominator": "11033967894234399478179497953149339798309957584027648",
+            "approximate": 0.0013354115548851117
+          },
+          "exact_actual_head_minimum_cap_slack": {
+            "numerator": "102243826059706646726118315630357",
+            "denominator": "76563532557211152183709159898742784",
+            "approximate": 0.0013354115548849083
+          },
+          "solver_optimality_or_infeasibility_certified": false,
+          "original_internal_linear_solve_count": null
+        },
+        "descriptive_only": true
+      },
+      {
+        "step": 4,
+        "active_count": 5,
+        "exact_recorded_affine_cap_margin_lower": {
+          "numerator": "3683495523631656516064858938433328141828068565237",
+          "denominator": "2758491973558599869544874488287334949577489396006912",
+          "approximate": 0.0013353294332336784
+        },
+        "active_losses_strictly_decreased": 5,
+        "active_losses_strictly_increased": 0,
+        "active_actual_head_difference_dots_negative": 5,
+        "all84_response_loss_increases": 0,
+        "all84_guard_loss_increases": 84,
+        "all84_active_coordinate_set_changes": 1,
+        "maximum_absolute_response_linear_residual": 1.1530147348983106e-05,
+        "maximum_absolute_guard_linear_residual": 1.4731422526218474e-09,
+        "mean_response_loss_change": -9.497082027456976e-06,
+        "maximum_response_loss_before": 0.013019728527406736,
+        "maximum_response_loss_after": 0.01272652574861731,
+        "worst_response_state_set_changed": false,
+        "active_state_registry_changed": false,
+        "direction_cosine_with_previous": 0.9999985762084562,
+        "actual_head_update_Linf": 0.0010000000000000009,
+        "raw_solver_diagnostics": {
+          "step": 4,
+          "active_count": 5,
+          "recorded_LP_calls": 1,
+          "raw_solver_claimed_margin": 0.0013353294332338205,
+          "raw_solver_maximum_linear_violation": 1.4137996329210978e-16,
+          "exact_direction_minimum_cap_slack": {
+            "numerator": "3683495523631656516064858938433328141828068565237",
+            "denominator": "2758491973558599869544874488287334949577489396006912",
+            "approximate": 0.0013353294332336784
+          },
+          "exact_actual_head_minimum_cap_slack": {
+            "numerator": "51118769267992742208967814124747",
+            "denominator": "38281766278605576091854579949371392",
+            "approximate": 0.0013353294332336318
+          },
+          "solver_optimality_or_infeasibility_certified": false,
+          "original_internal_linear_solve_count": null
+        },
+        "descriptive_only": true
+      },
+      {
+        "step": 5,
+        "active_count": 5,
+        "exact_recorded_affine_cap_margin_lower": {
+          "numerator": "7366788045659731809249642517872216975605236843319",
+          "denominator": "5516983947117199739089748976574669899154978792013824",
+          "approximate": 0.0013352926374761546
+        },
+        "active_losses_strictly_decreased": 5,
+        "active_losses_strictly_increased": 0,
+        "active_actual_head_difference_dots_negative": 5,
+        "all84_response_loss_increases": 0,
+        "all84_guard_loss_increases": 84,
+        "all84_active_coordinate_set_changes": 0,
+        "maximum_absolute_response_linear_residual": 1.1404143840232491e-05,
+        "maximum_absolute_guard_linear_residual": 1.4729993112910658e-09,
+        "mean_response_loss_change": -9.285506143800232e-06,
+        "maximum_response_loss_before": 0.01272652574861731,
+        "maximum_response_loss_after": 0.01243665608203235,
+        "worst_response_state_set_changed": false,
+        "active_state_registry_changed": false,
+        "direction_cosine_with_previous": 0.9999985428194081,
+        "actual_head_update_Linf": 0.0010000000000000009,
+        "raw_solver_diagnostics": {
+          "step": 5,
+          "active_count": 5,
+          "recorded_LP_calls": 1,
+          "raw_solver_claimed_margin": 0.0013352926374762069,
+          "raw_solver_maximum_linear_violation": 5.584657627837053e-17,
+          "exact_direction_minimum_cap_slack": {
+            "numerator": "7366788045659731809249642517872216975605236843319",
+            "denominator": "5516983947117199739089748976574669899154978792013824",
+            "approximate": 0.0013352926374761546
+          },
+          "exact_actual_head_minimum_cap_slack": {
+            "numerator": "408938885291186986569886081808913",
+            "denominator": "306254130228844608734836639594971136",
+            "approximate": 0.0013352926374759827
+          },
+          "solver_optimality_or_infeasibility_certified": false,
+          "original_internal_linear_solve_count": null
+        },
+        "descriptive_only": true
+      },
+      {
+        "step": 6,
+        "active_count": 5,
+        "exact_recorded_affine_cap_margin_lower": {
+          "numerator": "14733231144468852612474494852758518872319490406507",
+          "denominator": "11033967894234399478179497953149339798309957584027648",
+          "approximate": 0.0013352613752091336
+        },
+        "active_losses_strictly_decreased": 5,
+        "active_losses_strictly_increased": 0,
+        "active_actual_head_difference_dots_negative": 5,
+        "all84_response_loss_increases": 0,
+        "all84_guard_loss_increases": 84,
+        "all84_active_coordinate_set_changes": 0,
+        "maximum_absolute_response_linear_residual": 1.1278487473588604e-05,
+        "maximum_absolute_guard_linear_residual": 1.4728492677831772e-09,
+        "mean_response_loss_change": -9.073980009645866e-06,
+        "maximum_response_loss_before": 0.01243665608203235,
+        "maximum_response_loss_after": 0.01215011852274474,
+        "worst_response_state_set_changed": false,
+        "active_state_registry_changed": false,
+        "direction_cosine_with_previous": 0.9999985386036228,
+        "actual_head_update_Linf": 0.0010000000000000009,
+        "raw_solver_diagnostics": {
+          "step": 6,
+          "active_count": 5,
+          "recorded_LP_calls": 1,
+          "raw_solver_claimed_margin": 0.001335261375209173,
+          "raw_solver_maximum_linear_violation": 3.946495907847236e-17,
+          "exact_direction_minimum_cap_slack": {
+            "numerator": "14733231144468852612474494852758518872319490406507",
+            "denominator": "11033967894234399478179497953149339798309957584027648",
+            "approximate": 0.0013352613752091336
+          },
+          "exact_actual_head_minimum_cap_slack": {
+            "numerator": "408929311092831479719218120424265",
+            "denominator": "306254130228844608734836639594971136",
+            "approximate": 0.0013352613752090922
+          },
+          "solver_optimality_or_infeasibility_certified": false,
+          "original_internal_linear_solve_count": null
+        },
+        "descriptive_only": true
+      },
+      {
+        "step": 7,
+        "active_count": 5,
+        "exact_recorded_affine_cap_margin_lower": {
+          "numerator": "3544605833163663965967070915857899452276253574556485",
+          "denominator": "2824695780924006266413951476006230988367349141511077888",
+          "approximate": 0.0012548628624368754
+        },
+        "active_losses_strictly_decreased": 5,
+        "active_losses_strictly_increased": 0,
+        "active_actual_head_difference_dots_negative": 5,
+        "all84_response_loss_increases": 0,
+        "all84_guard_loss_increases": 84,
+        "all84_active_coordinate_set_changes": 1,
+        "maximum_absolute_response_linear_residual": 1.0362419800163524e-05,
+        "maximum_absolute_guard_linear_residual": 1.4049278891961611e-09,
+        "mean_response_loss_change": -8.336828279889458e-06,
+        "maximum_response_loss_before": 0.01215011852274474,
+        "maximum_response_loss_after": 0.0118838399593314,
+        "worst_response_state_set_changed": false,
+        "active_state_registry_changed": false,
+        "direction_cosine_with_previous": 0.9408449866478861,
+        "actual_head_update_Linf": 0.0010000000000000009,
+        "raw_solver_diagnostics": {
+          "step": 7,
+          "active_count": 5,
+          "recorded_LP_calls": 1,
+          "raw_solver_claimed_margin": 0.0012548628624370287,
+          "raw_solver_maximum_linear_violation": 1.562945194273635e-16,
+          "exact_direction_minimum_cap_slack": {
+            "numerator": "3544605833163663965967070915857899452276253574556485",
+            "denominator": "2824695780924006266413951476006230988367349141511077888",
+            "approximate": 0.0012548628624368754
+          },
+          "exact_actual_head_minimum_cap_slack": {
+            "numerator": "48038366811505618394503565504613",
+            "denominator": "38281766278605576091854579949371392",
+            "approximate": 0.0012548628624367494
+          },
+          "solver_optimality_or_infeasibility_certified": false,
+          "original_internal_linear_solve_count": null
+        },
+        "descriptive_only": true
+      },
+      {
+        "step": 8,
+        "active_count": 5,
+        "exact_recorded_affine_cap_margin_lower": {
+          "numerator": "27474616474492191754834854987054847256129938164863",
+          "denominator": "22067935788468798956358995906298679596619915168055296",
+          "approximate": 0.0012450016502607623
+        },
+        "active_losses_strictly_decreased": 5,
+        "active_losses_strictly_increased": 0,
+        "active_actual_head_difference_dots_negative": 5,
+        "all84_response_loss_increases": 0,
+        "all84_guard_loss_increases": 84,
+        "all84_active_coordinate_set_changes": 0,
+        "maximum_absolute_response_linear_residual": 1.0183492663388635e-05,
+        "maximum_absolute_guard_linear_residual": 1.412637619533418e-09,
+        "mean_response_loss_change": -8.099226361733455e-06,
+        "maximum_response_loss_before": 0.0118838399593314,
+        "maximum_response_loss_after": 0.011622580656065811,
+        "worst_response_state_set_changed": false,
+        "active_state_registry_changed": true,
+        "direction_cosine_with_previous": 0.9968677116703316,
+        "actual_head_update_Linf": 0.0010000000000000009,
+        "raw_solver_diagnostics": {
+          "step": 8,
+          "active_count": 5,
+          "recorded_LP_calls": 1,
+          "raw_solver_claimed_margin": 0.0012450016502608147,
+          "raw_solver_maximum_linear_violation": 4.87890977618477e-17,
+          "exact_direction_minimum_cap_slack": {
+            "numerator": "27474616474492191754834854987054847256129938164863",
+            "denominator": "22067935788468798956358995906298679596619915168055296",
+            "approximate": 0.0012450016502607623
+          },
+          "exact_actual_head_minimum_cap_slack": {
+            "numerator": "381286897534070709293389645606615",
+            "denominator": "306254130228844608734836639594971136",
+            "approximate": 0.0012450016502607126
+          },
+          "solver_optimality_or_infeasibility_certified": false,
+          "original_internal_linear_solve_count": null
+        },
+        "descriptive_only": true
+      }
+    ],
+    "initial_native_failure_ids": [
+      "xor_11__c141_confirmation_p08_n01_d01"
+    ],
+    "initial_failure_state_trajectories": [
+      {
+        "state_id": "xor_11__c141_confirmation_p08_n01_d01",
+        "initial_native_failure": true,
+        "response_loss_by_frame": [
+          0.013920467054556003,
+          0.013616259420826412,
+          0.013316275355985169,
+          0.013019728527406736,
+          0.01272652574861731,
+          0.01243665608203235,
+          0.01215011852274474,
+          0.0118838399593314,
+          0.011622580656065811
+        ],
+        "FP64_response_Linf_by_frame": [
+          0.00201237305209645,
+          0.0020100397117772673,
+          0.0020077131005820092,
+          0.0020053872450489507,
+          0.0020030614277146697,
+          0.002000735561637157,
+          0.001998409636897236,
+          0.0019962234478043683,
+          0.001994054531834877
+        ],
+        "active_coordinate_sets_by_frame": [
+          [
+            5
+          ],
+          [
+            5
+          ],
+          [
+            5
+          ],
+          [
+            5
+          ],
+          [
+            5
+          ],
+          [
+            5
+          ],
+          [
+            5
+          ],
+          [
+            5
+          ],
+          [
+            5
+          ]
+        ],
+        "strict_loss_decrease_steps": 8,
+        "strict_loss_increase_steps": 0,
+        "initial_response_budget_excess": 1.2373052096449969e-05,
+        "final_response_budget_excess": 0.0,
+        "fraction_initial_excess_removed": 1.0,
+        "no_future_step_or_closure_time_extrapolation": true
+      }
+    ],
+    "all84_states_retained": true,
+    "all8_steps_retained": true,
+    "all_intermediate_frames_are_archived_FP64_only": true,
+    "only_fixed_final_head_native_acceptance": true,
+    "nonregularizer_guard_parts_zero_at_all840_records": true,
+    "maximum_native_minus_FP64_response_Linf": 2.5514022311767803e-05,
+    "native_vs_FP64_response_gate_disagreements": 0,
+    "native_equals_NumPy_cast_for_all168": true,
+    "native_vs_actual_FP64_cast_different_point_count": 0,
+    "mean_response_loss_change": -7.40866615896251e-05,
+    "maximum_response_loss_change": -0.0022978863984901912,
+    "original_hardmax_objective_change": -0.002073919040388861,
+    "new_derivatives_or_model_measurements": false,
+    "causal_explanation_established": false,
+    "curvature_bound_or_convergence_certified": false,
+    "solver_optimality_or_infeasibility_certified": false,
+    "no_new_checkpoint_or_step_selected": true,
+    "no_closure_time_extrapolation": true,
+    "LC2_closed": false,
+    "response_coordinate_affine_rows": 4032,
+    "all8_observed_coordinate_cap_summaries": [
+      {
+        "step": 1,
+        "coordinates_requested": 504,
+        "coordinates_evaluated": 504,
+        "recorded_actual_head_minimum_affine_cap_slack": {
+          "numerator": "820305554732836658264031304376277",
+          "denominator": "612508260457689217469673279189942272",
+          "approximate": 0.001339256313245267
+        },
+        "recorded_actual_head_strict_affine_margin": true,
+        "observed_all504_training_caps_satisfied": true,
+        "observed_cap_violation_coordinates": 0,
+        "observed_cap_violation_state_ids": [],
+        "maximum_absolute_observed_minus_affine_response": 7.751701953114356e-08,
+        "minimum_observed_training_cap_slack": 2.333340319182753e-06,
+        "training_caps_are_not_new_acceptance_gates": true
+      },
+      {
+        "step": 2,
+        "coordinates_requested": 504,
+        "coordinates_evaluated": 504,
+        "recorded_actual_head_minimum_affine_cap_slack": {
+          "numerator": "204556942854570242967897807967419",
+          "denominator": "153127065114422304367418319797485568",
+          "approximate": 0.0013358640597056935
+        },
+        "recorded_actual_head_strict_affine_margin": true,
+        "observed_all504_training_caps_satisfied": true,
+        "observed_cap_violation_coordinates": 0,
+        "observed_cap_violation_state_ids": [],
+        "maximum_absolute_observed_minus_affine_response": 7.813810853329862e-08,
+        "minimum_observed_training_cap_slack": 2.3266111952580104e-06,
+        "training_caps_are_not_new_acceptance_gates": true
+      },
+      {
+        "step": 3,
+        "coordinates_requested": 504,
+        "coordinates_evaluated": 504,
+        "recorded_actual_head_minimum_affine_cap_slack": {
+          "numerator": "102243826059706646726118315630357",
+          "denominator": "76563532557211152183709159898742784",
+          "approximate": 0.0013354115548849083
+        },
+        "recorded_actual_head_strict_affine_margin": true,
+        "observed_all504_training_caps_satisfied": true,
+        "observed_cap_violation_coordinates": 0,
+        "observed_cap_violation_state_ids": [],
+        "maximum_absolute_observed_minus_affine_response": 7.807889410329485e-08,
+        "minimum_observed_training_cap_slack": 2.3258555330585295e-06,
+        "training_caps_are_not_new_acceptance_gates": true
+      },
+      {
+        "step": 4,
+        "coordinates_requested": 504,
+        "coordinates_evaluated": 504,
+        "recorded_actual_head_minimum_affine_cap_slack": {
+          "numerator": "51118769267992742208967814124747",
+          "denominator": "38281766278605576091854579949371392",
+          "approximate": 0.0013353294332336318
+        },
+        "recorded_actual_head_strict_affine_margin": true,
+        "observed_all504_training_caps_satisfied": true,
+        "observed_cap_violation_coordinates": 0,
+        "observed_cap_violation_state_ids": [],
+        "maximum_absolute_observed_minus_affine_response": 7.796889684717246e-08,
+        "minimum_observed_training_cap_slack": 2.325817334281055e-06,
+        "training_caps_are_not_new_acceptance_gates": true
+      },
+      {
+        "step": 5,
+        "coordinates_requested": 504,
+        "coordinates_evaluated": 504,
+        "recorded_actual_head_minimum_affine_cap_slack": {
+          "numerator": "408938885291186986569886081808913",
+          "denominator": "306254130228844608734836639594971136",
+          "approximate": 0.0013352926374759827
+        },
+        "recorded_actual_head_strict_affine_margin": true,
+        "observed_all504_training_caps_satisfied": true,
+        "observed_cap_violation_coordinates": 0,
+        "observed_cap_violation_state_ids": [],
+        "maximum_absolute_observed_minus_affine_response": 7.785369280845385e-08,
+        "minimum_observed_training_cap_slack": 2.3258660775127282e-06,
+        "training_caps_are_not_new_acceptance_gates": true
+      },
+      {
+        "step": 6,
+        "coordinates_requested": 504,
+        "coordinates_evaluated": 504,
+        "recorded_actual_head_minimum_affine_cap_slack": {
+          "numerator": "408929311092831479719218120424265",
+          "denominator": "306254130228844608734836639594971136",
+          "approximate": 0.0013352613752090922
+        },
+        "recorded_actual_head_strict_affine_margin": true,
+        "observed_all504_training_caps_satisfied": true,
+        "observed_cap_violation_coordinates": 0,
+        "observed_cap_violation_state_ids": [],
+        "maximum_absolute_observed_minus_affine_response": 7.773855549812346e-08,
+        "minimum_observed_training_cap_slack": 2.3259247399209926e-06,
+        "training_caps_are_not_new_acceptance_gates": true
+      },
+      {
+        "step": 7,
+        "coordinates_requested": 504,
+        "coordinates_evaluated": 504,
+        "recorded_actual_head_minimum_affine_cap_slack": {
+          "numerator": "48038366811505618394503565504613",
+          "denominator": "38281766278605576091854579949371392",
+          "approximate": 0.0012548628624367494
+        },
+        "recorded_actual_head_strict_affine_margin": true,
+        "observed_all504_training_caps_satisfied": true,
+        "observed_cap_violation_coordinates": 0,
+        "observed_cap_violation_state_ids": [],
+        "maximum_absolute_observed_minus_affine_response": 7.282078992313832e-08,
+        "minimum_observed_training_cap_slack": 2.1861890928676075e-06,
+        "training_caps_are_not_new_acceptance_gates": true
+      },
+      {
+        "step": 8,
+        "coordinates_requested": 504,
+        "coordinates_evaluated": 504,
+        "recorded_actual_head_minimum_affine_cap_slack": {
+          "numerator": "381286897534070709293389645606615",
+          "denominator": "306254130228844608734836639594971136",
+          "approximate": 0.0012450016502607126
+        },
+        "recorded_actual_head_strict_affine_margin": true,
+        "observed_all504_training_caps_satisfied": true,
+        "observed_cap_violation_coordinates": 0,
+        "observed_cap_violation_state_ids": [],
+        "maximum_absolute_observed_minus_affine_response": 7.234293925842059e-08,
+        "minimum_observed_training_cap_slack": 2.168915969491536e-06,
+        "training_caps_are_not_new_acceptance_gates": true
+      }
+    ],
+    "scalar_gradient_chain_checks_recomputed": 672,
+    "all672_scalar_gradient_chain_checks_passed": true,
+    "guard_parts_by_frame": {
+      "read_loss": {
+        "mean_by_frame": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "maximum_by_frame": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "initial_to_final_mean_change": 0.0,
+        "nonzero_state_counts_by_frame": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "KL_loss": {
+        "mean_by_frame": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "maximum_by_frame": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "initial_to_final_mean_change": 0.0,
+        "nonzero_state_counts_by_frame": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "radius_loss": {
+        "mean_by_frame": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "maximum_by_frame": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "initial_to_final_mean_change": 0.0,
+        "nonzero_state_counts_by_frame": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "regularizer": {
+        "mean_by_frame": [
+          1.2541076528259872e-05,
+          1.2736836876223051e-05,
+          1.2932657153993935e-05,
+          1.313121972930786e-05,
+          1.3332580185718157e-05,
+          1.3536744890623898e-05,
+          1.3743714353030761e-05,
+          1.3935858133019197e-05,
+          1.4128460939532214e-05
+        ],
+        "maximum_by_frame": [
+          1.2842997994087568e-05,
+          1.305143624298469e-05,
+          1.3260332898495442e-05,
+          1.3471996211216778e-05,
+          1.3686577764554919e-05,
+          1.390409507702449e-05,
+          1.4124549573363225e-05,
+          1.4328593084289287e-05,
+          1.4532137875905192e-05
+        ],
+        "initial_to_final_mean_change": 1.587384411272342e-06,
+        "nonzero_state_counts_by_frame": [
+          84,
+          84,
+          84,
+          84,
+          84,
+          84,
+          84,
+          84,
+          84
+        ]
+      }
+    },
+    "initial_to_final_mean_guard_change": 1.587384411272342e-06,
+    "mean_guard_change_recomposition_residual": 0.0,
+    "all840_nonregularizer_guard_parts_zero": true,
+    "observed_guard_change_from_regularizer_only": true,
+    "guard_arithmetic_is_not_a_causal_explanation": true,
+    "paired_native_state_outcomes_recomputed": 168,
+    "full_native_outcomes_by_round": {
+      "0": {
+        "n": 84,
+        "both_passed": 83,
+        "both_failed": 0,
+        "rescued": 1,
+        "destroyed": 0,
+        "rescued_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "destroyed_ids": [],
+        "final_failed_ids": []
+      },
+      "1": {
+        "n": 84,
+        "both_passed": 83,
+        "both_failed": 0,
+        "rescued": 1,
+        "destroyed": 0,
+        "rescued_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "destroyed_ids": [],
+        "final_failed_ids": []
+      }
+    },
+    "paired_native_outcomes_repeat_consistent": true,
+    "final_native_failure_ids": [],
+    "rescued_ids_both_native_rounds": [
+      "xor_11__c141_confirmation_p08_n01_d01"
+    ],
+    "destroyed_ids_both_native_rounds": [],
+    "rescue_uses_all_native_gates_not_response_only": true,
+    "remaining_failure_trajectories_exported": 0,
+    "all84_full_gate_pairs_retained": true,
+    "activity_set_dynamics": {
+      "activity_transition_rows": 672,
+      "state_trajectories": 84,
+      "initial_active_count": 5,
+      "final_active_count": 4,
+      "active_counts_by_frame": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4
+      ],
+      "initial_active_ids": [
+        "xor_00__c141_confirmation_p02_n01_d01",
+        "xor_11__c141_confirmation_p08_n01_d00",
+        "xor_11__c141_confirmation_p08_n01_d01",
+        "xor_11__c141_confirmation_p09_n01_d00",
+        "xor_11__c141_confirmation_p11_n01_d01"
+      ],
+      "final_active_ids": [
+        "xor_00__c141_confirmation_p02_n01_d01",
+        "xor_11__c141_confirmation_p08_n01_d01",
+        "xor_11__c141_confirmation_p09_n01_d00",
+        "xor_11__c141_confirmation_p11_n01_d01"
+      ],
+      "initial_active_but_final_inactive_ids": [
+        "xor_11__c141_confirmation_p08_n01_d00"
+      ],
+      "initial_inactive_but_final_active_ids": [],
+      "step_summaries": [
+        {
+          "step": 1,
+          "active_before": 5,
+          "active_after": 5,
+          "left_active_ids": [],
+          "entered_active_ids": [],
+          "reentered_active_ids": [],
+          "entered_safety_ids": [],
+          "left_safety_ids": [],
+          "crossed_into_FP64_response_budget_ids": [],
+          "crossed_out_of_FP64_response_budget_ids": []
+        },
+        {
+          "step": 2,
+          "active_before": 5,
+          "active_after": 5,
+          "left_active_ids": [],
+          "entered_active_ids": [],
+          "reentered_active_ids": [],
+          "entered_safety_ids": [],
+          "left_safety_ids": [],
+          "crossed_into_FP64_response_budget_ids": [],
+          "crossed_out_of_FP64_response_budget_ids": []
+        },
+        {
+          "step": 3,
+          "active_before": 5,
+          "active_after": 5,
+          "left_active_ids": [],
+          "entered_active_ids": [],
+          "reentered_active_ids": [],
+          "entered_safety_ids": [],
+          "left_safety_ids": [],
+          "crossed_into_FP64_response_budget_ids": [],
+          "crossed_out_of_FP64_response_budget_ids": []
+        },
+        {
+          "step": 4,
+          "active_before": 5,
+          "active_after": 5,
+          "left_active_ids": [],
+          "entered_active_ids": [],
+          "reentered_active_ids": [],
+          "entered_safety_ids": [],
+          "left_safety_ids": [],
+          "crossed_into_FP64_response_budget_ids": [],
+          "crossed_out_of_FP64_response_budget_ids": []
+        },
+        {
+          "step": 5,
+          "active_before": 5,
+          "active_after": 5,
+          "left_active_ids": [],
+          "entered_active_ids": [],
+          "reentered_active_ids": [],
+          "entered_safety_ids": [],
+          "left_safety_ids": [],
+          "crossed_into_FP64_response_budget_ids": [],
+          "crossed_out_of_FP64_response_budget_ids": []
+        },
+        {
+          "step": 6,
+          "active_before": 5,
+          "active_after": 5,
+          "left_active_ids": [],
+          "entered_active_ids": [],
+          "reentered_active_ids": [],
+          "entered_safety_ids": [],
+          "left_safety_ids": [],
+          "crossed_into_FP64_response_budget_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "crossed_out_of_FP64_response_budget_ids": []
+        },
+        {
+          "step": 7,
+          "active_before": 5,
+          "active_after": 5,
+          "left_active_ids": [],
+          "entered_active_ids": [],
+          "reentered_active_ids": [],
+          "entered_safety_ids": [],
+          "left_safety_ids": [],
+          "crossed_into_FP64_response_budget_ids": [],
+          "crossed_out_of_FP64_response_budget_ids": []
+        },
+        {
+          "step": 8,
+          "active_before": 5,
+          "active_after": 4,
+          "left_active_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00"
+          ],
+          "entered_active_ids": [],
+          "reentered_active_ids": [],
+          "entered_safety_ids": [
+            "xor_11__c141_confirmation_p08_n01_d00"
+          ],
+          "left_safety_ids": [],
+          "crossed_into_FP64_response_budget_ids": [],
+          "crossed_out_of_FP64_response_budget_ids": []
+        }
+      ],
+      "states_with_activity_changes": [
+        {
+          "state_id": "xor_11__c141_confirmation_p08_n01_d00",
+          "active_by_frame": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false
+          ],
+          "response_loss_by_frame": [
+            8.365279865697393e-05,
+            6.161964644760601e-05,
+            4.299666957275312e-05,
+            2.7719916711336398e-05,
+            1.5782965441439473e-05,
+            7.1853919077282605e-06,
+            1.9273926431327424e-06,
+            3.016989534482114e-08,
+            0.0
+          ],
+          "FP64_response_Linf_by_frame": [
+            0.0018164631427026734,
+            0.001814129672837339,
+            0.001811802932238038,
+            0.0018094769473009364,
+            0.001807151000491558,
+            0.00180482500464052,
+            0.001802498950212339,
+            0.0018003126507011302,
+            0.0017981436250380511
+          ],
+          "left_active_steps": [
+            8
+          ],
+          "entered_active_steps": [],
+          "reentered_active_steps": [],
+          "native_full_endpoints_by_round": {
+            "0": {
+              "initial_full_pass": true,
+              "final_full_pass": true
+            },
+            "1": {
+              "initial_full_pass": true,
+              "final_full_pass": true
+            }
+          },
+          "activity_exit_does_not_imply_native_rescue": true
+        }
+      ],
+      "all84_states_retained": true,
+      "training_safety_budget": 0.0018,
+      "original_response_budget": 0.002,
+      "training_safety_not_a_new_acceptance_gate": true,
+      "no_monotonicity_or_six_to_five_assumption": true,
+      "FP64_full_acceptance_evaluated": false,
+      "no_new_model_measurements": true,
+      "no_future_step_or_convergence_claim": true
+    }
+  },
+  "endpoint_precision_reconstruction": {
+    "original_precision_rows_independently_reconstructed": 336,
+    "original_JSON_CSV_and_both_summary_copies_bound": true,
+    "original_precision_summary": {
+      "rows": 336,
+      "by_head": {
+        "initial": {
+          "0": {
+            "n": 84,
+            "native_full_passed": 83,
+            "native_response_only_passed": 83,
+            "FP64_response_only_passed": 83,
+            "native_full_pass_and_FP64_response_pass": 83,
+            "response_gate_disagreements": 0,
+            "disagreement_state_ids": [],
+            "native_response_failed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "FP64_response_failed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "maximum_native_response": 0.00201416015625,
+            "maximum_FP64_response": 0.00201237305209645,
+            "minimum_native_response_slack": -1.4160156249999958e-05,
+            "minimum_FP64_response_slack": -1.2373052096449969e-05
+          },
+          "1": {
+            "n": 84,
+            "native_full_passed": 83,
+            "native_response_only_passed": 83,
+            "FP64_response_only_passed": 83,
+            "native_full_pass_and_FP64_response_pass": 83,
+            "response_gate_disagreements": 0,
+            "disagreement_state_ids": [],
+            "native_response_failed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "FP64_response_failed_ids": [
+              "xor_11__c141_confirmation_p08_n01_d01"
+            ],
+            "maximum_native_response": 0.00201416015625,
+            "maximum_FP64_response": 0.00201237305209645,
+            "minimum_native_response_slack": -1.4160156249999958e-05,
+            "minimum_FP64_response_slack": -1.2373052096449969e-05
+          }
+        },
+        "final": {
+          "0": {
+            "n": 84,
+            "native_full_passed": 84,
+            "native_response_only_passed": 84,
+            "FP64_response_only_passed": 84,
+            "native_full_pass_and_FP64_response_pass": 84,
+            "response_gate_disagreements": 0,
+            "disagreement_state_ids": [],
+            "native_response_failed_ids": [],
+            "FP64_response_failed_ids": [],
+            "maximum_native_response": 0.0019989013671875,
+            "maximum_FP64_response": 0.001994054531834877,
+            "minimum_native_response_slack": 1.0986328125000416e-06,
+            "minimum_FP64_response_slack": 5.945468165123244e-06
+          },
+          "1": {
+            "n": 84,
+            "native_full_passed": 84,
+            "native_response_only_passed": 84,
+            "FP64_response_only_passed": 84,
+            "native_full_pass_and_FP64_response_pass": 84,
+            "response_gate_disagreements": 0,
+            "disagreement_state_ids": [],
+            "native_response_failed_ids": [],
+            "FP64_response_failed_ids": [],
+            "maximum_native_response": 0.0019989013671875,
+            "maximum_FP64_response": 0.001994054531834877,
+            "minimum_native_response_slack": 1.0986328125000416e-06,
+            "minimum_FP64_response_slack": 5.945468165123244e-06
+          }
+        }
+      },
+      "maximum_observed_response_coordinate_gap_Linf": 2.5514022311767803e-05,
+      "response_budget": 0.002,
+      "native_full_acceptance_unchanged": true,
+      "FP64_full_acceptance_evaluated": false,
+      "FP64_response_only_not_an_added_gate": true,
+      "additional_model_forwards": 0,
+      "no_accuracy_or_error_bound_claim": true,
+      "thresholds_changed": false
+    },
+    "transition_rows": 168,
+    "by_round": {
+      "0": {
+        "resolved_to_both_response_pass_ids": [],
+        "resolved_to_both_response_fail_ids": [],
+        "new_response_disagreement_ids": []
+      },
+      "1": {
+        "resolved_to_both_response_pass_ids": [],
+        "resolved_to_both_response_fail_ids": [],
+        "new_response_disagreement_ids": []
+      }
+    },
+    "FP64_full_acceptance_evaluated": false,
+    "precision_agreement_is_not_an_accuracy_bound": true,
+    "no_new_model_measurements": true,
+    "thresholds_changed": false
+  },
+  "rescue_and_remaining_failure_focus": {
+    "training_states_retained": 84,
+    "FP64_frames": 9,
+    "native_endpoint_records": 336,
+    "native_outcomes_by_round": {
+      "0": {
+        "initial_passed": 83,
+        "final_passed": 84,
+        "rescued": 1,
+        "destroyed": 0,
+        "both_passed": 83,
+        "both_failed": 0
+      },
+      "1": {
+        "initial_passed": 83,
+        "final_passed": 84,
+        "rescued": 1,
+        "destroyed": 0,
+        "both_passed": 83,
+        "both_failed": 0
+      }
+    },
+    "focus_membership": "Union of initial or final native complete failures; dynamic, not a preselected subset.",
+    "focus_state_ids": [
+      "xor_11__c141_confirmation_p08_n01_d01"
+    ],
+    "rescued_ids_both_rounds": [
+      "xor_11__c141_confirmation_p08_n01_d01"
+    ],
+    "destroyed_ids_both_rounds": [],
+    "remaining_native_failed_ids_both_rounds": [],
+    "rescued_and_final_FP64_response_pass_ids": [
+      "xor_11__c141_confirmation_p08_n01_d01"
+    ],
+    "rescued_but_final_FP64_response_fail_ids": [],
+    "remaining_native_failed_but_FP64_response_pass_ids": [],
+    "response_budget": 0.002,
+    "training_safety_budget": 0.0018,
+    "intermediate_FP64_response_crossing_is_not_native_full_qualification": true,
+    "native_gate_observables_not_independently_measured": true,
+    "no_future_steps_or_closure_time_extrapolation": true,
+    "new_model_forwards": 0,
+    "FP64_full_acceptance_evaluated": false,
+    "LC2_closed": false
+  },
+  "cross_run_anchor_replay": {
+    "native_pairs": 168,
+    "FP64_pairs": 84,
+    "all_native_same_point_identity": true,
+    "all_native_observables_exactly_equal": true,
+    "native_pairs_with_nonzero_observable_difference": 0,
+    "maximum_native_all22_observable_gap_Linf": 0.0,
+    "maximum_native_response_coordinate_gap_Linf": 0.0,
+    "maximum_native_KL_gap": 0.0,
+    "all_native_registered_replay_rules_passed": true,
+    "native_full_pass_disagreement_ids": [],
+    "maximum_FP64_all22_observable_gap_Linf": 0.0,
+    "maximum_FP64_KL_gap": 0.0,
+    "all_FP64_registered_replay_rules_passed": true,
+    "maxima_by_round": {
+      "0": {
+        "parent_C194_final_maximum_response": 0.00201416015625,
+        "C196_same_run_initial_maximum_response": 0.00201416015625,
+        "C196_same_run_final_maximum_response": 0.0019989013671875,
+        "cross_run_anchor_maximum_shift": 0.0,
+        "same_run_training_maximum_change": -1.52587890625e-05,
+        "same_run_training_is_primary_comparison": true
+      },
+      "1": {
+        "parent_C194_final_maximum_response": 0.00201416015625,
+        "C196_same_run_initial_maximum_response": 0.00201416015625,
+        "C196_same_run_final_maximum_response": 0.0019989013671875,
+        "cross_run_anchor_maximum_shift": 0.0,
+        "same_run_training_maximum_change": -1.52587890625e-05,
+        "same_run_training_is_primary_comparison": true
+      }
+    },
+    "registered_tolerances": {
+      "native_all22_observable_Linf": 0.0002,
+      "native_KL_absolute": 5e-06,
+      "FP64_all22_observable_Linf": 2e-09,
+      "FP64_KL_absolute": 2e-09,
+      "native_metric_gates_equal_required": true,
+      "native_point_identity_required": true
+    },
+    "acceptance_thresholds_changed": false,
+    "replay_rule_changed": false,
+    "no_recentring_or_calibration": true,
+    "new_model_forwards": 0,
+    "measurement_accuracy_or_hardware_cause_established": false,
+    "no_accuracy_bound_claim": true,
+    "LC2_closed": false
+  },
+  "original_inputs_unchanged": {
+    "C155": true,
+    "C156": true,
+    "C157": true,
+    "C158": true,
+    "C159": true,
+    "C160": true,
+    "C161": true,
+    "C162": true,
+    "C163": true,
+    "C164": true,
+    "C165": true,
+    "C166": true,
+    "C167": true,
+    "C168": true,
+    "C169": true,
+    "C170": true,
+    "C171": true,
+    "C172": true,
+    "C173": true,
+    "C174": true,
+    "C175": true,
+    "C176": true,
+    "C177": true,
+    "C178": true,
+    "C179": true,
+    "C180": true,
+    "C181": true,
+    "C182": true,
+    "C183": true,
+    "C184": true,
+    "C185": true,
+    "C186": true,
+    "C187": true,
+    "C188": true,
+    "C189": true,
+    "C190": true,
+    "C191": true,
+    "C192": true,
+    "C193": true,
+    "C194": true,
+    "C195": true,
+    "C196": true
+  },
+  "errors": []
+}
+END C197 read-only all-coordinate training audit exit= 0
+唯一结果总包： /content/gpt2_lc2_c197_readonly_continuation_train_audit_cpu_v1/session_1793172218746171639/c197_readonly_continuation_train_audit_1793172218988606979_results.zip
+RESULT_SHA256 6a3cad33ca807b1564e483086d0beec6c709a85a8a2546ee35317dbd054b35b7
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_LC2_C197_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c197_readonly_continuation_train_audit_1793172218988606979_results.zip
+Downloading "c197_readonly_continuation_train_audit_1793172218988606979_results.zip": 

@@ -1,0 +1,25 @@
+{
+  "protocol": "GPT2_LC2_C160_DELIVERY_VALIDATION_V1",
+  "python_validated_before_delivery": true,
+  "tests_passed_before_final_frontend_regression": 29,
+  "tests": {
+    "protocol_tests": 9,
+    "bootstrap_tests": 3,
+    "launcher_tests": 3,
+    "torch_smoke": 11,
+    "archive_integration": 3
+  },
+  "runtime_self_tests_passed": 26,
+  "actual_Torch_tiny_model_full84_workflow2019_forwards168_backwards_passed": true,
+  "complete84_objective_aggregation_and_exact_max_tie_weights_verified": true,
+  "all_five_loss_components_independently_checked_including_active_guards": true,
+  "actual_physical_FP32_commits_and_exception_restoration_verified": true,
+  "full_size_synthetic_five_archive_binding_passed": true,
+  "real_GPT2_scientific_experiment_executed_before_delivery": false,
+  "scientific_original_result_ZIPs_reopened_before_delivery": false,
+  "synthetic_tests_are_not_scientific_evidence": true,
+  "new_training_steps": 0,
+  "head_updated": false,
+  "exact_FP32_commit_derivative_certified": false,
+  "LC2_closed": false
+}

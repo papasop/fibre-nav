@@ -1,0 +1,24 @@
+{
+  "local_validation": {
+    "test169.log": true,
+    "test_bootstrap169.log": true,
+    "test_launcher169.log": true,
+    "test_frontend169.log": true
+  },
+  "local_checks_per_log": {
+    "test169.log": 28,
+    "test_bootstrap169.log": 3,
+    "test_launcher169.log": 4,
+    "test_frontend169.log": 3
+  },
+  "local_checks_passed": 38,
+  "python_validated_before_delivery": true,
+  "real_GPT2_model_run_before_delivery": false,
+  "real_C168_original_ZIP_opened_before_delivery": false,
+  "real_fourteen_originals_opened_before_delivery": false,
+  "full_C168_archive_worker_test_is_synthetic_only": true,
+  "synthetic_upstream_context_injected": true,
+  "synthetic_measurements_generated_with_NumPy_only": true,
+  "model_libraries_imported_during_audit_tests": false,
+  "original_parent_decisions_reclassified": false
+}

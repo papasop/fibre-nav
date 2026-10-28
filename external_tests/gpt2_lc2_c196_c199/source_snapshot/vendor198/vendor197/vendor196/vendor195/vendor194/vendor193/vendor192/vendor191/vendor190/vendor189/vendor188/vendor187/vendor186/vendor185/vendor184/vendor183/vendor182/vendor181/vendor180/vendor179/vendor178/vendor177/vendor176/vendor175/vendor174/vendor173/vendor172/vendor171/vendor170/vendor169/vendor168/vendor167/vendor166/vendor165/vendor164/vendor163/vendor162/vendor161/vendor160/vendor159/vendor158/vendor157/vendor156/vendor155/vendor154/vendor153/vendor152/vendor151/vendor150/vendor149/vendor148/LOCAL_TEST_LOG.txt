@@ -1,0 +1,56 @@
+=== protocol_and_analytic_workflows ===
+test_adam_first_direction_and_projected_coordinates (__main__.Checks.test_adam_first_direction_and_projected_coordinates) ... ok
+test_convex_routing_keeps_coefficient_box (__main__.Checks.test_convex_routing_keeps_coefficient_box) ... ok
+test_duplicated_initial_experts_match_global (__main__.Checks.test_duplicated_initial_experts_match_global) ... ok
+test_final_response_failure_retained (__main__.Checks.test_final_response_failure_retained) ... ok
+test_frozen_router_mutation_blocks (__main__.Checks.test_frozen_router_mutation_blocks) ... ok
+test_full_two_arm_synthetic_workflow_all_counts_seals_and_no_LC2 (__main__.Checks.test_full_two_arm_synthetic_workflow_all_counts_seals_and_no_LC2) ... ok
+test_functional_warm_drift_blocks_before_backward (__main__.Checks.test_functional_warm_drift_blocks_before_backward) ... ok
+test_identical_contexts_keep_empty_clusters_without_search (__main__.Checks.test_identical_contexts_keep_empty_clusters_without_search) ... ok
+test_interruption_never_qualifies_either_arm (__main__.Checks.test_interruption_never_qualifies_either_arm) ... ok
+test_invalid_scale_blocks (__main__.Checks.test_invalid_scale_blocks) ... ok
+test_missing_gradient_state_blocks (__main__.Checks.test_missing_gradient_state_blocks) ... ok
+test_missing_or_permuted_rows_block (__main__.Checks.test_missing_or_permuted_rows_block) ... ok
+test_native_replay_drift_blocks_before_backward (__main__.Checks.test_native_replay_drift_blocks_before_backward) ... ok
+test_negative_routing_weight_blocks (__main__.Checks.test_negative_routing_weight_blocks) ... ok
+test_new_context_routing_not_using_postwrite_labels (__main__.Checks.test_new_context_routing_not_using_postwrite_labels) ... ok
+test_nonfinite_aggregate_blocks (__main__.Checks.test_nonfinite_aggregate_blocks) ... ok
+test_objective_exact_ties_average_all_states (__main__.Checks.test_objective_exact_ties_average_all_states) ... ok
+test_out_of_box_local_head_blocks (__main__.Checks.test_out_of_box_local_head_blocks) ... ok
+test_phase_blocks_endpoint_before_both_fixed_heads (__main__.Checks.test_phase_blocks_endpoint_before_both_fixed_heads) ... ok
+test_repeat_drift_blocks_qualification (__main__.Checks.test_repeat_drift_blocks_qualification) ... ok
+test_reusable_inference_accepts_new_prewrite_context_without_registry (__main__.Checks.test_reusable_inference_accepts_new_prewrite_context_without_registry) ... ok
+test_router_deterministic_and_convex (__main__.Checks.test_router_deterministic_and_convex) ... ok
+test_router_mutation_changes_frozen_digest (__main__.Checks.test_router_mutation_changes_frozen_digest) ... ok
+test_router_rejects_nonfinite (__main__.Checks.test_router_rejects_nonfinite) ... ok
+test_router_rejects_wrong_training_denominator (__main__.Checks.test_router_rejects_wrong_training_denominator) ... ok
+test_router_unseen_context_needs_no_case_or_state_id (__main__.Checks.test_router_unseen_context_needs_no_case_or_state_id) ... ok
+test_routing_pullback_matches_independent_central_difference (__main__.Checks.test_routing_pullback_matches_independent_central_difference) ... ok
+test_wrong_routing_pullback_blocks (__main__.Checks.test_wrong_routing_pullback_blocks) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 273.417s
+
+OK
+
+
+=== original_archive_bindings_and_tampering ===
+test_all_four_original_bindings_rerun_and_exact_initial_head (__main__.InputChecks.test_all_four_original_bindings_rerun_and_exact_initial_head) ... ok
+test_rebound_C147_summary_tamper_blocks (__main__.InputChecks.test_rebound_C147_summary_tamper_blocks) ... ok
+test_wrong_original_hash_blocks_before_audit (__main__.InputChecks.test_wrong_original_hash_blocks_before_audit) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 108.238s
+
+OK
+
+
+=== isolated_import_bootstrap ===
+test_actual_launcher_boot_imports_all_25_tests (__main__.Checks.test_actual_launcher_boot_imports_all_25_tests) ... ok
+test_actual_torch_entrypoint_imports_pinned_dependencies_first (__main__.Checks.test_actual_torch_entrypoint_imports_pinned_dependencies_first) ... ok
+test_foreign_pythonpath_does_not_override_sources (__main__.Checks.test_foreign_pythonpath_does_not_override_sources) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.482s
+
+OK

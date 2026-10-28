@@ -1,0 +1,26 @@
+{
+  "protocol": "GPT2_LC2_C158_DELIVERY_VALIDATION_V1",
+  "python_validated_before_delivery": true,
+  "tests_passed_before_final_frontend_regression": 41,
+  "tests": {
+    "protocol_tests": 13,
+    "baseline_tests": 3,
+    "bootstrap_tests": 3,
+    "launcher_tests": 3,
+    "torch_smoke": 14,
+    "archive_integration": 5
+  },
+  "runtime_self_tests_passed": 36,
+  "full_size_synthetic_original_archive_binding_tests_passed": 5,
+  "actual_Torch_tiny_model_full27_forward18_backward_workflow_passed": true,
+  "actual_Torch_cross_run_drift_saved_without_reclassifying_C157": true,
+  "actual_Torch_within_run_baseline_failure_saved_before_AD": true,
+  "actual_Torch_analytic_coordinate_derivative_and_all_scales_three_references_checked": true,
+  "real_GPT2_experiment_executed_before_delivery": false,
+  "scientific_original_ZIPs_reopened_before_delivery": false,
+  "synthetic_tests_are_not_scientific_evidence": true,
+  "C157_decision_reclassified": false,
+  "LC2_acceptance_thresholds_changed": false,
+  "diagnostic_protocol_changed_from_C157": true,
+  "LC2_closed": false
+}

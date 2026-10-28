@@ -1,0 +1,38 @@
+test_FP64_replay_forgery_recomputed (__main__.Checks.test_FP64_replay_forgery_recomputed) ... ok
+test_actual_FP64_point_changed_rebound_receipts_blocks (__main__.Checks.test_actual_FP64_point_changed_rebound_receipts_blocks) ... ok
+test_actual_point_counter_changed_blocks (__main__.Checks.test_actual_point_counter_changed_blocks) ... ok
+test_actual_point_hash_forged_blocks (__main__.Checks.test_actual_point_hash_forged_blocks) ... ok
+test_all6_before_probe_receipt_forgery_blocks (__main__.Checks.test_all6_before_probe_receipt_forgery_blocks) ... ok
+test_anchor_changed_blocks (__main__.Checks.test_anchor_changed_blocks) ... ok
+test_changed_original_source_even_rebound_manifest (__main__.Checks.test_changed_original_source_even_rebound_manifest) ... ok
+test_direction_common_flag_recomputed (__main__.Checks.test_direction_common_flag_recomputed) ... ok
+test_direction_weights_forged_blocks (__main__.Checks.test_direction_weights_forged_blocks) ... ok
+test_full1848_worker_no_model_or_new_optimization (__main__.Checks.test_full1848_worker_no_model_or_new_optimization) ... ok
+test_gradient_nonfinite_blocks (__main__.Checks.test_gradient_nonfinite_blocks) ... ok
+test_independent_replay_near_opposing_and_zero_gradients (__main__.Checks.test_independent_replay_near_opposing_and_zero_gradients) ... ok
+test_missing_or_permuted_state_records_block (__main__.Checks.test_missing_or_permuted_state_records_block) ... ok
+test_native_gate_forgery_recomputed (__main__.Checks.test_native_gate_forgery_recomputed) ... ok
+test_native_point_changed_blocks (__main__.Checks.test_native_point_changed_blocks) ... ok
+test_native_repeat_omission_blocks (__main__.Checks.test_native_repeat_omission_blocks) ... ok
+test_no_models_or_solvers_guard (__main__.Checks.test_no_models_or_solvers_guard) ... ok
+test_original_iteration_gap_forged_blocks (__main__.Checks.test_original_iteration_gap_forged_blocks) ... ok
+test_original_iteration_line_step_forged_blocks (__main__.Checks.test_original_iteration_line_step_forged_blocks) ... ok
+test_original_iteration_omitted_blocks (__main__.Checks.test_original_iteration_omitted_blocks) ... ok
+test_original_iteration_vertex_forged_blocks (__main__.Checks.test_original_iteration_vertex_forged_blocks) ... ok
+test_parent_pass_count_forgery_blocks (__main__.Checks.test_parent_pass_count_forgery_blocks) ... ok
+test_probe_head_changed_blocks (__main__.Checks.test_probe_head_changed_blocks) ... ok
+test_recorded_loss_recomputed (__main__.Checks.test_recorded_loss_recomputed) ... ok
+test_reported_map_error_recomputed (__main__.Checks.test_reported_map_error_recomputed) ... ok
+test_saved_direction_anchor_substitution_blocks (__main__.Checks.test_saved_direction_anchor_substitution_blocks) ... ok
+test_saved_direction_changed_blocks (__main__.Checks.test_saved_direction_changed_blocks) ... ok
+test_scalar_FD_sign_and_scale_forgery_recomputed (__main__.Checks.test_scalar_FD_sign_and_scale_forgery_recomputed) ... ok
+test_step_registry_threshold_change_blocks (__main__.Checks.test_step_registry_threshold_change_blocks) ... ok
+test_unsafe_duplicate_paths_rejected (__main__.Checks.test_unsafe_duplicate_paths_rejected) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1625: UserWarning: Duplicate name: 'same'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+ok
+test_wrong_whole_hash_stops_before_payload (__main__.Checks.test_wrong_whole_hash_stops_before_payload) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 91.349s
+
+OK

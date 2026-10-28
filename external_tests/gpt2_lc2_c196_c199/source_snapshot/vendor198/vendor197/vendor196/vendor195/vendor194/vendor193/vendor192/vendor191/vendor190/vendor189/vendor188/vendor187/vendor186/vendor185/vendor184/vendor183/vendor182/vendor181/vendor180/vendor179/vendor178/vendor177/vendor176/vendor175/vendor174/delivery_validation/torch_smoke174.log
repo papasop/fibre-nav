@@ -1,0 +1,13 @@
+LOCAL_TORCH_VERSION 2.10.0+cpu
+test_complete_actual_Torch_all_coordinates_one_LP_six_probes (__main__.Checks.test_complete_actual_Torch_all_coordinates_one_LP_six_probes) ... ok
+test_coordinate_AD_matches_same_function_central_differences (__main__.Checks.test_coordinate_AD_matches_same_function_central_differences) ... ok
+test_frozen_reference_mutation_blocks (__main__.Checks.test_frozen_reference_mutation_blocks) ... ok
+test_native_exception_restores_physical_chart_and_tied_weights (__main__.Checks.test_native_exception_restores_physical_chart_and_tied_weights) ... ok
+test_partial_coordinate_backward_exception_restores_model_and_counts (__main__.Checks.test_partial_coordinate_backward_exception_restores_model_and_counts) ... ok
+test_probe_AD_is_rejected_before_any_backward (__main__.Checks.test_probe_AD_is_rejected_before_any_backward) ... ok
+test_saved_actual_point_tamper_blocks_before_forward (__main__.Checks.test_saved_actual_point_tamper_blocks_before_forward) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 71.090s
+
+OK

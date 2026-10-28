@@ -1,0 +1,131 @@
+{
+  "protocol": "GPT2_LC2_C136_SHARED_VECTOR_TRAINING_CPU_V1",
+  "training_registry": [
+    {
+      "state_id": "xor_00__c82_training_center00",
+      "case": "xor_00",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_00__c82_training_center01",
+      "case": "xor_00",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_00__c90_training_center00",
+      "case": "xor_00",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_00__c90_training_center01",
+      "case": "xor_00",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_01__c82_training_center00",
+      "case": "xor_01",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c82_training_center01",
+      "case": "xor_01",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_01__c90_training_center00",
+      "case": "xor_01",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c90_training_center01",
+      "case": "xor_01",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_11__c82_training_center00",
+      "case": "xor_11",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c82_training_center01",
+      "case": "xor_11",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_11__c90_training_center00",
+      "case": "xor_11",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c90_training_center01",
+      "case": "xor_11",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    }
+  ],
+  "training_states": 12,
+  "independent_confirmation_states": 0,
+  "all12_are_training": "Both original geometry6 and historical-probe6 are C136 training data. Original roles are provenance only.",
+  "formula": "z=V@(raw-prepared); point=float32(raw + V.T@(a*z)); one shared a across all12 states, initialized exactly zero",
+  "gain_interpretation": "Equivalent in exact arithmetic to P*d + V.T@diag(1+a)@V*d. Fixed C132 numeric row basis; no new SVD/Jacobian.",
+  "production_trainable_dimension": 36,
+  "elementwise_a_bound": 0.125,
+  "radius_policy": "No radial proposal clipping: preserve exact zero-control identity and graph connection. Original actual displacement gate<=20+1e-5 remains unchanged; radius excess is penalised during training and retained as failure in final evaluation.",
+  "offline_training_steps": 16,
+  "states_per_full_gradient": 12,
+  "scalar_backward_calls_requested": 192,
+  "optimiser": {
+    "kind": "manual float64 projected Adam",
+    "learning_rate": 0.003,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "epsilon": 1e-08,
+    "full_gradient_L2_clip": 1.0,
+    "elementwise_projection": [
+      -0.125,
+      0.125
+    ],
+    "weight_decay": 0
+  },
+  "loss": "Mean over all12 of response hinge-square mean+max, read-margin hinge-square mean, KL hinge-square, displacement-radius hinge-square and .001*mean(a^2)",
+  "training_response_safety": 0.0015,
+  "training_margin_safety": 0.075,
+  "training_KL_safety": 0.0045,
+  "acceptance_budgets": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05,
+    "proposal_radius": 20.0,
+    "radius_rounding_allowance": 1e-05
+  },
+  "zero_functional_parity": "All12 zero-control functional forwards must reproduce exact raw coordinates and native observations within2e-6, KL2e-7 before any gradient or update",
+  "preflight": "12 preparations plus original raw/projected endpoints,36 known points; point/gate identity and observations2e-4, KL5e-6; drift stops before functional gradients",
+  "training_mechanism": "Temporary graph-connected LoRA-B replacements via torch.func.functional_call. Backprop only to shared a. Backbone, LoRA-A and base writer not optimised.",
+  "functional_precision": "Float64 control construction then float32 cast; AD follows the executed graph, not a certificate of exact finite-precision derivatives",
+  "final_checkpoint": "Only update16 qualifies. No early stopping, best checkpoint, recovery choice, per-state head or input-class selector.",
+  "final_evaluation": "Freeze step16 vector and all24 raw/trained proposal points before two-round48 native endpoint measurements. All12 remain training-qualification states.",
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "teacher": false,
+  "backtracking": false,
+  "online_response_repair": false,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "excluded_input_states_evaluated": 0,
+  "LC2_closed": false,
+  "worker_budget_seconds": 3000
+}

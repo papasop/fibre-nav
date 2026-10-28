@@ -1,0 +1,19 @@
+test_actual_model_dtype_hook_runs_on_graph_forward (__main__.Checks.test_actual_model_dtype_hook_runs_on_graph_forward) ... ok
+test_complete_worker_with_real_Torch_and_exact27_18_counts (__main__.Checks.test_complete_worker_with_real_Torch_and_exact27_18_counts) ... ok
+test_cross_archive_drift_is_reported_without_blocking_same_run (__main__.Checks.test_cross_archive_drift_is_reported_without_blocking_same_run) ... ok
+test_data_mutation_without_version_increment_detected_by_complete_hash (__main__.Checks.test_data_mutation_without_version_increment_detected_by_complete_hash) ... ok
+test_detached_point_breaks_graph_and_is_rejected (__main__.Checks.test_detached_point_breaks_graph_and_is_rejected) ... ok
+test_exception_restores_actual_tied_FP32_parameters (__main__.Checks.test_exception_restores_actual_tied_FP32_parameters) ... ok
+test_float32_point_not_silently_used_for_AD (__main__.Checks.test_float32_point_not_silently_used_for_AD) ... ok
+test_frozen_double_mutation_detected (__main__.Checks.test_frozen_double_mutation_detected) ... ok
+test_mutated_reference_file_blocks (__main__.Checks.test_mutated_reference_file_blocks) ... ok
+test_mutated_reference_tensor_blocks (__main__.Checks.test_mutated_reference_tensor_blocks) ... ok
+test_real_FP64_coordinate_AD_matches_independent_analytic_derivative (__main__.Checks.test_real_FP64_coordinate_AD_matches_independent_analytic_derivative) ... ok
+test_real_same_function_FD_all_scales_three_references (__main__.Checks.test_real_same_function_FD_all_scales_three_references) ... ok
+test_reference_is_frozen_zero_chart_not_nonzero_chord_center (__main__.Checks.test_reference_is_frozen_zero_chart_not_nonzero_chord_center) ... ok
+test_within_run_baseline_repeat_drift_stops_before_AD (__main__.Checks.test_within_run_baseline_repeat_drift_stops_before_AD) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.394s
+
+OK

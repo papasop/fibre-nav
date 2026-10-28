@@ -1,0 +1,32 @@
+test_Adam_projection_is_reported (__main__.Checks.test_Adam_projection_is_reported) ... ok
+test_diagonal_vector_controls_components_independently (__main__.Checks.test_diagonal_vector_controls_components_independently) ... ok
+test_duplicate_functional_zero_state_blocks (__main__.Checks.test_duplicate_functional_zero_state_blocks) ... ok
+test_full16_training_and_fixed_final48_native_endpoints (__main__.Checks.test_full16_training_and_fixed_final48_native_endpoints) ... ok
+test_full_worker_uses_no_new_solver_or_SVD (__main__.Checks.test_full_worker_uses_no_new_solver_or_SVD) ... ok
+test_functional_zero_drift_blocks_before_first_update (__main__.Checks.test_functional_zero_drift_blocks_before_first_update) ... ok
+test_gain_bound_violation_blocks (__main__.Checks.test_gain_bound_violation_blocks) ... ok
+test_initial_zero_gradient_is_noop_without_invented_direction (__main__.Checks.test_initial_zero_gradient_is_noop_without_invented_direction) ... ok
+test_interrupted_training_never_qualifies_partial_checkpoint (__main__.Checks.test_interrupted_training_never_qualifies_partial_checkpoint) ... ok
+test_manual_first_Adam_has_descent_sign_and_fixed_scale (__main__.Checks.test_manual_first_Adam_has_descent_sign_and_fixed_scale) ... ok
+test_missing_gradient_state_blocks_before_first_update (__main__.Checks.test_missing_gradient_state_blocks_before_first_update) ... ok
+test_missing_training_state_blocks_update_and_early_freeze (__main__.Checks.test_missing_training_state_blocks_update_and_early_freeze) ... ok
+test_nonfinite_control_blocks (__main__.Checks.test_nonfinite_control_blocks) ... ok
+test_nonfinite_gradient_blocks_before_first_update (__main__.Checks.test_nonfinite_gradient_blocks_before_first_update) ... ok
+test_nonzero_control_forbidden_during_zero_parity (__main__.Checks.test_nonzero_control_forbidden_during_zero_parity) ... ok
+test_radius_is_not_silently_clipped (__main__.Checks.test_radius_is_not_silently_clipped) ... ok
+test_raw_replay_drift_blocks_before_any_functional_gradient (__main__.Checks.test_raw_replay_drift_blocks_before_any_functional_gradient) ... ok
+test_registry_promotes_all12_to_explicit_training (__main__.Checks.test_registry_promotes_all12_to_explicit_training) ... ok
+test_response_read_KL_and_radius_losses_have_declared_units (__main__.Checks.test_response_read_KL_and_radius_losses_have_declared_units) ... ok
+test_source_identity_change_blocks_before_model (__main__.Checks.test_source_identity_change_blocks_before_model) ... ok
+test_step_skipping_or_extra_step_rejected (__main__.Checks.test_step_skipping_or_extra_step_rejected) ... ok
+test_unknown_training_state_or_wrong_vector_blocks (__main__.Checks.test_unknown_training_state_or_wrong_vector_blocks) ... ok
+test_wrong_gradient_vector_digest_blocks_before_update (__main__.Checks.test_wrong_gradient_vector_digest_blocks_before_update) ... ok
+test_wrong_original_pin_blocks_before_model (__main__.Checks.test_wrong_original_pin_blocks_before_model) ... ok
+test_zero_gradient_retains_all16_steps_without_success_reclassification (__main__.Checks.test_zero_gradient_retains_all16_steps_without_success_reclassification) ... ok
+test_zero_parity_required_before_training (__main__.Checks.test_zero_parity_required_before_training) ... ok
+test_zero_vector_exactly_reproduces_raw_bytes (__main__.Checks.test_zero_vector_exactly_reproduces_raw_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 31.458s
+
+OK

@@ -1,0 +1,1133 @@
+ 请一次上传 C196_CPU_LAUNCHER_BUNDLE.zip；不要上传科学结果ZIP，无需解压。
+
+     
+     C196_CPU_LAUNCHER_BUNDLE.zip(application/zip) - 7234461 bytes, last modified: 2026/10/28 - 100% done
+      // Copyright 2017 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ * @fileoverview Helpers for google.colab Python module.
+ */
+(function(scope) {
+function span(text, styleAttributes = {}) {
+  const element = document.createElement('span');
+  element.textContent = text;
+  for (const key of Object.keys(styleAttributes)) {
+    element.style[key] = styleAttributes[key];
+  }
+  return element;
+}
+
+// Max number of bytes which will be uploaded at a time.
+const MAX_PAYLOAD_SIZE = 100 * 1024;
+
+function _uploadFiles(inputId, outputId) {
+  const steps = uploadFilesStep(inputId, outputId);
+  const outputElement = document.getElementById(outputId);
+  // Cache steps on the outputElement to make it available for the next call
+  // to uploadFilesContinue from Python.
+  outputElement.steps = steps;
+
+  return _uploadFilesContinue(outputId);
+}
+
+// This is roughly an async generator (not supported in the browser yet),
+// where there are multiple asynchronous steps and the Python side is going
+// to poll for completion of each step.
+// This uses a Promise to block the python side on completion of each step,
+// then passes the result of the previous step as the input to the next step.
+function _uploadFilesContinue(outputId) {
+  const outputElement = document.getElementById(outputId);
+  const steps = outputElement.steps;
+
+  const next = steps.next(outputElement.lastPromiseValue);
+  return Promise.resolve(next.value.promise).then((value) => {
+    // Cache the last promise value to make it available to the next
+    // step of the generator.
+    outputElement.lastPromiseValue = value;
+    return next.value.response;
+  });
+}
+
+/**
+ * Generator function which is called between each async step of the upload
+ * process.
+ * @param {string} inputId Element ID of the input file picker element.
+ * @param {string} outputId Element ID of the output display.
+ * @return {!Iterable<!Object>} Iterable of next steps.
+ */
+function* uploadFilesStep(inputId, outputId) {
+  const inputElement = document.getElementById(inputId);
+  inputElement.disabled = false;
+
+  const outputElement = document.getElementById(outputId);
+  outputElement.innerHTML = '';
+
+  const pickedPromise = new Promise((resolve) => {
+    inputElement.addEventListener('change', (e) => {
+      resolve(e.target.files);
+    });
+  });
+
+  const cancel = document.createElement('button');
+  inputElement.parentElement.appendChild(cancel);
+  cancel.textContent = 'Cancel upload';
+  const cancelPromise = new Promise((resolve) => {
+    cancel.onclick = () => {
+      resolve(null);
+    };
+  });
+
+  // Wait for the user to pick the files.
+  const files = yield {
+    promise: Promise.race([pickedPromise, cancelPromise]),
+    response: {
+      action: 'starting',
+    }
+  };
+
+  cancel.remove();
+
+  // Disable the input element since further picks are not allowed.
+  inputElement.disabled = true;
+
+  if (!files) {
+    return {
+      response: {
+        action: 'complete',
+      }
+    };
+  }
+
+  for (const file of files) {
+    const li = document.createElement('li');
+    li.append(span(file.name, {fontWeight: 'bold'}));
+    li.append(span(
+        `(${file.type || 'n/a'}) - ${file.size} bytes, ` +
+        `last modified: ${
+            file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() :
+                                    'n/a'} - `));
+    const percent = span('0% done');
+    li.appendChild(percent);
+
+    outputElement.appendChild(li);
+
+    const fileDataPromise = new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve(e.target.result);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    // Wait for the data to be ready.
+    let fileData = yield {
+      promise: fileDataPromise,
+      response: {
+        action: 'continue',
+      }
+    };
+
+    // Use a chunked sending to avoid message size limits. See b/62115660.
+    let position = 0;
+    do {
+      const length = Math.min(fileData.byteLength - position, MAX_PAYLOAD_SIZE);
+      const chunk = new Uint8Array(fileData, position, length);
+      position += length;
+
+      const base64 = btoa(String.fromCharCode.apply(null, chunk));
+      yield {
+        response: {
+          action: 'append',
+          file: file.name,
+          data: base64,
+        },
+      };
+
+      let percentDone = fileData.byteLength === 0 ?
+          100 :
+          Math.round((position / fileData.byteLength) * 100);
+      percent.textContent = `${percentDone}% done`;
+
+    } while (position < fileData.byteLength);
+  }
+
+  // All done.
+  yield {
+    response: {
+      action: 'complete',
+    }
+  };
+}
+
+scope.google = scope.google || {};
+scope.google.colab = scope.google.colab || {};
+scope.google.colab._files = {
+  _uploadFiles,
+  _uploadFilesContinue,
+};
+})(self);
+ Saving C196_CPU_LAUNCHER_BUNDLE.zip to C196_CPU_LAUNCHER_BUNDLE.zip
+C196 CPU：配套BUNDLE已校验；固定41原包，先绑定原C195完整审计，再从原C194固定最终头继续8步。每步全84态六响应坐标、固定步长0.001；2355次模型前向、5376次标量反传、最多8次1008行LP；840个实际FP64点预封存。只检查固定第8步头，两轮原生完整门槛；无选头、新确认或排除输入；工作上限240分钟，自测另计，不计LC2通过。
+C196 原始只读输入 C155 /content/drive/MyDrive/GPT2_LC2_C155_PAIRED_FORWARD_PRECISION_CPU_V1_RECOVERY/c155_paired_forward_precision_1792746742162409955_results.zip
+C196 原始只读输入 C156 /content/drive/MyDrive/GPT2_LC2_C156_READONLY_PRECISION_TRAJECTORY_CPU_V1_RECOVERY/c156_readonly_precision_trajectory_1792750617753922226_results.zip
+C196 原始只读输入 C157 /content/drive/MyDrive/GPT2_LC2_C157_FP64_DIRECTIONAL_AD_CPU_V1_RECOVERY/c157_fp64_directional_ad_1792756197210011575_results.zip
+C196 原始只读输入 C158 /content/drive/MyDrive/GPT2_LC2_C158_SAME_RUN_FP64_AD_CPU_V1_RECOVERY/c158_same_run_fp64_ad_1792781147905613358_results.zip
+C196 原始只读输入 C159 /content/drive/MyDrive/GPT2_LC2_C159_COEFFICIENT_CHAIN_FP64_CPU_V1_RECOVERY/c159_coefficient_chain_fp64_1792782704960758030_results.zip
+C196 原始只读输入 C160 /content/drive/MyDrive/GPT2_LC2_C160_FULL84_FP64_BASELINE_CPU_V1_RECOVERY/c160_full84_fp64_baseline_1792785149044276638_results.zip
+C196 原始只读输入 C161 /content/drive/MyDrive/GPT2_LC2_C161_FULL84_FP64_TRAIN_CPU_V1_RECOVERY/c161_full84_fp64_train_1792794511076909638_results.zip
+C196 原始只读输入 C162 /content/drive/MyDrive/GPT2_LC2_C162_READONLY_FP64_TRAIN_AUDIT_CPU_V1_RECOVERY/c162_readonly_fp64_train_audit_1792802510128908175_results.zip
+C196 原始只读输入 C163 /content/drive/MyDrive/GPT2_LC2_C163_SMOOTH_RISK_FP64_CPU_V1_RECOVERY/c163_smooth_risk_fp64_1792804771993554131_results.zip
+C196 原始只读输入 C164 /content/drive/MyDrive/GPT2_LC2_C164_READONLY_SMOOTH_TRAIN_AUDIT_CPU_V1_RECOVERY/c164_readonly_smooth_train_audit_1792815840441279099_results.zip
+C196 原始只读输入 C165 /content/drive/MyDrive/GPT2_LC2_C165_COMMON_DESCENT_PROBES_CPU_V1_RECOVERY/c165_common_descent_probes_1792817961059997552_results.zip
+C196 原始只读输入 C166 /content/drive/MyDrive/GPT2_LC2_C166_READONLY_DIRECTION_AUDIT_CPU_V1_RECOVERY/c166_readonly_direction_audit_1792826955763268604_results.zip
+C196 原始只读输入 C167 /content/drive/MyDrive/GPT2_LC2_C167_RECORDED_GRADIENT_FEASIBILITY_CPU_V1_RECOVERY/c167_recorded_gradient_feasibility_1792831202958441083_results.zip
+C196 原始只读输入 C168 /content/drive/MyDrive/GPT2_LC2_C168_CERTIFIED_DIRECTION_PROBES_CPU_V1_RECOVERY/c168_certified_direction_probes_1792833073186588255_results.zip
+C196 原始只读输入 C169 /content/drive/MyDrive/GPT2_LC2_C169_READONLY_FINITE_PROBE_AUDIT_CPU_V1_RECOVERY/c169_readonly_finite_probe_audit_1792840501279121951_results.zip
+C196 原始只读输入 C170 /content/drive/MyDrive/GPT2_LC2_C170_RELINEARISED_LP_TRAIN_CPU_V1_RECOVERY/c170_relinearised_lp_train_1792867604222024910_results.zip
+C196 原始只读输入 C171 /content/drive/MyDrive/GPT2_LC2_C171_READONLY_LP_TRAIN_AUDIT_CPU_V1_RECOVERY/c171_readonly_lp_train_audit_1792874933612423156_results.zip
+C196 原始只读输入 C172 /content/drive/MyDrive/GPT2_LC2_C172_FINAL_HEAD_FINITE_STEPS_CPU_V1_RECOVERY/c172_final_head_finite_steps_1792878228571053236_results.zip
+C196 原始只读输入 C173 /content/drive/MyDrive/GPT2_LC2_C173_READONLY_FINITE_STEP_COORDINATE_AUDIT_CPU_V1_RECOVERY/c173_readonly_finite_step_coordinate_audit_1792892759645921618_results.zip
+C196 原始只读输入 C174 /content/drive/MyDrive/GPT2_LC2_C174_ALL_COORDINATE_DIRECTION_CPU_V1_RECOVERY/c174_all_coordinate_direction_1792895436252877896_results.zip
+C196 原始只读输入 C175 /content/drive/MyDrive/GPT2_LC2_C175_READONLY_ALL_COORDINATE_AUDIT_CPU_V1_RECOVERY/c175_readonly_all_coordinate_audit_1792907496586803362_results.zip
+C196 原始只读输入 C176 /content/drive/MyDrive/GPT2_LC2_C176_ALL_COORDINATE_RELINEARISED_TRAIN_CPU_V1_RECOVERY/c176_all_coordinate_relinearised_train_1792910117492783694_results.zip
+C196 原始只读输入 C177 /content/drive/MyDrive/GPT2_LC2_C177_READONLY_ALL_COORDINATE_TRAIN_AUDIT_CPU_V1_RECOVERY/c177_readonly_all_coordinate_train_audit_1792922955671500709_results.zip
+C196 原始只读输入 C178 /content/drive/MyDrive/GPT2_LC2_C178_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c178_all_coordinate_continuation_train_1792925241564180532_results.zip
+C196 原始只读输入 C179 /content/drive/MyDrive/GPT2_LC2_C179_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c179_readonly_continuation_train_audit_1792950011136259424_results.zip
+C196 原始只读输入 C180 /content/drive/MyDrive/GPT2_LC2_C180_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c180_all_coordinate_continuation_train_1792956669587629913_results.zip
+C196 原始只读输入 C181 /content/drive/MyDrive/GPT2_LC2_C181_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c181_readonly_continuation_train_audit_1792970927313012595_results.zip
+C196 原始只读输入 C182 /content/drive/MyDrive/GPT2_LC2_C182_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c182_all_coordinate_continuation_train_1792976493104793674_results.zip
+C196 原始只读输入 C183 /content/drive/MyDrive/GPT2_LC2_C183_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c183_readonly_continuation_train_audit_1792997655804287095_results.zip
+C196 原始只读输入 C184 /content/drive/MyDrive/GPT2_LC2_C184_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c184_all_coordinate_continuation_train_1793001675185182796_results.zip
+C196 原始只读输入 C185 /content/drive/MyDrive/GPT2_LC2_C185_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c185_readonly_continuation_train_audit_1793042213882332375_results.zip
+C196 原始只读输入 C186 /content/drive/MyDrive/GPT2_LC2_C186_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c186_all_coordinate_continuation_train_1793044725906436843_results.zip
+C196 原始只读输入 C187 /content/drive/MyDrive/GPT2_LC2_C187_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c187_readonly_continuation_train_audit_1793057443459239605_results.zip
+C196 原始只读输入 C188 /content/drive/MyDrive/GPT2_LC2_C188_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c188_all_coordinate_continuation_train_1793060106601426991_results.zip
+C196 原始只读输入 C189 /content/drive/MyDrive/GPT2_LC2_C189_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c189_readonly_continuation_train_audit_1793071249421328929_results.zip
+C196 原始只读输入 C190 /content/drive/MyDrive/GPT2_LC2_C190_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c190_all_coordinate_continuation_train_1793073731638650611_results.zip
+C196 原始只读输入 C191 /content/drive/MyDrive/GPT2_LC2_C191_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c191_readonly_continuation_train_audit_1793086800583120343_results.zip
+C196 原始只读输入 C192 /content/drive/MyDrive/GPT2_LC2_C192_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c192_all_coordinate_continuation_train_1793089733485187412_results.zip
+C196 原始只读输入 C193 /content/drive/MyDrive/GPT2_LC2_C193_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c193_readonly_continuation_train_audit_1793124987052013318_results.zip
+C196 原始只读输入 C194 /content/drive/MyDrive/GPT2_LC2_C194_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c194_all_coordinate_continuation_train_1793128851859319359_results.zip
+C196 原始只读输入 C195 /content/drive/MyDrive/GPT2_LC2_C195_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c195_readonly_continuation_train_audit_1793147292255772483_results.zip
+START C196 CPU PyTorch
+CPU_TORCH_READY 2.11.0+cpu 2.1.3
+END C196 CPU PyTorch exit= 0
+C196：在隔离目录安装固定HF与SciPy依赖；保留系统PyTorch与NumPy。
+START C196 isolated pinned HF/SciPy dependencies
+Collecting transformers==4.56.2
+  Using cached transformers-4.56.2-py3-none-any.whl.metadata (40 kB)
+Collecting peft==0.17.1
+  Using cached peft-0.17.1-py3-none-any.whl.metadata (14 kB)
+Collecting tokenizers==0.22.0
+  Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting huggingface_hub==0.34.4
+  Using cached huggingface_hub-0.34.4-py3-none-any.whl.metadata (14 kB)
+Collecting accelerate==1.10.1
+  Using cached accelerate-1.10.1-py3-none-any.whl.metadata (19 kB)
+Collecting safetensors==0.6.2
+  Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting scipy==1.17.0
+  Using cached scipy-1.17.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Using cached transformers-4.56.2-py3-none-any.whl (11.6 MB)
+Using cached peft-0.17.1-py3-none-any.whl (504 kB)
+Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+Using cached huggingface_hub-0.34.4-py3-none-any.whl (561 kB)
+Using cached accelerate-1.10.1-py3-none-any.whl (374 kB)
+Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (485 kB)
+Using cached scipy-1.17.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.0 MB)
+Installing collected packages: transformers, tokenizers, scipy, safetensors, peft, huggingface_hub, accelerate
+Successfully installed accelerate-1.10.1 huggingface_hub-0.34.4 peft-0.17.1 safetensors-0.6.2 scipy-1.17.0 tokenizers-0.22.0 transformers-4.56.2
+END C196 isolated pinned HF/SciPy dependencies exit= 0
+START C196 pinned HF/SciPy check
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+PINNED_HF_SCIPY_OK ['4.56.2', '0.17.1', '0.22.0', '0.34.4', '1.10.1', '0.6.2', '1.17.0']
+END C196 pinned HF/SciPy check exit= 0
+START C196 all-coordinate LP/units/exact-head arithmetic checks
+test_all1008_signed_rows_include_inactive_states (__main__.Checks.test_all1008_signed_rows_include_inactive_states) ... ok
+test_all_six_actual_heads_and_fractions_reconstruct (__main__.Checks.test_all_six_actual_heads_and_fractions_reconstruct) ... ok
+test_binary64_endpoint_difference_not_rounded_subtraction (__main__.Checks.test_binary64_endpoint_difference_not_rounded_subtraction) ... ok
+test_direction_dtype_and_bounds_rejected (__main__.Checks.test_direction_dtype_and_bounds_rejected) ... ok
+test_empty_active_has_zero_no_strict_descent (__main__.Checks.test_empty_active_has_zero_no_strict_descent) ... ok
+test_full_panel_free_mask_not_step_specific (__main__.Checks.test_full_panel_free_mask_not_step_specific) ... ok
+test_inactive_coordinate_rejects_direction_accepted_by_active_rows (__main__.Checks.test_inactive_coordinate_rejects_direction_accepted_by_active_rows) ... ok
+test_nonmax_coordinate_of_active_state_not_omitted (__main__.Checks.test_nonmax_coordinate_of_active_state_not_omitted) ... ok
+test_scalar_gradient_units_cannot_change (__main__.Checks.test_scalar_gradient_units_cannot_change) ... ok
+test_sign_scale_caps_not_native_gate (__main__.Checks.test_sign_scale_caps_not_native_gate) ... ok
+test_signed_exact_max_ties_average_both_branches (__main__.Checks.test_signed_exact_max_ties_average_both_branches) ... ok
+test_wrong_shape_nonfinite_order_missing_rejected (__main__.Checks.test_wrong_shape_nonfinite_order_missing_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.444s
+
+OK
+END C196 all-coordinate LP/units/exact-head arithmetic checks exit= 0
+START C196 original-gate/precision-margin controls
+test_all416_rows_and_negative_slacks_exported (__main__.Checks.test_all416_rows_and_negative_slacks_exported) ... ok
+test_exact_response_boundary_is_inclusive_no_new_margin (__main__.Checks.test_exact_response_boundary_is_inclusive_no_new_margin) ... ok
+test_native_failure_not_overridden_by_FP64_pass (__main__.Checks.test_native_failure_not_overridden_by_FP64_pass) ... ok
+test_native_pass_and_FP64_boundary_failure_kept_distinct (__main__.Checks.test_native_pass_and_FP64_boundary_failure_kept_distinct) ... ok
+test_nonfinite_and_wrong_shape_block (__main__.Checks.test_nonfinite_and_wrong_shape_block) ... ok
+test_other_native_gate_failure_not_counted_full_pass (__main__.Checks.test_other_native_gate_failure_not_counted_full_pass) ... ok
+test_state_permutation_and_missing_state_block (__main__.Checks.test_state_permutation_and_missing_state_block) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.257s
+
+OK
+END C196 original-gate/precision-margin controls exit= 0
+START C196 fixed8 updates/all-coordinate/exact-affine/seal tests
+C196 fixed8 updates/all-coordinate/exact-affine/seal tests 运行中 30 秒
+C196 fixed8 updates/all-coordinate/exact-affine/seal tests 运行中 60 秒
+C196 fixed8 updates/all-coordinate/exact-affine/seal tests 运行中 90 秒
+test_FP64_replay_stops_before_LP_or_update (__main__.Checks.test_FP64_replay_stops_before_LP_or_update) ... ok
+test_actual_head_certificate_failure_blocks_commit (__main__.Checks.test_actual_head_certificate_failure_blocks_commit) ... ok
+C196 fixed8 updates/all-coordinate/exact-affine/seal tests 运行中 120 秒
+test_committed_update_artifact_mutation_blocks (__main__.Checks.test_committed_update_artifact_mutation_blocks) ... ok
+test_complete_fixed8_all84_all1008_rows_and_native_repeats (__main__.Checks.test_complete_fixed8_all84_all1008_rows_and_native_repeats) ... ok
+test_empty_active_all8_slots_zero_direction_no_solver (__main__.Checks.test_empty_active_all8_slots_zero_direction_no_solver) ... ok
+C196 fixed8 updates/all-coordinate/exact-affine/seal tests 运行中 150 秒
+test_final_repeat_mismatch_never_qualifies (__main__.Checks.test_final_repeat_mismatch_never_qualifies) ... ok
+test_native_replay_stops_before_any_AD (__main__.Checks.test_native_replay_stops_before_any_AD) ... ok
+test_nonpositive_witness_stops_no_retry_or_final_head (__main__.Checks.test_nonpositive_witness_stops_no_retry_or_final_head) ... ok
+test_partial_second_batch_preserves_updates_and_gradient_counts (__main__.Checks.test_partial_second_batch_preserves_updates_and_gradient_counts) ... ok
+test_registry_fixed_order_complete (__main__.Checks.test_registry_fixed_order_complete) ... ok
+test_update_rejects_wrong_dtype_nonfinite_and_bounds (__main__.Checks.test_update_rejects_wrong_dtype_nonfinite_and_bounds) ... ok
+test_update_sign_scale_and_full_step_free_mask (__main__.Checks.test_update_sign_scale_and_full_step_free_mask) ... ok
+test_wrong_C195_whole_hash_stops_before_model (__main__.Checks.test_wrong_C195_whole_hash_stops_before_model) ... ok
+test_wrong_parent_decision_stops_before_model (__main__.Checks.test_wrong_parent_decision_stops_before_model) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 168.207s
+
+OK
+END C196 fixed8 updates/all-coordinate/exact-affine/seal tests exit= 0
+START C196 isolated entrypoint checks
+test_current_launcher_scripts_and_fixed_dependency_versions (__main__.Checks.test_current_launcher_scripts_and_fixed_dependency_versions) ... ok
+test_current_worker_help_has_all41_originals (__main__.Checks.test_current_worker_help_has_all41_originals) ... ok
+test_current_worker_imports_without_model_or_solver (__main__.Checks.test_current_worker_imports_without_model_or_solver) ... ok
+test_production_anchor_and_original_C195_pin_are_exact (__main__.Checks.test_production_anchor_and_original_C195_pin_are_exact) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.593s
+
+OK
+END C196 isolated entrypoint checks exit= 0
+START C196 launcher failure packaging checks (synthetic only)
+test_actual_launcher_success_manifest_and_parent_GPU_mask (__main__.Checks.test_actual_launcher_success_manifest_and_parent_GPU_mask) ... ok
+test_child_failure_still_packages_one_incomplete_result (__main__.Checks.test_child_failure_still_packages_one_incomplete_result) ... ok
+test_wrong_C195_whole_hash_packages_failure_before_dependencies (__main__.Checks.test_wrong_C195_whole_hash_packages_failure_before_dependencies) ... ok
+test_wrong_source_rejected_before_execution (__main__.Checks.test_wrong_source_rejected_before_execution) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.636s
+
+OK
+END C196 launcher failure packaging checks (synthetic only) exit= 0
+START C196 original C195 source/summary binding checks (synthetic only)
+C196 original C195 source/summary binding checks (synthetic only) 运行中 30 秒
+C196 original C195 source/summary binding checks (synthetic only) 运行中 60 秒
+C196 original C195 source/summary binding checks (synthetic only) 运行中 90 秒
+C196 original C195 source/summary binding checks (synthetic only) 运行中 120 秒
+test_C194_ancestry_tamper_blocks (__main__.Checks.test_C194_ancestry_tamper_blocks) ... ok
+C196 original C195 source/summary binding checks (synthetic only) 运行中 150 秒
+test_activity_summary_duplicate_tamper_blocks (__main__.Checks.test_activity_summary_duplicate_tamper_blocks) ... ok
+test_activity_summary_reclassification_blocks (__main__.Checks.test_activity_summary_reclassification_blocks) ... ok
+test_activity_transition_artifact_tamper_blocks (__main__.Checks.test_activity_transition_artifact_tamper_blocks) ... ok
+test_duplicate_diagnostic_tamper_blocks (__main__.Checks.test_duplicate_diagnostic_tamper_blocks) ... ok
+test_forged_guard_regularizer_diagnosis_blocks (__main__.Checks.test_forged_guard_regularizer_diagnosis_blocks) ... ok
+test_full_C195_summary_source_diagnostics_and_all_reconstructed_artifacts (__main__.Checks.test_full_C195_summary_source_diagnostics_and_all_reconstructed_artifacts) ... ok
+test_incomplete_C195_blocks (__main__.Checks.test_incomplete_C195_blocks) ... ok
+test_initial_older_head_as_final_anchor_blocks (__main__.Checks.test_initial_older_head_as_final_anchor_blocks) ... ok
+C196 original C195 source/summary binding checks (synthetic only) 运行中 180 秒
+test_loader_adopts_C194_step8_not_C178_or_intermediate (__main__.Checks.test_loader_adopts_C194_step8_not_C178_or_intermediate) ... ok
+test_original_C195_source_tamper_with_rebound_manifest_blocks (__main__.Checks.test_original_C195_source_tamper_with_rebound_manifest_blocks) ... ok
+test_original_focus_csv_tamper_blocks (__main__.Checks.test_original_focus_csv_tamper_blocks) ... ok
+test_original_focus_main_summary_tamper_blocks (__main__.Checks.test_original_focus_main_summary_tamper_blocks) ... ok
+test_original_focus_summary_tamper_blocks (__main__.Checks.test_original_focus_summary_tamper_blocks) ... ok
+test_original_focus_trajectory_binding_tamper_blocks (__main__.Checks.test_original_focus_trajectory_binding_tamper_blocks) ... ok
+test_original_parent_decision_reclassification_blocks (__main__.Checks.test_original_parent_decision_reclassification_blocks) ... ok
+test_original_replay_CSV_forgery_blocks (__main__.Checks.test_original_replay_CSV_forgery_blocks) ... ok
+test_original_replay_FP64_difference_forgery_blocks (__main__.Checks.test_original_replay_FP64_difference_forgery_blocks) ... ok
+C196 original C195 source/summary binding checks (synthetic only) 运行中 210 秒
+test_original_replay_exact_equality_forgery_blocks (__main__.Checks.test_original_replay_exact_equality_forgery_blocks) ... ok
+test_original_replay_summary_forgery_blocks (__main__.Checks.test_original_replay_summary_forgery_blocks) ... ok
+test_precision_rows_reconstruction_tamper_blocks (__main__.Checks.test_precision_rows_reconstruction_tamper_blocks) ... ok
+test_precision_summary_duplicate_tamper_blocks (__main__.Checks.test_precision_summary_duplicate_tamper_blocks) ... ok
+test_precision_transition_reconstruction_tamper_blocks (__main__.Checks.test_precision_transition_reconstruction_tamper_blocks) ... ok
+test_reconstructed_csv_tamper_blocks (__main__.Checks.test_reconstructed_csv_tamper_blocks) ... ok
+test_reconstructed_history_artifact_tamper_blocks (__main__.Checks.test_reconstructed_history_artifact_tamper_blocks) ... ok
+test_recorded_Jacobian_count_cannot_be_hidden (__main__.Checks.test_recorded_Jacobian_count_cannot_be_hidden) ... ok
+test_true_model_measurements_cannot_be_invented (__main__.Checks.test_true_model_measurements_cannot_be_invented) ... ok
+test_unknown_solver_internal_count_remains_null (__main__.Checks.test_unknown_solver_internal_count_remains_null) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 233.209s
+
+OK
+END C196 original C195 source/summary binding checks (synthetic only) exit= 0
+START C196 actual CPU tiny Torch continuation8/AD/seal/restore checks
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 30 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 60 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 90 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 120 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 150 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 180 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 210 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 240 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 270 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 300 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 330 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 360 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 390 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 420 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 450 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 480 秒
+C196 actual CPU tiny Torch continuation8/AD/seal/restore checks 运行中 510 秒
+test_complete_actual_CPU_Torch_fixed8_LPs_AD_updates_and_repeats (__main__.Checks.test_complete_actual_CPU_Torch_fixed8_LPs_AD_updates_and_repeats) ... ok
+test_coordinate_AD_matches_same_function_directional_difference (__main__.Checks.test_coordinate_AD_matches_same_function_directional_difference) ... ok
+test_final_head_AD_rejected_before_backward (__main__.Checks.test_final_head_AD_rejected_before_backward) ... ok
+test_frozen_reference_mutation_blocks (__main__.Checks.test_frozen_reference_mutation_blocks) ... ok
+test_native_failure_restores_chart_and_tied_weights (__main__.Checks.test_native_failure_restores_chart_and_tied_weights) ... ok
+test_partial_coordinate_AD_exception_restores_and_counts (__main__.Checks.test_partial_coordinate_AD_exception_restores_and_counts) ... ok
+test_saved_current_point_tamper_blocks_before_forward (__main__.Checks.test_saved_current_point_tamper_blocks_before_forward) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 526.644s
+
+OK
+END C196 actual CPU tiny Torch continuation8/AD/seal/restore checks exit= 0
+C196：原C194固定最终头；原C195全量重审后；固定8步，每步全84态六响应坐标与两损失AD；5376次反传、672个系数响应Jacobian块，最多8次1008行LP。
+2355次模型前向；固定步长0.001，逐步封存840个实际FP64点；只验固定第8步头及两轮原生门槛。无选头、确认或排除输入；上限240分钟，自测另计。
+START C196 fixed8 all-coordinate offline training
+C196 fixed8 all-coordinate offline training 运行中 30 秒
+C196 fixed8 all-coordinate offline training 运行中 60 秒
+C196 fixed8 all-coordinate offline training 运行中 90 秒
+C196 fixed8 all-coordinate offline training 运行中 120 秒
+C196 fixed8 all-coordinate offline training 运行中 150 秒
+C196 fixed8 all-coordinate offline training 运行中 180 秒
+C196 fixed8 all-coordinate offline training 运行中 210 秒
+C196 fixed8 all-coordinate offline training 运行中 240 秒
+C196 fixed8 all-coordinate offline training 运行中 270 秒
+C196 fixed8 all-coordinate offline training 运行中 300 秒
+C196 fixed8 all-coordinate offline training 运行中 330 秒
+C196 fixed8 all-coordinate offline training 运行中 360 秒
+C196 fixed8 all-coordinate offline training 运行中 390 秒
+C196 fixed8 all-coordinate offline training 运行中 420 秒
+C196 fixed8 all-coordinate offline training 运行中 450 秒
+C196 fixed8 all-coordinate offline training 运行中 480 秒
+C196 fixed8 all-coordinate offline training 运行中 510 秒
+C196 fixed8 all-coordinate offline training 运行中 540 秒
+C157_BASELINE_REPLAY NATIVE_FP32_BASELINE_LOGITS max_abs_error 7.62939453125e-05 original_tolerance 2e-09 within_original_tolerance False
+C157_BASELINE_REPLAY NATIVE_FP32_CACHED_RESPONSE max_abs_error 1.52587890625e-05 original_tolerance 2e-09 within_original_tolerance False
+C196 fixed8 all-coordinate offline training 运行中 570 秒
+C162_UPDATE_AUDIT 1 /8
+C162_UPDATE_AUDIT 2 /8
+C162_UPDATE_AUDIT 3 /8
+C162_UPDATE_AUDIT 4 /8
+C162_UPDATE_AUDIT 5 /8
+C162_UPDATE_AUDIT 6 /8
+C162_UPDATE_AUDIT 7 /8
+C162_UPDATE_AUDIT 8 /8
+C164_UPDATE_AUDIT 1 /8
+C164_UPDATE_AUDIT 2 /8
+C164_UPDATE_AUDIT 3 /8
+C164_UPDATE_AUDIT 4 /8
+C164_UPDATE_AUDIT 5 /8
+C164_UPDATE_AUDIT 6 /8
+C164_UPDATE_AUDIT 7 /8
+C164_UPDATE_AUDIT 8 /8
+C196 fixed8 all-coordinate offline training 运行中 600 秒
+C196 fixed8 all-coordinate offline training 运行中 630 秒
+C171_STEP_AUDIT 1 /8 active 9 positive True
+C171_STEP_AUDIT 2 /8 active 9 positive True
+C171_STEP_AUDIT 3 /8 active 9 positive True
+C171_STEP_AUDIT 4 /8 active 9 positive True
+C171_STEP_AUDIT 5 /8 active 9 positive True
+C171_STEP_AUDIT 6 /8 active 9 positive True
+C171_STEP_AUDIT 7 /8 active 9 positive True
+C171_STEP_AUDIT 8 /8 active 9 positive True
+C196 fixed8 all-coordinate offline training 运行中 660 秒
+C196 fixed8 all-coordinate offline training 运行中 690 秒
+C196 fixed8 all-coordinate offline training 运行中 720 秒
+C177_STEP_AUDIT 1 /8 active 9 actual_margin True
+C177_STEP_AUDIT 2 /8 active 8 actual_margin True
+C177_STEP_AUDIT 3 /8 active 7 actual_margin True
+C177_STEP_AUDIT 4 /8 active 6 actual_margin True
+C177_STEP_AUDIT 5 /8 active 6 actual_margin True
+C177_STEP_AUDIT 6 /8 active 6 actual_margin True
+C177_STEP_AUDIT 7 /8 active 6 actual_margin True
+C177_STEP_AUDIT 8 /8 active 6 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 750 秒
+C179_STEP_AUDIT 1 /8 active 6 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 780 秒
+C179_STEP_AUDIT 2 /8 active 6 actual_margin True
+C179_STEP_AUDIT 3 /8 active 6 actual_margin True
+C179_STEP_AUDIT 4 /8 active 6 actual_margin True
+C179_STEP_AUDIT 5 /8 active 6 actual_margin True
+C179_STEP_AUDIT 6 /8 active 6 actual_margin True
+C179_STEP_AUDIT 7 /8 active 6 actual_margin True
+C179_STEP_AUDIT 8 /8 active 6 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 810 秒
+C181_STEP_AUDIT 1 /8 active 6 actual_margin True
+C181_STEP_AUDIT 2 /8 active 6 actual_margin True
+C181_STEP_AUDIT 3 /8 active 6 actual_margin True
+C181_STEP_AUDIT 4 /8 active 6 actual_margin True
+C181_STEP_AUDIT 5 /8 active 6 actual_margin True
+C181_STEP_AUDIT 6 /8 active 6 actual_margin True
+C181_STEP_AUDIT 7 /8 active 6 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 840 秒
+C181_STEP_AUDIT 8 /8 active 6 actual_margin True
+C183_STEP_AUDIT 1 /8 active 6 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 870 秒
+C183_STEP_AUDIT 2 /8 active 6 actual_margin True
+C183_STEP_AUDIT 3 /8 active 6 actual_margin True
+C183_STEP_AUDIT 4 /8 active 6 actual_margin True
+C183_STEP_AUDIT 5 /8 active 6 actual_margin True
+C183_STEP_AUDIT 6 /8 active 5 actual_margin True
+C183_STEP_AUDIT 7 /8 active 5 actual_margin True
+C183_STEP_AUDIT 8 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 900 秒
+C185_STEP_AUDIT 1 /8 active 5 actual_margin True
+C185_STEP_AUDIT 2 /8 active 5 actual_margin True
+C185_STEP_AUDIT 3 /8 active 5 actual_margin True
+C185_STEP_AUDIT 4 /8 active 5 actual_margin True
+C185_STEP_AUDIT 5 /8 active 5 actual_margin True
+C185_STEP_AUDIT 6 /8 active 5 actual_margin True
+C185_STEP_AUDIT 7 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 930 秒
+C185_STEP_AUDIT 8 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 960 秒
+C187_STEP_AUDIT 1 /8 active 5 actual_margin True
+C187_STEP_AUDIT 2 /8 active 5 actual_margin True
+C187_STEP_AUDIT 3 /8 active 5 actual_margin True
+C187_STEP_AUDIT 4 /8 active 5 actual_margin True
+C187_STEP_AUDIT 5 /8 active 5 actual_margin True
+C187_STEP_AUDIT 6 /8 active 5 actual_margin True
+C187_STEP_AUDIT 7 /8 active 5 actual_margin True
+C187_STEP_AUDIT 8 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 990 秒
+C189_STEP_AUDIT 1 /8 active 5 actual_margin True
+C189_STEP_AUDIT 2 /8 active 5 actual_margin True
+C189_STEP_AUDIT 3 /8 active 5 actual_margin True
+C189_STEP_AUDIT 4 /8 active 5 actual_margin True
+C189_STEP_AUDIT 5 /8 active 5 actual_margin True
+C189_STEP_AUDIT 6 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 1020 秒
+C189_STEP_AUDIT 7 /8 active 5 actual_margin True
+C189_STEP_AUDIT 8 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 1050 秒
+C191_STEP_AUDIT 1 /8 active 5 actual_margin True
+C191_STEP_AUDIT 2 /8 active 5 actual_margin True
+C191_STEP_AUDIT 3 /8 active 5 actual_margin True
+C191_STEP_AUDIT 4 /8 active 5 actual_margin True
+C191_STEP_AUDIT 5 /8 active 5 actual_margin True
+C191_STEP_AUDIT 6 /8 active 5 actual_margin True
+C191_STEP_AUDIT 7 /8 active 5 actual_margin True
+C191_STEP_AUDIT 8 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 1080 秒
+C193_STEP_AUDIT 1 /8 active 5 actual_margin True
+C193_STEP_AUDIT 2 /8 active 5 actual_margin True
+C193_STEP_AUDIT 3 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 1110 秒
+C193_STEP_AUDIT 4 /8 active 5 actual_margin True
+C193_STEP_AUDIT 5 /8 active 5 actual_margin True
+C193_STEP_AUDIT 6 /8 active 5 actual_margin True
+C193_STEP_AUDIT 7 /8 active 5 actual_margin True
+C193_STEP_AUDIT 8 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 1140 秒
+C195_STEP_AUDIT 1 /8 active 5 actual_margin True
+C195_STEP_AUDIT 2 /8 active 5 actual_margin True
+C195_STEP_AUDIT 3 /8 active 5 actual_margin True
+C195_STEP_AUDIT 4 /8 active 5 actual_margin True
+C195_STEP_AUDIT 5 /8 active 5 actual_margin True
+C195_STEP_AUDIT 6 /8 active 5 actual_margin True
+C195_STEP_AUDIT 7 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 1170 秒
+C195_STEP_AUDIT 8 /8 active 5 actual_margin True
+C196 fixed8 all-coordinate offline training 运行中 1200 秒
+C196 fixed8 all-coordinate offline training 运行中 1230 秒
+C196 fixed8 all-coordinate offline training 运行中 1260 秒
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+C123_CPU Loading pinned GPT-2 on CPU float32; fresh zero LoRA-B; no GPU requirement.
+`torch_dtype` is deprecated! Use `dtype` instead!
+/content/gpt2_lc2_c196_all_coordinate_continuation_train_cpu_v1/session_1793160837065906666/deps/peft/tuners/lora/layer.py:2174: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+C158_BASELINE NATIVE_FP32_BASELINE_LOGITS role cross_run_descriptive_only max_abs_error 0.0 historical_or_repeat_tolerance 2e-09 within_tolerance True
+C158_BASELINE NATIVE_FP32_CACHED_RESPONSE role cross_run_descriptive_only max_abs_error 0.0 historical_or_repeat_tolerance 2e-09 within_tolerance True
+C158_BASELINE FUNCTIONAL_FP64_BASELINE_LOGITS role cross_run_descriptive_only max_abs_error 0.0 historical_or_repeat_tolerance 2e-09 within_tolerance True
+C158_BASELINE WITHIN_RUN_FP64_ZERO_BASELINE_REPEAT role within_run_repeat max_abs_error 0.0 historical_or_repeat_tolerance 2e-09 within_tolerance True
+C196 fixed8 all-coordinate offline training 运行中 1290 秒
+C196 fixed8 all-coordinate offline training 运行中 1320 秒
+C196 fixed8 all-coordinate offline training 运行中 1350 秒
+C196 fixed8 all-coordinate offline training 运行中 1380 秒
+C196 fixed8 all-coordinate offline training 运行中 1410 秒
+C196 fixed8 all-coordinate offline training 运行中 1440 秒
+C196 fixed8 all-coordinate offline training 运行中 1470 秒
+C196 fixed8 all-coordinate offline training 运行中 1500 秒
+C196 fixed8 all-coordinate offline training 运行中 1530 秒
+C196 fixed8 all-coordinate offline training 运行中 1560 秒
+C196 fixed8 all-coordinate offline training 运行中 1590 秒
+C196 fixed8 all-coordinate offline training 运行中 1620 秒
+C196 fixed8 all-coordinate offline training 运行中 1650 秒
+C196 fixed8 all-coordinate offline training 运行中 1680 秒
+C196 fixed8 all-coordinate offline training 运行中 1710 秒
+C196 fixed8 all-coordinate offline training 运行中 1740 秒
+C196 fixed8 all-coordinate offline training 运行中 1770 秒
+C196 fixed8 all-coordinate offline training 运行中 1800 秒
+C196 fixed8 all-coordinate offline training 运行中 1830 秒
+C196 fixed8 all-coordinate offline training 运行中 1860 秒
+C196 fixed8 all-coordinate offline training 运行中 1890 秒
+C196 fixed8 all-coordinate offline training 运行中 1920 秒
+C196 fixed8 all-coordinate offline training 运行中 1950 秒
+C196 fixed8 all-coordinate offline training 运行中 1980 秒
+C196 fixed8 all-coordinate offline training 运行中 2010 秒
+C196 fixed8 all-coordinate offline training 运行中 2040 秒
+C196 fixed8 all-coordinate offline training 运行中 2070 秒
+C196 fixed8 all-coordinate offline training 运行中 2100 秒
+C196 fixed8 all-coordinate offline training 运行中 2130 秒
+C196 fixed8 all-coordinate offline training 运行中 2160 秒
+C196 fixed8 all-coordinate offline training 运行中 2190 秒
+C196_STEP 1 /8 active 5 exact_actual_margin True step 0.001 update_Linf 0.0010000000000000009
+C196 fixed8 all-coordinate offline training 运行中 2220 秒
+C196 fixed8 all-coordinate offline training 运行中 2250 秒
+C196 fixed8 all-coordinate offline training 运行中 2280 秒
+C196 fixed8 all-coordinate offline training 运行中 2310 秒
+C196 fixed8 all-coordinate offline training 运行中 2340 秒
+C196 fixed8 all-coordinate offline training 运行中 2370 秒
+C196 fixed8 all-coordinate offline training 运行中 2400 秒
+C196 fixed8 all-coordinate offline training 运行中 2430 秒
+C196 fixed8 all-coordinate offline training 运行中 2460 秒
+C196 fixed8 all-coordinate offline training 运行中 2490 秒
+C196 fixed8 all-coordinate offline training 运行中 2520 秒
+C196 fixed8 all-coordinate offline training 运行中 2550 秒
+C196 fixed8 all-coordinate offline training 运行中 2580 秒
+C196 fixed8 all-coordinate offline training 运行中 2610 秒
+C196 fixed8 all-coordinate offline training 运行中 2640 秒
+C196 fixed8 all-coordinate offline training 运行中 2670 秒
+C196 fixed8 all-coordinate offline training 运行中 2700 秒
+C196 fixed8 all-coordinate offline training 运行中 2730 秒
+C196 fixed8 all-coordinate offline training 运行中 2760 秒
+C196 fixed8 all-coordinate offline training 运行中 2790 秒
+C196 fixed8 all-coordinate offline training 运行中 2820 秒
+C196 fixed8 all-coordinate offline training 运行中 2850 秒
+C196 fixed8 all-coordinate offline training 运行中 2880 秒
+C196 fixed8 all-coordinate offline training 运行中 2910 秒
+C196 fixed8 all-coordinate offline training 运行中 2940 秒
+C196 fixed8 all-coordinate offline training 运行中 2970 秒
+C196 fixed8 all-coordinate offline training 运行中 3000 秒
+C196_STEP 2 /8 active 5 exact_actual_margin True step 0.001 update_Linf 0.0010000000000000009
+C196 fixed8 all-coordinate offline training 运行中 3030 秒
+C196 fixed8 all-coordinate offline training 运行中 3060 秒
+C196 fixed8 all-coordinate offline training 运行中 3090 秒
+C196 fixed8 all-coordinate offline training 运行中 3120 秒
+C196 fixed8 all-coordinate offline training 运行中 3150 秒
+C196 fixed8 all-coordinate offline training 运行中 3180 秒
+C196 fixed8 all-coordinate offline training 运行中 3210 秒
+C196 fixed8 all-coordinate offline training 运行中 3240 秒
+C196 fixed8 all-coordinate offline training 运行中 3270 秒
+C196 fixed8 all-coordinate offline training 运行中 3300 秒
+C196 fixed8 all-coordinate offline training 运行中 3330 秒
+C196 fixed8 all-coordinate offline training 运行中 3360 秒
+C196 fixed8 all-coordinate offline training 运行中 3390 秒
+C196 fixed8 all-coordinate offline training 运行中 3420 秒
+C196 fixed8 all-coordinate offline training 运行中 3450 秒
+C196 fixed8 all-coordinate offline training 运行中 3480 秒
+C196 fixed8 all-coordinate offline training 运行中 3510 秒
+C196 fixed8 all-coordinate offline training 运行中 3540 秒
+C196 fixed8 all-coordinate offline training 运行中 3570 秒
+C196 fixed8 all-coordinate offline training 运行中 3600 秒
+C196 fixed8 all-coordinate offline training 运行中 3630 秒
+C196 fixed8 all-coordinate offline training 运行中 3660 秒
+C196 fixed8 all-coordinate offline training 运行中 3690 秒
+C196 fixed8 all-coordinate offline training 运行中 3720 秒
+C196 fixed8 all-coordinate offline training 运行中 3750 秒
+C196 fixed8 all-coordinate offline training 运行中 3780 秒
+C196_STEP 3 /8 active 5 exact_actual_margin True step 0.001 update_Linf 0.0010000000000000009
+C196 fixed8 all-coordinate offline training 运行中 3810 秒
+C196 fixed8 all-coordinate offline training 运行中 3840 秒
+C196 fixed8 all-coordinate offline training 运行中 3870 秒
+C196 fixed8 all-coordinate offline training 运行中 3900 秒
+C196 fixed8 all-coordinate offline training 运行中 3930 秒
+C196 fixed8 all-coordinate offline training 运行中 3960 秒
+C196 fixed8 all-coordinate offline training 运行中 3990 秒
+C196 fixed8 all-coordinate offline training 运行中 4020 秒
+C196 fixed8 all-coordinate offline training 运行中 4050 秒
+C196 fixed8 all-coordinate offline training 运行中 4080 秒
+C196 fixed8 all-coordinate offline training 运行中 4110 秒
+C196 fixed8 all-coordinate offline training 运行中 4140 秒
+C196 fixed8 all-coordinate offline training 运行中 4170 秒
+C196 fixed8 all-coordinate offline training 运行中 4200 秒
+C196 fixed8 all-coordinate offline training 运行中 4230 秒
+C196 fixed8 all-coordinate offline training 运行中 4260 秒
+C196 fixed8 all-coordinate offline training 运行中 4290 秒
+C196 fixed8 all-coordinate offline training 运行中 4320 秒
+C196 fixed8 all-coordinate offline training 运行中 4350 秒
+C196 fixed8 all-coordinate offline training 运行中 4380 秒
+C196 fixed8 all-coordinate offline training 运行中 4410 秒
+C196 fixed8 all-coordinate offline training 运行中 4440 秒
+C196 fixed8 all-coordinate offline training 运行中 4470 秒
+C196 fixed8 all-coordinate offline training 运行中 4500 秒
+C196 fixed8 all-coordinate offline training 运行中 4530 秒
+C196 fixed8 all-coordinate offline training 运行中 4560 秒
+C196_STEP 4 /8 active 5 exact_actual_margin True step 0.001 update_Linf 0.0010000000000000009
+C196 fixed8 all-coordinate offline training 运行中 4590 秒
+C196 fixed8 all-coordinate offline training 运行中 4620 秒
+C196 fixed8 all-coordinate offline training 运行中 4650 秒
+C196 fixed8 all-coordinate offline training 运行中 4680 秒
+C196 fixed8 all-coordinate offline training 运行中 4710 秒
+C196 fixed8 all-coordinate offline training 运行中 4740 秒
+C196 fixed8 all-coordinate offline training 运行中 4770 秒
+C196 fixed8 all-coordinate offline training 运行中 4800 秒
+C196 fixed8 all-coordinate offline training 运行中 4830 秒
+C196 fixed8 all-coordinate offline training 运行中 4860 秒
+C196 fixed8 all-coordinate offline training 运行中 4890 秒
+C196 fixed8 all-coordinate offline training 运行中 4920 秒
+C196 fixed8 all-coordinate offline training 运行中 4950 秒
+C196 fixed8 all-coordinate offline training 运行中 4980 秒
+C196 fixed8 all-coordinate offline training 运行中 5010 秒
+C196 fixed8 all-coordinate offline training 运行中 5040 秒
+C196 fixed8 all-coordinate offline training 运行中 5070 秒
+C196 fixed8 all-coordinate offline training 运行中 5100 秒
+C196 fixed8 all-coordinate offline training 运行中 5130 秒
+C196 fixed8 all-coordinate offline training 运行中 5160 秒
+C196 fixed8 all-coordinate offline training 运行中 5190 秒
+C196 fixed8 all-coordinate offline training 运行中 5220 秒
+C196 fixed8 all-coordinate offline training 运行中 5250 秒
+C196 fixed8 all-coordinate offline training 运行中 5280 秒
+C196 fixed8 all-coordinate offline training 运行中 5310 秒
+C196 fixed8 all-coordinate offline training 运行中 5340 秒
+C196_STEP 5 /8 active 5 exact_actual_margin True step 0.001 update_Linf 0.0010000000000000009
+C196 fixed8 all-coordinate offline training 运行中 5370 秒
+C196 fixed8 all-coordinate offline training 运行中 5400 秒
+C196 fixed8 all-coordinate offline training 运行中 5430 秒
+C196 fixed8 all-coordinate offline training 运行中 5460 秒
+C196 fixed8 all-coordinate offline training 运行中 5490 秒
+C196 fixed8 all-coordinate offline training 运行中 5520 秒
+C196 fixed8 all-coordinate offline training 运行中 5550 秒
+C196 fixed8 all-coordinate offline training 运行中 5580 秒
+C196 fixed8 all-coordinate offline training 运行中 5610 秒
+C196 fixed8 all-coordinate offline training 运行中 5640 秒
+C196 fixed8 all-coordinate offline training 运行中 5670 秒
+C196 fixed8 all-coordinate offline training 运行中 5700 秒
+C196 fixed8 all-coordinate offline training 运行中 5730 秒
+C196 fixed8 all-coordinate offline training 运行中 5760 秒
+C196 fixed8 all-coordinate offline training 运行中 5790 秒
+C196 fixed8 all-coordinate offline training 运行中 5820 秒
+C196 fixed8 all-coordinate offline training 运行中 5850 秒
+C196 fixed8 all-coordinate offline training 运行中 5880 秒
+C196 fixed8 all-coordinate offline training 运行中 5910 秒
+C196 fixed8 all-coordinate offline training 运行中 5940 秒
+C196 fixed8 all-coordinate offline training 运行中 5970 秒
+C196 fixed8 all-coordinate offline training 运行中 6000 秒
+C196 fixed8 all-coordinate offline training 运行中 6030 秒
+C196 fixed8 all-coordinate offline training 运行中 6060 秒
+C196 fixed8 all-coordinate offline training 运行中 6090 秒
+C196 fixed8 all-coordinate offline training 运行中 6120 秒
+C196 fixed8 all-coordinate offline training 运行中 6150 秒
+C196_STEP 6 /8 active 5 exact_actual_margin True step 0.001 update_Linf 0.0010000000000000009
+C196 fixed8 all-coordinate offline training 运行中 6180 秒
+C196 fixed8 all-coordinate offline training 运行中 6210 秒
+C196 fixed8 all-coordinate offline training 运行中 6240 秒
+C196 fixed8 all-coordinate offline training 运行中 6270 秒
+C196 fixed8 all-coordinate offline training 运行中 6300 秒
+C196 fixed8 all-coordinate offline training 运行中 6330 秒
+C196 fixed8 all-coordinate offline training 运行中 6360 秒
+C196 fixed8 all-coordinate offline training 运行中 6390 秒
+C196 fixed8 all-coordinate offline training 运行中 6420 秒
+C196 fixed8 all-coordinate offline training 运行中 6450 秒
+C196 fixed8 all-coordinate offline training 运行中 6480 秒
+C196 fixed8 all-coordinate offline training 运行中 6510 秒
+C196 fixed8 all-coordinate offline training 运行中 6540 秒
+C196 fixed8 all-coordinate offline training 运行中 6570 秒
+C196 fixed8 all-coordinate offline training 运行中 6600 秒
+C196 fixed8 all-coordinate offline training 运行中 6630 秒
+C196 fixed8 all-coordinate offline training 运行中 6660 秒
+C196 fixed8 all-coordinate offline training 运行中 6690 秒
+C196 fixed8 all-coordinate offline training 运行中 6720 秒
+C196 fixed8 all-coordinate offline training 运行中 6750 秒
+C196 fixed8 all-coordinate offline training 运行中 6780 秒
+C196 fixed8 all-coordinate offline training 运行中 6810 秒
+C196 fixed8 all-coordinate offline training 运行中 6840 秒
+C196 fixed8 all-coordinate offline training 运行中 6870 秒
+C196 fixed8 all-coordinate offline training 运行中 6900 秒
+C196 fixed8 all-coordinate offline training 运行中 6930 秒
+C196_STEP 7 /8 active 5 exact_actual_margin True step 0.001 update_Linf 0.0010000000000000009
+C196 fixed8 all-coordinate offline training 运行中 6960 秒
+C196 fixed8 all-coordinate offline training 运行中 6990 秒
+C196 fixed8 all-coordinate offline training 运行中 7020 秒
+C196 fixed8 all-coordinate offline training 运行中 7050 秒
+C196 fixed8 all-coordinate offline training 运行中 7080 秒
+C196 fixed8 all-coordinate offline training 运行中 7110 秒
+C196 fixed8 all-coordinate offline training 运行中 7140 秒
+C196 fixed8 all-coordinate offline training 运行中 7170 秒
+C196 fixed8 all-coordinate offline training 运行中 7200 秒
+C196 fixed8 all-coordinate offline training 运行中 7230 秒
+C196 fixed8 all-coordinate offline training 运行中 7260 秒
+C196 fixed8 all-coordinate offline training 运行中 7290 秒
+C196 fixed8 all-coordinate offline training 运行中 7320 秒
+C196 fixed8 all-coordinate offline training 运行中 7350 秒
+C196 fixed8 all-coordinate offline training 运行中 7380 秒
+C196 fixed8 all-coordinate offline training 运行中 7410 秒
+C196 fixed8 all-coordinate offline training 运行中 7440 秒
+C196 fixed8 all-coordinate offline training 运行中 7470 秒
+C196 fixed8 all-coordinate offline training 运行中 7500 秒
+C196 fixed8 all-coordinate offline training 运行中 7530 秒
+C196 fixed8 all-coordinate offline training 运行中 7560 秒
+C196 fixed8 all-coordinate offline training 运行中 7590 秒
+C196 fixed8 all-coordinate offline training 运行中 7620 秒
+C196 fixed8 all-coordinate offline training 运行中 7650 秒
+C196 fixed8 all-coordinate offline training 运行中 7680 秒
+C196 fixed8 all-coordinate offline training 运行中 7710 秒
+C196_STEP 8 /8 active 5 exact_actual_margin True step 0.001 update_Linf 0.0010000000000000009
+C196 fixed8 all-coordinate offline training 运行中 7740 秒
+C196 fixed8 all-coordinate offline training 运行中 7770 秒
+C196 fixed8 all-coordinate offline training 运行中 7800 秒
+C196 fixed8 all-coordinate offline training 运行中 7830 秒
+C196 fixed8 all-coordinate offline training 运行中 7860 秒
+C196 fixed8 all-coordinate offline training 运行中 7890 秒
+C196 fixed8 all-coordinate offline training 运行中 7920 秒
+C196 fixed8 all-coordinate offline training 运行中 7950 秒
+C196 fixed8 all-coordinate offline training 运行中 7980 秒
+C196 fixed8 all-coordinate offline training 运行中 8010 秒
+C196 fixed8 all-coordinate offline training 运行中 8040 秒
+C196 fixed8 all-coordinate offline training 运行中 8070 秒
+C196 fixed8 all-coordinate offline training 运行中 8100 秒
+C196 fixed8 all-coordinate offline training 运行中 8130 秒
+C196 fixed8 all-coordinate offline training 运行中 8160 秒
+C196 fixed8 all-coordinate offline training 运行中 8190 秒
+C196 fixed8 all-coordinate offline training 运行中 8220 秒
+C196 fixed8 all-coordinate offline training 运行中 8250 秒
+C196 fixed8 all-coordinate offline training 运行中 8280 秒
+C196 fixed8 all-coordinate offline training 运行中 8310 秒
+C196 fixed8 all-coordinate offline training 运行中 8340 秒
+C196 fixed8 all-coordinate offline training 运行中 8370 秒
+C196 fixed8 all-coordinate offline training 运行中 8400 秒
+C196 fixed8 all-coordinate offline training 运行中 8430 秒
+C196 fixed8 all-coordinate offline training 运行中 8460 秒
+C196 fixed8 all-coordinate offline training 运行中 8490 秒
+C196 fixed8 all-coordinate offline training 运行中 8520 秒
+C196 fixed8 all-coordinate offline training 运行中 8550 秒
+{
+  "protocol": "GPT2_LC2_C196_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1",
+  "complete": true,
+  "decision": "C196_FIXED_FINAL_TRAINING_ALL84_PASS_NO_CONFIRMATION",
+  "synthetic_fixture": false,
+  "real_model_execution_claim": true,
+  "training_states_requested": 84,
+  "new_training_steps": 8,
+  "new_head_fits": 1,
+  "nonzero_head_updates": 8,
+  "new_linear_program_calls": 8,
+  "solver_internal_linear_system_count": null,
+  "linear_systems_solved": null,
+  "new_model_parameter_gradients": 0,
+  "new_Jacobians": 672,
+  "new_model_parameter_Jacobians": 0,
+  "new_response_coordinate_Jacobian_rows": 4032,
+  "new_SVD_calls": 0,
+  "new_states_prepared": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "candidate_selected": false,
+  "best_checkpoint_selected": false,
+  "writer_deployed": false,
+  "thresholds_changed": false,
+  "parent_decisions_reclassified": false,
+  "archived_source_executed": false,
+  "preparation_replay_performed": false,
+  "FP64_acceptance_evaluated": false,
+  "final_checkpoint_step": 8,
+  "prior_C176_C178_C180_C182_C184_C186_C188_C190_C192_C194_training_steps": 80,
+  "cumulative_C176_C178_C180_C182_C184_C186_C188_C190_C192_C194_C196_training_steps": 88,
+  "final_head_frozen": true,
+  "all_active_batch_recorded_affine_checks_verified": true,
+  "guard_preservation_certified": false,
+  "solver_optimality_or_infeasibility_certified": false,
+  "curvature_or_convergence_certified": false,
+  "causal_explanation_established": false,
+  "chronology_or_nonaccess_proved": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "scope": "Fixed eight-step offline full84 all-six-response-coordinate relinearised LP continuation from original C194 predetermined final step8 head. Reconstruct original C194 and bind full original C195 audit including every precision/activity/focus and168 native/84 FP64 cross-run replay artifact before model loading. All41 original ZIP hashes and delivered source identities fixed. Same pinned model/revision, frozen V/routes/prepared/raw states and original C155 response/logit references. Step0.001, at most8 all1008-signed-row LPs, all672 coefficient-response Jacobian blocks/4032 rows and5376 scalar backwards explicitly offline. All840 actual FP64 points sealed before measurement,1176 records, predetermined final8 only, both native full84 rounds and final FP64 repeat. Distinguish same-run training change from cross-run output differences; original replay tolerances unchanged and no reference recentering. Response-only LP does not constrain measured guards; final native full gates remain mandatory. All84 states retained, no preset failure/rescue count, monotonicity, future steps or closure time. C176/C178/C180/C182/C184/C186/C188/C190/C192/C194/C196 contribute88 offline update slots since C170 final, excluding C170 own8. No recovery or best-head selection, changed acceptance thresholds, deployment, new confirmation or excluded-input evaluation. No derivative truth, finite error bound, solver optimality/infeasibility, chronology/non-access, causal explanation, curvature/convergence, generalisation or LC2 closure claim.",
+  "stage": "complete",
+  "new_model_forwards": 2355,
+  "functional_FP64_forwards": 1682,
+  "new_backward_calls": 5376,
+  "scalar_backward_attempts": 5376,
+  "records_completed": 1176,
+  "requests_consumed": 1176,
+  "elapsed_worker_seconds": 8567.258584187002,
+  "process_peak_RSS_KiB": 3176468,
+  "C195_parent_decision": "C195_READONLY_CONTINUATION_TRAIN_AUDIT_COMPLETE_PARENT_DECISION_RETAINED",
+  "all_forty_one_originals_independently_bound": true,
+  "initial_C194_fixed_final_head_digest": "2ff29f06c399a501de74387f9f3caebadecb763c89d9c6ef9db8a84bef478aaf",
+  "native_initial_round0": {
+    "n_requested": 84,
+    "n_evaluated": 84,
+    "passed": 83,
+    "failed_ids": [
+      "xor_11__c141_confirmation_p08_n01_d01"
+    ],
+    "failed_gates": {
+      "response": 1
+    },
+    "maximum_response_drift": 0.00201416015625
+  },
+  "final_head_digest": "7b4811602621506a568c7067bad6dd317c29a2f871a1dbca3684051097df0d4c",
+  "initial_FP64_objective": {
+    "n": 84,
+    "active_response_states": 5,
+    "maximum_response_loss": 0.013920467054556003,
+    "mean_response_loss": 0.00034780115552175624,
+    "mean_guard_loss": 1.2541076528259872e-05,
+    "original_hardmax_objective": 0.012575741541180838,
+    "descriptive_objective_not_LP_objective": true
+  },
+  "final_FP64_objective": {
+    "n": 84,
+    "active_response_states": 4,
+    "maximum_response_loss": 0.011622580656065811,
+    "mean_response_loss": 0.00027371449393213113,
+    "mean_guard_loss": 1.4128460939532214e-05,
+    "original_hardmax_objective": 0.010501822500791977,
+    "descriptive_objective_not_LP_objective": true
+  },
+  "native_initial_round1": {
+    "n_requested": 84,
+    "n_evaluated": 84,
+    "passed": 83,
+    "failed_ids": [
+      "xor_11__c141_confirmation_p08_n01_d01"
+    ],
+    "failed_gates": {
+      "response": 1
+    },
+    "maximum_response_drift": 0.00201416015625
+  },
+  "native_final_round0": {
+    "n_requested": 84,
+    "n_evaluated": 84,
+    "passed": 84,
+    "failed_ids": [],
+    "failed_gates": {},
+    "maximum_response_drift": 0.0019989013671875
+  },
+  "native_final_round1": {
+    "n_requested": 84,
+    "n_evaluated": 84,
+    "passed": 84,
+    "failed_ids": [],
+    "failed_gates": {},
+    "maximum_response_drift": 0.0019989013671875
+  },
+  "paired_by_round": {
+    "0": {
+      "initial": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 83,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.00201416015625
+      },
+      "final": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 84,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.0019989013671875
+      },
+      "rescued": 1,
+      "destroyed": 0,
+      "rescued_ids": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "destroyed_ids": []
+    },
+    "1": {
+      "initial": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 83,
+        "failed_ids": [
+          "xor_11__c141_confirmation_p08_n01_d01"
+        ],
+        "failed_gates": {
+          "response": 1
+        },
+        "maximum_response_drift": 0.00201416015625
+      },
+      "final": {
+        "n_requested": 84,
+        "n_evaluated": 84,
+        "passed": 84,
+        "failed_ids": [],
+        "failed_gates": {},
+        "maximum_response_drift": 0.0019989013671875
+      },
+      "rescued": 1,
+      "destroyed": 0,
+      "rescued_ids": [
+        "xor_11__c141_confirmation_p08_n01_d01"
+      ],
+      "destroyed_ids": []
+    }
+  },
+  "endpoint_precision_margins": {
+    "rows": 336,
+    "by_head": {
+      "initial": {
+        "0": {
+          "n": 84,
+          "native_full_passed": 83,
+          "native_response_only_passed": 83,
+          "FP64_response_only_passed": 83,
+          "native_full_pass_and_FP64_response_pass": 83,
+          "response_gate_disagreements": 0,
+          "disagreement_state_ids": [],
+          "native_response_failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "FP64_response_failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "maximum_native_response": 0.00201416015625,
+          "maximum_FP64_response": 0.00201237305209645,
+          "minimum_native_response_slack": -1.4160156249999958e-05,
+          "minimum_FP64_response_slack": -1.2373052096449969e-05
+        },
+        "1": {
+          "n": 84,
+          "native_full_passed": 83,
+          "native_response_only_passed": 83,
+          "FP64_response_only_passed": 83,
+          "native_full_pass_and_FP64_response_pass": 83,
+          "response_gate_disagreements": 0,
+          "disagreement_state_ids": [],
+          "native_response_failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "FP64_response_failed_ids": [
+            "xor_11__c141_confirmation_p08_n01_d01"
+          ],
+          "maximum_native_response": 0.00201416015625,
+          "maximum_FP64_response": 0.00201237305209645,
+          "minimum_native_response_slack": -1.4160156249999958e-05,
+          "minimum_FP64_response_slack": -1.2373052096449969e-05
+        }
+      },
+      "final": {
+        "0": {
+          "n": 84,
+          "native_full_passed": 84,
+          "native_response_only_passed": 84,
+          "FP64_response_only_passed": 84,
+          "native_full_pass_and_FP64_response_pass": 84,
+          "response_gate_disagreements": 0,
+          "disagreement_state_ids": [],
+          "native_response_failed_ids": [],
+          "FP64_response_failed_ids": [],
+          "maximum_native_response": 0.0019989013671875,
+          "maximum_FP64_response": 0.001994054531834877,
+          "minimum_native_response_slack": 1.0986328125000416e-06,
+          "minimum_FP64_response_slack": 5.945468165123244e-06
+        },
+        "1": {
+          "n": 84,
+          "native_full_passed": 84,
+          "native_response_only_passed": 84,
+          "FP64_response_only_passed": 84,
+          "native_full_pass_and_FP64_response_pass": 84,
+          "response_gate_disagreements": 0,
+          "disagreement_state_ids": [],
+          "native_response_failed_ids": [],
+          "FP64_response_failed_ids": [],
+          "maximum_native_response": 0.0019989013671875,
+          "maximum_FP64_response": 0.001994054531834877,
+          "minimum_native_response_slack": 1.0986328125000416e-06,
+          "minimum_FP64_response_slack": 5.945468165123244e-06
+        }
+      }
+    },
+    "maximum_observed_response_coordinate_gap_Linf": 2.5514022311767803e-05,
+    "response_budget": 0.002,
+    "native_full_acceptance_unchanged": true,
+    "FP64_full_acceptance_evaluated": false,
+    "FP64_response_only_not_an_added_gate": true,
+    "additional_model_forwards": 0,
+    "no_accuracy_or_error_bound_claim": true,
+    "thresholds_changed": false
+  },
+  "final_training_all84_passed_both_rounds": true,
+  "native_repeats_consistent": true,
+  "FP64_final_repeat_consistent": true,
+  "actual_FP64_point_tensors_saved": 840,
+  "actual_FP64_points_checked_before_model_forward": true,
+  "initial_native_and_FP64_replay_matched_C194": true,
+  "all_requested_states_retained": true,
+  "LP_signed_rows_per_step": 1008,
+  "original_inputs_unchanged": {
+    "C155": true,
+    "C156": true,
+    "C157": true,
+    "C158": true,
+    "C159": true,
+    "C160": true,
+    "C161": true,
+    "C162": true,
+    "C163": true,
+    "C164": true,
+    "C165": true,
+    "C166": true,
+    "C167": true,
+    "C168": true,
+    "C169": true,
+    "C170": true,
+    "C171": true,
+    "C172": true,
+    "C173": true,
+    "C174": true,
+    "C175": true,
+    "C176": true,
+    "C177": true,
+    "C178": true,
+    "C179": true,
+    "C180": true,
+    "C181": true,
+    "C182": true,
+    "C183": true,
+    "C184": true,
+    "C185": true,
+    "C186": true,
+    "C187": true,
+    "C188": true,
+    "C189": true,
+    "C190": true,
+    "C191": true,
+    "C192": true,
+    "C193": true,
+    "C194": true,
+    "C195": true
+  },
+  "errors": []
+}
+END C196 fixed8 all-coordinate offline training exit= 0
+唯一结果总包： /content/gpt2_lc2_c196_all_coordinate_continuation_train_cpu_v1/session_1793160837065906666/c196_all_coordinate_continuation_train_1793160837357962795_results.zip
+RESULT_SHA256 2b96c9ac30e05d7bc65ac2b30c97de1798a943da219fcbc0e6bed58ce92400df
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_LC2_C196_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c196_all_coordinate_continuation_train_1793160837357962795_results.zip

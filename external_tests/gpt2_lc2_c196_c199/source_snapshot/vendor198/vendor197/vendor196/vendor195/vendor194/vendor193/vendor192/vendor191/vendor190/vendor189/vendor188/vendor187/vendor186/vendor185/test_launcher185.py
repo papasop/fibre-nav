@@ -1,0 +1,37 @@
+"""Actual launcher packaging tests with synthetic stub children only."""
+import os,contextlib,io,tempfile,unittest,zipfile
+from unittest.mock import patch
+from core185 import *
+import launch185
+class Checks(unittest.TestCase):
+ def stub(self,fail=False):
+  t=tempfile.TemporaryDirectory();self.addCleanup(t.cleanup);root=Path(t.name);src=root/'source';src.mkdir();pins={}
+  for k in INPUT_KEYS:q=root/(k+'.zip');q.write_bytes(b'Synthetic launcher input only');pins[k]=dict(path='/content/drive/MyDrive/'+q.name,local_path=str(q),sha256=sha(q))
+  dump(src/'INPUT_PINS.json',pins)
+  for name in ('test_focus185.py','test_math185.py','test_diagnostics185.py','test_outcomes185.py','test185.py','test_activity185.py','test_precision185.py','test_bootstrap185.py','test_launcher185.py'):(src/name).write_text("print('Synthetic launcher stub only')\n"+("raise RuntimeError('intentional child failure')\n" if fail and name=='test185.py' else ''))
+  s="import argparse,json,os;from pathlib import Path\np=argparse.ArgumentParser()\n"
+  for k in INPUT_KEYS:s+="p.add_argument('--"+k.lower()+"')\n"
+  s+="p.add_argument('--out');a=p.parse_args();assert os.environ['CUDA_VISIBLE_DEVICES']=='';Path(a.out,'SUMMARY.json').write_text(json.dumps(dict(protocol='SYNTHETIC_LAUNCHER_ONLY',complete=True,synthetic_fixture=True,new_model_forwards=0,new_backward_calls=0,LC2_closed=False)))\n";(src/'worker185.py').write_text(s);dump(src/'SOURCE_MANIFEST.json',{p.name:sha(p) for p in src.iterdir()});return root,src
+ def test_success_one_result_manifest_and_parent_GPU_mask(self):
+  root,src=self.stub()
+  with contextlib.redirect_stdout(io.StringIO()),patch.object(launch185,'ROOT',src),patch.dict(os.environ,{'CUDA_VISIBLE_DEVICES':'7'}):
+   result=launch185.start(False,None,False,root);self.assertEqual(os.environ['CUDA_VISIBLE_DEVICES'],'7')
+  with zipfile.ZipFile(result) as z:
+   s=clean_json(z.read('SUMMARY.json'));self.assertTrue(s['complete']);self.assertFalse(s['LC2_closed']);m=clean_json(z.read('RESULT_MANIFEST.json'))
+   for n,h in m.items():self.assertEqual(hashlib.sha256(z.read(n)).hexdigest(),h)
+ def test_child_failure_still_packages_one_incomplete_result(self):
+  root,src=self.stub(True)
+  with contextlib.redirect_stdout(io.StringIO()),patch.object(launch185,'ROOT',src):
+   with self.assertRaises(RuntimeError):launch185.start(False,None,False,root)
+  results=list(root.rglob('*_results.zip'));self.assertEqual(len(results),1)
+  with zipfile.ZipFile(results[0]) as z:self.assertFalse(clean_json(z.read('SUMMARY.json'))['complete']);self.assertIn('LAUNCHER_ERROR.json',z.namelist())
+ def test_wrong_source_rejected_before_child(self):
+  root,src=self.stub();(src/'test185.py').write_text('changed')
+  with patch.object(launch185,'ROOT',src):
+   with self.assertRaises(ValueError):launch185.start(False,None,False,root)
+ def test_wrong_C184_hash_packages_failure(self):
+  root,src=self.stub();(root/'C184.zip').write_bytes(b'changed')
+  with contextlib.redirect_stdout(io.StringIO()),patch.object(launch185,'ROOT',src):
+   with self.assertRaises(RuntimeError):launch185.start(False,None,False,root)
+  self.assertEqual(len(list(root.rglob('*_results.zip'))),1)
+if __name__=='__main__':unittest.main(verbosity=2)

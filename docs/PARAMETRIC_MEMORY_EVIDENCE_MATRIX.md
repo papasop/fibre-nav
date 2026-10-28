@@ -56,6 +56,28 @@ remain external; [dependency identities](../evidence/gpt2_lc2_c141_c155/REPLAY_D
 are not downloadable result attachments. C154/C155 supplements must be added
 separately and checked before changing evidence tier; current logs remain intact.
 
+## Current training milestone: C196–C199
+
+[Stage guide](LINE_C_C196_C199.md) · [Logs and provenance](../evidence/gpt2_lc2_c196_c199/) · [CPU entry points](../external_tests/gpt2_lc2_c196_c199/).
+This import checks original delivered source/BUNDLE identities and exact supplied
+execution-log summaries. **The three scientific result ZIPs were not reopened
+or published here.** A report that C197 audited42 originals is not an import-time
+verification of those originals. C198's reported real-model replay is likewise
+separate from this repository's read-only log/source check.
+
+| Stage | Reported outcome | Included evidence / remaining boundary |
+| --- | --- | --- |
+| C196 | 83/84 →84/84 in both native rounds; one rescue, no destruction; fixed final step8 | Log-supported training qualification. Offline derivatives and eight LP calls belong to preparation/training, not correction-free online execution. |
+| C197 | Completed read-only C196 archive/arithmetic audit; parent decision retained | Log-supported audit completion; source and log present, audited result ZIP absent. No new model output measurements. |
+| C198 | Both archived endpoints and regenerated fresh-feature proposals pass84/84 in both rounds;168 fresh captures,1513 model forwards, no training | Log-supported same-programme model replay. All84 are exposed; no new-state/excluded-input evaluation or external-laboratory replication. |
+| C199 | Fixed48-state new-direction confirmation,12 known centers,16 per seen class, norms0.125/0.375, two rounds | Protocol/source only; execution pending. Conditional84-state preflight before any new-state measurement; maximum1429 model forwards. No result or LC2 pass. |
+
+The final C196/C198 native response maximum is0.0019989013671875 against0.002,
+leaving approximately1.10e-6 slack. New C198 features differ from archived
+features, while actual final gates pass; this is not byte-identical proposal
+reproduction or a numerical accuracy bound. FP64 full acceptance is not claimed.
+All original failures and current exposure remain recorded. **LC2 is open.**
+
 ## B5 lineage and budget accounting
 
 V4's original failure remains: 00/01 pass, 10 preparation fails, and 11 writeback
@@ -104,3 +126,4 @@ Do not use a source/update ZIP or a compact extraction as a resume result.
 
 The historical paper and its L1–L5 limitations remain intact. No original SUMMARY,
 source, acceptance threshold or historical decision is retroactively changed.
+

@@ -1,0 +1,742 @@
+ 请一次上传 C198_CPU_LAUNCHER_BUNDLE.zip；不要上传科学结果ZIP，无需解压。
+
+     
+     C198_CPU_LAUNCHER_BUNDLE.zip(application/zip) - 7689554 bytes, last modified: 2026/10/28 - 100% done
+      // Copyright 2017 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ * @fileoverview Helpers for google.colab Python module.
+ */
+(function(scope) {
+function span(text, styleAttributes = {}) {
+  const element = document.createElement('span');
+  element.textContent = text;
+  for (const key of Object.keys(styleAttributes)) {
+    element.style[key] = styleAttributes[key];
+  }
+  return element;
+}
+
+// Max number of bytes which will be uploaded at a time.
+const MAX_PAYLOAD_SIZE = 100 * 1024;
+
+function _uploadFiles(inputId, outputId) {
+  const steps = uploadFilesStep(inputId, outputId);
+  const outputElement = document.getElementById(outputId);
+  // Cache steps on the outputElement to make it available for the next call
+  // to uploadFilesContinue from Python.
+  outputElement.steps = steps;
+
+  return _uploadFilesContinue(outputId);
+}
+
+// This is roughly an async generator (not supported in the browser yet),
+// where there are multiple asynchronous steps and the Python side is going
+// to poll for completion of each step.
+// This uses a Promise to block the python side on completion of each step,
+// then passes the result of the previous step as the input to the next step.
+function _uploadFilesContinue(outputId) {
+  const outputElement = document.getElementById(outputId);
+  const steps = outputElement.steps;
+
+  const next = steps.next(outputElement.lastPromiseValue);
+  return Promise.resolve(next.value.promise).then((value) => {
+    // Cache the last promise value to make it available to the next
+    // step of the generator.
+    outputElement.lastPromiseValue = value;
+    return next.value.response;
+  });
+}
+
+/**
+ * Generator function which is called between each async step of the upload
+ * process.
+ * @param {string} inputId Element ID of the input file picker element.
+ * @param {string} outputId Element ID of the output display.
+ * @return {!Iterable<!Object>} Iterable of next steps.
+ */
+function* uploadFilesStep(inputId, outputId) {
+  const inputElement = document.getElementById(inputId);
+  inputElement.disabled = false;
+
+  const outputElement = document.getElementById(outputId);
+  outputElement.innerHTML = '';
+
+  const pickedPromise = new Promise((resolve) => {
+    inputElement.addEventListener('change', (e) => {
+      resolve(e.target.files);
+    });
+  });
+
+  const cancel = document.createElement('button');
+  inputElement.parentElement.appendChild(cancel);
+  cancel.textContent = 'Cancel upload';
+  const cancelPromise = new Promise((resolve) => {
+    cancel.onclick = () => {
+      resolve(null);
+    };
+  });
+
+  // Wait for the user to pick the files.
+  const files = yield {
+    promise: Promise.race([pickedPromise, cancelPromise]),
+    response: {
+      action: 'starting',
+    }
+  };
+
+  cancel.remove();
+
+  // Disable the input element since further picks are not allowed.
+  inputElement.disabled = true;
+
+  if (!files) {
+    return {
+      response: {
+        action: 'complete',
+      }
+    };
+  }
+
+  for (const file of files) {
+    const li = document.createElement('li');
+    li.append(span(file.name, {fontWeight: 'bold'}));
+    li.append(span(
+        `(${file.type || 'n/a'}) - ${file.size} bytes, ` +
+        `last modified: ${
+            file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() :
+                                    'n/a'} - `));
+    const percent = span('0% done');
+    li.appendChild(percent);
+
+    outputElement.appendChild(li);
+
+    const fileDataPromise = new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve(e.target.result);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    // Wait for the data to be ready.
+    let fileData = yield {
+      promise: fileDataPromise,
+      response: {
+        action: 'continue',
+      }
+    };
+
+    // Use a chunked sending to avoid message size limits. See b/62115660.
+    let position = 0;
+    do {
+      const length = Math.min(fileData.byteLength - position, MAX_PAYLOAD_SIZE);
+      const chunk = new Uint8Array(fileData, position, length);
+      position += length;
+
+      const base64 = btoa(String.fromCharCode.apply(null, chunk));
+      yield {
+        response: {
+          action: 'append',
+          file: file.name,
+          data: base64,
+        },
+      };
+
+      let percentDone = fileData.byteLength === 0 ?
+          100 :
+          Math.round((position / fileData.byteLength) * 100);
+      percent.textContent = `${percentDone}% done`;
+
+    } while (position < fileData.byteLength);
+  }
+
+  // All done.
+  yield {
+    response: {
+      action: 'complete',
+    }
+  };
+}
+
+scope.google = scope.google || {};
+scope.google.colab = scope.google.colab || {};
+scope.google.colab._files = {
+  _uploadFiles,
+  _uploadFilesContinue,
+};
+})(self);
+ Saving C198_CPU_LAUNCHER_BUNDLE.zip to C198_CPU_LAUNCHER_BUNDLE.zip
+C198 CPU：配套BUNDLE已校验；固定C196最终头和43原包；84训练态两轮重新采集特征/路由/提案，并分开重放原端点与新提案。1513次CPU前向，无反传/训练/修复/选头；工作上限240分钟，自测另计；不计LC2通过。
+C198 原始只读输入 C155 /content/drive/MyDrive/GPT2_LC2_C155_PAIRED_FORWARD_PRECISION_CPU_V1_RECOVERY/c155_paired_forward_precision_1792746742162409955_results.zip
+C198 原始只读输入 C156 /content/drive/MyDrive/GPT2_LC2_C156_READONLY_PRECISION_TRAJECTORY_CPU_V1_RECOVERY/c156_readonly_precision_trajectory_1792750617753922226_results.zip
+C198 原始只读输入 C157 /content/drive/MyDrive/GPT2_LC2_C157_FP64_DIRECTIONAL_AD_CPU_V1_RECOVERY/c157_fp64_directional_ad_1792756197210011575_results.zip
+C198 原始只读输入 C158 /content/drive/MyDrive/GPT2_LC2_C158_SAME_RUN_FP64_AD_CPU_V1_RECOVERY/c158_same_run_fp64_ad_1792781147905613358_results.zip
+C198 原始只读输入 C159 /content/drive/MyDrive/GPT2_LC2_C159_COEFFICIENT_CHAIN_FP64_CPU_V1_RECOVERY/c159_coefficient_chain_fp64_1792782704960758030_results.zip
+C198 原始只读输入 C160 /content/drive/MyDrive/GPT2_LC2_C160_FULL84_FP64_BASELINE_CPU_V1_RECOVERY/c160_full84_fp64_baseline_1792785149044276638_results.zip
+C198 原始只读输入 C161 /content/drive/MyDrive/GPT2_LC2_C161_FULL84_FP64_TRAIN_CPU_V1_RECOVERY/c161_full84_fp64_train_1792794511076909638_results.zip
+C198 原始只读输入 C162 /content/drive/MyDrive/GPT2_LC2_C162_READONLY_FP64_TRAIN_AUDIT_CPU_V1_RECOVERY/c162_readonly_fp64_train_audit_1792802510128908175_results.zip
+C198 原始只读输入 C163 /content/drive/MyDrive/GPT2_LC2_C163_SMOOTH_RISK_FP64_CPU_V1_RECOVERY/c163_smooth_risk_fp64_1792804771993554131_results.zip
+C198 原始只读输入 C164 /content/drive/MyDrive/GPT2_LC2_C164_READONLY_SMOOTH_TRAIN_AUDIT_CPU_V1_RECOVERY/c164_readonly_smooth_train_audit_1792815840441279099_results.zip
+C198 原始只读输入 C165 /content/drive/MyDrive/GPT2_LC2_C165_COMMON_DESCENT_PROBES_CPU_V1_RECOVERY/c165_common_descent_probes_1792817961059997552_results.zip
+C198 原始只读输入 C166 /content/drive/MyDrive/GPT2_LC2_C166_READONLY_DIRECTION_AUDIT_CPU_V1_RECOVERY/c166_readonly_direction_audit_1792826955763268604_results.zip
+C198 原始只读输入 C167 /content/drive/MyDrive/GPT2_LC2_C167_RECORDED_GRADIENT_FEASIBILITY_CPU_V1_RECOVERY/c167_recorded_gradient_feasibility_1792831202958441083_results.zip
+C198 原始只读输入 C168 /content/drive/MyDrive/GPT2_LC2_C168_CERTIFIED_DIRECTION_PROBES_CPU_V1_RECOVERY/c168_certified_direction_probes_1792833073186588255_results.zip
+C198 原始只读输入 C169 /content/drive/MyDrive/GPT2_LC2_C169_READONLY_FINITE_PROBE_AUDIT_CPU_V1_RECOVERY/c169_readonly_finite_probe_audit_1792840501279121951_results.zip
+C198 原始只读输入 C170 /content/drive/MyDrive/GPT2_LC2_C170_RELINEARISED_LP_TRAIN_CPU_V1_RECOVERY/c170_relinearised_lp_train_1792867604222024910_results.zip
+C198 原始只读输入 C171 /content/drive/MyDrive/GPT2_LC2_C171_READONLY_LP_TRAIN_AUDIT_CPU_V1_RECOVERY/c171_readonly_lp_train_audit_1792874933612423156_results.zip
+C198 原始只读输入 C172 /content/drive/MyDrive/GPT2_LC2_C172_FINAL_HEAD_FINITE_STEPS_CPU_V1_RECOVERY/c172_final_head_finite_steps_1792878228571053236_results.zip
+C198 原始只读输入 C173 /content/drive/MyDrive/GPT2_LC2_C173_READONLY_FINITE_STEP_COORDINATE_AUDIT_CPU_V1_RECOVERY/c173_readonly_finite_step_coordinate_audit_1792892759645921618_results.zip
+C198 原始只读输入 C174 /content/drive/MyDrive/GPT2_LC2_C174_ALL_COORDINATE_DIRECTION_CPU_V1_RECOVERY/c174_all_coordinate_direction_1792895436252877896_results.zip
+C198 原始只读输入 C175 /content/drive/MyDrive/GPT2_LC2_C175_READONLY_ALL_COORDINATE_AUDIT_CPU_V1_RECOVERY/c175_readonly_all_coordinate_audit_1792907496586803362_results.zip
+C198 原始只读输入 C176 /content/drive/MyDrive/GPT2_LC2_C176_ALL_COORDINATE_RELINEARISED_TRAIN_CPU_V1_RECOVERY/c176_all_coordinate_relinearised_train_1792910117492783694_results.zip
+C198 原始只读输入 C177 /content/drive/MyDrive/GPT2_LC2_C177_READONLY_ALL_COORDINATE_TRAIN_AUDIT_CPU_V1_RECOVERY/c177_readonly_all_coordinate_train_audit_1792922955671500709_results.zip
+C198 原始只读输入 C178 /content/drive/MyDrive/GPT2_LC2_C178_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c178_all_coordinate_continuation_train_1792925241564180532_results.zip
+C198 原始只读输入 C179 /content/drive/MyDrive/GPT2_LC2_C179_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c179_readonly_continuation_train_audit_1792950011136259424_results.zip
+C198 原始只读输入 C180 /content/drive/MyDrive/GPT2_LC2_C180_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c180_all_coordinate_continuation_train_1792956669587629913_results.zip
+C198 原始只读输入 C181 /content/drive/MyDrive/GPT2_LC2_C181_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c181_readonly_continuation_train_audit_1792970927313012595_results.zip
+C198 原始只读输入 C182 /content/drive/MyDrive/GPT2_LC2_C182_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c182_all_coordinate_continuation_train_1792976493104793674_results.zip
+C198 原始只读输入 C183 /content/drive/MyDrive/GPT2_LC2_C183_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c183_readonly_continuation_train_audit_1792997655804287095_results.zip
+C198 原始只读输入 C184 /content/drive/MyDrive/GPT2_LC2_C184_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c184_all_coordinate_continuation_train_1793001675185182796_results.zip
+C198 原始只读输入 C185 /content/drive/MyDrive/GPT2_LC2_C185_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c185_readonly_continuation_train_audit_1793042213882332375_results.zip
+C198 原始只读输入 C186 /content/drive/MyDrive/GPT2_LC2_C186_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c186_all_coordinate_continuation_train_1793044725906436843_results.zip
+C198 原始只读输入 C187 /content/drive/MyDrive/GPT2_LC2_C187_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c187_readonly_continuation_train_audit_1793057443459239605_results.zip
+C198 原始只读输入 C188 /content/drive/MyDrive/GPT2_LC2_C188_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c188_all_coordinate_continuation_train_1793060106601426991_results.zip
+C198 原始只读输入 C189 /content/drive/MyDrive/GPT2_LC2_C189_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c189_readonly_continuation_train_audit_1793071249421328929_results.zip
+C198 原始只读输入 C190 /content/drive/MyDrive/GPT2_LC2_C190_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c190_all_coordinate_continuation_train_1793073731638650611_results.zip
+C198 原始只读输入 C191 /content/drive/MyDrive/GPT2_LC2_C191_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c191_readonly_continuation_train_audit_1793086800583120343_results.zip
+C198 原始只读输入 C192 /content/drive/MyDrive/GPT2_LC2_C192_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c192_all_coordinate_continuation_train_1793089733485187412_results.zip
+C198 原始只读输入 C193 /content/drive/MyDrive/GPT2_LC2_C193_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c193_readonly_continuation_train_audit_1793124987052013318_results.zip
+C198 原始只读输入 C194 /content/drive/MyDrive/GPT2_LC2_C194_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c194_all_coordinate_continuation_train_1793128851859319359_results.zip
+C198 原始只读输入 C195 /content/drive/MyDrive/GPT2_LC2_C195_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c195_readonly_continuation_train_audit_1793147292255772483_results.zip
+C198 原始只读输入 C196 /content/drive/MyDrive/GPT2_LC2_C196_ALL_COORDINATE_CONTINUATION_TRAIN_CPU_V1_RECOVERY/c196_all_coordinate_continuation_train_1793160837357962795_results.zip
+C198 原始只读输入 C197 /content/drive/MyDrive/GPT2_LC2_C197_READONLY_CONTINUATION_TRAIN_AUDIT_CPU_V1_RECOVERY/c197_readonly_continuation_train_audit_1793172218988606979_results.zip
+START C198 frozen map/route/full-feature/gate checks
+test_capture_change_changes_raw_point (__main__.Checks.test_capture_change_changes_raw_point) ... ok
+test_capture_wrong_dimension_rejected (__main__.Checks.test_capture_wrong_dimension_rejected) ... ok
+test_failed_prep_is_explicit_gate (__main__.Checks.test_failed_prep_is_explicit_gate) ... ok
+test_fixed43_hashes_include_C196_and_C197 (__main__.Checks.test_fixed43_hashes_include_C196_and_C197) ... ok
+test_forged_response_gate_recomputed (__main__.Checks.test_forged_response_gate_recomputed) ... ok
+test_full3211_tail_recomputed_and_prefix_retained (__main__.Checks.test_full3211_tail_recomputed_and_prefix_retained) ... ok
+test_gate_change_blocks_even_under_observable_tolerance (__main__.Checks.test_gate_change_blocks_even_under_observable_tolerance) ... ok
+test_left_mix_and_positive_roll_formula (__main__.Checks.test_left_mix_and_positive_roll_formula) ... ok
+test_no_input_array_mutation (__main__.Checks.test_no_input_array_mutation) ... ok
+test_no_solver_needed_by_map (__main__.Checks.test_no_solver_needed_by_map) ... ok
+test_nonfinite_capture_rejected (__main__.Checks.test_nonfinite_capture_rejected) ... ok
+test_nonfinite_head_rejected (__main__.Checks.test_nonfinite_head_rejected) ... ok
+test_out_of_box_head_rejected (__main__.Checks.test_out_of_box_head_rejected) ... ok
+test_point_hash_change_does_not_pass_repeat (__main__.Checks.test_point_hash_change_does_not_pass_repeat) ... ok
+test_request_registry_exact672_order (__main__.Checks.test_request_registry_exact672_order) ... ok
+test_response_gate_not_training_safety (__main__.Checks.test_response_gate_not_training_safety) ... ok
+test_route_recomputed_ignores_archived_weights (__main__.Checks.test_route_recomputed_ignores_archived_weights) ... ok
+test_wrong_production_head_rejected (__main__.Checks.test_wrong_production_head_rejected) ... ok
+test_wrong_shape_head_rejected (__main__.Checks.test_wrong_shape_head_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.710s
+
+OK
+END C198 frozen map/route/full-feature/gate checks exit= 0
+START C198 synthetic full84/two-path/no-repair controls
+C198 synthetic full84/two-path/no-repair controls 运行中 30 秒
+test_failed_endpoint_keeps_full84_and_both_rounds (__main__.Checks.test_failed_endpoint_keeps_full84_and_both_rounds) ... ok
+C198 synthetic full84/two-path/no-repair controls 运行中 60 秒
+test_failed_preparation_remains_denominator_failure (__main__.Checks.test_failed_preparation_remains_denominator_failure) ... ok
+C198 synthetic full84/two-path/no-repair controls 运行中 90 秒
+C198 synthetic full84/two-path/no-repair controls 运行中 120 秒
+test_fresh_shift_never_substituted_with_archived_features_or_routes (__main__.Checks.test_fresh_shift_never_substituted_with_archived_features_or_routes) ... ok
+test_frozen_head_mutation_stops_and_packages_partial_summary (__main__.Checks.test_frozen_head_mutation_stops_and_packages_partial_summary) ... ok
+C198 synthetic full84/two-path/no-repair controls 运行中 150 秒
+test_full_synthetic_672_records_1513_counted_forwards_no_training (__main__.Checks.test_full_synthetic_672_records_1513_counted_forwards_no_training) ... ok
+test_missing_original_blocks_before_model (__main__.Checks.test_missing_original_blocks_before_model) ... ok
+C198 synthetic full84/two-path/no-repair controls 运行中 180 秒
+C198 synthetic full84/two-path/no-repair controls 运行中 210 秒
+test_repeat_point_change_blocks_acceptance_even_when_all_gates_pass (__main__.Checks.test_repeat_point_change_blocks_acceptance_even_when_all_gates_pass) ... ok
+test_wrong_whole_original_blocks_before_context_or_model (__main__.Checks.test_wrong_whole_original_blocks_before_context_or_model) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 215.258s
+
+OK
+END C198 synthetic full84/two-path/no-repair controls exit= 0
+START C198 original C197 source/summary/artifact binding controls
+C198 original C197 source/summary/artifact binding controls 运行中 30 秒
+C198 original C197 source/summary/artifact binding controls 运行中 60 秒
+C198 original C197 source/summary/artifact binding controls 运行中 90 秒
+C198 original C197 source/summary/artifact binding controls 运行中 120 秒
+C198 original C197 source/summary/artifact binding controls 运行中 150 秒
+test_C197_diagnostic_artifact_change_blocks (__main__.Checks.test_C197_diagnostic_artifact_change_blocks) ... ok
+test_C197_native_count_change_blocks (__main__.Checks.test_C197_native_count_change_blocks) ... ok
+test_C197_parent_decision_change_blocks (__main__.Checks.test_C197_parent_decision_change_blocks) ... ok
+test_C197_replay_artifact_change_blocks (__main__.Checks.test_C197_replay_artifact_change_blocks) ... ok
+test_complete_original_C197_source_summary_and_artifacts_bound (__main__.Checks.test_complete_original_C197_source_summary_and_artifacts_bound) ... ok
+test_original_C197_source_change_blocks_rebound_manifest (__main__.Checks.test_original_C197_source_change_blocks_rebound_manifest) ... ok
+test_unsafe_archive_path_rejected (__main__.Checks.test_unsafe_archive_path_rejected) ... ok
+test_wrong_whole_hash_stops_before_upstream_loader (__main__.Checks.test_wrong_whole_hash_stops_before_upstream_loader) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 175.879s
+
+OK
+END C198 original C197 source/summary/artifact binding controls exit= 0
+START C198 isolated entrypoint/failure packaging controls
+test_child_gpu_mask_preserves_kernel_environment (__main__.Checks.test_child_gpu_mask_preserves_kernel_environment) ... ok
+test_current_entrypoint_isolated_import (__main__.Checks.test_current_entrypoint_isolated_import) ... ok
+test_launcher_failure_still_packages_source_and_summary (__main__.Checks.test_launcher_failure_still_packages_source_and_summary) ... C198 stopped: FileNotFoundError synthetic missing original
+唯一结果总包： /tmp/tmpm35rv0hz/gpt2_lc2_c198_frozen_end_to_end_replay_cpu_v1/session_1793176679593670268/c198_frozen_end_to_end_replay_1793176679806987160_results.zip
+RESULT_SHA256 7647fa6a930f98d1534b8d5f356441e05b4016db8f6321eedf35481ea7394d5f
+ok
+test_no_matching_input_reports_original_kind (__main__.Checks.test_no_matching_input_reports_original_kind) ... ok
+test_visible_subprocess_failure_is_bounded_and_recorded (__main__.Checks.test_visible_subprocess_failure_is_bounded_and_recorded) ... START synthetic exit
+ok
+test_wrong_explicit_input_rejected (__main__.Checks.test_wrong_explicit_input_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.003s
+
+OK
+END C198 isolated entrypoint/failure packaging controls exit= 0
+START C198 CPU PyTorch
+CPU_TORCH_READY 2.11.0+cpu 2.1.3
+END C198 CPU PyTorch exit= 0
+C198：隔离安装固定HF包，保留系统PyTorch与NumPy；不安装SciPy。
+START C198 isolated pinned HF dependencies
+Collecting transformers==4.56.2
+  Using cached transformers-4.56.2-py3-none-any.whl.metadata (40 kB)
+Collecting peft==0.17.1
+  Using cached peft-0.17.1-py3-none-any.whl.metadata (14 kB)
+Collecting tokenizers==0.22.0
+  Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting huggingface_hub==0.34.4
+  Using cached huggingface_hub-0.34.4-py3-none-any.whl.metadata (14 kB)
+Collecting accelerate==1.10.1
+  Using cached accelerate-1.10.1-py3-none-any.whl.metadata (19 kB)
+Collecting safetensors==0.6.2
+  Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Using cached transformers-4.56.2-py3-none-any.whl (11.6 MB)
+Using cached peft-0.17.1-py3-none-any.whl (504 kB)
+Using cached tokenizers-0.22.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+Using cached huggingface_hub-0.34.4-py3-none-any.whl (561 kB)
+Using cached accelerate-1.10.1-py3-none-any.whl (374 kB)
+Using cached safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (485 kB)
+Installing collected packages: transformers, tokenizers, safetensors, peft, huggingface_hub, accelerate
+Successfully installed accelerate-1.10.1 huggingface_hub-0.34.4 peft-0.17.1 safetensors-0.6.2 tokenizers-0.22.0 transformers-4.56.2
+END C198 isolated pinned HF dependencies exit= 0
+START C198 pinned HF check
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+PINNED_HF_OK ['4.56.2', '0.17.1', '0.22.0', '0.34.4', '1.10.1', '0.6.2']
+END C198 pinned HF check exit= 0
+START C198 real tiny CPU Torch/reference/restore controls (not GPT-2)
+test_actual_Torch_forward_counts_feature_metrics_and_restore (__main__.Checks.test_actual_Torch_forward_counts_feature_metrics_and_restore) ... ok
+test_backbone_byte_mutation_detected (__main__.Checks.test_backbone_byte_mutation_detected) ... ok
+test_buffer_mutation_detected (__main__.Checks.test_buffer_mutation_detected) ... ok
+test_derivative_teacher_entrypoints_rejected (__main__.Checks.test_derivative_teacher_entrypoints_rejected) ... ok
+test_grad_enabled_forward_rejected (__main__.Checks.test_grad_enabled_forward_rejected) ... ok
+test_original_reference_retained_after_fresh_zero_drift (__main__.Checks.test_original_reference_retained_after_fresh_zero_drift) ... ok
+test_reference_mutation_detected (__main__.Checks.test_reference_mutation_detected) ... ok
+test_training_mode_rejected (__main__.Checks.test_training_mode_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.149s
+
+OK
+END C198 real tiny CPU Torch/reference/restore controls (not GPT-2) exit= 0
+C198：固定C196最终头；43原包重绑；84已暴露训练态，两轮制备态复核、3147特征获取、3211写入输入和路由计算。
+原封存端点与新生成提案分别验收；总1513次原生CPU前向，无反传/训练/求解/修复/选头/确认/排除输入。所有168个新提案在端点前封存；上限240分钟，自测与依赖另计。
+START C198 frozen end-to-end model replay
+C198 frozen end-to-end model replay 运行中 30 秒
+C198 frozen end-to-end model replay 运行中 60 秒
+C198 frozen end-to-end model replay 运行中 90 秒
+C198 frozen end-to-end model replay 运行中 120 秒
+C198 frozen end-to-end model replay 运行中 150 秒
+C198 frozen end-to-end model replay 运行中 180 秒
+C198 frozen end-to-end model replay 运行中 210 秒
+C198 frozen end-to-end model replay 运行中 240 秒
+C198 frozen end-to-end model replay 运行中 270 秒
+C198 frozen end-to-end model replay 运行中 300 秒
+C198 frozen end-to-end model replay 运行中 330 秒
+C198 frozen end-to-end model replay 运行中 360 秒
+C198 frozen end-to-end model replay 运行中 390 秒
+C198 frozen end-to-end model replay 运行中 420 秒
+C198 frozen end-to-end model replay 运行中 450 秒
+C198 frozen end-to-end model replay 运行中 480 秒
+C198 frozen end-to-end model replay 运行中 510 秒
+C198 frozen end-to-end model replay 运行中 540 秒
+C198 frozen end-to-end model replay 运行中 570 秒
+C198 frozen end-to-end model replay 运行中 600 秒
+C157_BASELINE_REPLAY NATIVE_FP32_BASELINE_LOGITS max_abs_error 7.62939453125e-05 original_tolerance 2e-09 within_original_tolerance False
+C157_BASELINE_REPLAY NATIVE_FP32_CACHED_RESPONSE max_abs_error 1.52587890625e-05 original_tolerance 2e-09 within_original_tolerance False
+C198 frozen end-to-end model replay 运行中 630 秒
+C162_UPDATE_AUDIT 1 /8
+C162_UPDATE_AUDIT 2 /8
+C162_UPDATE_AUDIT 3 /8
+C162_UPDATE_AUDIT 4 /8
+C162_UPDATE_AUDIT 5 /8
+C162_UPDATE_AUDIT 6 /8
+C162_UPDATE_AUDIT 7 /8
+C162_UPDATE_AUDIT 8 /8
+C164_UPDATE_AUDIT 1 /8
+C164_UPDATE_AUDIT 2 /8
+C164_UPDATE_AUDIT 3 /8
+C164_UPDATE_AUDIT 4 /8
+C164_UPDATE_AUDIT 5 /8
+C164_UPDATE_AUDIT 6 /8
+C164_UPDATE_AUDIT 7 /8
+C164_UPDATE_AUDIT 8 /8
+C198 frozen end-to-end model replay 运行中 660 秒
+C198 frozen end-to-end model replay 运行中 690 秒
+C171_STEP_AUDIT 1 /8 active 9 positive True
+C171_STEP_AUDIT 2 /8 active 9 positive True
+C171_STEP_AUDIT 3 /8 active 9 positive True
+C171_STEP_AUDIT 4 /8 active 9 positive True
+C171_STEP_AUDIT 5 /8 active 9 positive True
+C171_STEP_AUDIT 6 /8 active 9 positive True
+C171_STEP_AUDIT 7 /8 active 9 positive True
+C171_STEP_AUDIT 8 /8 active 9 positive True
+C198 frozen end-to-end model replay 运行中 720 秒
+C198 frozen end-to-end model replay 运行中 750 秒
+C198 frozen end-to-end model replay 运行中 780 秒
+C177_STEP_AUDIT 1 /8 active 9 actual_margin True
+C177_STEP_AUDIT 2 /8 active 8 actual_margin True
+C177_STEP_AUDIT 3 /8 active 7 actual_margin True
+C177_STEP_AUDIT 4 /8 active 6 actual_margin True
+C177_STEP_AUDIT 5 /8 active 6 actual_margin True
+C177_STEP_AUDIT 6 /8 active 6 actual_margin True
+C177_STEP_AUDIT 7 /8 active 6 actual_margin True
+C177_STEP_AUDIT 8 /8 active 6 actual_margin True
+C198 frozen end-to-end model replay 运行中 810 秒
+C179_STEP_AUDIT 1 /8 active 6 actual_margin True
+C179_STEP_AUDIT 2 /8 active 6 actual_margin True
+C179_STEP_AUDIT 3 /8 active 6 actual_margin True
+C179_STEP_AUDIT 4 /8 active 6 actual_margin True
+C179_STEP_AUDIT 5 /8 active 6 actual_margin True
+C179_STEP_AUDIT 6 /8 active 6 actual_margin True
+C198 frozen end-to-end model replay 运行中 840 秒
+C179_STEP_AUDIT 7 /8 active 6 actual_margin True
+C179_STEP_AUDIT 8 /8 active 6 actual_margin True
+C198 frozen end-to-end model replay 运行中 870 秒
+C181_STEP_AUDIT 1 /8 active 6 actual_margin True
+C181_STEP_AUDIT 2 /8 active 6 actual_margin True
+C181_STEP_AUDIT 3 /8 active 6 actual_margin True
+C181_STEP_AUDIT 4 /8 active 6 actual_margin True
+C181_STEP_AUDIT 5 /8 active 6 actual_margin True
+C181_STEP_AUDIT 6 /8 active 6 actual_margin True
+C181_STEP_AUDIT 7 /8 active 6 actual_margin True
+C181_STEP_AUDIT 8 /8 active 6 actual_margin True
+C198 frozen end-to-end model replay 运行中 900 秒
+C183_STEP_AUDIT 1 /8 active 6 actual_margin True
+C183_STEP_AUDIT 2 /8 active 6 actual_margin True
+C183_STEP_AUDIT 3 /8 active 6 actual_margin True
+C183_STEP_AUDIT 4 /8 active 6 actual_margin True
+C183_STEP_AUDIT 5 /8 active 6 actual_margin True
+C198 frozen end-to-end model replay 运行中 930 秒
+C183_STEP_AUDIT 6 /8 active 5 actual_margin True
+C183_STEP_AUDIT 7 /8 active 5 actual_margin True
+C183_STEP_AUDIT 8 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 960 秒
+C185_STEP_AUDIT 1 /8 active 5 actual_margin True
+C185_STEP_AUDIT 2 /8 active 5 actual_margin True
+C185_STEP_AUDIT 3 /8 active 5 actual_margin True
+C185_STEP_AUDIT 4 /8 active 5 actual_margin True
+C185_STEP_AUDIT 5 /8 active 5 actual_margin True
+C185_STEP_AUDIT 6 /8 active 5 actual_margin True
+C185_STEP_AUDIT 7 /8 active 5 actual_margin True
+C185_STEP_AUDIT 8 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 990 秒
+C187_STEP_AUDIT 1 /8 active 5 actual_margin True
+C187_STEP_AUDIT 2 /8 active 5 actual_margin True
+C187_STEP_AUDIT 3 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1020 秒
+C187_STEP_AUDIT 4 /8 active 5 actual_margin True
+C187_STEP_AUDIT 5 /8 active 5 actual_margin True
+C187_STEP_AUDIT 6 /8 active 5 actual_margin True
+C187_STEP_AUDIT 7 /8 active 5 actual_margin True
+C187_STEP_AUDIT 8 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1050 秒
+C189_STEP_AUDIT 1 /8 active 5 actual_margin True
+C189_STEP_AUDIT 2 /8 active 5 actual_margin True
+C189_STEP_AUDIT 3 /8 active 5 actual_margin True
+C189_STEP_AUDIT 4 /8 active 5 actual_margin True
+C189_STEP_AUDIT 5 /8 active 5 actual_margin True
+C189_STEP_AUDIT 6 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1080 秒
+C189_STEP_AUDIT 7 /8 active 5 actual_margin True
+C189_STEP_AUDIT 8 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1110 秒
+C191_STEP_AUDIT 1 /8 active 5 actual_margin True
+C191_STEP_AUDIT 2 /8 active 5 actual_margin True
+C191_STEP_AUDIT 3 /8 active 5 actual_margin True
+C191_STEP_AUDIT 4 /8 active 5 actual_margin True
+C191_STEP_AUDIT 5 /8 active 5 actual_margin True
+C191_STEP_AUDIT 6 /8 active 5 actual_margin True
+C191_STEP_AUDIT 7 /8 active 5 actual_margin True
+C191_STEP_AUDIT 8 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1140 秒
+C193_STEP_AUDIT 1 /8 active 5 actual_margin True
+C193_STEP_AUDIT 2 /8 active 5 actual_margin True
+C193_STEP_AUDIT 3 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1170 秒
+C193_STEP_AUDIT 4 /8 active 5 actual_margin True
+C193_STEP_AUDIT 5 /8 active 5 actual_margin True
+C193_STEP_AUDIT 6 /8 active 5 actual_margin True
+C193_STEP_AUDIT 7 /8 active 5 actual_margin True
+C193_STEP_AUDIT 8 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1200 秒
+C195_STEP_AUDIT 1 /8 active 5 actual_margin True
+C195_STEP_AUDIT 2 /8 active 5 actual_margin True
+C195_STEP_AUDIT 3 /8 active 5 actual_margin True
+C195_STEP_AUDIT 4 /8 active 5 actual_margin True
+C195_STEP_AUDIT 5 /8 active 5 actual_margin True
+C195_STEP_AUDIT 6 /8 active 5 actual_margin True
+C195_STEP_AUDIT 7 /8 active 5 actual_margin True
+C195_STEP_AUDIT 8 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1230 秒
+C197_STEP_AUDIT 1 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1260 秒
+C197_STEP_AUDIT 2 /8 active 5 actual_margin True
+C197_STEP_AUDIT 3 /8 active 5 actual_margin True
+C197_STEP_AUDIT 4 /8 active 5 actual_margin True
+C197_STEP_AUDIT 5 /8 active 5 actual_margin True
+C197_STEP_AUDIT 6 /8 active 5 actual_margin True
+C197_STEP_AUDIT 7 /8 active 5 actual_margin True
+C197_STEP_AUDIT 8 /8 active 5 actual_margin True
+C198 frozen end-to-end model replay 运行中 1290 秒
+C198 frozen end-to-end model replay 运行中 1320 秒
+C198 frozen end-to-end model replay 运行中 1350 秒
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+C123_CPU Loading pinned GPT-2 on CPU float32; fresh zero LoRA-B; no GPU requirement.
+`torch_dtype` is deprecated! Use `dtype` instead!
+/content/gpt2_lc2_c198_frozen_end_to_end_replay_cpu_v1/session_1793176149797135540/deps/peft/tuners/lora/layer.py:2174: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+C198 frozen end-to-end model replay 运行中 1380 秒
+C198 frozen end-to-end model replay 运行中 1410 秒
+C198 frozen end-to-end model replay 运行中 1440 秒
+C198 frozen end-to-end model replay 运行中 1470 秒
+C198 frozen end-to-end model replay 运行中 1500 秒
+C198 frozen end-to-end model replay 运行中 1530 秒
+C198 frozen end-to-end model replay 运行中 1560 秒
+C198 frozen end-to-end model replay 运行中 1590 秒
+C198 frozen end-to-end model replay 运行中 1620 秒
+C198 frozen end-to-end model replay 运行中 1650 秒
+C198 frozen end-to-end model replay 运行中 1680 秒
+C198 frozen end-to-end model replay 运行中 1710 秒
+C198 frozen end-to-end model replay 运行中 1740 秒
+C198 frozen end-to-end model replay 运行中 1770 秒
+C198 frozen end-to-end model replay 运行中 1800 秒
+C198 frozen end-to-end model replay 运行中 1830 秒
+C198 frozen end-to-end model replay 运行中 1860 秒
+C198 frozen end-to-end model replay 运行中 1890 秒
+C198 frozen end-to-end model replay 运行中 1920 秒
+C198 frozen end-to-end model replay 运行中 1950 秒
+C198 frozen end-to-end model replay 运行中 1980 秒
+C198 frozen end-to-end model replay 运行中 2010 秒
+C198 frozen end-to-end model replay 运行中 2040 秒
+C198_ENDPOINT archived0 {'n_requested': 84, 'n_evaluated': 84, 'passed': 84, 'failed_ids': [], 'failed_gates': {}, 'maximum_response_drift': 0.0019989013671875, 'minimum_response_slack': 1.0986328125000416e-06}
+C198 frozen end-to-end model replay 运行中 2070 秒
+C198 frozen end-to-end model replay 运行中 2100 秒
+C198 frozen end-to-end model replay 运行中 2130 秒
+C198 frozen end-to-end model replay 运行中 2160 秒
+C198_ENDPOINT archived1 {'n_requested': 84, 'n_evaluated': 84, 'passed': 84, 'failed_ids': [], 'failed_gates': {}, 'maximum_response_drift': 0.0019989013671875, 'minimum_response_slack': 1.0986328125000416e-06}
+C198 frozen end-to-end model replay 运行中 2190 秒
+C198 frozen end-to-end model replay 运行中 2220 秒
+C198 frozen end-to-end model replay 运行中 2250 秒
+C198 frozen end-to-end model replay 运行中 2280 秒
+C198 frozen end-to-end model replay 运行中 2310 秒
+C198_ENDPOINT fresh0 {'n_requested': 84, 'n_evaluated': 84, 'passed': 84, 'failed_ids': [], 'failed_gates': {}, 'maximum_response_drift': 0.0019989013671875, 'minimum_response_slack': 1.0986328125000416e-06}
+C198 frozen end-to-end model replay 运行中 2340 秒
+C198 frozen end-to-end model replay 运行中 2370 秒
+C198 frozen end-to-end model replay 运行中 2400 秒
+C198 frozen end-to-end model replay 运行中 2430 秒
+C198_ENDPOINT fresh1 {'n_requested': 84, 'n_evaluated': 84, 'passed': 84, 'failed_ids': [], 'failed_gates': {}, 'maximum_response_drift': 0.0019989013671875, 'minimum_response_slack': 1.0986328125000416e-06}
+C198 frozen end-to-end model replay 运行中 2460 秒
+C198 frozen end-to-end model replay 运行中 2490 秒
+{
+  "protocol": "GPT2_LC2_C198_FROZEN_END_TO_END_REPLAY_CPU_V1",
+  "complete": true,
+  "decision": "C198_FROZEN_TRAINING_REPLAY_ALL84_PASS_NO_GENERALISATION",
+  "synthetic_fixture": false,
+  "real_model_execution_claim": true,
+  "all43_originals_independently_bound": true,
+  "scope": "Frozen C196 final head, original84 exposed training states, fresh physical FP32 GPT-2 replay. Re-audit all42 C197 parent inputs and bind original C197 before model loading. Separately replay168 exact archived final points and168 newly generated proposals from168 fresh3147-feature captures, full3211 raw-writer inputs and recomputed prewrite-only routes. Recheck168 preparations; keep every failed gate and changed classification. Original C155 FP32 response/logit references retained; fresh zero-chart reference recorded but never substituted. No new head, fitting, optimizer, solve, AD/Jacobian/SVD, teacher, response repair, retry, selection, deployment, new states, confirmation or excluded input. This is same-programme model-level reproducibility evidence, not external-laboratory replication, derivative truth, error bounds, generalisation or LC2 closure.",
+  "training_states_requested": 84,
+  "preparation_replay_performed": true,
+  "all_fresh_proposals_sealed_before_endpoints": true,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_backward_calls": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "new_linear_program_calls": 0,
+  "linear_systems_solved": 0,
+  "teacher_calls": 0,
+  "online_response_repair_steps": 0,
+  "backtracking_steps": 0,
+  "new_states_prepared": 0,
+  "confirmation_states_evaluated": 0,
+  "excluded_input_states_evaluated": 0,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "thresholds_changed": false,
+  "parent_decision_reclassified": false,
+  "LC2_closed": false,
+  "LC2_single_fold_passed": false,
+  "stage": "complete",
+  "records_completed": 672,
+  "requests_consumed": 672,
+  "new_model_forwards": 1513,
+  "runtime_calls": {
+    "model_forwards": 1513,
+    "initialization_forwards": 1,
+    "feature_attempts": 168,
+    "feature_calls": 168,
+    "metric_attempts": 504,
+    "metric_calls": 504
+  },
+  "elapsed_worker_seconds": 2514.001087340999,
+  "process_peak_RSS_KiB": 2135392,
+  "fixed_final_head_digest": "7b4811602621506a568c7067bad6dd317c29a2f871a1dbca3684051097df0d4c",
+  "archived_control_replay_passed": true,
+  "fresh_end_to_end_all84_passed_both_rounds": true,
+  "all84_preparations_passed_both_rounds": true,
+  "native_repeats_consistent": true,
+  "frozen_training_replay_passed": true,
+  "feature_preparation_parity_consistent": true,
+  "archived_endpoint_summaries": {
+    "0": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 84,
+      "failed_ids": [],
+      "failed_gates": {},
+      "maximum_response_drift": 0.0019989013671875,
+      "minimum_response_slack": 1.0986328125000416e-06
+    },
+    "1": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 84,
+      "failed_ids": [],
+      "failed_gates": {},
+      "maximum_response_drift": 0.0019989013671875,
+      "minimum_response_slack": 1.0986328125000416e-06
+    }
+  },
+  "fresh_endpoint_summaries": {
+    "0": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 84,
+      "failed_ids": [],
+      "failed_gates": {},
+      "maximum_response_drift": 0.0019989013671875,
+      "minimum_response_slack": 1.0986328125000416e-06
+    },
+    "1": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 84,
+      "failed_ids": [],
+      "failed_gates": {},
+      "maximum_response_drift": 0.0019989013671875,
+      "minimum_response_slack": 1.0986328125000416e-06
+    }
+  },
+  "preparation_summaries": {
+    "0": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 84,
+      "failed_ids": [],
+      "failed_gates": {},
+      "maximum_response_drift": 0.0003204345703125,
+      "minimum_response_slack": 0.0016795654296875
+    },
+    "1": {
+      "n_requested": 84,
+      "n_evaluated": 84,
+      "passed": 84,
+      "failed_ids": [],
+      "failed_gates": {},
+      "maximum_response_drift": 0.0003204345703125,
+      "minimum_response_slack": 0.0016795654296875
+    }
+  },
+  "archived_replay_mismatch_records": [],
+  "repeat_mismatch_records": [],
+  "fresh_feature_diagnostics": {
+    "capture_Linf_vs_archive": 0.0228881798684597,
+    "full3211_Linf_vs_archive": 0.0228881798684597,
+    "raw_Linf_vs_archive": 0.00035821273922920227,
+    "routing_Linf_vs_archive": 0.00010657710216732674,
+    "point_Linf_vs_C196": 0.0003584139049053192,
+    "feature_vs_preparation_observed_Linf": 0.0
+  },
+  "new_feature_records": 168,
+  "archived_endpoint_records": 168,
+  "fresh_endpoint_records": 168,
+  "preparation_records": 168,
+  "FP64_full_acceptance_evaluated": false,
+  "independent_laboratory_replication": false,
+  "original_inputs_unchanged": {
+    "C155": true,
+    "C156": true,
+    "C157": true,
+    "C158": true,
+    "C159": true,
+    "C160": true,
+    "C161": true,
+    "C162": true,
+    "C163": true,
+    "C164": true,
+    "C165": true,
+    "C166": true,
+    "C167": true,
+    "C168": true,
+    "C169": true,
+    "C170": true,
+    "C171": true,
+    "C172": true,
+    "C173": true,
+    "C174": true,
+    "C175": true,
+    "C176": true,
+    "C177": true,
+    "C178": true,
+    "C179": true,
+    "C180": true,
+    "C181": true,
+    "C182": true,
+    "C183": true,
+    "C184": true,
+    "C185": true,
+    "C186": true,
+    "C187": true,
+    "C188": true,
+    "C189": true,
+    "C190": true,
+    "C191": true,
+    "C192": true,
+    "C193": true,
+    "C194": true,
+    "C195": true,
+    "C196": true,
+    "C197": true
+  },
+  "errors": []
+}
+END C198 frozen end-to-end model replay exit= 0
+唯一结果总包： /content/gpt2_lc2_c198_frozen_end_to_end_replay_cpu_v1/session_1793176149797135540/c198_frozen_end_to_end_replay_1793176150084139629_results.zip
+RESULT_SHA256 b0b8d237d18e9005e4996a88c9b6fb54a3cdc9ea94a4cec6003b84d14fd2f7ba
+DRIVE_BACKUP_OK /content/drive/MyDrive/GPT2_LC2_C198_FROZEN_END_TO_END_REPLAY_CPU_V1_RECOVERY/c198_frozen_end_to_end_replay_1793176150084139629_results.zip
+Downloading "c198_frozen_end_to_end_replay_1793176150084139629_results.zip": 

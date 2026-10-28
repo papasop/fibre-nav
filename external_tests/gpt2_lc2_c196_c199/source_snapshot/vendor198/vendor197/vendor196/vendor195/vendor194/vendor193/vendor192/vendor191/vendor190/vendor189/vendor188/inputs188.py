@@ -1,0 +1,59 @@
+"""Independently re-audit C186 and bind original C187 before any model call."""
+from core188 import *
+from inputs186 import load as load186
+from audit187 import audit
+from diagnostics187 import diagnostics
+from focus187 import focus_report
+from replay187 import replay_report
+from audit147 import source_check
+
+def expected187(a,d,c,focus,replay):
+ return dict(protocol=prior.PROTOCOL,complete=True,decision=prior.DECISION,synthetic_fixture=not c['production'],C186_zip_sha256_known_before_runtime=True,archived_source_executed=False,model_libraries_imported=False,gradients_independently_recomputed=False,model_outputs_independently_recomputed=False,KL_independently_recomputed=False,solver_optimality_or_infeasibility_certified=False,chronology_or_nonaccess_proved=False,model_consumption_of_saved_points_proved=False,causal_explanation_established=False,curvature_or_convergence_certified=False,scope=prior.SCOPE,**prior.no_compute(),parent_protocol=previous_training.PROTOCOL,parent_decision=a['summary']['decision'],C186_zip_sha256=c['pins']['C186']['sha256'],members_hashed=a['members_hashed'],all_thirty_two_originals_independently_bound=c['production'],training_states_audited=84,training_updates_audited=8,gradient_records_audited=672,ordered_records_audited=1176,recorded_LP_calls_reconstructed=a['LPcalls_reconstructed'],exact_recorded_direction_checks_reconstructed=8,exact_actual_head_checks_reconstructed=8,exact_signed_certificate_rows_reconstructed=16128,LP_signed_constraint_rows_reconstructed=8064,archived_response_Jacobian_blocks_checked=672,archived_response_coordinate_gradient_rows_checked=4032,scalar_gradient_chain_checks_recomputed=672,FP64_final_repeat_pairs_audited=84,response_coordinate_affine_rows_recomputed=4032,original_solver_internal_linear_system_count=None,actual_FP64_point_arrays_rehashed=840,native_FP32_point_arrays_rehashed=168,native_endpoint_records_audited=336,native_repeat_pairs_audited=168,maximum_actual_FP64_vs_NumPy_map_error_Linf=a['maximum_map_error'],initial_head_digest=parameter_hash(a['heads'][0]),fixed_final_step8_head_digest=parameter_hash(a['heads'][-1]),native_summaries=a['native_summaries'],paired_by_round=a['paired'],initial_FP64_objective=objective(a['frames'][0]),final_FP64_objective=objective(a['frames'][-1]),diagnostics=d,endpoint_precision_reconstruction=a['precision'],rescue_and_remaining_failure_focus=focus,cross_run_anchor_replay=replay)
+
+def bind187(path,a,d,out,c,reconstructed=None):
+ out=Path(out);out.mkdir(parents=True,exist_ok=True)
+ need(reconstructed is not None,'Complete C187 reconstruction required')
+ focus=focus_report(a,Path(reconstructed)/'focus');replay=clean_json((Path(reconstructed)/'replay/REPLAY_SUMMARY.json').read_bytes())
+ with contextlib.closing(Archive(path)) as z:
+  members=z.verify_manifest();source_check(z,c['source187'],'C187');s=z.json('SUMMARY.json');expected=expected187(a,d,c,focus,replay)
+  for k,v in expected.items():compare(s[k],v,'Independent C187 summary/'+k)
+  compare(set(s),set(expected)|{'errors','stage','elapsed_worker_seconds','process_peak_RSS_KiB','original_inputs_unchanged'},'Original complete C187 summary schema');compare(s['errors'],[]);compare(s['stage'],'complete');need(math.isfinite(s['elapsed_worker_seconds']) and s['elapsed_worker_seconds']>=0,'Original elapsed declaration');need(type(s['process_peak_RSS_KiB']) is int and s['process_peak_RSS_KiB']>=0,'Original RSS declaration');compare(s['original_inputs_unchanged'],{k:True for k in prior.INPUT_KEYS});compare(z.json('DESIGN_FROZEN_BEFORE_AUDIT.json'),prior.design());links=z.json('ORIGINAL_INPUTS.json');compare(set(links),set(prior.INPUT_KEYS))
+  for k in prior.INPUT_KEYS:compare(links[k]['sha256'],c['pins'][k]['sha256'],'Original C187 ancestry/'+k)
+  compare(z.json('diagnostics/DIAGNOSTIC_SUMMARY.json'),d,'Original C187 diagnostic duplicate');checked=[]
+  if reconstructed is not None:
+   reconstructed=Path(reconstructed)
+   for folder in ('C186_arithmetic','diagnostics','focus','replay'):
+    for p in sorted((reconstructed/folder).rglob('*')):
+     if not p.is_file():continue
+     n=p.relative_to(reconstructed).as_posix()
+     if p.suffix=='.json':compare(z.json(n),clean_json(p.read_bytes()),'Reconstructed original C187 artifact/'+n)
+     elif p.suffix=='.csv':
+      import csv,io
+      old=list(csv.reader(io.StringIO(z.raw(n).decode('utf-8'))));new=list(csv.reader(io.StringIO(p.read_text())))
+      compare(len(old),len(new),'CSV row count/'+n)
+      for x,y in zip(old,new):
+       compare(len(x),len(y),'CSV column count/'+n)
+       for u,v in zip(x,y):
+        try:uf=float(u);vf=float(v)
+        except ValueError:compare(u,v,'CSV literal/'+n)
+        else:need(math.isfinite(uf) and math.isfinite(vf),'Finite reconstructed CSV');compare(uf,vf,'CSV numeric/'+n)
+     else:compare(z.raw(n),p.read_bytes(),'Reconstructed original C187 artifact/'+n)
+     checked.append(n)
+   need(len(checked)>=42,'Full reconstructed C187 arithmetic and diagnostic artifact inventory');compare(sum(n.startswith('C186_arithmetic/precision/') for n in checked),5,'All original C187 reconstructed precision artifacts')
+   for name in ('ALL672_ACTIVITY_TRANSITIONS.json','ALL672_ACTIVITY_TRANSITIONS.csv','ALL84_ACTIVITY_TRAJECTORIES.json','ALL8_ACTIVITY_STEP_SUMMARIES.json','ACTIVITY_SET_SUMMARY.json'):need('diagnostics/'+name in checked,'Original C187 activity artifact required/'+name)
+ for name in ('ALL168_NATIVE_ANCHOR_REPLAY_PAIRS.json','ALL168_NATIVE_ANCHOR_REPLAY_PAIRS.csv','ALL84_FP64_ANCHOR_REPLAY_PAIRS.json','REPLAY_SUMMARY.json'):need('replay/'+name in checked,'Complete original C187 replay artifact/'+name)
+ for name in ('FOCUS_SUMMARY.json','ALL84_ENDPOINT_AND_RESPONSE_TRAJECTORIES.json','ALL84_ENDPOINT_ACCOUNTING.csv','RESCUED_DESTROYED_AND_REMAINING_FAILURES.json'):need('focus/'+name in checked,'Complete original C187 focus artifact/'+name)
+ r=dict(protocol=prior.PROTOCOL,decision=s['decision'],members_hashed=members,C186_original_independently_reaudited=True,C187_scientific_summary_reconstructed=True,reconstructed_artifacts_bound=checked,new_model_forwards=0,new_LP_calls=0)
+ dump(out/'C187_ORIGINAL_REBOUND.json',r);return r
+
+def load(paths,out,c=None,budget=lambda:None):
+ c=contract() if c is None else c;out=Path(out);out.mkdir(parents=True,exist_ok=True);compare(set(paths),set(INPUT_KEYS))
+ for k,p in paths.items():compare(sha(p),c['pins'][k]['sha256'],'Fixed original before payload/'+k)
+ for n,h in c['source187'].items():compare(sha(ROOT/'vendor187'/n),h,'Delivered trusted C187 source/'+n)
+ with archive155.prior.no_models(),safe.no_solvers():
+  ctx=load186({k:paths[k] for k in previous_training.INPUT_KEYS},out/'thirty_one_originals',c['parent']['parent'],budget)
+  recon=out/'C187_independent_reconstruction';a=audit(paths['C186'],ctx,recon/'C186_arithmetic',c['parent'],budget);d=diagnostics(a,recon/'diagnostics');replay_report(a,ctx,recon/'replay');budget();receipt=bind187(paths['C187'],a,d,out/'C187_binding',c,recon)
+ p=a['heads'][-1].copy()
+ if c['production']:compare(p.shape,(3,2,36));compare(parameter_hash(p),ANCHOR_SHA256,'Predetermined C186 step8 anchor')
+ ctx.update(C187_receipt=receipt,C186_final_head=p,C186_final_FP64=a['frames'][-1],C186_final_native={str(t):a['native']['native_final'+str(t)] for t in (0,1)})
+ dump(out/'THIRTY_THREE_ORIGINALS_BOUND_RECEIPT.json',dict(all_thirty_three_originals_independently_bound=c['production'],C187_decision=receipt['decision'],initial_C186_final_head_digest=parameter_hash(p),new_model_forwards=0,new_LP_calls=0));return ctx

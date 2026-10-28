@@ -1,0 +1,36 @@
+test_NumPy_point_binding_change_even_rebound_seal (__main__.Checks.test_NumPy_point_binding_change_even_rebound_seal) ... ok
+test_actual_FP32_point_change_even_rebound_seal (__main__.Checks.test_actual_FP32_point_change_even_rebound_seal) ... ok
+test_actual_before_head_change_even_rebound_seal (__main__.Checks.test_actual_before_head_change_even_rebound_seal) ... ok
+test_actual_fixed_final_head_change_blocks (__main__.Checks.test_actual_fixed_final_head_change_blocks) ... ok
+test_after_update_change_blocks (__main__.Checks.test_after_update_change_blocks) ... ok
+test_aggregate_gradient_change_blocks (__main__.Checks.test_aggregate_gradient_change_blocks) ... ok
+test_cosine_zero_is_not_evidence_of_no_conflict (__main__.Checks.test_cosine_zero_is_not_evidence_of_no_conflict) ... ok
+test_final_freeze_receipt_cannot_choose_intermediate (__main__.Checks.test_final_freeze_receipt_cannot_choose_intermediate) ... ok
+test_fixed_schedule_threshold_change_blocks (__main__.Checks.test_fixed_schedule_threshold_change_blocks) ... ok
+test_forged_history_summary_recomputed (__main__.Checks.test_forged_history_summary_recomputed) ... ok
+test_forged_loss_parts_recomputed (__main__.Checks.test_forged_loss_parts_recomputed) ... ok
+test_forged_native_gate_recomputed (__main__.Checks.test_forged_native_gate_recomputed) ... ok
+test_full1092_archive_worker_no_Torch_fit_solver_or_model (__main__.Checks.test_full1092_archive_worker_no_Torch_fit_solver_or_model) ... ok
+test_full84_tie_weight_and_missing_denominator (__main__.Checks.test_full84_tie_weight_and_missing_denominator) ... ok
+test_guards_block_model_import_and_linear_solvers (__main__.Checks.test_guards_block_model_import_and_linear_solvers) ... ok
+test_independent_Adam_projection_nonfinite_and_steps (__main__.Checks.test_independent_Adam_projection_nonfinite_and_steps) ... ok
+test_independent_first_Adam_sign_scale_and_zero (__main__.Checks.test_independent_first_Adam_sign_scale_and_zero) ... ok
+test_missing_state_record_blocks (__main__.Checks.test_missing_state_record_blocks) ... ok
+test_moment_change_blocks (__main__.Checks.test_moment_change_blocks) ... ok
+test_native_observable_change_recomputed (__main__.Checks.test_native_observable_change_recomputed) ... ok
+test_native_repeat_record_cannot_be_omitted (__main__.Checks.test_native_repeat_record_cannot_be_omitted) ... ok
+test_nonfinite_recorded_gradient_blocks (__main__.Checks.test_nonfinite_recorded_gradient_blocks) ... ok
+test_parent_pass_count_forgery_blocks (__main__.Checks.test_parent_pass_count_forgery_blocks) ... ok
+test_permuted_state_records_block (__main__.Checks.test_permuted_state_records_block) ... ok
+test_reference_substitution_blocks (__main__.Checks.test_reference_substitution_blocks) ... ok
+test_response_classification_and_signed_slack_boundary (__main__.Checks.test_response_classification_and_signed_slack_boundary) ... ok
+test_source_change_blocks_even_rebound_manifest (__main__.Checks.test_source_change_blocks_even_rebound_manifest) ... ok
+test_unsafe_and_duplicate_archive_paths_block (__main__.Checks.test_unsafe_and_duplicate_archive_paths_block) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1625: UserWarning: Duplicate name: 'same'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+ok
+test_wrong_whole_hash_blocks_before_parent_loader (__main__.Checks.test_wrong_whole_hash_blocks_before_parent_loader) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 22.484s
+
+OK

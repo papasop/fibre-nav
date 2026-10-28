@@ -1,0 +1,137 @@
+{
+  "protocol": "GPT2_LC2_C137_WORST_STATE_TRAINING_CPU_V1",
+  "training_registry": [
+    {
+      "state_id": "xor_00__c82_training_center00",
+      "case": "xor_00",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_00__c82_training_center01",
+      "case": "xor_00",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_00__c90_training_center00",
+      "case": "xor_00",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_00__c90_training_center01",
+      "case": "xor_00",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_01__c82_training_center00",
+      "case": "xor_01",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c82_training_center01",
+      "case": "xor_01",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_01__c90_training_center00",
+      "case": "xor_01",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_01__c90_training_center01",
+      "case": "xor_01",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_11__c82_training_center00",
+      "case": "xor_11",
+      "origin": "C82",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c82_training_center01",
+      "case": "xor_11",
+      "origin": "C82",
+      "role": "historical_seen_center_probe"
+    },
+    {
+      "state_id": "xor_11__c90_training_center00",
+      "case": "xor_11",
+      "origin": "C90",
+      "role": "geometry_training"
+    },
+    {
+      "state_id": "xor_11__c90_training_center01",
+      "case": "xor_11",
+      "origin": "C90",
+      "role": "historical_seen_center_probe"
+    }
+  ],
+  "training_states": 12,
+  "independent_confirmation_states": 0,
+  "all12_are_training": "All twelve historical states are training; original roles are provenance only.",
+  "formula": "z=V@(raw-prepared); point=float32(raw + V.T@(a*z)); one shared36 vector",
+  "initialization": "Exact fixed C136 step16 vector; reset both Adam moments to zero. A new registered experiment, not extension or reclassification of C136.",
+  "parent_decision_retained": "C136_FIXED_FINAL_TRAINING_CONSTRAINT_FAILURE",
+  "production_trainable_dimension": 36,
+  "elementwise_a_bound": 0.125,
+  "state_loss": "Same per-state response mean+max hinge-square, read-margin hinge-square, KL, radius and .001*mean(a^2) as C136",
+  "aggregate_objective": "0.1*mean(L_i) + 0.9/8*log(mean(exp(8*L_i))); stable log-sum-exp; all12 evaluated at same a before any update",
+  "aggregate_gradient": "sum_i w_i*dL_i/da; w_i=.1/12+.9*softmax(8*L)_i. Each unweighted per-state scalar gradient retained; weights derived from all12 current training losses, no state-specific parameters.",
+  "temperature": 8.0,
+  "uniform_fraction": 0.1,
+  "offline_training_steps": 24,
+  "states_per_full_gradient": 12,
+  "scalar_backward_calls_requested": 288,
+  "optimiser": {
+    "kind": "manual float64 projected Adam",
+    "learning_rate": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "epsilon": 1e-08,
+    "full_gradient_L2_clip": 1.0,
+    "elementwise_projection": [
+      -0.125,
+      0.125
+    ],
+    "initial_moments": "zero"
+  },
+  "training_response_safety": 0.0015,
+  "training_margin_safety": 0.075,
+  "training_KL_safety": 0.0045,
+  "acceptance_budgets": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05,
+    "proposal_radius": 20.0,
+    "radius_rounding_allowance": 1e-05
+  },
+  "radius_policy": "No radial clipping; actual displacement gate remains unchanged and any excess is penalised and retained.",
+  "preflight": "48 native points: twelve preparations, raw, old projected and C136 step16 endpoints; archived point and gate identity required, observations2e-4 KL5e-6",
+  "functional_parity": "All12 zero controls versus native raw, then all12 C136 initial controls versus fresh native warm endpoints; observations2e-6 KL2e-7, before any backward",
+  "training_mechanism": "Temporary graph-connected LoRA-B replacements; only a receives gradients. Frozen backbone/A/base writer. AD on float64 construction to float32 commit is not independently certified finite-precision differentiation.",
+  "final_checkpoint": "Only new C137 update24; no early stopping, best/recovery choice, per-state heads or input-class selection",
+  "final_evaluation": "Seal all24 raw/final points and vector before two-round48 native training endpoints; paired reporting against raw and archived C136 step16",
+  "input_audit": "Rehash five original ZIPs; delivered trusted source only; C136 archived updates/objectives/points/gates independently recomputed arithmetically, no archived code execution or independent derivative claim",
+  "requested_model_forwards": 817,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "teacher": false,
+  "backtracking": false,
+  "online_response_repair": false,
+  "candidate_selected": false,
+  "writer_deployed": false,
+  "excluded_input_states_evaluated": 0,
+  "LC2_closed": false,
+  "worker_budget_seconds": 3000
+}

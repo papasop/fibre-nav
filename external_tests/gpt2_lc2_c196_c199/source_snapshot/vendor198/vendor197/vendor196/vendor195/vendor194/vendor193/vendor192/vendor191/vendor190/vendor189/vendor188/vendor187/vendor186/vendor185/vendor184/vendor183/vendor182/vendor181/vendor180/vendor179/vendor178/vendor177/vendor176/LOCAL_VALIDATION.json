@@ -1,0 +1,36 @@
+{
+  "local_validation": {
+    "test176.log": true,
+    "test_math176.log": true,
+    "test_binding176.log": true,
+    "torch_smoke176.log": true,
+    "test_bootstrap176.log": true,
+    "test_launcher176.log": true,
+    "test_frontend176.log": true
+  },
+  "local_checks_per_log": {
+    "test176.log": 14,
+    "test_math176.log": 12,
+    "test_binding176.log": 9,
+    "torch_smoke176.log": 7,
+    "test_bootstrap176.log": 3,
+    "test_launcher176.log": 4,
+    "test_frontend176.log": 3
+  },
+  "local_checks_passed": 52,
+  "python_validated_before_delivery": true,
+  "real_GPT2_model_run_before_delivery": false,
+  "real_C175_result_ZIP_opened_before_delivery": false,
+  "real_twenty_one_originals_opened_before_delivery": false,
+  "NumPy_complete_protocol_fixture_is_synthetic": true,
+  "upstream_context_injected_in_fixtures": true,
+  "NumPy_fixture_direction_is_prescribed_not_an_LP_solve": true,
+  "actual_CPU_tiny_Torch_full8_step_model_test": true,
+  "actual_tiny_model_tied_weights_and_parameter_restoration_tested": true,
+  "actual_tiny_Torch_version": "2.10.0+cpu",
+  "actual_tiny_model_is_not_GPT2": true,
+  "actual_tiny_model_SciPy_version": "1.17.0",
+  "original_C175_source_BUNDLE_verified_before_delivery": true,
+  "original_C175_source_BUNDLE_sha256": "a708cb9a83232c418cbf20bf7dac4eba4d26bd2ffd3e524c5ee92ee5c0ced060",
+  "original_parent_decisions_reclassified": false
+}

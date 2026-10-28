@@ -1,0 +1,44 @@
+test_actual_final_head_change_blocks_with_rebound_hashes (__main__.ArchiveChecks.test_actual_final_head_change_blocks_with_rebound_hashes) ... ok
+test_cached_routing_weight_change_blocks (__main__.ArchiveChecks.test_cached_routing_weight_change_blocks) ... ok
+test_effective_gradient_pullback_change_blocks (__main__.ArchiveChecks.test_effective_gradient_pullback_change_blocks) ... ok
+test_frozen_point_change_blocks_even_with_rebound_seal (__main__.ArchiveChecks.test_frozen_point_change_blocks_even_with_rebound_seal) ... ok
+test_full_five_original_worker_no_models_and_parent_decision_retained (__main__.ArchiveChecks.test_full_five_original_worker_no_models_and_parent_decision_retained) ... ok
+test_gate_change_recomputed (__main__.ArchiveChecks.test_gate_change_recomputed) ... ok
+test_missing_repeat_record_blocks (__main__.ArchiveChecks.test_missing_repeat_record_blocks) ... ok
+test_missing_training_state_blocks (__main__.ArchiveChecks.test_missing_training_state_blocks) ... ok
+test_nonfinite_gradient_blocks (__main__.ArchiveChecks.test_nonfinite_gradient_blocks) ... ok
+test_optimizer_after_tensor_change_blocks (__main__.ArchiveChecks.test_optimizer_after_tensor_change_blocks) ... ok
+test_production_pin_rejects_synthetic_before_payload (__main__.ArchiveChecks.test_production_pin_rejects_synthetic_before_payload) ... ok
+test_registered_threshold_change_blocks (__main__.ArchiveChecks.test_registered_threshold_change_blocks) ... ok
+test_router_center_change_blocks (__main__.ArchiveChecks.test_router_center_change_blocks) ... ok
+test_source_pin_change_blocks_even_with_rebound_manifest (__main__.ArchiveChecks.test_source_pin_change_blocks_even_with_rebound_manifest) ... ok
+test_summary_statistic_change_blocks (__main__.ArchiveChecks.test_summary_statistic_change_blocks) ... ok
+test_unsafe_archive_member_rejected (__main__.ArchiveChecks.test_unsafe_archive_member_rejected) ... ok
+test_different_experts_can_cancel_under_uniform_routing (__main__.MathChecks.test_different_experts_can_cancel_under_uniform_routing) ... ok
+test_different_numeric_margins_do_not_imply_different_gate_decisions (__main__.MathChecks.test_different_numeric_margins_do_not_imply_different_gate_decisions) ... ok
+test_first_adam_direction_scale_and_noop (__main__.MathChecks.test_first_adam_direction_scale_and_noop) ... ok
+test_identical_contexts_have_uniform_routes_and_retained_empty_clusters (__main__.MathChecks.test_identical_contexts_have_uniform_routes_and_retained_empty_clusters) ... ok
+test_identical_experts_are_not_mistaken_for_distinct_effective_controls (__main__.MathChecks.test_identical_experts_are_not_mistaken_for_distinct_effective_controls) ... ok
+test_linear_pullback_matches_independent_central_difference (__main__.MathChecks.test_linear_pullback_matches_independent_central_difference) ... ok
+test_missing_training_row_and_nonfinite_context_block (__main__.MathChecks.test_missing_training_row_and_nonfinite_context_block) ... ok
+test_model_import_and_solvers_are_blocked (__main__.MathChecks.test_model_import_and_solvers_are_blocked) ... ok
+test_nonpositive_normalizer_blocks (__main__.MathChecks.test_nonpositive_normalizer_blocks) ... ok
+test_out_of_box_coefficients_and_nonconvex_weights_block (__main__.MathChecks.test_out_of_box_coefficients_and_nonconvex_weights_block) ... ok
+test_registered_router_matches_fixed_parent_on_varied_contexts (__main__.MathChecks.test_registered_router_matches_fixed_parent_on_varied_contexts) ... ok
+test_same_argmax_routes_can_have_different_effective_controls (__main__.MathChecks.test_same_argmax_routes_can_have_different_effective_controls) ... ok
+test_varying_weights_report_magnitudes_without_sufficiency_claim (__main__.MathChecks.test_varying_weights_report_magnitudes_without_sufficiency_claim) ... ok
+test_zero_gradient_cosine_is_undefined_not_zero (__main__.MathChecks.test_zero_gradient_cosine_is_undefined_not_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 63.169s
+
+OK
+
+
+=== Fresh cache-free default pipeline recheck ===
+test_full_five_original_worker_no_models_and_parent_decision_retained (__main__.ArchiveChecks.test_full_five_original_worker_no_models_and_parent_decision_retained) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 85.892s
+
+OK

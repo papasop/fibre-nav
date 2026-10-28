@@ -1,0 +1,15 @@
+test_actual_model_dtype_hook_runs_on_graph_forward (__main__.Checks.test_actual_model_dtype_hook_runs_on_graph_forward) ... ok
+test_complete_worker_with_real_Torch_and_exact26_16_counts (__main__.Checks.test_complete_worker_with_real_Torch_and_exact26_16_counts) ... ok
+test_detached_point_breaks_graph_and_is_rejected (__main__.Checks.test_detached_point_breaks_graph_and_is_rejected) ... ok
+test_exception_restores_actual_tied_FP32_parameters (__main__.Checks.test_exception_restores_actual_tied_FP32_parameters) ... ok
+test_float32_point_not_silently_used_for_AD (__main__.Checks.test_float32_point_not_silently_used_for_AD) ... ok
+test_frozen_double_mutation_detected (__main__.Checks.test_frozen_double_mutation_detected) ... ok
+test_native_baseline_drift_saved_with_one_forward_zero_backwards (__main__.Checks.test_native_baseline_drift_saved_with_one_forward_zero_backwards) ... ok
+test_real_FP64_coordinate_AD_matches_independent_analytic_derivative (__main__.Checks.test_real_FP64_coordinate_AD_matches_independent_analytic_derivative) ... ok
+test_real_same_function_FD_all_scales_both_references (__main__.Checks.test_real_same_function_FD_all_scales_both_references) ... ok
+test_wrong_baseline_blocks_before_directional_backwards (__main__.Checks.test_wrong_baseline_blocks_before_directional_backwards) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.342s
+
+OK

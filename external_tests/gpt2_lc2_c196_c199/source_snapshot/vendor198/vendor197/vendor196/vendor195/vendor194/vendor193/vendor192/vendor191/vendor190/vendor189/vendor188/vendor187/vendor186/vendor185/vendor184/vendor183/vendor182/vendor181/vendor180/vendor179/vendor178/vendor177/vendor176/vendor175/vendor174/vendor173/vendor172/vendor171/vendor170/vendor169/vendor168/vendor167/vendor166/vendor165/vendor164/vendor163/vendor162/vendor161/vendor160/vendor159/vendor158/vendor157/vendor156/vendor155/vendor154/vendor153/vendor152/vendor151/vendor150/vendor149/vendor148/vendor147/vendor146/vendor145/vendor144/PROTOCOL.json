@@ -1,0 +1,48 @@
+{
+  "protocol": "GPT2_LC2_C144_READONLY_JOINT84_AUDIT_CPU_V1",
+  "parent_protocol": "GPT2_LC2_C143_JOINT84_TRAINING_CPU_V1",
+  "input_archives": [
+    "C143",
+    "C140",
+    "C141",
+    "C142"
+  ],
+  "training_states": 84,
+  "steps": 12,
+  "training_observations": 1008,
+  "preflight_records": 252,
+  "zero_parity_records": 84,
+  "warm_parity_records": 84,
+  "frozen_proposals": 252,
+  "final_endpoint_records": 504,
+  "rounds": 2,
+  "arms": [
+    "raw_control",
+    "C140_frozen_step12",
+    "C143_shared_step12"
+  ],
+  "acceptance_budgets": {
+    "response": 0.002,
+    "KL": 0.005,
+    "read_margin": 0.05,
+    "proposal_radius": 20.0,
+    "radius_rounding_allowance": 1e-05
+  },
+  "training_safety": {
+    "response": 0.00125,
+    "read_margin": 0.075,
+    "KL": 0.0045
+  },
+  "audit_scope": "Rehash all four original archives; rebind C140/C141/C142 inputs, fixed source and full3211 features; independently express objectives, aggregation, clipped Adam and finite proposal maps; recompute all native gates and repeat/control comparisons. Archived gradients are inputs to arithmetic, not independently verified derivatives.",
+  "failure_focus": "Retain every state; report all failed states, each coordinate budget slack, rescued/destroyed pairs and per-step losses/weights/gradient contributions. No best checkpoint or new candidate.",
+  "worker_budget_seconds": 1200,
+  "new_model_forwards": 0,
+  "new_backward_calls": 0,
+  "new_training_steps": 0,
+  "new_head_fits": 0,
+  "new_Jacobians": 0,
+  "new_SVD_calls": 0,
+  "linear_systems_solved": 0,
+  "excluded_input_states_evaluated": 0,
+  "LC2_closed": false
+}

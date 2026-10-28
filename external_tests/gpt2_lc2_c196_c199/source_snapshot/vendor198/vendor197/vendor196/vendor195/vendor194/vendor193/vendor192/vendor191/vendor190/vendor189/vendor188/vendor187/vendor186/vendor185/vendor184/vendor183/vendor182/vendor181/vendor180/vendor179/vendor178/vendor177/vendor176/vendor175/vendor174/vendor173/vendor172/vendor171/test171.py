@@ -1,0 +1,88 @@
+"""Synthetic archive/update/certificate/trajectory tests; no model or solver import."""
+import copy,io,tempfile,unittest,zipfile,contextlib
+from core171 import *
+from fixture171 import fixture
+from audit171 import audit
+from diagnostics171 import diagnostics
+from worker171 import run
+class Checks(unittest.TestCase):
+ @classmethod
+ def setUpClass(cls):
+  cls.tmp=tempfile.TemporaryDirectory();cls.root=Path(cls.tmp.name);cls.paths,cls.c,cls.ctx,cls.src=fixture(cls.root/'fixture')
+ @classmethod
+ def tearDownClass(cls):cls.tmp.cleanup()
+ def j(self,fn):
+  def edit(b):x=clean_json(b);fn(x);return (json.dumps(x,allow_nan=False)+'\n').encode()
+  return edit
+ def arr(self,fn):
+  def edit(b):
+   with np.load(io.BytesIO(b),allow_pickle=False) as z:x={n:z[n] for n in z.files}
+   fn(x);buf=io.BytesIO();np.savez_compressed(buf,**x);return buf.getvalue()
+  return edit
+ def changed(self,name,fn,extra=None):
+  with zipfile.ZipFile(self.paths['C170']) as z:m={n:z.read(n) for n in z.namelist()}
+  m[name]=fn(m[name])
+  if extra:extra(m)
+  m['RESULT_MANIFEST.json']=(json.dumps({n:hashlib.sha256(v).hexdigest() for n,v in m.items() if n!='RESULT_MANIFEST.json'})+'\n').encode();p=self.root/(self._testMethodName+'.zip')
+  with zipfile.ZipFile(p,'w',zipfile.ZIP_DEFLATED) as z:
+   for n,v in m.items():z.writestr(n,v)
+  return p
+ def reject(self,name,fn,extra=None):
+  p=self.changed(name,fn,extra)
+  with self.assertRaises((ValueError,KeyError)):audit(p,self.ctx,self.root/(self._testMethodName+'_out'),self.c)
+ def test_complete_worker_all8_updates_756_points_without_model_or_solver(self):
+  out=self.root/'full_worker'
+  with archive155.prior.no_models(),safe.no_solvers(),contextlib.redirect_stdout(io.StringIO()):s=run(self.paths,out,self.c,lambda *a:copy.deepcopy(self.ctx))
+  self.assertTrue(s['complete'],s['errors']);self.assertEqual(s['decision'],DECISION);self.assertFalse(s['all_sixteen_originals_independently_bound']);self.assertEqual(s['training_updates_audited'],8);self.assertEqual(s['ordered_records_audited'],1092);self.assertEqual(s['recorded_LP_calls_reconstructed'],8);self.assertEqual(s['actual_FP64_point_arrays_rehashed'],756)
+  for k,v in no_compute().items():self.assertEqual(s[k],v)
+  self.assertEqual(len(clean_json((out/'diagnostics/ALL672_STATE_TRANSITION_ROWS.json').read_bytes())),672);self.assertEqual(len(clean_json((out/'diagnostics/ALL84_STATE_TRAJECTORIES.json').read_bytes())),84);self.assertFalse(any(n in sys.modules for n in ('torch','scipy','transformers')))
+ def test_incomplete_parent_blocks(self):self.reject('SUMMARY.json',self.j(lambda s:s.__setitem__('complete',False)))
+ def test_parent_decision_reclassification_blocks(self):self.reject('SUMMARY.json',self.j(lambda s:s.__setitem__('decision','LC2_CLOSED')))
+ def test_source_tamper_even_rebound_manifest_blocks(self):self.reject('source/core170.py',lambda b:b+b'\n# changed\n')
+ def test_fixed_initial_head_change_blocks(self):self.reject('INITIAL_C163_FIXED_FINAL_HEAD.npz',self.arr(lambda x:x['P'].__setitem__((0,0,0),.001)))
+ def test_fixed_final_head_not_step8_blocks(self):self.reject('FIXED_FINAL_HEAD_STEP8.npz',self.arr(lambda x:x['P'].__setitem__((0,0,0),0.)))
+ def test_update_sign_scale_change_blocks(self):self.reject('UPDATE_STEP_01.npz',self.arr(lambda x:x['after'].__setitem__((0,0,0),.001)))
+ def test_missing_training_request_blocks(self):self.reject('ALL1092_REQUESTS_FROZEN.json',self.j(lambda x:x.pop()))
+ def test_reordered_state_request_blocks(self):self.reject('ALL1092_REQUESTS_FROZEN.json',self.j(lambda x:x.reverse()))
+ def test_wrong_source_ancestry_blocks(self):self.reject('ORIGINAL_INPUTS.json',self.j(lambda x:x['C169'].__setitem__('sha256','0'*64)))
+ def test_gradient_duplicate_changed_blocks(self):self.reject('step_01_before/ALL84_CURRENT_GRADIENT_ROWS.json',self.j(lambda x:x[0]['response_gradient'][0][0].__setitem__(0,.5)))
+ def test_current_active_registry_changed_blocks(self):self.reject('step_01_before/CURRENT_RECORDED_LINEAR_PROBLEM.npz',self.arr(lambda x:x.__setitem__('active',x['active'][1:])))
+ def test_current_gradient_tail_changed_blocks(self):self.reject('step_01_before/CURRENT_RECORDED_LINEAR_PROBLEM.npz',self.arr(lambda x:x['guards'].__setitem__((83,35),1.)))
+ def test_direction_changed_blocks(self):self.reject('step_01_before/FIXED_STEP_DIRECTION.npz',self.arr(lambda x:x['direction'].__setitem__(0,.5)))
+ def test_exact_fraction_forgery_blocks(self):self.reject('step_01_before/EXACT_RECORDED_DIRECTION_CHECK.json',self.j(lambda x:x['normalized_margin_lower'].__setitem__('numerator','999')))
+ def test_exact_raw_contraction_forgery_blocks(self):self.reject('step_01_before/EXACT_RECORDED_DIRECTION_CHECK.json',self.j(lambda x:x['all84_exact_contractions'][0]['raw_response_dot'].__setitem__('numerator','999')))
+ def test_saved_solver_vector_mapping_change_blocks(self):self.reject('step_01_before/SOLVER_DIAGNOSTIC.json',self.j(lambda x:x.__setitem__('raw_claimed_margin',9.)))
+ def test_original_history_update_change_blocks(self):self.reject('ALL8_UPDATE_HISTORY.json',self.j(lambda x:x[0]['update'].__setitem__('step_size',.001)))
+ def test_native_gate_forgery_blocks(self):self.reject('ALL336_NATIVE_ENDPOINTS.json',self.j(lambda x:x['native_final0'][0]['qualification'].__setitem__('complete_pass',True)))
+ def test_native_repeat_forgery_blocks(self):self.reject('ALL168_NATIVE_REPEAT_CHECKS.json',self.j(lambda x:x[0].__setitem__('within_replay_tolerance',False)))
+ def test_reference_recenter_blocks(self):self.reject('model_runtime/REFERENCES_FROZEN_BEFORE_FOCUS.json',self.j(lambda x:x['references']['archived_FP32'].__setitem__(0,.001)))
+ def test_actual_point_tamper_even_rebound_local_seal_blocks(self):
+  def extra(m):
+   n='step_01_before/ACTUAL_FP64_POINTS_SEALED_BEFORE_MEASUREMENTS.json';x=clean_json(m[n]);x['artifact_seals']['ACTUAL_TORCH_FP64_POINTS.npz']=hashlib.sha256(m['step_01_before/ACTUAL_TORCH_FP64_POINTS.npz']).hexdigest();m[n]=(json.dumps(x)+'\n').encode()
+  self.reject('step_01_before/ACTUAL_TORCH_FP64_POINTS.npz',self.arr(lambda x:x[IDS[0]].__setitem__(0,.1)),extra)
+ def test_nonfinite_actual_point_blocks(self):self.reject('step_01_before/ACTUAL_TORCH_FP64_POINTS.npz',self.arr(lambda x:x[IDS[0]].__setitem__(0,np.nan)))
+ def test_saved_actual_forward_count_changed_blocks(self):self.reject('ALL9_ACTUAL_FP64_POINT_SEALS.json',self.j(lambda x:x[0].__setitem__('model_forwards_so_far',3)))
+ def test_new_LP_in_parent_count_cannot_be_hidden(self):self.reject('SUMMARY.json',self.j(lambda x:x.__setitem__('new_linear_program_calls',0)))
+ def test_unknown_parent_internal_solve_count_retained_null(self):self.reject('SUMMARY.json',self.j(lambda x:x.__setitem__('linear_systems_solved',0)))
+ def test_wrong_whole_hash_blocks_before_context_loader(self):
+  c=copy.deepcopy(self.c);c['pins']['C170']['sha256']='0'*64
+  with contextlib.redirect_stdout(io.StringIO()):s=run(self.paths,self.root/'wronghash',c,lambda *a:(_ for _ in ()).throw(AssertionError('No context read before whole hash')))
+  self.assertFalse(s['complete']);self.assertEqual(s['new_model_forwards'],0);self.assertFalse(s['LC2_closed'])
+ def test_unsafe_archive_path_blocks(self):
+  p=self.root/'unsafe.zip'
+  with zipfile.ZipFile(p,'w') as z:z.writestr('../escape','{}')
+  with self.assertRaises(ValueError):
+   with contextlib.closing(Archive(p)) as z:z.verify_manifest()
+ def test_forged_training_loss_in_primary_records_blocks(self):
+  def edit(b):
+   rows=[clean_json(x) for x in b.splitlines()];r=next(x for x in rows if x['stage']=='training');r['objective_parts']['response_loss']+=1.;return ('\n'.join(json.dumps(x) for x in rows)+'\n').encode()
+  self.reject('ALL1092_RECORDS.jsonl',edit)
+ def test_empty_active_check_has_no_false_strict_descent(self):
+  rows=[clean_json(x) for x in (self.src/'ALL1092_RECORDS.jsonl').read_bytes().splitlines()];rr=[r for r in rows if r['stage']=='training' and r['step']==0]
+  for r in rr:r['objective_parts']['response_loss']=0.;r['response_gradient']=np.zeros((3,2,6)).tolist();r['guard_gradient']=np.zeros((3,2,6)).tolist()
+  pr=recorded_problem(rr,np.zeros((3,2,6)));v=certificate(pr,np.zeros(36));self.assertEqual(v['active_count'],0);self.assertFalse(v['strict_recorded_common_descent']);self.assertIsNone(v['normalized_margin_lower'])
+  with self.assertRaises(ValueError):certificate(pr,np.ones(36))
+ def test_rational_head_difference_keeps_exact_binary_endpoints(self):
+  from diagnostics171 import true_head_delta_dot
+  b=np.array([1.]);a=np.array([np.nextafter(1.,2.)]);q=true_head_delta_dot(np.array([3.]),b,a);self.assertEqual(q,Fraction(3,2**52))
+if __name__=='__main__':unittest.main(verbosity=2)

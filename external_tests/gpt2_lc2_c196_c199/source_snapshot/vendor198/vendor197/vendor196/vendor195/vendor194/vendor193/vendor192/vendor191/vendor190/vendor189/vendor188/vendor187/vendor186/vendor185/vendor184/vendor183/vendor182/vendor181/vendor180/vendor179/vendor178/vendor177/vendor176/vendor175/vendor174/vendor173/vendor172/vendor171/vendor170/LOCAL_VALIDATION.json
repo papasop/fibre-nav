@@ -1,0 +1,29 @@
+{
+  "local_validation": {
+    "test170.log": true,
+    "test_binding170.log": true,
+    "torch_smoke170.log": true,
+    "test_bootstrap170.log": true,
+    "test_launcher170.log": true,
+    "test_frontend170.log": true
+  },
+  "local_checks_per_log": {
+    "test170.log": 19,
+    "test_binding170.log": 6,
+    "torch_smoke170.log": 10,
+    "test_bootstrap170.log": 3,
+    "test_launcher170.log": 4,
+    "test_frontend170.log": 3
+  },
+  "local_checks_passed": 45,
+  "python_validated_before_delivery": true,
+  "tiny_actual_Torch_version": "2.5.1+cpu",
+  "actual_SciPy_version": "1.17.0",
+  "real_GPT2_model_run_before_delivery": false,
+  "real_C169_original_ZIP_opened_before_delivery": false,
+  "real_fifteen_originals_opened_before_delivery": false,
+  "original_C169_binding_test_is_synthetic_only": true,
+  "upstream_context_injected_in_tiny_Torch_tests": true,
+  "tiny_Torch_model_is_not_GPT2": true,
+  "original_parent_decisions_reclassified": false
+}
